@@ -1,0 +1,83 @@
+% experiments.tex -- Module 8 ESSENTIALS: Key experiments at a glance.
+% One row per key experiment of the module, in chapter order. Facts and numbers are those of
+% the Key experiment boxes (and, for the dice model, the Key experiments section) of
+% ch1.tex ... ch5.tex, which follow the full book (src/mod8/ch1.tex ... ch5.tex and the
+% experiment table of its Module overview).
+\unnumberedchapter[\faFlask]{Key experiments at a glance}
+\phantomsection\label{kx:chap}
+
+% ---- helpers for this part only (prefix kx)
+\newcommand\kxhead{\colhead{Experiment} & \colhead{What was done} & \colhead{What it showed} &
+  \colhead{Ch.}}
+% \kxrow{experiment}{what was done}{what it showed}{chapter number}
+\newcommand\kxrow[4]{\textbf{#1} & #2 & #3 & \hyperref[ch#4:chap]{\textbf{#4}}\\\hline}
+% a darker rule between two chapters
+\newcommand\kxnext{\noalign{\vskip-0.4pt{\color{hscbrand!45}\hrule height 0.9pt}}}
+
+Much of this module is about \emph{evidence}: know what was done, what was seen and what it
+showed. ``Practical'' marks an investigation you can do at school; a date marks a historical
+experiment.
+
+{\small
+\setlength\LTpre{4pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.1}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}L{34mm}@{\hspace{3mm}}L{52mm}@{\hspace{3mm}}%
+    L{\dimexpr\linewidth-34mm-52mm-6mm-9mm\relax}@{\hspace{3mm}}C{6mm}@{}}
+  \kxhead\\\hline\endfirsthead
+  \kxhead\\\hline\endhead
+  % ---- Chapter 1
+  \kxrow{Hubble's law (1929)}
+    {Speeds from redshifts, distances from Cepheids; $v$ against $d$.}
+    {A straight line through the origin: space is expanding.}{1}
+  \kxrow{Three kinds of spectra (practical)}
+    {A spectroscope: a lamp, gas tubes, a lamp through a sodium flame.}
+    {A rainbow; bright lines; dark lines at the same wavelengths.}{1}
+  \kxrow{HR diagram from star data}
+    {Real stars plotted: temperature against absolute magnitude.}
+    {Groups: main sequence, giants, white dwarfs.}{1}
+  \kxnext
+  % ---- Chapter 2
+  \kxrow{Cathode rays (1870s--1890s)}
+    {Objects in the beam; a magnet or charged plates near it.}
+    {Bent by fields: negatively charged particles, not waves.}{2}
+  \kxrow{Thomson's $q/m$ (1897)}
+    {Crossed $E$ and $B$ balanced, then $B$ alone; many metals and gases.}
+    {Same $q/m$ for all, about 1800 times the hydrogen ion's: electrons.}{2}
+  \kxrow{Millikan's oil drops (1909--1913)}
+    {Charged drops held still between plates; X-rays change the charge.}
+    {Every charge is a whole number times $e$: quantised.}{2}
+  \kxrow{Geiger--Marsden gold foil (1909)}
+    {Alphas fired at thin gold foil; flashes counted at each angle.}
+    {About 1 in 8000 turn over \ang{90}: a tiny, dense, positive nucleus.}{2}
+  \kxrow{Chadwick's neutron (1932)}
+    {Beryllium radiation hits wax and nitrogen; recoils measured.}
+    {Not gamma rays: neutral, with about a proton's mass.}{2}
+  \kxnext
+  % ---- Chapter 3
+  \kxrow{Balmer series (practical)}
+    {A hydrogen tube and a grating spectrometer; $\lambda = d\sin\theta$.}
+    {Four visible lines fit the Rydberg equation ($n_\mathrm{f} = 2$).}{3}
+  \kxrow{Electron diffraction (1927)}
+    {Electrons hit a nickel crystal (Davisson, Germer) or a thin metal film
+     (G.\,P. Thomson).}
+    {Diffraction: electrons act as waves; $\lambda$ matches $h/mv$.}{3}
+  \kxnext
+  % ---- Chapter 4
+  \kxrow{Dice model of half-life (practical)}
+    {Throw 200 dice; remove every six; repeat with the rest.}
+    {Half are left after about 3.8 throws, whatever the start.}{4}
+  \kxrow{Penetrating power of $\alpha$, $\beta$, $\gamma$ (practical)}
+    {Counts with paper, \qty{5}{mm} of aluminium and \qty{10}{mm} of lead.}
+    {Paper stops $\alpha$; aluminium stops $\beta$; lead only reduces $\gamma$.}{4}
+  \kxnext
+  % ---- Chapter 5
+  \kxrow{Deep inelastic scattering, SLAC (1967--1973)}
+    {Electrons (up to \qty{20}{GeV}) from a \qty{3.2}{km} linac hit liquid hydrogen.}
+    {Far more large-angle scattering than a smooth proton gives: quarks.}{5}
+  \kxrow{The Higgs boson, LHC (2012)}
+    {Protons collided at 7 to \qty{8}{TeV}; the ATLAS and CMS detectors.}
+    {A bump at \qty{125}{GeV}/$c^2$ in both: the Higgs boson.}{5}
+\end{longtable}}
+
+Also in the text: Rutherford's transmutation (1919), Cockcroft and Walton (1932) and
+fission (1938) in \cref{ch4:chap}; Anderson's positron (1932) in \cref{ch5:chap}.

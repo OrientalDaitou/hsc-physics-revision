@@ -1,0 +1,182 @@
+% ch4_answers.tex -- answers to the Quick check questions in Module 6, Chapter 4.
+\begin{chapteranswers}{4}{Transformers and Power Transmission}
+  % ---- 4.1 The ideal transformer
+  \item $N_\mathrm{s} = 2000$ is more than $N_\mathrm{p} = 400$, so it is a
+        \final{step-up} transformer. Rearrange
+        $\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$:
+        $V_\mathrm{s} = V_\mathrm{p}\dfrac{N_\mathrm{s}}{N_\mathrm{p}}
+        = \qty{24}{V} \times \dfrac{2000}{400} = \qty{120}{V}$.
+        Answer: \final{$V_\mathrm{s} = \qty{120}{V}$}.
+  \item The peak scales by the turns ratio:
+        $V_\mathrm{s} = \qty{9.0}{V} \times \dfrac{100}{250} = \qty{3.6}{V}$.
+        A transformer does not change the frequency.
+        Answer: \final{peak \qty{3.6}{V}} and \final{\qty{50}{Hz}}.
+  \item (a) The secondary emf follows the \emph{gradient} of the current graph
+        ($\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$, and the flux follows the current).
+        From 0 to \qty{5}{ms}, the current rises at a steady rate, so the emf is
+        constant. From \qty{5}{ms} to \qty{10}{ms}, the current is steady, so the emf is
+        zero. From \qty{10}{ms} to \qty{15}{ms}, the current falls at the same steady
+        rate, so the emf is constant again: the same size, but the opposite sign.
+        \par\smallskip{\centering
+        \begin{tikzpicture}
+          \begin{axis}[hsc, name=chFourAtop, width=72mm, height=28mm, xmin=0, xmax=20,
+              ymin=-0.3, ymax=2.6, xtick={0,5,10,15,20}, xticklabels={}, ytick={0,2},
+              ylabel={$I_\mathrm{p}$ (\si{A})}]
+            \addplot[hscseriesA, line width=1.2pt] coordinates
+              {(0,0) (5,2) (10,2) (15,0) (20,0)};
+          \end{axis}
+          \begin{axis}[hsc, at={(chFourAtop.south)}, anchor=north, yshift=-3mm,
+              width=72mm, height=28mm, xmin=0, xmax=20, ymin=-1.5, ymax=1.5,
+              xtick={0,5,10,15,20}, ytick=\empty, xlabel={Time $t$ (\si{ms})},
+              ylabel={$\varepsilon_\mathrm{s}$}]
+            \draw[hscink!60, line width=0.5pt] (axis cs:0,0) -- (axis cs:20,0);
+            \addplot[hscseriesB, line width=1.2pt] coordinates
+              {(0,-1) (5,-1) (5,0) (10,0) (10,1) (15,1) (15,0) (20,0)};
+          \end{axis}
+        \end{tikzpicture}\par}\smallskip
+        (The emf could also be drawn positive first, then negative. What matters is that
+        the two pulses have opposite signs and the same size.)\par
+        (b) From \qty{5}{ms} to \qty{10}{ms} the current is steady, so the flux in the
+        core is constant. Then $\dfrac{\Delta\Phi}{\Delta t} = 0$, so by Faraday's law the
+        emf is zero. This is why a battery (steady DC) gives only a short pulse in the
+        secondary when it is switched on or off.
+        \begin{markingcriteria}
+          \criterion{Sketch: constant emf from 0 to \qty{5}{ms}, zero from \qty{5}{ms} to
+            \qty{10}{ms}, constant emf of the same size and opposite sign from
+            \qty{10}{ms} to \qty{15}{ms}; explains the zero with a constant flux, so
+            $\dfrac{\Delta\Phi}{\Delta t} = 0$ (Faraday's law)}{3}
+          \criterion{Correct sketch, or correct explanation with one error in the
+            sketch}{2}
+          \criterion{One correct feature (for example, zero emf while the current is
+            steady)}{1}
+        \end{markingcriteria}
+  \item $I_\mathrm{s} = I_\mathrm{p}\dfrac{N_\mathrm{p}}{N_\mathrm{s}}
+        = \qty{50}{A} \times \dfrac{1}{25} = \qty{2.0}{A}$.
+        Answer: \final{$I_\mathrm{s} = \qty{2.0}{A}$}. The voltage goes up 25 times, so
+        the current goes down 25 times.
+  \item A step-down transformer has fewer secondary turns, so $V_\mathrm{s}$ is small.
+        Power in = power out ($V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$), so a
+        small $V_\mathrm{s}$ means a large $I_\mathrm{s}$. The secondary current is
+        $\dfrac{N_\mathrm{p}}{N_\mathrm{s}}$ times the primary current. The large current
+        heats and melts the metal, while the low voltage is safer for the welder.
+        \begin{markingcriteria}
+          \criterion{Fewer secondary turns give a small $V_\mathrm{s}$; power in = power
+            out, so the secondary current is large; the large current heats and melts the
+            metal}{3}
+          \criterion{Two of these points, linked}{2}
+          \criterion{States that a step-down transformer gives a larger current}{1}
+        \end{markingcriteria}
+  % ---- 4.2 Real transformers
+  \item $\eta = \dfrac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\%
+        = \dfrac{470}{500} \times 100\% = 94\%$. Power wasted
+        $= \qty{500}{W} - \qty{470}{W} = \qty{30}{W}$. In 10 minutes
+        ($\Delta t = \qty{600}{s}$):
+        $\Delta E = P\,\Delta t = \qty{30}{W} \times \qty{600}{s} = \qty{1.8e4}{J}$.
+        Answers: \final{$\eta = 94\%$} and \final{$\Delta E = \qty{1.8e4}{J}$}.
+  \item The iron core is a conductor, and the AC makes the flux in it change all the
+        time. By Faraday's law this induces eddy currents that circulate inside the core.
+        By Lenz's law, their magnetic field opposes the change in flux. They heat the core
+        ($I^2R$), so energy is wasted. A laminated core is made of thin iron sheets with
+        insulation between them. The sheets lie along the flux. The insulation confines
+        each eddy current to one thin sheet. So each loop surrounds less of the changing
+        flux (a smaller emf), and it has a narrow path with a high resistance. So the eddy
+        currents and the heating are much smaller, and the transformer is more efficient.
+        \begin{markingcriteria}
+          \criterion{The changing flux induces eddy currents in the conducting core, which
+            heat it; thin insulated sheets along the flux confine them to thin,
+            high-resistance paths with a small emf, so the eddy currents and the heating
+            are much smaller}{3}
+          \criterion{One of these links explained (how eddy currents waste energy, or how
+            laminations reduce them)}{2}
+          \criterion{States that laminations reduce eddy currents}{1}
+        \end{markingcriteria}
+  \item The limitation is \final{incomplete flux linkage}. With no core, much of the
+        flux made by the primary spreads out into the air and never passes through the
+        secondary (\cref{ch4:fig:linkage}(a)). So the flux through each secondary turn
+        changes less, and the induced emf is smaller than the turns equation predicts.
+        To fix it: wrap both coils around one closed soft-iron core, or wind the
+        secondary directly over the primary.
+        \begin{markingcriteria}
+          \criterion{Names incomplete flux linkage; explains that much of the primary's
+            flux misses the secondary, so its emf is smaller; gives a correct fix}{3}
+          \criterion{Two of these points}{2}
+          \criterion{One of these points}{1}
+        \end{markingcriteria}
+  \item $P_\mathrm{in} = V_\mathrm{p}I_\mathrm{p} = \qty{230}{V} \times \qty{2.0}{A}
+        = \qty{460}{W}$. $P_\mathrm{out} = \eta P_\mathrm{in} = 0.85 \times \qty{460}{W}
+        = \qty{391}{W}$. $I_\mathrm{s} = \dfrac{P_\mathrm{out}}{V_\mathrm{s}}
+        = \dfrac{\qty{391}{W}}{\qty{46}{V}} = \qty{8.5}{A}$.
+        Answer: \final{$I_\mathrm{s} = \qty{8.5}{A}$} (the ideal value would be
+        \qty{10}{A}).
+  \item There is no shared closed iron core to guide the flux, and there is an air gap.
+        So much of the changing flux from the pad's coil misses the phone's coil
+        (incomplete flux linkage). So less energy is passed to the phone. To deliver
+        the same power, the pad must drive a larger current, so more energy becomes
+        $I^2R$ heat in the coils. The leaked changing flux can also induce eddy currents
+        in nearby metal (parts of the phone, a coin), which heats it. So more energy is
+        wasted as heat, and the pad and phone get warm. (Lining up the coils well, and
+        ferrite sheets behind the coils to guide the flux, reduce the waste.)
+        \begin{markingcriteria}
+          \criterion{Air gap and no core, so much flux misses the phone's coil
+            (incomplete flux linkage); a larger current is needed, so more $I^2R$ heating
+            (or eddy-current heating in nearby metal)}{3}
+          \criterion{Explains flux leakage, or links a larger current to more
+            heating}{2}
+          \criterion{States that more flux leaks}{1}
+        \end{markingcriteria}
+  % ---- 4.3 Sending electricity at high voltage
+  \item $P_\mathrm{loss} = I^2R = (\qty{150}{A})^2 \times \qty{2.0}{\ohm}
+        = \qty{45000}{W}$. Answer: \final{$P_\mathrm{loss} = \qty{4.5e4}{W}$}
+        (\qty{45}{kW}).
+  \item $P = VI$ stays the same, so 4 times the voltage gives $\tfrac{1}{4}$ of the
+        current. The loss is $I^2R$, so it becomes $\left(\tfrac{1}{4}\right)^2
+        = \tfrac{1}{16}$ of the old loss. Answer: \final{current $\times\tfrac14$, loss
+        $\times\tfrac{1}{16}$}.
+  \item The student used the line voltage (\qty{330}{kV}) in $\dfrac{V^2}{R}$. In that
+        formula $V$ must be the voltage \emph{drop} across the line, not the voltage sent.
+        The wrong answer, \qty{1.8e10}{W}, is about 90 times the power sent, which is
+        impossible. Correct method:
+        $I = \dfrac{P}{V} = \dfrac{\qty{2.00e8}{W}}{\qty{3.30e5}{V}} = \qty{606}{A}$, then
+        $P_\mathrm{loss} = I^2R = (\qty{606}{A})^2 \times \qty{6.0}{\ohm}
+        = \qty{2.20e6}{W}$. Answer: \final{$P_\mathrm{loss} = \qty{2.2}{MW}$} (1.1\% of
+        the power sent). Check: the real voltage drop is
+        $IR = \qty{606}{A} \times \qty{6.0}{\ohm} = \qty{3636}{V} \approx \qty{3.6}{kV}$,
+        and $\dfrac{(\qty{3636}{V})^2}{\qty{6.0}{\ohm}} = \qty{2.2e6}{W}$, the same
+        answer.
+  \item Why AC: transformers work by electromagnetic induction, which needs a changing
+        flux. AC makes a flux that changes all the time, so its voltage can be stepped up
+        for the long lines and down again. Steady DC gives a constant flux, so a
+        transformer cannot change its voltage. Why step up: for a fixed power,
+        $P = VI$. So a higher voltage means a smaller current. The loss is $I^2R$, so it
+        falls with the square of the current. Why step down: very high voltages are
+        dangerous. They can arc across air and need big insulators. Also, appliances are
+        built for \qty{230}{V}.
+        \begin{markingcriteria}
+          \criterion{Transformers need AC (a changing flux) to step the voltage up and
+            down}{1}
+          \criterion{For a fixed power, $P = VI$, so a higher voltage gives a smaller
+            current}{1}
+          \criterion{$P_\mathrm{loss} = I^2R$, so the loss falls with the square of the
+            current}{1}
+          \criterion{The voltage is stepped down for safety and because appliances need
+            \qty{230}{V}}{1}
+        \end{markingcriteria}
+  \item (a) Voltage drop along the line:
+        $V_\mathrm{drop} = IR = \qty{200}{A} \times \qty{5.0}{\ohm} = \qty{1000}{V}
+        = \qty{1.0}{kV}$. Voltage at the far end:
+        $\qty{67.0}{kV} - \qty{1.0}{kV} = \qty{66.0}{kV}$.
+        Answer: \final{\qty{66.0}{kV}}.\par
+        (b) The output (\qty{11.0}{kV}) is smaller than the input (\qty{66.0}{kV}), so it
+        is a \final{step-down} transformer.
+        $\dfrac{N_\mathrm{p}}{N_\mathrm{s}} = \dfrac{V_\mathrm{p}}{V_\mathrm{s}}
+        = \dfrac{\qty{66.0}{kV}}{\qty{11.0}{kV}} = 6$, so \final{$N_\mathrm{p} :
+        N_\mathrm{s} = 6 : 1$}.\par
+        (c) The power that reaches the transformer is
+        $P = VI = \qty{6.60e4}{V} \times \qty{200}{A} = \qty{1.32e7}{W}$. Ideal, so the
+        same power comes out:
+        $I_\mathrm{s} = \dfrac{P}{V_\mathrm{s}} = \dfrac{\qty{1.32e7}{W}}{\qty{1.10e4}{V}}
+        = \qty{1200}{A}$. Answer: \final{$I_\mathrm{s} = \qty{1.20e3}{A}$}. Check:
+        $I_\mathrm{s} = I_\mathrm{p}\dfrac{N_\mathrm{p}}{N_\mathrm{s}}
+        = \qty{200}{A} \times 6 = \qty{1200}{A}$ \cmark. The current goes up because the
+        voltage goes down.
+\end{chapteranswers}

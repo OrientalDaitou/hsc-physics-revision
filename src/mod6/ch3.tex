@@ -1,0 +1,1820 @@
+% ch3.tex -- Module 6, Chapter 3: Electromagnetic induction (flux, Faraday, Lenz)
+% Writer tasks: mod6-ch3-writer (first draft), mod6-ch3-finish (completion and layout),
+%               mod6-ch3-editor (fixes after numeric, physics and novice reviews).
+% Figure files: figures/ch3_falling.py (+ .pdf). All other figures are TikZ below.
+\chapter{Electromagnetic Induction: Flux, Faraday and Lenz}\label{ch3:chap}
+\covers{M6.IQ3.01, M6.IQ3.02}
+% Local TikZ helpers (chapter prefix, see STYLE_GUIDE 1): a small open loop with
+% one arrowhead that sits on the tangent, so the sense is clear even at small sizes.
+% \chThreeACW{x}{y}{r} = anticlockwise loop, \chThreeCW{x}{y}{r} = clockwise loop.
+\newcommand\chThreeACW[3]{%
+  \draw[line width=1.2pt, hscink] ($(#1,#2)+(110:#3)$) arc (110:400:#3);
+  \draw[line width=1.2pt, hscink, -{Latex[length=2.4mm, width=2.0mm]}]
+    ($(#1,#2)+(40:#3)+(310:0.05)$) -- ($(#1,#2)+(40:#3)+(130:0.19)$);}
+\newcommand\chThreeCW[3]{%
+  \draw[line width=1.2pt, hscink] ($(#1,#2)+(70:#3)$) arc (70:-220:#3);
+  \draw[line width=1.2pt, hscink, -{Latex[length=2.4mm, width=2.0mm]}]
+    ($(#1,#2)+(140:#3)+(230:0.05)$) -- ($(#1,#2)+(140:#3)+(50:0.19)$);}
+
+\inquiry{How are electric and magnetic fields related?}
+
+\begin{goals}
+  \item describe magnetic flux and the three ways it can change, using
+        $\Phi = B_\parallel A = BA\cos\theta$
+  \item calculate an induced emf and current with
+        $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$ (Faraday's law)
+  \item find the direction of an induced current (Lenz's law) and link it to
+        conservation of energy
+  \item explain induction in moving wires, solenoids, metal plates and two
+        nearby coils
+\end{goals}
+
+\begin{syllabus}
+  \item M6.IQ3.01: describe how magnetic flux can change, using
+        $\Phi = B_\parallel A = BA\cos\theta$
+  \item M6.IQ3.02: analyse, in words and with numbers, examples of Faraday's and
+        Lenz's laws, $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$, including energy
+        transfers: the emf, and the evidence for Lenz's law, when a magnet moves
+        relative to straight wires, metal plates and solenoids; the emf in one
+        solenoid caused by moving, or changing the current in, a nearby solenoid
+\end{syllabus}
+
+In 1820 Ørsted showed that a current makes a magnetic field. In 1831 Michael
+Faraday showed the reverse: a magnet can make a current, but only while the
+magnetism through the circuit is \emph{changing}. Generators, wireless chargers
+and electric guitars all use this idea.
+
+%% ===================================================================
+\section{Magnetic flux}\label{ch3:sec:flux}
+\covers{M6.IQ3.01}
+
+\begin{bigidea}
+Magnetic flux tells you how much magnetic field passes through a loop. It
+depends on the field strength, the area and the angle. Change any one of them
+and the flux changes.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Magnetic flux ($\Phi$)}{how much magnetic field passes through an area.
+    Unit: weber (Wb).}
+  \kw{Magnetic field strength ($B$)}{how strong the field is. It is also called
+    magnetic flux density. Unit: tesla (T).}
+  \kw{Normal}{an imaginary arrow at \ang{90} to the flat surface of a loop.}
+\end{keywords}
+
+\begin{refresher}{Field lines, dots and crosses}
+\begin{itemize}
+  \item Field lines leave an N pole and enter an S pole. Closer lines mean a
+        stronger field. A \term{uniform field} (same everywhere) has equally
+        spaced, parallel lines.
+  \item Dots (\,$\bullet$\,) show a field coming out of the page, like an arrow tip
+        coming at you. Crosses ($\times$) show a field going into the page.
+\end{itemize}
+\end{refresher}
+
+Hold a butterfly net in the wind. Facing the wind, lots of air goes through it.
+Side-on, none does. \term{Magnetic flux} ($\Phi$, capital ``phi'') is the same idea
+for a magnetic field: it is how much field passes through an area. Picture it as
+the number of field lines that pass through the loop.
+
+To describe how a loop faces the field, draw its \term{normal}. This is an arrow at
+\ang{90} to the surface. The angle $\theta$ is measured between $B$ and the normal,
+\emph{not} between $B$ and the surface (\cref{ch3:fig:angle}).
+
+The \term{plane} of a loop is the flat surface inside it, like the skin of a drum.
+If the field is \emph{perpendicular} (at \ang{90}) to the plane, it goes straight
+through: $\theta = \ang{0}$. If the field is \emph{parallel} to the plane, it
+slides along the surface: $\theta = \ang{90}$.
+
+\begin{toolkit}{Areas, units and $\cos\theta$}
+\begin{itemize}
+  \item Splitting $B$ (like splitting a vector in \cref{ch2:chap}): when $\theta$ is
+        measured from the normal, the part of $B$ along the normal is
+        $B_\parallel = B\cos\theta$. At $\theta = \ang{0}$ all of $B$ goes through
+        ($\cos\ang{0} = 1$). At $\theta = \ang{90}$ none goes through
+        ($\cos\ang{90} = 0$). In $F = lIB\sin\theta$ the angle is measured
+        differently, so do not mix them up.
+  \item Rectangle: $A = \text{length} \times \text{width}$. Circle: $A = \pi r^2$, with
+        $r$ the radius (half the diameter).
+  \item Change lengths to metres first. $\qty{1}{cm^2} = \qty{e-4}{m^2}$, so
+        $\qty{12}{cm} \times \qty{8.0}{cm} = \qty{0.12}{m} \times \qty{0.080}{m} = \qty{9.6e-3}{m^2}$.
+  \item $\qty{1}{mT} = \qty{e-3}{T}$, \ $\qty{1}{\micro T} = \qty{e-6}{T}$, \
+        $\qty{1}{mWb} = \qty{e-3}{Wb}$.
+  \item $\cos\ang{0} = 1$, \ $\cos\ang{90} = 0$ (calculator in degree mode). Angle
+        given to the \emph{surface}? Use $\theta = \ang{90} - \text{that angle}$.
+\end{itemize}
+\end{toolkit}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---------- (a) theta = 0
+    \begin{scope}
+      \foreach \y in {0.2, 0.75, 1.8, 2.35} \draw[field] (0,\y) -- (3.6,\y);
+      \node[diagramlabel, text=hscfield, right] at (3.6,2.35) {$B$};
+      \coordinate (C) at (1.5,1.275);
+      \draw[line width=2.4pt, hscbrand] ($(C)+(90:0.7)$) -- ($(C)+(270:0.7)$);
+      \draw[->, line width=1.1pt, hscink] (C) -- ++(0:1.0)
+        node[pos=1, right, font=\footnotesize, inner sep=2pt] {normal};
+      \node[align=center, font=\small] at (1.8,-0.5)
+        {(a) $\theta = \ang{0}$\\ $\Phi = BA$ (largest)};
+    \end{scope}
+    % ---------- (b) theta = 50 deg
+    \begin{scope}[xshift=4.75cm]
+      \foreach \y in {0.2, 0.75, 1.8, 2.35} \draw[field] (0,\y) -- (3.6,\y);
+      \node[diagramlabel, text=hscfield, right] at (3.6,2.35) {$B$};
+      \coordinate (C) at (1.5,1.275);
+      \draw[guide] (C) -- ++(0:1.1);
+      \draw[line width=2.4pt, hscbrand] ($(C)+(140:0.7)$) -- ($(C)+(320:0.7)$);
+      \draw[->, line width=1.1pt, hscink] (C) -- ++(50:0.9)
+        node[anchor=south west, font=\footnotesize, inner sep=1pt] {normal};
+      \draw[line width=0.7pt, hscink] ($(C)+(0:0.45)$) arc (0:50:0.45);
+      \node[font=\small, inner sep=0.5pt] at ($(C)+(22:0.68)$) {$\theta$};
+      \draw[line width=0.8pt, hscmuted] ($(C)+(320:0.55)$) arc (320:360:0.55);
+      \node[font=\footnotesize, text=hscmuted, inner sep=1pt, anchor=west]
+        at ($(C)+(338:0.8)$) {$\ang{90} - \theta$};
+      \node[align=center, font=\small] at (1.8,-0.5)
+        {(b) tilted\\ $\Phi = BA\cos\theta$};
+    \end{scope}
+    % ---------- (c) theta = 90 deg
+    \begin{scope}[xshift=9.5cm]
+      \foreach \y in {0.2, 0.75, 1.8, 2.35} \draw[field] (0,\y) -- (3.6,\y);
+      \node[diagramlabel, text=hscfield, right] at (3.6,2.35) {$B$};
+      \coordinate (C) at (1.2,1.275);
+      \draw[line width=2.4pt, hscbrand] ($(C)+(180:0.7)$) -- ($(C)+(0:0.7)$);
+      \draw[->, line width=1.1pt, hscink] (C) -- ++(90:0.9)
+        node[pos=0.8, anchor=east, font=\footnotesize, inner sep=2pt] {normal};
+      \node[align=center, font=\small] at (1.8,-0.5)
+        {(c) $\theta = \ang{90}$: plane\\ parallel to $B$, \ $\Phi = 0$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A flat loop in a uniform field, seen from the side (thick navy
+    line).}\label{ch3:fig:angle}
+\end{figure}
+
+Only the part of $B$ along the normal, $B_\parallel = B\cos\theta$, passes through
+the loop. When the loop faces the field square-on ($\theta = \ang{0}$), the flux
+is largest. When its plane is parallel to $B$ ($\theta = \ang{90}$), the flux is
+zero.
+
+Flux and field strength are linked by their units: $\qty{1}{Wb} = \qty{1}{T.m^2}$.
+When $B$ is perpendicular to the plane of the loop ($\theta = \ang{0}$),
+$B = \dfrac{\Phi}{A}$: the flux per square metre. That is why $B$ is also called
+the \term{magnetic flux density}.
+
+\begin{formulacard}{Magnetic flux}
+  \cardformula{\Phi = B_\parallel A = BA\cos\theta}
+  \begin{symbols}
+    \sym{$\Phi$}{magnetic flux through the loop}{\si{Wb} ($= \si{T.m^2}$)}
+    \sym{$B_\parallel$}{the part of $B$ along the normal of the loop}{\si{T}}
+    \sym{$B$}{magnetic field strength (flux density)}{\si{T}}
+    \sym{$A$}{area of the loop that is inside the field}{\si{m^2}}
+    \sym{$\theta$}{angle between $B$ and the \emph{normal} to the loop}{\si{\degree}
+      (SI unit: rad)}
+  \end{symbols}
+  \inwords{flux = field strength $\times$ area $\times$ how squarely the loop
+    faces the field.}
+  \whentouse{a flat loop or coil in a uniform field.}
+  \whennottouse{do not put in the angle to the surface (the plane). Change it to
+    the angle to the normal first. $\Phi$ is the flux through \emph{one} turn. The
+    number of turns $N$ goes into Faraday's law, not here.}
+  \rearranged{$B = \dfrac{\Phi}{A\cos\theta}$ \qquad $A = \dfrac{\Phi}{B\cos\theta}$}
+  \tensecond{$B = \qty{0.50}{T}$, $A = \qty{0.020}{m^2}$, $\theta = \ang{0}$: \
+    $\Phi = 0.50 \times 0.020 \times 1 = \qty{1.0e-2}{Wb}$.}
+  \trap{a loop whose plane is \emph{parallel} to the field has $\theta = \ang{90}$,
+    so $\Phi = 0$. Change \si{cm^2} to \si{m^2} ($\times\,10^{-4}$).}
+\end{formulacard}
+
+\begin{workedexample}{Flux through a tilted loop}\label{ch3:we:tilted}
+A square loop with \qty{15}{cm} sides is in a uniform \qty{0.32}{T} field.
+Find the flux when (a) the field is perpendicular to the plane of the loop, and
+(b) the field makes \ang{50} with the plane of the loop.
+\given{side $= \qty{15}{cm} = \qty{0.15}{m}$, so $A = (\qty{0.15}{m})^2
+  = \qty{0.0225}{m^2}$, \ $B = \qty{0.32}{T}$.\\
+  (a) $B$ is along the normal: $\theta = \ang{0}$. \
+  (b) \ang{50} to the plane: $\theta = \ang{90} - \ang{50} = \ang{40}$.}
+\find{the flux $\Phi$ in each case}
+\formula{$\Phi = BA\cos\theta$}
+\substitute{\eqlines{\text{(a)}\ \Phi &= \qty{0.32}{T} \times \qty{0.0225}{m^2}
+    \times \cos\ang{0} = \qty{7.2e-3}{Wb}\\
+  \text{(b)}\ \Phi &= \qty{0.32}{T} \times \qty{0.0225}{m^2} \times \cos\ang{40}\\
+    &= \qty{7.2e-3}{Wb} \times 0.766 = \qty{5.52e-3}{Wb}}}
+\answer{(a) \final{$\qty{7.2e-3}{Wb}$} \quad (b) \final{$\qty{5.5e-3}{Wb}$}
+  \ (2 significant figures)}
+\checkstep{the tilted loop has less flux: fewer lines pass through it \cmark.
+  Using $\cos\ang{50}$ by mistake would give \qty{4.6e-3}{Wb}.}
+\end{workedexample}
+
+\subsection{Three ways to change the flux}
+
+Because $\Phi = BA\cos\theta$, the flux changes when $B$, $A$ or $\theta$ changes
+(\cref{ch3:fig:ways}).
+\begin{enumerate}
+  \item \textbf{Change $B$}: move a magnet closer or further away; change the
+        current in an electromagnet (a coil that acts as a magnet while a current
+        flows); switch a field on, off, or reverse it.
+  \item \textbf{Change $A$}: slide the loop into or out of the field; squash or
+        stretch it; slide a rod along rails (\cref{ch3:sec:motional}).
+  \item \textbf{Change $\theta$}: rotate the loop, as in a generator (\cref{ch5:chap}).
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---------- (a) change B
+    \begin{scope}
+      \fill[hscvel!22] (0,0.9) rectangle (0.7,1.4);
+      \fill[hscforce!22] (0.7,0.9) rectangle (1.4,1.4);
+      \draw[line width=0.8pt, hscink] (0,0.9) rectangle (1.4,1.4);
+      \node[font=\small\bfseries] at (0.35,1.15) {S};
+      \node[font=\small\bfseries] at (1.05,1.15) {N};
+      \draw[velocity] (0.2,1.75) -- (1.2,1.75) node[right, text=hscvel] {$v$};
+      \draw[field] (1.4,1.15) -- (3.6,1.15);
+      \draw[field] (1.4,1.32) .. controls (2.2,1.75) .. (3.6,2.15);
+      \draw[field] (1.4,0.98) .. controls (2.2,0.55) .. (3.6,0.15);
+      \draw[line width=1.6pt, hscbrand] (2.75,1.15) ellipse (0.13 and 0.6);
+      \node[align=center, text width=4.3cm, font=\small] at (1.8,-0.4)
+        {(a) Change $B$: the magnet comes closer.};
+    \end{scope}
+    % ---------- (b) change A
+    \begin{scope}[xshift=4.8cm]
+      \draw[hscfield, dashed, line width=0.6pt] (0,0.2) rectangle (2.2,2.1);
+      \foreach \x in {0.3, 0.75, 1.2} \foreach \y in {0.45, 0.9, 1.35, 1.8}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \foreach \x in {1.65, 2.05} \foreach \y in {0.45, 0.9, 1.35, 1.8}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \draw[line width=1.6pt, hscbrand] (1.45,0.65) rectangle (2.85,1.6);
+      \draw[velocity] (2.85,1.125) -- (3.75,1.125) node[above, text=hscvel] {$v$};
+      \node[align=center, text width=4.3cm, font=\small] at (1.8,-0.4)
+        {(b) Change $A$: less of the loop is in the field.};
+    \end{scope}
+    % ---------- (c) change theta
+    \begin{scope}[xshift=9.6cm]
+      \foreach \y in {0.2, 0.85, 1.5, 2.15} \draw[field] (0,\y) -- (3.6,\y);
+      \coordinate (C) at (1.8,1.175);
+      \draw[line width=2.4pt, hscbrand] ($(C)+(115:0.8)$) -- ($(C)+(295:0.8)$);
+      \fill[hscink] (C) circle (1.6pt);
+      \draw[->, line width=0.9pt, hscmuted] ($(C)+(70:1.0)$) arc (70:20:1.0);
+      \draw[->, line width=0.9pt, hscmuted] ($(C)+(250:1.0)$) arc (250:200:1.0);
+      \node[align=center, text width=4.3cm, font=\small] at (1.8,-0.4)
+        {(c) Change $\theta$: the loop turns.};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Three ways to change the flux through a loop.}\label{ch3:fig:ways}
+\end{figure}
+
+A loop that slides sideways \emph{inside} a large uniform field keeps the same $B$,
+$A$ and $\theta$. Its flux does not change, so no emf (voltage) is made
+in it (\cref{ch3:sec:faraday}). Moving is not enough.
+
+Flux can be positive or negative. The normal arrow points out of one face of the
+loop. If the field goes through the loop the same way as the normal, the flux is
+positive. If it goes through the opposite way, the flux is negative. Suppose the
+field starts along the normal ($\theta = \ang{0}$, so $\Phi = +BA$). Reversing
+the field (or turning the loop over) makes $\theta = \ang{180}$, and
+$\cos\ang{180} = -1$. So the flux goes from $+BA$ to $-BA$. The size of the change
+is $2BA$, not zero.
+
+\begin{workedexample}{Changing the flux}\label{ch3:we:changeflux}
+A \qty{20}{cm} by \qty{10}{cm} loop is in a \qty{0.60}{T} field, with its normal
+at \ang{30} to the field. Find the starting flux. Then find the change in flux
+when (a) the loop is turned until its plane is parallel to the field, or
+(b) the field is reversed instead.
+\given{$A = \qty{0.20}{m} \times \qty{0.10}{m} = \qty{0.020}{m^2}$, \
+  $B = \qty{0.60}{T}$, \ $\theta_\mathrm{i} = \ang{30}$;\\
+  (a) plane parallel to the field: $\theta_\mathrm{f} = \ang{90}$; \
+  (b) field reversed: the normal is now at
+  $\theta_\mathrm{f} = \ang{180} - \ang{30} = \ang{150}$ to the field
+  ($\cos\ang{150} = -0.866$)}
+\find{$\Phi_\mathrm{i}$, then $\Delta\Phi = \Phi_\mathrm{f} - \Phi_\mathrm{i}$ for (a) and (b)}
+\formula{$\Phi = BA\cos\theta$, \quad $\Delta\Phi = \Phi_\mathrm{final} - \Phi_\mathrm{initial}$}
+\substitute{\eqlines{\Phi_\mathrm{i} &= \qty{0.60}{T} \times \qty{0.020}{m^2} \times
+    \cos\ang{30} = \qty{1.039e-2}{Wb}\\
+  \text{(a)}\ \Phi_\mathrm{f} &= \qty{0.60}{T} \times \qty{0.020}{m^2} \times
+    \cos\ang{90} = 0\\
+  \Delta\Phi &= 0 - \qty{1.039e-2}{Wb} = \qty{-1.04e-2}{Wb}\\
+  \text{(b)}\ \Phi_\mathrm{f} &= \qty{0.60}{T} \times \qty{0.020}{m^2} \times
+    \cos\ang{150} = \qty{-1.039e-2}{Wb}\\
+  \Delta\Phi &= (\qty{-1.039e-2}{Wb}) - (\qty{1.039e-2}{Wb})\\
+  &= \qty{-2.08e-2}{Wb}}}
+\answer{\final{$\Phi_\mathrm{i} = \qty{1.0e-2}{Wb}$}; \ (a) \final{$\qty{-1.0e-2}{Wb}$};
+  \ (b) \final{$\qty{-2.1e-2}{Wb}$}}
+\checkstep{(b) is twice as big as (a): $2 \times 1.04 = 2.08$ \cmark. In (a) the
+  flux only falls to zero. In (b) it falls through zero to
+  $-\qty{1.0e-2}{Wb}$.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting the angle to the surface into $\cos\theta$.
+        \cmark\ $\theta = \ang{90} - \text{angle to the surface}$.
+  \item \xmark\ Using the diameter in $\pi r^2$, or leaving $A$ in \si{cm^2}.
+        \cmark\ Halve the diameter; multiply \si{cm^2} by $10^{-4}$.
+  \item \xmark\ ``Reversing the field gives $\Delta\Phi = 0$.''
+        \cmark\ $\lvert\Delta\Phi\rvert = 2BA$.
+  \item \xmark\ Mixing up flux (\si{Wb}) and flux density (\si{T}).
+        \cmark\ Flux $\Phi$ is the total field through the loop (\si{Wb}). Flux
+        density $B$ is the field strength: the flux per square metre (\si{T}).
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Describe how the flux through a coil can change'' (2--3 marks): write
+$\Phi = BA\cos\theta$, then give one example each for changing $B$, $A$ and
+$\theta$. ``Contrast flux and flux density'' (2 marks): one mark for each meaning
+with its unit, joined by a contrast word such as ``whereas''.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A circular loop of radius \qty{3.0}{cm} is in a \qty{0.20}{T} field that is
+        perpendicular to the plane of the loop. Calculate the flux through
+        it.\label{ch3:qc:circle}
+  \item The loop in \cref{ch3:qc:circle} is turned so that the field makes \ang{25}
+        with the plane of the loop. Calculate the new flux.
+  \item Contrast magnetic flux and magnetic flux density. (2 marks)
+  \item Loop X has area \qty{0.050}{m^2} and faces a \qty{0.20}{T} field
+        square-on. Loop Y has area \qty{0.010}{m^2} and faces a \qty{0.50}{T}
+        field square-on. (a) Calculate the flux through each loop. (b) A student
+        says: ``More flux means a stronger field.'' Use your answers to evaluate
+        this claim.
+\end{quickcheck}
+
+%% ===================================================================
+\section{Faraday's law}\label{ch3:sec:faraday}
+\covers{M6.IQ3.02}
+
+\begin{bigidea}
+When the flux through a coil changes, an emf is induced in it. The faster the
+flux changes, and the more turns the coil has, the bigger the emf. A flux that
+does not change induces nothing, however big it is.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Induce}{to make something happen without touching it. An \emph{induced}
+    emf is an emf made by a changing flux.}
+  \kw{Electromagnetic induction}{making an emf by changing the magnetic flux
+    through a circuit.}
+  \kw{emf ($\varepsilon$)}{short for electromotive force. It is not a force: it
+    is the energy a source gives to each coulomb of charge. Unit: volt (V).}
+  \kw{Induced current}{the current that an induced emf drives around a closed
+    circuit.}
+\end{keywords}
+
+Join a coil to a \term{galvanometer}, a sensitive meter whose needle can move
+either way from zero (\cref{ch3:fig:galvo}). Push a magnet into the coil: the
+needle flicks. Hold the magnet still: the needle reads zero. Pull the magnet out:
+the needle flicks the other way. Move it faster, or use a stronger magnet or more
+turns: the flicks get bigger.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \xs/\nang/\lab in {0/125/{(a) Push in: the needle\\ flicks left.},
+        4.9/90/{(b) Hold still: the\\ needle reads zero.},
+        9.8/55/{(c) Pull out: the needle\\ flicks right.}} {
+    \begin{scope}[xshift=\xs cm]
+      % magnet (S on the left, N on the right, facing the coil)
+      \fill[hscvel!22] (0,0) rectangle (0.6,0.45);
+      \fill[hscforce!22] (0.6,0) rectangle (1.2,0.45);
+      \draw[line width=0.8pt, hscink] (0,0) rectangle (1.2,0.45);
+      \node[font=\footnotesize\bfseries] at (0.3,0.225) {S};
+      \node[font=\footnotesize\bfseries] at (0.9,0.225) {N};
+      % coil
+      \foreach \x in {1.75, 1.97, ..., 2.7}
+        \draw[line width=1pt, hscink] (\x,0.225) ellipse (0.09 and 0.5);
+      % leads and galvanometer
+      \draw[line width=0.9pt, hscink] (1.75,-0.28) -- (1.75,-0.95) -- (1.93,-0.95);
+      \draw[line width=0.9pt, hscink] (2.63,-0.28) -- (2.63,-0.95) -- (2.53,-0.95);
+      \draw[line width=0.9pt, hscink, fill=white] (2.23,-0.95) circle (0.3);
+      \draw[line width=0.5pt, hscmuted] ($(2.23,-1.08)+(150:0.3)$) arc (150:30:0.3);
+      \draw[line width=1.1pt, hscforce] (2.23,-1.08) -- ++(\nang:0.33);
+      \fill[hscink] (2.23,-1.08) circle (1.2pt);
+      \node[font=\scriptsize, anchor=north, inner sep=1pt] at (2.23,-1.27) {G};
+      \node[font=\footnotesize, align=center, anchor=north] at (1.6,-1.6) {\lab};
+    \end{scope}}
+    \draw[velocity] (0.1,0.8) -- (1.1,0.8) node[right, text=hscvel] {$v$};
+    \node[font=\footnotesize, text=hscvel] at (5.5,0.8) {$v = 0$};
+    \draw[velocity] (10.9,0.8) -- (9.9,0.8) node[left, text=hscvel] {$v$};
+  \end{tikzpicture}
+  \caption{A magnet and a coil joined to a centre-zero galvanometer (G). A
+    current flows only while the magnet moves.}\label{ch3:fig:galvo}
+\end{figure}
+
+So an emf appears only while the flux is \emph{changing}. We say the changing
+flux \term{induces} the emf: it causes the emf without any battery or contact.
+Making an emf this way is called \term{electromagnetic induction}.
+
+Each turn of the coil gets the same emf. The turns are joined one after another,
+like cells in a battery, so their emfs add up. A coil of $N$ turns gives $N$ times
+the emf of one turn. A wireless phone charger uses this idea: a changing current
+in the pad changes the flux through a coil inside the phone.
+
+\begin{refresher}{emf, potential difference and $V = IR$}
+\begin{itemize}
+  \item A source (battery, or a coil with changing flux) gives each coulomb of
+        charge energy: its emf $\varepsilon$. A lamp or resistor takes energy:
+        the potential difference $V$ across it.
+  \item In a closed circuit, $I = \dfrac{\varepsilon}{R}$, with $R$ the
+        \emph{total} resistance. With a gap in the circuit, the emf is still
+        there, but no current flows.
+\end{itemize}
+\end{refresher}
+
+\begin{formulacard}{Faraday's law of induction}
+  \cardformula{\varepsilon = -N\frac{\Delta\Phi}{\Delta t}}
+  \begin{symbols}
+    \sym{$\varepsilon$}{average induced emf}{\si{V}}
+    \sym{$N$}{number of turns in the coil}{no unit}
+    \sym{$\Delta\Phi$}{change in flux through one turn ($\Delta$, ``delta'', means
+      ``change in''): $\Phi_\mathrm{final} - \Phi_\mathrm{initial}$}{\si{Wb}}
+    \sym{$\Delta t$}{time taken for the change}{\si{s}}
+  \end{symbols}
+  \inwords{emf = number of turns $\times$ how fast the flux through each turn
+    changes. The minus sign means the emf opposes the change (Lenz's law,
+    \cref{ch3:sec:lenz}).}
+  \whentouse{the flux through a coil changes for any reason ($B$, $A$ or $\theta$).
+    For a closed circuit, combine with $V = IR$ (on the sheet):
+    $I = \dfrac{\varepsilon}{R}$, with $R$ the total resistance.}
+  \whennottouse{to find which way the current flows round the coil. Use this
+    formula for the size of the emf, and Lenz's law for the direction. (On an
+    emf--time graph the sign only shows that two emfs are opposite.) It gives the
+    \emph{average} emf. For the emf at one instant, use the gradient of the
+    $\Phi$--$t$ graph.}
+  \rearranged{$\Delta t = \dfrac{N\lvert\Delta\Phi\rvert}{\lvert\varepsilon\rvert}$
+    \qquad $\lvert\Delta\Phi\rvert = \dfrac{\lvert\varepsilon\rvert\,\Delta t}{N}$
+    \qquad $N = \dfrac{\lvert\varepsilon\rvert\,\Delta t}{\lvert\Delta\Phi\rvert}$}
+  \tensecond{$N = 100$, $\Delta\Phi = \qty{3.0e-3}{Wb}$ in \qty{0.10}{s}: \
+    $\lvert\varepsilon\rvert = \dfrac{100 \times \num{3.0e-3}}{0.10} = \qty{3.0}{V}$.}
+  \trap{$\Delta\Phi$ is the \emph{change} in flux. A huge but steady flux gives
+    zero emf. Use $N$ once only. Units: $\si{Wb.s^{-1}} = \si{V}$.}
+\end{formulacard}
+
+\begin{workedexample}{A field that grows}\label{ch3:we:growB}
+A 250-turn coil, each turn of area \qty{12}{cm^2}, has its plane perpendicular to
+a field ($\theta = \ang{0}$).
+The field rises steadily from \qty{0.050}{T} to \qty{0.35}{T} in \qty{0.15}{s}.
+(a) Find the size of the average emf. (b) The circuit's total resistance is
+\qty{5.0}{\ohm}. Find the induced current.
+\given{$N = 250$, \ $A = \qty{12e-4}{m^2} = \qty{1.2e-3}{m^2}$, \ $\theta = \ang{0}$,
+  \ $B$: \qty{0.050}{T} $\to$ \qty{0.35}{T}, \ $\Delta t = \qty{0.15}{s}$, \
+  $R = \qty{5.0}{\ohm}$}
+\find{the size of $\varepsilon$, then $I$}
+\formula{$\Phi = BA\cos\theta$, \quad
+  $\lvert\varepsilon\rvert = N\dfrac{\lvert\Delta\Phi\rvert}{\Delta t}$, \quad
+  $I = \dfrac{\varepsilon}{R}$}
+\substitute{\eqlines{\Phi_\mathrm{i} &= \qty{0.050}{T} \times \qty{1.2e-3}{m^2}
+    = \qty{6.0e-5}{Wb} && \text{start}\\
+  \Phi_\mathrm{f} &= \qty{0.35}{T} \times \qty{1.2e-3}{m^2} = \qty{4.2e-4}{Wb}
+    && \text{end}\\
+  \Delta\Phi &= \qty{4.2e-4}{Wb} - \qty{6.0e-5}{Wb} = \qty{3.6e-4}{Wb}\\
+  \lvert\varepsilon\rvert &= \frac{250 \times \qty{3.6e-4}{Wb}}{\qty{0.15}{s}}
+    = \qty{0.60}{V}\\
+  I &= \frac{\qty{0.60}{V}}{\qty{5.0}{\ohm}} = \qty{0.12}{A}}}
+\answer{(a) \final{$\varepsilon = \qty{0.60}{V}$} \quad (b) \final{$I = \qty{0.12}{A}$}}
+\checkstep{$\si{Wb.s^{-1}} = \si{V}$ \cmark. A fraction of a volt is typical for a
+  school coil.}
+\end{workedexample}
+
+\begin{workedexample}{Turning a coil}\label{ch3:we:rotate}
+An 80-turn coil, \qty{5.0}{cm} by \qty{4.0}{cm}, has its plane perpendicular to a
+\qty{0.25}{T} field. (a) It is turned through \ang{90} in \qty{0.020}{s}. Find the
+average emf. (b) A student says: ``Turning it through \ang{180} in \qty{0.040}{s}
+doubles the emf, because the flux change doubles.'' Evaluate this claim.
+\given{$N = 80$, \ $A = \qty{0.050}{m} \times \qty{0.040}{m} = \qty{2.0e-3}{m^2}$, \
+  $B = \qty{0.25}{T}$, \ $\theta_\mathrm{i} = \ang{0}$; \ (a) $\theta_\mathrm{f} = \ang{90}$; \
+  (b) $\theta_\mathrm{f} = \ang{180}$}
+\find{the size of the average emf in (a) and (b)}
+\formula{$\Phi = BA\cos\theta$, \quad
+  $\lvert\varepsilon\rvert = N\dfrac{\lvert\Delta\Phi\rvert}{\Delta t}$}
+\substitute{\eqlines{\Phi_\mathrm{i} &= \qty{0.25}{T} \times \qty{2.0e-3}{m^2} \times
+    \cos\ang{0} = \qty{5.0e-4}{Wb}\\
+  \text{(a)}\ \Phi_\mathrm{f} &= \qty{0.25}{T} \times \qty{2.0e-3}{m^2} \times
+    \cos\ang{90} = 0\\
+  \lvert\Delta\Phi\rvert &= \lvert 0 - \qty{5.0e-4}{Wb} \rvert
+    = \qty{5.0e-4}{Wb}\\
+  \lvert\varepsilon\rvert &= \frac{80 \times \qty{5.0e-4}{Wb}}{\qty{0.020}{s}}
+    = \qty{2.0}{V}\\
+  \text{(b)}\ \Phi_\mathrm{f} &= \qty{0.25}{T} \times \qty{2.0e-3}{m^2} \times
+    \cos\ang{180} = \qty{-5.0e-4}{Wb}\\
+  \lvert\Delta\Phi\rvert &= \lvert \qty{-5.0e-4}{Wb} - \qty{5.0e-4}{Wb} \rvert
+    = \qty{1.0e-3}{Wb}\\
+  \lvert\varepsilon\rvert &= \frac{80 \times \qty{1.0e-3}{Wb}}{\qty{0.040}{s}}
+    = \qty{2.0}{V}}}
+\answer{(a) \final{$\varepsilon = \qty{2.0}{V}$} \quad (b) also \qty{2.0}{V}, so the
+  claim is \textbf{incorrect}: the flux change doubles, but so does the time.}
+\checkstep{the rate of change of flux is the same in both:
+  $\qty{5.0e-4}{Wb} \div \qty{0.020}{s} = \qty{1.0e-3}{Wb} \div \qty{0.040}{s}
+  = \qty{0.025}{Wb.s^{-1}}$, so the emf is the same \cmark. These are
+  \emph{average} values; the emf varies while the coil turns.}
+\end{workedexample}
+
+\begin{toolkit}{The gradient of a graph}
+\begin{itemize}
+  \item Gradient $= \dfrac{\text{rise}}{\text{run}} = \dfrac{\Delta y}{\Delta x}$,
+        from two points on a straight section.
+  \item On a $\Phi$--$t$ graph the gradient is $\dfrac{\Delta\Phi}{\Delta t}$
+        (\si{Wb.s^{-1}}), so $\lvert\varepsilon\rvert = N \times \text{gradient}$.
+  \item Steep: big emf. Flat: zero emf. Rising and falling parts give opposite
+        signs.
+  \item For a curve, draw a \term{tangent} (a straight line that just touches the
+        curve at one point) and find its gradient.
+  \item Change prefixes first: \qty{1}{mWb} $= \qty{e-3}{Wb}$, \
+        \qty{1}{ms} $= \qty{e-3}{s}$.
+\end{itemize}
+\end{toolkit}
+
+\begin{workedexample}{Reading a flux--time graph}\label{ch3:we:graph}
+\Cref{ch3:fig:phigraph}(a) shows the flux through each turn of a 50-turn coil.
+Find the emf in each part, and draw the emf--time graph.
+\given{$N = 50$; \ 0--\qty{0.10}{s}: $\Phi$ rises from 0 to \qty{4.0}{mWb}; \
+  \qtyrange{0.10}{0.25}{s}: steady; \ \qtyrange{0.25}{0.30}{s}: falls to 0}
+\find{$\varepsilon$ in each part}
+\formula{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$, where
+  $\dfrac{\Delta\Phi}{\Delta t}$ is the gradient}
+\substitute{\eqlines{\text{0--0.10 s:}\ \frac{\Delta\Phi}{\Delta t}
+    &= \frac{\qty{4.0e-3}{Wb} - 0}{\qty{0.10}{s}} = \qty{0.040}{Wb.s^{-1}}\\
+  \varepsilon &= -50 \times \qty{0.040}{Wb.s^{-1}} = \qty{-2.0}{V}\\
+  \text{0.10--0.25 s:}\ \frac{\Delta\Phi}{\Delta t} &= 0, \ \text{so}\ \varepsilon = 0\\
+  \text{0.25--0.30 s:}\ \frac{\Delta\Phi}{\Delta t}
+    &= \frac{0 - \qty{4.0e-3}{Wb}}{\qty{0.050}{s}} = \qty{-0.080}{Wb.s^{-1}}\\
+  \varepsilon &= -50 \times (\qty{-0.080}{Wb.s^{-1}}) = +\qty{4.0}{V}}}
+\answer{\final{$\qty{-2.0}{V}$, then 0, then $+\qty{4.0}{V}$}
+  (\cref{ch3:fig:phigraph}(b))}
+\checkstep{the last part is twice as steep, so its emf is twice as big and of the
+  opposite sign \cmark. Each emf block's height $\times$ width is the same:
+  $\qty{2.0}{V} \times \qty{0.10}{s} = \qty{4.0}{V} \times \qty{0.050}{s}
+  = \qty{0.20}{V.s}$. This equals $N\lvert\Delta\Phi\rvert = 50 \times
+  \qty{4.0e-3}{Wb} = \qty{0.20}{Wb}$, because $\qty{1}{Wb} = \qty{1}{V.s}$ \cmark.
+  The signs only tell you that the emf in the last part is in the opposite
+  direction to the first part. To find which way the current actually flows round
+  the coil, use Lenz's law (\cref{ch3:sec:lenz}).}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, name=phi, width=0.47\linewidth, height=0.32\linewidth,
+        xmin=0, xmax=0.35, ymin=0, ymax=5, xlabel={$t$ (\si{s})},
+        ylabel={$\Phi$ (\si{mWb})}, xtick={0,0.1,0.2,0.3}, ytick={0,1,...,5},
+        xticklabel style={/pgf/number format/.cd, fixed, precision=1},
+        title={(a) flux}, title style={font=\small}]
+      \addplot[hscseriesA, line width=1.3pt, mark=none]
+        coordinates {(0,0) (0.10,4.0) (0.25,4.0) (0.30,0) (0.35,0)};
+    \end{axis}
+    \begin{axis}[hsc, at={(phi.east)}, anchor=west, xshift=12mm,
+        width=0.47\linewidth, height=0.32\linewidth,
+        xmin=0, xmax=0.35, ymin=-3, ymax=5, xlabel={$t$ (\si{s})},
+        ylabel={$\varepsilon$ (\si{V})}, xtick={0,0.1,0.2,0.3}, ytick={-2,0,2,4},
+        xticklabel style={/pgf/number format/.cd, fixed, precision=1},
+        title={(b) induced emf}, title style={font=\small}]
+      \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:0.35,0);
+      \addplot[hscseriesB, solid, line width=1.3pt, mark=none, const plot]
+        coordinates {(0,-2.0) (0.10,0) (0.25,4.0) (0.30,0) (0.35,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{(a) Flux through each turn. (b) The emf is $-N \times$ the gradient
+    of (a).}\label{ch3:fig:phigraph}
+\end{figure}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $\Phi$ instead of $\Delta\Phi$. \cmark\ Find
+        $\Phi_\mathrm{initial}$ and $\Phi_\mathrm{final}$, then subtract.
+  \item \xmark\ ``No emf, because the coil is not connected.'' \cmark\ The emf is
+        still induced. Only a current needs a closed circuit.
+  \item \xmark\ Using a clock reading as $\Delta t$. \cmark\ From
+        $t = \qty{1.5}{s}$ to $t = \qty{4.0}{s}$, $\Delta t = \qty{2.5}{s}$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+Stating Faraday's law (1 mark): ``The induced emf is proportional to the rate of
+change of magnetic flux through the circuit, $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$.''
+In calculations (2--3 marks), show $\Phi_\mathrm{initial}$ and $\Phi_\mathrm{final}$,
+substitute with units, and give the size with a unit. State the direction
+separately, using Lenz's law.
+\end{examtip}
+
+\begin{quickcheck}
+  \item The flux through each turn of a 120-turn coil falls from \qty{6.0}{mWb} to
+        \qty{1.5}{mWb} in \qty{0.30}{s}. Find the size of the average emf.
+  \item A 40-turn coil of area \qty{25}{cm^2} has its plane perpendicular to a
+        \qty{0.15}{T} field. The field is switched off in \qty{0.050}{s}. Find the average emf,
+        and the current if the total resistance is \qty{2.5}{\ohm}.
+  \item A 500-turn coil must give an average emf of at least \qty{2.0}{V} when the
+        flux through each turn changes by \qty{8.0e-4}{Wb}. Find the longest time
+        the change can take.
+  \item The ends of a coil are not joined. A magnet is pushed into it. Is there an
+        induced emf? An induced current? Explain.
+  \item The flux through a coil is very large but steady. Explain why the induced
+        emf is zero.
+\end{quickcheck}
+
+%% ===================================================================
+\section{Lenz's law: which way does the current flow?}\label{ch3:sec:lenz}
+\covers{M6.IQ3.02}
+
+\begin{bigidea}
+An induced current always flows the way that fights the change that made it.
+Its own magnetic field tries to keep the flux as it was. This is the minus sign
+in Faraday's law, and it follows from conservation of energy.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Lenz's law}{the induced current flows so that its magnetic field opposes
+    the change in flux that produced it.}
+  \kw{Induced magnetic field}{the magnetic field made by the induced current.}
+  \kw{Viewed from \ldots}{the side you look from when you say ``clockwise''.}
+\end{keywords}
+
+Faraday's law gives the size of the emf. \term{Lenz's law} gives its direction.
+Lenz's law has no formula of its own. It is the minus sign in Faraday's law
+(\cref{ch3:sec:faraday}). Learn this sentence:
+\begin{center}
+  \begin{minipage}{0.9\linewidth}\itshape
+  The induced current flows in the direction that makes a magnetic field
+  opposing the change in flux that produced it.
+  \end{minipage}
+\end{center}
+For an open circuit there is no current, so say: the induced emf acts in the
+direction that would drive a current whose magnetic field opposes the change in
+flux that produced it.
+
+The induced field opposes the \emph{change}, not the field. If the flux is
+increasing, the induced field points the opposite way to the original field. If
+the flux is decreasing, it points the \emph{same} way, to ``top up'' the flux.
+
+\begin{refresher}{The right-hand grip rule for a loop or coil}
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[line width=1.3pt, hscink, postaction={decorate}, decoration={markings,
+      mark=at position 0.125 with {\arrow{Stealth[length=2.6mm, width=2mm]}},
+      mark=at position 0.625 with {\arrow{Stealth[length=2.6mm, width=2mm]}}}]
+      (0,0) circle (0.7);
+    \foreach \p in {(0,0), (0.28,0.28), (-0.28,0.28), (0.28,-0.28), (-0.28,-0.28)}
+      \fill[hscfield] \p circle (1.6pt);
+    \node[font=\footnotesize, align=center] at (0,-1.15) {anticlockwise:\\ dots, N face};
+    \begin{scope}[xshift=2.2cm]
+      \draw[line width=1.3pt, hscink, postaction={decorate}, decoration={markings,
+        mark=at position 0.125 with {\arrow{Stealth[length=2.6mm, width=2mm]}},
+        mark=at position 0.625 with {\arrow{Stealth[length=2.6mm, width=2mm]}}}]
+        (0.7,0) arc (0:-360:0.7);
+      \foreach \p in {(0,0), (0.28,0.28), (-0.28,0.28), (0.28,-0.28), (-0.28,-0.28)}
+        \node[text=hscfield, font=\small] at \p {$\times$};
+      \node[font=\footnotesize, align=center] at (0,-1.15) {clockwise:\\ crosses, S face};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{A loop seen from the front.}\label{ch3:fig:grip}
+\nextside
+  Curl the fingers of your right hand the way the current flows. Your thumb
+  points along the field inside the loop.
+  \begin{itemize}
+    \item Anticlockwise (as you see it): field towards you. You face an N pole.
+    \item Clockwise: field away from you. You face an S pole.
+  \end{itemize}
+\end{sidebyside}
+\end{refresher}
+
+\begin{sidebyside}[0.45]
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \foreach \x in {-1.5,-0.9,-0.3,0.3,0.9,1.5} \foreach \y in {-1.5,-0.9,-0.3,0.3,0.9,1.5} {
+      \pgfmathsetmacro\rr{abs(veclen(\x,\y)-1.1)}
+      \ifdim\rr pt<0.2pt\else\fill[hscfield] (\x,\y) circle (1.6pt);\fi}
+    \draw[line width=1.4pt, hscink, postaction={decorate}, decoration={markings,
+      mark=at position 0.125 with {\arrow{Stealth[length=2.8mm, width=2.1mm]}},
+      mark=at position 0.625 with {\arrow{Stealth[length=2.8mm, width=2.1mm]}}}]
+      (0,0) circle (1.1);
+    \node[font=\small, fill=white, inner sep=1pt] at (45:1.42) {$I$};
+    \node[font=\small, fill=white, inner sep=1pt] at (225:1.42) {$I$};
+    \draw[hscbrand, line width=0.9pt] (0,0) circle (5pt);
+    \fill[hscbrand] (0,0) circle (1.8pt);
+    \node[font=\small, align=center] at (0,1.95) {$B$ out of the page, decreasing};
+  \end{tikzpicture}
+  \captionof{figure}{Fewer dots, so the induced field (navy dot) points out of
+    the page: anticlockwise current.}\label{ch3:fig:lenzloop}
+\nextside
+  \captionof{table}{Lenz's law: the induced field.}\label{ch3:tab:lenz}
+  \centering
+  \begin{tabular}{@{}L{26mm}L{40mm}@{}}
+    \toprule
+    \colhead{Flux change} & \colhead{Induced field inside the loop}\\
+    \midrule
+    more crosses & dots (out of the page)\\
+    fewer crosses & crosses (into the page)\\
+    more dots & crosses (into the page)\\
+    fewer dots & dots (out of the page)\\
+    \bottomrule
+  \end{tabular}
+\end{sidebyside}
+
+Use three steps for every direction question. \Cref{ch3:fig:lenzloop} shows them for a loop.
+\begin{enumerate}
+  \item \textbf{Find the flux change}: which way does the field through the loop
+        point, and is the flux increasing or decreasing?
+  \item \textbf{Apply Lenz's law} to choose the induced field (\cref{ch3:tab:lenz}).
+        Write the law down: it often earns a mark.
+  \item \textbf{Use the grip rule} to find the current. Say where you view it from.
+\end{enumerate}
+
+For magnets, the \textbf{pole method} is quicker. The induced current turns the
+coil into a weak magnet (\cref{ch3:fig:magnetcoil}). A magnet coming closer makes
+the near face the \emph{same} pole (it repels). A magnet moving away makes the
+near face the \emph{opposite} pole (it attracts). Either way the coil opposes the
+motion. Then use \cref{ch3:fig:grip}: an N face has an anticlockwise current.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \xs in {0, 7.1} {
+    \begin{scope}[xshift=\xs cm]
+      \fill[hscvel!22] (0,0) rectangle (0.8,0.5);
+      \fill[hscforce!22] (0.8,0) rectangle (1.6,0.5);
+      \draw[line width=0.8pt, hscink] (0,0) rectangle (1.6,0.5);
+      \node[font=\small\bfseries] at (0.4,0.25) {S};
+      \node[font=\small\bfseries] at (1.2,0.25) {N};
+      \foreach \x in {2.6, 2.85, 3.1, 3.35, 3.6}
+        \draw[line width=1pt, hscink] (\x,0.25) ellipse (0.1 and 0.6);
+    \end{scope}}
+    % ----- (a) approaching
+    \draw[velocity] (0.3,0.85) -- (1.3,0.85) node[right, text=hscvel] {$v$};
+    \draw[->, hscfield, line width=1.2pt] (3.95,0.25) -- (2.05,0.25);
+    \node[font=\footnotesize, text=hscfield, anchor=west] at (3.95,0.25) {induced $B$};
+    \node[font=\footnotesize\bfseries, text=hscforce] at (3.1,1.15) {near face: N};
+    \node[font=\footnotesize, align=center] at (2.2,-0.95)
+      {(a) N pole approaching: the near\\ face becomes N and repels.};
+    \chThreeACW{1.2}{-1.9}{0.36}
+    \node[font=\footnotesize, align=left, anchor=west] at (1.75,-1.9)
+      {seen from the magnet:\\ anticlockwise};
+    % ----- (b) moving away
+    \begin{scope}[xshift=7.1cm]
+      \draw[velocity] (1.3,0.85) -- (0.3,0.85) node[left, text=hscvel] {$v$};
+      \draw[->, hscfield, line width=1.2pt] (2.05,0.25) -- (3.95,0.25);
+      \node[font=\footnotesize, text=hscfield, anchor=west] at (3.95,0.25) {induced $B$};
+      \node[font=\footnotesize\bfseries, text=hscvel] at (3.1,1.15) {near face: S};
+      \node[font=\footnotesize, align=center] at (2.2,-0.95)
+        {(b) N pole moving away: the near\\ face becomes S and attracts.};
+      \chThreeCW{1.2}{-1.9}{0.36}
+      \node[font=\footnotesize, align=left, anchor=west] at (1.75,-1.9)
+        {seen from the magnet:\\ clockwise};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{The pole method. The coil always opposes the motion of the
+    magnet.}\label{ch3:fig:magnetcoil}
+\end{figure}
+
+\subsection{Lenz's law and conservation of energy}
+
+Suppose Lenz's law worked the other way, so a coil \emph{attracted} a magnet
+pushed towards it. The magnet would speed up, so the flux would change faster
+and the current would grow. A bigger current pulls harder, and so on. The magnet
+would gain kinetic energy and the coil would heat up, with no energy put in. That
+breaks the \term{law of conservation of energy}: energy cannot be created or
+destroyed, only changed in form.
+
+So the coil must push back. You must do work to move the magnet, and that work
+becomes electrical energy, then heat (\cref{ch3:fig:energy}). With an open
+circuit there is no current, no push back, and no energy transfer.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \node[concept=36mm] (a) {Work done by you\\ (against the opposing force)};
+    \node[concept=34mm, right=9mm of a] (b) {Electrical energy\\ (induced current)};
+    \node[concept=34mm, right=9mm of b] (c) {Heat in the wires\\ (or light in a lamp)};
+    \draw[link] (a) -- (b);
+    \draw[link] (b) -- (c);
+  \end{tikzpicture}
+  \caption{Energy transfers when a current is induced.}\label{ch3:fig:energy}
+\end{figure}
+
+\begin{workedexample}{Lifting a magnet away from a loop}\label{ch3:we:lift}
+A wire loop lies flat on a table. A bar magnet is held above it, S pole down,
+and is lifted straight up. Find the direction of the induced current, viewed
+from above.
+\given{field lines enter an S pole, so under the magnet the field points
+  \emph{up} through the loop. Lifting the magnet weakens it.}
+\find{the current direction, viewed from above}
+\formula{Lenz's law, then the right-hand grip rule}
+\substitute{Step 1: the upward flux through the loop is decreasing.\\
+  Step 2: by Lenz's law the induced current opposes this change. The flux is
+  decreasing, so the induced field points the same way: up.\\
+  Step 3: an upward field comes towards a viewer above, so the grip rule gives
+  an anticlockwise current.}
+\answer{\final{anticlockwise, viewed from above}}
+\checkstep{pole method: anticlockwise means the top face is N. It attracts the S
+  pole and pulls back on the rising magnet, opposing the motion \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Pulling a loop out of a field}\label{ch3:we:pullout}
+A rectangular loop is pulled to the right at a steady speed. Its left half is
+still in a field that points into the page (\cref{ch3:fig:pullout}). Find (a) the
+direction of the induced current and (b) the direction of the magnetic force on
+the loop. (c) Explain the energy transfers.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscfield, dashed, line width=0.6pt] (0,0) rectangle (2.6,2.0);
+    \foreach \x in {0.3, 0.9, 1.5, 2.2} \foreach \y in {0.3, 0.75, 1.25, 1.7}
+      \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+    \draw[line width=1.6pt, hscbrand] (1.7,0.55) rectangle (3.5,1.45);
+    \draw[velocity] (3.5,1.0) -- (4.5,1.0) node[right, text=hscvel] {$v$ (pulled)};
+    \node[font=\small, anchor=west] at (-3.4,1.0) {$B$ into the page};
+  \end{tikzpicture}
+  \caption{The loop is leaving the field region (dashed).}\label{ch3:fig:pullout}
+\end{figure}
+\given{$B$ into the page; the area of the loop inside the field is shrinking.}
+\find{(a) current direction; (b) force direction; (c) energy changes}
+\formula{$\Phi = BA\cos\theta$; Lenz's law; grip rule; $F = lIB\sin\theta$ with
+  the right-hand palm rule}
+\substitute{(a) Less of the loop is in the field, so the into-page flux
+  decreases. By Lenz's law the induced current opposes this decrease, so its
+  field points into the page inside the loop. The grip rule then gives a
+  clockwise current.\\
+  (b) Only the left side is fully in the field. Clockwise means its current goes
+  up. Palm rule: fingers into the page, thumb up, palm pushes left. The forces on
+  the top and bottom sides are equal and opposite, so they cancel.\\
+  (c) The pull must do work against this force. The work becomes electrical
+  energy, then heat in the wire.}
+\answer{(a) \final{clockwise} \quad (b) \final{to the left} \quad (c) work
+  $\to$ electrical energy $\to$ heat}
+\checkstep{the cause is the pull to the right, and the force opposes it \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The induced field always opposes the magnet's field.''
+        \cmark\ It opposes the \emph{change}; for a decreasing flux it points the
+        same way.
+  \item \xmark\ ``Clockwise'' with no viewpoint. \cmark\ ``Clockwise, viewed from
+        above.''
+  \item \xmark\ Treating an S pole like an N pole. \cmark\ Field lines point
+        \emph{into} an S pole.
+  \item \xmark\ Using your left hand. \cmark\ The grip and palm rules use the
+        right hand.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Account for Lenz's law using conservation of energy'' (3 marks) needs three
+linked points: (1) state Lenz's law; (2) because the current opposes the change,
+work must be done to cause it, and this work becomes electrical energy and heat;
+(3) if the current helped the change, the motion would speed itself up and make
+energy from nothing, which breaks conservation of energy.
+In multiple choice, ``opposes the relative motion'' is true for moving magnets.
+The full statement is ``opposes the \emph{change in flux}''. It also covers two
+coils where nothing moves.
+\end{examtip}
+
+\begin{quickcheck}[breakable]
+  \item State Lenz's law.
+  \item A long straight wire lies in the page and carries a current to the right.
+        A square loop lies in the page just above the wire. The loop moves up the
+        page, away from the wire. Find the direction of the induced current.
+        (Hint: use the right-hand grip rule for a straight wire
+        (\cref{ch2:sec:fields}): thumb along the current, fingers curl the way the
+        field goes. Also, $B = \dfrac{\mu_0 I}{2\pi r}$ gets smaller as $r$
+        grows.)\label{ch3:qc:wire}
+  \item The S pole of a magnet is pulled away from a coil. Which pole does the near
+        face of the coil become? Which way does the current flow, viewed from the
+        magnet?
+  \item A loop lies in the page, in a field into the page. The loop is squashed,
+        so its area gets smaller. Find the direction of the induced current.
+  \item A student claims she can design a coil whose induced current
+        \emph{attracts} a magnet that is pushed towards it. Use the law of
+        conservation of energy to explain why this is impossible. (3 marks)
+\end{quickcheck}
+
+%% ===================================================================
+\section{Motional emf: a straight wire moving in a field}\label{ch3:sec:motional}
+\covers{M6.IQ3.02}
+
+\begin{bigidea}
+A metal rod moving across a magnetic field has an emf between its ends. The
+field pushes the free charges (charges that can move through the metal, mainly
+electrons) along the rod. In a closed circuit this drives a
+current, and the field then pushes back on the rod: Lenz's law again.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Motional emf}{the emf in a conductor because it moves across a magnetic
+    field.}
+  \kw{Conventional current}{the direction positive charge would flow. Electrons
+    flow the other way.}
+\end{keywords}
+
+\begin{refresher}{Force on a moving charge (\cref{ch1:chap,ch2:chap})}
+A charge moving across a field feels $F = qv_\perp B = qvB\sin\theta$.
+\term{Right-hand palm rule}: point your fingers along $B$ and your thumb along
+the velocity of a \emph{positive} charge (or the current). Your palm then pushes
+in the direction of the force. The force on an electron is the opposite way.
+\end{refresher}
+
+A metal rod moves right through a field into the page (\cref{ch3:fig:rod}(a)).
+\begin{itemize}
+  \item The charges move right with the rod. Palm rule for a positive charge:
+        fingers into the page, thumb right, palm up. Positive charge is pushed
+        \emph{up}; the free electrons (the electrons that can move through the
+        metal) are pushed down.
+  \item The bottom end becomes $-$ and the top end $+$. The rod is now like a
+        battery: this is \term{motional emf}.
+  \item The build-up stops when the electric field of the separated charges
+        balances the magnetic force.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---------- (a) rod on its own
+    \begin{scope}
+      \foreach \x in {0.3, 0.9, 2.1, 2.7, 3.3} \foreach \y in {0.3, 0.9, 1.5, 2.1, 2.7}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \draw[line width=3.2pt, hscmuted] (1.5,0.15) -- (1.5,2.85);
+      \node[draw, circle, inner sep=0.6pt, font=\footnotesize\bfseries, fill=white]
+        at (1.5,3.15) {$+$};
+      \node[draw, circle, inner sep=0.6pt, font=\footnotesize\bfseries, fill=white]
+        at (1.5,-0.15) {$-$};
+      \draw[velocity] (1.62,1.2) -- (2.5,1.2);
+      \node[text=hscvel, font=\small, fill=white, inner sep=1pt, anchor=west]
+        at (2.52,1.2) {$v$};
+      \draw[force] (1.2,1.25) -- (1.2,2.35);
+      \node[font=\footnotesize, text=hscforce, fill=white, inner sep=1pt, anchor=east]
+        at (1.12,1.8) {$F$ on $+q$};
+      \node[align=center, text width=4.0cm, font=\small, anchor=north] at (1.8,-1.1)
+        {(a) Rod alone: the top end becomes $+$.};
+    \end{scope}
+    % ---------- (b) rod on rails
+    \begin{scope}[xshift=5.6cm]
+      \fill[hscvel!12] (3.0,0) rectangle (3.8,3.0);
+      \foreach \x in {0.9, 1.65, 2.4, 4.6, 5.4} \foreach \y in {0.5, 1.5, 2.5}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \foreach \y in {0.5, 2.5} \node[text=hscfield, font=\small] at (3.4,\y) {$\times$};
+      \draw[line width=1.5pt, hscink] (0,0) -- (6.0,0);
+      \draw[line width=1.5pt, hscink] (0,3.0) -- (6.0,3.0);
+      \draw[line width=1.2pt, hscink] (0,0) -- (0,1.0);
+      \draw[line width=1.2pt, hscink] (0,2.0) -- (0,3.0);
+      \draw[line width=1.2pt, hscink, fill=white] (-0.16,1.0) rectangle (0.16,2.0);
+      \node[font=\small, anchor=west] at (0.2,1.5) {$R$};
+      \draw[line width=1pt, hscmuted, dashed] (3.0,-0.2) -- (3.0,3.2);
+      \draw[line width=3.2pt, hscmuted] (3.8,-0.2) -- (3.8,3.2);
+      \draw[velocity] (3.92,2.0) -- (4.9,2.0);
+      \node[text=hscvel, font=\small, fill=white, inner sep=1pt, anchor=west]
+        at (4.92,2.0) {$v$};
+      \draw[force] (3.68,1.0) -- (2.7,1.0);
+      \node[font=\footnotesize, text=hscforce, fill=white, inner sep=1pt, anchor=east]
+        at (2.65,1.0) {$F = lIB$};
+      \draw[->, line width=1pt, hscink] (4.05,0.2) -- (4.05,0.95)
+        node[right, font=\small] {$I$};
+      \draw[->, line width=1pt, hscink] (2.2,3.28) -- (1.2,3.28) node[left, font=\small] {$I$};
+      \draw[->, line width=1pt, hscink] (1.2,-0.28) -- (2.2,-0.28) node[right, font=\small] {$I$};
+      \draw[->, line width=1pt, hscink] (-0.45,2.0) -- (-0.45,1.0)
+        node[midway, left, font=\small] {$I$};
+      \draw[<->, line width=0.6pt, hscmuted] (6.35,0) -- (6.35,3.0)
+        node[midway, right, text=hscink, font=\small] {$l$};
+      \draw[<->, line width=0.6pt, hscmuted] (3.0,-0.62) -- (3.8,-0.62);
+      \node[font=\small, below] at (3.4,-0.64) {$v\Delta t$};
+      \node[align=center, text width=6.6cm, font=\small, anchor=north] at (3.0,-1.1)
+        {(b) On rails: the current is anticlockwise. The rod sweeps the shaded
+        area in time $\Delta t$.};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Motional emf. The field points into the page.}\label{ch3:fig:rod}
+\end{figure}
+
+Now put the rod on metal rails joined by a resistor (\cref{ch3:fig:rod}(b)). A
+current flows up the rod and down through the resistor.
+\begin{itemize}
+  \item The current in the rod feels a motor-effect force, $F = lIB$. Palm rule:
+        fingers into the page, thumb up, palm left. The force \emph{opposes} the
+        motion (Lenz). Something must keep pushing the rod, and that work becomes
+        heat in the resistor.
+  \item Faraday's view: the rod sweeps out area, so the flux through the circuit
+        grows. More crosses means an anticlockwise current. Both views agree.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Motional emf}
+  \cardformula{\varepsilon = lvB}
+  \begin{symbols}
+    \sym{$\varepsilon$}{emf between the ends of the rod}{\si{V}}
+    \sym{$l$}{length of the rod inside the field}{\si{m}}
+    \sym{$v$}{speed of the rod across the field}{\si{m.s^{-1}}}
+    \sym{$B$}{magnetic field strength}{\si{T}}
+  \end{symbols}
+  \inwords{a longer rod, moving faster through a stronger field, gives a bigger
+    emf.}
+  \whentouse{a straight rod in a uniform field, with the rod, its velocity and the
+    field at \ang{90} to each other.}
+  \whennottouse{the rod moves along the field lines or along its own length: then
+    $\varepsilon = 0$. At an angle, use only the part of $v$ that is perpendicular
+    to both $B$ and the rod.}
+  \rearranged{$v = \dfrac{\varepsilon}{lB}$ \qquad $B = \dfrac{\varepsilon}{lv}$
+    \qquad $l = \dfrac{\varepsilon}{vB}$}
+  \tensecond{$l = \qty{0.50}{m}$, $v = \qty{4.0}{m.s^{-1}}$, $B = \qty{0.20}{T}$: \
+    $\varepsilon = 0.50 \times 4.0 \times 0.20 = \qty{0.40}{V}$.}
+  \derive{Faraday's law for the one-turn circuit in \cref{ch3:fig:rod}(b). In time
+    $\Delta t$ the rod moves $v\Delta t$ and sweeps an area $\Delta A = l\,v\Delta t$.
+    \begin{align*}
+      \Delta\Phi &= B\,\Delta A = B\,l\,v\Delta t && \text{only $A$ changes; $\theta = \ang{0}$}\\
+      \lvert\varepsilon\rvert &= N\frac{\Delta\Phi}{\Delta t} = \frac{B\,l\,v\Delta t}{\Delta t}
+        && \text{Faraday's law, $N = 1$}\\
+      \varepsilon &= lvB && \text{cancel $\Delta t$}
+    \end{align*}}
+  \trap{$l$ is the length \emph{inside the field}, not the whole wire. Use the palm
+    rule for positive charges.}
+\end{formulacard}
+
+\begin{workedexample}{A rod moving through a field}\label{ch3:we:rod}
+A \qty{0.40}{m} metal rod moves right at \qty{3.0}{m.s^{-1}} through a
+\qty{0.25}{T} field into the page, as in \cref{ch3:fig:rod}(a). Find the emf
+between its ends, and which end is positive.
+\given{$l = \qty{0.40}{m}$, \ $v = \qty{3.0}{m.s^{-1}}$, \ $B = \qty{0.25}{T}$, all at
+  \ang{90} to each other}
+\find{$\varepsilon$ and the positive end}
+\formula{$\varepsilon = lvB$; right-hand palm rule}
+\substitute{$\varepsilon = \qty{0.40}{m} \times \qty{3.0}{m.s^{-1}} \times \qty{0.25}{T}
+  = \qty{0.30}{V}$.\\
+  Palm rule on a positive charge: fingers into the page, thumb right, palm up.}
+\answer{\final{$\varepsilon = \qty{0.30}{V}$}, top end positive}
+\checkstep{$\unit{m} \times \unit{m.s^{-1}} \times \unit{T} = \unit{Wb.s^{-1}} =
+  \unit{V}$ \cmark. With no circuit there is no current and no opposing force.}
+\end{workedexample}
+
+\begin{workedexample}{A rod on rails: forces and energy}\label{ch3:we:rails}
+A \qty{25}{cm} rod slides right at a steady \qty{2.0}{m.s^{-1}} on rails joined by
+a \qty{0.50}{\ohm} resistor (\cref{ch3:fig:rod}(b)). $B = \qty{0.80}{T}$ into the
+page; ignore friction and all other resistance. Find (a) the emf, (b) the current,
+(c) the force needed to keep the rod moving, and (d) show that the power of this
+force equals the electrical power.
+\given{$l = \qty{0.25}{m}$, \ $v = \qty{2.0}{m.s^{-1}}$, \ $B = \qty{0.80}{T}$, \
+  $R = \qty{0.50}{\ohm}$}
+\find{$\varepsilon$, $I$, the push $F$, and the two powers}
+\formula{$\varepsilon = lvB$, \ $I = \dfrac{\varepsilon}{R}$, \
+  $F = lIB\sin\theta$ ($\theta = \ang{90}$),\\
+  $P = F_\parallel v = Fv\cos\theta$ ($\theta = \ang{0}$: push along $v$), \
+  $P = VI$}
+\substitute{\eqlines{\varepsilon &= \qty{0.25}{m} \times \qty{2.0}{m.s^{-1}} \times
+    \qty{0.80}{T} = \qty{0.40}{V}\\
+  I &= \frac{\qty{0.40}{V}}{\qty{0.50}{\ohm}} = \qty{0.80}{A}\\
+  F &= \qty{0.25}{m} \times \qty{0.80}{A} \times \qty{0.80}{T} = \qty{0.16}{N}
+    \ \text{(magnetic force, to the left)}\\
+  F_\mathrm{push} &= \qty{0.16}{N}\ \text{to the right (steady speed, so the forces
+    balance)}\\
+  P_\mathrm{push} &= F_\mathrm{push}v = \qty{0.16}{N} \times \qty{2.0}{m.s^{-1}}
+    = \qty{0.32}{W}\\
+  P_\mathrm{elec} &= VI = \qty{0.40}{V} \times \qty{0.80}{A} = \qty{0.32}{W}}}
+\answer{(a) \final{\qty{0.40}{V}} (b) \final{\qty{0.80}{A}}, anticlockwise
+  (c) a push of \final{\qty{0.16}{N} to the right} (d) both \qty{0.32}{W}}
+\checkstep{at a steady speed the push (to the right) balances the magnetic force
+  on the rod (to the left). Every joule of
+  work done by the push becomes electrical energy, then heat: energy is
+  conserved \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using the palm rule with the electrons' velocity. \cmark\ Use
+        positive charges, or reverse the answer.
+  \item \xmark\ Using the whole length of the wire. \cmark\ Only the length in the
+        field counts.
+  \item \xmark\ ``A straight wire has no area, so this is not Faraday's law.''
+        \cmark\ The rod is part of a circuit whose area changes; $\varepsilon = lvB$
+        comes from Faraday's law.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+Direction questions (1 mark) want the palm rule on positive charges and a clear
+answer (``current flows up the rod''). A common 4-mark question compares two
+rods. Rod 1 is pushed through a field. Rod 2 carries a current from a battery and
+starts to move. Full marks need four points:
+\begin{enumerate}
+  \item rod 1: the field pushes the moving charges along the rod, so an emf is
+        induced. The work done by the push (or the rod's kinetic energy, if it
+        slows down) $\to$ electrical energy;
+  \item rod 2: the motor effect, $F = lIB$, pushes the rod (electrical
+        $\to$ kinetic energy);
+  \item one similarity: both are forces on moving charges in a magnetic field;
+  \item one difference: in rod 1 motion causes a current; in rod 2 a current
+        causes motion.
+\end{enumerate}
+$\varepsilon = lvB$ is \emph{not} on the sheet, so show where it comes from.
+\end{examtip}
+
+\begin{quickcheck}
+  \item An aircraft with a \qty{32}{m} wingspan flies horizontally at
+        \qty{240}{m.s^{-1}}. The vertical part of Earth's field is \qty{5.0e-5}{T}.
+        Find the emf between the wing tips.
+  \item A rod moves parallel to the field lines. What is the emf? Explain.
+  \item A horizontal rod moves up the page through a field that points out of the
+        page. Which end becomes positive?
+  \item A \qty{0.50}{m} rod slides along frictionless rails. A \qty{0.40}{T}
+        field is at \ang{90} to the rails and the rod. The rails are joined by a \qty{2.0}{\ohm} resistor; ignore all other
+        resistance. Find the speed that gives a current of \qty{0.15}{A}. Then
+        find the push needed to keep the rod moving at this steady speed.
+\end{quickcheck}
+
+%% ===================================================================
+\section{Solenoids, metal plates and two coils}\label{ch3:sec:solenoids}
+\covers{M6.IQ3.02}
+
+\begin{bigidea}
+Any change in flux induces an emf, whatever causes it. A magnet can pass through
+a solenoid. A metal plate can move through a field. The current in a nearby coil
+can change. All three follow Faraday's and Lenz's laws.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Solenoid}{a long coil of wire.}
+  \kw{Eddy currents}{loops of current induced inside a solid piece of metal when
+    the flux through it changes.}
+  \kw{Mutual induction}{an emf induced in one coil (the secondary) by a changing
+    current in a nearby coil (the primary).}
+\end{keywords}
+
+\subsection{A magnet moving through a solenoid}
+
+As a magnet comes towards a coil, the flux through the coil increases. This
+induces an emf in one direction. When the magnet is at the middle, the flux is at
+its largest. For an instant it is not changing, so the emf is zero. As the magnet
+leaves, the flux decreases. This induces an emf in the other direction. So a
+magnet passing through a coil gives two pulses of opposite sign
+(\cref{ch3:fig:falling}, \cref{ch3:we:drop}). A faster magnet gives taller,
+narrower pulses.
+
+Exam questions often draw the coil from the side. They ask which way the current
+flows through a meter. Work in two stages. First, use Lenz's law to find the
+current as seen from above. Second, change this into a direction along the wires
+you can see. The \emph{front} of each turn is the half nearest you. Seen from
+above, a clockwise current moves from right to left along the front
+(\cref{ch3:fig:front}). Follow it along the front wires to the leads
+(\cref{ch3:we:winding}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---------- (a) top view of one turn, clockwise
+    \begin{scope}
+      \draw[line width=0.8pt, hscmuted!70] (0.9,0) arc (0:180:0.9);
+      \draw[line width=1.6pt, hscink] (-0.9,0) arc (180:360:0.9);
+      \draw[line width=0.8pt, hscmuted!70, -{Stealth[length=2.4mm, width=2mm]}]
+        (-0.1,0.895) -- (0.05,0.9);
+      \draw[line width=1.6pt, hscink, -{Stealth[length=2.8mm, width=2.2mm]}]
+        (0.1,-0.895) -- (-0.05,-0.9);
+      \node[font=\footnotesize, text=hscmuted, anchor=south] at (0,0.95) {back};
+      \node[font=\footnotesize, anchor=west] at (0.8,-0.65) {front};
+      \draw[->, line width=0.9pt, hscink] (0,-1.85) -- (0,-1.2);
+      \node[font=\footnotesize, anchor=north] at (0,-1.85) {you look this way};
+      \node[font=\small, align=center, anchor=north] at (0,-2.3)
+        {(a) Top view: clockwise};
+    \end{scope}
+    % ---------- (b) the same turn seen from the side (slightly above)
+    \begin{scope}[xshift=5.6cm, yshift=-0.3cm]
+      \draw[line width=0.8pt, hscmuted!70, dashed] (-1.4,0) arc (180:0:1.4 and 0.42);
+      \draw[line width=1.6pt, hscink] (1.4,0) arc (0:-180:1.4 and 0.42);
+      \draw[line width=1.6pt, hscink, -{Stealth[length=2.8mm, width=2.2mm]}]
+        (0.1,-0.419) -- (-0.05,-0.42);
+      \draw[line width=0.8pt, hscmuted!70, -{Stealth[length=2.4mm, width=2mm]}]
+        (-0.1,0.419) -- (0.05,0.42);
+      \node[font=\footnotesize, text=hscmuted, anchor=south] at (0,0.47) {back};
+      \node[font=\footnotesize, anchor=north, align=center] at (0,-0.52)
+        {front: right to left};
+      \node[font=\small, align=center, anchor=north] at (0,-2.0)
+        {(b) Side view: what you see};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{One turn of a coil carrying a clockwise current (seen from above).
+    Along the front, the half nearest you, the current flows from right to
+    left.}\label{ch3:fig:front}
+\end{figure}
+
+\subsection{Metal plates: eddy currents}
+
+A metal plate is full of possible current loops. When the flux through part of
+the plate changes, an emf is induced there. Currents then swirl round inside the
+metal. These are \term{eddy currents}: loops of current inside solid metal. They
+are named after eddies, the small whirlpools in a river (\cref{ch3:fig:plate}).
+
+Eddy currents form only where the flux through the metal is changing. Use Lenz's
+law to find their direction. In \cref{ch3:fig:plate}(a) the plate is entering
+the field. The into-page flux through its right-hand part increases. The induced
+field points out of the page, so the eddy current is anticlockwise. In (b) the
+plate is fully inside and the flux does not change, so there are no eddy
+currents. In (c) the plate is leaving the field. The into-page flux through its
+left-hand part decreases, so the induced field points into the page and the eddy
+current is clockwise.
+
+The part of each eddy loop that is inside the field feels a motor-effect force.
+This force points backwards, against the motion. So the plate slows down, and its
+kinetic energy becomes heat in the metal. This is \textbf{magnetic braking}
+(\cref{ch5:chap}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---------- (a) entering: field region on the right of x = 1.6
+    \begin{scope}
+      \draw[hscfield, dashed, line width=0.6pt] (1.6,0) -- (1.6,2.3) -- (4.2,2.3);
+      \draw[hscfield, dashed, line width=0.6pt] (1.6,0) -- (4.2,0);
+      \fill[hscmuted!22] (0.7,0.4) rectangle (2.5,1.9);
+      \draw[line width=0.9pt, hscink] (0.7,0.4) rectangle (2.5,1.9);
+      \foreach \x in {1.85, 2.3, ..., 4.0} \foreach \y in {0.25, 0.7, 1.15, 1.6, 2.05}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \chThreeACW{1.6}{1.15}{0.45}
+      \draw[velocity] (1.15,2.6) -- (2.05,2.6) node[right, text=hscvel] {$v$};
+      \draw[force] (2.1,-0.22) -- (1.1,-0.22) node[left, text=hscforce] {$F$};
+      \node[align=center, text width=4.1cm, font=\footnotesize] at (2.1,-0.85)
+        {(a) Entering: flux increasing.\\ Anticlockwise eddy current.};
+    \end{scope}
+    % ---------- (b) fully inside
+    \begin{scope}[xshift=4.85cm]
+      \draw[hscfield, dashed, line width=0.6pt] (0,0) rectangle (4.2,2.3);
+      \fill[hscmuted!22] (1.2,0.4) rectangle (3.0,1.9);
+      \draw[line width=0.9pt, hscink] (1.2,0.4) rectangle (3.0,1.9);
+      \foreach \x in {0.25, 0.7, ..., 4.0} \foreach \y in {0.25, 0.7, 1.15, 1.6, 2.05}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \draw[velocity] (1.65,2.6) -- (2.55,2.6) node[right, text=hscvel] {$v$};
+      \node[align=center, text width=4.1cm, font=\footnotesize] at (2.1,-0.85)
+        {(b) Fully inside: flux not changing.\\ No eddy current, no force.};
+    \end{scope}
+    % ---------- (c) leaving: field region on the left of x = 2.6
+    \begin{scope}[xshift=9.7cm]
+      \draw[hscfield, dashed, line width=0.6pt] (0,0) -- (2.6,0) -- (2.6,2.3) -- (0,2.3);
+      \fill[hscmuted!22] (1.7,0.4) rectangle (3.5,1.9);
+      \draw[line width=0.9pt, hscink] (1.7,0.4) rectangle (3.5,1.9);
+      \foreach \x in {0.25, 0.7, ..., 2.1} \foreach \y in {0.25, 0.7, 1.15, 1.6, 2.05}
+        \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+      \chThreeCW{2.6}{1.15}{0.45}
+      \draw[velocity] (2.15,2.6) -- (3.05,2.6) node[right, text=hscvel] {$v$};
+      \draw[force] (3.1,-0.22) -- (2.1,-0.22) node[left, text=hscforce] {$F$};
+      \node[align=center, text width=4.1cm, font=\footnotesize] at (2.1,-0.85)
+        {(c) Leaving: flux decreasing.\\ Clockwise eddy current.};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A metal plate moving right past the edges of a field region (dashed,
+    $B$ into the page). Eddy currents form only where the flux through the metal
+    changes. The force $F$ on them opposes the motion.}\label{ch3:fig:plate}
+\end{figure}
+
+Evidence for Lenz's law: a solid copper plate swinging between magnet poles stops
+in a few swings. A plate with slots cut in it swings much longer, because the
+slots break the current loops. A strong magnet falls slowly through a copper pipe
+(\cref{ch3:sec:experiments}). Eddy currents are useful in brakes, induction
+cooktops and metal detectors, but waste energy in transformer cores (\cref{ch4:chap}).
+
+\subsection{One solenoid near another}
+
+Put two coils on one iron core (\cref{ch3:fig:twocoils}). The \term{primary coil}
+is the coil joined to the supply; here it has a battery and a switch. The
+\term{secondary coil} is the coil where the emf is induced; here it has a
+galvanometer. Inducing an emf in one coil with a changing current in another is
+called \term{mutual induction}.
+\begin{itemize}
+  \item \textbf{Switch closed:} the primary current and its field grow, so the flux
+        through the secondary increases. A brief emf is induced.
+  \item \textbf{Kept closed:} the current is steady, so the flux is steady. There
+        is no emf.
+  \item \textbf{Switch opened:} the flux decreases. A brief emf is induced the
+        other way.
+\end{itemize}
+
+By Lenz's law, while the primary's field grows, the secondary's induced field
+points the opposite way. While the primary's field falls, the induced field
+points the same way. The core is made of \term{soft iron}: iron that is easy to
+magnetise and loses its magnetism when the current stops. It guides the field
+lines through the secondary. So more of the primary's flux passes through the
+secondary, and the emf is bigger.
+
+Two more ways to change the flux through the secondary:
+\begin{itemize}
+  \item \textbf{Moving one coil:} use two separate coils. Keep a steady current in
+        a small primary coil and push it into a larger secondary coil. The flux
+        through the secondary increases, so a brief emf is induced. Hold it
+        still: no emf. Pull it out: a brief emf the other way. Faster motion
+        gives a bigger emf. The primary acts just like a bar magnet, so the pole
+        method (\cref{ch3:fig:magnetcoil}) gives the direction.
+  \item \textbf{AC supply:} an \term{AC} (alternating current) supply makes a
+        current that keeps changing size and reversing direction. A \term{DC}
+        (direct current) supply, like a battery, makes a steady current in one
+        direction. An AC primary current gives a changing flux all the time, so
+        the secondary has an emf all the time (an AC emf). This is how a
+        transformer works (\cref{ch4:chap}).
+\end{itemize}
+
+\textbf{Energy:} the electrical energy in the secondary circuit comes from the
+primary's power supply. (If you move one coil, it comes from the work you do.) While a
+current flows in the secondary, its field opposes the change in flux. So the
+primary supply must do extra work to keep its current changing. Energy is
+transferred from the primary circuit to the secondary circuit, then becomes heat
+in the secondary. No energy is created.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[hscmuted!30] (0,0) rectangle (6.4,0.6);
+    \draw[line width=0.7pt, hscink] (0,0) rectangle (6.4,0.6);
+    \node[font=\footnotesize, anchor=south] at (3.2,0.62) {soft iron core};
+    \foreach \x in {0.5, 0.75, ..., 2.0}
+      \draw[line width=1.1pt, hscink] (\x,-0.12) -- (\x+0.15,0.72);
+    \foreach \x in {4.25, 4.5, ..., 5.75}
+      \draw[line width=1.1pt, hscink] (\x,-0.12) -- (\x+0.15,0.72);
+    \node[font=\footnotesize, anchor=south] at (1.3,0.95) {primary};
+    \node[font=\footnotesize, anchor=south] at (5.05,0.95) {secondary};
+    % primary circuit: battery and switch
+    \draw[line width=0.9pt, hscink] (0.5,-0.12) -- (0.5,-1.1) -- (0.9,-1.1);
+    \draw[line width=1.0pt, hscink] (0.9,-0.8) -- (0.9,-1.4);
+    \draw[line width=2.4pt, hscink] (1.1,-0.95) -- (1.1,-1.25);
+    \draw[line width=0.9pt, hscink] (1.1,-1.1) -- (1.4,-1.1);
+    \fill[hscink] (1.4,-1.1) circle (1.4pt);
+    \draw[line width=0.9pt, hscink] (1.4,-1.1) -- ++(25:0.56);
+    \fill[hscink] (2.0,-1.1) circle (1.4pt);
+    \draw[line width=0.9pt, hscink] (2.0,-1.1) -- (2.0,-0.12);
+    \node[font=\footnotesize] at (1.0,-1.7) {battery};
+    \node[font=\footnotesize] at (1.45,-0.55) {switch};
+    % secondary circuit: galvanometer
+    \draw[line width=0.9pt, hscink] (4.25,-0.12) -- (4.25,-1.1) -- (4.72,-1.1);
+    \draw[line width=0.9pt, hscink] (5.38,-1.1) -- (5.9,-1.1) -- (5.9,-0.12);
+    \draw[line width=0.9pt, hscink, fill=white] (5.05,-1.1) circle (0.33);
+    \node[font=\small] at (5.05,-1.1) {G};
+    % graphs
+    \begin{scope}[xshift=7.5cm, yshift=-1.6cm]
+    \begin{axis}[hsc, name=ip, width=6.2cm, height=2.6cm, xmin=0, xmax=6, ymin=-0.2, ymax=1.3,
+        xtick=\empty, ytick=\empty, ylabel={$I_\mathrm{p}$},
+        ylabel style={rotate=-90, font=\small}]
+      \addplot[hscseriesA, line width=1.2pt, mark=none] coordinates {(0,0) (1,0)};
+      \addplot[hscseriesA, line width=1.2pt, mark=none, domain=1:4, samples=60] {1-exp(-(x-1)/0.12)};
+      \addplot[hscseriesA, line width=1.2pt, mark=none, domain=4:6, samples=60] {exp(-(x-4)/0.06)};
+      \draw[guide] (axis cs:1,-0.2) -- (axis cs:1,1.3);
+      \draw[guide] (axis cs:4,-0.2) -- (axis cs:4,1.3);
+      \node[font=\footnotesize, anchor=south] at (axis cs:1,1.3) {closed};
+      \node[font=\footnotesize, anchor=south] at (axis cs:4,1.3) {opened};
+    \end{axis}
+    \begin{axis}[hsc, at={(ip.south)}, anchor=north, yshift=-3mm, width=6.2cm, height=3.0cm,
+        xmin=0, xmax=6, ymin=-1.3, ymax=2.3, xtick=\empty, ytick=\empty,
+        xlabel={time $t$}, ylabel={$\varepsilon_\mathrm{s}$},
+        ylabel style={rotate=-90, font=\small}]
+      \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:6,0);
+      \addplot[hscseriesB, solid, line width=1.2pt, mark=none] coordinates {(0,0) (1,0) (1,-1)};
+      \addplot[hscseriesB, solid, line width=1.2pt, mark=none, domain=1:4, samples=120] {-exp(-(x-1)/0.12)};
+      \addplot[hscseriesB, solid, line width=1.2pt, mark=none] coordinates {(4,0) (4,2)};
+      \addplot[hscseriesB, solid, line width=1.2pt, mark=none, domain=4:6, samples=120] {2*exp(-(x-4)/0.06)};
+      \draw[guide] (axis cs:1,-1.3) -- (axis cs:1,2.3);
+      \draw[guide] (axis cs:4,-1.3) -- (axis cs:4,2.3);
+      \node[font=\footnotesize, anchor=south] at (axis cs:2.5,0.1) {steady: zero};
+    \end{axis}
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Two coils on one iron core. Right: the primary current $I_\mathrm{p}$
+    and the secondary emf $\varepsilon_\mathrm{s}$ against time. The secondary has
+    an emf only while the primary current changes. Opening the switch usually stops
+    the current faster, so that pulse is taller and narrower.}\label{ch3:fig:twocoils}
+\end{figure}
+
+\begin{refresher}{The field inside a solenoid (on the formula sheet)}
+Inside a long solenoid with an air core, $B = \dfrac{\mu_0 NI}{L}$. Here $N$ is the
+number of turns of \emph{that} solenoid, $I$ its current, $L$ its length (\si{m}),
+and $\mu_0 = 4\pi \times 10^{-7}\ \si{N.A^{-2}}$ (data sheet). Example: $N = 400$,
+$I = \qty{2.0}{A}$, $L = \qty{0.20}{m}$ gives $B = \qty{5.0e-3}{T}$.
+\end{refresher}
+
+\begin{formulacard}[combine={$B = \frac{\mu_0 NI}{L}$, $\Phi = BA\cos\theta$ and
+    $\varepsilon = -N\frac{\Delta\Phi}{\Delta t}$}]{Emf in a coil wound on a solenoid}
+  \cardformula{\lvert\varepsilon_\mathrm{s}\rvert = N_\mathrm{s}\,
+    \frac{\mu_0 N_\mathrm{p} A}{L}\,\frac{\lvert\Delta I_\mathrm{p}\rvert}{\Delta t}}
+  \begin{symbols}
+    \sym{$\varepsilon_\mathrm{s}$}{average emf in the secondary coil}{\si{V}}
+    \sym{$N_\mathrm{s}$}{number of turns of the secondary}{no unit}
+    \sym{$N_\mathrm{p}$}{number of turns of the primary solenoid}{no unit}
+    \sym{$\mu_0$}{magnetic permeability constant,
+      $4\pi \times 10^{-7}$ (data sheet)}{\si{N.A^{-2}}}
+    \sym{$A$}{cross-section area of the primary}{\si{m^2}}
+    \sym{$L$}{length of the primary}{\si{m}}
+    \sym{$\Delta I_\mathrm{p}$}{change in the primary current}{\si{A}}
+    \sym{$\Delta t$}{time taken for the change}{\si{s}}
+  \end{symbols}
+  \inwords{the faster the primary current changes, the bigger the emf in the
+    secondary.}
+  \whentouse{a secondary wound tightly round the middle of a long air-core
+    solenoid, so all the primary's flux passes through it.}
+  \whennottouse{with an iron core, or with coils far apart (the flux is
+    different). A steady primary current gives zero emf.}
+  \rearranged{$\Delta t = \dfrac{N_\mathrm{s}\mu_0 N_\mathrm{p} A
+    \lvert\Delta I_\mathrm{p}\rvert}{L\lvert\varepsilon_\mathrm{s}\rvert}$ \qquad
+    $\lvert\Delta I_\mathrm{p}\rvert = \dfrac{\lvert\varepsilon_\mathrm{s}\rvert L\,
+    \Delta t}{N_\mathrm{s}\mu_0 N_\mathrm{p} A}$}
+  \tensecond{$N_\mathrm{s} = 50$, $N_\mathrm{p} = 1000$, $A = \qty{1.0e-3}{m^2}$,
+    $L = \qty{0.50}{m}$; the current rises by \qty{2.0}{A} in \qty{0.020}{s}: \
+    $\lvert\varepsilon_\mathrm{s}\rvert = \dfrac{50 \times 4\pi\times10^{-7}
+    \times 1000 \times \num{1.0e-3} \times 2.0}{0.50 \times 0.020}
+    = \qty{0.013}{V}$.}
+  \derive{only the primary current changes, and $\theta = \ang{0}$.
+    \begin{align*}
+      B &= \frac{\mu_0 N_\mathrm{p} I_\mathrm{p}}{L} && \text{field inside the primary}\\
+      \Delta\Phi &= \Delta B \times A = \frac{\mu_0 N_\mathrm{p} A\,\Delta I_\mathrm{p}}{L}
+        && \text{$\Phi = BA$, only $I_\mathrm{p}$ changes}\\
+      \lvert\varepsilon_\mathrm{s}\rvert &= N_\mathrm{s}\frac{\lvert\Delta\Phi\rvert}{\Delta t}
+        && \text{Faraday, with the secondary's turns}
+    \end{align*}}
+  \trap{there are two different $N$s. $N_\mathrm{p}$ goes into $B$;
+    $N_\mathrm{s}$ goes into Faraday's law. Use the primary's area, not the
+    secondary's.}
+\end{formulacard}
+
+\begin{workedexample}{A coil wound on a solenoid}\label{ch3:we:twocoils}
+A primary solenoid (air core) has 600 turns, length \qty{30}{cm} and radius
+\qty{2.0}{cm}. A 40-turn secondary is wound tightly around its middle. The
+primary current rises steadily from 0 to \qty{2.5}{A} in \qty{0.010}{s}.
+(a) Find the average emf in the secondary. (b) What is the emf once the current
+stays at \qty{2.5}{A}? (c) The primary's field points right. Which way does the
+secondary's induced field point while the current rises?
+\given{$N_\mathrm{p} = 600$, \ $L = \qty{0.30}{m}$, \ $r = \qty{0.020}{m}$, \
+  $N_\mathrm{s} = 40$, \ $I$: 0 $\to$ \qty{2.5}{A} in \qty{0.010}{s}. All the
+  primary's flux passes through the secondary.}
+\find{$\varepsilon$ in the secondary; $\varepsilon$ for a steady current; the
+  induced field direction}
+\formula{$B = \dfrac{\mu_0 N_\mathrm{p} I}{L}$, \ $\Phi = BA$, \
+  $\lvert\varepsilon\rvert = N_\mathrm{s}\dfrac{\lvert\Delta\Phi\rvert}{\Delta t}$}
+\substitute{\eqlines{B_\mathrm{f} &= \frac{4\pi\times10^{-7}\,\si{N.A^{-2}} \times 600 \times
+    \qty{2.5}{A}}{\qty{0.30}{m}} = \qty{6.283e-3}{T} \quad \text{(final field)}\\
+  A &= \pi \times (\qty{0.020}{m})^2 = \qty{1.257e-3}{m^2} \quad \text{(one turn)}\\
+  \Delta\Phi &= \qty{6.283e-3}{T} \times \qty{1.257e-3}{m^2} - 0 = \qty{7.90e-6}{Wb}\\
+  \lvert\varepsilon\rvert &= \frac{40 \times \qty{7.90e-6}{Wb}}{\qty{0.010}{s}}
+    = \qty{3.16e-2}{V} \quad \text{(Faraday)}}}
+\answer{(a) \final{$\qty{0.032}{V}$} (\qty{32}{mV}) \ (b) \textbf{zero}: steady
+  current, steady flux \ (c) to the \textbf{left}, opposing the growing flux}
+\checkstep{a small emf, as expected with an air core. An iron core would give a
+  much bigger flux and emf.}
+\end{workedexample}
+
+\begin{workedexample}{A magnet dropped through a coil}\label{ch3:we:drop}
+A small magnet is dropped from rest, N pole first, through a horizontal coil.
+The coil is joined to a data logger (a device that records the emf many times
+each second and draws the graph). Describe the emf--time graph and explain its
+shape.
+\given{the magnet speeds up as it falls; the coil is fixed}
+\find{the shape of the $\varepsilon$--$t$ graph, with reasons}
+\formula{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$ and Lenz's law}
+\substitute{1. Above the coil the flux increases: a first pulse.\\
+  2. At the centre the flux is largest and not changing for an instant:
+  $\varepsilon = 0$.\\
+  3. Below the coil the flux decreases: a second pulse of opposite sign.\\
+  4. The magnet is faster as it leaves, so the flux changes faster: the second
+  pulse is taller and narrower.}
+\answer{two pulses of opposite sign, the second taller and narrower
+  (\cref{ch3:fig:falling}). The area under each pulse (roughly its height
+  $\times$ width) is about the same, because each area equals
+  $N\lvert\Delta\Phi\rvert$.}
+\checkstep{a data logger lets almost no current flow, so the braking is
+  negligible. With a closed circuit, the coil repels the magnet above it and
+  attracts it below (Lenz). Some of the magnet's gravitational potential energy
+  becomes electrical energy and then heat. So it gains less kinetic energy, and
+  falls a little slower, than in free fall.}
+\begin{figure}
+  \centering
+  \includegraphics{ch3_falling.pdf}
+  \caption{Model: a magnet dropped from rest \qty{6}{cm} above a coil of radius
+    \qty{2.5}{cm}.}\label{ch3:fig:falling}
+\end{figure}
+\end{workedexample}
+
+\begin{workedexample}{Current through a drawn coil}\label{ch3:we:winding}
+A vertical coil is joined to an ammeter by leads X and Y
+(\cref{ch3:fig:winding}). A bar magnet hangs above the coil, N pole down. It is
+lifted straight up. Which way does the current flow through the ammeter?
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % back halves of the turns (faint), then front halves (solid)
+    \foreach \i in {0,...,3}
+      \draw[line width=0.7pt, hscmuted!70] (0.9,2.375-0.45*\i) -- (-0.9,2.15-0.45*\i);
+    \foreach \i in {0,...,4}
+      \draw[line width=1.6pt, hscink] (-0.9,2.6-0.45*\i) -- (0.9,2.375-0.45*\i);
+    % leads and ammeter
+    \draw[line width=0.9pt, hscink] (-0.9,2.6) -- (-0.9,2.95) -- (-2.6,2.95) -- (-2.6,1.95);
+    \draw[line width=0.9pt, hscink] (0.9,0.575) -- (0.9,0.15) -- (-2.6,0.15) -- (-2.6,1.25);
+    \draw[line width=0.9pt, hscink, fill=white] (-2.6,1.6) circle (0.35);
+    \node[font=\small] at (-2.6,1.6) {A};
+    \node[font=\small\bfseries, above] at (-1.75,2.95) {X};
+    \node[font=\small\bfseries, below] at (-0.85,0.15) {Y};
+    % magnet, N pole down, moving up
+    \fill[hscforce!22] (-0.3,3.35) rectangle (0.3,3.95);
+    \fill[hscvel!22] (-0.3,3.95) rectangle (0.3,4.55);
+    \draw[line width=0.8pt, hscink] (-0.3,3.35) rectangle (0.3,4.55);
+    \node[font=\small\bfseries] at (0,3.65) {N};
+    \node[font=\small\bfseries] at (0,4.25) {S};
+    \draw[velocity] (0.65,3.6) -- (0.65,4.45) node[right, text=hscvel] {$v$};
+    % key
+    \node[font=\footnotesize, anchor=west, align=left] at (1.35,2.2)
+      {solid: front of each turn\\ (nearest you)};
+    \node[font=\footnotesize, anchor=west, text=hscmuted] at (1.35,1.2) {faint: back};
+  \end{tikzpicture}
+  \caption{Side view of the coil. Each turn is drawn as a solid front half and a
+    faint back half.}\label{ch3:fig:winding}
+\end{figure}
+\given{the N pole is above the coil and moves away. The solid lines are the front
+  of each turn.}
+\find{the direction of the current through the ammeter}
+\formula{Lenz's law, the right-hand grip rule, then follow the drawn wire}
+\substitute{Step 1: field lines leave an N pole, so the field in the coil points
+  down. Lifting the magnet makes this downward flux decrease.\\
+  Step 2: by Lenz's law the induced field also points down, to oppose the
+  decrease. So the top face of the coil becomes an S pole.\\
+  Step 3: grip rule: a downward field needs a clockwise current, seen from above.\\
+  Step 4: clockwise from above means right to left along the front of the coil.
+  Right to left along the solid lines is also upwards. So the current flows up
+  the coil, from Y to X.\\
+  Step 5: the current leaves the coil at X, so it goes through the ammeter from
+  the X side to the Y side.}
+\answer{\final{through the ammeter from X to Y}}
+\checkstep{the top face is S, so it attracts the rising N pole and pulls against
+  the lift: the coil opposes the motion \cmark. Pushing the magnet back down would
+  reverse the current.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ One pulse only, or two pulses of the same sign. \cmark\ In and out
+        give opposite signs, with zero at the centre.
+  \item \xmark\ ``A steady primary current induces a steady secondary current.''
+        \cmark\ Only a \emph{changing} current induces an emf.
+  \item \xmark\ ``Copper is not magnetic, so a magnet cannot affect it.''
+        \cmark\ Copper conducts; the magnet pushes on the currents induced in it.
+  \item \xmark\ Guessing the meter direction from ``clockwise''. \cmark\ Find the
+        front of each turn, then follow the current to the leads.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why the galvanometer moves only when the switch is opened or closed''
+(3 marks): (1) a changing current gives a changing flux through the secondary;
+(2) Faraday: an emf only while the flux changes; (3) Lenz: on and off give
+opposite directions. Solid versus slotted rings or tubes: the slot does not stop
+the emf. It breaks the current path, so there is little current and little
+opposing force. Sketching an emf--time graph (3 marks): two pulses, opposite
+signs, zero in between, and both axes labelled with quantity and unit (emf in
+\si{V}, time in \si{s}).
+\end{examtip}
+
+\begin{quickcheck}
+  \item Two coils share an iron core. The primary's switch is closed, kept closed,
+        then opened. Describe what the galvanometer in the secondary shows.
+  \item A small coil carries a steady current. It is pushed into a larger coil
+        joined to a galvanometer, held still, then pulled out. Describe and
+        explain the readings.
+  \item Explain why an AC supply in the primary gives a continuous emf in the
+        secondary, but a DC supply does not.
+  \item A solid aluminium plate and a slotted one swing between the poles of a
+        magnet. Which stops first? Explain.
+  \item A primary solenoid (air core) has 800 turns, length \qty{0.40}{m} and
+        cross-section area \qty{5.0}{cm^2}. Its current falls steadily from
+        \qty{3.0}{A} to zero in \qty{0.025}{s}. Find the average emf in a 25-turn
+        coil wound tightly around its middle.
+\end{quickcheck}
+
+%% ===================================================================
+\section{Key experiments}\label{ch3:sec:experiments}
+\covers{M6.IQ3.02}
+
+These experiments give the evidence the syllabus asks for: magnets, straight
+wires, solenoids, metal plates, and one coil near another.
+
+\begin{experiment}{Faraday's induction experiments (1831)}
+\aim{To show that a changing flux induces an emf, using a magnet and a coil, a
+  moving straight wire, and one coil near another.}
+\apparatus{coils of 300--600 turns, bar magnets, a centre-zero galvanometer (or a
+  data logger); a U-shaped magnet and a straight wire; a soft iron ring with two
+  coils, a battery and a switch; a small coil that fits inside a larger coil
+  (\cref{ch3:fig:exp1}).
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % (a) magnet and coil
+    \fill[hscvel!22] (0,0) rectangle (0.6,0.45);
+    \fill[hscforce!22] (0.6,0) rectangle (1.2,0.45);
+    \draw[line width=0.8pt, hscink] (0,0) rectangle (1.2,0.45);
+    \node[font=\footnotesize\bfseries] at (0.3,0.225) {S};
+    \node[font=\footnotesize\bfseries] at (0.9,0.225) {N};
+    \draw[<->, line width=1.1pt, hscvel] (0.15,0.75) -- (1.05,0.75);
+    \foreach \x in {1.6, 1.82, ..., 2.5}
+      \draw[line width=1pt, hscink] (\x,0.225) ellipse (0.09 and 0.5);
+    \draw[line width=0.9pt, hscink] (1.6,-0.28) -- (1.6,-0.95) -- (1.8,-0.95);
+    \draw[line width=0.9pt, hscink] (2.48,-0.28) -- (2.48,-0.95) -- (2.36,-0.95);
+    \draw[line width=0.9pt, hscink, fill=white] (2.08,-0.95) circle (0.28);
+    \node[font=\footnotesize] at (2.08,-0.95) {G};
+    \node[font=\footnotesize] at (1.3,-1.6) {(a) magnet and coil};
+    % (b) wire across the pole face
+    \begin{scope}[xshift=3.6cm]
+      \fill[hscforce!8] (0,-0.8) rectangle (1.9,1.1);
+      \draw[line width=0.6pt, hscmuted] (0,-0.8) rectangle (1.9,1.1);
+      \foreach \x in {0.25, 0.6, 1.3, 1.65} \foreach \y in {-0.55, -0.05, 0.45, 0.9}
+        \node[text=hscfield, font=\footnotesize] at (\x,\y) {$\times$};
+      \draw[line width=2.4pt, hscmuted] (0.95,-1.0) -- (0.95,1.3);
+      \draw[<->, line width=1.1pt, hscvel] (0.4,0.2) -- (1.5,0.2);
+      \draw[line width=0.9pt, hscink] (0.95,1.3) -- (2.6,1.3) -- (2.6,0.48);
+      \draw[line width=0.9pt, hscink] (0.95,-1.0) -- (2.6,-1.0) -- (2.6,-0.08);
+      \draw[line width=0.9pt, hscink, fill=white] (2.6,0.2) circle (0.28);
+      \node[font=\footnotesize] at (2.6,0.2) {G};
+      \node[font=\footnotesize, align=center, anchor=south] at (0.95,1.36)
+        {gap between the poles\\ of a U-shaped magnet};
+      \node[font=\footnotesize, align=center] at (1.25,-1.6) {(b) wire moved across\\ the field (into page)};
+    \end{scope}
+    % (c) Faraday's iron ring
+    \begin{scope}[xshift=10.4cm, yshift=0.1cm]
+      \draw[line width=6pt, hscmuted!45] (0,0) circle (0.72);
+      \foreach \a in {145, 157, ..., 217}
+        \draw[line width=0.9pt, hscink] (\a:0.5) -- (\a:0.94);
+      \foreach \a in {-36, -24, ..., 36}
+        \draw[line width=0.9pt, hscink] (\a:0.5) -- (\a:0.94);
+      \node[font=\footnotesize] at (0,1.05) {iron ring};
+      \draw[line width=0.9pt, hscink] (145:0.94) -- (-1.75,0.54) -- (-1.75,0.2);
+      \draw[line width=0.9pt, hscink] (215:0.94) -- (-1.75,-0.54) -- (-1.75,-0.25);
+      \draw[line width=1.2pt, hscink] (-2.0,0.2) -- (-1.5,0.2);
+      \draw[line width=2.2pt, hscink] (-1.88,0.05) -- (-1.62,0.05);
+      \fill[hscink] (-1.75,-0.25) circle (1.3pt);
+      \draw[line width=0.9pt, hscink] (-1.75,-0.25) -- ++(-60:0.32);
+      \draw[line width=0.9pt, hscink] (-1.75,0.05) -- (-1.75,-0.05);
+      \node[font=\footnotesize, anchor=east] at (-2.0,0.12) {battery};
+      \node[font=\footnotesize, anchor=east] at (-1.85,-0.42) {switch};
+      \draw[line width=0.9pt, hscink] (35:0.94) -- (1.7,0.54) -- (1.7,0.28);
+      \draw[line width=0.9pt, hscink] (-35:0.94) -- (1.7,-0.54) -- (1.7,-0.28);
+      \draw[line width=0.9pt, hscink, fill=white] (1.7,0) circle (0.28);
+      \node[font=\footnotesize] at (1.7,0) {G};
+      \node[font=\footnotesize, align=center] at (0,-1.7) {(c) Faraday's iron ring:\\ primary (left), secondary (right)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Faraday's three induction tests.}\label{ch3:fig:exp1}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item With nothing moving, check that the galvanometer reads zero.
+  \item (a) Push the N pole into the coil. Hold it still. Then pull it out.
+        Repeat with the S pole. Then repeat faster, with a stronger magnet, and
+        with more turns. Finally, move the coil instead of the magnet.
+  \item (b) Move the wire across the gap of the U-shaped magnet. Then move it
+        along the field lines (from pole to pole).
+  \item (c) Close the switch, keep it closed for about \qty{10}{s}, then open it.
+  \item (d) Connect the small coil to a battery, so it has a steady current. Push
+        it into the larger coil, which is joined to the galvanometer. Hold it
+        still, then pull it out.
+\end{enumerate}}
+\results{Typical results:
+  \begin{center}\small
+  \begin{tabular}{@{}L{74mm}L{52mm}@{}}
+    \toprule
+    \colhead{Action} & \colhead{Galvanometer}\\
+    \midrule
+    magnet and coil still & zero\\
+    N pole pushed in & flick left\\
+    N pole pulled out & flick right\\
+    S pole pushed in & flick right\\
+    faster, stronger magnet, or more turns & bigger flick\\
+    coil moved instead of the magnet & same results\\
+    wire moved across the field & small flick\\
+    wire moved along the field & zero\\
+    switch closed & flick\\
+    switch kept closed & zero\\
+    switch opened & flick the other way\\
+    small coil (steady current) pushed in & flick\\
+    small coil held still inside & zero\\
+    small coil pulled out & flick the other way\\
+    \bottomrule
+  \end{tabular}
+  \end{center}}
+\conclusion{an emf is induced only while the flux through the circuit changes. It
+  grows with the rate of change and the number of turns
+  ($\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$), and it reverses when the change
+  reverses (Lenz). It does not matter whether the magnet or the coil moves; only
+  the relative motion matters, and only if it changes the flux. A changing
+  current in a nearby coil, or a moving coil with a current, works just like a
+  moving magnet.}
+\significance{with Ørsted's discovery (1820), this showed that electricity and
+  magnetism are linked. Generators, microphones and transformers (\cref{ch4:chap}) all
+  use it.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} change one variable at a time. Hand speed is hard to
+        control, so drop the magnet through the coil from a measured height.
+  \item \textbf{Reliability:} repeat each action at least three times; the flicks
+        should agree.
+  \item \textbf{Accuracy:} flicks are brief, so record the emf with a data logger.
+        Before testing Lenz's law, find which way the needle moves for a known
+        current (use a cell and a resistor).
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Eddy currents: falling magnets and swinging plates}
+\aim{To show that currents induced in solid metal oppose the motion that causes
+  them (evidence for Lenz's law).}
+\apparatus{a strong (neodymium) magnet of mass \qty{20}{g}; a non-magnetic metal
+  cylinder of the same size and mass; \qty{0.80}{m} tubes of PVC, copper, and
+  slotted copper; light gates (sensors that record when an object passes them)
+  or a stopwatch; solid and slotted aluminium plates that swing as pendulums; a
+  U-shaped magnet (\cref{ch3:fig:tubes}).
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \xc/\fillc/\lab in {0/hscmuted!12/PVC, 2.2/brown!35/copper, 4.4/brown!35/slotted copper} {
+      \fill[\fillc] (\xc-0.3,0) rectangle (\xc+0.3,2.5);
+      \draw[line width=0.8pt, hscink] (\xc-0.3,0) rectangle (\xc+0.3,2.5);
+      \fill[hscink] (\xc-0.17,2.1) rectangle (\xc+0.17,2.35);
+      \draw[velocity] (\xc+0.55,2.25) -- (\xc+0.55,1.5);
+      \node[font=\footnotesize, align=center, anchor=north] at (\xc,-0.1) {\lab};}
+    \draw[line width=1.6pt, white] (4.4,0.05) -- (4.4,2.45);
+    \foreach \y in {1.9, 0.3}
+      \draw[line width=0.6pt, hscink, fill=hscbrand!15] (-0.75,\y-0.1) rectangle (-0.45,\y+0.1);
+    \node[font=\footnotesize, anchor=east] at (-0.8,1.9) {light gate};
+    \node[font=\footnotesize, anchor=east] at (-0.8,0.3) {light gate};
+    \draw[<->, line width=0.6pt, hscmuted] (5.3,0) -- (5.3,2.5)
+      node[midway, right, text=hscink, font=\footnotesize] {\qty{0.80}{m}};
+    \draw[guide] (-0.17,2.25) -- (-0.6,2.6) node[left, font=\footnotesize] {magnet};
+    % swinging plates between the poles of a U-shaped magnet (B into the page)
+    \foreach \xc/\lab in {7.2/{solid:\\ stops quickly}, 9.4/{slotted:\\ swings longer}} {
+      \fill[hscforce!10] (\xc-0.75,0.15) rectangle (\xc+0.75,1.25);
+      \draw[line width=0.6pt, hscmuted] (\xc-0.75,0.15) rectangle (\xc+0.75,1.25);
+      \foreach \x in {-0.57, 0.57} \foreach \y in {0.35, 0.7, 1.05}
+        \node[text=hscfield, font=\footnotesize] at (\xc+\x,\y) {$\times$};
+      \fill[hscink] (\xc,2.5) circle (1.6pt);
+      \draw[line width=1.0pt, hscink] (\xc,2.5) -- (\xc,1.15);
+      \draw[<->, line width=0.9pt, hscvel] ($(\xc,2.5)+(240:0.85)$) arc (240:300:0.85);
+      \node[font=\footnotesize, align=center, anchor=north] at (\xc,-0.1) {\lab};}
+    % solid plate
+    \filldraw[fill=brown!35, draw=hscink, line width=0.8pt] (6.8,0.35) rectangle (7.6,1.15);
+    % slotted (comb) plate: three slots cut up from the bottom edge
+    \filldraw[fill=brown!35, draw=hscink, line width=0.8pt]
+      (9.0,1.15) -- (9.8,1.15) -- (9.8,0.35) -- (9.68,0.35) -- (9.68,1.0)
+      -- (9.56,1.0) -- (9.56,0.35) -- (9.46,0.35) -- (9.46,1.0) -- (9.34,1.0)
+      -- (9.34,0.35) -- (9.24,0.35) -- (9.24,1.0) -- (9.12,1.0) -- (9.12,0.35)
+      -- (9.0,0.35) -- cycle;
+  \end{tikzpicture}
+  \caption{Left: a magnet dropped through three tubes. Right: plates swinging
+    between magnet poles (shaded).}\label{ch3:fig:tubes}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Release the magnet from rest at the top of the PVC tube; record the fall
+        time. Repeat with the copper and slotted copper tubes.
+  \item Drop the non-magnetic cylinder through the copper tube.
+  \item Do three trials of each and find the mean.
+  \item Swing a solid aluminium plate, then a slotted one, between the poles of a
+        strong magnet. Count the swings before each stops.
+\end{enumerate}}
+\results{Sample class results (fall times through the tube):
+  \begin{center}\small
+  \begin{tabular}{@{}L{60mm}C{14mm}C{14mm}C{14mm}C{15mm}@{}}
+    \toprule
+    \colhead{Object and tube} & \colhead{Trial 1} & \colhead{Trial 2}
+      & \colhead{Trial 3} & \colhead{Mean}\\
+    \midrule
+    magnet, PVC tube & \qty{0.41}{s} & \qty{0.40}{s} & \qty{0.42}{s} & \qty{0.41}{s}\\
+    non-magnetic cylinder, copper tube & \qty{0.40}{s} & \qty{0.42}{s} & \qty{0.41}{s} & \qty{0.41}{s}\\
+    magnet, slotted copper tube & \qty{0.55}{s} & \qty{0.58}{s} & \qty{0.54}{s} & \qty{0.56}{s}\\
+    magnet, copper tube & \qty{3.52}{s} & \qty{3.61}{s} & \qty{3.58}{s} & \qty{3.57}{s}\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  Free fall through \qty{0.80}{m}: from $s = ut + \frac12 at^2$ with $u = 0$,
+  $t = \sqrt{2s/g} = \sqrt{2 \times \qty{0.80}{m} \div \qty{9.8}{m.s^{-2}}}
+  = \qty{0.40}{s}$.
+  The solid plate stops within a few swings; the slotted plate swings many more
+  times.}
+\conclusion{only a magnet in a conducting tube is slowed. The falling magnet
+  changes the flux through each ring of copper, inducing eddy currents (Faraday).
+  By Lenz's law the copper below repels it and the copper above attracts it: an
+  upward force. The magnet soon reaches a steady speed of about
+  $\qty{0.80}{m} \div \qty{3.57}{s} = \qty{0.224}{m.s^{-1}}$. The \qty{20}{g}
+  (\qty{0.020}{kg}) magnet loses
+  $\Delta U = mg\Delta h = \qty{0.020}{kg} \times \qty{9.8}{m.s^{-2}} \times
+  \qty{0.80}{m} = \qty{0.157}{J}$ of gravitational potential energy. It gains only
+  $K = \frac12 mv^2 = \frac12 \times \qty{0.020}{kg} \times
+  (\qty{0.224}{m.s^{-1}})^2 = \qty{5.0e-4}{J}$ of kinetic energy. Fraction turned
+  into heat $= (0.157 - 0.0005) \div 0.157 = 0.997$, so over \qty{99}{\percent}
+  becomes heat in the tube. The slot breaks the current loops, so the braking is
+  much weaker. The same happens with the plates.}
+\significance{clear evidence for Lenz's law and energy conservation; the idea
+  behind magnetic brakes (\cref{ch5:chap}) and layered transformer cores (\cref{ch4:chap}).
+  HSC questions sometimes stand the copper tube on a balance. The tube pushes up
+  on the falling magnet. By Newton's third law, the magnet pushes down on the
+  tube with an equal force. At the steady speed, this push equals the magnet's
+  weight. So the balance reads the same as if the magnet were resting on the
+  tube.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} same magnet, drop height and tube length. The PVC tube
+        and the non-magnetic cylinder are controls: slowing needs both a magnet and
+        a conductor.
+  \item \textbf{Reliability:} three or more trials; these agree within \qty{0.1}{s}.
+  \item \textbf{Accuracy:} stopwatch reaction time (about \qty{0.2}{s}) is half the
+        free-fall time, so use light gates or slow-motion video.
+\end{itemize}}
+\end{experiment}
+
+%% ===================================================================
+\begin{summarybox}{\Cref{ch3:chap} in five lines}
+\begin{itemize}
+  \item $\Phi = BA\cos\theta$, with $\theta$ from the normal. It changes when $B$,
+        $A$ or $\theta$ changes.
+  \item Faraday: $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$. Only a changing flux
+        induces an emf; a current also needs a closed circuit.
+  \item Lenz: the induced current opposes the change in flux. Work is done against
+        it, so energy is conserved.
+  \item Moving rod: $\varepsilon = lvB$ (not on the sheet); the force on the
+        induced current opposes the motion.
+  \item Magnets in solenoids, eddy currents in plates and two nearby coils all
+        follow the same two laws.
+\end{itemize}
+\end{summarybox}

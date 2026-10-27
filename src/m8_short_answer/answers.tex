@@ -1,0 +1,562 @@
+% answers.tex -- marking criteria and sample answers for questions.tex (Module 8 short answer).
+% NESA marking-guideline style: a criteria table for each part, then a sample answer.
+% Every number: checks/m8-short-answer/numbers.py
+% Build: TEXINPUTS=.: xelatex answers.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{mathtools}
+\usepackage{quiz}
+\hypersetup{pdftitle={Short Answer Questions - Module 8 - From the Universe to the Atom - Marking guidelines}}
+% links between the two PDF files are not possible, so question headings are plain text here
+\renewcommand\hyperlink[2]{#2}
+\newcommand\anstopic[1]{\par\Needspace{8\baselineskip}\vspace{4mm}%
+  \begin{center}{\headfont\bfseries\fontsize{14}{18}\selectfont #1\par}\end{center}\vspace{2pt}}
+\newcommand\nuc[3]{\ensuremath{\prescript{#1}{#2}{\mathrm{#3}}}}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Short Answer Questions - Module 8 - From the Universe to the Atom:\\
+  Marking Guidelines and Sample Answers}
+
+Data used: $c = \qty{3.00e8}{m.s^{-1}}$, $h = \qty{6.626e-34}{J.s}$, $e = \qty{1.602e-19}{C}$,
+$m_\mathrm{e} = \qty{9.109e-31}{kg}$, $m_\mathrm{p} = \qty{1.673e-27}{kg}$,
+$\qty{1}{u} = \qty{1.661e-27}{kg} = \qty{931.5}{MeV}/c^2$, $R = \qty{1.097e7}{m^{-1}}$, $g = \qty{9.8}{m.s^{-2}}$.
+In calculations, a correct answer from a correct method with an earlier error carried forward still earns
+the later marks.
+
+% =====================================================================
+\anstopic{Topic 1 - Origins of the Elements}
+
+% ---- Q1
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the gradient of the line of best fit}{2}
+  \critrow{Identifies $H_0$ as the gradient, OR calculates $\frac{v}{d}$ for one data point that is not on the line}{1}
+\end{crit}
+\sample
+$v = H_0 d$, so $H_0$ is the gradient of the line:
+$H_0 = \dfrac{6800 - 0}{100 - 0} = \qty{68}{km.s^{-1}.Mpc^{-1}}$ (accept 66 to 70).
+\anspart{b}
+\begin{crit}
+  \critrow{Converts $H_0$ to SI units AND correctly calculates the age in years}{2}
+  \critrow{Shows one correct step}{1}
+\end{crit}
+\sample
+$H_0 = \dfrac{\qty{68e3}{m.s^{-1}}}{\qty{3.09e22}{m}} = \qty{2.20e-18}{s^{-1}}$. \quad
+$t = \dfrac{1}{H_0} = \qty{4.5e17}{s} = \dfrac{\num{4.5e17}}{\num{3.16e7}} = \qty{1.4e10}{years}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Links recession proportional to distance to an expanding universe that began from a hot,
+    dense state}{1}
+\end{crit}
+\sample
+Galaxies are moving away from us with speeds proportional to their distance, so the universe is
+expanding. Running the expansion backwards, all the matter was once together in an extremely hot, dense
+state, as the Big Bang theory says.
+
+% ---- Q2
+\ansq
+\begin{crit}
+  \critrow{Describes the sequence: energy forms matter ($E = mc^2$) as the universe expands and cools;
+    quarks and leptons; protons and neutrons; light nuclei; neutral atoms}{4}
+  \critrow{Describes most of the sequence}{3}
+  \critrow{Describes some stages, or the conversion of energy into matter}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item At first the universe was extremely hot and dense, and filled with radiation. As it expanded, it
+        cooled. Energy was converted into particle--antiparticle pairs ($E = mc^2$); a small excess of
+        matter over antimatter remained.
+  \item In the first fractions of a second, the universe contained quarks, leptons (such as electrons)
+        and photons.
+  \item After about \qty{e-6}{s}, it was cool enough for quarks to combine into protons and neutrons.
+  \item In the first few minutes, protons and neutrons fused into light nuclei: mainly helium-4, with a
+        little deuterium and lithium. About 75\% of the mass stayed as hydrogen nuclei (protons).
+  \item After about \num{380000} years, the universe was cool enough (about \qty{3000}{K}) for nuclei to
+        capture electrons and form neutral atoms. Light could then travel freely; this light is now the
+        cosmic microwave background.
+\end{itemize}
+
+% ---- Q3
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Identifies S, with a justification based on its position on the main sequence}{1}
+\end{crit}
+\sample
+Star S. It is at the top left of the main sequence (the hottest and most luminous main-sequence star), and
+along the main sequence, luminosity and temperature increase with mass.
+\anspart{b}
+\begin{crit}
+  \critrow{Compares both temperature AND radius, with reasons from the diagram}{2}
+  \critrow{Compares temperature OR radius}{1}
+\end{crit}
+\sample
+Star P is much hotter than star Q (it is further left). But P is much less luminous than Q, even though
+each square metre of P's surface emits more energy. So P must be very small (a white dwarf), and Q, which
+is cool but very luminous, must be very large (a red giant). Q has a much larger radius than P.
+\anspart{c}
+\begin{crit}
+  \critrow{Describes movement to the red-giant region (up and to the right) AND then to the white-dwarf
+    region (down and to the left)}{2}
+  \critrow{Describes one of these stages}{1}
+\end{crit}
+\sample
+When the hydrogen in its core runs out, the Sun's core contracts and its outer layers expand and cool. It
+becomes a red giant: its point moves up and to the right (more luminous, cooler). Later, after it has
+fused helium and thrown off its outer layers (a planetary nebula), the hot core is left as a white dwarf:
+its point moves to the bottom left (hot but very faint), and it then slowly cools and fades.
+
+% ---- Q4
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the energy in MeV}{2}
+  \critrow{Correctly calculates the mass defect}{1}
+\end{crit}
+\sample
+$\Delta m = 4(1.007825) - 4.002603 = \qty{0.028697}{u}$. \quad
+$E = 0.028697 \times 931.5 = \qty{26.7}{MeV}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Gives a correct similarity AND a correct difference}{2}
+  \critrow{Gives a similarity OR a difference}{1}
+\end{crit}
+\sample
+Similar: both convert four hydrogen nuclei into one helium-4 nucleus (with positrons and neutrinos),
+releasing the same energy (about \qty{26.7}{MeV}). Different: the proton--proton chain fuses protons
+directly and dominates in stars like the Sun and smaller. The CNO cycle uses carbon, nitrogen and oxygen
+nuclei as catalysts (they are not used up). Because these nuclei have larger charges, it needs a higher
+core temperature, so it dominates in main-sequence stars more than about 1.3 times the mass of the Sun.
+
+% =====================================================================
+\anstopic{Topic 2 - Structure of the Atom}
+
+% ---- Q5
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates $E$ AND the speed}{2}
+  \critrow{Correctly calculates $E$, OR uses $v = \frac{E}{B}$}{1}
+\end{crit}
+\sample
+$E = \dfrac{V}{d} = \dfrac{400}{0.020} = \qty{2.0e4}{V.m^{-1}}$. Undeflected: $qE = qvB$, so
+$v = \dfrac{E}{B} = \dfrac{\num{2.0e4}}{\num{8.0e-4}} = \qty{2.5e7}{m.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the charge-to-mass ratio}{2}
+  \critrow{Uses $qvB = \frac{mv^2}{r}$}{1}
+\end{crit}
+\sample
+$qvB = \dfrac{mv^2}{r}$, so $\dfrac{q}{m} = \dfrac{v}{Br} = \dfrac{\num{2.5e7}}{(\num{8.0e-4})(0.18)}
+= \qty{1.7e11}{C.kg^{-1}}$.
+\anspart{c}
+\begin{crit}
+  \critrow{States that the particles' charge-to-mass ratio is about 1800 times larger, so (for a similar
+    charge) they are much lighter than atoms: subatomic particles found in all atoms}{1}
+\end{crit}
+\sample
+The ratio is about 1800 times that of a hydrogen ion. If the charges are similar in size, the cathode-ray
+particles have about $\frac{1}{1800}$ of the mass of the lightest atom. So they are subatomic particles
+(electrons), and since the result was the same for every cathode material, they are found in all atoms.
+
+% ---- Q6
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the charge AND states that it is negative, with a reason}{2}
+  \critrow{Correctly calculates the size of the charge, OR states the sign with a reason}{1}
+\end{crit}
+\sample
+Stationary: $qE = mg$, so $q = \dfrac{mg}{E} = \dfrac{(\num{3.27e-15})(9.8)}{\num{4.0e4}} = \qty{8.0e-19}{C}$.
+The electric force must be upwards, opposite to the downward field, so the charge is negative.
+\anspart{b}
+\begin{crit}
+  \critrow{5 electrons}{1}
+\end{crit}
+\sample
+$n = \dfrac{\num{8.0e-19}}{\num{1.602e-19}} = 5$.
+\anspart{c}
+\begin{crit}
+  \critrow{States that every measured charge was a whole-number multiple of one smallest value, $e$}{1}
+\end{crit}
+\sample
+Every charge he measured was a whole-number multiple of about \qty{1.6e-19}{C}, never a fraction of it.
+So charge comes in units of $e$, the charge of one electron.
+
+% ---- Q7
+\ansq
+\begin{crit}
+  \critrow{Describes the experiment AND the results, and explains how each result led to the nuclear
+    model, in contrast with the plum-pudding model}{5}
+  \critrow{Describes the experiment and results, and links them to the nuclear model}{4}
+  \critrow{Describes the experiment and results, with a limited link to the model}{3}
+  \critrow{Describes the experiment or the results}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item \textbf{Experiment:} alpha particles from a radioactive source were fired at a very thin gold foil
+        in a vacuum. A zinc sulfide screen, viewed through a microscope, was moved around the foil to count
+        the flashes (scintillations) made by the alpha particles at different angles.
+  \item \textbf{Expected (plum-pudding model):} the positive charge is spread out, so its field is weak,
+        and all the alpha particles should pass through with only tiny deflections.
+  \item \textbf{Results:} most alpha particles went straight through or were deflected only slightly, but
+        a very small fraction (roughly 1 in 10\,000) were deflected through more than \ang{90}, some almost
+        straight back.
+  \item \textbf{Rutherford's conclusions:} since most passed straight through, the atom is mostly empty
+        space. To turn an alpha particle back needs a very strong force, so all the positive charge and
+        almost all the mass must be concentrated in a tiny, dense nucleus (about $10^{-14}$ m across,
+        compared with about $10^{-10}$ m for the atom). The rare large deflections show the nucleus is
+        tiny. The electrons orbit the nucleus at a large distance, like planets around the Sun.
+\end{itemize}
+
+% ---- Q8
+\ansq
+\begin{crit}
+  \critrow{Explains that the radiation is neutral, that gamma rays could not give the protons their
+    observed energy, AND that conservation of momentum and energy in collisions showed a neutral particle
+    with about the mass of a proton}{4}
+  \critrow{Explains most of these points}{3}
+  \critrow{Describes the experiment with some link to the neutron}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+Alpha particles hitting beryllium produced a very penetrating radiation that was not deflected by
+electric or magnetic fields, so it was neutral. Others thought it was gamma radiation. When it hit
+paraffin wax (rich in hydrogen), it knocked out protons with energies of about \qty{5.7}{MeV}. Using
+conservation of energy and momentum, a gamma photon would need about \qty{50}{MeV} to do this, far more
+than the reaction could supply. Chadwick also measured the recoil of nitrogen nuclei. Applying
+conservation of momentum and energy to both collisions (like billiard balls), he showed that the radiation
+was a neutral particle with a mass almost equal to the proton's: the neutron.
+($\nuc{9}{4}{Be} + \nuc{4}{2}{He} \rightarrow \nuc{12}{6}{C} + \nuc{1}{0}{n}$)
+
+% =====================================================================
+\anstopic{Topic 3 - Quantum Mechanical Nature of the Atom}
+
+% ---- Q9
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the wavelength}{2}
+  \critrow{Substitutes correctly into the Rydberg equation}{1}
+\end{crit}
+\sample
+$\dfrac{1}{\lambda} = R\left(\dfrac{1}{2^2} - \dfrac{1}{4^2}\right) = (\num{1.097e7})(0.1875) = \qty{2.057e6}{m^{-1}}$,
+so $\lambda = \qty{4.86e-7}{m}$ (\qty{486}{nm}).
+\anspart{b}
+\begin{crit}
+  \critrow{Calculates the photon energy in eV AND compares it with the energy-level difference}{2}
+  \critrow{Calculates the photon energy, OR the energy-level difference}{1}
+\end{crit}
+\sample
+$E = \dfrac{hc}{\lambda} = \dfrac{(\num{6.626e-34})(\num{3.00e8})}{\num{4.86e-7}} = \qty{4.09e-19}{J}
+= \qty{2.55}{eV}$. From the diagram: $E_4 - E_2 = -0.85 - (-3.40) = \qty{2.55}{eV}$. They agree.
+\anspart{c}
+\begin{crit}
+  \critrow{Visible light}{1}
+\end{crit}
+\sample
+Visible light (blue-green).
+
+% ---- Q10
+\ansq
+\begin{crit}
+  \critrow{Describes the strengths AND limitations of Bohr's model, and makes a judgement}{4}
+  \critrow{Describes strengths and limitations}{3}
+  \critrow{Describes a strength or a limitation}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item \textbf{Strengths:} Bohr combined Rutherford's nuclear model with Planck's quantum idea. His
+        postulated stationary states, in which electrons do not radiate, accounted for the stability of atoms.
+        Transitions between energy levels ($hf = E_i - E_f$) explained the line spectrum of hydrogen, and
+        his model calculated the hydrogen wavelengths accurately (it gave the Rydberg equation).
+  \item \textbf{Limitations:} it worked only for hydrogen and other one-electron ions. It could not
+        explain the spectra of atoms with more electrons, the different intensities of the lines, or the
+        splitting of lines (fine structure, and the Zeeman effect in a magnetic field). Its postulates were
+        not explained: it mixed classical orbits with quantum rules.
+  \item \textbf{Judgement:} Bohr's model was a very important step, because it introduced quantised
+        energy levels, which are still used today. But it was incomplete, and it was replaced by the
+        quantum mechanical model of de Broglie and Schrödinger.
+\end{itemize}
+
+% ---- Q11
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the speed}{2}
+  \critrow{Uses $qV = \frac{1}{2}mv^2$}{1}
+\end{crit}
+\sample
+$qV = \frac{1}{2}mv^2$, so $v = \sqrt{\dfrac{2qV}{m}} = \sqrt{\dfrac{2(\num{1.602e-19})(150)}{\num{9.109e-31}}}
+= \qty{7.3e6}{m.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the wavelength}{2}
+  \critrow{Uses $\lambda = \frac{h}{mv}$}{1}
+\end{crit}
+\sample
+$\lambda = \dfrac{h}{mv} = \dfrac{\num{6.626e-34}}{(\num{9.109e-31})(\num{7.26e6})} = \qty{1.0e-10}{m}$.
+\anspart{c}
+\begin{crit}
+  \critrow{States that the wavelength is similar to the spacing of atoms in a crystal}{1}
+\end{crit}
+\sample
+Diffraction is significant when the wavelength is similar to the size of the gaps. The spacing between
+atoms in a crystal is about \qty{e-10}{m}, the same as the electrons' wavelength, so the crystal acts like
+a diffraction grating.
+
+% ---- Q12
+\ansq
+\begin{crit}
+  \critrow{Explains electron standing waves with a whole number of wavelengths around the orbit, links this
+    to Bohr's stationary states, AND outlines one piece of evidence}{4}
+  \critrow{Explains most of these points}{3}
+  \critrow{Describes matter waves with some link to Bohr's model, OR describes the evidence}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+De Broglie proposed that all matter has a wavelength $\lambda = \frac{h}{mv}$. He treated an electron in an
+orbit as a standing wave. A standing wave fits only if a whole number of wavelengths fits around the
+circumference: $2\pi r = n\lambda$. Other orbits would make the wave interfere destructively with itself.
+Substituting $\lambda = \frac{h}{mv}$ gives $mvr = \frac{nh}{2\pi}$, exactly Bohr's condition. Because a
+standing wave does not change with time, the electron does not radiate, which explains why these states
+are stationary.
+
+\textbf{Evidence:} Davisson and Germer (1927) fired electrons at a nickel crystal and found strong
+reflection at particular angles: a diffraction pattern. The wavelength calculated from the pattern
+agreed with $\lambda = \frac{h}{mv}$. (Also accepted: G.\,P.\ Thomson's electron diffraction rings through
+thin metal foil.)
+
+% =====================================================================
+\anstopic{Topic 4 - Properties of the Nucleus}
+
+% ---- Q13
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{6.0 days (accept 5.5 to 6.5 days)}{1}
+\end{crit}
+\sample
+The curve falls from \qty{1200}{Bq} to \qty{600}{Bq} in 6.0 days, so the half-life is 6.0 days.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the decay constant}{1}
+\end{crit}
+\sample
+$\lambda = \dfrac{\ln 2}{t_{1/2}} = \dfrac{0.693}{6.0} = \qty{0.116}{day^{-1}}$ (or
+$\dfrac{0.693}{6.0 \times 86\,400} = \qty{1.34e-6}{s^{-1}}$).
+\anspart{c}
+\begin{crit}
+  \critrow{Correctly calculates the activity}{2}
+  \critrow{Substitutes correctly into $A = A_0e^{-\lambda t}$}{1}
+\end{crit}
+\sample
+$A = A_0 e^{-\lambda t} = 1200\,e^{-0.1155 \times 40} = \qty{12}{Bq}$. (Accept 10 to \qty{12}{Bq}:
+rounding $\lambda$ to 0.12 gives about \qty{10}{Bq}.)
+\anspart{d}
+\begin{crit}
+  \critrow{Explains that radioactive decay is random, so the number of decays in each time interval
+    varies}{1}
+\end{crit}
+\sample
+Radioactive decay is random. We cannot predict when a particular nucleus will decay, so the number of
+decays measured in each time interval varies around the average value given by the curve. (Background
+radiation and measurement uncertainty add to the scatter.)
+
+% ---- Q14
+\ansq
+\begin{crit}
+  \critrow{Explains that both fission and fusion produce nuclei with a higher binding energy per nucleon
+    (closer to the peak near iron-56), so the total binding energy increases and the mass decreases,
+    releasing energy ($E = \Delta m c^2$); refers to the graph}{4}
+  \critrow{Explains one process fully and the other in part}{3}
+  \critrow{Explains one process, OR identifies the peak and links it to stability}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+The binding energy per nucleon shows how tightly the nucleons are held. It is greatest near iron-56
+(about \qty{8.8}{MeV}), the most stable nuclei.
+\begin{itemize}
+  \item \textbf{Fission:} uranium-235 has about \qty{7.6}{MeV} per nucleon. When it splits into two
+        medium nuclei (around $A = 90$ and 140), they have about \qty{8.5}{MeV} per nucleon, closer to the
+        peak. For about 235 nucleons, this increase is roughly $235 \times \qty{0.9}{MeV} \approx
+        \qty{200}{MeV}$.
+  \item \textbf{Fusion:} light nuclei such as hydrogen-2 (about \qty{1.1}{MeV} per nucleon) fuse to form
+        helium-4 (about \qty{7.1}{MeV} per nucleon), a large increase.
+\end{itemize}
+In both cases, the products are more tightly bound than the reactants, so their total binding energy is
+larger. This means the products have less mass, and the lost mass is released as energy ($E = \Delta m c^2$).
+
+% ---- Q15
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{$x = 3$}{1}
+\end{crit}
+\sample
+Mass numbers: $235 + 1 = 141 + 92 + x$, so $x = 3$. (Atomic numbers: $92 = 56 + 36$.)
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the energy in MeV}{2}
+  \critrow{Correctly calculates the mass defect}{1}
+\end{crit}
+\sample
+$\Delta m = (235.0439 + 1.008665) - (140.9144 + 91.9262 + 3 \times 1.008665) = 236.0526 - 235.8666
+= \qty{0.1860}{u}$. \quad $E = 0.1860 \times 931.5 = \qty{173}{MeV}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Correctly calculates the total energy}{2}
+  \critrow{Correctly calculates the number of nuclei, OR the energy of one fission in joules}{1}
+\end{crit}
+\sample
+Number of nuclei: $N = \dfrac{1.0}{235.0439 \times \num{1.661e-27}} = \num{2.56e24}$. \quad
+Energy per fission: $173.2 \times \num{1.602e-13} = \qty{2.77e-11}{J}$. \quad
+Total: $(\num{2.56e24})(\num{2.77e-11}) = \qty{7.1e13}{J}$.
+
+% ---- Q16
+\ansq
+\begin{crit}
+  \critrow{Compares all three types for nature, charge AND penetrating ability, and explains how they are
+    deflected differently in a magnetic field (direction and amount)}{4}
+  \critrow{Compares the three types and describes the deflection, with minor errors}{3}
+  \critrow{Compares some properties, OR describes the deflection}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{center}
+  \renewcommand\arraystretch{1.4}
+  \begin{tabular}{|l|p{36mm}|p{30mm}|p{56mm}|}
+    \hline
+    & \textbf{Nature} & \textbf{Charge} & \textbf{Penetrating ability}\\ \hline
+    Alpha & helium nucleus (2 protons, 2 neutrons) & $+2e$ & low: stopped by paper or a few cm of air\\ \hline
+    Beta & fast electron ($\beta^-$) or positron ($\beta^+$) & $-e$ (or $+e$) & medium: stopped by a few mm of
+    aluminium\\ \hline
+    Gamma & high-energy EM photon & 0 & high: reduced by thick lead or concrete\\ \hline
+  \end{tabular}
+\end{center}
+In a magnetic field at right angles to their motion, the charged particles follow curved paths
+($r = \frac{mv}{qB}$). Alpha and beta-minus particles curve in opposite directions because their charges
+have opposite signs. Beta particles curve much more sharply (smaller radius), because they have much less
+momentum for their charge ($r = \frac{p}{qB}$; their charge-to-mass ratio is far larger). Gamma rays are
+uncharged, so they are not deflected.
+
+% =====================================================================
+\anstopic{Topic 5 - Deep Inside the Atom}
+
+% ---- Q17
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Shows that the charges add to $+e$}{1}
+\end{crit}
+\sample
+$\left(+\frac{2}{3}\right) + \left(+\frac{2}{3}\right) + \left(-\frac{1}{3}\right) = +1$, so the charge is
+$+e$.
+\anspart{b}
+\begin{crit}
+  \critrow{$+e$}{1}
+\end{crit}
+\sample
+Up quark: $+\frac{2}{3}e$; anti-down quark: $+\frac{1}{3}e$ (opposite to the down quark). Total: $+e$.
+\anspart{c}
+\begin{crit}
+  \critrow{Classifies all four correctly}{2}
+  \critrow{Classifies two or three correctly}{1}
+\end{crit}
+\sample
+Electron: lepton. \quad Neutron: baryon (three quarks, udd). \quad $\pi^+$: meson (quark and antiquark).
+\quad Photon: gauge boson (carries the electromagnetic force).
+
+% ---- Q18
+\ansq
+\begin{crit}
+  \critrow{Explains that a two-body decay would give electrons one fixed energy, that the continuous
+    spectrum suggested missing energy (and momentum), that Pauli proposed a light neutral particle to
+    conserve them, AND describes the quark-level decay (d $\rightarrow$ u; the W boson is not required)}{5}
+  \critrow{Explains most of these points}{4}
+  \critrow{Explains the neutrino prediction OR the quark-level decay well}{3}
+  \critrow{Describes some relevant points}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item If a nucleus emitted only an electron (so there were just two products: the daughter nucleus and
+        the electron), conservation of energy and momentum would give every electron the same kinetic
+        energy. Instead, the electrons have a
+        continuous range of energies, up to a maximum. It looked as if energy (and momentum) were not
+        conserved.
+  \item In 1930, Pauli proposed that a third particle is also emitted, carrying away the missing energy
+        and momentum. It had to be neutral (charge was already conserved) and have very little or no mass
+        (the maximum electron energy equals the total energy released). Fermi named it the neutrino. It
+        interacts so weakly that it was not detected until 1956.
+  \item At the quark level, one down quark in the neutron (udd) changes into an up quark, making a proton
+        (uud). This happens through the weak force: the down quark emits a $\mathrm{W}^-$ boson, which
+        quickly decays into an electron and an electron antineutrino:
+        $\mathrm{n} \rightarrow \mathrm{p} + \mathrm{e}^- + \bar{\nu}_\mathrm{e}$. Charge and lepton number
+        are conserved.
+\end{itemize}
+
+% ---- Q19
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates $\gamma$}{2}
+  \critrow{Converts the energy to joules, OR calculates $mc^2$}{1}
+\end{crit}
+\sample
+$E = (\num{6.8e12})(\num{1.602e-19}) = \qty{1.09e-6}{J}$. \quad
+$mc^2 = (\num{1.673e-27})(\num{3.00e8})^2 = \qty{1.51e-10}{J}$. \quad
+$\gamma = \dfrac{E}{mc^2} = \dfrac{\num{1.09e-6}}{\num{1.51e-10}} = \num{7.2e3}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Explains that collision energy is converted into the mass of new heavy particles ($E = mc^2$),
+    AND/OR that high-energy particles have short wavelengths to probe small distances, with clear
+    reasoning}{2}
+  \critrow{States one reason without explanation}{1}
+\end{crit}
+\sample
+In a collision, energy can be converted into mass ($E = mc^2$). Many particles are very massive (for
+example, the Higgs boson, discovered at the LHC in 2012, has about 133 times the mass of a proton), so very
+large collision energies are needed to create them. Also, high-energy particles have a very short de Broglie wavelength
+($\lambda = \frac{h}{p}$), so they can probe very small distances, such as the structure inside protons.
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that a large $\gamma$ means $v$ is very close to $c$, but reaching $c$ would need
+    infinite energy}{1}
+\end{crit}
+\sample
+$\gamma = \num{7.2e3}$ means $\sqrt{1 - \frac{v^2}{c^2}}$ is tiny, so $v$ is extremely close to $c$
+(about $0.99999999c$). But $\gamma$ becomes infinite at $v = c$, so reaching $c$ would need infinite
+energy. Extra energy increases $\gamma$ a lot, but barely changes the speed.
+
+% ---- Q20
+\ansq
+\begin{crit}
+  \critrow{Analyses at least TWO pieces of evidence, explaining how each shows that protons and neutrons
+    have internal structure (quarks)}{4}
+  \critrow{Describes two pieces of evidence with some explanation}{3}
+  \critrow{Describes one piece of evidence}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item \textbf{Deep inelastic scattering (Stanford, 1968):} high-energy electrons, with de Broglie
+        wavelengths much smaller than a proton, were fired at protons. Many more were scattered through
+        large angles than expected for a smooth, spread-out charge. Just as in the Geiger--Marsden
+        experiment, this showed that the charge is concentrated in small, point-like particles inside the
+        proton. Later experiments (early 1970s) showed that these have fractional charges: quarks.
+  \item \textbf{The ``particle zoo'':} accelerators produced hundreds of new hadrons. Gell-Mann's
+        ``Eightfold Way'' arranged them in patterns and predicted a missing particle, the $\Omega^-$, which
+        was found in 1964. That year Gell-Mann and Zweig explained these patterns: every hadron is a
+        combination of a few quarks (the $\Omega^-$ is sss).
+  \item \textbf{Other evidence:} the neutron has no charge but has a magnetic moment, so it must contain
+        moving charges. Beta decay, in which a neutron changes into a proton, is also consistent with the
+        quark picture: one down quark changes into an up quark.
+\end{itemize}
+Together, this evidence shows that protons and neutrons are made of quarks, which are fundamental, even
+though free quarks are never seen on their own.
+
+\end{document}

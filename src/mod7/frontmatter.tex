@@ -1,0 +1,190 @@
+% frontmatter.tex -- Module 7 (The Nature of Light): cover, How to use this guide,
+% Contents, Module overview.
+% Formula list: the formula cards of ch1.tex-ch4.tex (same forms and same badges).
+% Experiment list: the Key experiment boxes of ch1.tex-ch4.tex.
+\makecover
+\IfFileExists{../common/howtouse.tex}{\input{../common/howtouse}}{}
+\tableofcontents
+
+\unnumberedchapter[\faMap]{Module overview}
+
+% Small marks for the "on the sheet?" column (same words, icons and colours as \frow).
+\newcommand\ovSheetYes{\textcolor{hscformula}{\footnotesize\bfseries\faCheck\ Yes}}
+\newcommand\ovSheetNo{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes\ Learn it}}
+\newcommand\ovSheetCombine{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink\ Combine}}
+% \ovPad{height}{depth}: extra room in a table row for a tall formula
+\newcommand\ovPad[2]{\rule[-#2]{0pt}{0pt}\rule{0pt}{#1}}
+
+\section*{What this module is about}
+
+Module~7 asks one big question: \emph{what is light?} Newton (about 1700) said light is a
+stream of tiny particles. Huygens said it is a wave. Diffraction, interference and
+polarisation later showed that light behaves as a wave.
+
+In the 1860s, Maxwell showed that light is an electromagnetic (EM) wave: a wave of electric
+and magnetic fields. Spectra (light spread out into its colours) tell us which elements a
+lamp or a star contains.
+
+Around 1900, the glow of hot objects and the photoelectric effect did not fit the wave model.
+Planck and Einstein explained them: light energy comes in packets, called photons. So light
+acts as a wave \emph{and} as a stream of particles.
+
+Every observer measures the same speed for light in a vacuum. From this, Einstein showed that moving
+clocks run slow, moving objects are shorter, and mass is a form of energy ($E = mc^2$).
+
+\section*{The inquiry questions}
+
+Each chapter answers one inquiry question of the syllabus.
+
+\begin{enumerate}[label=\textbf{IQ\arabic*}, leftmargin=3.2em, itemsep=3pt]
+  \item \emph{What is light?}\hfill \cref{ch1:chap}\\
+        Maxwell and EM waves, measuring the speed of light, and spectra of elements and stars.
+  \item \emph{What evidence supports the classical wave model of light, and what
+        predictions can be made using this model?}\hfill \cref{ch2:chap}\\
+        Newton and Huygens, diffraction, interference, gratings and polarisation.
+  \item \emph{What evidence supports the particle model of light, and what does this
+        evidence mean for the quantum model of light?}\hfill \cref{ch3:chap}\\
+        Black bodies, Planck's quanta, the photoelectric effect and Einstein's photons.
+  \item \emph{How does the behaviour of light affect concepts of time, space and
+        matter?}\hfill \cref{ch4:chap}\\
+        Einstein's postulates, time dilation, length contraction, $p_\mathrm{v}$ and
+        $E = mc^2$.
+\end{enumerate}
+
+\section*{How the parts fit together}
+
+\Cref{ov:fig:map} shows how the four chapters are linked. Start at the top and follow the
+arrows.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \node[concept=37mm] (A) at (0,0)
+      {\textbf{Light is an EM wave}\\Maxwell, 1860s\\[1pt]{\footnotesize\color{hscmuted}Chapter 1}};
+    \node[concept=37mm] (D) at (-5.4,-3.6)
+      {\textbf{Wave model}\\diffraction, interference, polarisation\\[1pt]
+       {\footnotesize\color{hscmuted}Chapter 2}};
+    \node[concept=37mm] (C) at (0,-3.6)
+      {\textbf{Spectra}\\identify elements; study stars\\[1pt]
+       {\footnotesize\color{hscmuted}Chapter 1}};
+    \node[concept=37mm] (B) at (5.4,-3.6)
+      {\textbf{The speed of light}\\measured; now fixed, and it defines the metre\\[1pt]
+       {\footnotesize\color{hscmuted}Chapter 1}};
+    \node[concept=37mm] (E) at (-5.4,-7.4)
+      {\textbf{Particle model}\\black bodies, the photoelectric effect, \mbox{$E = hf$}\\[1pt]
+       {\footnotesize\color{hscmuted}Chapter 3}};
+    \node[concept=37mm] (F) at (0,-7.4)
+      {\textbf{Wave--particle duality}\\light acts as a wave \emph{and} as particles\\[1pt]
+       {\footnotesize\color{hscmuted}Chapters 2 and 3}};
+    \node[concept=37mm] (G) at (5.4,-7.4)
+      {\textbf{Special relativity}\\time dilation, length contraction, $p_\mathrm{v}$,
+       \mbox{$E = mc^2$}\\[1pt]{\footnotesize\color{hscmuted}Chapter 4}};
+    \draw[link] (A.west) -| node[linklabel, pos=0.3, above] {a transverse wave} (D.north);
+    \draw[link] (A.south) -- node[linklabel] {a spectrum of wavelengths} (C.north);
+    \draw[link] (A.east) -| node[linklabel, pos=0.3, above] {predicts the speed $c$} (B.north);
+    \draw[link] (D.south) -- node[linklabel, align=center] {fails for hot objects\\and the
+      photoelectric effect} (E.north);
+    \draw[link] (D.south east) -- node[linklabel, sloped] {waves} (F.north west);
+    \draw[link] (E.east) -- node[linklabel, above=1pt] {photons} (F.west);
+    \draw[link] (B.south) -- node[linklabel, align=center] {the same for\\every observer} (G.north);
+  \end{tikzpicture}
+  \caption{How the ideas in Module 7 are linked.}\label{ov:fig:map}
+\end{figure}
+
+\section*{Formulas at a glance}
+
+\Cref{ov:tab:formulas} lists every formula card in this book. The last column is about the
+official HSC formula sheet: \ovSheetYes\ = printed on the sheet; \ovSheetNo\ = learn it or
+derive it; \ovSheetCombine\ = join two formulas from the sheet. The \emph{Formula sheet
+explained} chapter (page~\pageref{fs:start}) gives more detail.
+
+{\small
+\renewcommand\arraystretch{1.3}\arrayrulecolor{hscrule}%
+\setlength\LTpre{4pt}\setlength\LTpost{2pt}%
+\begin{longtable}{@{}C{44mm}@{\hspace{2mm}}L{72mm}@{\hspace{2mm}}C{8mm}@{\hspace{2mm}}C{20mm}@{}}
+  \caption{Every formula card in Module 7, in chapter order.}\label{ov:tab:formulas}\\
+  \colhead{Formula} & \colhead{What it is for} & \colhead{Ch} & \colhead{On the sheet?}\\\hline
+  \endfirsthead
+  \colhead{Formula} & \colhead{What it is for} & \colhead{Ch} & \colhead{On the sheet?}\\\hline
+  \endhead
+  \ovPad{3.2ex}{2.6ex}$c = \dfrac{1}{\sqrt{\mu_0\varepsilon_0}}$ & Maxwell's predicted speed of EM waves & 1 & \ovSheetNo\\\hline
+  $c = f\lambda$ & frequency and wavelength of an EM wave in a vacuum or air & 1 & \ovSheetCombine\\\hline
+  \ovPad{3.0ex}{1.8ex}$c = \dfrac{d}{t}$ & the speed of light from a distance and a time & 1 & \ovSheetNo\\\hline
+  \ovPad{3.0ex}{1.8ex}$\lambda_\mathrm{max} = \dfrac{b}{T}$ & Wien's law: peak wavelength and temperature & 1, 3 & \ovSheetYes\\\hline
+  \ovPad{3.0ex}{1.8ex}$n_\mathrm{x} = \dfrac{c}{v_\mathrm{x}}$ & the speed of light in water or glass & 2 & \ovSheetYes\\\hline
+  $d\sin\theta = m\lambda$ & bright fringes of a double slit or a grating & 2 & \ovSheetYes\\\hline
+  $d\sin\theta = \left(m - \tfrac{1}{2}\right)\lambda$ & dark fringes of a double slit ($m = 1, 2, 3, \ldots$) & 2 & \ovSheetNo\\\hline
+  $\delta = \left|S_2P - S_1P\right|$ & path difference from the distances to two sources: bright (loud) or dark (quiet)? & 2 & \ovSheetNo\\\hline
+  $y = L\tan\theta$ & where a fringe lands on the screen & 2 & \ovSheetNo\\\hline
+  \ovPad{3.0ex}{1.8ex}$\Delta y = \dfrac{\lambda L}{d}$ & fringe spacing (double slit, small angles) & 2 & \ovSheetNo\\\hline
+  \ovPad{3.0ex}{1.8ex}$d = \dfrac{1}{N}$ & grating spacing from lines per metre & 2 & \ovSheetNo\\\hline
+  $I = \tfrac{1}{2}I_0$ & unpolarised light through the first polariser & 2 & \ovSheetNo\\\hline
+  $I = I_\mathrm{max}\cos^2\theta$ & Malus' law: polarised light through a polariser & 2 & \ovSheetYes\\\hline
+  $E = hf$ & the energy of one quantum (photon) & 3 & \ovSheetYes\\\hline
+  \ovPad{3.0ex}{1.8ex}$E = \dfrac{hc}{\lambda}$ & photon energy from the wavelength ($E = hf$ card) & 3 & \ovSheetCombine\\\hline
+  $K_\mathrm{max} = qV_0$ & stopping voltage and maximum kinetic energy & 3 & \ovSheetCombine\\\hline
+  $K_\mathrm{max} = hf - \phi$ & Einstein's photoelectric equation & 3 & \ovSheetYes\\\hline
+  \ovPad{3.0ex}{1.8ex}$\phi = hf_0 \quad \lambda_0 = \dfrac{hc}{\phi}$ & threshold frequency and threshold wavelength & 3 & \ovSheetNo\\\hline
+  \ovPad{3.0ex}{1.8ex}$\dfrac{N}{t} = \dfrac{P}{hf} = \dfrac{P\lambda}{hc}$ & photons each second from a lamp or laser & 3 & \ovSheetNo\\\hline
+  \ovPad{3.0ex}{1.8ex}$V_0 = \dfrac{h}{q}f - \dfrac{\phi}{q}$ & reading $h$, $f_0$ and $\phi$ from a $V_0$--$f$ graph & 3 & \ovSheetNo\\\hline
+  \ovPad{3.4ex}{5.0ex}$t = \dfrac{t_0}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$ & time dilation: a moving clock runs slow & 4 & \ovSheetYes\\\hline
+  \ovPad{3.6ex}{2.6ex}$l = l_0\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}$ & length contraction along the motion & 4 & \ovSheetYes\\\hline
+  \ovPad{3.4ex}{5.0ex}$p_\mathrm{v} = \dfrac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$ & relativistic momentum at any speed & 4 & \ovSheetYes\\\hline
+  $E = mc^2$ & energy from lost mass: fusion, annihilation, burning & 4 & \ovSheetYes\\\hline
+  \ovPad{3.0ex}{1.8ex}$\dfrac{\Delta m}{\Delta t} = \dfrac{P}{c^2}$ & mass lost each second by the Sun or a power station & 4 & \ovSheetCombine\\\hline
+\end{longtable}}
+
+% Layout (book QA): keep the heading and its intro with the start of the table.
+\Needspace{14\baselineskip}
+\section*{Key experiments}
+
+These are the experiments in this module (\cref{ov:tab:experiments}). Learn what each one
+showed: questions often ask you to recount one, or to assess its validity, reliability or
+accuracy. A star ($\ast$) marks an investigation that the syllabus says you must carry out.
+
+{\small
+\renewcommand\arraystretch{1.2}\arrayrulecolor{hscrule}%
+\setlength\LTpre{4pt}\setlength\LTpost{2pt}%
+\begin{longtable}{@{}L{52mm}@{\hspace{3mm}}L{72mm}@{\hspace{3mm}}L{19mm}@{}}
+  \caption{Key experiments in Module 7.}\label{ov:tab:experiments}\\
+  \colhead{Experiment} & \colhead{What it showed} & \colhead{Where}\\\hline
+  \endfirsthead
+  \colhead{Experiment} & \colhead{What it showed} & \colhead{Where}\\\hline
+  \endhead
+  Hertz's radio waves (1887) & EM waves exist and travel at about $c$ &
+    \cref{ch1:sec:maxwell}\\\hline
+  Galileo's lanterns (about 1638) & light is far too fast to time by hand &
+    \cref{ch1:sec:experiments}\\\hline
+  Rømer: the eclipses of Io (1676) & light takes time to travel (its speed is finite) &
+    \cref{ch1:sec:experiments}\\\hline
+  Fizeau's toothed wheel (1849) & the first value of $c$ measured on Earth &
+    \cref{ch1:sec:experiments}\\\hline
+  Measuring $c$ with a microwave oven $\ast$ & a modern school method: $c = f\lambda$ &
+    \cref{ch1:sec:experiments}\\\hline
+  Spectra of gases, a filament and sunlight $\ast$ & continuous, emission and absorption
+    spectra & \cref{ch1:sec:experiments}\\\hline
+  Foucault: light in water (1850) & light is slower in water, so Newton was wrong &
+    \cref{ch2:sec:experiments}\\\hline
+  Diffraction of laser light $\ast$ & a narrower slit spreads the light more &
+    \cref{ch2:sec:experiments}\\\hline
+  Young's double slit; gratings $\ast$ & interference: light is a wave; measuring $\lambda$ &
+    \cref{ch2:sec:experiments}\\\hline
+  Testing Malus' law $\ast$ & $I = I_\mathrm{max}\cos^2\theta$; light is transverse &
+    \cref{ch2:sec:experiments}\\\hline
+  Black body curves (1899--1900) & classical physics fails; Planck's quanta &
+    \cref{ch3:sec:experiments}\\\hline
+  The photoelectric effect & a threshold frequency; $h$ and $\phi$ from a graph &
+    \cref{ch3:sec:experiments}\\\hline
+  Michelson and Morley (1887) & no aether (a null result): supports the postulates &
+    \cref{ch4:sec:experiments}\\\hline
+  Cosmic-ray muons (1963) & many more reach sea level than expected: time dilation &
+    \cref{ch4:sec:experiments}\\\hline
+  Atomic clocks on aeroplanes (1971) & flown clocks gain or lose time as predicted &
+    \cref{ch4:sec:experiments}\\\hline
+  Particle accelerators (1964, 1977) & particles never reach $c$; fast muons live longer &
+    \cref{ch4:sec:experiments}\\\hline
+  Type Ia supernovae & distant ones fade more slowly: time dilation &
+    \cref{ch4:sec:experiments}\\\hline
+  Thought experiments (light clock; train) & time dilation; ``at the same time'' depends on
+    the observer & \cref{ch4:sec:time}\\\hline
+\end{longtable}}

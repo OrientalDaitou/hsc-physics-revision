@@ -1,0 +1,41 @@
+% frontmatter_template.tex -- copy to src/<mod>/frontmatter.tex and fill in.
+% Order: cover, How to use this guide, Contents, Module overview (1-2 pages).
+% Lines marked TODO are placeholders for the book assembler.
+\makecover
+\IfFileExists{../common/howtouse.tex}{\input{../common/howtouse}}{}
+\tableofcontents
+
+\unnumberedchapter[\faMap]{Module overview}
+
+\section*{What this module is about}
+% TODO: 3-5 short sentences. What is the module about, and why does it matter?
+Module~\modulenumber\ is about \ldots
+
+\section*{The inquiry questions}
+% TODO: one line per inquiry question (paraphrase), with the chapter that covers it.
+\begin{enumerate}
+  \item \emph{Inquiry question 1 (paraphrase)} \hfill \cref{ch1:chap}
+  \item \emph{Inquiry question 2 (paraphrase)} \hfill \cref{ch2:chap}
+\end{enumerate}
+
+\section*{How the parts fit together}
+% TODO: concept map. Keep labels short; at most about 8 boxes.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[node distance=10mm and 14mm]
+    \node[concept=34mm] (a) {Idea A\\{\footnotesize (Chapter 1)}};
+    \node[concept=34mm, right=of a] (b) {Idea B\\{\footnotesize (Chapter 2)}};
+    \node[concept=34mm, below=of $(a)!0.5!(b)$] (c) {Idea C\\{\footnotesize (Chapter 3)}};
+    \draw[link] (a) -- node[linklabel, above] {leads to} (b);
+    \draw[link] (a) -- (c);
+    \draw[link] (b) -- (c);
+  \end{tikzpicture}
+  \caption{How the ideas in this module are linked.}\label{ov:fig:map}
+\end{figure}
+
+\section*{All the formulas in this module}
+% TODO: one \frow per formula, in chapter order; use exactly the sheet's notation.
+\begin{formulatable}
+  \frow{$v = \dfrac{2\pi r}{T}$}{speed in a circle (Chapter 2)}
+  \frow[notonsheet]{$v = \omega r$}{speed from angular velocity (Chapter 3)}
+\end{formulatable}

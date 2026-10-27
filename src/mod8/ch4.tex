@@ -1,0 +1,1415 @@
+% ch4.tex -- Module 8, Chapter 4: Properties of the Nucleus
+% Dot points M8.IQ4.01 - M8.IQ4.06 (NSW Physics Stage 6 Syllabus 2017).
+%
+% Chapter macros (prefix chFour, see STYLE_GUIDE section 1):
+%   \chFourNuc{A}{Z}{X}  nuclide symbol, A above Z, both right-aligned before X
+\newcommand\chFourNuc[3]{\ensuremath{\mathord{%
+  \setbox0=\hbox{$\scriptstyle#1$}\setbox2=\hbox{$\scriptstyle#2$}%
+  \ifdim\wd0<\wd2 \setbox0=\hbox to\wd2{\hss\box0}\else\setbox2=\hbox to\wd0{\hss\box2}\fi
+  {}^{\box0}_{\box2}\mathrm{#3}}}}
+\newcommand\chFourAlpha{\chFourNuc{4}{2}{He}}
+\newcommand\chFourBeta{\chFourNuc{0}{-1}{e}}
+\newcommand\chFourPos{\chFourNuc{0}{+1}{e}}
+\newcommand\chFourNeut{\chFourNuc{1}{0}{n}}
+\newcommand\chFourGam{\ensuremath{{}^{0}_{0}\gamma}}
+\newcommand\chFourAnu{\ensuremath{\overline{\nu}_\mathrm{e}}}% bar as in ch5 and the summary
+\newcommand\chFourNu{\ensuremath{\nu_\mathrm{e}}}
+
+\chapter[Properties of the Nucleus]{Properties of the Nucleus: Radioactivity, Fission and Fusion}\label{ch4:chap}
+\covers{M8.IQ4.01, M8.IQ4.02, M8.IQ4.03, M8.IQ4.04, M8.IQ4.05, M8.IQ4.06}
+
+\inquiry{How can the energy of the atomic nucleus be harnessed?}
+
+\begin{goals}
+  \item write and balance equations for alpha, beta and gamma decay, and compare the
+        three radiations
+  \item use $N_\mathrm{t} = N_0 e^{-\lambda t}$ and $\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$
+        to predict the amount or the activity of a sample
+  \item calculate mass defect, binding energy and the energy released in decays,
+        fission and fusion
+  \item explain chain reactions, reactors, and why fission and fusion release energy
+\end{goals}
+
+%% ==================================================================
+\section{Radioactive decay: alpha, beta and gamma}\label{ch4:sec:decay}
+\covers{M8.IQ4.01, M8.IQ4.04}
+
+\begin{bigidea}
+Some nuclei have the wrong mix of protons and neutrons, or are too big. They are
+unstable. Each one changes by itself into a more stable nucleus and gives out
+alpha, beta or gamma radiation.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Nucleon}{a proton or a neutron (a particle in the nucleus).}
+  \kw{Strong nuclear force}{a very strong, very short-range attraction between nucleons.}
+  \kw{Radioactive decay}{an unstable nucleus changes by itself and gives out radiation.}
+  \kw{Ionising radiation}{radiation that knocks electrons out of atoms, making ions.}
+  \kw{Penetrating power}{how far radiation can travel through a material before it is stopped.}
+\end{keywords}
+
+\begin{refresher}{Writing a nucleus}
+A nucleus holds \term{protons} (charge $+e$) and \term{neutrons} (no charge). We write
+a nucleus of element X as $\chFourNuc{A}{Z}{X}$.
+\begin{itemize}
+  \item $A$ = \term{mass number} = number of protons + neutrons.
+  \item $Z$ = \term{atomic number} = number of protons. $Z$ decides the element.
+  \item $N = A - Z$ = number of neutrons. Example: $\chFourNuc{27}{13}{Al}$ has
+        13 protons and $27 - 13 = 14$ neutrons.
+\end{itemize}
+\term{Isotopes} have the same $Z$ but a different $N$ (carbon-12 and carbon-14).
+A \term{radioisotope} is an isotope that is radioactive.
+\end{refresher}
+
+\subsection{Why are some nuclei unstable?}
+
+Protons repel each other. Coulomb's law (on the formula sheet; see the refresher in
+\cref{ch2:sec:nucleus}) gives the force. A femtometre is a tiny length:
+\qty{1}{fm} = \qty{1e-15}{m}. Two protons \qty{1}{fm} apart repel with
+\[
+  F = \frac{(\num{8.99e9})(\num{1.602e-19})^2}{(\num{1.0e-15})^2} \approx \qty{230}{N}.
+\]
+That is a huge force on such tiny particles.
+
+The \term{strong nuclear force} holds the nucleus together. It attracts \emph{every}
+nucleon: proton to proton, neutron to neutron, proton to neutron. At \qty{1}{fm} it
+is much stronger than the electric repulsion. But its range is very short: beyond
+about \qty{3}{fm} it is almost zero. If nucleons are pushed closer than about
+\qty{0.5}{fm}, the strong force becomes repulsive. So nucleons sit about \qty{1}{fm}
+apart, and the nucleus does not collapse.
+
+So each nucleon only feels the pull of its neighbours. The electric repulsion acts
+between \emph{every} pair of protons. In a big nucleus the repulsion grows faster
+than the attraction. Extra neutrons help: they add attraction but no repulsion.
+
+\Cref{ch4:fig:band} plots neutron number $N$ against proton number $Z$. Stable nuclei
+all sit in a thin, curved strip on this graph. We call it the \term{band of
+stability}.
+\begin{itemize}
+  \item Light stable nuclei (up to $Z \approx 20$) have $N \approx Z$. Example:
+        carbon-12 has 6 protons and 6 neutrons.
+  \item Heavier stable nuclei need extra neutrons. Lead-208 has
+        $N/Z = 126/82 = 1.54$.
+  \item No nucleus with more than 82 protons is stable.
+\end{itemize}
+A nucleus that is off the band is unstable. Its decay moves it closer to the band.
+\begin{figure}
+  \centering
+  \includegraphics{ch4_band.pdf}
+  \caption{The band of stability. Each arrow shows the direction in which one type
+    of decay moves a nucleus.}\label{ch4:fig:band}
+\end{figure}
+
+\subsection{The kinds of decay and their radiation}
+
+\term{Radioactive decay} is \term{spontaneous}: it happens by itself. The nucleus
+before the decay is the \term{parent}; the new nucleus is the \term{daughter}.
+First, some new words:
+\begin{itemize}
+  \item A \term{positron} is the antiparticle of the electron: same mass, but charge
+        $+e$ (antiparticles: \cref{ch1:sec:bigbang}). A \term{neutrino} is a neutral particle
+        with almost no mass. The \term{antineutrino} is its antiparticle.
+  \item The beta particle is \emph{created} in the decay; it was not inside the
+        nucleus before. Protons and neutrons are made of smaller particles called
+        quarks (\cref{ch5:sec:sm}). In $\beta^-$ decay, one down quark in a neutron
+        turns into an up quark. In $\beta^+$ decay, one up quark in a proton turns
+        into a down quark.
+  \item An \term{excited state} is a state in which the nucleus has extra energy. A
+        star ($^{*}$) marks it. A \term{gamma ray}, a very high-energy photon, carries
+        the extra energy away.
+\end{itemize}
+In symbols (X is the parent, Y is the daughter):
+\begin{align*}
+  \alpha:\ & \chFourNuc{A}{Z}{X} \to \chFourNuc{A-4}{Z-2}{Y} + \chFourAlpha\\
+  \beta^-:\ & \chFourNuc{A}{Z}{X} \to \chFourNuc{A}{Z+1}{Y} + \chFourBeta + \chFourAnu\\
+  \beta^+:\ & \chFourNuc{A}{Z}{X} \to \chFourNuc{A}{Z-1}{Y} + \chFourPos + \chFourNu\\
+  \gamma:\ & \chFourNuc{A}{Z}{X}^{*} \to \chFourNuc{A}{Z}{X} + \chFourGam
+\end{align*}
+Alpha and beta decay change $Z$, so the element changes. This is a
+\term{transmutation}: one element turns into another.
+
+\Cref{ch4:tab:decays} compares the kinds of decay and the radiation each one gives out.
+\begin{table}
+  \caption{Alpha, beta and gamma decay, and the properties of their radiation.}\label{ch4:tab:decays}
+  \centering\small
+  \begin{tabular}{@{}L{20mm}L{28mm}L{28mm}L{28mm}L{26mm}@{}}
+    \toprule
+    & \colhead{Alpha ($\alpha$)} & \colhead{Beta-minus ($\beta^-$)}
+      & \colhead{Beta-plus ($\beta^+$)} & \colhead{Gamma ($\gamma$)}\\
+    \midrule
+    What happens & 2 protons and 2 neutrons leave together & a neutron turns into a proton
+      & a proton turns into a neutron & an excited nucleus loses energy\\
+    Emitted & helium-4 nucleus $\chFourAlpha$ & electron $\chFourBeta$ and antineutrino $\chFourAnu$
+      & positron $\chFourPos$ and neutrino $\chFourNu$ & photon $\chFourGam$\\
+    Change & $A - 4$, $Z - 2$ & $A$ same, $Z + 1$ & $A$ same, $Z - 1$ & none\\
+    Which nuclei & mostly very heavy ($Z > 82$) & too many neutrons (above the band)
+      & too few neutrons (below the band) & just after $\alpha$ or $\beta$ decay\\
+    \midrule
+    Charge & $+2e$ & $-e$ & $+e$ & 0\\
+    Mass & about \qty{4}{\amu} & \qty{0.00055}{\amu} & \qty{0.00055}{\amu} & 0\\
+    Speed & about 5\,\% of $c$ & up to 99\,\% of $c$ & up to 99\,\% of $c$ & $c$\\
+    Ionising & strong & medium & medium & weak\\
+    Stopped by & paper, skin or a few cm of air & a few mm of aluminium
+      & a few mm of aluminium & only reduced by thick lead\\
+    In a field & small bend & large bend, opposite way to $\alpha$
+      & large bend, same way as $\alpha$ & no bend\\
+    \bottomrule
+  \end{tabular}\par\smallskip
+  {\footnotesize u = atomic mass unit, about the mass of one proton (\cref{ch4:sec:binding}).}
+\end{table}
+
+All three radiations are \term{ionising radiation}, which can damage living cells. An
+alpha particle is heavy, slow and has charge $+2e$. It ionises many atoms in a short
+path and loses its energy fast. So the most ionising radiation is the least
+\term{penetrating}. Penetrating means able to travel far through a material before
+it is stopped (\cref{ch4:fig:radiation}a).
+
+Fields bend alpha and beta-minus particles in opposite directions, because their
+charges have opposite signs (\cref{ch4:fig:radiation}b). Beta-plus is positive, so it
+bends the same way as alpha. Beta particles bend much more, because they have much
+less momentum. (They are about 7300 times lighter than alpha particles, but faster.)
+Gamma rays have no charge and go straight.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % (a) penetration
+    \filldraw[object] (-0.6,-0.45) rectangle (0,1.65);
+    \node[diagramlabel, rotate=90] at (-0.3,0.6) {source};
+    \fill[hscmuted!45] (1.4,-0.5) rectangle (1.46,1.75);
+    \fill[hscmuted!70] (3.0,-0.5) rectangle (3.15,1.75);
+    \fill[hscink!55] (4.9,-0.5) rectangle (5.4,1.75);
+    \draw[->, line width=1.1pt, hscforce] (0.1,1.3) -- (1.35,1.3);
+    \node[diagramlabel, text=hscforce, above] at (0.55,1.3) {$\alpha$};
+    \draw[->, line width=1.1pt, hscvel] (0.1,0.6) -- (2.95,0.6);
+    \node[diagramlabel, text=hscvel, above] at (0.55,0.6) {$\beta$};
+    \draw[line width=1.1pt, hscfield] (0.1,-0.1) -- (4.9,-0.1);
+    \draw[->, line width=0.7pt, hscfield, dashed] (5.4,-0.1) -- (6.0,-0.1);
+    \node[diagramlabel, text=hscfield, above] at (0.55,-0.1) {$\gamma$};
+    \node[diagramlabel, align=center, anchor=north] at (1.43,-0.55) {paper\\\strut};
+    \node[diagramlabel, align=center, anchor=north] at (3.08,-0.55) {aluminium\\(a few mm)};
+    \node[diagramlabel, align=center, anchor=north] at (5.15,-0.55) {lead\\(several cm)};
+    \node[diagramlabel, font=\small\bfseries] at (2.8,2.1) {(a) Penetration};
+    % (b) deflection in a magnetic field into the page
+    \begin{scope}[xshift=7.7cm, yshift=0.5cm]
+      % field marks placed clear of the paths and labels
+      \foreach \p in {(0.6,1.2), (1.4,1.2), (2.2,1.2), (3.0,1.25),
+          (0.6,0.5), (1.4,0.5), (3.0,0.45), (3.8,0.45),
+          (0.6,-0.55), (1.4,-0.55), (2.2,-0.55), (3.0,-0.55), (3.8,-0.55)}
+        \node[text=hscfield!70, font=\footnotesize] at \p {$\times$};
+      \filldraw[object] (-0.7,-0.25) rectangle (-0.15,0.25);
+      \draw[line width=1.1pt, hscforce, ->] (0,0) arc[start angle=-90, end angle=-58, radius=6];
+      \node[diagramlabel, text=hscforce, right, fill=white, inner sep=1pt] at (3.25,0.95) {$\alpha$ (small bend)};
+      \draw[line width=1.1pt, hscfield, ->] (0,0) -- (4.6,0);
+      \node[diagramlabel, text=hscfield, right, fill=white, inner sep=1pt] at (4.6,0) {$\gamma$};
+      \draw[line width=1.1pt, hscvel, ->] (0,0) arc[start angle=90, end angle=0, radius=1.1];
+      \node[diagramlabel, text=hscvel, right, fill=white, inner sep=1pt] at (1.2,-1.1) {$\beta^-$ (large bend)};
+      \node[diagramlabel, text=hscfield, anchor=north west] at (-0.7,-1.5)
+        {$\vec{B}$ into the page ($\times$). Not to scale.};
+      \node[diagramlabel, font=\small\bfseries] at (2.0,1.6) {(b) Deflection};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) How far each radiation gets. (b) Paths in a magnetic field: the force
+    on the positive $\alpha$ particle is up, on the negative $\beta^-$ particle down.}
+  \label{ch4:fig:radiation}
+\end{figure}
+
+\begin{formulacard}[notonsheet]{Balancing a nuclear equation}
+  \cardformula{\textstyle\sum A_\mathrm{before} = \sum A_\mathrm{after}
+    \qquad \sum Z_\mathrm{before} = \sum Z_\mathrm{after}}
+  \begin{symbols}
+    \sym{$A$}{mass number (top number): protons + neutrons}{no unit}
+    \sym{$Z$}{atomic number (bottom number): the charge in units of $e$}{no unit}
+  \end{symbols}
+  \inwords{the top numbers have the same total on both sides. So do the bottom numbers.}
+  \whentouse{writing or checking any nuclear equation: decay, fission (a heavy
+    nucleus splits), fusion (light nuclei join) or bombardment (a particle is fired
+    at a nucleus).}
+  \whennottouse{for masses in \si{\amu}. Real masses are not exactly conserved
+    (\cref{ch4:sec:binding}).}
+  \rearranged{missing number = total on the other side $-$ the other numbers on its
+    own side. Then find the element with that $Z$ on the periodic table.}
+  \tensecond{$\chFourNuc{40}{19}{K} \to \chFourNuc{40}{20}{Ca} + \chFourBeta + \chFourAnu$.
+    Top: $40 = 40 + 0$ \cmark. Bottom: $19 = 20 + (-1)$ \cmark.}
+  \derive{two conservation laws. The number of nucleons stays the same (a neutron
+    can turn into a proton, but none disappear), and charge is conserved. Neutrinos
+    and photons have $A = 0$ and $Z = 0$.}
+  \trap{an electron is $\chFourBeta$, a positron $\chFourPos$. In fission, count the
+    neutrons on \emph{both} sides.}
+\end{formulacard}
+
+\begin{workedexample}{Smoke alarms and PET scans}\label{ch4:we:equations}
+(a) Americium-241 ($Z = 95$), used in smoke alarms, decays by alpha emission.
+(b) Fluorine-18 ($Z = 9$), used in PET scans, decays by $\beta^+$ emission.
+Write each equation and name the daughter.
+\given{(a) $\chFourNuc{241}{95}{Am}$ gives out $\chFourAlpha$. \
+  (b) $\chFourNuc{18}{9}{F}$ gives out $\chFourPos$ and $\chFourNu$.}
+\find{the mass number $A_\mathrm{Y}$ and atomic number $Z_\mathrm{Y}$ of each daughter
+  Y, and its element}
+\formula{$\sum A_\mathrm{before} = \sum A_\mathrm{after}$, \
+  $\sum Z_\mathrm{before} = \sum Z_\mathrm{after}$}
+\substitute{\eqlines{\text{(a) top: } 241 &= A_\mathrm{Y} + 4, \text{ so }
+  A_\mathrm{Y} = 241 - 4 = 237 \quad \text{(subtract 4)}\\
+  \text{bottom: } 95 &= Z_\mathrm{Y} + 2, \text{ so } Z_\mathrm{Y} = 95 - 2 = 93
+  \quad \text{(neptunium)}\\
+  \text{(b) top: } 18 &= A_\mathrm{Y} + 0, \text{ so } A_\mathrm{Y} = 18\\
+  \text{bottom: } 9 &= Z_\mathrm{Y} + 1, \text{ so } Z_\mathrm{Y} = 9 - 1 = 8
+  \quad \text{(oxygen)}}}
+\answer{(a) \final{$\chFourNuc{241}{95}{Am} \to \chFourNuc{237}{93}{Np} + \chFourAlpha$}
+  \quad (b) \final{$\chFourNuc{18}{9}{F} \to \chFourNuc{18}{8}{O} + \chFourPos + \chFourNu$}}
+\checkstep{top and bottom rows balance in both \cmark. Both daughters are new
+  elements (transmutations).}
+\end{workedexample}
+
+\begin{workedexample}{Counting the steps in a decay series}\label{ch4:we:series}
+Thorium-232 ($Z = 90$) decays by a chain of $\alpha$ and $\beta^-$ decays to stable
+lead-208 ($Z = 82$). How many $\alpha$ and how many $\beta^-$ decays are there?
+\given{start $\chFourNuc{232}{90}{Th}$, end $\chFourNuc{208}{82}{Pb}$}
+\find{the number of $\alpha$ decays and of $\beta^-$ decays}
+\formula{each $\alpha$: $A - 4$, $Z - 2$. Each $\beta^-$: $A$ same, $Z + 1$. Only
+  $\alpha$ changes $A$, so start with $A$.}
+\substitute{\eqlines{\text{number of } \alpha &= (232 - 208) \div 4 = 24 \div 4 = 6\\
+  Z \text{ after } 6\ \alpha &= 90 - 6 \times 2 = 78\\
+  \text{number of } \beta^- &= 82 - 78 = 4}}
+\answer{\final{6 alpha decays and 4 beta-minus decays}}
+\checkstep{$A$: $232 - 24 = 208$ \cmark. $Z$: $90 - 12 + 4 = 82$ \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The beta electron was inside the nucleus.''
+        \cmark\ It is created when a neutron turns into a proton.
+  \item \xmark\ Changing $A$ or $Z$ in gamma decay. \cmark\ Only the energy changes.
+  \item \xmark\ ``Lead stops gamma rays.'' \cmark\ Thick lead only reduces them.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+The 2025 HSC asked for \emph{two} ways to tell an alpha source from a beta source
+(3 marks). Name each method and say what you would see.
+\begin{enumerate}
+  \item \textbf{Absorption:} put paper between the source and a Geiger counter. Alpha
+        drops to background. Beta passes paper, but a few mm of aluminium stops it.
+  \item \textbf{Deflection:} pass each beam between charged plates. Alpha bends a
+        little, towards the negative plate. Beta bends much more, towards the
+        positive plate. (A magnetic field also bends them opposite ways.)
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item How many protons and neutrons are in $\chFourNuc{131}{53}{I}$? Iodine-131
+        decays by $\beta^-$ emission. Write the equation.
+  \item A nucleus X absorbs a neutron. The new nucleus then decays by $\beta^-$
+        emission and becomes $\chFourNuc{60}{28}{Ni}$. Identify X.
+  \item Background is 30 counts per minute. A source gives 450 counts per minute with
+        no absorber, 448 with paper and 45 with \qty{5}{mm} of aluminium. Which
+        radiation(s) does it give out? Explain.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Half-life and activity}\label{ch4:sec:halflife}
+\covers{M8.IQ4.02}
+
+\begin{bigidea}
+One nucleus decays at a random moment. But in a huge sample, the amount halves in
+equal time steps called half-lives. The decay law predicts the amount or the
+activity at any time.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Half-life ($t_{\frac{1}{2}}$)}{the time for half of the radioactive nuclei in a sample to decay.}
+  \kw{Decay constant ($\lambda$)}{the chance per second that one nucleus decays. (In a short time $\Delta t$ the chance is $\lambda\Delta t$.) Unit: \si{s^{-1}} (per second).}
+  \kw{Activity ($A$)}{the number of nuclei that decay each second (not the mass number $A$). Unit: becquerel, \qty{1}{Bq} = 1 decay per second.}
+  \kw{Background radiation}{the low level of radiation that is always around us.}
+\end{keywords}
+
+Toss 1000 coins. You cannot say which ones will land heads, but about half will.
+Remove the heads and toss the rest: again about half land heads. Decay works the
+same way. It is \term{random}: you cannot predict when any one nucleus will decay.
+
+Each nucleus of an isotope has the same chance of decaying each second. This chance
+does not depend on the age of the nucleus or the temperature. It does not depend on
+the chemical compound or the number of other nuclei either.
+
+A dice model shows the same pattern (\cref{ch4:sec:experiments}). Each throw, every
+die has the same chance of showing a six and being removed. The number left halves
+in equal steps, whatever the starting number.
+
+The \term{half-life} is the time for half of the radioactive nuclei to decay. After
+$n$ half-lives the fraction left is $\left(\tfrac{1}{2}\right)^{n}$
+(\cref{ch4:fig:decay}). The daughter atoms stay in the sample, so only the amount of
+the \emph{parent} isotope halves.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.62\linewidth, height=0.36\linewidth,
+        xmin=0, xmax=4.6, ymin=0, ymax=1.1,
+        xtick={0,1,2,3,4}, xticklabels={0, $t_{\frac{1}{2}}$, $2t_{\frac{1}{2}}$,
+          $3t_{\frac{1}{2}}$, $4t_{\frac{1}{2}}$},
+        ytick={0,0.125,0.25,0.5,1}, yticklabels={0, $N_0/8$, $N_0/4$, $N_0/2$, $N_0$},
+        xlabel={Time $t$}, ylabel={Undecayed nuclei $N$}]
+      \addplot[hscseriesA, line width=1.2pt, domain=0:4.6, samples=120, no marks] {2^(-x)};
+      \draw[guide] (axis cs:1,0) -- (axis cs:1,0.5) -- (axis cs:0,0.5);
+      \draw[guide] (axis cs:2,0) -- (axis cs:2,0.25) -- (axis cs:0,0.25);
+      \draw[guide] (axis cs:3,0) -- (axis cs:3,0.125) -- (axis cs:0,0.125);
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Exponential decay: the number of undecayed nuclei halves every half-life.}
+  \label{ch4:fig:decay}
+\end{figure}
+
+The \term{activity} $A$ is the number of decays each second. A Geiger counter is a
+detector that clicks once for each particle or ray that enters it. It measures a
+\term{count rate}: the number of clicks each second or each minute. First subtract
+the background. Then the count rate is proportional to the activity: if the activity
+halves, the count rate halves too. Activity also halves every half-life.
+
+\begin{toolkit}{Powers of e and natural logs}
+$e = 2.718\ldots$ is a number. (It is not the electron or its charge, which also use
+the letter e.) Use the $e^x$ key. $e^{0} = 1$, and $e^{-x}$ is between 0 and 1.
+\begin{itemize}
+  \item The \term{natural log} $\ln$ undoes $e$: $\ln(e^{x}) = x$.
+  \item $\ln\dfrac{1}{x} = -\ln x$. Example: $\ln\dfrac{1}{0.25} = \ln 4 = 1.386$, and
+        $-\ln 0.25 = 1.386$ too. So $\ln\tfrac{1}{2} = -\ln 2 = -0.693$.
+  \item To bring $x$ down from a power, take $\ln$ of both sides:
+        $0.25 = e^{-x} \Rightarrow \ln 0.25 = -x \Rightarrow -1.386 = -x
+        \Rightarrow x = 1.386$.
+  \item Any power comes down in front: $\ln(a^{n}) = n\ln a$. Example:
+        $\ln(2^{3}) = \ln 8 = 2.079$, and $3\ln 2 = 3 \times 0.693 = 2.079$ too.
+  \item Use the \texttt{ln} key, not \texttt{log} (log is base 10).
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{The decay law}
+  \cardformula{N_\mathrm{t} = N_0 e^{-\lambda t}}
+  \begin{symbols}
+    \sym{$N_\mathrm{t}$}{undecayed (parent) nuclei left at time $t$}{no unit}
+    \sym{$N_0$}{undecayed nuclei at the start ($t = 0$)}{no unit}
+    \sym{$\lambda$}{decay constant}{\si{s^{-1}} (or \si{h^{-1}}, \si{d^{-1}}, \si{\yr^{-1}})}
+    \sym{$t$}{time since the start (h = hour, d = day, yr = year)}{\si{s} (or h, d, yr)}
+  \end{symbols}
+  \inwords{the amount falls by the same fraction in every equal time interval.}
+  \whentouse{one isotope, many nuclei, at \emph{any} time. $N$ can also be the mass
+    of the isotope or the activity (same unit for $N_\mathrm{t}$ and $N_0$).}
+  \whennottouse{for one nucleus (decay is random), or when new parent nuclei are
+    being added.}
+  \rearranged{divide both sides by $N_0$: $\dfrac{N_\mathrm{t}}{N_0} = e^{-\lambda t}$.
+    Take ln: $\ln\dfrac{N_\mathrm{t}}{N_0} = -\lambda t$. Multiply by $-1$ and use
+    $-\ln x = \ln\tfrac{1}{x}$. This gives\par
+    \centerline{$t = \dfrac{1}{\lambda}\ln\dfrac{N_0}{N_\mathrm{t}}$ \qquad
+    $\lambda = \dfrac{1}{t}\ln\dfrac{N_0}{N_\mathrm{t}}$}}
+  \tensecond{$N_0 = 1000$, $\lambda = \qty{0.100}{h^{-1}}$, $t = \qty{5.00}{h}$:
+    $\lambda t = 0.500$, so $N_\mathrm{t} = 1000\, e^{-0.500} = 1000 \times 0.6065 = 607$.}
+  \trap{$\lambda$ and $t$ need the same time unit. Here $\lambda$ is the decay
+    constant, not a wavelength.}
+\end{formulacard}
+
+\begin{formulacard}{Decay constant and half-life}
+  \cardformula{\lambda = \frac{\ln 2}{t_{\frac{1}{2}}}}
+  \begin{symbols}
+    \sym{$\lambda$}{decay constant}{\si{s^{-1}}}
+    \sym{$t_{\frac{1}{2}}$}{half-life}{\si{s}}
+  \end{symbols}
+  \inwords{a short half-life means a large decay constant: fast decay.}
+  \whentouse{you know $\lambda$ or $t_{\frac{1}{2}}$ and need the other. Most decay
+    calculations start here.}
+  \whennottouse{on its own, to find the time for some other fraction (for example,
+    10\,\% left). Put $\lambda$ into the decay law for that.}
+  \rearranged{$t_{\frac{1}{2}} = \dfrac{\ln 2}{\lambda}$}
+  \tensecond{$t_{\frac{1}{2}} = \qty{6.0}{h}$:
+    $\lambda = \dfrac{0.693}{\qty{6.0}{h}} = \qty{0.1155}{h^{-1}} \approx \qty{0.12}{h^{-1}}$.
+    In \si{s^{-1}}: there are 3600 s in 1 h, so divide by 3600:
+    $\dfrac{0.1155}{3600} = \qty{3.2e-5}{s^{-1}}$.}
+  \derive{put $N_\mathrm{t} = \tfrac{1}{2}N_0$ at $t = t_{\frac{1}{2}}$ into the decay law.
+    Divide by $N_0$: $\tfrac{1}{2} = e^{-\lambda t_{\frac{1}{2}}}$. Take ln:
+    $\ln\tfrac{1}{2} = -\lambda t_{\frac{1}{2}}$. The toolkit gives
+    $\ln\tfrac{1}{2} = -\ln 2$, so $-\ln 2 = -\lambda t_{\frac{1}{2}}$. Divide both
+    sides by $-t_{\frac{1}{2}}$: $\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$.}
+  \trap{use $\ln 2 = 0.693$, not $\log 2 = 0.301$. A half-life in days gives $\lambda$
+    in \si{d^{-1}}; for becquerel, use \si{s^{-1}}.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Whole numbers of half-lives}
+  \cardformula{N_\mathrm{t} = N_0\left(\tfrac{1}{2}\right)^{n} \qquad n = \frac{t}{t_{\frac{1}{2}}}}
+  \begin{symbols}
+    \sym{$N_\mathrm{t}$, $N_0$}{amount left at time $t$, amount at the start}{no unit}
+    \sym{$n$}{number of half-lives}{no unit}
+    \sym{$t$, $t_{\frac{1}{2}}$}{time, half-life (same unit)}{\si{s}}
+  \end{symbols}
+  \inwords{every half-life, the amount is multiplied by one half.}
+  \whentouse{the time is a whole number of half-lives, or to check an answer quickly.}
+  \whennottouse{to count halvings when $t$ is not a whole number of half-lives. (The
+    formula still works with the $x^y$ key, but the decay law is usually easier.)}
+  \rearranged{$\dfrac{N_0}{N_\mathrm{t}} = 2^{n}$: count how many times you halve.
+    Example: $\dfrac{960}{120} = 8 = 2^3$, so $n = 3$.}
+  \tensecond{3 half-lives: $N_\mathrm{t} = N_0 \times \left(\tfrac12\right)^3 = \dfrac{N_0}{8}$.}
+  \derive{put $t = n\,t_{\frac{1}{2}}$ and $\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$ into
+    the decay law: $\lambda t = n\ln 2$. So $e^{-\lambda t} = e^{-n\ln 2} = 2^{-n} =
+    \left(\tfrac12\right)^{n}$ (because $e^{\ln 2} = 2$).}
+  \trap{$n$ is the number of half-lives, not the time. Divide $t$ by $t_{\frac{1}{2}}$ first.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Activity}
+  \cardformula{A = \lambda N \qquad A_\mathrm{t} = A_0 e^{-\lambda t}}
+  \begin{symbols}
+    \sym{$A$}{activity: decays each second}{\si{Bq} (\si{s^{-1}})}
+    \sym{$\lambda$}{decay constant}{\si{s^{-1}}}
+    \sym{$N$}{number of undecayed nuclei}{no unit}
+    \sym{$A_0$, $A_\mathrm{t}$}{activity at the start and at time $t$}{\si{Bq}}
+    \sym{$t$}{time since the start}{\si{s}}
+  \end{symbols}
+  \inwords{more nuclei, or a shorter half-life, gives more decays each second.}
+  \whentouse{finding the activity from the number of nuclei, or the reverse.}
+  \whennottouse{with $\lambda$ in \si{h^{-1}} or \si{\yr^{-1}} if you want becquerel.}
+  \rearranged{$N = \dfrac{A}{\lambda}$ \qquad $\lambda = \dfrac{A}{N}$}
+  \tensecond{$\lambda = \qty{2.0e-3}{s^{-1}}$, $N = \num{5.0e9}$:
+    $A = \num{2.0e-3} \times \num{5.0e9} = \qty{1.0e7}{Bq}$.}
+  \derive{in a short time $\Delta t$ each nucleus has a chance $\lambda\Delta t$ of
+    decaying. So $N$ nuclei give $\lambda N\Delta t$ decays, which is $\lambda N$
+    decays each second: $A = \lambda N$. Multiply both sides of the decay law by
+    $\lambda$: $\lambda N_\mathrm{t} = \lambda N_0 e^{-\lambda t}$. Here
+    $\lambda N_\mathrm{t} = A_\mathrm{t}$ and $\lambda N_0 = A_0$, so
+    $A_\mathrm{t} = A_0 e^{-\lambda t}$.}
+  \trap{change a half-life in days to seconds ($\qty{1}{d} = \qty{86400}{s}$) first.
+    Also, this $A$ is the activity (Bq), not the mass number $A$. This $N$ is the
+    number of undecayed nuclei, not the neutron number $N = A - Z$. The same letters
+    have two meanings in this chapter.}
+\end{formulacard}
+
+\begin{workedexample}{Finding a leak with sodium-24}\label{ch4:we:sodium}
+Sodium-24 ($t_{\frac{1}{2}} = \qty{15.0}{h}$) is added to a water pipe to find a leak.
+At the start there are \num{6.0e15} sodium-24 nuclei. How many are left after
+\qty{36}{h}?
+\given{$N_0 = \num{6.0e15}$, \ $t_{\frac{1}{2}} = \qty{15.0}{h}$, \ $t = \qty{36}{h}$}
+\find{the number left, $N_\mathrm{t}$}
+\formula{$\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$, then
+  $N_\mathrm{t} = N_0 e^{-\lambda t}$ (keep time in hours)}
+\substitute{\eqlines{\lambda &= \frac{0.6931}{\qty{15.0}{h}} = \qty{0.04621}{h^{-1}}\\
+  \lambda t &= \qty{0.04621}{h^{-1}} \times \qty{36}{h} = 1.664\\
+  N_\mathrm{t} &= \num{6.0e15} \times e^{-1.664} = \num{6.0e15} \times 0.1894
+  = \num{1.136e15}}}
+\answer{\final{$N_\mathrm{t} = \num{1.1e15}$ nuclei} (2 significant figures)}
+\checkstep{\qty{36}{h} is $36 \div 15.0 = 2.4$ half-lives. The answer lies between \num{1.5e15}
+  (2 half-lives) and \num{7.5e14} (3 half-lives) \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{A medical source loses its strength}\label{ch4:we:p32}
+A phosphorus-32 source ($t_{\frac{1}{2}} = \qty{14.3}{d}$) contains \num{5.0e15}
+nuclei. (a) Find its activity. (b) It is replaced when its activity falls to
+\qty{10.0}{\percent} of the start value. After how many days?
+\given{$N_0 = \num{5.0e15}$, \ $t_{\frac{1}{2}} = 14.3 \times 24 \times \qty{3600}{s}
+  = \qty{1.236e6}{s}$, \ $A_\mathrm{t} = 0.100\,A_0$}
+\find{(a) $A_0$ in Bq \quad (b) $t$ in days}
+\formula{$\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$, \ $A = \lambda N$, \
+  $A_\mathrm{t} = A_0 e^{-\lambda t}$}
+\substitute{\eqlines{\text{(a) } \lambda &= \frac{0.6931}{\qty{1.236e6}{s}}
+  = \qty{5.608e-7}{s^{-1}}\\
+  A_0 &= \qty{5.608e-7}{s^{-1}} \times \num{5.0e15} = \qty{2.804e9}{Bq}}\par
+  \eqlines{\text{(b) } \lambda &= \frac{0.6931}{\qty{14.3}{d}} = \qty{0.04847}{d^{-1}}
+  \quad \text{(days are easier here)}\\
+  0.100\,A_0 &= A_0 e^{-\lambda t} \quad \text{(put } A_\mathrm{t} = 0.100\,A_0
+  \text{ into the formula)}\\
+  0.100 &= e^{-\lambda t} \quad \text{(divide both sides by } A_0\text{)}}\par
+  \eqlines{\ln 0.100 &= -\lambda t \quad \text{(take ln of both sides)}\\
+  -2.303 &= -\lambda t \quad \text{(ln key: } \ln 0.100 = -2.303\text{)}\\
+  \lambda t &= 2.303 \quad \text{(multiply both sides by } -1\text{)}\\
+  t &= \frac{2.303}{\qty{0.04847}{d^{-1}}} = \qty{47.5}{d}
+  \quad \text{(divide both sides by } \lambda\text{)}}}
+\answer{(a) \final{$A_0 = \qty{2.8e9}{Bq}$} \quad (b) \final{$t = \qty{47.5}{d}$}}
+\checkstep{$\tfrac{1}{8} = \qty{12.5}{\percent}$ is left after 3 half-lives
+  ($3 \times \qty{14.3}{d} = \qty{42.9}{d}$). $\tfrac{1}{16} = \qty{6.25}{\percent}$ is
+  left after 4 half-lives (\qty{57.2}{d}). \qty{10}{\percent} lies between them, and so
+  does \qty{47.5}{d} \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ $\lambda$ in \si{h^{-1}} but $t$ in seconds. \cmark\ Use one time unit.
+  \item \xmark\ ``75\,\% has decayed'', so $N_\mathrm{t} = 0.75\,N_0$.
+        \cmark\ 25\,\% is \emph{left}: $N_\mathrm{t} = 0.25\,N_0$.
+  \item \xmark\ ``A bigger sample has a longer half-life.'' \cmark\ Same half-life;
+        only the activity is bigger.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+The 2025 HSC asked this as a 1-mark multiple-choice question: four activity--time
+curves; pick the one with the smallest $\lambda$. The curve that falls most slowly
+has the smallest $\lambda$. Longer questions ask you to find $N_\mathrm{t}$ or $t$,
+often with a change of units (for example, seconds to weeks).
+\begin{itemize}
+  \item To read a half-life from a graph, pick any value and find the time for it to
+        halve. Do it twice and average.
+  \item Subtract the background first. Keep $\lambda$ unrounded with its unit, and
+        answer in the unit asked.
+\end{itemize}
+\end{examtip}
+% layout QA (book build): one extra line on this page lets the Quick check fit under
+% the exam tip instead of leaving a third of the page empty.
+\enlargethispage{\baselineskip}
+
+\begin{quickcheck}
+  \item After background is subtracted, a count rate falls from 960 to 120 counts
+        per minute in \qty{4.5}{h}. Find the half-life.
+  \item Radon-222 has $t_{\frac{1}{2}} = \qty{3.82}{d}$. What percentage of a sample is
+        left after \qty{10.0}{d}?
+  \item A wooden tool has \qty{62}{\percent} of the carbon-14 of living wood
+        ($t_{\frac{1}{2}} = \qty{5730}{\yr}$). Estimate its age.
+  \item Explain why the half-life does not depend on how much of the isotope is present.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Mass defect, binding energy and energy released}\label{ch4:sec:binding}
+\covers{M8.IQ4.04, M8.IQ4.06}
+
+\begin{bigidea}
+A nucleus has less mass than its separate protons and neutrons. When the nucleus
+formed, this missing mass was given out as energy ($E = mc^2$). In any nuclear
+reaction where the total mass goes down, the lost mass appears as energy.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Atomic mass unit (u)}{a mass unit close to the mass of one proton: \qty{1}{\amu} = \qty{1.661e-27}{kg}. The data sheet also writes \qty{1}{\amu} = \qty{931.5}{MeV}/$c^2$: \qty{1}{\amu} of mass is equivalent to \qty{931.5}{MeV} of energy (\qty{1}{MeV} = \qty{1.602e-13}{J}).}
+  \kw{Mass defect ($\Delta m$)}{the mass ``missing'' when nucleons join to make a nucleus.}
+  \kw{Binding energy ($E_\mathrm{B}$)}{the energy needed to pull a nucleus apart into separate nucleons.}
+  \kw{Binding energy per nucleon}{$E_\mathrm{B} \div A$. Bigger means more tightly bound.}
+\end{keywords}
+
+\subsection{Mass defect and binding energy}
+
+Imagine a ball dropping into a deep well. As it falls, it gives out energy (a
+splash, a little heat). To lift it out again, you have to give that energy back.
+
+Nucleons behave in the same way. When free protons and neutrons come together, the
+strong force pulls them in and the system gives out energy. Energy and mass are
+linked by $E = mc^2$, so giving out energy also means losing mass. That is why a
+nucleus is \emph{lighter} than its parts. The difference is the \term{mass defect}.
+It is the same idea as in \cref{ch1:sec:fusion}: mass before (the separate nucleons)
+minus mass after (the nucleus). For helium-4 it is \qty{0.030377}{\amu}, which is \qty{28.3}{MeV}
+(\cref{ch4:fig:massdefect}). To pull helium-4 apart, you must supply this
+\term{binding energy}.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \filldraw[fill=hscacc!30, draw=hscink, line width=0.7pt] (0,0) rectangle (2.4,3.0);
+    \node[diagramlabel, align=center] at (1.2,1.5) {2 protons\\+ 2 neutrons\\(separate)};
+    \node[diagramlabel, below] at (1.2,0) {\qty{4.031882}{\amu}};
+    \filldraw[fill=hscforce!20, draw=hscink, line width=0.7pt] (5.4,0) rectangle (7.8,2.3);
+    \node[diagramlabel, align=center] at (6.6,1.15) {helium-4\\nucleus};
+    \node[diagramlabel, below] at (6.6,0) {\qty{4.001505}{\amu}};
+    \draw[guide] (2.4,3.0) -- (8.4,3.0);
+    \draw[guide] (7.8,2.3) -- (8.4,2.3);
+    \draw[<->, line width=0.9pt] (8.2,2.3) -- (8.2,3.0);
+    \node[diagramlabel, anchor=west, align=left] at (8.35,2.65)
+      {mass defect $\Delta m = \qty{0.030377}{\amu}$,\\given out as \qty{28.3}{MeV}};
+    \draw[->, line width=0.9pt, hscvel] (2.6,1.75) -- (5.2,1.75);
+    \node[diagramlabel, text=hscvel, above] at (3.9,1.75) {join: energy out};
+    \draw[->, line width=0.9pt, hscforce] (5.2,0.85) -- (2.6,0.85);
+    \node[diagramlabel, text=hscforce, align=center, below] at (3.9,0.85)
+      {pull apart:\\supply $E_\mathrm{B}$};
+  \end{tikzpicture}
+  \caption{The mass defect of helium-4 (bar heights not to scale). The nucleus has
+    less mass than its separate parts.}\label{ch4:fig:massdefect}
+\end{figure}
+
+\begin{formulacard}{Mass-energy equivalence}
+  \cardformula{E = mc^2}
+  \begin{symbols}
+    \sym{$E$}{energy (here: the energy released)}{\si{J}}
+    \sym{$m$}{mass (here: the mass lost, $\Delta m = m_\mathrm{before} - m_\mathrm{after}$)}{\si{kg}}
+    \sym{$c$}{speed of light, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{mass is a form of energy. When the total mass falls, the lost mass comes
+    out as energy.}
+  \whentouse{any nuclear reaction: $E = (m_\mathrm{before} - m_\mathrm{after})\,c^2$.
+    Also binding energy: $E_\mathrm{B} = \Delta m\, c^2$.}
+  \whennottouse{before the equation is balanced and every particle is counted. Never
+    with a mass in \si{\amu} and $c$ in \si{m.s^{-1}} together.}
+  \rearranged{$m = \dfrac{E}{c^2}$ \qquad masses in \si{\amu}:
+    $E\ (\si{MeV}) = (m_\mathrm{before} - m_\mathrm{after}) \times 931.5$. (This works
+    because \qty{1}{\amu} = \qty{931.5}{MeV}/$c^2$, so each \qty{1}{\amu} of lost mass
+    gives \qty{931.5}{MeV}.) If $E < 0$, energy must be supplied.}
+  \tensecond{the mass falls by \qty{0.0350}{\amu}: $E = 0.0350 \times 931.5 =
+    \qty{32.6}{MeV}$. Or $\Delta m = \qty{1.0e-30}{kg}$:
+    $E = \num{1.0e-30} \times (\num{3.00e8})^2 = \qty{9.0e-14}{J}$.}
+  \trap{$\qty{1}{MeV} = \qty{1.602e-13}{J}$. Pick one route: \si{\amu} $\times$ 931.5
+    gives MeV; \si{kg} $\times\, c^2$ gives J (they differ by 0.2\,\% because the data
+    sheet values are rounded). Do not mix atomic masses (whole atom, electrons
+    included) with nuclear masses (nucleus only).}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Mass defect and binding energy}
+  \cardformula{\Delta m = (Zm_\mathrm{p} + Nm_\mathrm{n}) - m_\mathrm{nucleus}
+    \qquad E_\mathrm{B} = \Delta m\, c^2}
+  \begin{symbols}
+    \sym{$\Delta m$}{mass defect}{\si{kg} (or \si{\amu})}
+    \sym{$Z$, $N$}{numbers of protons and of neutrons ($N = A - Z$)}{no unit}
+    \sym{$m_\mathrm{p}$, $m_\mathrm{n}$}{proton mass \qty{1.007276}{\amu}, neutron mass
+      \qty{1.008665}{\amu} (these values in u are not on the data sheet)}{\si{kg} (or \si{\amu})}
+    \sym{$m_\mathrm{nucleus}$}{measured mass of the nucleus}{\si{kg} (or \si{\amu})}
+    \sym{$E_\mathrm{B}$}{binding energy}{\si{J} (or MeV)}
+  \end{symbols}
+  \inwords{mass of the separate parts minus mass of the nucleus. As energy, that mass
+    is the binding energy.}
+  \whentouse{finding how tightly a nucleus is held. $\dfrac{E_\mathrm{B}}{A}$ compares
+    nuclei of different sizes.}
+  \whennottouse{with an atomic mass (it includes electrons) and the proton mass
+    $m_\mathrm{p}$ (no electron) together. Subtract the electrons first (see Trap).}
+  \rearranged{$E_\mathrm{B}\ (\si{MeV}) = \Delta m\ (\si{\amu}) \times 931.5$; \
+    binding energy per nucleon $= \dfrac{E_\mathrm{B}}{A}$}
+  \tensecond{helium-4: $(2 \times 1.007276 + 2 \times 1.008665) - 4.001505
+    = \qty{0.030377}{\amu}$; $\times\, 931.5 = \qty{28.3}{MeV}$, or \qty{7.07}{MeV} per
+    nucleon.}
+  \derive{forming the nucleus gives out the energy $E_\mathrm{B}$, so by $E = mc^2$
+    its mass drops by $\Delta m = \dfrac{E_\mathrm{B}}{c^2}$. Multiply by $c^2$.}
+  \trap{an atomic mass includes $Z$ electrons: subtract $Z \times \qty{0.000549}{\amu}$
+    first. Keep every decimal place, because $\Delta m$ is a small difference. The
+    data sheet gives $m_\mathrm{p}$ and $m_\mathrm{n}$ only in kg, to 4 significant
+    figures. That is too rounded here (for helium-4 the answer is about 2\,\% too
+    low), so use the masses in u that the question gives.}
+\end{formulacard}
+
+Big nuclei have big binding energies, because they have many nucleons. To compare
+nuclei we use the \term{binding energy per nucleon} (\cref{ch4:fig:becurve}).
+
+\begin{figure}
+  \centering
+  \includegraphics{ch4_becurve.pdf}
+  \caption{Binding energy per nucleon against mass number. Fission and fusion both
+    move nuclei up the curve, towards iron-56.}\label{ch4:fig:becurve}
+\end{figure}
+
+\begin{itemize}
+  \item It rises steeply for light nuclei: hydrogen-2 has only \qty{1.1}{MeV} per
+        nucleon. Helium-4 is unusually high (\qty{7.1}{MeV}), so it is very stable.
+  \item The peak is near iron-56 (\qty{8.8}{MeV}): the most tightly bound nuclei.
+  \item It falls slowly to about \qty{7.6}{MeV} for uranium.
+\end{itemize}
+\textbf{Key rule:} a reaction that moves nuclei up the curve, towards iron, makes the
+nucleons more tightly bound. The products then have less mass, so energy is released.
+
+\subsection{Energy released in decays and transmutations}
+
+Mass is a form of energy. If the products have less mass, some of that energy has
+turned into kinetic (movement) energy.
+
+Energy is always conserved, if we count mass as energy ($mc^2$) as well as kinetic
+energy ($K$). The totals of $A$ and charge also stay the same.
+\begin{align*}
+  \textstyle\sum (mc^2 + K)_\mathrm{before} &= \textstyle\sum (mc^2 + K)_\mathrm{after}\\
+  K_\mathrm{after} - K_\mathrm{before} &= (m_\mathrm{before} - m_\mathrm{after})\,c^2
+\end{align*}
+(To get the second line, move the $mc^2$ terms to the right and the $K$ terms to the
+left.) Here $K_\mathrm{after}$ also includes the energy of any gamma photons.
+
+So if the products have less total mass, the lost mass becomes kinetic energy of the
+products and gamma rays. If they have more mass, energy must be supplied.
+
+\begin{refresher}{Momentum (Year 11)}
+\term{Momentum} is mass times velocity ($p = mv$). If no outside force acts, the
+total momentum stays the same: $\sum m\vec{v}_\mathrm{before} = \sum
+m\vec{v}_\mathrm{after}$ (on the formula sheet). Kinetic energy can also be written
+with momentum: $K = \tfrac12 mv^2 = (mv)^2/(2m) = p^2/(2m)$ (multiply the top and
+bottom by $m$). So for the same momentum, the smaller mass has more kinetic energy.
+\end{refresher}
+
+\textbf{Alpha decay.} The parent nucleus is at rest, so its momentum is zero. After
+the decay, the alpha particle and the daughter move apart with equal and opposite
+momentum. So the daughter \term{recoils}: it moves backwards, like a gun when it
+fires. For the same momentum, the lighter particle moves faster and gets more
+kinetic energy. Both have the same size of momentum $p$. Put $K = p^2/(2m)$ into
+the ratio; the $p^2/2$ cancels: $K_\alpha / K_\mathrm{daughter} =
+m_\mathrm{daughter} / m_\alpha$. So the alpha particle's share of the energy released is
+\[
+  \frac{m_\mathrm{daughter}}{m_\mathrm{daughter} + m_\alpha}
+  \approx \frac{206}{206 + 4} = 0.981 \quad \text{(polonium-210), about \qty{98}{\percent}.}
+\]
+
+So alpha particles from one isotope have one, or a few, fixed energies (not a
+spread). If an alpha particle has less energy, the daughter is left excited. It then
+gives out a gamma ray that carries the difference.
+
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.6\linewidth,
+        xmin=0, xmax=1.12, ymin=0, ymax=1.12, ytick=\empty,
+        xtick={0,1}, xticklabels={0, $K_\mathrm{max}$},
+        xlabel={Kinetic energy}, ylabel={Number of $\beta$ particles}]
+      \addplot[hscseriesA, line width=1.2pt, domain=0:1, samples=120, no marks]
+        {sqrt(x^2 + 1.022*x)*(x + 0.511)*(1 - x)^2/0.2523};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Beta particles from one isotope have a spread of energies.}
+  \label{ch4:fig:betaspectrum}
+\nextside
+  \textbf{Beta decay and the neutrino.} Each beta decay releases the same energy. But
+  the beta particles have a range of energies, up to a maximum kinetic energy
+  $K_\mathrm{max}$ (\cref{ch4:fig:betaspectrum}). $K_\mathrm{max}$ is the energy
+  released by the decay. A beta particle has it only when the neutrino gets almost
+  none.\par\smallskip
+  Energy seemed to go missing. In 1930 Pauli proposed a neutral, almost massless
+  particle that carries off the rest of the energy and momentum. Cowan and Reines
+  first detected this neutrino in 1956.
+\end{sidebyside}
+
+\textbf{Artificial transmutation} is a nuclear change forced by firing a particle
+(alpha, proton or neutron) at a nucleus.
+\begin{itemize}
+  \item 1919, Rutherford (the first):
+        $\chFourNuc{14}{7}{N} + \chFourAlpha \to \chFourNuc{17}{8}{O} + \chFourNuc{1}{1}{H}$.
+        The products have more mass. The alpha particle's kinetic energy pays for it.
+  \item 1932, Cockcroft and Walton:
+        $\chFourNuc{7}{3}{Li} + \chFourNuc{1}{1}{H} \to 2\,\chFourAlpha$. The two
+        alpha particles together gained about \qty{17}{MeV} (about \qty{8.7}{MeV}
+        each), as the mass loss predicted (\qty{17.3}{MeV}). This was the first
+        direct test of $E = mc^2$ in a nuclear reaction.
+  \item Neutron-induced fission (\cref{ch4:sec:fission}) is also artificial.
+\end{itemize}
+
+Tables usually give \term{atomic masses}: the mass of the whole atom, electrons
+included. Can you use them as they are?
+\begin{itemize}
+  \item \textbf{Alpha decay, fission, and fusion such as D--T:} both sides have the
+        same number of electrons. They cancel, so use the atomic masses as they are.
+  \item \textbf{$\beta^-$ decay:} use $m_\mathrm{parent\ atom} - m_\mathrm{daughter\ atom}$
+        only. Do \emph{not} add an electron mass. The daughter atom has one extra
+        electron, and its mass stands for the emitted electron
+        (\cref{ch4:we:carbon}).
+  \item \textbf{$\beta^+$ decay:} the electrons do not cancel. The parent atom has one
+        more electron than the daughter atom, and the positron has one electron mass
+        too. So also subtract $2m_\mathrm{e} = 2 \times \qty{0.000549}{\amu}$. Example,
+        F-18 to O-18 (\cref{ch4:we:equations}), atomic masses \qty{18.000937}{\amu}
+        and \qty{17.999160}{\amu}:
+        $E = (18.000937 - 17.999160 - 2 \times 0.000549) \times 931.5 = \qty{0.632}{MeV}$.
+        Forgetting the $2m_\mathrm{e}$ gives \qty{1.66}{MeV}, which is wrong.
+\end{itemize}
+
+\begin{workedexample}{Binding energy of nitrogen-14}\label{ch4:we:nitrogen}
+A nitrogen-14 nucleus ($\chFourNuc{14}{7}{N}$) has a mass of \qty{13.999231}{\amu}.
+Find (a) the mass defect, (b) the binding energy in MeV and J, (c) the binding
+energy per nucleon. ($m_\mathrm{p} = \qty{1.007276}{\amu}$,
+$m_\mathrm{n} = \qty{1.008665}{\amu}$.)
+\given{$Z = 7$, \ $N = 14 - 7 = 7$, \ $m_\mathrm{nucleus} = \qty{13.999231}{\amu}$}
+\find{$\Delta m$, \ $E_\mathrm{B}$, \ $E_\mathrm{B}/A$}
+\formula{$\Delta m = (Zm_\mathrm{p} + Nm_\mathrm{n}) - m_\mathrm{nucleus}$, \
+  $E_\mathrm{B}\ (\si{MeV}) = \Delta m\ (\si{\amu}) \times 931.5$}
+\substitute{\eqlines{\text{parts} &= 7 \times \qty{1.007276}{\amu} + 7 \times \qty{1.008665}{\amu}
+  = \qty{14.111587}{\amu}\\
+  \Delta m &= \qty{14.111587}{\amu} - \qty{13.999231}{\amu} = \qty{0.112356}{\amu}\\
+  E_\mathrm{B} &= 0.112356 \times \qty{931.5}{MeV} = \qty{104.66}{MeV}\\
+  &= \qty{104.66}{MeV} \times \qty{1.602e-13}{J.MeV^{-1}} = \qty{1.677e-11}{J}\\
+  E_\mathrm{B}/A &= \qty{104.66}{MeV} \div 14 = \qty{7.476}{MeV}}}
+\answer{\final{$\Delta m = \qty{0.112356}{\amu}$}, \
+  \final{$E_\mathrm{B} = \qty{105}{MeV} = \qty{1.68e-11}{J}$}, \
+  \final{\qty{7.48}{MeV} per nucleon}}
+\checkstep{the nucleus is lighter than its parts \cmark. About \qty{7.5}{MeV} per
+  nucleon fits \cref{ch4:fig:becurve} \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Energy from an alpha decay}\label{ch4:we:polonium}
+Polonium-210 decays: $\chFourNuc{210}{84}{Po} \to \chFourNuc{206}{82}{Pb} + \chFourAlpha$.
+Atomic masses: Po-210 \qty{209.982874}{\amu}, Pb-206 \qty{205.974465}{\amu}, He-4
+\qty{4.002603}{\amu}. Find the energy released in MeV and J.
+\given{the atomic masses. Electrons balance ($84 = 82 + 2$), so atomic masses are fine.}
+\find{the energy released, $E$}
+\formula{$E = (m_\mathrm{before} - m_\mathrm{after})\,c^2$; in MeV:
+  $E = \Delta m\ (\si{\amu}) \times 931.5$}
+\substitute{\eqlines{m_\mathrm{after} &= \qty{205.974465}{\amu} + \qty{4.002603}{\amu}
+  = \qty{209.977068}{\amu}\\
+  \Delta m &= \qty{209.982874}{\amu} - \qty{209.977068}{\amu} = \qty{0.005806}{\amu}\\
+  E &= 0.005806 \times \qty{931.5}{MeV} = \qty{5.408}{MeV} = \qty{8.664e-13}{J}}}
+\answer{\final{$E = \qty{5.41}{MeV} = \qty{8.66e-13}{J}$}}
+\checkstep{alpha energies are usually 4 to \qty{9}{MeV} \cmark. By momentum sharing,
+  the alpha particle gets $\tfrac{206}{206 + 4} = 0.981$ of it:
+  $0.981 \times \qty{5.408}{MeV} = \qty{5.31}{MeV}$.}
+\end{workedexample}
+
+\begin{workedexample}{Energy from a beta-minus decay}\label{ch4:we:carbon}
+Carbon-14, used in carbon dating, decays:
+$\chFourNuc{14}{6}{C} \to \chFourNuc{14}{7}{N} + \chFourBeta + \chFourAnu$. Atomic
+masses: C-14 \qty{14.003242}{\amu}, N-14 \qty{14.003074}{\amu}. Find the energy
+released in MeV and J.
+\given{the atomic masses. The N atom has one more electron than the C atom. That
+  electron's mass stands for the $\beta^-$ particle. The antineutrino has almost no
+  mass.}
+\find{the energy released, $E$}
+\formula{$E = \Delta m\ (\si{\amu}) \times 931.5$, with
+  $\Delta m = m_\mathrm{parent\ atom} - m_\mathrm{daughter\ atom}$}
+\substitute{\eqlines{\Delta m &= \qty{14.003242}{\amu} - \qty{14.003074}{\amu}
+  = \qty{0.000168}{\amu}\\
+  E &= 0.000168 \times \qty{931.5}{MeV} = \qty{0.15649}{MeV}\\
+  &= \qty{0.15649}{MeV} \times \qty{1.602e-13}{J.MeV^{-1}} = \qty{2.507e-14}{J}}}
+\answer{\final{$E = \qty{0.156}{MeV} = \qty{2.51e-14}{J}$} (3 significant figures,
+  like $\Delta m$)}
+\checkstep{beta energies are usually 0.01 to a few MeV \cmark. Carbon-14 gives out no
+  gamma ray, so this is $K_\mathrm{max}$: the electron and the antineutrino share it.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``A nucleus is heavier than its parts.'' \cmark\ It is \emph{lighter}.
+  \item \xmark\ ``Binding energy is stored in the nucleus and comes out when it
+        splits.'' \cmark\ It is the energy you must \emph{supply} to split it.
+  \item \xmark\ Rounding masses to 3 decimal places. \cmark\ Keep them all.
+  \item \xmark\ ``Iron-56 has the biggest binding energy.'' \cmark\ One of the biggest
+        \emph{per nucleon} (it is at the peak of the curve). Uranium has a bigger
+        total.
+  \item \xmark\ Adding an electron mass in $\beta^-$ decay with atomic masses.
+        \cmark\ Use $m_\mathrm{parent\ atom} - m_\mathrm{daughter\ atom}$ only. Only
+        $\beta^+$ decay needs the extra $-2m_\mathrm{e}$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain how mass-energy is conserved in alpha decay, beta decay, fission and
+fusion'' (questions like this can be worth up to 6 marks). Full marks need these
+linked points:
+\begin{enumerate}
+  \item Mass is a form of energy ($E = mc^2$). Mass-energy, $A$ and charge are conserved.
+  \item The products have less mass. The lost mass becomes kinetic energy and gamma rays.
+  \item Alpha energies are fixed. In beta decay a neutrino shares the energy.
+  \item Fission and fusion products have a higher binding energy per nucleon. Give a
+        number (about \qty{200}{MeV} per fission).
+  \item Artificial transmutations (for example Rutherford, 1919) follow the same
+        rules. If the products have more mass, the incoming particle's kinetic energy
+        supplies it.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A lithium-7 nucleus ($\chFourNuc{7}{3}{Li}$) has a mass of \qty{7.014356}{\amu}.
+        Find its binding energy and binding energy per nucleon. (Use the $m_\mathrm{p}$
+        and $m_\mathrm{n}$ above.)
+  \item For $\chFourNuc{14}{7}{N} + \chFourAlpha \to \chFourNuc{17}{8}{O} + \chFourNuc{1}{1}{H}$
+        the atomic masses are N-14 \qty{14.003074}{\amu}, He-4 \qty{4.002603}{\amu},
+        O-17 \qty{16.999132}{\amu} and H-1 \qty{1.007825}{\amu}. Find the energy
+        released. What does its sign mean?
+  \item Explain why beta particles from one isotope have a range of energies, but its
+        alpha particles have fixed energies.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Fission and fusion}\label{ch4:sec:fission}
+\covers{M8.IQ4.03, M8.IQ4.05, M8.IQ4.04, M8.IQ4.06}
+
+\begin{bigidea}
+Splitting a heavy nucleus (fission) and joining light nuclei (fusion) both make
+nucleons more tightly bound. The products have less mass, so energy is released.
+Fission neutrons can split more nuclei in a chain reaction, which a reactor controls.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Nuclear fission}{a heavy nucleus splits into two middle-sized nuclei and some neutrons.}
+  \kw{Chain reaction}{neutrons from one fission cause more fissions.}
+  \kw{Critical mass}{the smallest mass of fuel that can keep a chain reaction going.}
+  \kw{Nuclear fusion}{two light nuclei join to make a heavier nucleus.}
+\end{keywords}
+
+\subsection{How fission happens}
+
+In 1938 Hahn and Strassmann fired neutrons at uranium and found barium, a much
+lighter element. Meitner and Frisch explained it: the uranium nucleus had split.
+
+Uranium-235 almost never splits by itself. A neutron triggers it. Neutrons have no
+charge, so the nucleus does not repel them (\cref{ch4:fig:fission}).
+\begin{enumerate}
+  \item U-235 absorbs a slow (\term{thermal}) neutron and becomes an excited U-236. A
+        thermal neutron has about the same energy as the atoms around it (about
+        \qty{0.025}{eV}).
+  \item The extra energy makes the nucleus vibrate. It stretches into a long shape
+        with a thin middle, like a peanut.
+  \item The strong force has a very short range. It can no longer hold the two far
+        ends together, and the electric repulsion pushes them apart.
+  \item It splits into two fragments and 2 or 3 fast neutrons (2.5 on average).
+  \item The positive fragments repel and fly apart. Their kinetic energy (about
+        \qty{80}{\percent} of the total) becomes heat.
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, nuc/.style={circle, draw=hscink, fill=hscacc!25,
+      line width=0.7pt, inner sep=0pt}]
+    \fill[hscmuted] (-0.2,0) circle (0.11);
+    \draw[->, hscmuted, line width=0.9pt] (-0.05,0) -- (0.45,0);
+    \node[diagramlabel, below] at (-0.2,-0.15) {slow n};
+    \node[nuc, minimum size=1.15cm] at (1.15,0) {};
+    \node[diagramlabel] at (1.15,0) {U-235};
+    \draw[->, line width=0.8pt] (1.95,0) -- (2.45,0);
+    \draw[hscink, line width=0.7pt, fill=hscforce!20, decorate,
+      decoration={snake, amplitude=0.6pt, segment length=4pt}] (3.2,0) ellipse (0.72 and 0.6);
+    \node[diagramlabel, font=\footnotesize, align=center] at (3.2,0) {U-236\\[-3pt]excited};
+    \draw[->, line width=0.8pt] (4.0,0) -- (4.45,0);
+    \filldraw[fill=hscforce!20, draw=hscink, line width=0.7pt]
+      (4.55,0) .. controls (4.55,0.6) and (5.2,0.55) .. (5.4,0.22)
+      .. controls (5.6,0.55) and (6.25,0.55) .. (6.25,0)
+      .. controls (6.25,-0.55) and (5.6,-0.55) .. (5.4,-0.22)
+      .. controls (5.2,-0.55) and (4.55,-0.6) .. (4.55,0) -- cycle;
+    \node[diagramlabel, below] at (5.4,-0.5) {stretches};
+    \draw[->, line width=0.8pt] (6.45,0) -- (6.95,0);
+    \node[nuc, minimum size=1.18cm] at (7.95,0.64) {};
+    \node[diagramlabel, font=\footnotesize] at (7.95,0.64) {Xe-140};
+    \node[nuc, minimum size=1.02cm] at (7.95,-0.72) {};
+    \node[diagramlabel, font=\footnotesize] at (7.95,-0.72) {Sr-94};
+    \draw[force] (8.58,0.9) -- (9.2,1.2);
+    \draw[force] (8.5,-0.95) -- (9.15,-1.25);
+    \fill[hscmuted] (8.85,0.08) circle (0.1);
+    \fill[hscmuted] (8.75,-0.22) circle (0.1);
+    \draw[->, hscmuted, line width=0.9pt] (8.97,0.11) -- (9.5,0.27);
+    \draw[->, hscmuted, line width=0.9pt] (8.87,-0.25) -- (9.4,-0.42);
+    \node[diagramlabel, anchor=west, align=left] at (9.65,0)
+      {2 fast neutrons\\+ about \qty{185}{MeV}};
+    \node[diagramlabel, text=hscforce, font=\footnotesize, anchor=west] at (9.25,1.3)
+      {fragments fly apart};
+  \end{tikzpicture}
+  \caption{Neutron-induced fission of uranium-235 (one possible pair of fragments).
+    The red arrows show the fragments flying apart; their kinetic energy becomes
+    heat. On average a fission releases about \qty{200}{MeV}.}
+  \label{ch4:fig:fission}
+\end{figure}
+
+The equation for \cref{ch4:fig:fission} is
+$\chFourNuc{235}{92}{U} + \chFourNeut \to \chFourNuc{236}{92}{U}^{*} \to
+\chFourNuc{140}{54}{Xe} + \chFourNuc{94}{38}{Sr} + 2\,\chFourNeut$.
+Many fragment pairs are possible. The fragments have too many neutrons, so they are
+radioactive. This is why used fuel is dangerous nuclear waste.
+
+\textbf{Where does the energy come from?} Two linked ideas:
+\begin{itemize}
+  \item \emph{forces:} electric repulsion pushes the fragments apart, giving them
+        kinetic energy;
+  \item \emph{mass-energy:} the fragments have about 8.3 to \qty{8.6}{MeV} per nucleon,
+        but U-235 has \qty{7.6}{MeV} (\cref{ch4:fig:becurve}). Binding energy before:
+        $235 \times 7.6 \approx \qty{1786}{MeV}$. After:
+        $94 \times 8.6 + 140 \times 8.3 \approx \qty{1970}{MeV}$ (free neutrons have
+        none). The products are more tightly bound by about
+        $1970 - 1786 = \qty{184}{MeV}$. So they have less mass, and about
+        \qty{184}{MeV} is released. (\Cref{ch4:we:fission} gets \qty{185}{MeV} from
+        the masses.)
+\end{itemize}
+
+\subsection{Chain reactions and reactors}
+
+The 2 or 3 new neutrons can cause more fissions: a \term{chain reaction}. What
+matters is how many neutrons from each fission cause another fission, on average
+(\cref{ch4:fig:chain}):
+\begin{itemize}
+  \item \emph{more than one}: fissions multiply (1, 3, 9, 27, \ldots). This
+        \term{uncontrolled chain reaction} is a nuclear explosion;
+  \item \emph{exactly one}: a steady rate. This \term{controlled chain reaction} runs a
+        reactor;
+  \item \emph{less than one}: the chain dies out.
+\end{itemize}
+In 1942 Fermi's team ran the first controlled chain reaction, in Chicago.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=0.85cm, nuc/.style={circle, draw=hscink, fill=hscacc!25,
+      line width=0.6pt, inner sep=0pt}, neu/.style={->, hscmuted, line width=0.7pt}]
+    \node[nuc, minimum size=0.40cm] (a0) at (0,0) {};
+    \foreach \i/\y in {1/1.5, 2/0, 3/-1.5} {
+      \node[nuc, minimum size=0.34cm] (a\i) at (2,\y) {};
+      \draw[neu] (a0) -- (a\i);
+      \foreach \j/\dy in {1/0.5, 2/0, 3/-0.5} {
+        \node[nuc, minimum size=0.26cm] (b\i\j) at (3.9,\y+\dy) {};
+        \draw[neu] (a\i) -- (b\i\j);
+      }
+    }
+    \node[diagramlabel] at (0,-2.6) {1 fission};
+    \node[diagramlabel] at (2,-2.6) {3 fissions};
+    \node[diagramlabel] at (3.9,-2.6) {9 fissions};
+    \node[diagramlabel, font=\small\bfseries] at (2,2.6) {(a) Uncontrolled: more than one};
+    \begin{scope}[xshift=6.3cm]
+      \fill[hscink!65] (-0.2,1.15) rectangle (6.3,1.45);
+      \node[diagramlabel, above] at (3.05,1.45) {control rod absorbs neutrons};
+      \foreach \k in {0,1,2,3} \node[nuc, minimum size=0.40cm] (c\k) at (\k*1.9,0) {};
+      \foreach \k/\n in {0/1,1/2,2/3} {
+        \draw[neu] (c\k) -- (c\n);
+        \draw[neu] (c\k) -- ++(0.55,1.1);
+        \draw[neu] (c\k) -- ++(0.55,-1.05);
+      }
+      \draw[neu] (c3) -- ++(0.55,1.1);
+      \draw[neu] (c3) -- ++(0.55,-1.05);
+      \node[diagramlabel, text=hscmuted] at (3.05,-1.4) {other neutrons escape};
+      \node[diagramlabel] at (3.05,-2.6) {1 fission $\to$ 1 fission $\to$ 1 fission $\to \cdots$};
+      \node[diagramlabel, font=\small\bfseries] at (3.05,2.6) {(b) Controlled: exactly one};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Chain reactions. Each arrow is a neutron; each circle is a U-235 nucleus
+    that splits.}\label{ch4:fig:chain}
+\end{figure}
+
+In a small lump of uranium, many neutrons escape through the surface. The
+\term{critical mass} is the smallest mass that keeps the chain going (for a given
+shape and level of enrichment). A mass below critical is \term{subcritical}: the
+chain dies out. A mass above it is \term{supercritical}: the number of fissions grows
+fast.
+
+Natural uranium is only \qty{0.7}{\percent} U-235; the rest is U-238, which cannot
+keep a chain going. Reactor fuel is \term{enriched} to 3 to \qty{5}{\percent} U-235:
+the share of U-235 has been increased. Bombs need about \qty{90}{\percent}.
+
+\Cref{ch4:fig:reactor} shows a reactor. Each part has one job.
+\begin{itemize}
+  \item \textbf{Fuel rods} hold enriched uranium. The fissions happen here.
+  \item The \term{moderator} (water or graphite) slows fast neutrons by collisions
+        with light nuclei. Slow neutrons are far more likely to split U-235.
+  \item \term{Control rods} (boron or cadmium) absorb neutrons. Pushing them in
+        absorbs more neutrons; pulling them out absorbs fewer. They are set so that,
+        on average, \emph{exactly one} neutron from each fission causes a new
+        fission. Fully in, they stop the reactor.
+  \item The \term{coolant} (here also water) carries heat to the steam generator.
+        Steam turns a turbine, which turns a generator (induction, Module 6).
+  \item The steel pressure vessel and a thick \textbf{concrete shield} absorb
+        neutrons and gamma rays.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.84cm, y=0.84cm, lab/.style={diagramlabel, font=\footnotesize},
+      lead/.style={hscmuted, line width=0.5pt}]
+    \fill[hscmuted!35] (-0.4,-0.4) rectangle (4.4,4.9);
+    \filldraw[fill=hscvel!14, draw=hscink, line width=1pt, rounded corners=6pt]
+      (0,0) rectangle (4.0,4.3);
+    \foreach \x in {0.55,1.35,2.15,2.95} \fill[hscacc!75] (\x,0.5) rectangle (\x+0.3,2.9);
+    \foreach \x in {1.0,1.8,2.6} \fill[hscink!80] (\x,1.7) rectangle (\x+0.15,5.6);
+    \draw[<->, line width=0.9pt] (3.45,5.0) -- (3.45,5.9);
+    \draw[line width=2.6pt, hscforce!70] (4.0,3.5) -- (5.6,3.5);
+    \draw[line width=2.6pt, hscvel!70] (5.6,1.0) -- (4.0,1.0);
+    \filldraw[fill=white, draw=hscink, line width=0.7pt] (4.8,1.0) circle (0.25);
+    \filldraw[fill=hscvel!8, draw=hscink, line width=0.8pt, rounded corners=3pt]
+      (5.6,0.5) rectangle (7.0,4.4);
+    \draw[line width=1.6pt, hscforce!65, rounded corners=4pt]
+      (5.6,3.5) -- (6.55,3.5) -- (6.55,1.0) -- (5.6,1.0);
+    \draw[line width=2.2pt, hscmuted!80] (6.3,4.4) -- (6.3,5.3) -- (8.1,5.3);
+    \filldraw[fill=hscmuted!20, draw=hscink, line width=0.8pt]
+      (8.1,4.95) -- (9.3,4.55) -- (9.3,6.05) -- (8.1,5.65) -- cycle;
+    \draw[line width=1.6pt] (9.3,5.3) -- (9.9,5.3);
+    \filldraw[fill=hscseriesC!25, draw=hscink, line width=0.8pt] (10.4,5.3) circle (0.5);
+    \node[lab] at (10.4,5.3) {G};
+    \draw[line width=2.2pt, hscmuted!80] (8.8,4.7) -- (8.8,2.6);
+    \filldraw[fill=hscvel!8, draw=hscink, line width=0.8pt] (8.0,1.1) rectangle (9.6,2.6);
+    \draw[hscvel, line width=0.9pt, decorate, decoration={snake, amplitude=1.5pt,
+      segment length=6pt}] (9.6,1.85) -- (8.3,1.85);
+    \draw[->, hscvel, line width=0.8pt] (10.6,1.85) -- (9.6,1.85);
+    \draw[line width=2.2pt, hscvel!70] (8.0,1.5) -- (7.0,1.5);
+    \draw[lead] (0.7,2.4) -- (-0.9,2.4) node[lab, anchor=east] {fuel rods};
+    \draw[lead] (1.07,4.6) -- (-0.9,4.6) node[lab, anchor=east] {control rods};
+    \draw[lead] (0.3,0.4) -- (-0.9,0.4) node[lab, anchor=east, align=right]
+      {water: moderator\\and coolant};
+    \draw[lead] (0.12,3.5) -- (-0.9,3.5) node[lab, anchor=east] {pressure vessel};
+    \draw[lead] (2.0,-0.25) -- (2.0,-0.8) node[lab, anchor=north] {concrete shield};
+    \node[lab, anchor=west] at (3.6,5.45) {in / out};
+    \node[lab, anchor=north] at (4.8,0.7) {pump};
+    \node[lab, anchor=north, align=center] at (6.3,0.45) {steam\\generator};
+    \node[lab, anchor=south] at (7.2,5.35) {steam};
+    \node[lab, anchor=south] at (8.7,6.05) {turbine};
+    \node[lab, anchor=south] at (10.4,5.85) {generator};
+    \node[lab, anchor=north] at (8.8,1.05) {condenser};
+    \node[lab, anchor=north, align=center] at (10.45,1.75) {cooling\\water};
+  \end{tikzpicture}
+  \caption{A simple water-cooled fission reactor. Red pipes carry hot water; blue
+    pipes carry cooler water.}\label{ch4:fig:reactor}
+\end{figure}
+
+A \textbf{reactor} uses low-enriched fuel, a moderator and control rods. On average,
+exactly one neutron per fission causes a new fission, so the power is steady.
+
+A \textbf{bomb} uses highly enriched fuel. Pieces of fuel are pushed together very
+fast to make a supercritical mass. Nothing absorbs the extra neutrons. More than one
+neutron per fission causes a new fission, so the energy comes out in a fraction of a
+second.
+
+\subsection{Nuclear fusion}
+
+\textbf{Why is energy released?} On the left of \cref{ch4:fig:becurve}, hydrogen-2 has
+\qty{1.1}{MeV} per nucleon and helium-4 has \qty{7.1}{MeV}. When light nuclei fuse
+into helium, the nucleons become much more tightly bound. So the products have less
+mass, and the lost mass becomes their kinetic energy ($E = mc^2$).
+
+\textbf{Why is it hard?} Both nuclei are positive, so they repel. They must get
+within about \qty{3}{fm} for the strong force to pull them together. Only very fast
+nuclei get this close, so the gas must be very hot. It must also be dense, so that
+collisions happen often.
+
+In the Sun's core (about \qty{1.5e7}{K}), gravity squeezes the \term{plasma}: a gas
+so hot that the electrons are knocked off the atoms. Reactors on Earth cannot squeeze
+plasma as hard as the Sun's gravity does, so they need over \qty{1e8}{K}.
+\begin{itemize}
+  \item In the Sun the overall reaction is
+        $4\,\chFourNuc{1}{1}{H} \to \chFourAlpha + 2\,\chFourPos + 2\,\chFourNu$
+        (\qty{24.7}{MeV}). The two positrons then annihilate with two electrons,
+        which adds about \qty{2.0}{MeV}. So the total is \qty{26.7}{MeV} per helium
+        nucleus (\cref{ch1:sec:fusion}).
+  \item Fusion reactors would use \term{deuterium} (hydrogen-2: one proton and one
+        neutron) and \term{tritium} (hydrogen-3: one proton and two neutrons):
+        $\chFourNuc{2}{1}{H} + \chFourNuc{3}{1}{H} \to \chFourAlpha + \chFourNeut$
+        (\qty{17.6}{MeV}). Per kilogram of fuel this gives about
+        \qty{3.4e14}{J}, about 4 times as much as U-235 fission. No fusion power
+        station exists yet.
+  \item Fusing nuclei beyond iron would take in energy, because the products would be
+        less tightly bound.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Energy from binding energies}
+  \cardformula{E = \textstyle\sum E_\mathrm{B,after} - \sum E_\mathrm{B,before}}
+  \begin{symbols}
+    \sym{$E$}{energy released}{\si{J} (usually MeV)}
+    \sym{$E_\mathrm{B}$}{binding energy of each nucleus (per nucleon value $\times A$)}{\si{J} (usually MeV)}
+  \end{symbols}
+  \inwords{the energy released is how much more tightly bound the products are.}
+  \whentouse{you are given binding energies, or values per nucleon, instead of masses.
+    It works for fission and fusion.}
+  \whennottouse{in beta decay. A neutron turns into a proton, so the separate
+    nucleons on the two sides are not the same, and their masses do not cancel. Use
+    atomic masses (rules in \cref{ch4:sec:binding}).}
+  \rearranged{$E_\mathrm{B} = (\text{binding energy per nucleon}) \times A$. A free proton
+    or neutron has $E_\mathrm{B} = 0$.}
+  \tensecond{deuterium--tritium: $E_\mathrm{B}$(He-4) = \qty{28.30}{MeV},
+    $E_\mathrm{B}$(H-2) = \qty{2.22}{MeV}, $E_\mathrm{B}$(H-3) = \qty{8.48}{MeV}, free
+    neutron 0. $E = (28.30 + 0) - (2.22 + 8.48) = \qty{17.60}{MeV}$.}
+  \derive{each nucleus has mass = (mass of its separate nucleons) $-\, E_\mathrm{B}/c^2$.
+    Both sides hold the same protons and neutrons, so those masses cancel in
+    $m_\mathrm{before} - m_\mathrm{after}$. Then
+    $E = (m_\mathrm{before} - m_\mathrm{after})\,c^2 = \sum E_\mathrm{B,after} - \sum E_\mathrm{B,before}$.}
+  \trap{multiply each per nucleon value by $A$ first. Then take products \emph{minus}
+    starting nuclei.}
+\end{formulacard}
+
+\begin{workedexample}{Energy from one fission}\label{ch4:we:fission}
+For $\chFourNuc{235}{92}{U} + \chFourNeut \to \chFourNuc{140}{54}{Xe} + \chFourNuc{94}{38}{Sr}
++ 2\,\chFourNeut$, the atomic masses are U-235 \qty{235.043930}{\amu}, Xe-140
+\qty{139.921646}{\amu} and Sr-94 \qty{93.915356}{\amu}; a neutron is
+\qty{1.008665}{\amu}. Show that the equation balances, and find the energy released.
+\given{the masses above. Electrons balance: $92 = 54 + 38$.}
+\find{the totals of $A$ and $Z$, and the energy released $E$}
+\formula{$\sum A$, $\sum Z$ equal on both sides; \
+  $E = (m_\mathrm{before} - m_\mathrm{after}) \times 931.5$ (masses in \si{\amu})}
+\substitute{\eqlines{A\colon\ 235 + 1 &= 236 = 140 + 94 + 2 \ \text{\cmark}\\
+  Z\colon\ 92 + 0 &= 92 = 54 + 38 + 0 \ \text{\cmark}\\
+  m_\mathrm{before} &= 235.043930 + 1.008665 = \qty{236.052595}{\amu}\\
+  m_\mathrm{after} &= 139.921646 + 93.915356 + 2 \times 1.008665\\
+  &= 139.921646 + 93.915356 + 2.017330\\
+  &= \qty{235.854332}{\amu}\\
+  E &= (236.052595 - 235.854332) \times 931.5\\
+  &= 0.198263 \times 931.5 = \qty{184.68}{MeV} = \qty{2.959e-11}{J}}}
+\answer{\final{$E = \qty{185}{MeV} = \qty{2.96e-11}{J}$}}
+\checkstep{close to the usual ``about \qty{200}{MeV}'' \cmark. Only 0.08\,\% of the
+  mass became energy.}
+\end{workedexample}
+
+% Added by the coverage audit (M8.IQ4.03, M8.IQ4.06): numbers in
+\begin{workedexample}{Reactor fuel, and a runaway chain reaction}\label{ch4:we:reactor}
+A reactor core gives out heat at a steady \qty{3.0}{GW} (\qty{3.0e9}{W}). Each fission of
+U-235 releases about \qty{185}{MeV} (\cref{ch4:we:fission}). One U-235 atom has a mass of
+\qty{235.043930}{\amu}. (a)~How many fissions happen each second? (b)~What mass of U-235 is
+split in one day? (c)~In a bomb, on average two neutrons from each fission cause new
+fissions. Each round of fissions (one \emph{generation}) takes about \qty{10}{ns}. Start
+with one fission. After how many generations does one generation hold more fissions than
+the reactor makes in a whole second? How long does this take?
+\given{$P = \qty{3.0e9}{W}$, \ $E_\mathrm{fission} = \qty{185}{MeV}$, \
+  $m_\mathrm{atom} = 235.043930 \times \qty{1.661e-27}{kg} = \qty{3.904e-25}{kg}$, \
+  $\qty{1}{d} = \qty{86400}{s}$, \ one generation $= \qty{10}{ns}$}
+\find{(a) fissions per second; (b) mass split per day; (c) the number of generations $n$,
+  and the time}
+\formula{$P = \dfrac{\Delta E}{\Delta t}$ (on the sheet; \unit{W} $=$ \unit{J.s^{-1}}), so
+  fissions per second $= \dfrac{P}{E_\mathrm{fission}}$. \ In the bomb, generation $n$ holds
+  $2^n$ fissions ($1 \to 2 \to 4 \to 8 \to \cdots$).}
+\substitute{(a) Change the energy of one fission from MeV to J:\par
+  \eqlines{E_\mathrm{fission} &= \qty{185}{MeV} \times \qty{1.602e-13}{J.MeV^{-1}}
+  = \qty{2.964e-11}{J}}\par
+  Divide the power by the energy of one fission:\par
+  \eqlines{\frac{P}{E_\mathrm{fission}} &= \frac{\qty{3.0e9}{W}}{\qty{2.964e-11}{J}}
+  = \qty{1.012e20}{s^{-1}}}\par
+  (b) Find the fissions in one day, then their mass:\par
+  \eqlines{\qty{1.012e20}{s^{-1}} \times \qty{86400}{s} &= \num{8.746e24}\\
+  \num{8.746e24} \times \qty{3.904e-25}{kg} &= \qty{3.414}{kg}}\par
+  (c) Set one generation equal to one second of the reactor. Then take ln of both sides
+  (toolkit in \cref{ch4:sec:halflife}):\par
+  \eqlines{2^n &= \num{1.012e20}\\
+  n \ln 2 &= \ln(\num{1.012e20}) = 46.06\\
+  n &= \frac{46.06}{0.6931} = 66.5}\par
+  $n$ must be a whole number. $2^{66} = \num{7.4e19}$ is not quite enough, and
+  $2^{67} = \num{1.5e20}$ is more, so 67 generations are needed.\par
+  \eqlines{\text{time} &= 67 \times \qty{10}{ns} = \qty{670}{ns} = \qty{0.67}{\micro\second}}}
+\answer{(a) \final{\num{1.0e20} fissions each second} \ (b) \final{about \qty{3.4}{kg} of
+  U-235} each day \ (c) \final{67 generations}, in only about
+  \final{\qty{0.67}{\micro\second}}.}
+\checkstep{(b) Engineers use the rule that splitting about \qty{1}{g} of U-235 gives
+  \qty{1}{MW} of heat for a day: $3000 \times \qty{1}{g} = \qty{3}{kg}$, close \cmark.
+  (c) In the reactor, exactly one neutron per fission causes a new fission. So every
+  generation has the same number of fissions, and the power stays steady. In the bomb the
+  number doubles every \qty{10}{ns}. About 80 generations split about \qty{1}{kg} of U-235
+  in less than a millionth of a second: an explosion.}
+\end{workedexample}
+
+\begin{workedexample}{Helium-3 fusion in the Sun}\label{ch4:we:he3}
+One step in the Sun is
+$\chFourNuc{3}{2}{He} + \chFourNuc{3}{2}{He} \to \chFourAlpha + 2\,\chFourNuc{1}{1}{H}$.
+The binding energy per nucleon is \qty{2.573}{MeV} for helium-3 and \qty{7.074}{MeV}
+for helium-4. Find the energy released.
+\given{He-3: \qty{2.573}{MeV} per nucleon, $A = 3$; \ He-4: \qty{7.074}{MeV} per
+  nucleon, $A = 4$; \ free protons: $E_\mathrm{B} = 0$}
+\find{the energy released, $E$}
+\formula{$E_\mathrm{B} = (\text{per nucleon value}) \times A$, then
+  $E = \sum E_\mathrm{B,after} - \sum E_\mathrm{B,before}$}
+\substitute{\eqlines{E_\mathrm{B}(\text{He-3}) &= 2.573 \times 3 = \qty{7.719}{MeV}\\
+  E_\mathrm{B}(\text{He-4}) &= 7.074 \times 4 = \qty{28.296}{MeV}\\
+  E &= (28.296 + 0) - 2 \times 7.719 \quad \text{(two He-3 nuclei)}\\
+  &= 28.296 - 15.438 = \qty{12.858}{MeV}}}
+\answer{\final{$E = \qty{12.9}{MeV}$}}
+\checkstep{$A$: $3 + 3 = 4 + 2$; $Z$: $2 + 2 = 2 + 2$ \cmark. Helium-4 is far up the
+  curve, so $E$ is positive \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Mixing up the moderator and the control rods. \cmark\ The moderator
+        \emph{slows} neutrons; control rods \emph{absorb} them.
+  \item \xmark\ ``Critical mass is the mass needed to start fission.''
+        \cmark\ It is the mass needed to \emph{keep} a chain reaction going.
+  \item \xmark\ ``Fusion needs heat to start the strong force.'' \cmark\ Heat makes the
+        nuclei fast enough to overcome the electric repulsion.
+  \item \xmark\ Using binding energy per nucleon without multiplying by $A$.
+        \cmark\ First find $E_\mathrm{B} = (\text{per nucleon value}) \times A$ for
+        each nucleus.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+Reactor questions can be worth up to 6 marks. For each part give its \emph{name}, its
+\emph{job} and the \emph{physics}. Example: ``Boron control rods absorb neutrons. So, on
+average, one neutron per fission causes a new fission.''
+For ``account for the energy released in fission or fusion'', link these steps:
+higher binding energy per nucleon (quote values from the curve) $\to$ less mass $\to$
+$E = \Delta m\, c^2$. Add an equation and a number.
+For reactor power, divide $P$ (in W) by the energy of one fission (in J). This gives the
+number of fissions each second (\cref{ch4:we:reactor}).
+\end{examtip}
+
+\begin{quickcheck}
+  \item Find $x$ in $\chFourNuc{235}{92}{U} + \chFourNeut \to \chFourNuc{137}{52}{Te} +
+        \chFourNuc{97}{40}{Zr} + x\,\chFourNeut$.
+  \item Explain the different jobs of the moderator and the control rods.
+  \item Use the masses in \cref{ch4:we:fission} and H-2 \qty{2.014102}{\amu},
+        H-3 \qty{3.016049}{\amu}, He-4 \qty{4.002603}{\amu} to find the energy released
+        by $\chFourNuc{2}{1}{H} + \chFourNuc{3}{1}{H} \to \chFourAlpha + \chFourNeut$.
+  \item Use \cref{ch4:fig:becurve} to explain why fusing two iron-56 nuclei would not
+        release energy.
+  \item Australia's OPAL research reactor (Lucas Heights, Sydney) gives out about
+        \qty{20}{MW} of heat. Take \qty{200}{MeV} per fission and \qty{3.90e-25}{kg}
+        for one U-235 atom. (a)~Find the number of fissions each second. (b)~Find the
+        mass of U-235 split if the reactor ran at full power for a whole year
+        ($\qty{1}{\yr} = \qty{3.156e7}{s}$).
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch4:sec:experiments}
+\covers{M8.IQ4.01, M8.IQ4.02}
+
+The syllabus does not require an investigation for this inquiry question. The
+practicals below are still useful. Exams often ask about their validity, reliability
+and accuracy.
+
+\begin{experiment}{Modelling half-life with dice}
+\aim{To show that a constant chance of ``decay'' on each throw gives exponential
+  decay with a fixed half-life.}
+\apparatus{200 six-sided dice (or the pooled dice of the class), a tray, a results
+  table, graph paper.}
+\method{\begin{enumerate}
+  \item Throw all 200 dice. Every die that shows a six has ``decayed'': remove it.
+  \item Count the dice that are left, $N$. Record $N$ and the throw number.
+  \item Throw the dice that are left. Repeat until you have done 15 throws.
+  \item Pool the class results. Plot $N$ against the throw number.
+\end{enumerate}}
+\results{Each throw removes about one sixth of the dice and leaves $\tfrac56$. After
+  $n$ throws, $N = N_0\left(\tfrac56\right)^{n}$. Half are left when
+  $\left(\tfrac56\right)^{n} = \tfrac12$. Take ln: $n\ln\tfrac56 = -\ln 2$. The toolkit
+  rule gives $\ln\tfrac56 = -\ln\tfrac65 = -\ln 1.2$, so
+  $n = \dfrac{\ln 2}{\ln 1.2} = \dfrac{0.6931}{0.1823} = 3.80$ throws.}
+\conclusion{The graph has the same shape as \cref{ch4:fig:decay}. The ``half-life'' is
+  about 3.8 throws, whatever the starting number.}
+\significance{It shows why a huge number of nuclei decays in a predictable way, even
+  though each nucleus decays at random.}
+\tcbbreak % layout QA (book build): page break here, so "(continued)" is not two lone lines
+\validity{\textbf{Validity:} each die has the same chance (one sixth) on each throw,
+  like each nucleus of one isotope. \textbf{Limitation:} dice decay only in steps,
+  one throw at a time; real nuclei can decay at any moment.\par
+  \textbf{Reliability:} 200 dice give a bumpy curve. More dice, or pooled class data,
+  give a smoother curve.\par
+  \textbf{Accuracy:} use fair dice, and count carefully. Compare the measured
+  half-life with 3.8 throws.}
+\end{experiment}
+
+\begin{experiment}{Penetrating power of alpha, beta and gamma radiation}
+\aim{To compare how well $\alpha$, $\beta$ and $\gamma$ radiation pass through paper,
+  aluminium and lead.}
+\apparatus{\begin{sidebyside}[0.42]
+  sealed sources (Am-241: $\alpha$; Sr-90: $\beta$; Co-60: $\gamma$), tongs,
+  Geiger--M\"uller (GM) tube and counter, paper, aluminium and lead sheets, ruler,
+  stopwatch.
+  \nextside
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \fill[ground] (-0.4,-0.25) rectangle (7.6,-0.05);
+      \draw[hscink, line width=0.6pt] (-0.4,-0.05) -- (7.6,-0.05);
+      \filldraw[object] (0,-0.05) rectangle (0.8,0.95);
+      \fill[hscforce] (0.8,0.45) circle (0.09);
+      \node[diagramlabel, align=center, above] at (0.4,0.95) {sealed\\source};
+      \draw[ray, ->] (0.95,0.45) -- (1.75,0.45);
+      \fill[hscmuted!60] (1.85,-0.05) rectangle (2.0,1.05);
+      \node[diagramlabel, above] at (1.93,1.05) {absorber};
+      \filldraw[fill=hscbrand!12, draw=hscink, line width=0.8pt] (2.3,0.2) rectangle (4.8,0.7);
+      \draw[hscink, line width=2pt] (2.3,0.2) -- (2.3,0.7);
+      \node[diagramlabel, align=center, above] at (3.55,0.7) {GM tube\\(thin window)};
+      \draw[hscink, line width=0.7pt] (4.8,0.45) .. controls (5.4,0.45) and (5.4,0.2) .. (5.8,0.2);
+      \filldraw[fill=white, draw=hscink, line width=0.8pt] (5.8,-0.05) rectangle (7.4,0.75);
+      \node[font=\ttfamily\small] at (6.6,0.35) {0452};
+      \node[diagramlabel, above] at (6.6,0.75) {counter};
+      \draw[<->, guide] (0.8,-0.55) -- (2.3,-0.55);
+      \node[diagramlabel, below] at (1.55,-0.55) {fixed distance};
+    \end{tikzpicture}
+    \captionof{figure}{Set-up for testing absorbers.}\label{ch4:fig:gmsetup}
+  \end{sidebyside}}
+\method{\begin{enumerate}
+  \item With no source nearby, count for 5 minutes to find the background count rate.
+  \item Put the alpha source \qty{2}{cm} from the tube. Count for 1 minute, three
+        times. Repeat with each absorber in between.
+  \item Repeat with the beta and gamma sources at the same distance. Keep a thin
+        aluminium sheet on the gamma source (see Validity). Subtract the background
+        from every reading.
+\end{enumerate}
+\textbf{Safety:} use tongs, never point a source at anyone, and return it quickly.}
+\tcbbreak % layout QA (book build): page break here, so the Results heading is not alone at the page foot
+\results{\begin{center}\small
+  \begin{tabular}{@{}L{36mm}C{25mm}C{25mm}C{25mm}@{}}
+    \toprule
+    \colhead{Absorber} & \colhead{$\alpha$ (Am-241)} & \colhead{$\beta$ (Sr-90)}
+      & \colhead{$\gamma$ (Co-60)}\\
+    \midrule
+    none & 1850 & 1420 & 640\\
+    paper & 38 & 1395 & 638\\
+    \qty{5}{mm} aluminium & 34 & 27 & 596\\
+    \qty{10}{mm} lead & 25 & 25 & 343\\
+    \bottomrule
+  \end{tabular}\par\smallskip
+  {\footnotesize Typical mean counts per minute. Background: 25 counts per minute.}
+  \end{center}}
+\conclusion{Paper stops alpha. \qty{5}{mm} of aluminium stops beta. Lead only reduces
+  gamma. Subtract the background: \qty{10}{mm} of lead cuts the count from
+  $640 - 25 = 615$ to $343 - 25 = 318$ per minute, about half. Penetrating power:
+  $\gamma > \beta > \alpha$; ionising power is the reverse.}
+\significance{It guides shielding and explains uses: alpha in smoke alarms, beta in
+  thickness gauges, gamma in sterilising and cancer treatment.}
+\validity{\textbf{Validity:} change only the absorber. Keep the same source, the same
+  source-to-tube distance and the same counting time. Co-60 also gives out some weak
+  beta. A thin aluminium sheet on it stops this, so only gamma is measured.\par
+  \textbf{Reliability:} decay is random, so counts vary. Count for longer, and repeat
+  three times.\par
+  \textbf{Accuracy:} subtract the background from every reading. A GM tube misses
+  counts at very high rates. Its window absorbs some alpha particles. Am-241 also
+  gives out weak gamma rays, so with paper the count stays a little above
+  background. The large drop with paper still shows alpha.}
+\end{experiment}

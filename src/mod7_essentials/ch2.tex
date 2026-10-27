@@ -1,0 +1,538 @@
+% ch2.tex -- Module 7 ESSENTIALS, Chapter 2: Light as a wave (diffraction, interference, polarisation)
+% Condensed from src/mod7/ch2.tex: knowledge points only, no questions.
+% Dot points: M7.IQ2.01, M7.IQ2.02, M7.IQ2.03, M7.IQ2.04
+% Figures: figures/ch2_singleslit.pdf (copied from mod7/figures with its script) and TikZ
+% below (copied from the full chapter; some panels left out to save space).
+\chapter{Light as a Wave: Diffraction, Interference and Polarisation}\label{ch2:chap}
+\covers{M7.IQ2.01, M7.IQ2.02, M7.IQ2.03, M7.IQ2.04}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item Newton's particle model and Huygens' wave model, and the evidence for each.
+  \item Diffraction: light spreads out through a narrow slit.
+  \item Interference in Young's double slit and in a diffraction grating: $d\sin\theta = m\lambda$.
+  \item Polarisation and Malus' law, $I = I_\mathrm{max}\cos^2\theta$: light is a transverse wave.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{Newton's and Huygens' models of light}\label{ch2:sec:models}
+\covers{M7.IQ2.03}
+
+\begin{bigidea}
+Around 1700 Newton said light is a stream of tiny particles. Huygens said light is a
+wave. Experiments decided between these two models.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Wavefront}{a line joining points of a wave that are in step, such as all the crests.}
+  \kw{Normal}{a line at \ang{90} to a surface. Angles of rays are measured from it.}
+  \kw{Refractive index ($n$)}{how many times slower light is in a material than in vacuum.}
+\end{keywords}
+
+\begin{itemize}
+  \item \textbf{Newton} (1704): light is a stream of tiny particles, called \term{corpuscles}
+        (``little bodies''). They travel in straight lines, so shadows are sharp.
+  \item \textbf{Huygens} (1678): light is a wave, which he thought was \emph{longitudinal}
+        (like sound).
+        \term{Huygens' principle}: every point on a wavefront sends out a small circular
+        wave, a \term{wavelet}. The line touching all the wavelets is the new wavefront.
+  \item Light seems not to bend around corners, and Newton had a huge reputation. So most
+        scientists followed Newton for about 100 years.
+  \item \textbf{Reflection:} Newton: a \term{repulsive force} (a push away from the surface)
+        reverses the normal part of the velocity. Huygens: wavelets build the reflected
+        wavefront. Both give $\theta_\mathrm{i} = \theta_\mathrm{r}$, so it cannot decide.
+\end{itemize}
+
+\Cref{ch2:tab:evidence} collects all the evidence for the two models. Refraction is
+explained below; the rest in \cref{ch2:sec:diffraction,ch2:sec:interference,ch2:sec:polarisation}.
+
+\begin{table}
+  \caption{The evidence for each model of light.}\label{ch2:tab:evidence}
+  \centering\small
+  \begin{tabular}{@{}L{25mm}L{31mm}L{36mm}L{40mm}@{}}
+    \toprule
+    \colhead{What we see} & \colhead{Newton (particles)} & \colhead{Huygens (waves)} &
+      \colhead{What the evidence shows}\\
+    \midrule
+    Sharp shadows & particles go straight & hard to explain at first &
+      both, once we know light's wavelength is tiny\\
+    Reflection & a repulsive force reverses the normal part of the velocity &
+      reflected wavelets & both work: no decision\\
+    Refraction & faster in water & slower in water & Foucault (1850): slower, so
+      Newton is wrong\\
+    Diffraction and interference & cannot make dark bands & wavelets spread into the
+      shadow; Young and Fresnel later added that waves can cancel & strong support for waves
+      (Young, 1801; Fresnel and Arago, 1818)\\
+    Polarisation & no natural explanation & Huygens' \emph{longitudinal} wave cannot be
+      polarised; a \emph{transverse} wave can & light is a transverse wave, so Huygens'
+      model had to change\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{sidebyside}[0.27]
+  \centering
+  \begin{tikzpicture}[x=0.75cm, y=0.75cm]
+    \fill[hscvel!9] (-2.1,-2.4) rectangle (2.3,0);
+    \draw[hscink, line width=0.8pt] (-2.1,0) -- (2.3,0);
+    \node[anchor=south west, font=\footnotesize] at (-2.1,0.02) {air};
+    \node[anchor=north west, font=\footnotesize] at (-2.1,-0.02) {water};
+    \draw[guide] (0,1.5) -- (0,-1.74);
+    \node[font=\scriptsize, text=hscmuted, anchor=south] at (0,1.5) {normal};
+    \draw[hscmuted, line width=0.6pt, ->] (-1.226,1.028) -- (0,1.028);
+    \draw[hscmuted, line width=0.6pt, ->] (0,1.028) -- (0,0.04);
+    \draw[velocity] (-1.226,1.028) -- (0,0) node[pos=0.35, left=1pt, text=hscvel] {$v_1$};
+    \draw[hscmuted, line width=0.6pt, ->] (0,0) -- (0,-1.740);
+    \draw[hscmuted, line width=0.6pt, ->] (0,-1.740) -- (1.226,-1.740);
+    \draw[velocity] (0,0) -- (1.226,-1.740) node[pos=0.55, right=1pt, text=hscvel] {$v_2$};
+    \node[text=hscmuted, font=\scriptsize, anchor=south east] at (-0.06,1.03) {parallel part};
+    \node[text=hscmuted, font=\scriptsize, anchor=north] at (0.62,-1.76) {same parallel part};
+    \node[text=hscmuted, font=\scriptsize, anchor=east, align=right] at (-0.05,-1.0) {bigger\\normal part};
+    \draw[force] (1.5,0.35) -- (1.5,-0.45) node[right, text=hscforce, font=\footnotesize] {pull};
+  \end{tikzpicture}
+  \captionof{figure}{Newton: a pull at the surface makes the normal part of the velocity
+    bigger.}
+  \label{ch2:fig:refraction}
+\nextside
+\begin{itemize}
+  \item \textbf{Refraction} is the bending of light as it enters another material. Both
+        models explain why light bends towards the normal in water, but they need opposite
+        speeds.
+  \item \textbf{Newton:} the water pulls each corpuscle inwards along the normal. The
+        normal part of its velocity grows, so light should be \emph{faster} in water
+        (\cref{ch2:fig:refraction}).
+  \item \textbf{Huygens:} the part of the wavefront that enters first slows first. The
+        wavefront swings towards the normal, so light should be \emph{slower} in water.
+  \item \textbf{Foucault (1850)} timed light with a fast-spinning mirror. The returning
+        image shifted more with a tube of water in the path, so light is \emph{slower} in
+        water. This disproved Newton's explanation of refraction. On its own it did not
+        prove the wave model.
+\end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}{Refractive index and the speed of light}
+  \cardformula{n_\mathrm{x} = \frac{c}{v_\mathrm{x}}}
+  \begin{symbols}
+    \sym{$n_\mathrm{x}$}{refractive index of material x}{no unit}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+    \sym{$v_\mathrm{x}$}{speed of light in material x}{\si{m.s^{-1}}}
+  \end{symbols}
+  \whentouse{the speed of light in water or glass, or $n$ from a speed.}
+  \trap{$n$ is 1 or more, so $v_\mathrm{x}$ is never bigger than $c$.}
+\end{formulacard}
+
+
+%% ==================================================================
+\section{Diffraction}\label{ch2:sec:diffraction}
+\covers{M7.IQ2.01, M7.IQ2.03}
+
+\begin{bigidea}
+Waves spread out as they pass through a gap or around an edge. This is diffraction. The
+narrower the gap (compared with the wavelength), the more the wave spreads.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Diffraction}{a wave spreading as it passes through a gap or around an edge.}
+  \kw{Central maximum}{the wide bright band in the middle of a single-slit pattern.}
+\end{keywords}
+
+\begin{sidebyside}[0.45]
+  \centering
+  \includegraphics{ch2_singleslit.pdf}
+  \captionof{figure}{Single-slit patterns from a red laser (same peak height).}
+  \label{ch2:fig:singleslit}
+\nextside
+\begin{itemize}
+  \item \textbf{Gap much wider than $\lambda$:} little spreading. \textbf{Gap about
+        $\lambda$, or narrower:} strong spreading, far into the ``shadow''.
+  \item $\lambda$, frequency and speed do not change; only the direction does.
+  \item \textbf{Single slit} (\cref{ch2:fig:singleslit}): a wide, bright central maximum, with weaker bright bands and
+        dark bands beside it. Dark bands: wavelets from different parts of the slit cancel.
+  \item A \textbf{narrower slit} (width $a$) or a \textbf{longer wavelength} gives a
+        \textbf{wider} pattern: red spreads more than violet. It depends on $\lambda \div a$
+        (no single-slit formula is needed).
+\end{itemize}
+\end{sidebyside}
+
+\begin{itemize}
+  \item \textbf{Why (Huygens):} only the points inside the gap send out wavelets. The
+        wavelets at the edges spread sideways into the shadow.
+  \item Light's wavelength (\qtyrange{400}{700}{nm}) is over a million times smaller than a
+        doorway, so shadows look sharp. To see light diffract, use a slit narrower than about
+        \qty{0.1}{mm}.
+  \item \textbf{The two models:} particles cannot make dark bands (adding light cannot make
+        a place darker). Waves explain the spreading, the dark bands and why red spreads
+        more. In 1818 Fresnel's wave theory predicted a bright spot in the middle of a small
+        disc's shadow; Arago found it.
+\end{itemize}
+
+%% ==================================================================
+\section{Interference: Young's double-slit experiment}\label{ch2:sec:interference}
+\covers{M7.IQ2.02, M7.IQ2.03}
+
+\begin{bigidea}
+Where two waves overlap, they add or cancel. This is interference. Only waves can cancel
+to make darkness, so Young's double slit is strong evidence that light is a wave.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Superposition}{where waves meet, their displacements (heights) add.}
+  \kw{Coherent}{same frequency and a fixed phase difference (a constant shift between crests).}
+  \kw{Path difference ($\delta$)}{how much further one wave travels than the other. Unit: m.}
+\end{keywords}
+
+\begin{itemize}
+  \item \term{In phase} (crests line up): crest meets crest and makes a bigger wave. This
+        is \term{constructive interference}: bright light.
+  \item \term{\ang{180} out of phase} (one wave half a wavelength behind): crest meets
+        trough and they cancel. This is \term{destructive interference}: darkness. Light
+        $+$ light $=$ darkness only makes sense for waves.
+  \item \textbf{Young (about 1801)} passed light through two narrow slits very close
+        together. A far screen showed evenly spaced bright and dark bands, called
+        \term{fringes} (\cref{ch2:fig:young}). Light diffracts at each slit, so the waves
+        overlap.
+  \item The slits must be coherent. Young lit both from one pinhole; today a single slit or
+        a laser does this. Two separate lamps change phase at random, so the pattern washes
+        out. \term{Monochromatic} light (one wavelength) gives the clearest fringes.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.62cm]
+    \fill[hsctip!70] (0,0) circle (0.25);
+    \draw[hscink, line width=0.6pt] (0,0) circle (0.25);
+    \foreach \a in {0,45,...,315} \draw[hsctip, line width=0.7pt] (\a:0.33) -- (\a:0.48);
+    \node[font=\footnotesize, align=center, anchor=north] at (0,-0.6) {light\\source};
+    \fill[hscink!75] (1.3,0.07) rectangle (1.38,2.3);
+    \fill[hscink!75] (1.3,-0.07) rectangle (1.38,-2.3);
+    \begin{scope}
+      \clip (1.38,-2.2) rectangle (3.0,2.2);
+      \foreach \r in {0.291,0.582,...,1.6} \draw[hscmuted!70, line width=0.45pt] (1.34,0) circle (\r);
+    \end{scope}
+    \node[font=\footnotesize, anchor=south] at (1.34,2.35) {single slit};
+    \fill[hscink!75] (3.0,0.67) rectangle (3.08,2.3);
+    \fill[hscink!75] (3.0,0.53) rectangle (3.08,-0.53);
+    \fill[hscink!75] (3.0,-0.67) rectangle (3.08,-2.3);
+    \begin{scope}
+      \clip (3.08,-2.3) rectangle (7.0,2.3);
+      \foreach \r in {0.291,0.582,...,4.2} {
+        \draw[hscmuted!70, line width=0.45pt] (3.04,0.6) circle (\r);
+        \draw[hscmuted!70, line width=0.45pt] (3.04,-0.6) circle (\r);
+      }
+      \foreach \yy in {0,1.0,-1.0,2.0,-2.0} \draw[hscray, line width=0.9pt, dashed] (3.04,0) -- (7.0,\yy);
+    \end{scope}
+    \node[font=\footnotesize, anchor=south] at (3.04,2.35) {double slit};
+    \node[font=\footnotesize, anchor=east] at (2.95,0.85) {$S_1$};
+    \node[font=\footnotesize, anchor=east] at (2.95,-0.85) {$S_2$};
+    \draw[|<->|, hscink, line width=0.5pt] (2.45,0.6) -- (2.45,-0.6) node[midway, left, font=\footnotesize] {$d$};
+    \fill[black!85] (7.0,-2.4) rectangle (7.3,2.4);
+    \foreach \yy in {0,1.0,-1.0,2.0,-2.0} \fill[hscforce!80!white] (7.0,\yy-0.17) rectangle (7.3,\yy+0.17);
+    \node[font=\footnotesize, anchor=south] at (7.15,2.45) {screen};
+    \node[font=\footnotesize, anchor=west] at (7.4,0) {bright ($m = 0$)};
+    \node[font=\footnotesize, anchor=west] at (7.4,0.5) {dark};
+    \node[font=\footnotesize, anchor=west] at (7.4,1.0) {bright ($m = 1$)};
+    \node[font=\footnotesize, anchor=west] at (7.4,1.5) {dark};
+    \node[font=\footnotesize, anchor=west] at (7.4,2.0) {bright ($m = 2$)};
+    \draw[|<->|, hscink, line width=0.5pt] (3.04,-2.85) -- (7.0,-2.85) node[midway, below, font=\footnotesize] {$L$ (not to scale: really $L \gg d$)};
+  \end{tikzpicture}
+  \caption{Young's experiment: bright fringes where the two waves arrive in phase.}
+  \label{ch2:fig:young}
+\end{figure}
+
+\subsection{Path difference and \texorpdfstring{$d\sin\theta = m\lambda$}{d sin(theta) = m lambda}}
+
+\begin{sidebyside}[0.33]
+  \centering
+  \begin{tikzpicture}[x=0.85cm, y=0.8cm]
+    \coordinate (S1) at (0,1); \coordinate (S2) at (0,-1);
+    \coordinate (Q) at (0.866,-0.5); \coordinate (H) at (1.2,-1);
+    \coordinate (R2) at (3.2,0.848);
+    \draw[ray] (S1) -- (2.4,2.386);
+    \draw[ray] (S2) -- (R2);
+    \draw[hscink, line width=0.8pt] (S1) -- (S2) node[midway, left, font=\footnotesize] {$d$};
+    \draw[hscink, dashed, line width=0.7pt] (S1) -- (Q);
+    \draw[guide] (S2) -- (2.0,-1);
+    \draw[hscforce, line width=2pt] (S2) -- (Q);
+    \node[text=hscforce, font=\footnotesize, anchor=north west] at (0.05,-1.12) {$\delta = d\sin\theta$};
+    \pic[draw=hscink, line width=0.5pt, angle radius=4mm, "$\theta$", angle eccentricity=1.5] {angle = S2--S1--Q};
+    \pic[draw=hscink, line width=0.5pt, angle radius=13mm, "$\theta$", angle eccentricity=1.18] {angle = H--S2--Q};
+    \pic[draw=hscink, line width=0.4pt, angle radius=1.6mm] {right angle = S1--Q--R2};
+    \fill[hscink] (S1) circle (1.5pt) node[above left, font=\footnotesize] {$S_1$};
+    \fill[hscink] (S2) circle (1.5pt) node[below left, font=\footnotesize] {$S_2$};
+    \node[font=\footnotesize, anchor=north west, xshift=0.5pt, yshift=0.5pt] at (Q) {Q};
+    \node[font=\footnotesize, anchor=west] at (2.45,2.35) {to P};
+    \node[font=\footnotesize, anchor=west] at (3.25,0.85) {to P};
+  \end{tikzpicture}
+  \captionof{figure}{Close-up of the slits. The extra path for light from $S_2$ is
+    $\delta = d\sin\theta$ (pink).}
+  \label{ch2:fig:pathdiff}
+\nextside
+\begin{itemize}
+  \item \textbf{Bright:} $\delta = 0, \lambda, 2\lambda, \ldots$ (in phase).
+        \textbf{Dark:} $\delta = \tfrac{1}{2}\lambda, 1\tfrac{1}{2}\lambda, \ldots$
+        (\ang{180} out of phase). The centre has $\delta = 0$, so it is always bright.
+  \item The screen is far away, so the rays to a point P are almost parallel. Then
+        $\delta = d\sin\theta$ (\cref{ch2:fig:pathdiff}).
+  \item \textbf{Dark fringes} \hscbadgenotonsheet\
+        $d\sin\theta = \left(m - \tfrac{1}{2}\right)\lambda$, $m = 1, 2, 3, \ldots$ (Some
+        books write $\left(m + \frac{1}{2}\right)\lambda$. Then $m$ starts at 0.)
+\end{itemize}
+\end{sidebyside}
+
+% layout (final page check): this card follows the bright-fringe condition directly (it fills
+% the page there); kept unbreakable so the formula stays with its symbol table
+\begin{formulacard}[unbreakable]{Bright fringes (double slit or grating)}
+  \cardformula{d\sin\theta = m\lambda}
+  \begin{symbols}
+    \sym{$d$}{slit separation: distance between the centres of neighbouring slits}{\si{m}}
+    \sym{$\theta$}{angle from the central line to the bright fringe}{degree (\si{\degree})}
+    \sym{$m$}{order of the bright fringe: 0 (centre), 1, 2, \ldots}{no unit}
+    \sym{$\lambda$}{wavelength}{\si{m}}
+  \end{symbols}
+  \whentouse{bright fringes of a double slit or a grating, with a far screen ($L \gg d$).}
+  \trap{change nm, \si{\micro m} and mm into metres first. Calculator in degrees.}
+\end{formulacard}
+
+\begin{itemize}
+  \item \textbf{Path difference from two distances} \hscbadgenotonsheet\
+        $\delta = \left|S_2P - S_1P\right|$.
+        Constructive (bright, loud) if $\dfrac{\delta}{\lambda}$ is a whole number;
+        destructive if it is a whole number plus a half. This works for any two coherent
+        sources in phase (slits, speakers, antennas).
+  \item \textbf{On the screen} \hscbadgenotonsheet\ a fringe at angle $\theta$ is
+        $y = L\tan\theta$ from the centre of the central bright fringe ($L$ = slits to
+        screen). Below about \ang{10}, $\sin\theta \approx \tan\theta \approx \dfrac{y}{L}$.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Fringe spacing (small angles)}
+  \cardformula{\Delta y = \frac{\lambda L}{d}}
+  \begin{symbols}
+    \sym{$\Delta y$}{distance between neighbouring bright (or dark) fringes}{\si{m}}
+    \sym{$L$}{distance from the slits to the screen}{\si{m}}
+    \sym{$\lambda$, $d$}{wavelength, slit separation}{\si{m}}
+  \end{symbols}
+  \whentouse{a double slit at small angles (below about \ang{10}).}
+  \derive{put $\sin\theta \approx \dfrac{y_m}{L}$ into $d\sin\theta = m\lambda$:
+    $y_m = \dfrac{m\lambda L}{d}$, so neighbours are $\Delta y = \dfrac{\lambda L}{d}$ apart.}
+  \trap{$d$ is the slit separation, not a slit's width.}
+\end{formulacard}
+
+\begin{itemize}
+  \item \textbf{The pattern:} each dark fringe is halfway between two bright fringes. The
+        single-slit pattern of each slit (the \term{envelope}) dims the outer fringes.
+  \item The fringes are further apart for a longer $\lambda$ (red), a further screen, or
+        closer slits.
+  \item \textbf{White light:} the central fringe is white ($\delta = 0$ for every colour),
+        with coloured fringes beside it: blue inside, red outside.
+  \item \textbf{Impact:} light can cancel light, and Young measured the wavelengths of
+        colours. Because of Newton's reputation, the wave model was widely accepted only
+        after Fresnel and Arago (1818--1819) and Foucault (1850).
+\end{itemize}
+
+%% ==================================================================
+\section{Diffraction gratings}\label{ch2:sec:gratings}
+\covers{M7.IQ2.02}
+
+\begin{bigidea}
+A grating has many slits, very close together. So its bright lines are sharp, bright and
+far apart: ideal for measuring wavelengths.
+\end{bigidea}
+
+A \term{diffraction grating} is a slide with many equally spaced, parallel slits (about 100
+to 1000 per mm; the tracks of a CD act as one). It makes sharp, bright lines where
+$d\sin\theta = m\lambda$, and it splits white light into a \term{spectrum} (a band of all
+the colours, in order of wavelength).
+
+\begin{itemize}
+  \item \textbf{Grating spacing} \hscbadgenotonsheet\ $d = \dfrac{1}{N}$, where $d$ is the
+        distance from one slit to the next and $N$ is the number of lines per metre (lines
+        per mm $\times 1000$). $N$ spacings, each of size $d$, fill one metre.
+  \item \textbf{Sharp, bright lines:} the waves from \emph{all} the slits are in step only
+        at the exact angles where $d\sin\theta = m\lambda$; just off them, they cancel.
+  \item \textbf{Large angles:} $d$ is tiny, so the lines are far apart and easy to measure.
+        Use $d\sin\theta = m\lambda$ and $y = L\tan\theta$, not $\Delta y = \dfrac{\lambda L}{d}$.
+  \item \textbf{Highest order} $= \dfrac{d}{\lambda}$ rounded \emph{down}, because
+        $\sin\theta$ cannot be more than 1. (If $\dfrac{d}{\lambda}$ is a whole number,
+        that order is at \ang{90} and cannot be seen.)
+  \item \textbf{White light:} the central line ($m = 0$) is white. Each order is a spectrum,
+        violet nearest the centre, red furthest out. This is the opposite of a prism, which
+        bends violet most.
+\end{itemize}
+
+%% ==================================================================
+\section{Polarisation and Malus' law}\label{ch2:sec:polarisation}
+\covers{M7.IQ2.04, M7.IQ2.03}
+
+\begin{bigidea}
+In light, the electric field vibrates at \ang{90} to the direction of travel. Only such
+transverse waves can be polarised, so polarisation tells us what kind of wave light is.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Polarised light}{light whose electric field vibrates in one direction only.}
+  \kw{Transmission axis}{the direction of vibration that a polarising filter lets through.}
+  \kw{Intensity ($I$)}{the power of light falling on each square metre. Unit: \si{W.m^{-2}}.}
+\end{keywords}
+
+\begin{itemize}
+  \item Light is a \term{transverse wave}: its fields vibrate at \ang{90} to the direction
+        of travel. In a \term{longitudinal wave} (sound) the vibration is along it.
+  \item A rope shaken up and down passes a \emph{vertical} gap in a fence, but not a
+        \emph{horizontal} one. Only transverse waves have a sideways vibration to select.
+  \item Sunlight is \term{unpolarised}: the field vibrates in every direction across the
+        beam, at random.
+  \item A \term{polariser} passes only the part of the vibration along its axis, so the
+        light becomes \term{plane-polarised}. A second filter, the \term{analyser}, passes
+        only the part along its own axis (\cref{ch2:fig:polarisers}).
+  \item \textbf{Unpolarised light, first filter} \hscbadgenotonsheet\ $I = \tfrac{1}{2}I_0$,
+        at any angle. No direction is special, so on average half the energy is along the axis.
+  \item \textbf{Polarised light:} only the part $A\cos\theta$ of the amplitude $A$ passes.
+        Intensity is proportional to amplitude squared, so $I = I_\mathrm{max}\cos^2\theta$.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.95cm, y=0.95cm]
+    \begin{scope}
+      \draw[hscmuted!50, line width=3pt, -{Stealth[length=4mm]}] (-0.9,-1.6) -- (8.9,-1.6);
+      \node[text=hscmuted, font=\footnotesize, fill=white, inner sep=1pt] at (3.1,-1.6) {direction of travel};
+      \draw[hscmuted, line width=0.5pt] (0,0) circle (0.62);
+      \foreach \a in {0,45,90,135} \draw[hscfield, line width=1pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}] (\a:0.5) -- (\a+180:0.5);
+      \node[font=\footnotesize, anchor=north] at (0,-0.66) {unpolarised, $I_0$};
+      \fill[hscmuted!15] (2.1,0) circle (0.7);
+      \draw[hscink, line width=0.6pt] (2.1,0) circle (0.7);
+      \draw[hscink, line width=1.4pt] (2.1,-0.7) -- (2.1,0.7);
+      \node[font=\scriptsize, anchor=north] at (2.1,-0.72) {axis};
+      \node[font=\footnotesize, anchor=south] at (2.1,0.72) {polariser};
+      \draw[hscmuted, line width=0.5pt] (4.1,0) circle (0.62);
+      \draw[hscfield, line width=1.2pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}] (4.1,-0.5) -- (4.1,0.5);
+      \node[font=\footnotesize, anchor=north] at (4.1,-0.66) {$\tfrac{1}{2}I_0$};
+      \fill[hscmuted!15] (6.1,0) circle (0.7);
+      \draw[hscink, line width=0.6pt] (6.1,0) circle (0.7);
+      \draw[guide] (6.1,-0.7) -- (6.1,0.7);
+      \draw[hscink, line width=1.4pt] ($(6.1,0)+(-55:0.7)$) -- ($(6.1,0)+(125:0.7)$);
+      \draw[hscink, line width=0.5pt] (6.1,0.45) arc (90:125:0.45);
+      \node[font=\footnotesize] at ($(6.1,0)+(105:0.62)$) {$\theta$};
+      \node[font=\footnotesize, anchor=south] at (6.1,0.72) {analyser};
+      \draw[hscmuted, line width=0.5pt] (8.1,0) circle (0.62);
+      \draw[hscfield, line width=1.2pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}] ($(8.1,0)+(-55:0.41)$) -- ($(8.1,0)+(125:0.41)$);
+      \node[font=\footnotesize, anchor=north] at (8.1,-0.66) {$\tfrac{1}{2}I_0\cos^2\theta$};
+      \node[font=\footnotesize\bfseries] at (4.0,-2.2) {(a) looking along the beam at each stage};
+    \end{scope}
+    \begin{scope}[xshift=11.3cm, yshift=-0.55cm]
+      \draw[guide] (0,-0.6) -- (0,1.75);
+      \draw[hscink, line width=0.8pt] (-55:0.7) -- (125:1.85) node[left, font=\footnotesize] {analyser axis};
+      \draw[hscfield, line width=1.2pt, ->] (0,0) -- (0,1.5) node[right, font=\footnotesize, text=hscfield] {$A$};
+      \draw[hscmuted, dashed, line width=0.5pt] (0,1.5) -- (125:1.229);
+      \draw[hscforce, line width=1.6pt, ->] (0,0) -- (125:1.229);
+      \draw[hscink, line width=0.5pt] (0,0.55) arc (90:125:0.55);
+      \node[font=\footnotesize] at (108:0.75) {$\theta$};
+      \node[text=hscforce, font=\footnotesize, anchor=north east] at (125:0.75) {$A\cos\theta$};
+      \node[font=\footnotesize\bfseries, align=center] at (0,-1.65) {(b) the part that passes};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) The beam seen end-on; the dark lines are the transmission axes. (b) The part
+    $A\cos\theta$ of the vibration passes.}
+  \label{ch2:fig:polarisers}
+\end{figure}
+
+\begin{formulacard}{Malus' law}
+  \cardformula{I = I_\mathrm{max}\cos^2\theta}
+  \begin{symbols}
+    \sym{$I$}{intensity that passes through the filter}{\si{W.m^{-2}}}
+    \sym{$I_\mathrm{max}$}{intensity of the polarised light arriving (what passes at $\theta = 0$)}{\si{W.m^{-2}}}
+    \sym{$\theta$}{angle between the light's vibration and the filter's transmission axis}{degree (\si{\degree})}
+  \end{symbols}
+  \whentouse{light that is \emph{already} plane-polarised meets a polariser.}
+  \trap{$\cos^2\theta$ means $(\cos\theta)^2$. Measure $\theta$ from the \emph{previous}
+    filter, not from the vertical.}
+\end{formulacard}
+
+\begin{sidebyside}[0.44]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.66\linewidth,
+        xmin=0, xmax=1.05, ymin=0, ymax=13.5, xtick={0,0.25,0.5,0.75,1},
+        xlabel={$\cos^2\theta$}, ylabel={$I$ (\si{W.m^{-2}})},
+        legend style={at={(0.02,0.98)}, anchor=north west, font=\scriptsize}]
+      \addplot[hscseriesA, only marks, mark=*, mark size=1.8pt]
+        coordinates {(1.000,12.0) (0.933,11.3) (0.750,8.9) (0.500,6.1) (0.250,3.1) (0.067,0.9) (0.000,0.1)};
+      \addlegendentry{\ang{0} to \ang{90}}
+      \addplot[hscseriesC, only marks, mark=o, mark size=2.6pt, line width=0.8pt]
+        coordinates {(0.067,0.9) (0.250,3.0) (0.500,6.0) (0.750,9.0) (0.933,11.2) (1.000,12.0)};
+      \addlegendentry{\ang{105} to \ang{180}}
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:1.05, samples=2] {12.02*x};
+      \node[anchor=south east, font=\footnotesize, text=hscink, align=right] at (axis cs:1.04,0.4)
+        {gradient $= I_\mathrm{max}$\\$= \qty{12.0}{W.m^{-2}}$};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Malus' law data (sample results of the investigation).}
+  \label{ch2:fig:malus}
+\nextside
+\begin{itemize}
+  \item \textbf{$I$ against $\theta$:} a $\cos^2$ curve, greatest at \ang{0} and \ang{180},
+        zero at \ang{90}.
+  \item \textbf{$I$ against $\cos^2\theta$:} a straight line through the origin with
+        gradient $I_\mathrm{max}$ (\cref{ch2:fig:malus}).
+  \item \textbf{Three filters:} two filters at \ang{90} (``crossed'') block all the light. A
+        third filter at \ang{45} \emph{between} them lets light through: each filter
+        re-polarises the light along its own axis.
+  \item \textbf{Uses:} glare from water is partly polarised horizontally, so polarising
+        sunglasses (vertical axis) block much of it.
+\end{itemize}
+\end{sidebyside}
+
+\subsection{Why polarisation matters for the model of light}
+\begin{itemize}
+  \item Light is a \emph{transverse} wave, so Huygens' longitudinal model had to change
+        (Young 1817, Fresnel 1821). Newton's particles had no natural explanation (he could
+        only guess that rays have ``sides'').
+  \item Maxwell's theory (1865) predicts a transverse electromagnetic wave, which fits
+        polarisation and Malus' law exactly. So polarisation was highly significant: with
+        interference, it completed the classical model of light as a transverse
+        electromagnetic wave.
+\end{itemize}
+
+
+%% ==================================================================
+\section{Key experiments}\label{ch2:sec:experiments}
+\covers{M7.IQ2.01, M7.IQ2.02, M7.IQ2.03, M7.IQ2.04}
+
+\begin{experiment}{Diffraction and interference with lasers}
+\aim{(A) How diffraction depends on slit width and wavelength. (B) A red laser's
+  wavelength (label: \qty{650}{nm}) from $d\sin\theta = m\lambda$.}
+\method{(A) Red and green lasers through slits \qtylist{0.080;0.040;0.020}{mm} wide.
+  (B) Double slit ($d = \qty{0.250}{mm}$): $\Delta y$ = distance across 10 fringe spacings
+  $\div$ 10, for $L$ from 1.00 to \qty{3.00}{m}. Grating (300 lines per mm): $y$ = half the
+  distance between the two first-order spots. Never look into the beam.}
+\results{(A) Half the slit width doubled the central band; red was wider than green.
+  (B) $\Delta y$ against $L$: a straight line through the origin, gradient $\lambda/d$. Double slit:
+  \qty{648}{nm}; grating: \qty{649}{nm}.}
+\conclusion{Light diffracts and interferes like a wave. Both values are within about
+  0.3\,\% of \qty{650}{nm}.}
+\significance{Particles cannot cancel to make dark fringes: strong evidence for waves.}
+\end{experiment}
+
+\begin{experiment}{Testing Malus' law}
+\aim{To test $I = I_\mathrm{max}\cos^2\theta$ for plane-polarised light.}
+\method{Lamp, fixed polariser, analyser on an angle scale, light sensor; dark room. Turn
+  the analyser in \ang{15} steps from the brightest position ($\theta = \ang{0}$) to \ang{180}.}
+\results{$I$ against $\cos^2\theta$: a straight line through the origin, gradient
+  $I_\mathrm{max} = \qty{12.0}{W.m^{-2}}$ (\cref{ch2:fig:malus}).}
+\conclusion{$I \propto \cos^2\theta$: Malus' law is supported.}
+\significance{Light can be polarised, so it is a transverse wave, as Maxwell predicted.}
+\end{experiment}
+
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item Light in water: Newton predicted faster, Huygens slower; Foucault (1850) measured slower.
+  \item Narrower slit or longer $\lambda$ $\to$ more spreading. Dark bands need waves.
+  \item Bright: $\delta = m\lambda$, so $d\sin\theta = m\lambda$. Dark:
+        $\delta = \left(m - \frac{1}{2}\right)\lambda$.
+  \item $y = L\tan\theta$ at any angle; $\Delta y = \dfrac{\lambda L}{d}$ only at small angles.
+  \item Grating: $d = \dfrac{1}{N}$; highest order $= \dfrac{d}{\lambda}$ rounded down.
+  \item Unpolarised: $I = \tfrac{1}{2}I_0$. Polarised: $I = I_\mathrm{max}\cos^2\theta$.
+  \item Polarisation shows that light is a transverse wave.
+\end{itemize}
+\end{summarybox}

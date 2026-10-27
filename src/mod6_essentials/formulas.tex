@@ -1,0 +1,159 @@
+% formulas.tex -- Module 6 ESSENTIALS: All formulas at a glance.
+% One compact table of every formula in Module 6, in chapter order. The rows, their
+% notation and their sheet status are copied from the final full book
+% (src/mod6/formulasheet.tex: every formula card, then the other formulas that the
+% Left out (not used in the Essentials text): F = GMm/r^2 and r^3/T^2 (gravity, used in the
+% full book only for a comparison), P = Fv, I_perp = I sin(theta).
+% Notation note (as in the full book): motional emf is written epsilon = lvB;
+\unnumberedchapter[\faIcon{square-root-alt}]{All formulas at a glance}
+\phantomsection\label{ess:fs:chap}
+
+% ---- helpers for this chapter only (prefix essfs)
+\newcommand\essfsYes{\textcolor{hscformula}{\footnotesize\bfseries\faCheck\ Yes}}
+\newcommand\essfsNo{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes\ Learn it}}
+\newcommand\essfsComb{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink\ Combine}}
+% a little space above and below each formula, so tall fractions never touch the rules
+\newcommand\essfspad[1]{\raisebox{0pt}[\dimexpr\height+0.9ex\relax][\dimexpr\depth+0.7ex\relax]{#1}}
+% \essfsrow{mark}{formula}{what it is for}{chapter number}
+\newcommand\essfsrow[4]{\rule[-1.3ex]{0pt}{4.0ex}\essfspad{#2} & #3 & #1 &
+  \hyperref[ch#4:chap]{\textcolor{hscbrand}{\bfseries #4}}\\\hline}
+% a navy rule between two chapters (drawn over the last grey rule)
+\newcommand\essfsnext{\noalign{\vskip-\arrayrulewidth}\arrayrulecolor{hscbrand}%
+  \specialrule{0.7pt}{0pt}{0pt}\arrayrulecolor{hscrule}}
+\newcommand\essfshead{\colhead{Formula} & \colhead{What it is for} &
+  \colhead{On the sheet} & \colhead{Ch}}
+
+Every formula used in these Essentials, in chapter order. Use SI units in every formula.
+``Ch'' is the chapter (click the number to go there). ``On the sheet'' is about the
+official HSC formula sheet: \essfsYes\ = printed on the sheet; \essfsNo\ = not on the
+sheet, so learn it or how to derive it; \essfsComb\ = not printed in this form, so join
+formulas from the sheet.
+\par\smallskip
+
+{\small
+\setlength\LTpre{9pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.0}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}C{47mm}@{\hspace{3mm}}L{\dimexpr\linewidth-47mm-17mm-5mm-9mm\relax}%
+    @{\hspace{3mm}}C{17mm}@{\hspace{3mm}}C{5mm}@{}}
+  \essfshead\\\hline\endfirsthead
+  \essfshead\\\hline\endhead
+  % ------------------------------------------------------------------ Chapter 1
+  \essfsrow{\essfsYes}{$E = \dfrac{V}{d}$}{uniform field between parallel plates}{1}
+  \essfsrow{\essfsYes}{$\vec{F} = q\vec{E}$ \quad $\vec{F}_\mathrm{net} = m\vec{a}$}
+    {force on a charge; its acceleration $a = qE/m$}{1}
+  \essfsrow{\essfsNo}{$qE = mg$ \quad $q = ne$}{a charged drop held still}{1}
+  \essfsrow{\essfsYes}{$V = \dfrac{\Delta U}{q}$}{voltage: energy change per coulomb}{1}
+  \essfsrow{\essfsYes}{$W = qV$ \quad $W = qEd$}
+    {work done by the field ($qEd$: uniform only)}{1}
+  \essfsrow{\essfsYes}{$K = \dfrac{1}{2}mv^2$}{kinetic energy of a charge}{1}
+  \essfsrow{\essfsComb}{$\dfrac{1}{2}mv^2 = qV$ \quad $v = \sqrt{\dfrac{2qV}{m}}$}
+    {speed gained \emph{from rest} through $V$}{1}
+  \essfsrow{\essfsComb}{$qV = \dfrac{1}{2}mv^2 - \dfrac{1}{2}mu^2$}
+    {a charge that is already moving (speed $u$)}{1}
+  \essfsrow{\essfsYes}{\begin{tabular}{@{}c@{}}$v = u + at$ \quad $s = ut + \dfrac{1}{2}at^2$\\\noalign{\vskip 4pt}
+    $v^2 = u^2 + 2as$\end{tabular}}
+    {constant acceleration across the plates}{1}
+  \essfsrow{\essfsComb}{$t = \dfrac{L}{u}$ \quad $y = \dfrac{1}{2}at^2 = \dfrac{qEL^2}{2mu^2}$}
+    {time between plates of length $L$; deflection $y$}{1}
+  \essfsrow{\essfsNo}{$y = \left(\dfrac{qE}{2mu^2}\right)x^2$}
+    {path between the plates: a parabola}{1}
+  \essfsrow{\essfsNo}{\begin{tabular}{@{}c@{}}$u_x = u\cos\theta$ \quad $u_y = u\sin\theta$\\\noalign{\vskip 4pt}
+    $v = \sqrt{v_x^2 + v_y^2}$ \quad $\theta = \tan^{-1}\!\left(\dfrac{v_y}{v_x}\right)$\end{tabular}}
+    {split a velocity into parts; join them again}{1}
+  \essfsrow{\essfsYes}{$F = qv_\perp B = qvB\sin\theta$}
+    {magnetic force on a moving charge}{1}
+  \essfsrow{\essfsYes}{$W = F_\parallel s = Fs\cos\theta$}
+    {magnetic force does no work: speed constant}{1}
+  \essfsrow{\essfsYes}{$F_\mathrm{c} = \dfrac{mv^2}{r}$ \quad $v = \dfrac{2\pi r}{T}$}
+    {circle: $qvB$ is the centripetal force}{1}
+  \essfsrow{\essfsNo}{$r = \dfrac{mv}{qB}$ \quad $T = \dfrac{2\pi m}{qB}$}
+    {radius and period of the circle in $B$}{1}
+  \essfsrow{\essfsNo}{$qE = qvB$ \quad $v = \dfrac{E}{B}$}
+    {crossed fields: the velocity selector}{1}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 2
+  \essfsrow{\essfsYes}{$B = \dfrac{\mu_0 I}{2\pi r}$}{field near a long straight wire}{2}
+  \essfsrow{\essfsYes}{$B = \dfrac{\mu_0 NI}{L}$}
+    {field inside a solenoid ($L$ = its length)}{2}
+  \essfsrow{\essfsYes}{$F = lI_\perp B = lIB\sin\theta$}
+    {force on a current-carrying wire}{2}
+  \essfsrow{\essfsYes}{$\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$}
+    {force per metre between parallel wires}{2}
+  \essfsrow{\essfsYes}{$I = \dfrac{q}{t}$}{current is charge per second}{2}
+  \essfsrow{\essfsComb}{$F = \Delta m\, g$}
+    {current balance: reading ($\Delta m$, kg) to force}{2}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 3
+  \essfsrow{\essfsYes}{$\Phi = B_\parallel A = BA\cos\theta$}
+    {flux through a loop ($\theta$ from the \emph{normal})}{3}
+  \essfsrow{\essfsNo}{$\Delta\Phi = \Phi_\mathrm{final} - \Phi_\mathrm{initial}$}
+    {change in flux (reversed: $\lvert\Delta\Phi\rvert = 2BA$)}{3}
+  \essfsrow{\essfsYes}{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+    {Faraday's law (the minus sign is Lenz's law)}{3}
+  \essfsrow{\essfsYes}{$V = IR$}{Ohm's law: a resistor, a coil or a line}{3}
+  \essfsrow{\essfsComb}{$I = \dfrac{\varepsilon}{R}$}{induced current in a closed circuit}{3}
+  \essfsrow{\essfsNo}{$\varepsilon = lvB$}
+    {emf of a rod moving across a field}{3}
+  \essfsrow{\essfsComb}{$\lvert\varepsilon_\mathrm{s}\rvert = N_\mathrm{s}\,
+      \dfrac{\mu_0 N_\mathrm{p} A}{L}\,\dfrac{\lvert\Delta I_\mathrm{p}\rvert}{\Delta t}$}
+    {emf in a coil wound on a solenoid}{3}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 4
+  \essfsrow{\essfsYes}{$\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$}
+    {transformer (turns) equation, on AC}{4}
+  \essfsrow{\essfsYes}{$P = VI$}{electrical power; current sent: $I = P/V$}{4}
+  \essfsrow{\essfsYes}{$V_\mathrm{p} I_\mathrm{p} = V_\mathrm{s} I_\mathrm{s}$}
+    {ideal transformer: power in = power out}{4}
+  \essfsrow{\essfsComb}{$\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{V_\mathrm{p}}{V_\mathrm{s}}
+    = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$}
+    {currents in an ideal transformer}{4}
+  \essfsrow{\essfsNo}{\begin{tabular}{@{}c@{}}$\eta = \dfrac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\%$\\\noalign{\vskip 8pt}
+      $\phantom{\eta} = \dfrac{V_\mathrm{s}I_\mathrm{s}}{V_\mathrm{p}I_\mathrm{p}} \times 100\%$\end{tabular}}
+    {efficiency of a real transformer}{4}
+  \essfsrow{\essfsYes}{$P = \dfrac{\Delta E}{\Delta t}$}{energy used or wasted in a time}{4}
+  \essfsrow{\essfsYes}{$V_\mathrm{drop} = IR$}
+    {voltage lost along a power line}{4}
+  \essfsrow{\essfsNo}{$P_\mathrm{loss} = I^2R$}{power lost as heat in a line}{4}
+  \essfsrow{\essfsYes}{$f = \dfrac{1}{T}$}{AC frequency (mains: \qty{50}{Hz})}{4}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 5
+  \essfsrow{\essfsYes}{$\tau = nIA_\perp B = nIAB\sin\theta$}
+    {torque on a coil ($\theta$ from the normal)}{5}
+  \essfsrow{\essfsYes}{$\tau = r_\perp F = rF\sin\theta$}{torque from one force}{5}
+  \essfsrow{\essfsNo}{$I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$}
+    {current in a running DC motor (back emf)}{5}
+  \essfsrow{\essfsNo}{$VI = \varepsilon_\mathrm{back}I + I^2R$}
+    {motor: power in = mechanical + heat}{5}
+  \essfsrow{\essfsYes}{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+    {average emf of a turning generator coil}{5}
+  \essfsrow{\essfsComb}{$Q = \dfrac{1}{2}mu^2 - \dfrac{1}{2}mv^2$}
+    {heat from a magnetic brake (level track)}{5}
+  \essfsrow{\essfsComb}{$Q = \left(\dfrac{1}{2}mu^2 - \dfrac{1}{2}mv^2\right) + mg\Delta h$}
+    {magnetic brake on a slope or drop tower}{5}
+\end{longtable}}
+
+\section*{Data sheet values used in this module}
+
+\begin{table}
+  \centering\small
+  \begin{tabular}{@{}L{55mm}L{44mm}L{41mm}@{}}
+    \toprule
+    \colhead{Quantity (as on the sheet)} & \colhead{Value} & \colhead{Used in}\\
+    \midrule
+    Charge on electron & $q_\mathrm{e} = \qty{-1.602e-19}{C}$ & \cref{ch1:chap}\\
+    Mass of electron & $m_\mathrm{e} = \qty{9.109e-31}{kg}$ & \cref{ch1:chap}\\
+    Mass of proton & $m_\mathrm{p} = \qty{1.673e-27}{kg}$ & \cref{ch1:chap}\\
+    Earth's gravitational acceleration & $g = \qty{9.8}{m.s^{-2}}$
+      & \cref{ch1:chap,ch2:chap,ch5:chap}\\
+    Magnetic permeability constant & $\mu_0 = 4\pi \times 10^{-7}$ \si{N.A^{-2}}
+      & \cref{ch2:chap,ch3:chap}\\
+    \qty{1}{eV} & \qty{1.602e-19}{J} & \cref{ch1:chap}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item The sheet prints the electron's charge as negative. In the formulas, use its size,
+        $e = \qty{1.602e-19}{C}$. Find the direction with a rule.
+  \item A proton has charge $+e$. An alpha particle has charge $+2e$.
+\end{itemize}

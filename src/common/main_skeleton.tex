@@ -1,0 +1,82 @@
+% =====================================================================
+% main.tex -- HSC Physics Revision Guide, one module.
+%
+% HOW TO USE: copy this file to src/<mod>/main.tex (do not edit the
+% copy in common/). Build with:
+%
+% Every part is optional: a missing file is skipped, so a half-finished book
+% still compiles. Chapter N always prints as "Chapter N", even when an
+% earlier chapter file is missing.
+%
+% Book order (fixed for all four books):
+%   cover - How to use this guide - Contents - Module overview   (frontmatter.tex)
+%   chapters ch1.tex ... ch8.tex
+%   Answering HSC questions                                       (answering.tex)
+%   Formula sheet explained                                       (formulasheet.tex)
+%   Glossary                                                      (glossary.tex)
+%   Practice set                                                  (practice.tex)
+%   Answers: ch1_answers.tex ... ch8_answers.tex, then practice_answers.tex
+%   Last-minute summary                                           (summary.tex)
+% =====================================================================
+\documentclass[11pt,a4paper,oneside,openany]{book}
+\makeatletter\def\input@path{{./}{../common/}}\makeatother
+\usepackage{hscphys}
+\IfFileExists{./module_info.tex}{\input{./module_info}}{}
+
+\begin{document}
+
+%% ---------------------------------------------------------------- front
+% frontmatter.tex = \makecover, \input{../common/howtouse}, \tableofcontents,
+% Module overview (copy common/frontmatter_template.tex to start it).
+\IfFileExists{./frontmatter.tex}{\input{./frontmatter}}{%
+  \makecover
+  \IfFileExists{../common/howtouse.tex}{\input{../common/howtouse}}{}%
+  \tableofcontents}
+
+%% ---------------------------------------------------------------- chapters
+\IfFileExists{./ch1.tex}{\setcounter{chapter}{0}\input{./ch1}}{}
+\IfFileExists{./ch2.tex}{\setcounter{chapter}{1}\input{./ch2}}{}
+\IfFileExists{./ch3.tex}{\setcounter{chapter}{2}\input{./ch3}}{}
+\IfFileExists{./ch4.tex}{\setcounter{chapter}{3}\input{./ch4}}{}
+\IfFileExists{./ch5.tex}{\setcounter{chapter}{4}\input{./ch5}}{}
+\IfFileExists{./ch6.tex}{\setcounter{chapter}{5}\input{./ch6}}{}
+\IfFileExists{./ch7.tex}{\setcounter{chapter}{6}\input{./ch7}}{}
+\IfFileExists{./ch8.tex}{\setcounter{chapter}{7}\input{./ch8}}{}
+
+%% ---------------------------------------------------------------- back
+\IfFileExists{./answering.tex}{\input{./answering}}{}
+\IfFileExists{./formulasheet.tex}{\input{./formulasheet}}{}
+\IfFileExists{./glossary.tex}{\input{./glossary}}{}
+\IfFileExists{./practice.tex}{\input{./practice}}{}
+
+%% ---------------------------------------------------------------- answers
+% The "Answers" heading is printed only if at least one answers file exists.
+\newif\ifanyanswers
+\IfFileExists{./ch1_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch2_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch3_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch4_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch5_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch6_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch7_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./ch8_answers.tex}{\anyanswerstrue}{}
+\IfFileExists{./practice_answers.tex}{\anyanswerstrue}{}
+\ifanyanswers
+  \unnumberedchapter[\faCheckDouble]{Answers}
+  Full worked answers to every Quick check (numbered like Q2.3) and to the
+  Practice set. Click a question number to jump back to the question.
+\fi
+\IfFileExists{./ch1_answers.tex}{\input{./ch1_answers}}{}
+\IfFileExists{./ch2_answers.tex}{\input{./ch2_answers}}{}
+\IfFileExists{./ch3_answers.tex}{\input{./ch3_answers}}{}
+\IfFileExists{./ch4_answers.tex}{\input{./ch4_answers}}{}
+\IfFileExists{./ch5_answers.tex}{\input{./ch5_answers}}{}
+\IfFileExists{./ch6_answers.tex}{\input{./ch6_answers}}{}
+\IfFileExists{./ch7_answers.tex}{\input{./ch7_answers}}{}
+\IfFileExists{./ch8_answers.tex}{\input{./ch8_answers}}{}
+\IfFileExists{./practice_answers.tex}{\clearpage\input{./practice_answers}}{}
+
+%% ---------------------------------------------------------------- summary
+\IfFileExists{./summary.tex}{\input{./summary}}{}
+
+\end{document}

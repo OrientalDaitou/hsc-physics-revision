@@ -1,0 +1,63 @@
+% experiments.tex -- Module 5 ESSENTIALS: Key experiments at a glance.
+% One row per key experiment of the module. Facts and numbers are those of the Key
+% experiment boxes in ch1.tex ... ch5.tex (and of the full book, src/mod5/).
+% Every row has a Key experiment box in its chapter (the orbit simulation: ch4, Section 4.5,
+% with the full book's numbers).
+\unnumberedchapter[\faFlask]{Key experiments at a glance}
+\phantomsection\label{kx:chap}
+
+% ---- helpers for this part only (prefix kx)
+\newcommand\kxhead{\colhead{Experiment} & \colhead{What was done} & \colhead{What it showed} &
+  \colhead{Ch.}}
+% \kxrow{experiment}{dot point}{what was done}{what it showed}{chapter number}
+\newcommand\kxrow[5]{\textbf{#1}\newline{\footnotesize\color{hscmuted}#2} & #3 & #4 &
+  \hyperref[ch#5:chap]{\textbf{#5}}\\\hline}
+
+The syllabus asks you to carry out or study these investigations. Each one has a Key
+experiment box in its chapter, with its aim, method, result, conclusion and significance.
+\textbf{Required} marks the two practical investigations that the syllabus names.
+
+{\small
+\setlength\LTpre{4pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.25}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}L{35mm}@{\hspace{3mm}}L{48mm}@{\hspace{3mm}}%
+    L{\dimexpr\linewidth-35mm-48mm-7mm-9mm\relax}@{\hspace{3mm}}C{7mm}@{}}
+  \kxhead\\\hline\endfirsthead
+  \kxhead\\\hline\endhead
+  \kxrow{Range of a ball launched horizontally (required)}{M5.IQ1.03}
+    {A steel ball leaves a bench ramp horizontally at 5 speeds ($u$ from a light gate); the
+     range $R$ is measured.}
+    {$R$ against $u$ is a straight line very close to the origin, gradient \qty{0.423}{s} (model
+     \qty{0.429}{s}). This validates $R = u\sqrt{2h/g}$: the two motions are independent.}{1}
+  \kxrow{Whirling a stopper on a string (required)}{M5.IQ2.01}
+    {A stopper is whirled through a tube; a hanging mass gives $F_\mathrm{c} = Mg$; 20 turns are
+     timed. Change $M$, then $r$, then $m$.}
+    {Part A: $F_\mathrm{c} \propto v^2$ (a straight line through the origin). Parts B and C
+     (expected): $F_\mathrm{c} \propto 1/r$ and $F_\mathrm{c} \propto m$.}{2}
+  \kxrow{Torque on a metre rule}{M5.IQ2.05}
+    {A pivoted metre rule is held level by a spring balance at different distances and
+     angles; then the torques are unbalanced.}
+    {$Fr$ stays the same (about \qty{0.59}{N.m}); only $F\sin\theta$ turns it:
+     $\tau = rF\sin\theta$. A bigger net torque changes the rotation faster.}{3}
+  \kxrow{Work and energy in circular motion}{M5.IQ2.04}
+    {A whirled stopper is filmed; a ball swinging down from rest is timed with a light gate.}
+    {The tension does no work: $K$ is constant in a horizontal circle. In the swing, $K$
+     gained $=$ $U$ lost (within a 3\,\% light-gate error).}{3}
+  \kxrow{Factors that affect the field strength $g$}{M5.IQ3.01}
+    {Secondary data: surface $g$ against $M/r^2$ for the Moon, Mercury, Mars, Venus and the
+     Earth.}
+    {A straight line through the origin with gradient $G$, so $g = GM/r^2$.}{4}
+  \kxrow{Kepler's third law and the moons of Jupiter}{M5.IQ3.04}
+    {Secondary data: $r^3$ against $T^2$ for Io, Europa, Ganymede and Callisto.}
+    {One value of $r^3/T^2$ for all four moons. The gradient, $GM/4\pi^2$, gives Jupiter's
+     mass, \qty{1.90e27}{kg}.}{4}
+  \kxrow{Orbits in a simulation}{M5.IQ3.02}
+    {A computer orbit model: change only the satellite's mass, then only the orbital radius.}
+    {The period does not depend on the satellite's mass. Bigger orbits are slower:
+     $v \propto 1/\sqrt{r}$.}{4}
+  \kxrow{Launch speed, total energy and escape (simulation)}{M5.IQ3.05}
+    {A probe is launched sideways from $r_0 = \qty{1.00e7}{m}$ at 5 to \qty{9}{km.s^{-1}} in a
+     computer orbit model.}
+    {It falls back, orbits or escapes. It escapes only when $E \ge 0$: between 8.94 and
+     \qty{8.95}{km.s^{-1}}, and $\sqrt{2GM/r_0} = \qty{8.95}{km.s^{-1}}$.}{5}
+\end{longtable}}

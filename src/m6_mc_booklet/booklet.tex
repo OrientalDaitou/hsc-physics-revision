@@ -1,0 +1,28 @@
+% booklet.tex -- Module 6 (Electromagnetism) multiple-choice booklet: 72 new questions,
+%   Topic 1 Charged particles, conductors, electric and magnetic fields  Q1-18   (topic1.tex)
+%   Topic 2 The motor effect                                             Q19-36  (topic2.tex)
+%   Topic 3 Electromagnetic induction                                    Q37-54  (topic3.tex)
+%   Topic 4 Applications of the motor effect                             Q55-72  (topic4.tex)
+% Answers and worked solutions: answers.tex.  Every number: checks/m6-mc-booklet/numbers.py
+% Key:
+%  1C 2B 3D 4B 5D 6C 7D 8A 9B 10B 11C 12A 13C 14C 15A 16A 17B 18D
+%  19C 20C 21B 22A 23B 24D 25C 26A 27A 28B 29D 30C 31A 32C 33B 34D 35A 36D
+%  37B 38D 39C 40A 41D 42D 43C 44D 45A 46B 47C 48B 49C 50B 51D 52B 53A 54A
+%  55D 56B 57C 58C 59A 60B 61A 62C 63D 64A 65D 66C 67B 68A 69B 70C 71D 72B
+% Build: TEXINPUTS=.: xelatex booklet.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{quiz}
+\hypersetup{pdftitle={Multiple Choice Booklet - Module 6 - Electromagnetism}}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Multiple Choice Booklet - Module 6 - Electromagnetism}
+\begin{center}
+  Use $e = \qty{1.602e-19}{C}$, $m_\mathrm{e} = \qty{9.109e-31}{kg}$, $m_\mathrm{p} = \qty{1.673e-27}{kg}$,
+  $\mu_0 = 4\pi \times 10^{-7}\,\si{N.A^{-2}}$, $g = \qty{9.8}{m.s^{-2}}$.\\
+  {\small $\times$ = magnetic field into the page \qquad $\bullet$ = magnetic field out of the page}
+\end{center}
+\InputIfFileExists{topic1}{}{}
+\InputIfFileExists{topic2}{}{}
+\InputIfFileExists{topic3}{}{}
+\InputIfFileExists{topic4}{}{}
+\end{document}

@@ -1,0 +1,501 @@
+% ch3.tex -- Module 7 ESSENTIALS, Chapter 3: Light as a particle (black bodies and
+% the photoelectric effect). Knowledge points only: no questions, no worked examples.
+% Figures: figures/ch3_bbcurves.pdf and figures/ch3_uvcat.pdf (copied from
+% ../mod7/figures, with their scripts); the other diagrams are TikZ copied from the
+% full chapter.
+\chapter{Light as a Particle: Black Bodies and the Photoelectric Effect}\label{ch3:chap}
+\covers{M7.IQ3.01, M7.IQ3.02, M7.IQ3.03}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item Black body curves and Wien's law.
+  \item The ultraviolet catastrophe, and how Planck's quanta, $E = hf$, solved it.
+  \item The photoelectric results that the wave model of light cannot explain.
+  \item Einstein's photons, $K_\mathrm{max} = hf - \phi$, and photoelectric graphs.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{Black body radiation and Planck's quanta}\label{ch3:sec:blackbody}
+\covers{M7.IQ3.01}
+
+\begin{bigidea}
+A black body's spectrum depends only on its temperature. In 1900 Planck explained its
+shape: energy is given out in packets, $E = hf$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Black body}{an ideal object that absorbs all the radiation that hits it. It is also a perfect emitter.}
+  \kw{Peak wavelength ($\lambda_\mathrm{max}$)}{the wavelength where a black body curve is highest.}
+  \kw{Ultraviolet catastrophe}{the wrong prediction, from physics before 1900, of infinite intensity at short wavelengths.}
+  \kw{Quantum (plural: quanta)}{one packet of energy, of size $E = hf$.}
+\end{keywords}
+
+\subsection{The black body curve and Wien's law}
+
+\begin{itemize}
+  \item All objects give off \term{thermal radiation} because of their temperature:
+        their vibrating charges give off EM waves.
+  \item A hollow box with a tiny hole is almost a black body. So are stars.
+  \item Lava (about \qtyrange{1000}{1500}{K}) peaks in the infrared and glows dull red.
+        The Sun (\qty{5800}{K}) looks white. Hotter stars look blue-white.
+  \item Wien (1893): $\lambda_\mathrm{max}$ is \emph{inversely proportional} to $T$. If
+        $T$ doubles, $\lambda_\mathrm{max}$ halves.
+  \item \term{Intensity}: radiation energy each second on each square metre
+        (\cref{ch3:fig:bbcurves}).
+\end{itemize}
+
+\begin{sidebyside}[0.57]
+  \centering
+  \includegraphics{ch3_bbcurves.pdf}
+  \captionof{figure}{Black body curves at three temperatures.}\label{ch3:fig:bbcurves}
+\nextside
+  \begin{itemize}
+    \item One peak, at $\lambda_\mathrm{max}$. Steep rise on the short-wavelength side,
+          long tail on the long side.
+    \item A hotter body is higher at \emph{every} wavelength. The curves never cross.
+    \item A hotter body peaks at a shorter wavelength.
+    \item The curve depends only on temperature, not on the material.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}{Wien's displacement law}
+  \cardformula{\lambda_\mathrm{max} = \frac{b}{T}}
+  \begin{symbols}
+    \sym{$\lambda_\mathrm{max}$}{peak wavelength of the black body curve}{\si{m}}
+    \sym{$b$}{Wien's displacement constant, \qty{2.898e-3}{m.K}}{\si{m.K}}
+    \sym{$T$}{absolute temperature of the object}{\si{K}}
+  \end{symbols}
+  \whentouse{black bodies or near black bodies: stars, lava, hot metal, people.}
+  \trap{$T$ in kelvin (add 273 to \si{\degreeCelsius}). $\lambda_\mathrm{max}$ comes out in
+    metres ($\qty{1}{nm} = \qty{1e-9}{m}$).}
+\end{formulacard}
+
+\subsection{The ultraviolet catastrophe}
+
+\begin{sidebyside}[0.56]
+  \centering
+  \includegraphics{ch3_uvcat.pdf}
+  \captionof{figure}{Classical prediction and measured curve.}
+  \label{ch3:fig:uvcat}
+\nextside
+  \begin{itemize}
+    \item \term{Classical physics} (before 1900): light is a wave and energy can have any
+          value.
+    \item Its prediction (the \term{Rayleigh--Jeans law}) fits at long wavelengths
+          (\cref{ch3:fig:uvcat}).
+    \item At short wavelengths it rises without limit, so the total energy would be
+          infinite. Real curves fall to zero.
+  \end{itemize}
+\end{sidebyside}
+
+Why it failed: a hot box holds more and more standing-wave patterns at shorter
+wavelengths. Classical physics gives each pattern the same share of energy, so the
+total is infinite.
+
+\subsection{Planck's idea: energy comes in packets}
+
+\begin{itemize}
+  \item Planck (1900): the vibrating charges in the walls (\term{oscillators}) have
+        \term{quantised} energy. It comes in steps: only $0, hf, 2hf, 3hf, \ldots$
+  \item So they give out or take in energy only in quanta of $hf$. $h$ is
+        \term{Planck's constant}, \qty{6.626e-34}{J.s}.
+  \item Low $f$ (long wavelength): the steps are tiny and act like a ramp. Planck agrees
+        with classical physics there.
+  \item High $f$ (short wavelength): one step $hf$ is bigger than the heat energy an
+        oscillator usually has. Few quanta are given out, so the curve falls to zero.
+  \item Planck's formula fits the measured curves at every wavelength. He saw quanta as
+        a maths trick, but they began the quantum model of light.
+\end{itemize}
+
+\begin{formulacard}{Energy of one quantum (photon)}
+  \cardformula{E = hf}
+  \begin{symbols}
+    \sym{$E$}{energy of one quantum (one photon)}{\si{J}}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s} (data sheet)}{\si{J.s}}
+    \sym{$f$}{frequency of the radiation}{\si{Hz}}
+  \end{symbols}
+  \whentouse{the energy of one quantum or one photon of any EM radiation.}
+  \derive{$E = \dfrac{hc}{\lambda}$ is not on the sheet. Use $v = f\lambda$ with $v = c$
+    (speed of light): $f = \dfrac{c}{\lambda}$, so $E = \dfrac{hc}{\lambda}$.}
+  \trap{$E$ comes out in joules. The \term{electron volt}: $\qty{1}{eV} =
+    \qty{1.602e-19}{J}$ (data sheet). J $\to$ eV: divide by \num{1.602e-19}.}
+\end{formulacard}
+
+%% ==================================================================
+\section{The photoelectric effect: evidence against the wave model}\label{ch3:sec:photoelectric}
+\covers{M7.IQ3.02}
+
+\begin{bigidea}
+Light can knock electrons out of a metal. Experiments showed that three predictions
+of the wave model of light are wrong.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Photoelectric effect}{electrons are released from a metal surface when light shines on it.}
+  \kw{Threshold frequency ($f_0$)}{the lowest frequency of light that releases electrons from a metal.}
+  \kw{Stopping voltage ($V_0$)}{the smallest reverse voltage that stops every photoelectron, so the current is zero.}
+\end{keywords}
+
+\begin{itemize}
+  \item Hertz first saw the effect (1887): ultraviolet light helped sparks jump a
+        \term{spark gap} (a small air gap between two metal balls). Lenard measured it with
+        a vacuum tube (1902).
+\end{itemize}
+
+\begin{sidebyside}[0.62]
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.82cm]
+    \draw[hscink, line width=0.9pt, fill=hscbrand!5, rounded corners=12pt]
+      (0,0) rectangle (6,2.6);
+    \draw[hscvel!70, line width=2.6pt] (1.15,2.6) -- (2.75,2.6);
+    \node[diagramlabel, anchor=south east, align=right, font=\footnotesize] at (1.1,2.65)
+      {quartz window\\(lets UV through)};
+    \draw[hscink, line width=2.4pt] (0.8,0.45) -- (0.8,2.15);
+    \draw[hscink, line width=2.4pt] (5.2,0.6) -- (5.2,2.0);
+    \foreach \ye/\xs in {1.9/2.42, 1.45/2.78, 1.0/3.14} {
+      \draw[->, hscray, line width=1pt, decorate,
+        decoration={snake, amplitude=1.3pt, segment length=5pt, post length=2.2mm}]
+        (\xs,3.8) -- (0.92,\ye);
+    }
+    \node[diagramlabel, anchor=west, font=\footnotesize] at (3.2,3.75) {light: frequency $f$};
+    \foreach \p in {(1.9,1.65), (3.0,1.0), (4.0,1.75)} {
+      \fill[hscvel] \p circle (2.6pt);
+      \draw[velocity, line width=0.9pt] \p ++(0.12,0) -- ++(0.55,0);
+    }
+    \node[text=hscvel, font=\footnotesize] at (3.0,0.6) {photoelectrons};
+    \node[diagramlabel, anchor=north, font=\footnotesize] at (3.6,2.45) {vacuum};
+    \draw[hscmuted, line width=0.5pt] (0.75,1.6) -- (-0.2,1.6)
+      node[diagramlabel, anchor=east, align=right, font=\footnotesize] {metal\\cathode};
+    \draw[hscmuted, line width=0.5pt] (5.25,1.6) -- (6.2,1.6)
+      node[diagramlabel, anchor=west, align=left, font=\footnotesize] {anode};
+    % circuit
+    \draw[hscink, line width=0.8pt] (0.8,0.45) -- (0.8,-1.0) -- (2.2,-1.0);
+    \draw[hscink, line width=0.8pt] (2.4,-1.0) -- (3.67,-1.0);
+    \draw[hscink, line width=0.8pt] (4.33,-1.0) -- (5.2,-1.0) -- (5.2,0.6);
+    \draw[hscink, line width=0.9pt] (2.2,-1.35) -- (2.2,-0.65);
+    \draw[hscink, line width=2.2pt] (2.4,-1.18) -- (2.4,-0.82);
+    \draw[->, hscink, line width=0.7pt] (1.9,-1.4) -- (2.7,-0.55);
+    \node[font=\scriptsize] at (2.02,-0.5) {$+$};
+    \node[font=\scriptsize] at (2.6,-1.3) {$-$};
+    \draw[hscink, line width=0.8pt] (1.6,-1.0) -- (1.6,-1.8) -- (2.0,-1.8);
+    \draw[hscink, line width=0.8pt] (2.6,-1.8) -- (3.0,-1.8) -- (3.0,-1.0);
+    \draw[hscink, line width=0.8pt, fill=white] (2.3,-1.8) circle (0.3) node[font=\small] {V};
+    \node[diagramlabel, anchor=north, font=\footnotesize, align=center] at (2.3,-2.15)
+      {reversible supply and voltmeter};
+    \draw[hscink, line width=0.8pt, fill=white] (4.0,-1.0) circle (0.34)
+      node[font=\small] {\si{\micro A}};
+    \node[diagramlabel, anchor=south, font=\footnotesize] at (4.0,-0.64) {microammeter};
+  \end{tikzpicture}
+  \captionof{figure}{Photoelectric apparatus. Here the anode is negative, as used to
+    find $V_0$.}\label{ch3:fig:apparatus}
+\nextside
+  \begin{itemize}
+    \item Light releases \term{photoelectrons} from the \term{cathode}. They cross to
+          the \term{anode}.
+    \item A \term{microammeter} (a meter for tiny currents) measures the
+          \term{photocurrent}. Bigger current $=$ more electrons each second, not
+          faster ones.
+    \item Vacuum: electrons do not hit air molecules. Quartz lets UV in (glass
+          absorbs it).
+  \end{itemize}
+\end{sidebyside}
+
+\begin{itemize}
+  \item \textbf{Electroscope demonstration:} an \term{electroscope} has a thin gold leaf
+        that stands out when it is charged. Put a negatively charged zinc plate on it. UV
+        light makes the leaf fall: electrons leave the zinc. Bright visible light does not.
+\end{itemize}
+
+\subsection{Stopping voltage}
+
+\begin{itemize}
+  \item Make the anode negative (\cref{ch3:fig:apparatus}). It repels the electrons.
+        At $V_0$ even the fastest ones stop just before the anode, so $I = 0$.
+  \item Electrons leave with a range of speeds. The fastest have the
+        \term{maximum kinetic energy}, $K_\mathrm{max}$.
+  \item $K_\mathrm{max} = qV_0$ \hscbadgecombine{$W = qV$}\ The reverse voltage does work $W = qV_0$ against the fastest electron and takes
+        all its kinetic energy. $q$ is the \emph{size} of the electron's charge,
+        \qty{1.602e-19}{C}.
+  \item $V_0$ is a voltage (V); $K_\mathrm{max}$ is an energy (J or eV). In eV,
+        $K_\mathrm{max}$ has the same number as $V_0$ in volts.
+  \item \textbf{Speed of the fastest electrons:} put $K_\mathrm{max}$, in joules, into
+        $K = \frac{1}{2}mv^2$ (on the sheet), with $m$ = the electron's mass.
+\end{itemize}
+
+\subsection{What the wave model predicted}
+
+In the wave model, light energy depends on brightness (amplitude), not frequency. It
+arrives smoothly, spread over the surface (\cref{ch3:tab:wave}).
+
+\begin{table}
+  \caption{Wave-model predictions and photoelectric observations.}\label{ch3:tab:wave}
+  \centering
+  \small
+  \begin{tabular}{@{}L{52mm}L{64mm}L{20mm}@{}}
+    \toprule
+    \colhead{The wave model predicted} & \colhead{Experiments showed} & \colhead{Wave model}\\
+    \midrule
+    Brighter light gives more electrons each second (bigger current).
+      & Brighter light gives a bigger current (when $f \ge f_0$).
+      & \cmark\ agrees\\
+    Any frequency works if the light is bright enough.
+      & Threshold frequency $f_0$: below it, no electrons, however bright.
+      & \xmark\ fails\\
+    Dim light: a delay while electrons build up energy.
+      & No delay: electrons leave at once (in less than \qty{1e-9}{s}).
+      & \xmark\ fails\\
+    Brighter light makes faster electrons (bigger $V_0$).
+      & $V_0$ does not depend on brightness. It rises in a straight line with $f$.
+      & \xmark\ fails\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+So light energy cannot arrive spread out like a wave. It must arrive in concentrated
+packets of $hf$.
+
+%% ==================================================================
+\section{Einstein's photon model and photoelectric graphs}\label{ch3:sec:photon}
+\covers{M7.IQ3.03, M7.IQ3.02}
+
+\begin{bigidea}
+In 1905 Einstein said that light itself is a stream of photons, each with energy
+$hf$. One photon gives all its energy to one electron, so conservation of energy gives
+$K_\mathrm{max} = hf - \phi$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Photon}{one packet (quantum) of light, with energy $E = hf$.}
+  \kw{Work function ($\phi$)}{the least energy to remove an electron from a metal's surface.}
+  \kw{Saturation current}{the largest photocurrent: all released electrons reach the anode.}
+  \kw{Wave--particle duality}{light acts as a wave in some experiments, as particles in others.}
+\end{keywords}
+
+\begin{itemize}
+  \item Brighter light of one colour has \emph{more photons} each second. Each photon
+        still has the same energy $hf$.
+  \item \textbf{One photon interacts with one electron}, and gives it all its energy at
+        once. Energy from two photons never adds up.
+  \item Each metal has its own $\phi$, for example caesium \qty{2.1}{eV}, zinc
+        \qty{4.3}{eV}.
+\end{itemize}
+
+\begin{formulacard}{Einstein's photoelectric equation}
+  \cardformula{K_\mathrm{max} = hf - \phi}
+  \begin{symbols}
+    \sym{$K_\mathrm{max}$}{maximum kinetic energy of the photoelectrons}{\si{J} (or eV)}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s}}{\si{J.s}}
+    \sym{$f$}{frequency of the light}{\si{Hz}}
+    \sym{$\phi$}{work function of the metal}{\si{J} (or eV)}
+  \end{symbols}
+  \whentouse{light falls on a metal and $hf \ge \phi$. If $hf - \phi$ is negative, no
+    electrons are released.}
+  % layout (final page check): break the card here, so that the page after it does not
+  % hold only the two-line Trap
+  \tcbbreak
+  \derive{conservation of energy for one photon and the \term{least-bound electron}
+    (the easiest to remove): energy in $=$ energy to escape $+$ energy left over. So
+    $hf = \phi + K_\mathrm{max}$, and $K_\mathrm{max} = hf - \phi$. Deeper electrons
+    need more than $\phi$, so they leave slower.}
+  \trap{use one unit for every term: all joules or all eV. $\phi$ is lower-case phi;
+    capital $\Phi$ on the sheet is magnetic flux.}
+\end{formulacard}
+
+The photon model explains every result in \cref{ch3:tab:wave}:
+\begin{itemize}
+  \item \textbf{Bigger current:} more photons each second free more electrons each second.
+  \item \textbf{Threshold:} one photon must give at least $\phi$, so $hf \ge \phi$.
+  \item \textbf{No delay:} each photon delivers its whole energy in one event.
+  \item \textbf{$K_\mathrm{max}$ depends on $f$ (and the metal), not on brightness:}
+        brightness changes the number of photons, not $hf$.
+\end{itemize}
+
+\begin{itemize}
+  \item \textbf{At the threshold} $f_0$ the fastest electron has nothing left over. Put
+        $K_\mathrm{max} = 0$ in $K_\mathrm{max} = hf - \phi$:
+        \[\phi = hf_0 \qquad \lambda_0 = \frac{c}{f_0} = \frac{hc}{\phi}\]
+        {\centering\hscbadgenotonsheet\par}
+  \item The \term{threshold wavelength} $\lambda_0$ is the longest wavelength that
+        releases electrons. Electrons leave only if $f \ge f_0$ ($\lambda \le
+        \lambda_0$), however bright the light.
+  \item \textbf{Photons each second} \hscbadgenotonsheet\ from a source of power
+        $P$: $\dfrac{N}{t} = \dfrac{P}{hf}$ (energy each second $\div$ energy of one
+        photon). At the same power, red light gives more photons
+        than blue.
+\end{itemize}
+
+\subsection{Planck, Einstein and a new model of light}
+
+\begin{itemize}
+  \item \textbf{Planck (1900)} quantised the oscillators in the walls. He saw quanta as a
+        maths trick. They explained the black body curve.
+  \item \textbf{Einstein (1905)} quantised light itself: photons are real. They explained
+        the photoelectric effect. Both used $E = hf$.
+  \item Light still shows interference and diffraction, but it is given out and absorbed
+        as photons: wave--particle duality. (Photons are \emph{not} Newton's
+        corpuscles.)
+\end{itemize}
+
+\subsection{Photoelectric graphs}
+
+$K_\mathrm{max} = hf - \phi$ gives a straight-line graph of $K_\mathrm{max}$ against $f$,
+with gradient $h$ and $K_\mathrm{max}$-intercept $-\phi$ (\cref{ch3:fig:kf}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.74\linewidth, height=0.44\linewidth,
+        axis lines=middle, xmin=0, xmax=14.5, ymin=-5, ymax=4.2,
+        xtick={2,4,...,14}, xticklabels={}, ytick={-4,-2,2,4},
+        xlabel={$f$ ($\times10^{14}$ Hz)}, ylabel={$K_\mathrm{max}$ (eV)},
+        x label style={anchor=west}, y label style={anchor=south, rotate=-90},
+        every axis x label/.style={at={(axis cs:14.5,0)}, anchor=west},
+        every axis y label/.style={at={(axis cs:0,4.2)}, anchor=south},
+        yticklabel style={font=\footnotesize}]
+      \addplot[hscseriesA, line width=1.4pt, domain=5.077:14, samples=2] {0.4136*x - 2.10};
+      \addplot[hscseriesA, line width=1pt, densely dotted, domain=0:5.077, samples=2] {0.4136*x - 2.10};
+      \addplot[hscseriesB, line width=1.4pt, domain=10.40:14, samples=2] {0.4136*x - 4.30};
+      \addplot[hscseriesB, line width=1pt, densely dotted, domain=0:10.40, samples=2] {0.4136*x - 4.30};
+      \fill[hscseriesA] (axis cs:5.077,0) circle (2.2pt);
+      \fill[hscseriesB] (axis cs:10.40,0) circle (2.2pt);
+      \fill[hscseriesA] (axis cs:0,-2.10) circle (2.2pt);
+      \fill[hscseriesB] (axis cs:0,-4.30) circle (2.2pt);
+      \node[anchor=south east, font=\footnotesize, text=hscseriesA] at (axis cs:5.0,0.1) {$f_0$};
+      \node[anchor=south east, font=\footnotesize, text=hscseriesB] at (axis cs:10.3,0.1) {$f_0$};
+      \node[anchor=north west, font=\footnotesize, text=hscseriesA, fill=white, inner sep=1pt] at (axis cs:0.2,-2.2) {$-\phi = \qty{-2.10}{eV}$};
+      \node[anchor=north west, font=\footnotesize, text=hscseriesB] at (axis cs:0.2,-4.4) {$-\phi = \qty{-4.30}{eV}$};
+      \node[anchor=west, font=\small] at (axis cs:14.1,3.69) {caesium};
+      \node[anchor=west, font=\small] at (axis cs:14.1,1.49) {zinc};
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:6.4,-3.4)
+        {same gradient $h$: parallel lines.\\dotted: extrapolated (no electrons)};
+      % f tick labels drawn after the lines, on white, so no line crosses a number
+      \pgfplotsinvokeforeach{2,4,6,8,10,12,14}{
+        \node[anchor=north, font=\footnotesize, fill=white, inner sep=1pt, yshift=-2pt]
+          at (axis cs:#1,0) {#1};}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{$K_\mathrm{max}$ against frequency for caesium and zinc.}\label{ch3:fig:kf}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Gradient} $= h$ for every metal, so the lines are parallel
+        (\qty{4.136e-15}{eV.s} with $K_\mathrm{max}$ in eV).
+  \item \textbf{$f$-intercept} $= f_0$. \textbf{$K_\mathrm{max}$-intercept} $= -\phi$:
+        \term{extrapolate} (extend the line, dotted) to $f = 0$, then change the sign.
+  \item Experiments measure $V_0$. Put $K_\mathrm{max} = qV_0$ and divide by $q$:
+        \[V_0 = \frac{h}{q}f - \frac{\phi}{q}\]
+        {\centering\hscbadgenotonsheet\par}
+        Gradient $\dfrac{h}{q}$ (so $h = q \times \text{gradient}$), $f$-intercept
+        $f_0$, $V_0$-intercept $-\dfrac{\phi}{q}$.
+\end{itemize}
+
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.78\linewidth,
+        axis lines=middle, xmin=-3, xmax=1.8, ymin=0, ymax=3.4,
+        xtick={-2.4,-1.2}, xticklabels={$-V_{0}$ (A), $-V_{0}$ (B)}, ytick=\empty,
+        xlabel={$V$}, ylabel={$I$ (photocurrent)},
+        every axis x label/.style={at={(axis cs:1.8,0)}, anchor=west},
+        every axis y label/.style={at={(axis cs:0,3.4)}, anchor=south},
+        xticklabel style={font=\footnotesize}]
+      \addplot[hscseriesA, line width=1.3pt, domain=-2.4:0, samples=40] {2.2*sin(90*(x+2.4)/2.4)^2};
+      \addplot[hscseriesA, line width=1.3pt, domain=0:1.6, samples=2] {2.2};
+      \addplot[hscseriesB, line width=1.3pt, dashed, domain=-1.2:0, samples=40] {1.1*sin(90*(x+1.2)/1.2)^2};
+      \addplot[hscseriesB, line width=1.3pt, dashed, domain=0:1.6, samples=2] {1.1};
+      \node[anchor=south, font=\footnotesize] at (axis cs:1.62,2.2) {A};
+      \node[anchor=south, font=\footnotesize] at (axis cs:1.62,1.1) {B};
+      \node[anchor=north, font=\scriptsize, align=center] at (axis cs:0.85,0.9)
+        {saturation\\current (B)};
+      \draw[->, hscink, line width=0.5pt] (axis cs:0.85,0.9) -- (axis cs:0.85,1.05);
+      \node[anchor=south, font=\scriptsize, align=center, text=hscmuted]
+        at (axis cs:-1.5,2.55) {anode negative\\(pushes electrons back)};
+      \node[anchor=south, font=\scriptsize, align=center, text=hscmuted]
+        at (axis cs:0.85,2.55) {anode\\positive};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Photocurrent against tube voltage (idealised).}
+  \label{ch3:fig:iv}
+\nextside
+  \begin{itemize}
+    \item Anode positive: all electrons are collected. The flat part (saturation
+          current) is set by the number of photons each second.
+    \item Beam A (\cref{ch3:fig:iv}) has more photons each second and a higher $f$
+          (bigger $V_0$) than beam B.
+    \item Brighter light, same $f$: only the flat part rises.
+    \item Bigger $\phi$, same light: smaller $V_0$.
+  \end{itemize}
+\end{sidebyside}
+
+%% ==================================================================
+\section{Key experiments}\label{ch3:sec:experiments}
+\covers{M7.IQ3.01, M7.IQ3.02, M7.IQ3.03}
+
+\begin{experiment}{Measuring black body radiation (1899--1900)}
+\aim{To measure black body curves at several temperatures (Lummer and Pringsheim).}
+\method{Radiation leaves a small hole in a hot oven (the black body). A thermocouple (a
+  thermometer) measures the oven's temperature. The radiation passes through a slit and a
+  prism (\cref{ch3:fig:bbapp}). A \term{bolometer} (a detector warmed by the
+  radiation) is moved along the spectrum. This is repeated at several temperatures.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \fill[hscmuted!40] (0,0) rectangle (2.3,1.7);
+      \fill[hscink!85] (0.35,0.35) rectangle (1.95,1.35);
+      \fill[white] (1.94,0.75) rectangle (2.31,0.95);
+      \draw[hscforce, line width=0.9pt] (0.9,1.9) -- (0.9,1.0);
+      \node[diagramlabel, anchor=south, font=\footnotesize] at (0.9,1.9) {thermocouple};
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (1.15,-0.05)
+        {hot oven (black body)};
+      \draw[hscink, line width=2pt] (3.0,0.35) -- (3.0,0.78) (3.0,0.92) -- (3.0,1.35);
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (3.0,0.3) {slit};
+      \draw[ray] (2.3,0.85) -- (4.1,0.85);
+      \draw[hscink, line width=0.8pt, fill=hscbrand!10] (3.8,0.25) -- (5.0,0.25) -- (4.4,1.45) -- cycle;
+      \draw[hscray, line width=1pt] (4.1,0.85) -- (4.73,0.79);
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (4.4,0.2) {prism};
+      \draw[hscseriesB, line width=1pt] (4.73,0.80) -- (7.4,0.55);
+      \draw[hscseriesC, line width=1pt] (4.73,0.79) -- (7.4,0.15);
+      \draw[hscvel, line width=1pt] (4.73,0.78) -- (7.4,-0.25);
+      \node[diagramlabel, anchor=west, font=\footnotesize] at (7.45,0.55) {longer $\lambda$ (bent least)};
+      \node[diagramlabel, anchor=west, font=\footnotesize] at (7.45,-0.25) {shorter $\lambda$ (bent most)};
+      \draw[hscink, line width=0.8pt, fill=white] (6.35,0.21) rectangle (6.65,0.51);
+      \draw[hscmuted, line width=0.5pt] (6.5,0.51) -- (6.2,1.9)
+        node[diagramlabel, anchor=south, font=\footnotesize] {bolometer (moved along the spectrum)};
+    \end{tikzpicture}
+    \caption{Measuring a black body curve (simplified).}\label{ch3:fig:bbapp}
+  \end{figure}}
+\results{Curves like \cref{ch3:fig:bbcurves}; $\lambda_\mathrm{max}T \approx
+  \qty{2.9e-3}{m.K}$ at every temperature.}
+\conclusion{Wien's law. Classical theory fitted only the long-wavelength side.}
+\significance{Planck's formula fitted the whole curve. This led him to quanta (1900).}
+\end{experiment}
+
+\begin{experiment}{The photoelectric effect: measuring \texorpdfstring{$h$}{h} and \texorpdfstring{$\phi$}{phi}}
+\aim{To find how $V_0$ depends on frequency and brightness (Lenard 1902, Millikan
+  1914--1916, or a school photocell).}
+\method{In the circuit of \cref{ch3:fig:apparatus}, raise the reverse voltage until
+  the current is just zero ($V_0$). Repeat for several frequencies and brightnesses.}
+\results{$V_0$ rises in a straight line with $f$. No current below $f_0$. Brightness
+  changes the current, not $V_0$.}
+\conclusion{$qV_0 = hf - \phi$, so $h = q \times \text{gradient}$; the intercepts give $f_0$ and
+  $\phi$. This supports the photon model.}
+\significance{Millikan (1914--1916) expected to prove Einstein wrong. Instead he
+  confirmed the law and found $h$ within about 1\,\% of today's value.}
+\end{experiment}
+
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item A hotter black body is higher at every wavelength and peaks at a shorter
+        wavelength: $\lambda_\mathrm{max} = \dfrac{b}{T}$, with $T$ in kelvin.
+  \item Classical physics predicted the ultraviolet catastrophe. Planck: energy comes in
+        quanta $E = hf$, and large high-$f$ quanta are rarely given out.
+  \item Planck quantised the oscillators; Einstein quantised light itself (photons).
+  \item The wave model fails: threshold frequency, no delay, $K_\mathrm{max}$ does not
+        depend on brightness.
+  \item One photon $\to$ one electron: $K_\mathrm{max} = hf - \phi = qV_0$. Brighter
+        light gives more electrons, not faster ones.
+  \item $K_\mathrm{max}$ against $f$: gradient $h$, $f$-intercept $f_0$, intercept
+        $-\phi$.
+\end{itemize}
+\end{summarybox}

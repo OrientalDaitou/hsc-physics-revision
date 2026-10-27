@@ -1,0 +1,938 @@
+% practice_answers.tex -- Module 6 (Electromagnetism): worked answers to the Practice set.
+% One practiceans per practiceq in practice.tex, in the same order (24 answers, 82 marks).
+% Second, independent recalculation of every final answer:
+% Directions were checked with vectors (F = q v x B, F = I l x B).
+% MC answers keep their first lines together with \Needspace (conditional,
+% layout-independent; no \clearpage or \pagebreak).
+\begin{practiceanswers}
+
+% ===================================================================== Section I
+% ---- Q1 electron between plates
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  The field is uniform, so the electric force $F = qE$ has the same size and direction at
+  every point. It acts at \ang{90} to the plates. Along the plates there is no force, so the
+  velocity along the plates stays constant. Across the plates there is a constant
+  acceleration. Constant velocity one way and constant acceleration at \ang{90} to it give a
+  parabola. A ball thrown horizontally moves in the same way in the Earth's uniform
+  gravitational field.
+  \begin{itemize}
+    \item \xmark\ A: ``uniform'' means the same everywhere, not zero. A constant force gives
+          a constant acceleration, so the velocity changes.
+    \item \xmark\ C: an arc of a circle needs a force that keeps turning to stay at
+          \ang{90} to the velocity. That is the magnetic force. The electric force here
+          always points the same way.
+    \item \xmark\ D: the force has no part along the plates, so the velocity along the
+          plates stays the same. The work done by the field increases only the velocity
+          across the plates.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q2 force on a wire
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Use the right-hand palm rule. Point your fingers out of the page, towards you (the field).
+  Point your thumb down the page (the current). Your palm faces to the left, so the force is
+  to the left. (Vector check: $\vec{F} = I\vec{l} \times \vec{B}$ with $\vec{l}$ down and
+  $\vec{B}$ out of the page gives a force to the left.)
+  \begin{itemize}
+    \item \xmark\ B: this is the answer you get with the left hand, or with the thumb
+          pointing up the page.
+    \item \xmark\ C: up the page is along the wire. The force is always at \ang{90} to the
+          current.
+    \item \xmark\ D: into the page is along the field. The force is always at \ang{90} to
+          the field.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q3 transformer current
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $\dfrac{N_\mathrm{s}}{N_\mathrm{p}} = \dfrac{2400}{120} = 20$, so this transformer steps
+  the voltage \emph{up} 20 times. An ideal transformer does not lose energy:
+  $V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$. So the secondary current is 20
+  times \emph{smaller} than the primary current. This means the primary current is 20 times
+  \emph{bigger} than the secondary current:
+  $I_\mathrm{p} = I_\mathrm{s} \times \dfrac{N_\mathrm{s}}{N_\mathrm{p}}
+  = \qty{0.25}{A} \times 20 = \qty{5.0}{A}$.
+  \begin{itemize}
+    \item \xmark\ A (\qty{0.0125}{A}): divides by 20. This uses the current ratio upside
+          down. The power out would then be 400 times the power in.
+    \item \xmark\ B (\qty{0.25}{A}): the current changes unless both coils have the same
+          number of turns.
+    \item \xmark\ D (\qty{100}{A}): multiplies by 20 twice ($20^2 = 400$).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q4 Newton's third law
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  Currents in opposite directions repel. The force per metre on each wire is
+  $\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$. The same product $I_1 I_2$ is used
+  for both wires, so the two forces have the same size. This is Newton's third law: the
+  forces are an action--reaction pair, equal in size and opposite in direction. So the force
+  on P also has size $F$.
+  \begin{itemize}
+    \item \xmark\ A: the forces are equal, but wires with opposite currents repel. They
+          attract only when the currents are in the same direction.
+    \item \xmark\ C: the bigger current in P does not make the force on P bigger. P carries
+          3 times the current, but it sits in the weaker field made by Q. The two effects
+          cancel.
+    \item \xmark\ D: the force on P is not smaller either. Q sits in the stronger field
+          made by P, but it carries only $\frac{1}{3}$ of the current. Again the effects
+          cancel.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q5 induction motor
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  The AC in the stator coils makes a rotating magnetic field. It sweeps past the bars of
+  the rotor (the squirrel cage). The flux through the loops of the cage changes, so currents
+  are induced in the bars (Faraday's law). These currents are in a magnetic field, so they
+  feel forces (the motor effect). By Lenz's law, the forces oppose the \emph{relative}
+  motion, so they drag the rotor round after the field. The rotor always turns a little
+  more slowly than the field. This difference in speed is called the \textbf{slip}.
+  \begin{itemize}
+    \item \xmark\ A: nothing is wired to the rotor. Its currents are induced, so it needs no
+          brushes and no commutator.
+    \item \xmark\ B: at the same speed there is no relative motion, so the flux through the
+          rotor does not change. Then no current is induced and there is no torque, so
+          friction slows the rotor down.
+    \item \xmark\ D: the rotor is a cage of copper or aluminium bars, not a magnet. Its
+          magnetic field comes from the induced currents.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q6 flux ratio
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $\Phi = BA\cos\theta$, where $\theta$ is the angle between the field and the normal.
+  The new area is $\pi(2r)^2 = 4\pi r^2$, so it is 4 times the old area. The new angle gives
+  $\cos\ang{60} = 0.5$. So the new flux is $4 \times 0.5 \times \Phi = 2\Phi$.
+  \begin{itemize}
+    \item \xmark\ A ($\Phi$): doubles the area instead of multiplying it by 4 (forgets to
+          square the radius): $2 \times 0.5 = 1$.
+    \item \xmark\ C ($2\sqrt{3}\,\Phi \approx 3.5\Phi$): uses $\sin\ang{60}$ instead of
+          $\cos\ang{60}$. The angle here is measured from the normal, so use $\cos$.
+    \item \xmark\ D ($4\Phi$): forgets the angle.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q7 jumping ring (Lenz)
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Closing the switch makes the current in the solenoid grow from zero. An anticlockwise
+  current (viewed from above) makes a field that points \emph{up} inside the solenoid
+  (right-hand grip rule). So the upward flux through the ring \emph{increases}. By Lenz's
+  law, the induced current in the ring opposes this increase. So it makes its own field
+  that points \emph{down} inside the ring. A downward field, viewed from above, needs a
+  clockwise current. Now the ring's current (clockwise) is opposite to the solenoid's
+  current (anticlockwise). Opposite currents repel, so the ring is pushed up. (Pole view: the
+  top of the solenoid is an N pole, and the bottom face of the ring is also an N pole. Like
+  poles repel.) The push lasts only while the current grows. A steady current gives a steady
+  flux, so no current is induced.
+  \begin{itemize}
+    \item \xmark\ B: the current direction is right, but opposite currents repel. A pull down
+          would also move the ring into a stronger field. That would add to the change in
+          flux instead of opposing it.
+    \item \xmark\ C: an anticlockwise current would make an upward field. It would add to
+          the growing flux. This breaks Lenz's law (and the conservation of energy).
+    \item \xmark\ D: this is what happens when the switch is \emph{opened}. The upward flux
+          then decreases, so the ring's current flows the same way as the solenoid's
+          current (anticlockwise). Currents in the same direction attract.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q8 proton and alpha particle
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Speed after the voltage: $\frac{1}{2}mv^2 = qV$, so $v = \sqrt{\dfrac{2qV}{m}}$. Radius
+  in the field: $r = \dfrac{mv}{qB}$. Put the speed into the radius:
+  $r = \dfrac{m}{qB}\sqrt{\dfrac{2qV}{m}} = \dfrac{1}{B}\sqrt{\dfrac{2mV}{q}}$.
+  $V$ and $B$ are the same for both particles, so $r$ is proportional to
+  $\sqrt{\dfrac{m}{q}}$. For the alpha particle $\dfrac{m}{q}$ is
+  $\dfrac{4}{2} = 2$ times the proton's value. So
+  $\dfrac{r_\alpha}{r_\mathrm{p}} = \sqrt{2} \approx 1.41$.
+  \begin{itemize}
+    \item \xmark\ A ($\frac{1}{2}$): uses $\dfrac{q}{m}$ instead of $\dfrac{m}{q}$, and
+          forgets the square root.
+    \item \xmark\ B (1): the same voltage does not give the same speed or the same path.
+    \item \xmark\ D (2): assumes both particles have the same speed, so that
+          $r \propto \dfrac{m}{q}$. In fact the alpha particle is slower: its speed is
+          $\dfrac{1}{\sqrt{2}}$ of the proton's speed.
+  \end{itemize}
+\end{practiceans}
+
+% ===================================================================== Section II
+% ---- Q9 electron gun
+\begin{practiceans}
+  \given{$V = \qty{2.5}{kV} = \qty{2500}{V}$; \ $d = \qty{1.0}{cm} = \qty{0.010}{m}$; \
+    $q = \qty{1.602e-19}{C}$; \ $m_\mathrm{e} = \qty{9.109e-31}{kg}$; the electrons start
+    from rest}
+  \find{(a) the field $E$ \quad (b) the kinetic energy $K$ \quad (c) the speed $v$}
+  \formula{$E = \dfrac{V}{d}$, \quad $W = qV$ (all the work becomes kinetic energy), \quad
+    $K = \dfrac{1}{2}mv^2$}
+  \substitute{\eqlines{E &= \frac{\qty{2500}{V}}{\qty{0.010}{m}} = \qty{2.5e5}{V.m^{-1}}\\
+      K &= W = qV = \qty{1.602e-19}{C} \times \qty{2500}{V} = \qty{4.005e-16}{J}\\
+      v^2 &= \frac{2K}{m_\mathrm{e}} \quad\text{(multiply both sides of
+        $K = \tfrac{1}{2}mv^2$ by $\tfrac{2}{m}$)}\\
+      &= \frac{2 \times \qty{4.005e-16}{J}}{\qty{9.109e-31}{kg}}
+        = \qty{8.794e14}{m^2.s^{-2}}\\
+      v &= \sqrt{\qty{8.794e14}{m^2.s^{-2}}} = \qty{2.965e7}{m.s^{-1}} \quad\text{(square root)}}}
+  \answer{(a) \final{$E = \qty{2.5e5}{V.m^{-1}}$} \quad (b) \final{$K = \qty{4.0e-16}{J}$}
+    \newline (c) \final{$v = \qty{3.0e7}{m.s^{-1}}$} (\qty{2.97e7}{m.s^{-1}})}
+  \checkstep{$K = \qty{2500}{eV}$: the charge $e$ moved through \qty{2500}{V} \cmark. The
+    speed is about 10\,\% of the speed of light: very fast, but well below $c$ \cmark. The
+    gap width is not needed for (b) and (c): $W = qV$ does not depend on $d$.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct field, \qty{2.5e5}{V.m^{-1}} (cm changed to m)}{1}
+    \criterion{(b) Correct kinetic energy, \qty{4.0e-16}{J}}{1}
+    \criterion{(c) Correct speed, \qty{3.0e7}{m.s^{-1}}}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q10 busbars
+\begin{practiceans}
+  \given{$I_1 = I_2 = \qty{500}{A}$ (opposite directions); \ $r = \qty{4.0}{cm} =
+    \qty{0.040}{m}$; \ $l = \qty{1.2}{m}$; \ $\mu_0 = 4\pi \times \qty{e-7}{N.A^{-2}}$}
+  \find{(a) the force $F$ on each bar, and attract or repel \quad (b) $F/l$ for \qty{1}{A},
+    \qty{1}{A} and \qty{1}{m}}
+  \formula{$\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$, \ so \
+    $F = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}\,l$}
+  \substitute{\eqlines{\frac{\mu_0}{2\pi} &= \frac{4\pi \times \qty{e-7}{N.A^{-2}}}{2\pi}
+        = \qty{2e-7}{N.A^{-2}} \quad\text{(cancel $2\pi$)}\\
+      \frac{F}{l} &= \qty{2e-7}{N.A^{-2}} \times
+        \frac{\qty{500}{A} \times \qty{500}{A}}{\qty{0.040}{m}} = \qty{1.25}{N.m^{-1}}\\
+      F &= \qty{1.25}{N.m^{-1}} \times \qty{1.2}{m} = \qty{1.5}{N}
+        \quad\text{(multiply by the length side by side)}}\par
+    \textbf{(b)} $\dfrac{F}{l} = \qty{2e-7}{N.A^{-2}} \times
+    \dfrac{\qty{1}{A} \times \qty{1}{A}}{\qty{1}{m}} = \qty{2e-7}{N.m^{-1}}$.}
+  \answer{(a) \final{$F = \qty{1.5}{N}$} on each bar. The currents are opposite, so the bars
+    \textbf{repel}. \quad (b) \final{\qty{2e-7}{N}} on each metre of each wire.}
+  \checkstep{right-hand grip rule plus palm rule: each bar's field pushes the other bar
+    \emph{away} \cmark. Forgetting to change \qty{4.0}{cm} to metres gives \qty{0.015}{N},
+    100 times too small. Newton's third law: both bars feel the same \qty{1.5}{N}, in
+    opposite directions.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct force, \qty{1.5}{N} ($r$ in metres)}{1}
+    \criterion{(a) States that the bars repel}{1}
+    \criterion{(b) \qty{2e-7}{N} per metre}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q11 neon sign transformer
+\begin{practiceans}
+  \given{$V_\mathrm{p} = \qty{240}{V}$; \ $V_\mathrm{s} = \qty{7.2}{kV} = \qty{7200}{V}$;
+    \ $N_\mathrm{p} = 300$; \ $I_\mathrm{s} = \qty{20}{mA} = \qty{0.020}{A}$; \ real
+    $I_\mathrm{p} = \qty{0.75}{A}$}
+  \find{(a) $N_\mathrm{s}$ \quad (b) ideal $I_\mathrm{p}$ \quad (c) the efficiency
+    $\eta$}
+  \formula{$\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$, \quad
+    $V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$, \quad
+    $\eta = \dfrac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\,\%$ with $P = VI$}
+  \substitute{\eqlines{N_\mathrm{s} &= N_\mathrm{p} \times \frac{V_\mathrm{s}}{V_\mathrm{p}}
+        = 300 \times \frac{\qty{7200}{V}}{\qty{240}{V}} = 300 \times 30 = \num{9000}\\
+      I_\mathrm{p} &= \frac{V_\mathrm{s}I_\mathrm{s}}{V_\mathrm{p}}
+        = \frac{\qty{7200}{V} \times \qty{0.020}{A}}{\qty{240}{V}}
+        = \frac{\qty{144}{W}}{\qty{240}{V}} = \qty{0.60}{A}\\
+      \eta &= \frac{\qty{144}{W}}{\qty{240}{V} \times \qty{0.75}{A}} \times 100\,\%
+        = \frac{\qty{144}{W}}{\qty{180}{W}} \times 100\,\% = 80\,\%}}
+  \answer{(a) \final{$N_\mathrm{s} = \num{9000}$ turns} \quad
+    (b) \final{$I_\mathrm{p} = \qty{0.60}{A}$} \quad (c) \final{$\eta = 80\,\%$}}
+  \checkstep{a step-up transformer has more turns on the secondary \cmark. The primary
+    current is bigger than the secondary current \cmark. The real primary current
+    (\qty{0.75}{A}) is bigger than the ideal one (\qty{0.60}{A}), because some energy is
+    wasted \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) \num{9000} turns}{1}
+    \criterion{(b) \qty{0.60}{A}, with mA changed to A}{1}
+    \criterion{(c) Efficiency 80\,\%}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q12 hanging rod
+\begin{practiceans}
+  \given{$l = \qty{0.20}{m}$; \ $m = \qty{8.0}{g} = \qty{0.0080}{kg}$; \
+    $B = \qty{0.050}{T}$ into the page; \ $\theta = \ang{90}$; \ $g = \qty{9.8}{m.s^{-2}}$}
+  \find{(a) the current $I$ \quad (b) its direction \quad (c) the current when
+    $\theta = \ang{30}$}
+  \formula{tension zero means the magnetic force holds up the weight:
+    $lIB\sin\theta = mg$, \ so \ $I = \dfrac{mg}{lB\sin\theta}$}
+  \substitute{\eqlines{mg &= \qty{0.0080}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{0.0784}{N}\\
+      I &= \frac{\qty{0.0784}{N}}{\qty{0.20}{m} \times \qty{0.050}{T} \times \sin\ang{90}}
+        = \frac{\qty{0.0784}{N}}{\qty{0.010}{T.m}} = \qty{7.84}{A}}\par
+    \textbf{(b)} The force must point up. Palm rule: fingers into the page (field), palm
+    facing up (force). Your thumb then points to the right, so the current flows to the
+    right.\par
+    \textbf{(c)} Both the rod and the field are still horizontal, so the force is still
+    vertical. Only $\sin\theta$ changes:\par\nobreak
+    \eqlines{I &= \frac{\qty{0.0784}{N}}{\qty{0.20}{m} \times \qty{0.050}{T} \times \sin\ang{30}}
+      = \frac{\qty{0.0784}{N}}{\qty{0.0050}{T.m}} = \qty{15.68}{A}}}
+  \answer{(a) \final{$I = \qty{7.8}{A}$} \quad (b) to the \textbf{right} \quad
+    (c) \final{$I = \qty{16}{A}$}}
+  \checkstep{at \ang{30} only half of the field is perpendicular to the rod
+    ($\sin\ang{30} = 0.5$), so twice the current is needed \cmark. Using $\cos\ang{30}$ by
+    mistake gives \qty{9.1}{A}.}
+  \begin{markingcriteria}
+    \criterion{(a) Equates the magnetic force and the weight, $lIB = mg$ (g changed to kg)}{1}
+    \criterion{(a) Correct current, \qty{7.8}{A}}{1}
+    \criterion{(b) To the right, with a correct use of the right-hand palm rule}{1}
+    \criterion{(c) Correct current, \qty{16}{A}, using $\sin\ang{30}$}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q13 flipped coil
+\begin{practiceans}
+  \given{$N = 75$; \ diameter \qty{4.0}{cm}, so $r = \qty{2.0}{cm} = \qty{0.020}{m}$; \
+    $B = \qty{0.35}{T}$; \ $\theta$ goes from \ang{0} to \ang{180} (the normal turns round);
+    \ $\Delta t = \qty{0.060}{s}$}
+  \find{(a) $\Phi_\mathrm{initial}$ \quad (b) the size of the average emf \quad (c) two other
+    ways}
+  \formula{$\Phi = BA\cos\theta$ with $A = \pi r^2$, \quad
+    $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+  \substitute{\eqlines{A &= \pi \times (\qty{0.020}{m})^2 = \qty{1.257e-3}{m^2}\\
+      \Phi_\mathrm{initial} &= \qty{0.35}{T} \times \qty{1.257e-3}{m^2} \times \cos\ang{0}
+        = \qty{4.398e-4}{Wb}\\
+      \Phi_\mathrm{final} &= \qty{0.35}{T} \times \qty{1.257e-3}{m^2} \times \cos\ang{180}
+        = \qty{-4.398e-4}{Wb}\\
+      \Delta\Phi &= \Phi_\mathrm{final} - \Phi_\mathrm{initial} = \qty{-8.796e-4}{Wb}\\
+      \varepsilon &= -75 \times \frac{\qty{-8.796e-4}{Wb}}{\qty{0.060}{s}}
+        = \qty{1.100}{V}}\par
+    \textbf{(c)} Change the field strength $B$: move the magnet closer or further away, or
+    change the current in an electromagnet. Or change the area $A$ inside the field: squash
+    the coil, or move it into or out of the field.}
+  \answer{(a) \final{$\Phi = \qty{4.4e-4}{Wb}$} \quad
+    (b) \final{$\varepsilon = \qty{1.1}{V}$} \quad (c) change $B$; change $A$}
+  \checkstep{after the flip, the same field lines go through the coil from the other side.
+    So the flux changes by $2BA$, not by 0 \cmark. Common mistakes: using the diameter as
+    the radius gives \qty{4.4}{V}; forgetting the factor 2 gives \qty{0.55}{V}.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct flux, \qty{4.4e-4}{Wb} (radius, not diameter)}{1}
+    \criterion{(b) Shows that $\Delta\Phi = 2BA = \qty{8.8e-4}{Wb}$}{1}
+    \criterion{(b) Correct emf, \qty{1.1}{V}}{1}
+    \criterion{(c) Two correct ways (change $B$; change the area in the field)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q14 torque on a motor coil
+\begin{practiceans}
+  \given{$n = 120$; \ $A = \qty{0.030}{m} \times \qty{0.050}{m} = \qty{1.5e-3}{m^2}$; \
+    $I = \qty{0.75}{A}$; \ $B = \qty{0.18}{T}$}
+  \find{(a) $\tau_\mathrm{max}$ \quad (b) $\tau$ when the plane is at \ang{20} to $B$ \quad
+    (c) the job of the commutator}
+  \formula{$\tau = nIAB\sin\theta$, where $\theta$ is the angle between $B$ and the
+    \emph{normal} to the coil}
+  \substitute{\textbf{(a)} The torque is largest when $\theta = \ang{90}$ (plane of the coil
+    parallel to $B$):\par\nobreak
+    \eqlines{\tau_\mathrm{max} &= 120 \times \qty{0.75}{A} \times \qty{1.5e-3}{m^2} \times
+      \qty{0.18}{T} \times \sin\ang{90} = \qty{0.0243}{N.m}}\par
+    \textbf{(b)} The normal is at \ang{90} to the plane. So if the plane makes \ang{20} with
+    $B$, the normal makes $\ang{90} - \ang{20} = \ang{70}$ with $B$:\par\nobreak
+    \eqlines{\tau &= \qty{0.0243}{N.m} \times \sin\ang{70} = \qty{0.0243}{N.m} \times 0.9397
+      = \qty{0.02283}{N.m}}\par
+    \textbf{(c)} Every half turn, the coil passes the position where its plane is at
+    \ang{90} to the field. After that, the forces on its sides would turn it back the other
+    way. The split-ring commutator reverses the current in the coil at this moment. So the
+    forces, and the torque, keep turning the coil the same way.}
+  \answer{(a) \final{$\tau_\mathrm{max} = \qty{0.024}{N.m}$} \quad
+    (b) \final{$\tau = \qty{0.023}{N.m}$}}
+  \checkstep{the plane is close to parallel with $B$, so the torque is close to the maximum
+    \cmark. Using $\sin\ang{20}$ by mistake gives \qty{0.0083}{N.m}. Second method (taking the
+    \qty{5.0}{cm} sides parallel to the axle): each of these sides feels
+    $nlIB = 120 \times 0.050 \times 0.75 \times 0.18 = \qty{0.81}{N}$. Its lever arm is
+    $\qty{0.015}{m} \times \cos\ang{20}$. The two sides give \qty{0.0228}{N.m} \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct maximum torque, \qty{0.024}{N.m} (cm changed to m)}{1}
+    \criterion{(b) Uses $\theta = \ang{70}$ (the angle between $B$ and the normal)}{1}
+    \criterion{(b) Correct torque, \qty{0.023}{N.m}}{1}
+    \criterion{(c) The commutator reverses the current every half turn, so the torque keeps
+      the same direction}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q15 zipline brake
+\begin{practiceans}
+  \textbf{(a)}
+  \given{$m = \qty{90}{kg}$; \ $u = \qty{15}{m.s^{-1}}$; \ $v = \qty{3.0}{m.s^{-1}}$; no
+    friction, no air resistance; the track is flat}
+  \find{the heat made by the brake}
+  \formula{the kinetic energy lost becomes heat: heat $= \dfrac{1}{2}mu^2 - \dfrac{1}{2}mv^2$}
+  \substitute{\eqlines{\tfrac{1}{2}mu^2 &= \tfrac{1}{2} \times \qty{90}{kg} \times
+        (\qty{15}{m.s^{-1}})^2 = \qty{10125}{J}\\
+      \tfrac{1}{2}mv^2 &= \tfrac{1}{2} \times \qty{90}{kg} \times (\qty{3.0}{m.s^{-1}})^2
+        = \qty{405}{J}\\
+      \text{heat} &= \qty{10125}{J} - \qty{405}{J} = \qty{9720}{J}}}
+  \answer{\final{heat $= \qty{9.7e3}{J}$}}
+  \checkstep{using $\frac{1}{2}m(u - v)^2$ is wrong: it gives \qty{6480}{J}. Find each
+    kinetic energy first, then subtract. The brake removes 96\,\% of the kinetic energy.}
+
+  \begin{modelanswer}
+  \textbf{(b)} As the fin moves through the field, the flux through loops in the fin changes. This
+  induces emfs and eddy currents in the fin (Faraday's law,
+  $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$). By Lenz's law, the eddy currents oppose
+  the motion: the field pushes on them with a backward force ($F = lIB$).
+
+  How fast the flux changes depends on the speed of the fin. When the trolley slows down,
+  the flux changes more slowly. So the emf is smaller, the eddy currents are smaller, and
+  the backward force on them is smaller. That is why the trolley slows quickly at first, then
+  more gently. (So a magnetic brake alone cannot bring the trolley fully to rest.)
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Correct heat, \qty{9.7e3}{J}}{1}
+    \criterion{(b) Lower speed means a slower change of flux, so a smaller induced emf and
+      smaller eddy currents}{1}
+    \criterion{(b) Smaller eddy currents give a smaller opposing (Lenz) force}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q16 transmission
+\begin{practiceans}
+  \given{$P = \qty{18}{MW} = \qty{1.8e7}{W}$; \ $R = \qty{4.2}{\ohm}$; \
+    $V = \qty{66}{kV} = \qty{6.6e4}{V}$, then $V = \qty{330}{kV} = \qty{3.3e5}{V}$}
+  \find{(a) $I$ and $P_\mathrm{loss}$ at \qty{66}{kV} \quad (b) $P_\mathrm{loss}$ at
+    \qty{330}{kV} \quad (c) the reason for high voltage}
+  \formula{$P = VI$, so $I = \dfrac{P}{V}$; \quad $P_\mathrm{loss} = I^2R$ (not on the sheet:
+    from $P = VI$ and $V = IR$)}
+  \substitute{\eqlines{I &= \frac{\qty{1.8e7}{W}}{\qty{6.6e4}{V}} = \qty{272.7}{A}\\
+      P_\mathrm{loss} &= (\qty{272.7}{A})^2 \times \qty{4.2}{\ohm} = \qty{3.124e5}{W}\\
+      I &= \frac{\qty{1.8e7}{W}}{\qty{3.3e5}{V}} = \qty{54.55}{A}
+        \quad\text{(at \qty{330}{kV})}\\
+      P_\mathrm{loss} &= (\qty{54.55}{A})^2 \times \qty{4.2}{\ohm} = \qty{12498}{W}}}
+  \answer{(a) \final{$I = \qty{2.7e2}{A}$}, \ \final{$P_\mathrm{loss} = \qty{3.1e5}{W}$}
+    (\qty{312}{kW}) \newline (b) \final{$P_\mathrm{loss} = \qty{1.2e4}{W}$}
+    (\qty{12498}{W} rounded to 2 significant figures)}
+  \checkstep{\textbf{(c)} The power sent is the same, so 5 times the voltage gives
+    $\frac{1}{5}$ of the current ($P = VI$). The loss depends on the \emph{square} of the
+    current ($I^2R$), so it falls to $\frac{1}{25}$:
+    $\dfrac{\qty{312400}{W}}{\qty{12500}{W}} = 25$ \cmark. The loss drops from 1.7\,\% to
+    0.07\,\% of the power sent. Less energy is wasted as heat in the lines. \textbf{Trap:}
+    $V^2/R$ with $V = \qty{66}{kV}$ gives \qty{1.04e9}{W}, more than the power sent. In
+    $V^2/R$, $V$ must be the voltage \emph{drop} along the line, not the transmission
+    voltage.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct current, \qty{2.7e2}{A}}{1}
+    \criterion{(a) Correct power loss, \qty{3.1e5}{W}}{1}
+    \criterion{(b) Correct power loss, \qty{1.2e4}{W} (\qty{1.25e4}{W} is also correct)}{1}
+    \criterion{(c) Higher voltage gives a smaller current for the same power, and the loss
+      $I^2R$ falls with the square of the current (here 25 times smaller)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q17 flux-time graph
+\begin{practiceans}
+  \given{$N = 30$. From the graph: \qtyrange{0}{40}{ms}: $\Phi$ rises from 0 to
+    \qty{1.2}{mWb}; \qtyrange{40}{60}{ms}: steady; \qtyrange{60}{80}{ms}: falls from
+    \qty{1.2}{mWb} to \qty{-1.2}{mWb}; \qtyrange{80}{100}{ms}: steady}
+  \find{the emf in each part}
+  \formula{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$, where
+    $\dfrac{\Delta\Phi}{\Delta t}$ is the gradient of the graph}
+  \substitute{\eqlines{\text{0--40 ms:}\ \frac{\Delta\Phi}{\Delta t}
+        &= \frac{\qty{1.2e-3}{Wb} - 0}{\qty{0.040}{s}} = \qty{0.030}{Wb.s^{-1}}\\
+      \varepsilon &= -30 \times \qty{0.030}{Wb.s^{-1}} = \qty{-0.90}{V}\\
+      \text{40--60 ms:}\ \frac{\Delta\Phi}{\Delta t} &= 0, \ \text{so}\ \varepsilon = 0}\par
+    \eqlines{\text{60--80 ms:}\ \frac{\Delta\Phi}{\Delta t}
+        &= \frac{\qty{-1.2e-3}{Wb} - \qty{1.2e-3}{Wb}}{\qty{0.020}{s}}
+        = \qty{-0.12}{Wb.s^{-1}}\\
+      \varepsilon &= -30 \times (\qty{-0.12}{Wb.s^{-1}}) = +\qty{3.6}{V}\\
+      \text{80--100 ms:}\ \frac{\Delta\Phi}{\Delta t} &= 0, \ \text{so}\ \varepsilon = 0}}
+  \answer{(a) \final{$\lvert\varepsilon\rvert = \qty{0.90}{V}$} \quad (c) see the graph:
+    \qty{-0.90}{V}, then 0, then $+\qty{3.6}{V}$, then 0}
+  \checkstep{\textbf{(b)} The emf depends on how fast the flux \emph{changes} (the gradient),
+    not on the size of the flux. At \qty{70}{ms} the flux is zero, but it is changing at its
+    fastest rate (\qty{0.12}{Wb.s^{-1}}). So the emf is \qty{3.6}{V}, not zero.
+    \textbf{Area check:} $\qty{0.90}{V} \times \qty{0.040}{s} = \qty{0.036}{V.s}
+    = N\lvert\Delta\Phi\rvert = 30 \times \qty{1.2e-3}{Wb}$ \cmark.}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.78\linewidth, height=0.34\linewidth,
+          xmin=0, xmax=100, ymin=-4, ymax=4, xlabel={$t$ (\si{ms})},
+          ylabel={$\varepsilon$ (\si{V})}, xtick={0,10,...,100}, ytick={-4,-3,...,4}]
+        \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:100,0);
+        \addplot[hscseriesB, solid, line width=1.3pt, mark=none, const plot]
+          coordinates {(0,-0.9) (40,0) (60,3.6) (80,0) (100,0)};
+        \node[anchor=north, font=\footnotesize] at (axis cs:20,-1.0) {$-0.90$};
+        \node[anchor=south, font=\footnotesize] at (axis cs:70,3.65) {$+3.6$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption*{Answer to \cref{pq:fluxgraph}(c): the emf induced in coil S.}
+  \end{figure}
+  \begin{markingcriteria}
+    \criterion{(a) Correct emf, \qty{0.90}{V}}{1}
+    \criterion{(b) The emf depends on the rate of change of flux (the gradient), which is
+      largest at \qty{70}{ms}}{1}
+    \criterion{(c) Correct shape: constant blocks, with zero emf where the flux is steady}{1}
+    \criterion{(c) Correct values: \qty{-0.90}{V} and $+\qty{3.6}{V}$ (opposite signs, the
+      second 4 times as big)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q18 mass spectrometer
+\begin{practiceans}
+  \textbf{(a)} The magnetic force is always at \ang{90} to the velocity, so it is the
+  centripetal force:
+  \begin{align*}
+    qvB\sin\ang{90} &= \frac{mv^2}{r} && \text{magnetic force = centripetal force}\\
+    qB &= \frac{mv}{r} && \text{divide both sides by $v$ ($\sin\ang{90} = 1$)}\\
+    r &= \frac{mv}{qB} && \text{multiply both sides by $\dfrac{r}{qB}$}
+  \end{align*}
+
+  \textbf{(b)}
+  \given{$q = \qty{1.602e-19}{C}$; \ $v = \qty{2.0e5}{m.s^{-1}}$; \ $B = \qty{0.40}{T}$; \
+    $m_6 = \qty{9.99e-27}{kg}$; \ $m_7 = \qty{1.165e-26}{kg}$}
+  \find{the distance PQ}
+  \formula{$r = \dfrac{mv}{qB}$. Each ion moves through a semicircle, so it lands a
+    \emph{diameter} ($2r$) from the entrance.}
+  \substitute{\eqlines{qB &= \qty{1.602e-19}{C} \times \qty{0.40}{T} = \num{6.408e-20}\\
+      r_6 &= \frac{\qty{9.99e-27}{kg} \times \qty{2.0e5}{m.s^{-1}}}{\num{6.408e-20}}
+        = \qty{0.03118}{m}\\
+      r_7 &= \frac{\qty{1.165e-26}{kg} \times \qty{2.0e5}{m.s^{-1}}}{\num{6.408e-20}}
+        = \qty{0.03636}{m}\\
+      \text{PQ} &= 2r_7 - 2r_6 = \qty{0.07272}{m} - \qty{0.06236}{m} = \qty{0.01036}{m}}}
+  \answer{\final{PQ $= \qty{1.0e-2}{m}$} (\qty{1.0}{cm}). The lighter lithium-6 ions land at
+    P.}
+  \checkstep{$r \propto m$ (same $v$, $q$ and $B$): $\dfrac{r_7}{r_6} = 1.166 =
+    \dfrac{m_7}{m_6}$ \cmark. Forgetting that the ions land a \emph{diameter} away gives
+    \qty{5.2}{mm}. The ions are positive, $v$ is up the page and $B$ is out of the page.
+    So the palm rule gives a force to the right at the start. The ions curve to the right,
+    as drawn \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Sets the magnetic force equal to the centripetal force,
+      $qvB = \dfrac{mv^2}{r}$}{1}
+    \criterion{(a) Rearranges correctly to $r = \dfrac{mv}{qB}$}{1}
+    \criterion{(b) Correct radii, \qty{3.12}{cm} and \qty{3.64}{cm}}{1}
+    \criterion{(b) Uses diameters: PQ $= \qty{1.0}{cm}$}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ===================================================================== Section III
+% ---- Q19 evaluate the ideal-transformer claim
+\begin{practiceans}
+  \begin{modelanswer}
+  \textbf{Using the data.} An ideal 12\,:\,1 transformer would give
+  $V_\mathrm{s} = \dfrac{\qty{240}{V}}{12} = \qty{20.0}{V}$. The measured value is
+  \qty{18.6}{V}, only 93\,\% of the ideal value.
+  \begin{itemize}
+    \item Power in: $P_\mathrm{in} = V_\mathrm{p}I_\mathrm{p} = \qty{240}{V} \times
+          \qty{0.275}{A} = \qty{66.0}{W}$.
+    \item Power out: $P_\mathrm{out} = V_\mathrm{s}I_\mathrm{s} = \qty{18.6}{V} \times
+          \qty{3.20}{A} = \qty{59.5}{W}$.
+    \item Efficiency: $\eta = \dfrac{\qty{59.5}{W}}{\qty{66.0}{W}} \times 100\,\% = 90\,\%$.
+          So \qty{6.5}{W} (about 10\,\%) is wasted, mostly as heat.
+    \item Current ratio: $\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{\qty{3.20}{A}}{\qty{0.275}{A}}
+          = 11.6$. An ideal transformer would give exactly 12.
+  \end{itemize}
+
+  \textbf{Causes of the loss, and how designers reduce them.}
+  \begin{itemize}
+    \item \textbf{Resistive heating.} The copper coils have resistance, so the current heats
+          them ($P = I^2R$). The secondary carries the larger current (\qty{3.20}{A}), so
+          its heating matters most. Its resistance also lowers the output voltage.
+          \emph{Fix:} use thick, low-resistance copper wire, especially for the
+          high-current coil.
+    \item \textbf{Eddy currents.} The changing flux induces currents in the iron core,
+          which heat it. \emph{Fix:} a laminated core (thin iron sheets, insulated from each
+          other) stops large eddy currents.
+    \item \textbf{Incomplete flux linkage.} Some flux from the primary leaks into the air
+          and misses the secondary. So less emf is induced, and the output voltage is lower
+          than the turns ratio predicts. \emph{Fix:} wind both coils on one closed iron
+          core, one on top of the other.
+    \item (Also: the core is magnetised back and forth 50 times a second, which wastes a
+          little energy. \emph{Fix:} a soft-iron core.)
+  \end{itemize}
+
+  \textbf{Judgement.} The claim is not correct, but the ideal model is a useful first
+  approximation. This transformer is quite efficient (90\,\%), and the ideal equations
+  predict the output voltage to within about 7\,\%. But about 10\,\% of the input energy is
+  wasted, and the output voltage is lower than the turns ratio predicts. So the transformer
+  does not behave exactly like an ideal one.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{Makes a clear judgement supported by the data (efficiency AND the ideal
+      output voltage); explains at least two causes of energy loss AND links each to a design
+      strategy that reduces it}{5}
+    \criterion{Makes a judgement using the efficiency or the voltage; explains two causes
+      of loss and gives strategies}{4}
+    \criterion{Calculates the efficiency or compares the voltages, AND describes two causes
+      of loss (or one cause with a strategy)}{3}
+    \criterion{Calculates the input and output power, OR identifies two causes of loss or
+      two strategies}{2}
+    \criterion{Identifies one relevant cause of energy loss or one strategy}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q20 generator
+\begin{practiceans}
+  \textbf{(a)} One turn takes $T = \dfrac{1}{25} = \qty{0.040}{s}$, so two turns take
+  \qty{0.080}{s}. At the start, the plane of the coil is at right angles to the field. The
+  flux is at its largest but not changing for an instant, so the emf is zero. The output is
+  a sine curve that starts at zero, with a peak of \qty{4.0}{V} and a period of
+  \qty{0.040}{s}. (Starting downwards is also correct: it depends on which way the coil
+  turns.)
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.78\linewidth, height=0.34\linewidth,
+          xmin=0, xmax=0.08, ymin=-5, ymax=5, xlabel={$t$ (\si{s})},
+          ylabel={$\varepsilon$ (\si{V})}, xtick={0,0.01,...,0.081}, ytick={-4,-2,...,4},
+          xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=2}]
+        \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:0.08,0);
+        \addplot[hscseriesA, line width=1.3pt, mark=none, domain=0:0.08, samples=161]
+          {4.0*sin(360*x/0.040)};
+        \node[anchor=south, font=\footnotesize] at (axis cs:0.010,4.0) {$+4.0$};
+        \node[anchor=north, font=\footnotesize] at (axis cs:0.030,-4.0) {$-4.0$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption*{Answer to \cref{pq:generator}(a): AC output for two turns.}
+  \end{figure}
+
+  \textbf{(b)} (i) With a split-ring commutator, the connections to the lamp swap every half
+  turn, just when the emf is zero. So the output never reverses: every negative half becomes
+  positive. It is DC that pulses between 0 and \qty{4.0}{V}, with a hump every
+  \qty{0.020}{s}. (ii) The emf is induced in every turn, so it is proportional to the number
+  of turns, $N$ ($\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$). Twice as many turns double
+  the peak emf to \qty{8.0}{V}. The coil turns at the same speed, so the period stays
+  \qty{0.040}{s} (a frequency of \qty{25}{Hz}).
+
+  \begin{modelanswer}
+  \textbf{(c)} With the circuit open, an emf is induced but no current flows, so there is no magnetic
+  force on the coil. With the lamp connected, the emf drives a current round the coil. The
+  sides of the coil carry this current in the magnetic field, so they feel motor-effect
+  forces ($F = lIB$). By Lenz's law, the induced current opposes the change that makes it,
+  so these forces oppose the rotation. The person must do extra work against them.
+
+  This extra work is where the lamp's energy comes from: the work done turning the handle
+  becomes electrical energy, then light and heat in the lamp. Energy is conserved. If the
+  forces helped the rotation instead, the generator would make energy from nothing.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Sine curve that starts at zero, with a period of \qty{0.040}{s} (two full
+      cycles in \qty{0.080}{s})}{1}
+    \criterion{(a) Peak values of $\pm\qty{4.0}{V}$ shown}{1}
+    \criterion{(b)(i) Split ring: the output is DC, with every half cycle on the same side
+      (it never reverses)}{1}
+    \criterion{(b)(ii) Twice the turns: peak \qty{8.0}{V}, period unchanged
+      (\qty{0.040}{s})}{1}
+    \criterion{(c) Lenz's law: the current in the coil gives forces that oppose the
+      rotation (none when the circuit is open)}{1}
+    \criterion{(c) Energy: the extra work done becomes the electrical energy in the lamp
+      (energy is conserved)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q21 coil pulled through a field region
+\begin{practiceans}
+  \textbf{(a)}
+  \given{$N = 25$; \ side $l = \qty{10}{cm} = \qty{0.10}{m}$; \ $v = \qty{2.0}{m.s^{-1}}$; \
+    $B = \qty{0.40}{T}$; the plane of the coil is at \ang{90} to $B$, so $\theta = \ang{0}$}
+  \find{the size of the emf while the coil enters the field}
+  \formula{$\Phi = BA\cos\theta$ \ and \ $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+  \substitute{\eqlines{\Delta t &= \frac{\qty{0.10}{m}}{\qty{2.0}{m.s^{-1}}} = \qty{0.050}{s}
+        \quad\text{(time to move fully into the field)}\\
+      \Phi_\mathrm{final} &= \qty{0.40}{T} \times (\qty{0.10}{m})^2 \times \cos\ang{0}
+        = \qty{4.0e-3}{Wb} \quad\text{(one turn)}\\
+      \Delta\Phi &= \qty{4.0e-3}{Wb} - 0 = \qty{4.0e-3}{Wb}
+        \quad\text{(the flux starts at zero)}\\
+      \lvert\varepsilon\rvert &= 25 \times \frac{\qty{4.0e-3}{Wb}}{\qty{0.050}{s}}
+        = \qty{2.0}{V}}}
+  \answer{\final{$\varepsilon = \qty{2.0}{V}$}}
+  \checkstep{motional emf (not on the formula sheet), one side of each turn cutting the
+    field: $\varepsilon = NlvB = 25 \times 0.10 \times 2.0 \times 0.40 = \qty{2.0}{V}$
+    \cmark.}
+
+  \textbf{(b)} Follow the coil in four stages.
+  \begin{itemize}
+    \item \qtyrange{0}{0.050}{s}: the coil enters. The flux grows steadily, so the emf is
+          $+\qty{2.0}{V}$.
+    \item \qtyrange{0.050}{0.15}{s}: the whole coil is inside the uniform field. The flux
+          stays at $BA$, so the emf is zero. (The right-hand side reaches the far edge of
+          the field after moving \qty{30}{cm}:
+          $t = \qty{0.30}{m} \div \qty{2.0}{m.s^{-1}} = \qty{0.15}{s}$.)
+    \item \qtyrange{0.15}{0.20}{s}: the coil leaves. The flux falls steadily, so the emf is
+          $-\qty{2.0}{V}$ (the opposite direction). The coil is fully out when it has moved
+          \qty{40}{cm}: $t = \qty{0.20}{s}$.
+    \item After \qty{0.20}{s}: no field, no flux, no emf.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.78\linewidth, height=0.30\linewidth,
+          xmin=0, xmax=0.25, ymin=-3, ymax=3, xlabel={$t$ (\si{s})},
+          ylabel={$\varepsilon$ (\si{V})}, xtick={0,0.05,...,0.251}, ytick={-3,-2,...,3},
+          xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=2}]
+        \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:0.25,0);
+        \addplot[hscseriesB, solid, line width=1.3pt, mark=none, const plot]
+          coordinates {(0,2.0) (0.05,0) (0.15,-2.0) (0.20,0) (0.25,0)};
+        \node[anchor=south, font=\footnotesize] at (axis cs:0.025,2.05) {$+2.0$};
+        \node[anchor=north, font=\footnotesize] at (axis cs:0.175,-2.05) {$-2.0$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption*{Answer to \cref{pq:coilpull}(b): the emf in the coil.}
+  \end{figure}
+
+  \textbf{(c)}
+  \given{$\varepsilon = \qty{2.0}{V}$; \ $R = \qty{0.40}{\ohm}$; \ $N = 25$; \
+    $l = \qty{0.10}{m}$; \ $B = \qty{0.40}{T}$}
+  \find{the force needed for a steady speed}
+  \formula{$I = \dfrac{\varepsilon}{R}$ (from $V = IR$), \ then $F = lIB$ on the right-hand
+    side of each of the $N$ turns}
+  \substitute{\eqlines{I &= \frac{\qty{2.0}{V}}{\qty{0.40}{\ohm}} = \qty{5.0}{A}\\
+      F &= N\,lIB = 25 \times \qty{0.10}{m} \times \qty{5.0}{A} \times \qty{0.40}{T}
+        = \qty{5.0}{N}}}
+  \answer{\final{$F = \qty{5.0}{N}$}, to the right (the same way as the motion).}
+  \begin{modelanswer}
+  As the coil enters, the flux into the page through it increases. By Lenz's law, the
+  induced current opposes this increase. So it flows anticlockwise, making a field out of
+  the page inside the coil. In the right-hand side this current flows up the page. The palm
+  rule then gives a magnetic force to the left, against the motion. (The forces on the top
+  and bottom sides are equal and opposite, so they cancel.) To keep a steady speed, the net
+  force must be zero, so a pull of \qty{5.0}{N} to the right is needed.
+
+  Energy: the pull does work at a rate $P = Fv = \qty{5.0}{N} \times \qty{2.0}{m.s^{-1}} =
+  \qty{10}{W}$. This becomes electrical energy and then heat in the coil:
+  $I^2R = (\qty{5.0}{A})^2 \times \qty{0.40}{\ohm} = \qty{10}{W}$. The two rates are equal,
+  so energy is conserved. If the induced force helped the motion instead, the coil would
+  speed up and make energy from nothing.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Correct flux change (\qty{4.0e-3}{Wb}) and time (\qty{0.050}{s}), or uses
+      $\varepsilon = NlvB$}{1}
+    \criterion{(a) Correct emf, \qty{2.0}{V}}{1}
+    \criterion{(b) Correct shape: a positive block, zero, a negative block, zero}{1}
+    \criterion{(b) Correct values and times: $\pm\qty{2.0}{V}$; changes at 0.050, 0.15 and
+      \qty{0.20}{s}}{1}
+    \criterion{(c) Correct current, $I = \dfrac{\varepsilon}{R} = \qty{5.0}{A}$}{1}
+    \criterion{(c) Correct force, $F = NlIB = \qty{5.0}{N}$ (all 25 turns counted)}{1}
+    \criterion{(c) Explains: by Lenz's law the force on the induced current opposes the
+      motion, AND the work done by the pull becomes electrical energy and heat}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q22 parallel rods experiment (vary r)
+\begin{practiceans}
+  \textbf{(a)} $1/r$: change $r$ from millimetres to metres first (divide by 1000), then
+  divide 1 by it. For example, $1 \div \qty{3.0e-3}{m} = \qty{333}{m^{-1}}$.
+  $F$: change $\Delta m$ from grams to kilograms (divide by 1000), then multiply by $g$. For
+  example, $F = \qty{0.256e-3}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{2.51e-3}{N}$.
+  \begin{center}
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    $r$ (\si{mm}) & 3.0 & 4.0 & 5.0 & 6.0 & 8.0\\
+    $1/r$ (\si{m^{-1}}) & 333 & 250 & 200 & 167 & 125\\
+    $\Delta m$ (\si{g}) & 0.256 & 0.193 & 0.153 & 0.129 & 0.096\\
+    $F$ ($\times 10^{-3}$ \si{N}) & 2.51 & 1.89 & 1.50 & 1.26 & 0.941\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+
+  \textbf{(b)} See the graph. The points lie close to a straight line through the origin.
+  This shows that $F \propto 1/r$.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.78\linewidth, height=0.34\linewidth,
+          xmin=0, xmax=350, ymin=0, ymax=3.0,
+          xlabel={$1/r$ (\si{m^{-1}})}, ylabel={$F$ ($\times 10^{-3}$ \si{N})},
+          xtick={0,50,...,350}, ytick={0,0.5,...,3.0},
+          yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+        \addplot[hscseriesB, line width=1pt, domain=0:345, samples=2, mark=none]
+          {0.0075377*x};
+        \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+          coordinates {(333.3,2.509) (250,1.891) (200,1.499) (166.7,1.264) (125,0.941)};
+        \draw[hscmuted, densely dotted, line width=0.7pt] (axis cs:0,0) -- (axis cs:300,0)
+          -- (axis cs:300,2.26);
+        \node[anchor=west, font=\footnotesize, text=hscmuted] at (axis cs:302,1.15)
+          {rise};
+        \node[anchor=south, font=\footnotesize, text=hscmuted] at (axis cs:240,0.02)
+          {run $= \qty{300}{m^{-1}}$};
+        \node[anchor=south east, font=\footnotesize, text=hscseriesB] at (axis cs:150,1.4)
+          {line of best fit};
+      \end{axis}
+    \end{tikzpicture}
+    \caption*{Answer to \cref{pq:rods}(b): $F$ against $1/r$. The rise is
+      \qty{2.26e-3}{N}.}
+  \end{figure}
+
+  \textbf{(c)}
+  \given{two points on the line: $(0, 0)$ and $(\qty{300}{m^{-1}}, \qty{2.26e-3}{N})$; \
+    $I = \qty{8.0}{A}$ in each rod; \ $l = \qty{0.60}{m}$}
+  \find{the gradient, then $\mu_0$}
+  \formula{$\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$ with $I_1 = I_2 = I$ gives
+    $F = \left(\dfrac{\mu_0 I^2 l}{2\pi}\right) \dfrac{1}{r}$. This is $y = kx$, so the
+    gradient is $\dfrac{\mu_0 I^2 l}{2\pi}$ and
+    $\mu_0 = \dfrac{2\pi \times \text{gradient}}{I^2 l}$.}
+  \substitute{\eqlines{\text{gradient} &= \frac{\qty{2.26e-3}{N} - 0}{\qty{300}{m^{-1}} - 0}
+        = \qty{7.533e-6}{N.m}\\
+      \mu_0 &= \frac{2\pi \times \qty{7.533e-6}{N.m}}{(\qty{8.0}{A})^2 \times \qty{0.60}{m}}
+        \quad\text{(substitute)}\\
+      &= \frac{\qty{4.733e-5}{N.m}}{\qty{38.4}{A^2.m}} = \qty{1.233e-6}{N.A^{-2}}}}
+  \answer{\final{$\mu_0 = \qty{1.23e-6}{N.A^{-2}}$} (values from about
+    \qtyrange{1.21e-6}{1.25e-6}{N.A^{-2}}, from a good line, are fine)}
+  \checkstep{the data-sheet value is $4\pi \times \num{e-7} = \qty{1.257e-6}{N.A^{-2}}$. The
+    result is about 2\,\% lower: a good agreement \cmark. Read the power of ten from the axis
+    label: 2.26 on the axis means \qty{2.26e-3}{N}. The gradient has the unit
+    $\si{N} \div \si{m^{-1}} = \si{N.m}$.}
+
+  \textbf{(d)} The formula is for infinitely long, straight wires. Near each end of a real
+  rod, there is no more rod beyond the end. So the field of the other rod is weaker there,
+  and the force is a little smaller than the formula predicts. When the rods are much longer
+  than $r$ (here $l$ is 75 to 200 times $r$), the ends are only a tiny part of each rod.
+  Then the formula is a good model. (This end effect makes the measured forces a little
+  too small. It is one reason why the student's value of $\mu_0$ is a little lower than the
+  data-sheet value.)
+  \begin{markingcriteria}
+    \criterion{(a) All values of $1/r$ and $F$ correct (mm changed to m, g changed to kg)}{1}
+    \criterion{(b) Points plotted correctly}{1}
+    \criterion{(b) Ruled straight line of best fit, through (or very close to) the
+      origin}{1}
+    \criterion{(c) Gradient from the line, about \qty{7.5e-6}{N.m}, with
+      gradient $= \dfrac{\mu_0 I^2 l}{2\pi}$}{1}
+    \criterion{(c) Correct $\mu_0$, about \qty{1.23e-6}{N.A^{-2}}}{1}
+    \criterion{(d) The formula assumes very long (infinite) wires; the ends make the force
+      smaller, so $l$ must be much bigger than $r$}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q23 DC motor current graph
+\begin{practiceans}
+  \textbf{(a)}
+  \given{$V = \qty{6.0}{V}$; at $t = 0$ the graph shows $I = \qty{4.0}{A}$. The coil is not
+    yet turning, so there is no back emf.}
+  \find{the resistance $R$ of the coil}
+  \formula{$V = IR$, so $R = \dfrac{V}{I}$}
+  \substitute{$R = \dfrac{\qty{6.0}{V}}{\qty{4.0}{A}} = \qty{1.5}{\ohm}$}
+  \answer{\final{$R = \qty{1.5}{\ohm}$}}
+
+  \textbf{(b)}
+  \given{steady current with no load $I = \qty{0.40}{A}$ (from the graph);
+    $R = \qty{1.5}{\ohm}$; $V = \qty{6.0}{V}$}
+  \find{the back emf $\varepsilon_\mathrm{back}$}
+  \formula{the back emf opposes the supply, so the net voltage drives the current:
+    $V - \varepsilon_\mathrm{back} = IR$ (not on the formula sheet)}
+  \substitute{$\varepsilon_\mathrm{back} = V - IR = \qty{6.0}{V} - \qty{0.40}{A} \times
+    \qty{1.5}{\ohm} = \qty{6.0}{V} - \qty{0.60}{V} = \qty{5.4}{V}$}
+  \answer{\final{$\varepsilon_\mathrm{back} = \qty{5.4}{V}$}}
+  \checkstep{the back emf is less than the supply voltage, as it must be \cmark.}
+
+  \begin{modelanswer}
+  \textbf{(c)} At switch-on the coil is not moving, so there is no back emf. The current is
+  limited only by the coil's resistance: $I = \dfrac{\qty{6.0}{V}}{\qty{1.5}{\ohm}} =
+  \qty{4.0}{A}$. This large current gives a large torque ($\tau = nIAB$), so the motor speeds
+  up.
+
+  As the coil turns in the magnetic field, the flux through it changes, so an emf is induced
+  in it (Faraday's law). By Lenz's law, this \textbf{back emf} opposes the supply voltage. The
+  faster the coil turns, the bigger the back emf. So the net voltage
+  ($V - \varepsilon_\mathrm{back}$) and the current fall as the motor speeds up. The graph
+  falls steeply at first, then more slowly.
+
+  The torque falls with the current. When the motor's torque just balances the friction
+  torque, the speed stops rising. The back emf then stays constant (\qty{5.4}{V}), so the
+  current stays at a small, steady \qty{0.40}{A}.
+
+  \textbf{(d)} The load slows the motor. A slower coil has a smaller back emf (here
+  $\qty{6.0}{V} - \qty{1.0}{A} \times \qty{1.5}{\ohm} = \qty{4.5}{V}$). So the net voltage
+  is bigger and the current rises to \qty{1.0}{A}. The bigger current gives the bigger
+  torque needed to turn the load. In energy terms, the motor now takes \qty{6.0}{W} from the
+  supply instead of \qty{2.4}{W}, to do work on the load.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) $R = \qty{1.5}{\ohm}$, from the current at $t = 0$}{1}
+    \criterion{(b) Back emf $= \qty{5.4}{V}$}{1}
+    \criterion{(c) At switch-on there is no back emf, so the current is large (limited only by
+      the resistance)}{1}
+    \criterion{(c) As the speed rises, the back emf (induced, opposing the supply by Lenz's
+      law) rises, so the current falls}{1}
+    \criterion{(c) The current becomes steady when the motor torque balances the friction
+      torque (constant speed, constant back emf)}{1}
+    \criterion{(d) The load slows the motor, so the back emf falls and the current rises}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q24 crossed fields
+\begin{practiceans}
+  \textbf{(a)}
+  \given{$L = \qty{5.0}{cm} = \qty{0.050}{m}$; \ $d = \qty{2.0}{cm} = \qty{0.020}{m}$; \
+    $V = \qty{120}{V}$; \ $v = \qty{3.0e7}{m.s^{-1}}$ (along the plates); \
+    $q = \qty{1.602e-19}{C}$; \ $m_\mathrm{e} = \qty{9.109e-31}{kg}$}
+  \find{the vertical deflection $s_y$ when the electron leaves the plates}
+  \formula{$E = \dfrac{V}{d}$, \ $F = qE$, \ $a = \dfrac{F}{m}$; \ along the plates:
+    $t = \dfrac{L}{v}$; \ across the plates: $s_y = u_y t + \frac{1}{2}at^2$ with $u_y = 0$}
+  \substitute{\eqlines{E &= \frac{\qty{120}{V}}{\qty{0.020}{m}} = \qty{6000}{V.m^{-1}}\\
+      a &= \frac{qE}{m_\mathrm{e}} = \frac{\qty{1.602e-19}{C} \times \qty{6000}{V.m^{-1}}}
+        {\qty{9.109e-31}{kg}} = \qty{1.055e15}{m.s^{-2}}\\
+      t &= \frac{\qty{0.050}{m}}{\qty{3.0e7}{m.s^{-1}}} = \qty{1.667e-9}{s}
+        \quad\text{(no force along the plates)}\\
+      s_y &= \tfrac{1}{2} \times \qty{1.055e15}{m.s^{-2}} \times (\qty{1.667e-9}{s})^2
+        = \qty{1.466e-3}{m}}}
+  \answer{\final{$s_y = \qty{1.5}{mm}$} upwards, towards the positive plate.}
+  \checkstep{\qty{1.5}{mm} is less than the \qty{10}{mm} from the middle to a plate, so the
+    electron leaves without hitting a plate \cmark. The electron is negative, so it is pulled
+    towards the positive (top) plate \cmark. $a$ is about \num{e14} times $g$, so ignoring
+    gravity is fine.}
+
+  \textbf{(b)}
+  \given{$E = \qty{6000}{V.m^{-1}}$; \ $v = \qty{3.0e7}{m.s^{-1}}$}
+  \find{the size and direction of $B$}
+  \formula{no deflection: the magnetic force balances the electric force, $qvB = qE$, so
+    $B = \dfrac{E}{v}$ (not on the formula sheet)}
+  \substitute{$B = \dfrac{\qty{6000}{V.m^{-1}}}{\qty{3.0e7}{m.s^{-1}}} = \qty{2.0e-4}{T}$}
+  \answer{\final{$B = \qty{2.0e-4}{T}$}, \textbf{into the page}.}
+  \checkstep{\emph{Direction.} The electric force on the electron is up, so the magnetic
+    force must be down. Palm rule for a \emph{positive} charge moving right in a field into
+    the page: fingers into the page, thumb to the right, palm faces up. The electron is
+    negative, so its force is the opposite: down \cmark.}
+
+  \textbf{(c)}
+  \given{$m_\mathrm{e} = \qty{9.109e-31}{kg}$; \ $v = \qty{3.0e7}{m.s^{-1}}$; \
+    $q = \qty{1.602e-19}{C}$; \ $B = \qty{2.0e-4}{T}$}
+  \find{the radius $r$}
+  \formula{$r = \dfrac{mv}{qB}$ (from $qvB = \dfrac{mv^2}{r}$; not on the formula sheet)}
+  \substitute{$r = \dfrac{\qty{9.109e-31}{kg} \times \qty{3.0e7}{m.s^{-1}}}
+    {\qty{1.602e-19}{C} \times \qty{2.0e-4}{T}}
+    = \dfrac{\num{2.733e-23}}{\num{3.204e-23}} = \qty{0.853}{m}$}
+  \answer{\final{$r = \qty{0.85}{m}$}}
+  \begin{modelanswer}
+  \textbf{Comparing the two motions.}
+  \begin{itemize}
+    \item \textbf{Force:} in the electric field the force ($qE$) is constant in size and
+          direction (up). In the magnetic field the force ($qvB$) is constant in size, but
+          it is always at \ang{90} to the velocity, so its direction keeps turning.
+    \item \textbf{Path:} the electric field gives a parabola, like a projectile. The
+          magnetic field gives an arc of a circle of radius \qty{0.85}{m} (uniform circular
+          motion).
+    \item \textbf{Direction:} the electric field bends the electron up, towards the positive
+          plate. The magnetic field alone bends it down.
+    \item \textbf{Speed:} the electric field does work on the electron, so its speed
+          increases a little (to \qty{3.005e7}{m.s^{-1}}). The magnetic force is at \ang{90}
+          to the motion, so it does no work: the speed stays \qty{3.0e7}{m.s^{-1}}.
+  \end{itemize}
+  (Over the \qty{5.0}{cm} plates, the arc bends the electron down by
+  $r - \sqrt{r^2 - L^2} = \qty{1.5}{mm}$: the same size as in (a), but the other way. This
+  fits with (b): the two forces are equal and opposite, so together they cancel.)
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Acceleration from $E = \dfrac{V}{d}$ and $F = qE$
+      (\qty{1.06e15}{m.s^{-2}})}{1}
+    \criterion{(a) Time between the plates, $t = \dfrac{L}{v} = \qty{1.67e-9}{s}$}{1}
+    \criterion{(a) Deflection \qty{1.5}{mm}, towards the positive (top) plate}{1}
+    \criterion{(b) $B = \dfrac{E}{v} = \qty{2.0e-4}{T}$}{1}
+    \criterion{(b) Into the page, with a correct reason (the magnetic force must be down)}{1}
+    \criterion{(c) Radius \qty{0.85}{m}}{1}
+    \criterion{(c) Compares the paths: parabola (constant force) and circular arc (force at
+      \ang{90} to the velocity)}{1}
+    \criterion{(c) Compares speed or direction: the speed rises in $E$ but not in $B$, OR
+      the electron bends the opposite way}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+\end{practiceanswers}

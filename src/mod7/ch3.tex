@@ -1,0 +1,1313 @@
+% ch3.tex -- Module 7, Chapter 3: Light as a particle (black bodies and the
+% photoelectric effect). Dot points M7.IQ3.01, M7.IQ3.02, M7.IQ3.03.
+% Figures: figures/ch3_bbcurves.py, figures/ch3_uvcat.py (matplotlib); the rest
+% is TikZ / pgfplots below.
+\chapter{Light as a Particle: Black Bodies and the Photoelectric Effect}\label{ch3:chap}
+\covers{M7.IQ3.01, M7.IQ3.02, M7.IQ3.03}
+
+\inquiry{What evidence supports the particle model of light, and what does this
+evidence mean for the quantum model of light?}
+
+\begin{goals}
+  \item sketch black body curves and use Wien's law $\lambda_\mathrm{max} = \dfrac{b}{T}$
+  \item explain the ultraviolet catastrophe and how Planck's idea, $E = hf$, solved it
+  \item describe the photoelectric results that the wave model cannot explain
+  \item use $K_\mathrm{max} = hf - \phi$ with conservation of energy and the photon model
+  \item read photoelectric graphs to find $h$, $f_0$ and $\phi$
+\end{goals}
+
+%% ==================================================================
+\section{Black body radiation and Planck's quanta}\label{ch3:sec:blackbody}
+\covers{M7.IQ3.01}
+
+\begin{bigidea}
+Every warm object gives off EM radiation. A black body is a perfect emitter. Its
+spectrum depends only on its temperature: a hotter black body has a shorter peak
+wavelength. Physics before 1900 could not explain it. In 1900 Planck did: he said
+energy is given out in packets, $E = hf$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Black body}{an ideal object that absorbs all the radiation that hits it. It is also a perfect emitter.}
+  \kw{Peak wavelength ($\lambda_\mathrm{max}$)}{the wavelength where a black body curve is highest.}
+  \kw{Ultraviolet catastrophe}{the wrong prediction, from physics before 1900, of infinite intensity at short wavelengths.}
+  \kw{Quantised}{can only have separate values, in steps.}
+  \kw{Quantum (plural: quanta)}{one packet of energy, of size $E = hf$.}
+\end{keywords}
+
+Turn on an electric stove. First you feel heat. Then the hotplate glows dull red,
+then orange. All objects give off \term{thermal radiation}: EM radiation produced
+because of their temperature. Objects contain charged particles (electrons and
+protons). These particles vibrate all the time. Vibrating charges give off EM waves
+(\cref{ch1:chap}). In a hotter object they vibrate more strongly. So it gives off
+more radiation, and more of it has a short wavelength.
+
+\begin{sidebyside}[0.43]
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    \fill[hscmuted!45] (-0.2,-0.2) rectangle (3.2,2.4);
+    \fill[hscink!88] (0,0) rectangle (3,2.2);
+    \fill[white] (-0.21,0.98) rectangle (0.01,1.26);
+    \draw[ray] (-1.2,1.96) -- (0,1.12);
+    \draw[ray] (0,1.12) -- (1.6,0);
+    \draw[ray, draw opacity=0.75] (1.6,0) -- (3,0.98);
+    \draw[ray, draw opacity=0.5] (3,0.98) -- (1.257,2.2);
+    \draw[ray, draw opacity=0.28] (1.257,2.2) -- (0.55,1.705);
+    \draw[->, hscray!80!black, line width=0.9pt, decorate,
+      decoration={snake, amplitude=1.3pt, segment length=5pt, post length=2.2mm}]
+      (-0.1,1.02) -- (-1.35,0.35);
+    \node[diagramlabel, anchor=south, font=\footnotesize] at (-1.0,2.0) {light in};
+    \node[diagramlabel, anchor=north, align=center, font=\footnotesize] at (-1.05,0.3) {radiation\\out};
+    \node[anchor=south, text=white, font=\footnotesize, align=center]
+      at (1.55,0.75) {absorbed a little\\at each bounce};
+    \node[diagramlabel, anchor=north, font=\footnotesize] at (1.5,-0.25) {hot walls};
+    \draw[hscmuted, line width=0.5pt] (0.02,1.3) -- (0.6,2.75)
+      node[diagramlabel, anchor=south, font=\footnotesize] {small hole};
+  \end{tikzpicture}
+  \captionof{figure}{A hollow box with a tiny hole acts as a black body.}
+  \label{ch3:fig:cavity}
+\nextside
+  Real objects also reflect light, which hides their own radiation. So physicists
+  study an ideal \term{black body}. It absorbs all the radiation that falls on it
+  and reflects none. It is also a perfect emitter: at each temperature it gives
+  off the most radiation possible. Its radiation is called
+  \term{black body radiation}.\par\smallskip
+  A hollow box with a tiny hole is almost a black body (\cref{ch3:fig:cavity}).
+  Light that enters bounces around and is absorbed. When the box is hot, the hole
+  glows with black body radiation. Stars are also close to black bodies.
+\end{sidebyside}
+
+\subsection{The black body curve and Wien's law}
+
+\Cref{ch3:fig:bbcurves} shows black body curves. They are drawn from Planck's
+formula, which matches the measured curves. (You meet Planck later in this
+section.) The
+\term{intensity} is the radiation energy arriving each second on each square metre.
+The curve shows how this intensity is shared out among the wavelengths.
+
+\begin{sidebyside}[0.57]
+  \centering
+  \includegraphics{ch3_bbcurves.pdf}
+  \captionof{figure}{Black body curves at three temperatures.}\label{ch3:fig:bbcurves}
+\nextside
+  \begin{itemize}
+    \item Each curve has one peak, at the \term{peak wavelength} $\lambda_\mathrm{max}$.
+    \item It rises steeply on the short-wavelength side (left). It falls slowly,
+          with a long tail, on the long-wavelength side (right).
+    \item A hotter body is higher at \emph{every} wavelength. The curves never cross.
+    \item A hotter body peaks at a shorter wavelength.
+    \item The curve depends only on temperature, not on the material.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{refresher}{Kelvin and the EM spectrum}
+Absolute temperature $T$ is in kelvin and starts at absolute zero:
+$T(\unit{K}) = T(\unit{\degreeCelsius}) + 273$, so $\qty{27}{\degreeCelsius} =
+\qty{300}{K}$. Bands: ultraviolet about \qtyrange{10}{400}{nm}, visible
+\qtyrange{400}{700}{nm}, infrared \qty{700}{nm} to \qty{1}{mm}.
+\end{refresher}
+
+Look at the visible band in \cref{ch3:fig:bbcurves}. A hot object glows with the
+colours that its curve covers in this band.
+\begin{itemize}
+  \item A stove or lava (about \qtyrange{1000}{1500}{K}) peaks in the infrared. Only
+        the short-wavelength edge of its curve reaches the visible band, at the red
+        end. So it glows dull red.
+  \item A very hot object, like the Sun (about \qty{5800}{K}), gives out all the
+        visible colours strongly. So it looks white. Even hotter stars look
+        blue-white. So a red star is cooler than a blue star.
+  \item A cool object, like a person (about \qty{310}{K}), gives out almost no
+        visible light. It does not glow.
+\end{itemize}
+
+In 1893 Wilhelm Wien showed that the peak wavelength is \emph{inversely
+proportional} to the absolute temperature (the temperature in kelvin). This means:
+if $T$ doubles, $\lambda_\mathrm{max}$ halves. Later measurements confirmed his law.
+
+\begin{toolkit}{Units for light: nm, \texorpdfstring{\si{\micro m}}{um} and eV}
+\begin{itemize}
+  \item $\qty{1}{nm} = \qty{1e-9}{m}$ and $\qty{1}{\micro m} = \qty{1e-6}{m}$.
+        So $\qty{532}{nm} = \qty{532e-9}{m} = \qty{5.32e-7}{m}$, and
+        $\qty{2.0e-6}{m} = \qty{2.0}{\micro m}$.
+  \item The \term{electron volt} (eV) is the energy one electron gains when it moves
+        through a potential difference (voltage) of \qty{1}{V}.
+        $\qty{1}{eV} = \qty{1.602e-19}{J}$ (data sheet).
+        J $\to$ eV: divide by \num{1.602e-19}. eV $\to$ J: multiply.
+  \item Check: one quantum (packet) of visible light has about \qty{1.8}{eV}
+        (red, \qty{700}{nm}) to \qty{3.1}{eV} (violet, \qty{400}{nm}). Infrared
+        quanta have less energy. Ultraviolet quanta have more.
+\end{itemize}
+\end{toolkit}
+
+\begin{toolkit}{Rearranging a formula (reminder)}
+To make another symbol the subject, do the same thing to both sides.
+\begin{itemize}
+  \item $\lambda_\mathrm{max} = \dfrac{b}{T}$. Multiply both sides by $T$:
+        $\lambda_\mathrm{max}T = b$. Divide both sides by $\lambda_\mathrm{max}$:
+        $T = \dfrac{b}{\lambda_\mathrm{max}}$. Since $\lambda_\mathrm{max}T = b$ at
+        every temperature, $\lambda_1T_1 = \lambda_2T_2$.
+  \item $K = \frac12 mv^2$. Multiply both sides by 2: $2K = mv^2$. Divide both sides
+        by $m$: $v^2 = \dfrac{2K}{m}$. Take the square root: $v = \sqrt{\dfrac{2K}{m}}$.
+  \item Check by putting numbers back in: both sides must still be equal.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{Wien's displacement law}
+  \cardformula{\lambda_\mathrm{max} = \frac{b}{T}}
+  \begin{symbols}
+    \sym{$\lambda_\mathrm{max}$}{peak wavelength of the black body curve}{\si{m}}
+    \sym{$b$}{Wien's displacement constant, \qty{2.898e-3}{m.K} (data sheet)}{\si{m.K}}
+    \sym{$T$}{absolute temperature of the object}{\si{K}}
+  \end{symbols}
+  \inwords{the hotter a black body, the shorter its peak wavelength.}
+  \whentouse{black bodies or near black bodies: stars, lava, hot metal, people.}
+  \whennottouse{line spectra from a gas lamp, or reflected light.}
+  \rearranged{$T = \dfrac{b}{\lambda_\mathrm{max}}$ \qquad
+    $\lambda_\mathrm{max}T = b$, so $\lambda_1 T_1 = \lambda_2 T_2$}
+  \tensecond{$T = \qty{5800}{K}$, so $\lambda_\mathrm{max} =
+    \dfrac{\num{2.898e-3}}{5800} = \qty{5.0e-7}{m} = \qty{500}{nm}$ (visible).}
+  \trap{$T$ must be in kelvin, not \si{\degreeCelsius}. The answer is in metres:
+    change it to \si{nm} or \si{\micro m} before you name the band.}
+\end{formulacard}
+
+\begin{workedexample}{Why does lava glow red?}\label{ch3:we:lava}
+Lava is at about \qty{1150}{\degreeCelsius}. Treat it as a black body. Find the
+peak wavelength of its radiation and name the EM band. Explain why lava looks red.
+\given{$T = 1150 + 273 = \qty{1423}{K}$ \ (Celsius to kelvin), \
+  $b = \qty{2.898e-3}{m.K}$}
+\find{the peak wavelength $\lambda_\mathrm{max}$ and its band}
+\formula{$\lambda_\mathrm{max} = \dfrac{b}{T}$}
+\substitute{$\lambda_\mathrm{max} = \dfrac{\qty{2.898e-3}{m.K}}{\qty{1423}{K}}
+  = \qty{2.037e-6}{m} = \qty{2.037}{\micro m}$}
+\answer{\final{$\lambda_\mathrm{max} = \qty{2.04e-6}{m}$}, which is
+  \textbf{infrared} (longer than \qty{700}{nm}). Lava looks red because the
+  short-wavelength side of its curve reaches the red end of the visible band. We see
+  that small red part. Most of the energy is infrared, which we feel as heat.}
+\checkstep{lava is cooler than the Sun (\qty{5800}{K}, peak \qty{500}{nm}), so its
+  peak is longer. $5800 \div 1423 \approx 4$, and $\qty{2.04}{\micro m} \approx
+  4 \times \qty{500}{nm}$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{How hot is Sirius? (HSC style)}\label{ch3:we:sirius}
+Sirius is the brightest star in the night sky. Its black body curve peaks at
+\qty{292}{nm}. (a) Calculate the surface temperature of Sirius. (b) The peak is in
+the ultraviolet, which we cannot see. Explain why Sirius still looks bright and
+blue-white. (3 marks)
+\given{$\lambda_\mathrm{max} = \qty{292}{nm} = \qty{2.92e-7}{m}$ \ (nm to m), \
+  $b = \qty{2.898e-3}{m.K}$}
+\find{the surface temperature $T$}
+\formula{$\lambda_\mathrm{max} = \dfrac{b}{T}$, \ rearranged: $T = \dfrac{b}{\lambda_\mathrm{max}}$}
+\substitute{$T = \dfrac{\qty{2.898e-3}{m.K}}{\qty{2.92e-7}{m}} = \qty{9925}{K}$}
+\answer{(a) \final{$T = \qty{9.92e3}{K}$}, about \qty{10000}{K}. (b) A hotter body
+  is higher at every wavelength, so the curve of Sirius is high across the whole
+  visible band. It is highest at the violet and blue end, nearest the peak. So
+  Sirius looks bright and blue-white.}
+\checkstep{the peak is shorter than the Sun's \qty{500}{nm}, so Sirius must be
+  hotter than \qty{5800}{K} \cmark. $500 \div 292 \approx 1.7$ and
+  $9925 \div 5800 \approx 1.7$ \cmark. The unit: $\unit{m.K} \div \unit{m} =
+  \unit{K}$ \cmark.}
+\end{workedexample}
+
+\subsection{The ultraviolet catastrophe}
+
+\begin{sidebyside}[0.56]
+  \centering
+  \includegraphics{ch3_uvcat.pdf}
+  \captionof{figure}{Classical prediction and measured curve at \qty{5000}{K}.}
+  \label{ch3:fig:uvcat}
+\nextside
+  Physicists tried to explain the measured curve with \term{classical physics}:
+  physics before 1900, in which light is a wave and energy can have any value.\par\smallskip
+  The classical prediction is called the \term{Rayleigh--Jeans law} (after two
+  British physicists). It comes closer and closer to the measured curve at long
+  wavelengths (\cref{ch3:fig:uvcat}). At short wavelengths it rises without limit.
+  It predicts infinite intensity in the ultraviolet. Then the total energy would also
+  be infinite, which is impossible. Real curves fall to zero.
+\end{sidebyside}
+
+This failure was later called the \term{ultraviolet catastrophe} (a catastrophe is a
+disaster). Why did the theory fail? Inside a hot box, the radiation forms standing
+waves (waves that fit exactly between the walls). There are more and more possible
+standing-wave patterns at shorter wavelengths. Classical physics gives each pattern
+the same share of energy. Endless shares add up to infinite energy.
+
+\subsection{Planck's idea: energy comes in packets}
+
+A \term{continuous} quantity can have any value, like the amount of water in a
+bottle. A \term{quantised} (or discrete) quantity can only have separate values, in
+steps, like the number of eggs in a carton (never 2.5 eggs).
+
+In 1900 Max Planck found a formula that fits the measured curves at every
+wavelength. To get it, he made a bold guess about the vibrating charges in the
+walls. He called them \term{oscillators}: things that vibrate back and forth. An
+oscillator that vibrates with frequency $f$ gives out radiation with the same
+frequency $f$. Planck said that such an oscillator can only have the energies
+$0, hf, 2hf, 3hf, \ldots$. So it gives out or takes in energy only in packets of
+size $hf$. Each packet is a \term{quantum}. The number $h$ is \term{Planck's
+constant}, \qty{6.626e-34}{J.s}. It links the size of a packet to its frequency.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.62cm]
+    \begin{scope}
+      \draw[axisline] (0,0) -- (0,2.5) node[above, diagramlabel, font=\footnotesize] {energy};
+      \fill[hscbrand!14] (0,0) -- (3,0) -- (3,2.0) -- cycle;
+      \draw[hscink, line width=0.8pt] (0,0) -- (3,2.0) -- (3,0);
+      \fill[object] (1.48,1.12) circle (3.2pt);
+      \node[diagramlabel, align=center, anchor=north, font=\footnotesize] at (1.5,-0.1)
+        {(a) continuous (ramp):\\any energy};
+    \end{scope}
+    \begin{scope}[xshift=4.9cm]
+      \draw[axisline] (0,0) -- (0,2.5) node[above, diagramlabel, font=\footnotesize] {energy};
+      \fill[hscbrand!14] (0,0)
+        \foreach \i in {0,...,7} { -- ({0.375*\i},{0.25*(\i+1)}) -- ({0.375*(\i+1)},{0.25*(\i+1)}) }
+        -- (3,0) -- cycle;
+      \draw[hscink, line width=0.8pt] (0,0)
+        \foreach \i in {0,...,7} { -- ({0.375*\i},{0.25*(\i+1)}) -- ({0.375*(\i+1)},{0.25*(\i+1)}) };
+      \draw[guide, hscforce, line width=0.8pt] (0,1.2) -- (3.1,1.2);
+      \node[anchor=west, text=hscforce, font=\footnotesize, align=left]
+        at (3.15,1.2) {heat\\energy\\available};
+      \fill[object] (1.31,1.15) circle (3.2pt);
+      \draw[hscink, line width=0.4pt] (0.78,0.24) -- (0.43,0.37);
+      \node[anchor=west, font=\scriptsize, inner sep=1pt] at (0.78,0.2) {one step $= hf$};
+      \node[diagramlabel, align=center, anchor=north, font=\footnotesize] at (1.5,-0.1)
+        {(b) low $f$: small steps of $hf$;\\many can be reached};
+    \end{scope}
+    \begin{scope}[xshift=9.8cm]
+      \draw[axisline] (0,0) -- (0,2.5) node[above, diagramlabel, font=\footnotesize] {energy};
+      \fill[hscbrand!14] (0,0) -- (1.5,0) -- (1.5,1.7) -- (3,1.7) -- (3,0) -- cycle;
+      \draw[hscink, line width=0.8pt] (0,0) -- (1.5,0) -- (1.5,1.7) -- (3,1.7) -- (3,0);
+      \draw[guide, hscforce, line width=0.8pt] (0,1.2) -- (3.1,1.2);
+      \node[anchor=west, text=hscforce, font=\footnotesize, align=left]
+        at (3.15,1.2) {heat\\energy\\available};
+      \draw[<->, hscink, line width=0.5pt] (1.64,0.04) -- (1.64,1.66);
+      \node[anchor=west, font=\scriptsize, align=left, inner sep=1pt] at (1.7,0.45)
+        {one step\\$= hf$};
+      \fill[object] (0.75,0.14) circle (3.2pt);
+      \node[diagramlabel, align=center, anchor=north, font=\footnotesize] at (1.5,-0.1)
+        {(c) high $f$: one step of $hf$\\is too big, rarely reached};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Continuous energy (a) and quantised energy (b, c). The height of the ball
+    is the energy of one oscillator. The dashed line is the typical energy that heat
+    gives one oscillator.}\label{ch3:fig:stairs}
+\end{figure}
+
+How do packets fix the curve (\cref{ch3:fig:stairs})?
+\begin{itemize}
+  \item Low frequency (long wavelength): each step $hf$ is tiny, so the steps act
+        like a ramp. Planck's result agrees with classical physics there.
+  \item High frequency (short wavelength): each step $hf$ is large. Heat rarely gives
+        one oscillator enough energy for even one step. So little short-wavelength
+        radiation is given off, and the curve falls to zero.
+  \item A hotter object has more energy to share, so it reaches bigger steps. Its
+        peak moves to shorter wavelengths (Wien's law).
+\end{itemize}
+
+Planck saw his packets as a maths trick. He still thought light was a wave. But
+his idea started quantum physics: light energy is \emph{given out} in packets of
+$hf$. Einstein took the next step in 1905. He said that light itself travels as
+these packets. One packet (quantum) of light is called a \term{photon}
+(\cref{ch3:sec:photon}).
+
+\begin{formulacard}{Energy of one quantum (photon)}
+  \cardformula{E = hf}
+  \begin{symbols}
+    \sym{$E$}{energy of one quantum (one photon)}{\si{J}}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s} (data sheet)}{\si{J.s}}
+    \sym{$f$}{frequency of the radiation}{\si{Hz}}
+    \sym{$\lambda$}{wavelength of the radiation (in the forms with $c$)}{\si{m}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}} (data sheet)}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{the energy of one packet depends only on its frequency. Higher frequency
+    means a bigger packet.}
+  \whentouse{the energy of one quantum or one photon of any EM radiation.}
+  \whennottouse{the total energy of a beam. That is (number of photons) $\times\, hf$.}
+  \rearranged{$f = \dfrac{E}{h}$ \qquad $E = \dfrac{hc}{\lambda}$ \qquad
+    $\lambda = \dfrac{hc}{E}$}
+  \tensecond{$f = \qty{5.0e14}{Hz}$, so $E = \num{6.626e-34} \times \num{5.0e14}
+    = \qty{3.3e-19}{J}$.}
+  \derive{$E = \dfrac{hc}{\lambda}$ is \emph{not} printed on the sheet. Combine two
+    sheet formulas:
+    \begin{align*}
+      c &= f\lambda && \text{$v = f\lambda$ with $v = c$ for light}\\
+      f &= \frac{c}{\lambda} && \text{divide both sides by $\lambda$}\\
+      E &= hf = \frac{hc}{\lambda} && \text{replace $f$ in $E = hf$}
+    \end{align*}}
+  \trap{change \si{nm} to \si{m} before you use $E = \dfrac{hc}{\lambda}$. The answer
+    is in joules. It is in eV only after you divide by \num{1.602e-19}.}
+\end{formulacard}
+
+
+
+\begin{workedexample}{Why so little ultraviolet? (HSC style)}\label{ch3:we:quanta}
+An oven at \qty{1500}{K} gives off radiation that peaks near \qty{2.00}{\micro m}.
+Calculate the energy, in J and eV, of one quantum at \qty{2.00}{\micro m} and of one
+at \qty{200}{nm}. Use your answers and Planck's idea to explain why the oven gives off
+almost no ultraviolet. (4 marks)
+\given{$\lambda_1 = \qty{2.00}{\micro m} = \qty{2.00e-6}{m}$, \
+  $\lambda_2 = \qty{200}{nm} = \qty{2.00e-7}{m}$,
+  \ $h = \qty{6.626e-34}{J.s}$, \ $c = \qty{3.00e8}{m.s^{-1}}$}
+\find{the two quantum energies, and how they compare}
+\formula{$E = \dfrac{hc}{\lambda}$, \ then divide by \num{1.602e-19} for eV}
+\substitute{\eqlines{E_1 &= \frac{\qty{6.626e-34}{J.s} \times \qty{3.00e8}{m.s^{-1}}}{\qty{2.00e-6}{m}}
+    = \qty{9.94e-20}{J}\\
+  E_2 &= \frac{\qty{6.626e-34}{J.s} \times \qty{3.00e8}{m.s^{-1}}}{\qty{2.00e-7}{m}}
+    = \qty{9.94e-19}{J}}\par
+  \eqlines{E_1 &= \frac{\num{9.94e-20}}{\num{1.602e-19}} = \qty{0.620}{eV} \quad\text{(J to eV)}\\
+  E_2 &= \frac{\num{9.94e-19}}{\num{1.602e-19}} = \qty{6.20}{eV} \quad\text{(J to eV)}\\
+  \frac{E_2}{E_1} &= \frac{\num{9.94e-19}}{\num{9.94e-20}} = 10}}
+\answer{\final{$E_1 = \qty{9.94e-20}{J} = \qty{0.620}{eV}$}, \
+  \final{$E_2 = \qty{9.94e-19}{J} = \qty{6.20}{eV}$}. A UV quantum is 10 times
+  bigger. An oscillator must give out a whole quantum at once. Heat sometimes gives
+  one oscillator enough energy for one infrared quantum. It almost never gives one
+  oscillator 10 times as much energy at once. So almost no UV quanta are given out.}
+\checkstep{$E \propto \dfrac{1}{\lambda}$ ($\propto$ means ``is proportional
+  to''). $\lambda$ is 10 times smaller, so $E$ is 10 times bigger \cmark. Wien:
+  $\dfrac{b}{1500} = \qty{1.93}{\micro m}$, close to \qty{2.00}{\micro m} \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting \si{\degreeCelsius} into $\lambda_\mathrm{max} = \dfrac{b}{T}$.
+        \cmark\ Add 273 first.
+  \item \xmark\ ``A cooler object gives out more red light than a hotter one.''
+        \cmark\ The hotter curve is higher at every wavelength. Only the cooler
+        object's \emph{peak} is redder.
+  \item \xmark\ Drawing a symmetric bell curve, or curves that cross.
+        \cmark\ A steep rise on the short-wavelength side, a long tail on the
+        long-wavelength side. The hotter curve is above everywhere.
+  \item \xmark\ ``Planck said light is made of photons.'' \cmark\ Planck quantised
+        the oscillators in the walls. Einstein quantised light itself.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain how Planck's hypothesis solved the ultraviolet catastrophe'' (4 marks).
+One mark for each linked point: (1) classical theory predicted intensity rising
+without limit at short wavelengths, but measured curves peak and fall to zero;
+(2) Planck assumed oscillators give out energy only in quanta, $E = hf$; (3) at high
+$f$ the quanta are large compared with the heat energy available, so few are given
+out; (4) his formula fitted the measured curves at all wavelengths, and began the
+quantum model of light. In sketches, put the hotter curve higher everywhere, with
+its peak to the left.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A student says: ``A black body is any object that is painted black.''
+        Explain why this is wrong, and give the correct meaning of a black body.
+        (2 marks)\label{ch3:qc:bbdef}
+  \item An electric heater element is at \qty{600}{\degreeCelsius}. Find the peak
+        wavelength of its radiation, and name the EM band.
+  \item The radiation from a lamp filament peaks at \qty{1.05}{\micro m}. Find the
+        temperature of the filament in kelvin and in \si{\degreeCelsius}.
+  \item Calculate the energy of a photon of violet light (\qty{400}{nm}) in joules
+        and in electron volts.
+  \item For which part of the black body curve did classical physics agree with
+        experiment? Why was its failure called the ``ultraviolet''
+        catastrophe?\label{ch3:qc:uvname}
+\end{quickcheck}
+
+%% ==================================================================
+\section{The photoelectric effect: evidence against the wave model}\label{ch3:sec:photoelectric}
+\covers{M7.IQ3.02}
+
+\begin{bigidea}
+Light that shines on a metal can knock electrons out of it. The wave model of light
+predicts how this should depend on brightness and colour. Experiments showed that
+three of these predictions are wrong.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Photoelectric effect}{electrons are released from a metal surface when light shines on it.}
+  \kw{Photocurrent}{the current made by the released electrons (photoelectrons).}
+  \kw{Threshold frequency ($f_0$)}{the lowest frequency of light that releases electrons from a metal.}
+  \kw{Stopping voltage ($V_0$)}{the smallest reverse voltage that stops every photoelectron, so the current is zero.}
+\end{keywords}
+
+Shine ultraviolet light on clean zinc, and electrons fly out of the zinc. This is
+the \term{photoelectric effect}. The released electrons are \term{photoelectrons}.
+
+Heinrich Hertz first noticed the effect in 1887. He was making Maxwell's radio waves
+with sparks. A spark jumps across a small air gap between two metal balls, called a
+\term{spark gap}. Hertz saw that the sparks jumped more easily when ultraviolet light
+shone on the gap. In 1902 Philipp Lenard measured the effect carefully with a vacuum
+tube (\cref{ch3:fig:apparatus}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscink, line width=0.9pt, fill=hscbrand!5, rounded corners=14pt]
+      (0,0) rectangle (6,2.6);
+    \draw[hscvel!70, line width=2.6pt] (1.15,2.6) -- (2.75,2.6);
+    \node[diagramlabel, anchor=south east, align=right, font=\footnotesize] at (1.1,2.65)
+      {quartz window\\(lets UV through)};
+    \draw[hscink, line width=2.4pt] (0.8,0.45) -- (0.8,2.15);
+    \draw[hscink, line width=2.4pt] (5.2,0.6) -- (5.2,2.0);
+    \foreach \ye/\xs in {1.9/2.42, 1.45/2.78, 1.0/3.14} {
+      \draw[->, hscray, line width=1pt, decorate,
+        decoration={snake, amplitude=1.3pt, segment length=5pt, post length=2.2mm}]
+        (\xs,3.8) -- (0.92,\ye);
+    }
+    \node[diagramlabel, anchor=west, font=\footnotesize] at (3.2,3.75) {light: frequency $f$};
+    \foreach \p in {(1.9,1.65), (3.0,1.0), (4.0,1.75)} {
+      \fill[hscvel] \p circle (2.6pt);
+      \draw[velocity, line width=0.9pt] \p ++(0.12,0) -- ++(0.55,0);
+    }
+    \node[text=hscvel, font=\footnotesize] at (3.0,0.62) {photoelectrons};
+    \node[diagramlabel, anchor=north, font=\footnotesize] at (3.6,2.45) {vacuum};
+    \draw[hscmuted, line width=0.5pt] (0.75,1.6) -- (-0.2,1.6)
+      node[diagramlabel, anchor=east, align=right, font=\footnotesize] {metal\\cathode};
+    \draw[hscmuted, line width=0.5pt] (5.25,1.6) -- (6.2,1.6)
+      node[diagramlabel, anchor=west, align=left, font=\footnotesize] {anode\\(collector)};
+    % circuit
+    \draw[hscink, line width=0.8pt] (0.8,0.45) -- (0.8,-1.0) -- (2.2,-1.0);
+    \draw[hscink, line width=0.8pt] (2.4,-1.0) -- (3.67,-1.0);
+    \draw[hscink, line width=0.8pt] (4.33,-1.0) -- (5.2,-1.0) -- (5.2,0.6);
+    \draw[hscink, line width=0.9pt] (2.2,-1.35) -- (2.2,-0.65);
+    \draw[hscink, line width=2.2pt] (2.4,-1.18) -- (2.4,-0.82);
+    \draw[->, hscink, line width=0.7pt] (1.9,-1.4) -- (2.7,-0.55);
+    \node[font=\scriptsize] at (2.02,-0.52) {$+$};
+    \node[font=\scriptsize] at (2.6,-1.3) {$-$};
+    \draw[hscink, line width=0.8pt] (1.6,-1.0) -- (1.6,-1.8) -- (2.0,-1.8);
+    \draw[hscink, line width=0.8pt] (2.6,-1.8) -- (3.0,-1.8) -- (3.0,-1.0);
+    \draw[hscink, line width=0.8pt, fill=white] (2.3,-1.8) circle (0.3) node[font=\small] {V};
+    \node[diagramlabel, anchor=north, font=\footnotesize, align=center] at (2.3,-2.15)
+      {variable supply (can be reversed)\\with a voltmeter};
+    \draw[hscink, line width=0.8pt, fill=white] (4.0,-1.0) circle (0.33)
+      node[font=\small] {\si{\micro A}};
+    \node[diagramlabel, anchor=south, font=\footnotesize] at (4.0,-0.64) {microammeter};
+  \end{tikzpicture}
+  \caption{Photoelectric apparatus. Light releases electrons from the metal cathode.
+    They cross the vacuum to the anode. Here the supply makes the anode negative, as
+    used to find $V_0$. Reverse the supply to make the anode positive and collect
+    every electron.}\label{ch3:fig:apparatus}
+\end{figure}
+
+\begin{itemize}
+  \item Light falls on the \term{cathode}, the metal plate that releases electrons.
+        They cross to the \term{anode}, the collecting plate. The whole tube is
+        often called a \term{photocell}.
+  \item The \term{microammeter} (a meter for very small currents, in millionths of
+        an ampere) measures the \term{photocurrent}. A bigger current means more
+        electrons each second, not faster electrons.
+  \item The vacuum stops electrons from hitting air molecules. The quartz window lets
+        ultraviolet in (ordinary glass absorbs it).
+\end{itemize}
+
+\begin{sidebyside}[0.4]
+  \centering
+  \begin{tikzpicture}[x=1.1cm, y=1.1cm]
+    % glass case and stand
+    \draw[hscink, line width=0.7pt, fill=hscbrand!4, rounded corners=6pt]
+      (-0.8,-1.6) rectangle (0.8,0.25);
+    \fill[hscmuted!50] (-1.0,-1.85) rectangle (1.0,-1.6);
+    % rod and zinc plate
+    \draw[hscink, line width=1.6pt] (0,-1.35) -- (0,0.75);
+    \fill[hscmuted!70] (-0.8,0.75) rectangle (0.8,0.9);
+    \draw[hscink, line width=0.6pt] (-0.8,0.75) rectangle (0.8,0.9);
+    \foreach \x in {-0.6,-0.2,0.2,0.6}
+      \node[font=\scriptsize, text=hscvel, inner sep=0pt] at (\x,1.0) {$-$};
+    \draw[hscmuted, line width=0.5pt] (0.8,0.82) -- (1.15,0.82)
+      node[diagramlabel, anchor=west, font=\footnotesize] {zinc plate};
+    % leaf standing out (charged) and fallen (charge gone)
+    \draw[hscacc, line width=1.4pt] (0,-0.3) -- (0.5,-1.0);
+    \draw[hscacc, line width=1.1pt, dashed] (0.06,-0.3) -- (0.1,-1.15);
+    \draw[hscmuted, line width=0.5pt] (0.35,-0.8) -- (1.15,-0.2)
+      node[diagramlabel, anchor=west, font=\footnotesize, align=left]
+      {leaf out\\(charged)};
+    \draw[hscmuted, line width=0.5pt] (0.12,-1.1) -- (1.15,-1.35)
+      node[diagramlabel, anchor=west, font=\footnotesize, align=left]
+      {leaf fallen\\(charge gone)};
+    \node[diagramlabel, anchor=north, font=\footnotesize] at (0,-1.88) {electroscope};
+    % UV lamp
+    \fill[hscfield!60] (-1.95,1.95) rectangle (-1.25,2.3);
+    \node[diagramlabel, anchor=south, font=\footnotesize] at (-1.6,2.3) {UV lamp};
+    \foreach \i in {0,1,2}
+      \draw[->, hscfield, line width=0.9pt, decorate,
+        decoration={snake, amplitude=1.1pt, segment length=4pt, post length=1.8mm}]
+        ({-1.4+0.2*\i},1.9) -- ({-0.7+0.42*\i},1.2);
+  \end{tikzpicture}
+  \captionof{figure}{A gold-leaf electroscope with a zinc plate. UV light makes the
+    leaf fall.}\label{ch3:fig:electroscope}
+\nextside
+  A classroom demonstration uses a gold-leaf \term{electroscope}
+  (\cref{ch3:fig:electroscope}). It is a metal rod with a thin gold leaf hanging from
+  it, inside a glass case. When the electroscope is charged, the leaf is pushed away
+  from the rod and stands out. When the charge leaves, the leaf falls back.\par\smallskip
+  Put a clean zinc plate on top and give it a negative charge (extra electrons).
+  Shine ultraviolet light on the zinc. The leaf falls, because electrons leave the
+  zinc. A very bright visible lamp does nothing. A sheet of glass, which absorbs UV,
+  stops the effect. So \emph{whether} electrons leave depends on the frequency of the
+  light, not on its brightness.
+\end{sidebyside}
+
+\subsection{Stopping voltage}
+
+Now make the anode negative, as drawn in \cref{ch3:fig:apparatus}. The negative anode repels the
+electrons: it pushes them back. As the reverse voltage increases, fewer electrons
+reach the anode and the current falls. At the \term{stopping voltage} $V_0$, even the
+fastest electrons stop just before the anode, and the current is zero.
+
+Electrons leave with a range of speeds. Some electrons start deeper inside the
+metal. They lose some energy on the way out, so they leave more slowly. The fastest
+electrons have the \term{maximum kinetic energy} $K_\mathrm{max}$. The stopping
+voltage measures it.
+
+\begin{refresher}{Work, voltage and kinetic energy}
+When a charge $q$ moves through a potential difference (voltage) $V$, the electric
+field does work $W = qV$ on it. Work is energy transferred, in joules (Module 6).
+Kinetic energy is $K = \frac12 mv^2$ (Year 11). Rearranged (see the toolkit
+\emph{Rearranging a formula}): $v = \sqrt{\dfrac{2K}{m}}$, with $K$ in joules. For an
+electron, use the size of the charge, \qty{1.602e-19}{C}.
+\end{refresher}
+
+\begin{formulacard}[combine={$W = qV$}]{Stopping voltage and maximum kinetic energy}
+  \cardformula{K_\mathrm{max} = qV_0}
+  \begin{symbols}
+    \sym{$K_\mathrm{max}$}{maximum kinetic energy of the photoelectrons}{\si{J}}
+    \sym{$q$}{size of the electron's charge, \qty{1.602e-19}{C}}{\si{C}}
+    \sym{$V_0$}{stopping voltage}{\si{V}}
+  \end{symbols}
+  \inwords{the stopping voltage takes away all the kinetic energy of the fastest
+    electrons.}
+  \whentouse{you know $V_0$ and need $K_\mathrm{max}$, or the other way round.}
+  \whennottouse{for a typical electron. Most electrons have less than $K_\mathrm{max}$.}
+  \rearranged{$V_0 = \dfrac{K_\mathrm{max}}{q}$. \ $K_\mathrm{max}$ in eV is the
+    same number as $V_0$ in volts.}
+  \tensecond{$V_0 = \qty{2.0}{V}$, so $K_\mathrm{max} = \num{1.602e-19} \times 2.0
+    = \qty{3.2e-19}{J} = \qty{2.0}{eV}$.}
+  \derive{the reverse voltage does work against each electron. The fastest one just
+    stops at the anode, so all its kinetic energy is used up:
+    \begin{align*}
+      W &= qV_0 && \text{work done against the electron ($W = qV$)}\\
+      qV_0 &= K_\mathrm{max} && \text{work done = kinetic energy lost}
+    \end{align*}}
+  \trap{$V_0$ is a voltage (V). $K_\mathrm{max}$ is an energy (J or eV). Never
+    write ``$K_\mathrm{max} = \qty{2.0}{V}$''.}
+\end{formulacard}
+
+\begin{workedexample}{From stopping voltage to electron speed}\label{ch3:we:stopping}
+In a photoelectric experiment the stopping voltage is \qty{1.40}{V}. Calculate the
+maximum kinetic energy of the photoelectrons (in J and eV) and their maximum speed.
+\given{$V_0 = \qty{1.40}{V}$, \ $q = \qty{1.602e-19}{C}$, \ $m_\mathrm{e} = \qty{9.109e-31}{kg}$}
+\find{$K_\mathrm{max}$ (in J and eV) and $v_\mathrm{max}$}
+\formula{$K_\mathrm{max} = qV_0$, \ then $K = \tfrac12 mv^2$ rearranged:
+  $v = \sqrt{\dfrac{2K}{m}}$}
+\substitute{\eqlines{K_\mathrm{max} &= \qty{1.602e-19}{C} \times \qty{1.40}{V}
+    = \qty{2.243e-19}{J} = \qty{1.40}{eV}\\
+  v_\mathrm{max} &= \sqrt{\frac{2 \times \qty{2.243e-19}{J}}{\qty{9.109e-31}{kg}}}
+    = \qty{7.017e5}{m.s^{-1}}}}
+\answer{\final{$K_\mathrm{max} = \qty{2.24e-19}{J} = \qty{1.40}{eV}$}, \
+  \final{$v_\mathrm{max} = \qty{7.02e5}{m.s^{-1}}$}}
+\checkstep{the eV number equals the volts number \cmark. The speed is below 1\,\%
+  of $c$, so $K = \frac12 mv^2$ is fine \cmark.}
+\end{workedexample}
+
+\subsection{What the wave model predicted}
+
+In the wave model, the energy of light depends on its brightness (amplitude), not on
+its frequency. The energy arrives smoothly, spread over the whole surface.
+\Cref{ch3:tab:wave} compares the predictions with what was observed.
+
+\begin{table}
+  \caption{Wave-model predictions and photoelectric observations.}\label{ch3:tab:wave}
+  \centering
+  \small
+  \begin{tabular}{@{}L{52mm}L{64mm}L{20mm}@{}}
+    \toprule
+    \colhead{The wave model predicted} & \colhead{Experiments showed} & \colhead{Wave model}\\
+    \midrule
+    Brighter light gives more electrons each second, so a bigger current.
+      & Brighter light gives a bigger current (when $f \ge f_0$).
+      & \cmark\ agrees\\
+    Any frequency works if the light is bright enough.
+      & There is a threshold frequency $f_0$. Below it, no electrons leave, however
+        bright the light.
+      & \xmark\ fails\\
+    With dim light, electrons need time to build up energy: a delay.
+      & No delay. Electrons leave at once (in less than \qty{1e-9}{s}), even in very
+        dim light.
+      & \xmark\ fails\\
+    Brighter light makes faster electrons, so a bigger $V_0$.
+      & $V_0$ (and $K_\mathrm{max}$) does not depend on brightness. It increases
+        in a straight line with frequency.
+      & \xmark\ fails\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{workedexample}{The wave model's waiting time (HSC style)}\label{ch3:we:delay}
+Very dim light of intensity \qty{1.0e-2}{W.m^{-2}} falls on sodium. An electron needs
+at least \qty{2.3}{eV} to escape. In the wave model, the energy is spread evenly over
+the surface. Assume one electron collects only the energy that falls on one atom, an
+area of about \qty{1.0e-19}{m^2}. (a) Estimate how long the wave model says the
+electron must wait. (b) Real electrons leave in less than \qty{1e-9}{s}. What does
+this tell us?
+\given{intensity $= \qty{1.0e-2}{W.m^{-2}}$ (energy each second on each \si{m^2}),
+  \ $A = \qty{1.0e-19}{m^2}$, \ $\Delta E = \qty{2.3}{eV}$}
+\find{the waiting time $\Delta t$}
+\formula{power on one atom: $P = \text{intensity} \times A$.\par
+  $P = \dfrac{\Delta E}{\Delta t}$, where $\Delta$ means ``change in''.\par
+  Multiply both sides by $\Delta t$: $P\,\Delta t = \Delta E$.\par
+  Divide both sides by $P$: $\Delta t = \dfrac{\Delta E}{P}$}
+\substitute{\eqlines{P &= \qty{1.0e-2}{W.m^{-2}} \times \qty{1.0e-19}{m^2}
+    = \qty{1.0e-21}{W}\\
+  \Delta E &= 2.3 \times \qty{1.602e-19}{J} = \qty{3.685e-19}{J}
+    \quad\text{(eV to J)}\\
+  \Delta t &= \frac{\qty{3.685e-19}{J}}{\qty{1.0e-21}{W}} = \qty{368.5}{s}}}
+\answer{(a) \final{$\Delta t \approx \qty{3.7e2}{s}$}, about 6 minutes. (b) There is no
+  delay, so the energy cannot arrive spread out like a wave. It must arrive in
+  concentrated packets. This is evidence against the wave model.}
+\checkstep{$\unit{J} \div \unit{W} = \unit{J} \div \unit{J.s^{-1}} = \unit{s}$ \cmark.
+  Dimmer light would make the wave-model wait even longer.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Photons are emitted from the metal.''
+        \cmark\ Photons arrive. \emph{Photoelectrons} leave.
+  \item \xmark\ ``Brighter light makes faster electrons.''
+        \cmark\ Brighter light makes more electrons, not faster ones.
+  \item \xmark\ ``The wave model got everything wrong.''
+        \cmark\ It correctly predicted that brighter light gives a bigger current.
+  \item \xmark\ Using $q = \qty{-1.602e-19}{C}$ and getting a negative energy.
+        \cmark\ Use the size of the charge.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why photoelectric results did not support the wave model'' (3--5 marks).
+For each observation: (1) state it (for example, a threshold frequency); (2) state
+what the wave model predicted (any frequency works if bright enough, because wave
+energy depends on intensity); (3) say that they disagree. For 3 marks, give two
+observations, each linked to the wave-model prediction it breaks. For 4--5 marks,
+give three, and finish with the conclusion: light energy must arrive in packets of
+$hf$. A list of observations with no link to the wave model does not earn full
+marks.
+\end{examtip}
+
+\begin{quickcheck}
+  \item The stopping voltage in an experiment is \qty{0.85}{V}. Find the maximum
+        kinetic energy of the photoelectrons in eV and in joules.
+  \item Why is the photocell in \cref{ch3:fig:apparatus} a vacuum, and why does it
+        have a quartz window?
+  \item Light of the same frequency is made brighter. What happens to (a) the
+        photocurrent and (b) the stopping voltage? Which did the wave model predict
+        correctly?
+  \item Describe two photoelectric observations that the wave model could not
+        explain. For each, say what the wave model predicted.\label{ch3:qc:twoobs}
+\end{quickcheck}
+
+%% ==================================================================
+\section{Einstein's photon model and photoelectric graphs}\label{ch3:sec:photon}
+\covers{M7.IQ3.03, M7.IQ3.02}
+
+\begin{bigidea}
+In 1905 Einstein said that light itself is a stream of packets, called photons, each
+with energy $hf$. One photon gives all its energy to one electron, so conservation
+of energy gives $K_\mathrm{max} = hf - \phi$. A graph of $K_\mathrm{max}$ against $f$
+is a straight line with gradient $h$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Photon}{one packet (quantum) of light, with energy $E = hf$.}
+  \kw{Work function ($\phi$)}{the smallest energy needed to remove an electron from a metal's surface.}
+  \kw{Threshold wavelength ($\lambda_0$)}{the longest wavelength that releases electrons from a metal.}
+  \kw{Saturation current}{the largest photocurrent, when every released electron reaches the anode.}
+  \kw{Wave--particle duality}{light acts like a wave in some experiments and like particles in others.}
+\end{keywords}
+
+Planck said the walls give out energy in packets. Einstein said that light
+\emph{itself} is a stream of packets. Each packet is a photon, with energy
+$E = hf$. A brighter beam of one colour has \emph{more photons} each second. Each
+photon still has the same energy.
+
+Einstein's key rule: \textbf{one photon interacts with one electron.} The photon
+gives all of its energy to that electron, at once. An electron cannot collect energy
+from two photons.
+
+Think of a drink machine that takes one coin at a time and never adds coins
+together. A drink costs \$1.50. A \$2 coin works, and you get 50 cents change.
+Fifteen 10-cent coins never work, however many you put in. The coin is like one
+photon. The price is like the work function $\phi$ (below). The change is like the
+electron's kinetic energy $K_\mathrm{max}$.
+
+To escape, an electron must do work against the pull of the metal. The smallest
+energy it needs is the \term{work function} $\phi$. Each metal has its own value: for
+example, caesium \qty{2.1}{eV} and zinc \qty{4.3}{eV}.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \node[diagramlabel, anchor=east] at (-0.15,1.55) {$hf > \phi$:};
+    \fill[hscmuted!30] (0,1.2) rectangle (5.46,1.9);
+    \fill[hscseriesC!35] (5.46,1.2) rectangle (7.96,1.9);
+    \draw[hscink, line width=0.7pt] (0,1.2) rectangle (7.96,1.9);
+    \draw[hscink, line width=0.7pt] (5.46,1.2) -- (5.46,1.9);
+    \node[font=\footnotesize] at (2.73,1.55) {work function $\phi$ (to escape)};
+    \node[font=\footnotesize] at (6.71,1.55) {$K_\mathrm{max}$ (left over)};
+    \draw[hscink, line width=0.6pt] (0,2.0) -- (0,2.15) -- (7.96,2.15) -- (7.96,2.0);
+    \node[diagramlabel, anchor=south, font=\footnotesize] at (3.98,2.15) {energy of one photon, $hf$};
+    \node[diagramlabel, anchor=east] at (-0.15,0.35) {$hf < \phi$:};
+    \fill[hscseriesA!25] (0,0) rectangle (4.68,0.7);
+    \draw[hscink, line width=0.7pt] (0,0) rectangle (4.68,0.7);
+    \draw[hscink, line width=0.7pt, dashed] (4.68,0) -- (5.46,0) -- (5.46,0.7) -- (4.68,0.7);
+    \node[font=\footnotesize] at (2.34,0.35) {photon energy $hf$};
+    \node[diagramlabel, anchor=west, align=left, font=\footnotesize] at (5.6,0.35)
+      {dashed: energy still missing\\to reach $\phi$. No electron leaves.};
+  \end{tikzpicture}
+  \caption{The energy budget for one photon and one electron.}\label{ch3:fig:budget}
+\end{figure}
+
+\begin{refresher}{Conservation of energy (Year 11)}
+Energy cannot be made or destroyed. It can only change from one form to another. So
+the energy that goes in equals the energy that comes out.
+\end{refresher}
+
+Apply conservation of energy to one photon and the electron that is easiest to
+remove, the \term{least-bound electron} (\cref{ch3:fig:budget}):
+\begin{align}
+  \text{energy in} &= \text{energy to escape} + \text{energy left over}
+     && \text{conservation of energy}\notag\\
+  hf &= \phi + K_\mathrm{max} && \text{put in the symbols}\notag\\
+  K_\mathrm{max} &= hf - \phi && \text{subtract $\phi$ from both sides}\label{ch3:eq:einstein}
+\end{align}
+Electrons deeper in the metal need more than $\phi$, so they leave slower.
+
+The photon model explains every result in \cref{ch3:tab:wave}:
+\begin{itemize}
+  \item \textbf{Brighter light, bigger current:} more photons each second free more
+        electrons each second.
+  \item \textbf{Threshold frequency:} one photon must give at least $\phi$, so
+        $hf \ge \phi$. Below $f_0$ no single photon is enough, and energies cannot add up.
+  \item \textbf{No delay:} each photon delivers its whole energy in one event.
+  \item \textbf{$K_\mathrm{max}$ depends on $f$, not brightness:}
+        $K_\mathrm{max} = hf - \phi$. Brightness changes the number of photons, not $hf$.
+\end{itemize}
+
+\begin{formulacard}{Einstein's photoelectric equation}
+  \cardformula{K_\mathrm{max} = hf - \phi}
+  \begin{symbols}
+    \sym{$K_\mathrm{max}$}{maximum kinetic energy of the photoelectrons}{\si{J} (or eV)}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s}}{\si{J.s}}
+    \sym{$f$}{frequency of the light}{\si{Hz}}
+    \sym{$\phi$}{work function of the metal}{\si{J} (or eV)}
+    \sym{$\lambda$}{wavelength of the light (in the form with $c$)}{\si{m}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{energy of one photon, minus the energy to escape, equals the kinetic energy
+    left over.}
+  \whentouse{light (or other EM radiation) falls on a metal, and $hf \ge \phi$.}
+  \whennottouse{$hf < \phi$. A negative answer means no electrons at all.}
+  \rearranged{$\phi = hf - K_\mathrm{max}$ \qquad $f = \dfrac{K_\mathrm{max} + \phi}{h}$
+    \qquad $K_\mathrm{max} = \dfrac{hc}{\lambda} - \phi$}
+  \tensecond{photon energy $hf = \qty{3.5}{eV}$ and $\phi = \qty{2.3}{eV}$, so
+    $K_\mathrm{max} = 3.5 - 2.3 = \qty{1.2}{eV}$.}
+  \trap{use one unit for every term: all joules or all eV. $\phi$ is lower-case phi;
+    capital $\Phi$ on the sheet is magnetic flux.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Threshold frequency and threshold wavelength}
+  \cardformula{\phi = hf_0 \qquad \lambda_0 = \frac{hc}{\phi}}
+  \begin{symbols}
+    \sym{$f_0$}{threshold frequency: lowest frequency that releases electrons}{\si{Hz}}
+    \sym{$\lambda_0$}{threshold wavelength: longest wavelength that releases electrons}{\si{m}}
+    \sym{$\phi$}{work function of the metal}{\si{J}}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s}}{\si{J.s}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{at the threshold, one photon has just enough energy to free an electron.}
+  \whentouse{to decide whether light of a given frequency or wavelength releases
+    electrons.}
+  \whennottouse{to find how fast the electrons move. Use $K_\mathrm{max} = hf - \phi$.}
+  \rearranged{$f_0 = \dfrac{\phi}{h}$ \qquad $\phi = \dfrac{hc}{\lambda_0}$
+    \qquad $K_\mathrm{max} = h(f - f_0)$}
+  \tensecond{$\phi = \qty{2.0}{eV} = \qty{3.204e-19}{J}$, so
+    $f_0 = \dfrac{\num{3.204e-19}}{\num{6.626e-34}} = \qty{4.835e14}{Hz}$ and
+    $\lambda_0 = \dfrac{c}{f_0} = \qty{620}{nm}$.}
+  \derive{at the threshold the fastest electron has nothing left over:
+    \begin{align*}
+      0 &= hf_0 - \phi && \text{put $K_\mathrm{max} = 0$, $f = f_0$ in $K_\mathrm{max} = hf - \phi$}\\
+      \phi &= hf_0 && \text{add $\phi$ to both sides}\\
+      \lambda_0 &= \frac{c}{f_0} = \frac{hc}{\phi} && \text{use $v = f\lambda$ with $v = c$, and $f_0 = \dfrac{\phi}{h}$}
+    \end{align*}}
+  \trap{electrons are released only when $f \ge f_0$, which means
+    $\lambda \le \lambda_0$. A wavelength \emph{longer} than $\lambda_0$ never
+    works, however bright the light.}
+\end{formulacard}
+
+How many photons does a lamp or laser give out each second? A source of power $P$
+gives out $P$ joules of light energy each second. Each photon carries $hf$. So divide
+the energy each second by the energy of one photon.
+
+\begin{formulacard}[notonsheet]{Number of photons each second}
+  \cardformula{\frac{N}{t} = \frac{P}{hf} = \frac{P\lambda}{hc}}
+  \begin{symbols}
+    \sym{$\dfrac{N}{t}$}{number of photons given out each second}{\si{s^{-1}}}
+    \sym{$P$}{power of the light source (light energy each second)}{\si{W}}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s}}{\si{J.s}}
+    \sym{$f$}{frequency of the light}{\si{Hz}}
+    \sym{$\lambda$}{wavelength of the light}{\si{m}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{the light energy given out each second, divided by the energy of one
+    photon.}
+  \whentouse{a lamp or laser of known power that gives one colour (one frequency).}
+  \whennottouse{light with many colours, or to find the energy of one photon (use
+    $E = hf$).}
+  \rearranged{$P = \dfrac{N}{t}\,hf$ \qquad $P = \dfrac{N}{t}\,\dfrac{hc}{\lambda}$}
+  \tensecond{a \qty{5.0}{mW} green laser, $\lambda = \qty{532}{nm}$:
+    $\dfrac{N}{t} = \dfrac{\num{5.0e-3} \times \num{5.32e-7}}{\num{6.626e-34} \times
+    \num{3.00e8}} = \qty{1.3e16}{s^{-1}}$.}
+  \derive{power is energy each second, $P = \dfrac{\Delta E}{\Delta t}$ (on the sheet).
+    \begin{align*}
+      P &= \frac{N}{t} \times hf && \text{(photons each second) $\times$ (energy of one photon)}\\
+      \frac{N}{t} &= \frac{P}{hf} && \text{divide both sides by $hf$}\\
+      \frac{N}{t} &= \frac{P\lambda}{hc} && \text{replace $f$ by $\dfrac{c}{\lambda}$}
+    \end{align*}}
+  \trap{change \si{mW} to \si{W} (divide by 1000) and \si{nm} to \si{m}. At the same
+    power, red light gives \emph{more} photons each second than blue light, because
+    each red photon has less energy.}
+\end{formulacard}
+
+\subsection{Planck, Einstein and a new model of light}
+
+\Cref{ch3:tab:planckeinstein} compares Planck's and Einstein's quantum ideas.
+
+\begin{table}
+  \caption{Planck's and Einstein's quantum ideas.}\label{ch3:tab:planckeinstein}
+  \centering
+  \small
+  \begin{tabular}{@{}L{32mm}L{52mm}L{52mm}@{}}
+    \toprule
+    & \colhead{Planck (1900)} & \colhead{Einstein (1905)}\\
+    \midrule
+    What is quantised? & energy of the oscillators in a black body's walls
+      & light itself: it travels as photons\\
+    Were quanta real? & no, he saw them as a maths trick & yes, a real property of light\\
+    What did it explain? & the black body curve (no ultraviolet catastrophe)
+      & the photoelectric effect\\
+    The same idea & \multicolumn{2}{L{104mm}@{}}{energy is given out or taken in only
+      in packets of $E = hf$}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Light still shows interference and diffraction, which only waves explain
+(\cref{ch2:chap}). But it is given out and absorbed as photons. So light has
+\term{wave--particle duality}: it travels like a wave and gives up its energy like a
+stream of particles. The photon is \emph{not} Newton's corpuscle model, which wrongly
+predicted that light moves faster in water. Millikan's experiments (1914--1916)
+confirmed Einstein's equation, and Einstein won the 1921 Nobel Prize for it.
+
+\subsection{Photoelectric graphs}
+
+\begin{toolkit}{Straight-line graphs}
+\begin{itemize}
+  \item A straight line is $y = mx + c$. Here $m$ is the gradient (how steep the line
+        is) and $c$ is the $y$-intercept (where the line crosses the $y$-axis).
+        Careful: here $c$ is \emph{not} the speed of light.
+  \item A \term{line of best fit} is one straight line, drawn with a ruler. The
+        points are spread evenly on both sides of it. It does not have to pass
+        through any point.
+  \item To \term{extrapolate} means to extend the line past your data. Draw this
+        part dotted. Then you can read a value you did not measure, such as an
+        intercept.
+  \item Gradient $= \dfrac{\text{rise}}{\text{run}} = \dfrac{y_2 - y_1}{x_2 - x_1}$,
+        using two points \emph{on the line of best fit}, far apart. Its unit is
+        ($y$ unit)/($x$ unit). Read the power of ten from the axis label.
+  \item The $x$-intercept is where $y = 0$. The $y$-intercept is where $x = 0$.
+\end{itemize}
+\end{toolkit}
+
+Compare Einstein's equation with a straight line, $y = mx + c$:
+\[
+  \underbrace{K_\mathrm{max}}_{y} = \underbrace{h}_{m}\,\underbrace{f}_{x}
+  \;\underbrace{-\,\phi}_{\text{$y$-intercept}}
+\]
+\Cref{ch3:fig:kf} shows the graph for two metals.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.74\linewidth, height=0.44\linewidth,
+        axis lines=middle, xmin=0, xmax=14.5, ymin=-5, ymax=4.2,
+        xtick={2,4,...,14}, ytick={-4,-2,2,4},
+        xlabel={$f$ ($\times10^{14}$ Hz)}, ylabel={$K_\mathrm{max}$ (eV)},
+        x label style={anchor=west}, y label style={anchor=south, rotate=-90},
+        every axis x label/.style={at={(axis cs:14.5,0)}, anchor=west},
+        every axis y label/.style={at={(axis cs:0,4.2)}, anchor=south},
+        xticklabel style={font=\footnotesize, fill=white, inner sep=1pt},
+        yticklabel style={font=\footnotesize}]
+      \addplot[hscseriesA, line width=1.4pt, domain=5.077:14, samples=2] {0.4136*x - 2.10};
+      \addplot[hscseriesA, line width=1pt, densely dotted, domain=0:5.077, samples=2] {0.4136*x - 2.10};
+      \addplot[hscseriesB, line width=1.4pt, domain=10.40:14, samples=2] {0.4136*x - 4.30};
+      \addplot[hscseriesB, line width=1pt, densely dotted, domain=0:10.40, samples=2] {0.4136*x - 4.30};
+      \fill[hscseriesA] (axis cs:5.077,0) circle (2.2pt);
+      \fill[hscseriesB] (axis cs:10.40,0) circle (2.2pt);
+      \fill[hscseriesA] (axis cs:0,-2.10) circle (2.2pt);
+      \fill[hscseriesB] (axis cs:0,-4.30) circle (2.2pt);
+      \node[anchor=south east, font=\footnotesize, text=hscseriesA] at (axis cs:5.0,0.1) {$f_0$};
+      \node[anchor=south east, font=\footnotesize, text=hscseriesB] at (axis cs:10.3,0.1) {$f_0$};
+      \node[anchor=north west, font=\footnotesize, text=hscseriesA, fill=white, inner sep=1pt] at (axis cs:0.2,-2.2) {$-\phi = \qty{-2.10}{eV}$};
+      \node[anchor=north west, font=\footnotesize, text=hscseriesB] at (axis cs:0.2,-4.4) {$-\phi = \qty{-4.30}{eV}$};
+      \node[anchor=west, font=\small] at (axis cs:14.1,3.69) {caesium};
+      \node[anchor=west, font=\small] at (axis cs:14.1,1.49) {zinc};
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:6.4,-3.4)
+        {same gradient $h$: parallel lines.\\dotted: extrapolated (no electrons)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{$K_\mathrm{max}$ against frequency for caesium and zinc.}\label{ch3:fig:kf}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Gradient} $= h$ for every metal, so the lines are parallel. With
+        $K_\mathrm{max}$ in eV it is $h \div \num{1.602e-19} = \qty{4.136e-15}{eV.s}$.
+  \item \textbf{$f$-intercept} $= f_0$. Below it there are no electrons.
+  \item \textbf{$K_\mathrm{max}$-intercept} $= -\phi$. Extrapolate to $f = 0$ and
+        change the sign. A bigger $\phi$ moves the line right and down.
+\end{itemize}
+
+Experiments measure $V_0$, not $K_\mathrm{max}$. So we turn Einstein's equation into
+an equation for $V_0$. A graph of $V_0$ against $f$ is then also a straight line.
+
+\begin{formulacard}[notonsheet]{Stopping voltage against frequency}
+  \cardformula{V_0 = \frac{h}{q}f - \frac{\phi}{q}}
+  \begin{symbols}
+    \sym{$V_0$}{stopping voltage}{\si{V}}
+    \sym{$h$}{Planck's constant, \qty{6.626e-34}{J.s}}{\si{J.s}}
+    \sym{$q$}{size of the electron's charge, \qty{1.602e-19}{C}}{\si{C}}
+    \sym{$f$}{frequency of the light}{\si{Hz}}
+    \sym{$\phi$}{work function of the metal}{\si{J}}
+  \end{symbols}
+  \inwords{$V_0$ rises in a straight line with $f$. The gradient is $\dfrac{h}{q}$ for
+    every metal.}
+  \whentouse{to read $h$, $f_0$ and $\phi$ from a graph of $V_0$ against $f$.}
+  \whennottouse{for a graph of $K_\mathrm{max}$ against $f$ (there the gradient is
+    $h$ itself).}
+  \rearranged{$h = q \times \text{gradient}$ \qquad $f_0 = f\text{-intercept}$
+    \qquad $\phi = -q \times (V_0\text{-intercept})$}
+  \tensecond{gradient \qty{4.08e-15}{V.s} and $V_0$-intercept \qty{-1.95}{V}:
+    $h = \num{1.602e-19} \times \num{4.08e-15} = \qty{6.54e-34}{J.s}$, and
+    $\phi = \qty{1.95}{eV}$.}
+  \derive{start from Einstein's equation:
+    \begin{align*}
+      K_\mathrm{max} &= hf - \phi && \text{Einstein's equation (on the sheet)}\\
+      qV_0 &= hf - \phi && \text{replace $K_\mathrm{max}$ by $qV_0$}\\
+      V_0 &= \frac{h}{q}f - \frac{\phi}{q} && \text{divide every term by $q$}\\
+      \frac{h}{q} &= \frac{\qty{6.626e-34}{J.s}}{\qty{1.602e-19}{C}}
+        = \qty{4.136e-15}{V.s} && \text{the gradient for every metal}
+    \end{align*}}
+  \trap{the $V_0$-intercept is $-\dfrac{\phi}{q}$, in volts. Change the sign to get
+    $\phi$ in eV. Multiply by $q$ to get $\phi$ in joules.}
+\end{formulacard}
+
+\Cref{ch3:fig:iv} shows photocurrent against the voltage across the tube.
+
+\begin{sidebyside}[0.5]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.8\linewidth,
+        axis lines=middle, xmin=-3, xmax=1.8, ymin=0, ymax=3.4,
+        xtick={-2.4,-1.2}, xticklabels={$-V_{0}$ (A), $-V_{0}$ (B)}, ytick=\empty,
+        xlabel={$V$}, ylabel={$I$ (photocurrent)},
+        every axis x label/.style={at={(axis cs:1.8,0)}, anchor=west},
+        every axis y label/.style={at={(axis cs:0,3.4)}, anchor=south},
+        xticklabel style={font=\footnotesize}]
+      \addplot[hscseriesA, line width=1.3pt, domain=-2.4:0, samples=40] {2.2*sin(90*(x+2.4)/2.4)^2};
+      \addplot[hscseriesA, line width=1.3pt, domain=0:1.6, samples=2] {2.2};
+      \addplot[hscseriesB, line width=1.3pt, dashed, domain=-1.2:0, samples=40] {1.1*sin(90*(x+1.2)/1.2)^2};
+      \addplot[hscseriesB, line width=1.3pt, dashed, domain=0:1.6, samples=2] {1.1};
+      \node[anchor=south, font=\footnotesize] at (axis cs:1.45,2.2) {A};
+      \node[anchor=south, font=\footnotesize] at (axis cs:1.45,1.1) {B};
+      \node[anchor=north, font=\scriptsize, align=center] at (axis cs:0.6,1.98)
+        {saturation\\current (A)};
+      \draw[->, hscink, line width=0.5pt] (axis cs:0.6,1.98) -- (axis cs:0.6,2.15);
+      \node[anchor=south, font=\scriptsize, align=center, text=hscmuted]
+        at (axis cs:-1.5,2.55) {anode negative\\(pushes electrons back)};
+      \node[anchor=south, font=\scriptsize, align=center, text=hscmuted]
+        at (axis cs:0.85,2.55) {anode\\positive};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Photocurrent against tube voltage (idealised) for two beams.}
+  \label{ch3:fig:iv}
+\nextside
+  \begin{itemize}
+    \item Positive voltage: every released electron reaches the anode. The flat
+          part is the \term{saturation current}, set by the number of photons each
+          second.
+    \item Negative voltage: only faster electrons get through. $I = 0$ at $-V_0$.
+    \item Beam A has more photons each second (higher flat part) and a higher
+          frequency (bigger $V_0$) than beam B.
+  \end{itemize}
+\end{sidebyside}
+
+Brighter light of the same $f$ raises only the flat part. Higher $f$ with the same
+number of photons each second makes $V_0$ bigger. (At the same \emph{power},
+higher-$f$ light has fewer photons, so a lower flat part.) A metal with a bigger
+$\phi$, in the same light, gives a smaller $V_0$: its curve meets the voltage axis
+closer to zero.
+
+\begin{workedexample}{Will it work? Zinc and two lamps}\label{ch3:we:zinc}
+Zinc ($\phi = \qty{4.30}{eV}$) is lit by a very bright \qty{365}{nm} lamp and a dim
+\qty{254}{nm} lamp. (a) Find the threshold wavelength of zinc. (b) Which lamp releases
+electrons? Explain. (c) For that lamp, find $K_\mathrm{max}$ and $V_0$.
+\given{$\phi = 4.30 \times \num{1.602e-19} = \qty{6.889e-19}{J}$ \ (eV to J), \
+  $\lambda_1 = \qty{3.65e-7}{m}$, \ $\lambda_2 = \qty{2.54e-7}{m}$}
+\find{$\lambda_0$; which lamp works; $K_\mathrm{max}$ and $V_0$}
+\formula{$\lambda_0 = \dfrac{hc}{\phi}$, \ $E = \dfrac{hc}{\lambda}$, \
+  $K_\mathrm{max} = hf - \phi$, \ $K_\mathrm{max} = qV_0$}
+\substitute{\eqlines{\lambda_0 &= \frac{\qty{6.626e-34}{J.s} \times \qty{3.00e8}{m.s^{-1}}}{\qty{6.889e-19}{J}}
+    = \qty{2.886e-7}{m}}\par
+  \eqlines{E_{365} &= \frac{\qty{6.626e-34}{J.s} \times \qty{3.00e8}{m.s^{-1}}}{\qty{3.65e-7}{m}}
+    = \qty{5.446e-19}{J}\\
+  &= \frac{\num{5.446e-19}}{\num{1.602e-19}} = \qty{3.40}{eV} \quad\text{(J to eV)}}\par
+  \eqlines{E_{254} &= \frac{\qty{6.626e-34}{J.s} \times \qty{3.00e8}{m.s^{-1}}}{\qty{2.54e-7}{m}}
+    = \qty{7.826e-19}{J}\\
+  &= \frac{\num{7.826e-19}}{\num{1.602e-19}} = \qty{4.885}{eV} \quad\text{(J to eV)}}\par
+  \eqlines{K_\mathrm{max} &= \qty{4.885}{eV} - \qty{4.30}{eV} = \qty{0.585}{eV}
+    \quad\text{(all in eV)}\\
+  V_0 &= \frac{K_\mathrm{max}}{q} = \frac{0.585 \times \qty{1.602e-19}{J}}{\qty{1.602e-19}{C}}
+    = \qty{0.585}{V}}}
+\answer{(a) \final{$\lambda_0 = \qty{2.89e-7}{m}$} (\qty{289}{nm}). (b) Only the dim
+  \qty{254}{nm} lamp, because \qty{254}{nm} $< \qty{289}{nm}$. A \qty{365}{nm} photon
+  has only \qty{3.40}{eV} $< \phi$, and a brighter lamp only gives more of them.
+  (c) \final{$K_\mathrm{max} = \qty{0.59}{eV}$}, so \final{$V_0 = \qty{0.59}{V}$}.}
+\checkstep{\qty{254}{nm} is shorter than $\lambda_0 = \qty{289}{nm}$ and
+  \qty{365}{nm} is longer \cmark. \qty{4.89}{eV} is only a little above $\phi$, so a
+  small $K_\mathrm{max}$ makes sense \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Finding \texorpdfstring{$h$}{h} from data (HSC style)}\label{ch3:we:data}
+A student measures the stopping voltage for six frequencies of light on sodium.
+\begin{center}\small
+  \begin{tabular}{@{}lcccccc@{}}
+    \toprule
+    $f$ ($\times10^{14}$ Hz) & 6.0 & 7.0 & 8.0 & 9.0 & 10.0 & 11.0\\
+    $V_0$ (V) & 0.21 & 0.58 & 1.02 & 1.40 & 1.85 & 2.24\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+(a) Plot $V_0$ against $f$ with a line of best fit. (b) Use the gradient to find
+Planck's constant. (c) Find the threshold frequency and the work function of sodium.
+\given{the data; \ $q = \qty{1.602e-19}{C}$}
+\find{$h$, $f_0$ and $\phi$}
+\formula{$V_0 = \dfrac{h}{q}f - \dfrac{\phi}{q}$: \ $h = q \times \text{gradient}$,
+  \ $f_0 = f$-intercept, \ $\phi = -q \times (V_0\text{-intercept})$}
+\substitute{(a) See \cref{ch3:fig:data}. Two points far apart \emph{on the line}:
+  ($\qty{6.0e14}{Hz}$, \qty{0.19}{V}) and ($\qty{11.0e14}{Hz}$, \qty{2.24}{V}).\par
+  \eqlines{\text{gradient} &= \frac{\qty{2.24}{V} - \qty{0.19}{V}}{\qty{11.0e14}{Hz} - \qty{6.0e14}{Hz}}
+    = \qty{4.10e-15}{V.s}\\
+  h &= \qty{1.602e-19}{C} \times \qty{4.10e-15}{V.s} = \qty{6.568e-34}{J.s}}\par
+  \emph{Intercept:} rearrange $y = mx + c$ to $c = y - mx$. Use the point
+  (\qty{6.0e14}{Hz}, \qty{0.19}{V}) on the line.\par
+  \eqlines{V_0\text{-intercept} &= \qty{0.19}{V} - \qty{4.10e-15}{V.s} \times \qty{6.0e14}{Hz}
+    = \qty{-2.27}{V}}\par
+  \emph{Threshold:} at the $f$-intercept, $V_0 = 0$. Add 2.27 to both sides, then
+  divide by the gradient.\par
+  \eqlines{0 &= (\qty{4.10e-15}{V.s})\,f_0 - \qty{2.27}{V}\\
+  f_0 &= \frac{\qty{2.27}{V}}{\qty{4.10e-15}{V.s}} = \qty{5.537e14}{Hz}}\par
+  \emph{Work function:} $\phi = -q \times (V_0\text{-intercept})$. Then change J to eV.
+  It is the same number as the intercept, without the minus sign.\par
+  \eqlines{\phi &= -\qty{1.602e-19}{C} \times (\qty{-2.27}{V}) = \qty{3.637e-19}{J}\\
+  \phi &= \frac{\num{3.637e-19}}{\num{1.602e-19}} = \qty{2.27}{eV}}}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.62\linewidth, height=0.33\linewidth,
+        axis lines=middle, xmin=0, xmax=12.5, ymin=-2.6, ymax=2.8,
+        xtick={2,4,...,12}, ytick={-2,-1,1,2},
+        xlabel={$f$ ($\times10^{14}$ Hz)}, ylabel={$V_0$ (V)},
+        every axis x label/.style={at={(axis cs:12.5,0)}, anchor=west},
+        every axis y label/.style={at={(axis cs:0,2.8)}, anchor=south},
+        xticklabel style={font=\footnotesize, fill=white, inner sep=1pt},
+        yticklabel style={font=\footnotesize}]
+      \addplot[hscseriesB, line width=1.1pt, domain=5.537:12, samples=2] {0.41*x - 2.27};
+      \addplot[hscseriesB, line width=1pt, densely dotted, domain=0:5.537, samples=2] {0.41*x - 2.27};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(6.0,0.21) (7.0,0.58) (8.0,1.02) (9.0,1.40) (10.0,1.85) (11.0,2.24)};
+      \draw[guide] (axis cs:6.0,0.19) -- (axis cs:11.0,0.19) -- (axis cs:11.0,2.24);
+      \node[anchor=south, font=\footnotesize] at (axis cs:9.3,0.19) {run};
+      \node[anchor=west, font=\footnotesize] at (axis cs:11.05,1.2) {rise};
+      \fill[hscseriesB] (axis cs:5.537,0) circle (2pt);
+      \node[anchor=south east, font=\footnotesize] at (axis cs:5.3,0.15) {$f_0 \approx \qty{5.5e14}{Hz}$};
+      \fill[hscseriesB] (axis cs:0,-2.27) circle (2pt);
+      \node[anchor=north west, font=\footnotesize] at (axis cs:0.2,-2.3) {\qty{-2.27}{V}};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Stopping voltage against frequency for sodium (dotted: extrapolated).}
+  \label{ch3:fig:data}
+\end{figure}
+\answer{(b) \final{$h = \qty{6.57e-34}{J.s}$}. (c) \final{$f_0 = \qty{5.54e14}{Hz}$}
+  and \final{$\phi = \qty{2.27}{eV} = \qty{3.64e-19}{J}$}.}
+\checkstep{$h$ is 0.9\,\% below \qty{6.626e-34}{J.s} \cmark. Sodium's work function
+  is about \qty{2.3}{eV} \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Subtracting an energy in eV from an energy in J (for example $hf$ in J
+        minus $\phi$ in eV). \cmark\ Change both to the same unit first.
+  \item \xmark\ ``Bright red light will release electrons from any metal.''
+        \cmark\ If $hf < \phi$, none leave, however bright the light.
+  \item \xmark\ ``The wavelength must be longer than $\lambda_0$.''
+        \cmark\ It must be \emph{shorter} (or equal): $\lambda \le \lambda_0$.
+  \item \xmark\ Putting $K_\mathrm{max}$ in eV into $K = \frac12 mv^2$.
+        \cmark\ Change it to joules first.
+  \item \xmark\ ``The intercept is $\phi$'', or ``each metal has its own gradient''.
+        \cmark\ The intercept is $-\phi$ (change the sign). Every metal has the
+        same gradient.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+The 2025 HSC exam gave a table of stopping voltage against frequency for one metal
+(6 marks).
+\begin{enumerate}
+  \item Graph and threshold frequency (3 marks): if the axes are not labelled,
+        label them with units. Plot every point accurately. Draw one straight line of best fit (not dot-to-dot). Extrapolate it
+        (dotted) to the frequency axis. Read $f_0$ with its unit.
+  \item ``Using the particle model, explain the features'' (3 marks): light is a
+        stream of photons, each with energy $E = hf$. One photon gives all its energy
+        to one electron. By conservation of energy, $qV_0 = K_\mathrm{max} = hf -
+        \phi$, so $V_0$ rises in a straight line with $f$ (gradient $\dfrac{h}{q}$).
+        At the threshold, $hf_0 = \phi$. Below $f_0$ no single photon has enough
+        energy to free an electron, so the current is zero, however bright the light.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Sodium has a work function of \qty{2.28}{eV}. Calculate its threshold
+        wavelength. Will yellow light of wavelength \qty{589}{nm} release electrons?
+  \item Ultraviolet light of wavelength \qty{200}{nm} falls on copper
+        ($\phi = \qty{4.70}{eV}$). Find $K_\mathrm{max}$ (in eV and J), the stopping
+        voltage and the maximum speed of the photoelectrons.\label{ch3:qc:copper}
+  \item A \qty{2.0}{mW} violet laser (\qty{405}{nm}) shines on caesium
+        ($\phi = \qty{2.10}{eV}$). (a) How many photons arrive each second? (b) The
+        power is doubled, at the same wavelength. What happens to the number of
+        photoelectrons each second and to $K_\mathrm{max}$? Describe how the
+        current--voltage graph changes. Explain.
+  \item Metals P and Q give parallel lines on a $K_\mathrm{max}$--$f$ graph, crossing
+        the frequency axis at \qty{6.0e14}{Hz} (P) and \qty{9.0e14}{Hz} (Q). Which
+        has the larger work function? Calculate the work function of P in eV.
+  \item Compare Planck's and Einstein's ideas about quanta. Give one similarity and
+        two differences. (3 marks)\label{ch3:qc:planckeinstein}
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch3:sec:experiments}
+\covers{M7.IQ3.01, M7.IQ3.02, M7.IQ3.03}
+
+The syllabus asks you to analyse the black body evidence and to investigate the
+photoelectric evidence. For each experiment, learn its aim, method and results, and
+how to judge its validity, reliability and accuracy.
+
+\begin{experiment}{Measuring black body radiation (1899--1900)}
+\aim{To measure how the intensity of black body radiation depends on wavelength, at
+  several temperatures (Lummer and Pringsheim, Berlin).}
+\apparatus{an electric oven with a hollow inside and a small hole (the black body); a
+  thermocouple (thermometer); a slit; a prism to spread the radiation into
+  wavelengths; a \term{bolometer}, a detector whose resistance changes when
+  radiation warms it (\cref{ch3:fig:bbapp}).}
+\method{\begin{enumerate}
+  \item Heat the oven to a steady temperature, measured with the thermocouple.
+  \item Pass the radiation from the hole through the slit and the prism.
+  \item Move the bolometer along the spectrum and record the intensity at each
+        wavelength. Repeat at several temperatures.
+\end{enumerate}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \fill[hscmuted!40] (0,0) rectangle (2.3,1.7);
+      \fill[hscink!85] (0.35,0.35) rectangle (1.95,1.35);
+      \fill[white] (1.94,0.75) rectangle (2.31,0.95);
+      \draw[hscforce, line width=0.9pt] (0.9,1.9) -- (0.9,1.0);
+      \node[diagramlabel, anchor=south, font=\footnotesize] at (0.9,1.9) {thermocouple};
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (1.15,-0.05)
+        {hot oven (black body)};
+      \draw[hscink, line width=2pt] (3.0,0.35) -- (3.0,0.78) (3.0,0.92) -- (3.0,1.35);
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (3.0,0.3) {slit};
+      \draw[ray] (2.3,0.85) -- (4.1,0.85);
+      \draw[hscink, line width=0.8pt, fill=hscbrand!10] (3.8,0.25) -- (5.0,0.25) -- (4.4,1.45) -- cycle;
+      \draw[hscray, line width=1pt] (4.1,0.85) -- (4.73,0.79);
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (4.4,0.2) {prism};
+      \draw[hscseriesB, line width=1pt] (4.73,0.80) -- (7.4,0.55);
+      \draw[hscseriesC, line width=1pt] (4.73,0.79) -- (7.4,0.15);
+      \draw[hscvel, line width=1pt] (4.73,0.78) -- (7.4,-0.25);
+      \node[diagramlabel, anchor=west, font=\footnotesize] at (7.45,0.55) {longer $\lambda$ (bent least)};
+      \node[diagramlabel, anchor=west, font=\footnotesize] at (7.45,-0.25) {shorter $\lambda$ (bent most)};
+      \draw[hscink, line width=0.8pt, fill=white] (6.35,0.21) rectangle (6.65,0.51);
+      \draw[hscmuted, line width=0.5pt] (6.5,0.51) -- (6.2,1.9)
+        node[diagramlabel, anchor=south, font=\footnotesize] {bolometer (moved along the spectrum)};
+    \end{tikzpicture}
+    \caption{Measuring a black body curve (simplified).}\label{ch3:fig:bbapp}
+  \end{figure}}
+\results{curves like \cref{ch3:fig:bbcurves}. Typical peaks (example readings made
+  up for this book, not the original data): \qty{2.92}{\micro m} at \qty{1000}{K},
+  \qty{2.30}{\micro m} at \qty{1250}{K}, \qty{1.94}{\micro m} at \qty{1500}{K}, so
+  $\lambda_\mathrm{max}T \approx \qty{2.9e-3}{m.K}$ each time.}
+\conclusion{$\lambda_\mathrm{max}T$ is constant: Wien's law. Classical theory
+  fitted only the long-wavelength side; Planck's formula fitted the whole curve.}
+\significance{these curves led Planck to propose quanta (1900), the first step to
+  the photon model of light.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} a small hole, so the oven acts as a black body; a steady
+        temperature measured inside the cavity; a prism that lets all the measured
+        wavelengths through (glass absorbs much infrared).
+  \item \textbf{Reliability:} repeat each scan at the same temperature; the curves
+        should agree.
+  \item \textbf{Accuracy:} calibrate the thermocouple and bolometer; use a narrow
+        slit; shield the bolometer from room heat.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{The photoelectric effect: measuring \texorpdfstring{$h$}{h} and \texorpdfstring{$\phi$}{phi}}
+\aim{To find how $V_0$ depends on frequency and brightness, and to find $h$ and
+  $\phi$ (Lenard 1902; Millikan 1914--1916; a school photocell or a simulation).}
+\apparatus{a photocell in the circuit of \cref{ch3:fig:apparatus} (reversible supply,
+  voltmeter, sensitive ammeter); light of known frequencies (a mercury lamp with
+  colour filters, or LEDs). The free PhET ``Photoelectric Effect'' computer
+  simulation can be used instead.}
+\method{\begin{enumerate}
+  \item Shine light of one frequency on the cathode. Make the anode negative.
+  \item Increase the reverse voltage until the current just becomes zero. Record
+        $V_0$. Repeat three times and average. Do this for at least five frequencies.
+  \item Keep $f$ fixed. Move the lamp closer or further away to change the
+        brightness. For each brightness, make the anode positive and record the
+        saturation current. Then make the anode negative again and find $V_0$.
+\end{enumerate}}
+\results{$V_0$ rises in a straight line with $f$ (like \cref{ch3:fig:data}). No current
+  below $f_0$, however bright the light. Brighter light raises the saturation current
+  but not $V_0$.}
+\conclusion{$qV_0 = hf - \phi$: $q \times$ gradient gives $h$; the intercepts give
+  $f_0$ and $\phi$. Brightness changes only the number of electrons. This supports
+  the photon model, not the wave model.}
+\significance{Lenard's result, that $K_\mathrm{max}$ does not depend on brightness,
+  was key evidence the wave model could not explain. Millikan expected to prove
+  Einstein wrong. Instead he confirmed the straight-line law and found $h$ within
+  about 1\,\% of today's value.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} change only the frequency (same metal and tube); use light
+        of nearly one colour; block room light.
+  \item \textbf{Reliability:} repeat each $V_0$ three times; use five or more
+        frequencies; check the scatter about the line.
+  \item \textbf{Accuracy:} the current falls to zero slowly, so $V_0$ is hard to judge
+        (use a very sensitive ammeter). Keep the metal clean: an oxide layer (a thin
+        coating that forms when the metal reacts with air) changes $\phi$. Use the
+        gradient, not one single reading. An error that shifts every $V_0$ by the
+        same amount does not change the gradient, so $h$ is still accurate.
+\end{itemize}}
+\end{experiment}
+
+\begin{examtip}
+Questions often ask you to ``assess the validity, reliability or accuracy'' of one of
+these experiments. Answer with the right word and a reason:
+\begin{itemize}
+  \item \textbf{Validity:} name what was kept the same (same metal, same tube, one
+        colour at a time), so only the variable being tested changed.
+  \item \textbf{Reliability:} say that readings were repeated and agreed closely.
+  \item \textbf{Accuracy:} compare your result with the accepted value, for example
+        $h$ with \qty{6.626e-34}{J.s}, as a percentage difference.
+\end{itemize}
+\end{examtip}

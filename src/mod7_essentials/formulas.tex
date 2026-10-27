@@ -1,0 +1,193 @@
+% formulas.tex -- Module 7 ESSENTIALS: All formulas at a glance.
+% One compact table of every formula in Module 7, in chapter order. The rows, their
+% notation and their sheet status are copied from the final full book
+% (src/mod7/formulasheet.tex: every formula card, then the formulas "also used"
+% A formula used in two or more chapters has one row (its chapters in the last column).
+% Left out (not used in the Essentials text): Snell's law n1 sin(theta1) = n2 sin(theta2)
+% (a Year 11 refresher in the full book), t = s/v for light, Newton's
+% v1 sin(theta1) = v2 sin(theta2), v = 2 pi r/T for the spinning Earth, the low-speed shortcut t - t0 ~ t v^2/(2c^2), and
+% the light-year trip-time shortcut; so also the data-sheet values r_E and the speed of sound.
+% Notation note (as in the full book): dark fringes are (m - 1/2) lambda with m = 1, 2, 3;
+\unnumberedchapter[\faIcon{square-root-alt}]{All formulas at a glance}
+\phantomsection\label{ess:fs:chap}
+
+% ---- helpers for this chapter only (prefix essfs)
+\newcommand\essfsYes{\textcolor{hscformula}{\footnotesize\bfseries\faCheck\ Yes}}
+\newcommand\essfsNo{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes\ Learn it}}
+\newcommand\essfsComb{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink\ Combine}}
+% a link to a chapter: \essfsch{3}
+\newcommand\essfsch[1]{\hyperref[ch#1:chap]{\textcolor{hscbrand}{\bfseries #1}}}
+% a little space above and below each formula, so tall fractions never touch the rules
+\newcommand\essfspad[1]{\raisebox{0pt}[\dimexpr\height+0.7ex\relax][\dimexpr\depth+0.5ex\relax]{#1}}
+% \essfsrow{mark}{formula}{what it is for}{chapter links}
+\newcommand\essfsrow[4]{\rule[-1.2ex]{0pt}{3.8ex}\essfspad{#2} & #3 & #1 & #4\\\hline}
+% a formula on two or three short lines inside one cell
+\newcommand\essfsstack[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+% a navy rule between two chapters (drawn over the last grey rule)
+\newcommand\essfsnext{\noalign{\vskip-\arrayrulewidth}\arrayrulecolor{hscbrand}%
+  \specialrule{0.7pt}{0pt}{0pt}\arrayrulecolor{hscrule}}
+\newcommand\essfshead{\colhead{Formula} & \colhead{What it is for} &
+  \colhead{On the sheet} & \colhead{Ch}}
+
+Every formula in Module~\modulenumber, in chapter order (``Ch'' = chapter: click it). The
+official HSC formula sheet: \mbox{\essfsYes} = printed on it; \mbox{\essfsNo} = not on it, so
+learn it or how to derive it; \mbox{\essfsComb} = join formulas that are on the sheet.
+
+{\small
+\setlength\LTpre{4pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.0}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}C{42mm}@{\hspace{3mm}}L{\dimexpr\linewidth-42mm-18mm-10mm-9mm\relax}%
+    @{\hspace{3mm}}C{18mm}@{\hspace{3mm}}C{10mm}@{}}
+  \essfshead\\\hline\endfirsthead
+  \essfshead\\\hline\endhead
+  % ------------------------------------------------------------------ Chapter 1
+  \essfsrow{\essfsNo}{$c = \dfrac{1}{\sqrt{\mu_0\varepsilon_0}}$}
+    {Maxwell's predicted speed of EM waves}{\essfsch{1}}
+  \essfsrow{\essfsYes}{$v = f\lambda$ \quad $f = \dfrac{1}{T}$}
+    {any wave; frequency from the period}{\essfsch{1}}
+  \essfsrow{\essfsComb}{$c = f\lambda$}
+    {EM waves in a vacuum or in air}{\essfsch{1}, \essfsch{3}}
+  \essfsrow{\essfsNo}{$c = \dfrac{d}{t}$}
+    {timing light; there and back: $d = 2D$}{\essfsch{1}}
+  \essfsrow{\essfsNo}{$t = \dfrac{1}{2Nf}$}
+    {Fizeau's wheel: a gap turns to the next tooth}{\essfsch{1}}
+  \essfsrow{\essfsYes}{$\lambda_\mathrm{max} = \dfrac{b}{T}$}
+    {Wien's law: peak gives the temperature}{\essfsch{1}, \essfsch{3}}
+  \essfsrow{\essfsNo}{$T(\unit{K}) = T(\unit{\degreeCelsius}) + 273$}
+    {changes \si{\degreeCelsius} into kelvin}{\essfsch{1}, \essfsch{3}}
+  \essfsrow{\essfsNo}{$\Delta\lambda = \dfrac{\lambda v}{c}$}
+    {Doppler shift of a line ($v$ far below $c$)}{\essfsch{1}}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 2
+  \essfsrow{\essfsYes}{$n_\mathrm{x} = \dfrac{c}{v_\mathrm{x}}$}
+    {speed of light in water or glass}{\essfsch{2}}
+  \essfsrow{\essfsYes}{$d\sin\theta = m\lambda$}
+    {bright fringes of a double slit or a grating}{\essfsch{2}}
+  \essfsrow{\essfsNo}{\essfsstack{$d\sin\theta = \left(m - \tfrac{1}{2}\right)\lambda$\\[1pt]
+      {\footnotesize $m = 1, 2, 3, \ldots$}}}
+    {dark fringes of a double slit}{\essfsch{2}}
+  \essfsrow{\essfsNo}{\essfsstack{$\delta = d\sin\theta$\\[3pt]
+      $\delta = \left|S_2P - S_1P\right|$}}
+    {path difference: $m\lambda$ bright, $\left(m - \frac{1}{2}\right)\lambda$ dark}{\essfsch{2}}
+  \essfsrow{\essfsNo}{$y = L\tan\theta$}
+    {fringe angle to a distance on the screen}{\essfsch{2}}
+  \essfsrow{\essfsNo}{$\Delta y = \dfrac{\lambda L}{d}$}
+    {double-slit fringe spacing, small angles only}{\essfsch{2}}
+  \essfsrow{\essfsNo}{$d = \dfrac{1}{N}$}
+    {grating spacing ($N$ = lines per metre)}{\essfsch{2}}
+  \essfsrow{\essfsNo}{\essfsstack{highest $m = \dfrac{d}{\lambda}$\\[1pt]
+      {\footnotesize rounded down}}}
+    {the highest order a grating shows}{\essfsch{2}}
+  \essfsrow{\essfsNo}{$I = \tfrac{1}{2}I_0$}
+    {unpolarised light through the first polariser}{\essfsch{2}}
+  \essfsrow{\essfsYes}{$I = I_\mathrm{max}\cos^2\theta$}
+    {Malus' law: polarised light through a polariser}{\essfsch{2}}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 3
+  \essfsrow{\essfsYes}{$E = hf$}
+    {energy of one quantum (photon)}{\essfsch{1}, \essfsch{3}}
+  \essfsrow{\essfsComb}{$E = \dfrac{hc}{\lambda}$}
+    {photon energy from the wavelength}{\essfsch{3}}
+  \essfsrow{\essfsNo}{$0,\ hf,\ 2hf,\ 3hf, \ldots$}
+    {Planck's energy steps (an idea only)}{\essfsch{3}}
+  \essfsrow{\essfsYes}{$W = qV$}
+    {work done by a voltage; defines the eV}{\essfsch{3}}
+  \essfsrow{\essfsComb}{$K_\mathrm{max} = qV_0$}
+    {stopping voltage to maximum kinetic energy}{\essfsch{3}}
+  \essfsrow{\essfsYes}{$K_\mathrm{max} = hf - \phi$}
+    {Einstein's photoelectric equation ($hf \ge \phi$)}{\essfsch{3}}
+  \essfsrow{\essfsNo}{$\phi = hf_0$ \quad $\lambda_0 = \dfrac{hc}{\phi}$}
+    {threshold frequency and wavelength}{\essfsch{3}}
+  \essfsrow{\essfsNo}{$V_0 = \dfrac{h}{q}f - \dfrac{\phi}{q}$}
+    {$V_0$ against $f$: gradient $h/q$, $f$-intercept $f_0$}{\essfsch{3}}
+  \essfsrow{\essfsNo}{$\dfrac{N}{t} = \dfrac{P}{hf} = \dfrac{P\lambda}{hc}$}
+    {photons each second (power $P$)}{\essfsch{3}}
+  \essfsrow{\essfsYes}{$P = \dfrac{\Delta E}{\Delta t}$}
+    {power: the energy given out each second}{\essfsch{3}, \essfsch{4}}
+  \essfsrow{\essfsYes}{$K = \dfrac{1}{2}mv^2$}
+    {speed of the fastest photoelectrons}{\essfsch{3}}
+  \essfsnext
+  % ------------------------------------------------------------------ Chapter 4
+  \essfsrow{\essfsNo}{\essfsstack{velocity on the ground $=$\\frame velocity $+$\\
+      velocity in the frame}}
+    {Galilean adding; never for light}{\essfsch{4}}
+  \essfsrow{\essfsComb}{$s = vt$}
+    {distance at a constant speed (muons)}{\essfsch{4}}
+  \essfsrow{\essfsYes}{$t = \dfrac{t_0}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$}
+    {time dilation ($t_0$ = proper time)}{\essfsch{4}}
+  \essfsrow{\essfsYes}{$l = l_0\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}$}
+    {length contraction ($l_0$ = proper length)}{\essfsch{4}}
+  \essfsrow{\essfsNo}{$t_0 = \dfrac{2d}{c}$}
+    {one tick of a light clock in its own frame}{\essfsch{4}}
+  \essfsrow{\essfsYes}{$p_\mathrm{v} = \dfrac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$}
+    {momentum at any speed (not for photons)}{\essfsch{4}}
+  \essfsrow{\essfsYes}{$\Delta\vec{p} = \vec{F}_\mathrm{net}\Delta t$}
+    {a finite force gives a finite $p$: $v < c$}{\essfsch{4}}
+  \essfsrow{\essfsNo}{$r = \dfrac{mv}{qB} = \dfrac{p}{qB}$}
+    {radius of a charge's path in a magnetic field}{\essfsch{4}}
+  \essfsrow{\essfsYes}{$E = mc^2$}
+    {energy from lost mass: $\Delta E = \Delta m\,c^2$ (kg)}{\essfsch{4}}
+  \essfsrow{\essfsComb}{$\dfrac{\Delta m}{\Delta t} = \dfrac{P}{c^2}$}
+    {mass lost each second (the Sun)}{\essfsch{4}}
+  \essfsrow{\essfsComb}{$E = 2m_\mathrm{e}c^2$}
+    {annihilation: energy of the two photons}{\essfsch{4}}
+  \essfsrow{\essfsComb}{\essfsstack{$E\,(\mathrm{MeV}) =$\\$\Delta m\,(\mathrm{u}) \times 931.5$}}
+    {energy from a mass change in \si{\amu}}{\essfsch{4}}
+  \essfsrow{\essfsNo}{$1 + z = \dfrac{\lambda_\mathrm{observed}}{\lambda_\mathrm{emitted}}$}
+    {stretch factor of a distant supernova}{\essfsch{4}}
+\end{longtable}}
+
+\section*{Using these formulas}
+
+\begin{itemize}
+  \item Use SI units: change \si{nm} to \si{m}, \si{GHz} to \si{Hz} and \si{mW} to \si{W}.
+        Temperatures in kelvin. Use one energy unit (J or eV) in $K_\mathrm{max} = hf - \phi$.
+  \item The sheet prints $v = f\lambda$, not $c = f\lambda$: for light in a vacuum, put $v = c$.
+        The sheet's Doppler formula is for sound: never use it for light.
+  \item $\Delta y = \lambda L/d$ works only below about \ang{10}; $y = L\tan\theta$ works
+        at any angle. Never put $m = 0$ in the dark-fringe formula.
+  \item Above about $0.1c$, use $p_\mathrm{v}$. Never multiply a mass in \si{\amu} by $c^2$:
+        use \qty{931.5}{\mega\eV} per \si{\amu}.
+\end{itemize}
+
+\section*{Data sheet values used in this module}
+
+These values are printed on the official data sheet, in this order. You do not need to
+learn them, but you must know which one to use.
+
+\begin{table}
+  \centering\small
+  \renewcommand\arraystretch{1.15}
+  \begin{tabular}{@{}L{50mm}L{54mm}L{36mm}@{}}
+    \toprule
+    \colhead{Quantity (as on the sheet)} & \colhead{Value} & \colhead{Used for}\\
+    \midrule
+    Charge on electron & $q_\mathrm{e} = \qty{-1.602e-19}{C}$
+      & $K_\mathrm{max} = qV_0$, $W = qV$\\
+    Mass of electron & $m_\mathrm{e} = \qty{9.109e-31}{kg}$
+      & photoelectrons; $p_\mathrm{v}$; annihilation\\
+    Mass of proton & $m_\mathrm{p} = \qty{1.673e-27}{kg}$ & $p_\mathrm{v}$ of a proton\\
+    Speed of light & $c = \qty{3.00e8}{m.s^{-1}}$ & almost every chapter\\
+    Electric permittivity constant & $\varepsilon_0 = \qty{8.854e-12}{A^2.s^4.kg^{-1}.m^{-3}}$
+      & $c = 1/\sqrt{\mu_0\varepsilon_0}$\\
+    Magnetic permeability constant & $\mu_0 = 4\pi \times 10^{-7}$ \si{N.A^{-2}}
+      & $c = 1/\sqrt{\mu_0\varepsilon_0}$\\
+    Planck constant & $h = \qty{6.626e-34}{J.s}$ & $E = hf$, $K_\mathrm{max} = hf - \phi$\\
+    Atomic mass unit & $u = \qty{1.661e-27}{kg}$\newline \qty{931.5}{\mega\eV}$/c^2$
+      & mass changes in \si{\amu}\\
+    \qty{1}{eV} & \qty{1.602e-19}{J} & \si{eV} to \si{J}, or back\\
+    Wien's displacement constant & $b = \qty{2.898e-3}{m.K}$
+      & $\lambda_\mathrm{max} = b/T$\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item The sheet prints the electron's charge as negative. In the formulas, use its size,
+        $q = \qty{1.602e-19}{C}$.
+  \item Same letter, different meaning: $T$ is a temperature in kelvin in
+        $\lambda_\mathrm{max} = b/T$ but a period in $f = 1/T$; $m$ is the order of a fringe
+        in $d\sin\theta = m\lambda$ but a mass in $E = mc^2$; $I$ is light intensity
+        (\si{W.m^{-2}}), not current; $\phi$ (lower-case) is the work function, not magnetic
+        flux $\Phi$; $u$ is the atomic mass unit, not an initial velocity.
+\end{itemize}

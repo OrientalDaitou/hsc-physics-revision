@@ -1,0 +1,460 @@
+% ch2.tex -- Module 5 ESSENTIALS, Chapter 2: Circular Motion: Forces and Real Situations
+% Condensed from the final full book: src/mod5/ch2.tex (same notation, same facts).
+% Knowledge points only: no worked examples, no questions, no answers.
+% All diagrams are the full book's TikZ code, copied (no figure files are needed).
+\chapter[Circular Motion: Forces]{Circular Motion: Forces and Real Situations}\label{ch2:chap}
+\covers{M5.IQ2.01, M5.IQ2.02, M5.IQ2.03}
+
+\begin{summarybox}[unbreakable]{In this chapter}
+\begin{itemize}
+  \item Why moving in a circle at a constant speed is accelerating.
+  \item The formulas for $v$, $a_\mathrm{c}$, $F_\mathrm{c}$ and $\omega$.
+  \item Which real force provides the centripetal force in each situation.
+  \item The whirling-stopper investigation of $F_\mathrm{c}$, $m$, $v$ and $r$.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{Uniform circular motion and centripetal force}\label{ch2:sec:ucm}
+\covers{M5.IQ2.01, M5.IQ2.02, M5.IQ2.03}
+
+\begin{bigidea}
+An object moving in a circle at a constant speed is accelerating, because its direction
+keeps changing. The acceleration points to the centre. A net force towards the centre,
+the centripetal force, causes it.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Uniform circular motion}{moving around a circle at a constant speed.}
+  \kw{Period ($T$)}{the time for one full turn. Unit: second (s).}
+  \kw{Tangent}{a line that touches the circle at one point, at \ang{90} to the radius.}
+  \kw{Centripetal acceleration ($a_\mathrm{c}$)}{the acceleration towards the centre of the circle.}
+  \kw{Centripetal force ($F_\mathrm{c}$)}{the net force towards the centre of the circle.}
+\end{keywords}
+
+\begin{itemize}
+  \item Velocity is a \term{vector}: it has a size (the speed) \emph{and} a direction. In a
+        circle the direction changes all the time. So the velocity changes: the object
+        accelerates.
+  \item The velocity is always along the tangent (\cref{ch2:fig:ucm}a). Two velocities a
+        moment apart, drawn tail to tail, give a change $\Delta v$ that points to the centre
+        (\cref{ch2:fig:ucm}b).
+  \item So the acceleration $a_\mathrm{c}$ points to the centre (``centripetal'' means
+        ``centre-seeking''). One lap is the \term{circumference} $2\pi r$, done in one
+        period $T$, so $v = 2\pi r/T$.
+  \item $a_\mathrm{c}$ grows with $v^2$: a faster object turns its velocity arrow more
+        quickly, \emph{and} the arrow is longer. At the same speed, a smaller $r$ gives a bigger
+        $a_\mathrm{c}$.
+  \item By Newton's second law ($\vec{F}_\mathrm{net} = m\vec{a}$), the \term{net force} (the
+        total of all the forces) also points to the centre: $F_\mathrm{net} = ma_\mathrm{c} = mv^2/r$.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \draw[hscmuted!55, line width=0.8pt] (0,0) circle (1.4);
+      \fill[hscink] (0,0) circle (1.5pt);
+      \node[diagramlabel, below, inner sep=3pt] at (0,0) {centre};
+      \draw[->, hscmuted, line width=0.6pt] (212:1.75) arc (212:255:1.75);
+      \node[diagramlabel, text=hscmuted, anchor=north east] at (232:1.85) {motion};
+      \draw[guide] (35:1.4) -- ++(125:1.9);
+      \node[diagramlabel, text=hscmuted, anchor=south west, inner sep=1pt] at ($(35:1.4)+(125:1.9)+(-0.1,0.02)$)
+        {path if the string breaks};
+      \foreach \a in {35, 155, 275} {
+        \coordinate (P) at (\a:1.4);
+        \draw[velocity] (P) -- ++(\a+90:1.0);
+        \draw[accel] (P) -- ($(P)!0.5!(0,0)$);
+        \fill[object] (P) circle (4pt);
+      }
+      \node[diagramlabel, text=hscvel, anchor=west] at ($(35:1.4)+(125:0.9)+(0.08,0)$) {$v$};
+      \node[diagramlabel, text=hscacc, anchor=north west, inner sep=1pt] at ($(35:0.85)+(0.05,-0.02)$) {$a_\mathrm{c}$};
+      \node[diagramlabel, text=hscvel] at ($(155:1.4)+(245:1.2)$) {$v$};
+      \node[diagramlabel, text=hscacc, anchor=south, inner sep=2pt] at ($(155:0.85)+(0.05,0.05)$) {$a_\mathrm{c}$};
+      \node[diagramlabel, text=hscvel, anchor=west] at ($(275:1.4)+(5:1.05)$) {$v$};
+      \node[diagramlabel, text=hscacc, anchor=west, inner sep=2pt] at ($(275:0.95)+(0.02,-0.1)$) {$a_\mathrm{c}$};
+      \node[font=\small\bfseries, text=hscink] at (-1.8,1.8) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=6.4cm, yshift=-0.8cm]
+      \coordinate (O) at (0,0);
+      \coordinate (A) at (110:1.8);
+      \coordinate (B) at (160:1.8);
+      \draw[velocity] (O) -- (A) node[pos=0.55, right, inner sep=2pt, text=hscvel] {$v_1$ (earlier)};
+      \draw[velocity] (O) -- (B) node[pos=0.45, below left, inner sep=2pt, text=hscvel] {$v_2$ (later)};
+      \draw[accel] (A) -- (B) node[pos=0.5, above left, inner sep=1pt, text=hscacc] {$\Delta v$};
+      \fill[hscink] (O) circle (1.3pt);
+      \node[font=\small\bfseries, text=hscink] at (-2.1,2.5) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) Top view of a ball whirled on a string: $v$ is along the tangent,
+    $a_\mathrm{c}$ points to the centre. (b) Two velocities a moment apart, tail to tail:
+    $\Delta v$ points to the centre.}
+  \label{ch2:fig:ucm}
+\end{figure}
+
+\begin{formulacard}{Speed, acceleration and force in a circle}
+  \cardformula{v = \frac{2\pi r}{T} \qquad\quad a_\mathrm{c} = \frac{v^2}{r} \qquad\quad
+    F_\mathrm{c} = \frac{mv^2}{r}}
+  \begin{symbols}
+    \sym{$v$}{speed of the object (along the tangent)}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+    \sym{$T$}{period: the time for one full turn}{\si{s}}
+    \sym{$a_\mathrm{c}$}{centripetal acceleration, towards the centre}{\si{m.s^{-2}}}
+    \sym{$F_\mathrm{c}$}{centripetal force: the net force towards the centre}{\si{N}}
+    \sym{$m$}{mass of the object}{\si{kg}}
+  \end{symbols}
+  \whentouse{any object moving in a circle at a constant speed.}
+  \trap{$T$ is the period (not tension); use the radius, not the diameter. $F_\mathrm{c}$ is
+    the net force: never draw it as an extra arrow.}
+\end{formulacard}
+
+\begin{itemize}
+  \item $F_\mathrm{c} \propto m$, \ $F_\mathrm{c} \propto v^2$, \ $F_\mathrm{c} \propto 1/r$
+        ($\propto$ means ``is proportional to''): double $v$ and $F_\mathrm{c}$ is 4 times
+        bigger. With the period, $a_\mathrm{c} = 4\pi^2 r/T^2$ (combine $v = 2\pi r/T$ and
+        $a_\mathrm{c} = v^2/r$).
+  \item \term{Frequency} $f$ (turns each second, in \si{Hz}): $f = 1/T$ (on the sheet).
+        Convert first: \si{km.h^{-1}}~$\div\, 3.6$ gives \si{m.s^{-1}}; revolutions per
+        minute (rpm)~$\div\, 60$ gives $f$.
+  \item \term{Angular velocity} $\omega$ is the angle turned each second:
+        $\omega = \Delta\theta/t$ (on the sheet), in \si{rad.s^{-1}}. One full turn is $2\pi$
+        \term{radians} (rad) $= \ang{360}$, so $\omega = 2\pi/T$ (not on the sheet).
+  \item The centripetal force is \emph{not} a new kind of force: real forces do this job.
+        The real force can be tension (ball on a string), friction (flat bend), the normal
+        force (banked track, rotor ride) or gravity (Moon or satellite in orbit).
+  \item No force pushes you outwards on a turn. By \term{inertia} (the tendency to keep
+        moving in a straight line) your body tries to go straight; the seat, seatbelt and
+        door push you \emph{inwards}. ``Centrifugal force'' is not a real force.
+  \item If a whirling ball's string breaks, the inward force is gone. By Newton's first law,
+        the ball moves in a straight line along the tangent, not straight outwards.
+\end{itemize}
+
+%% ==================================================================
+\section{Real situations: the forces that provide \texorpdfstring{$F_\mathrm{c}$}{Fc}}\label{ch2:sec:situations}
+\covers{M5.IQ2.02, M5.IQ2.03}
+
+\begin{bigidea}
+In every situation, find the real forces and split them into a part towards the centre
+and a vertical part. The part towards the centre adds up to $mv^2/r$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Tension ($F_\mathrm{T}$)}{the pull of a string, rope or chain, along its length.}
+  \kw{Normal force ($F_\mathrm{N}$)}{the push of a surface on an object, at \ang{90} to the surface.}
+  \kw{Component}{the part of a force that acts in one chosen direction.}
+\end{keywords}
+
+\textbf{Method.} Draw a \term{free-body diagram}: the object with one arrow per real force (no
+$F_\mathrm{c}$ arrow).
+With $\theta$ from the \emph{vertical}, a force has parts $F\cos\theta$ (vertical) and
+$F\sin\theta$ (horizontal). Towards the centre they add up to $mv^2/r$; vertically
+(horizontal circle) to zero.
+
+\subsection*{Strings: conical pendulums and swings}
+A \term{conical pendulum} is a mass on a string moving in a horizontal circle. Only
+$F_\mathrm{T}$ and $mg$ act on it (\cref{ch2:fig:conical}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \fill[ground] (-1.5,0) rectangle (2.4,0.22);
+      \draw[hscink, line width=0.8pt] (-1.5,0) -- (2.4,0);
+      \coordinate (piv) at (0,0);
+      \coordinate (B) at (1.548,-2.212);
+      \coordinate (C) at (0,-2.212);
+      \draw[guide] (piv) -- (0,-2.7);
+      \draw[hscmuted, dashed, line width=0.7pt] (C) ellipse (1.548 and 0.36);
+      \draw[hscink, line width=1pt] (piv) -- (B) node[pos=0.5, right, diagramlabel] {$L$};
+      \draw[hscink, line width=0.5pt] (0,-0.7) arc (270:305:0.7);
+      \node[diagramlabel] at (0.19,-0.92) {$\theta$};
+      \draw[displacement, <->] (C) -- (B) node[pos=0.5, below, diagramlabel, inner sep=2pt] {$r$};
+      \fill[hscink] (C) circle (1.5pt);
+      \draw[hscmuted, line width=0.4pt] (C) -- (-1.75,-2.75);
+      \node[diagramlabel, anchor=north east, align=right, inner sep=1pt] at (-1.75,-2.75) {centre of\\the circle};
+      \fill[object] (B) circle (5pt);
+      \fill[hscink] (piv) circle (1.5pt);
+      \node[diagramlabel, anchor=east] at (-0.12,-0.25) {pivot};
+      \node[font=\small\bfseries, text=hscink] at (-1.3,-0.75) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=7.4cm, yshift=-1.7cm]
+      \coordinate (O) at (0,0);
+      \draw[guide] (O) -- (0,1.5);
+      \draw[guide] (0,1.5) -- (-1.05,1.5);
+      \draw[force] (O) -- (-1.05,1.5) node[pos=0.62, below left, inner sep=1pt, text=hscforce] {$F_\mathrm{T}$};
+      \draw[force] (O) -- (0,-1.5) node[pos=0.8, right, text=hscforce] {$mg$};
+      \draw[hscink, line width=0.5pt] (0,0.55) arc (90:125:0.55);
+      \node[diagramlabel] at (-0.15,0.8) {$\theta$};
+      \node[diagramlabel, anchor=west] at (0.05,1.05) {$F_\mathrm{T}\cos\theta$};
+      \node[diagramlabel, anchor=south] at (-0.53,1.53) {$F_\mathrm{T}\sin\theta$};
+      \draw[displacement] (-1.4,-0.6) -- (-2.5,-0.6);
+      \node[diagramlabel, anchor=north, text=hscmuted] at (-1.95,-0.65) {to the centre};
+      \fill[object] (O) circle (5pt);
+      \node[font=\small\bfseries, text=hscink] at (-2.5,1.8) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A conical pendulum. (a) Side view: the centre of the circle is directly below
+    the pivot. (b) Free-body diagram; dashed lines are the components of the tension.}
+  \label{ch2:fig:conical}
+\end{figure}
+
+\begin{itemize}
+  \item The centre of the circle is directly \emph{below} the \term{pivot} (the fixed point),
+        so $r = L\sin\theta$. Towards the centre: $F_\mathrm{T}\sin\theta = mv^2/r$.
+        Vertically: $F_\mathrm{T}\cos\theta = mg$, so $F_\mathrm{T} = mg/\cos\theta > mg$.
+  \item Swing-ride chair (hangs from a spinning frame): $r = d + L\sin\theta$, $d$ = axis to chain top.
+  \item A \term{vertical circle} (an upright circle) is \emph{not} uniform: the speed changes.
+        At each point the net force to the centre is still $mv^2/r$. Lowest point of a swing:
+        $F_\mathrm{T} - mg = mv^2/r$ (you feel heavier). Top, on a string:
+        $F_\mathrm{T} + mg = mv^2/r$. Neither is on the sheet.
+\end{itemize}
+
+\subsection*{Tilted surfaces: bowls and banked tracks}
+\begin{itemize}
+  \item A \term{banked track} is higher on the outside of the bend. Its \term{bank angle}
+        $\theta$ is its tilt from the horizontal. $F_\mathrm{N}$ (at \ang{90} to the road)
+        tilts to the centre, by the same $\theta$ from the vertical.
+  \item At the \term{design speed} no friction is needed. Faster: the car tends to slide up
+        the slope, so friction acts \emph{down} the slope. Slower: friction acts \emph{up}
+        the slope (\cref{ch2:fig:bankfriction}).
+\end{itemize}
+
+\begin{figure}
+  \centering
+  % full book figure ch2:fig:bankfriction (bank angle 20 deg). Added here: the angle theta
+  % between F_N and the vertical in (b) (F_N is drawn at 110 deg, so 20 deg from the vertical).
+  \begin{tikzpicture}[x=1.2cm, y=1.2cm]
+    \foreach \dx in {0, 4.0, 8.0} {
+      \begin{scope}[xshift=\dx*1.2cm]
+        \fill[ground] (0,0) -- (2.8,1.019) -- (2.8,0.70) -- (0,-0.319) -- cycle;
+        \draw[hscink, line width=1pt] (0,0) -- (2.8,1.019);
+        \draw[guide] (0,0) -- (0.9,0);
+        \draw[hscink, line width=0.5pt] (0.5,0) arc (0:20:0.5);
+        \node[diagramlabel, font=\footnotesize] at (0.66,0.1) {$\theta$};
+        \begin{scope}[rotate around={20:(1.4,0.510)}]
+          \draw[object, rounded corners=1.5pt] (0.98,0.60) rectangle (1.82,0.98);
+          \fill[hscink] (1.15,0.60) circle (0.085);
+          \fill[hscink] (1.65,0.60) circle (0.085);
+        \end{scope}
+        \draw[force] (1.314,0.744) -- ++(0,-1.0) node[pos=0.9, right, text=hscforce, inner sep=2pt] {$mg$};
+        \draw[force] (1.314,0.744) -- ++(110:1.064) node[pos=1, left, text=hscforce] {$F_\mathrm{N}$};
+        \fill[hscink] (1.314,0.744) circle (1.3pt);
+      \end{scope}
+    }
+    % (b): angle of F_N from the vertical
+    \draw[guide] (5.314,0.744) -- ++(0,1.1);
+    \draw[hscink, line width=0.5pt] (5.314,1.304) arc (90:110:0.56);
+    \node[diagramlabel, font=\footnotesize] at ($(5.314,0.744)+(100:0.82)$) {$\theta$};
+    % friction: (a) up the slope, (c) down the slope
+    \draw[force] (1.314,0.744) -- ++(20:0.75) node[pos=1, above, text=hscforce] {$F_\mathrm{f}$};
+    \draw[force] (9.314,0.744) -- ++(200:0.75) node[pos=1, above left, text=hscforce, inner sep=1pt] {$F_\mathrm{f}$};
+    \node[diagramlabel, font=\footnotesize, align=center, anchor=north] at (1.4,-0.45)
+      {\textbf{(a) slower:} friction up the slope};
+    \node[diagramlabel, font=\footnotesize, align=center, anchor=north] at (5.4,-0.45)
+      {\textbf{(b) design speed:} no friction};
+    \node[diagramlabel, font=\footnotesize, align=center, anchor=north] at (9.4,-0.45)
+      {\textbf{(c) faster:} friction down the slope};
+  \end{tikzpicture}
+  \caption{A car on a banked track, from behind (centre of the bend to the left). Not to
+    scale.}\label{ch2:fig:bankfriction}
+\end{figure}
+
+\begin{itemize}
+  \item At the design speed: $F_\mathrm{N}\sin\theta = mv^2/r$ and $F_\mathrm{N}\cos\theta = mg$,
+        so $F_\mathrm{N} = mg/\cos\theta > mg$. Banking means less friction is needed, so wet
+        turns are safer.
+  \item A marble circling inside a round bowl: the same, with $F_\mathrm{N}$ pointing to the
+        bowl's centre. $r$ is the horizontal distance to the centre line, not the bowl's radius.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Tilted string or surface}
+  \cardformula{\tan\theta = \frac{v^2}{rg}}
+  \begin{symbols}
+    \sym{$\theta$}{angle of $F_\mathrm{T}$ or $F_\mathrm{N}$ from the vertical (bank angle)}{\si{\degree}}
+    \sym{$v$}{speed (for a banked road: the design speed)}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the horizontal circle}{\si{m}}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+  \end{symbols}
+  \whentouse{conical pendulum; banked road at its design speed; frictionless bowl.}
+  \derive{use the two component equations ($F$ is $F_\mathrm{T}$ or $F_\mathrm{N}$).
+    \begin{align*}
+      F\sin\theta &= \frac{mv^2}{r} && \text{horizontal: net force towards the centre}\\
+      F\cos\theta &= mg && \text{vertical: forces balance}\\
+      \tan\theta &= \frac{v^2}{rg} && \text{divide the first line by the second; $F$ and $m$ cancel}
+    \end{align*}}
+  \trap{for a string, $r$ is not the string length: $r = L\sin\theta$. Do not split forces
+    along the slope: the acceleration is horizontal.}
+\end{formulacard}
+
+\subsection*{Friction: flat bends and the rotor ride}
+\begin{itemize}
+  \item \term{Static friction} $F_\mathrm{f}$ stops sliding. It is only as big as needed, up to
+        $F_\mathrm{f} \le \mu F_\mathrm{N}$ (not on the sheet). The \term{coefficient of
+        friction} $\mu$ (no unit) says how strongly the surfaces grip (about 0.8 on a dry road,
+        0.1 on ice).
+\end{itemize}
+
+\begin{sidebyside}[0.50]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \fill[hscmuted!12] (15:1.7) arc (15:115:1.7) -- (115:2.4) arc (115:15:2.4) -- cycle;
+      \draw[hscmuted, line width=0.7pt] (15:1.7) arc (15:115:1.7);
+      \draw[hscmuted, line width=0.7pt] (15:2.4) arc (15:115:2.4);
+      \fill[hscink] (0,0) circle (1.5pt);
+      \node[diagramlabel, anchor=north] at (0,-0.05) {centre};
+      \coordinate (Q) at (62:2.05);
+      \draw[guide] (0,0) -- (Q);
+      \draw[velocity] (Q) -- ++(152:1.0) node[above, text=hscvel] {$v$};
+      \draw[force] (Q) -- ($(Q)!0.45!(0,0)$) node[pos=1, below right, inner sep=1pt, text=hscforce] {$F_\mathrm{f}$};
+      \draw[object, rotate around={152:(Q)}] ($(Q)+(-0.27,-0.15)$) rectangle ($(Q)+(0.27,0.15)$);
+      \node[font=\small\bfseries, text=hscink] at (-1.5,2.3) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=4.0cm, yshift=1.0cm]
+      \coordinate (O) at (0,0);
+      \draw[force] (O) -- (0,1.1) node[above, text=hscforce] {$F_\mathrm{N}$};
+      \draw[force] (O) -- (0,-1.1) node[below, text=hscforce] {$mg$};
+      \draw[force] (O) -- (-1.0,0) node[left, text=hscforce] {$F_\mathrm{f}$};
+      \fill[object] (O) circle (5pt);
+      \node[font=\small\bfseries, text=hscink] at (-0.9,1.3) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{A car on a flat bend. (a) Top view. (b) Free-body diagram, seen from
+    behind (centre to the left).}\label{ch2:fig:flatbend}
+\nextside
+  \begin{itemize}
+    \item \textbf{Flat bend.} The tyres push the road outwards. By Newton's third law, the
+          road pushes the tyres \emph{inwards} (\cref{ch2:fig:flatbend}).
+    \item This friction is the centripetal force: $F_\mathrm{f} = mv^2/r$. Vertically,
+          $F_\mathrm{N} = mg$.
+    \item The road can give at most $\mu mg$. If the bend requires more, the car skids
+          towards the outside.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{sidebyside}[0.31]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscink, line width=1.2pt] (-1.4,-0.2) -- (-1.4,2.6);
+    \draw[hscink, line width=1.2pt] (1.4,-0.2) -- (1.4,2.6);
+    \draw[hscmuted, line width=0.7pt] (0,2.6) ellipse (1.4 and 0.25);
+    \draw[guide] (0,-0.7) -- (0,3.15);
+    \node[diagramlabel, anchor=south] at (0,3.15) {axis};
+    \draw[->, hscmuted, line width=0.7pt] (-0.5,3.0) arc (200:340:0.55 and 0.18);
+    \fill[ground] (-1.3,-0.75) rectangle (1.3,-0.6);
+    \draw[hscink, line width=0.7pt] (-1.3,-0.6) -- (1.3,-0.6);
+    \node[diagramlabel, anchor=north, text=hscmuted] at (0,-0.8) {floor has dropped};
+    \fill[hscbrand!45] (1.15,0.4) rectangle (1.36,1.6);
+    \fill[hscbrand!45] (1.255,1.77) circle (0.15);
+    \node[diagramlabel, anchor=west] at (1.45,1.75) {rider};
+    \node[diagramlabel, anchor=west] at (1.45,2.4) {wall};
+    \draw[displacement, <->] (0,0.6) -- (-1.4,0.6) node[pos=0.5, above, diagramlabel] {$r$};
+    \coordinate (R) at (1.255,1.05);
+    \draw[force] (R) -- (0.1,1.05) node[pos=0.55, above, text=hscforce] {$F_\mathrm{N}$};
+    \draw[force] (R) -- (1.255,2.25) node[pos=0.95, left, text=hscforce] {$F_\mathrm{f}$};
+    \draw[force] (R) -- (1.255,-0.15) node[pos=0.9, left, text=hscforce] {$mg$};
+    \fill[hscink] (R) circle (1.8pt);
+  \end{tikzpicture}
+  \captionof{figure}{Forces on a rotor rider.}\label{ch2:fig:rotor}
+\nextside
+  \begin{itemize}
+    \item \textbf{Rotor.} In a \term{rotor} ride a drum spins and the floor drops away. The
+          riders stay on the wall (\cref{ch2:fig:rotor}).
+    \item The wall's normal force is horizontal, towards the axis. It is the centripetal
+          force: $F_\mathrm{N} = mv^2/r$.
+    \item Static friction acts up the wall and balances the weight: $F_\mathrm{f} = mg$.
+    \item Riders stay up only if $mg \le \mu F_\mathrm{N}$. This sets a slowest safe speed.
+          Faster, the friction \emph{limit} grows, but the actual friction stays $mg$.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet, unbreakable]{Friction limits: flat bend and rotor}
+  \cardformula{v_\mathrm{max} = \sqrt{\mu g r} \qquad\qquad v_\mathrm{min} = \sqrt{\frac{gr}{\mu}}}
+  \begin{symbols}
+    \sym{$v_\mathrm{max}$}{fastest speed on a flat bend without skidding}{\si{m.s^{-1}}}
+    \sym{$v_\mathrm{min}$}{slowest speed at which rotor riders do not slide down}{\si{m.s^{-1}}}
+    \sym{$\mu$}{coefficient of friction (tyres on road; rider on wall)}{no unit}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+    \sym{$r$}{radius of the bend, or of the drum}{\si{m}}
+  \end{symbols}
+  \whentouse{a flat bend ($v_\mathrm{max}$); a rotor, floor taken away ($v_\mathrm{min}$).
+    Mass makes no difference.}
+  \derive{at the limiting speed, friction needed $=$ largest friction. Flat bend:
+    $mv_\mathrm{max}^2/r = \mu mg$, so $v_\mathrm{max}^2 = \mu g r$. Rotor:
+    $mg = \mu F_\mathrm{N} = \mu m v_\mathrm{min}^2/r$, so $v_\mathrm{min}^2 = gr/\mu$.}
+  \trap{$\mu F_\mathrm{N}$ is the \emph{largest} friction, not the actual friction.}
+\end{formulacard}
+
+%% ==================================================================
+\section{Key experiments}\label{ch2:sec:exp}
+\covers{M5.IQ2.01}
+
+\begin{experiment}{Investigating $F_\mathrm{c} = mv^2/r$ with a whirling stopper}
+\aim{To investigate how $F_\mathrm{c}$ depends on speed (Part A), radius (Part B) and mass
+  (Part C).}
+\method{\begin{sidebyside}[0.46]
+    \begin{itemize}
+      \item Whirl the stopper in a horizontal circle (\cref{ch2:fig:apparatus}). The
+            hanging mass stays still, so the tension provides $F_\mathrm{c} = Mg$.
+      \item The paper clip keeps the radius $r = L$ fixed.
+      \item Time 20 turns (less reaction-time error), three times, and average.
+            $T = \text{time} \div 20$; $v = 2\pi L/T$.
+    \end{itemize}
+  \nextside
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscmuted, dashed, line width=0.7pt] (0,0.5) ellipse (3.0 and 0.32);
+    \draw[object] (-0.12,-0.75) rectangle (0.12,0.66);
+    \draw[hscink, line width=0.8pt] (0,0.66) -- (3.0,0.5);
+    \draw[displacement, <->] (0.05,1.30) -- (3.0,1.14) node[pos=0.5, above, diagramlabel] {$L$};
+    \fill[hscink] (3.0,0.5) ellipse (0.16 and 0.13);
+    \node[diagramlabel, anchor=south, inner sep=1pt, fill=hscexp!4!white] at (3.0,0.68) {stopper, mass $m$};
+    \draw[force] (2.85,0.51) -- (1.95,0.56) node[pos=0.5, below, inner sep=1pt, fill=hscexp!4!white, text=hscforce] {$F_\mathrm{T}$};
+    \draw[hscink, line width=0.8pt] (0,-0.75) -- (0,-1.35);
+    \draw[hscink, fill=hscmuted!40, line width=0.6pt] (-0.12,-0.98) rectangle (0.12,-0.88);
+    \node[diagramlabel, anchor=west] at (0.25,-0.93) {paper clip (keeps $L$ fixed)};
+    \node[diagramlabel, anchor=west] at (0.25,-0.42) {tube, held in the hand};
+    \draw[object] (-0.33,-1.8) rectangle (0.33,-1.35);
+    \node[diagramlabel] at (0,-1.575) {$M$};
+    \draw[force] (0,-1.8) -- (0,-2.3) node[right, text=hscforce] {$Mg$};
+    \node[diagramlabel, anchor=west] at (0.45,-1.575) {hanging mass};
+    \end{tikzpicture}
+    \captionof{figure}{Apparatus (side view).}\label{ch2:fig:apparatus}
+  \end{sidebyside}
+  \begin{itemize}
+    \item \textbf{Part A:} change $M$ (so $F_\mathrm{c}$); keep $m$ and $L$ the same. Plot
+          $F_\mathrm{c}$ against $v^2$. \textbf{Part B:} change $L$ (keep $M$, $m$); plot $v^2$
+          against $r$. \textbf{Part C:} use 1, 2, 3, 4 identical stoppers (keep $M$, $L$); plot
+          $v^2$ against $1/m$.
+    \item Part A: \term{independent variable} (changed) $M$; \term{dependent variable}
+          (measured) the time for 20 turns; \term{controlled variables} (kept the same) $m$,
+          $L$, a horizontal circle.
+  \end{itemize}}
+\results{Part A: $F_\mathrm{c}$ against $v^2$ is a straight line through the \term{origin}
+  (0, 0). The gradient of the \term{line of best fit} (the straight line closest to all the
+  points) agrees with $m/r$ within 1\,\%. Parts B and C (expected from theory): $v^2$ against
+  $r$ and $v^2$ against $1/m$ should also be straight lines through the origin.}
+\conclusion{Part A: $F_\mathrm{c} \propto v^2$. This supports $F_\mathrm{c} = mv^2/r$. If the
+  Part B and C graphs are straight, then at a fixed speed $F_\mathrm{c} \propto 1/r$ and
+  $F_\mathrm{c} \propto m$. ($F_\mathrm{c}$ against $1/T^2$ is also straight; $F_\mathrm{c}$
+  against $v$ is a curve.)}
+\significance{It confirms $F_\mathrm{c} = mv^2/r$ with a measurable force (a hanging weight).
+  Engineers use the same model for bends, banked tracks, rides and satellite orbits.}
+\end{experiment}
+
+%% ==================================================================
+\begin{summarybox}[unbreakable]{Remember}
+\begin{itemize}
+  \item Constant speed in a circle is still acceleration, because the direction changes.
+        $a_\mathrm{c} = v^2/r$ points to the centre. Also $v = 2\pi r/T$,
+        $f = 1/T$ and $\omega = \Delta\theta/t$.
+  \item $F_\mathrm{c} = mv^2/r$ is the net force towards the centre, given by a real
+        force (tension, normal force, friction, gravity). There is no centrifugal force.
+  \item Draw only real forces. Towards the centre they add up to $mv^2/r$; vertically
+        (horizontal circle) they add up to zero.
+  \item Conical pendulum or banked road (design speed): $\tan\theta = v^2/(rg)$.
+        Flat bend: $v_\mathrm{max} = \sqrt{\mu g r}$. Rotor: $v_\mathrm{min} = \sqrt{gr/\mu}$.
+  \item Whirling stopper: $F_\mathrm{c} = Mg$; $F_\mathrm{c}$ against $v^2$ is a straight line
+        through the origin, with gradient $m/r$.
+\end{itemize}
+\end{summarybox}

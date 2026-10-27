@@ -1,0 +1,452 @@
+% ch5.tex -- Module 5 ESSENTIALS, Chapter 5: Energy in gravitational fields
+% Knowledge points only (no questions). Condensed from src/mod5/ch5.tex:
+% same notation, same facts and numbers (all numbers come from the full book's
+\chapter[Energy in Gravitational Fields]{Energy in Gravitational Fields: Orbits, Escape and Changing Orbits}\label{ch5:chap}
+\covers{M5.IQ3.05}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item Why gravitational potential energy $U$ is negative.
+  \item The energy of a satellite in circular and elliptical orbits (Kepler's laws).
+  \item Escape velocity, changing orbit and orbital decay.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{Gravitational potential energy in a radial field}\label{ch5:sec:gpe}
+\covers{M5.IQ3.05}
+
+\begin{bigidea}
+Far from the ground, gravity gets weaker, so $mg\Delta h$ works only near the
+surface. With $U = 0$ very far away, $U = -\dfrac{GMm}{r}$ is negative
+everywhere else.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Gravitational potential energy ($U$)}{energy stored because of where an
+    object is in a gravitational field. Unit: J.}
+  \kw{Radial field}{a field whose lines all point straight at the planet's centre.}
+  \kw{Infinity}{so far away that the planet's gravity is too small to matter.}
+\end{keywords}
+
+\textbf{Why $U$ is negative} (three linked points):
+\begin{enumerate}
+  \item We choose $U = 0$ at infinity, where the pull of gravity is zero.
+  \item Moving away needs work against gravity, so $U$ increases as $r$ increases.
+  \item $U$ reaches 0 only at infinity. So $U$ is negative at every real distance.
+\end{enumerate}
+The minus sign comes from our choice of zero. Only \emph{changes} in $U$ can be
+measured.
+
+\begin{itemize}
+  \item Work done by gravity: $W_\text{by gravity} = -\Delta U$. \term{Work
+        against gravity} (by an engine, at a steady speed) is all stored:
+        $W_\text{against} = +\Delta U$.
+  \item \textbf{Where $U$ comes from:} the work against gravity from $r_1$ to
+        $r_2$ is the area under the force--distance graph of
+        $F = \dfrac{GMm}{r^2}$:
+        $\Delta U = GMm\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$. With
+        $r_1 = r$, $r_2 = \infty$ and $U(\infty) = 0$, this gives
+        $U = -\dfrac{GMm}{r}$.
+\end{itemize}
+
+\begin{formulacard}{Gravitational potential energy}
+  \cardformula{U = -\frac{GMm}{r}}
+  \begin{symbols}
+    \sym{$U$}{gravitational potential energy (zero at infinity)}{\si{J}}
+    \sym{$G$}{universal gravitational constant, \num{6.67e-11}}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$, $m$}{mass of the planet or star, mass of the object}{\si{kg}}
+    \sym{$r$}{distance from the \emph{centre} of the planet}{\si{m}}
+  \end{symbols}
+  \whentouse{at any distance from a planet, moon or star. For a change, subtract:
+    $\Delta U = U_2 - U_1 = GMm\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$.}
+  \trap{$r = r_\mathrm{E} + \text{altitude}$. Keep the minus sign.}
+\end{formulacard}
+
+%% ==================================================================
+\section{Kinetic, potential and total energy in orbit}\label{ch5:sec:orbit}
+\covers{M5.IQ3.05, M5.IQ3.04}
+
+\begin{bigidea}
+In a circular orbit the total energy is $U + K = -\dfrac{GMm}{2r}$. A lower
+satellite moves faster, but it has \emph{less} total energy.
+\end{bigidea}
+
+The \term{total mechanical energy} $E$ is kinetic plus potential energy:
+$E = U + K$ (unit: J).
+
+\begin{formulacard}[notonsheet]{Kinetic and total energy in a circular orbit}
+  \cardformula{K = \frac{GMm}{2r} \qquad\qquad E = U + K = -\frac{GMm}{2r}}
+  \begin{symbols}
+    \sym{$K$}{kinetic energy of the satellite}{\si{J}}
+    \sym{$E$}{total mechanical energy, $U + K$}{\si{J}}
+    \sym{$G$}{universal gravitational constant, \num{6.67e-11}}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$, $m$}{mass of the planet, mass of the satellite}{\si{kg}}
+    \sym{$r$}{radius of the orbit, from the centre of the planet}{\si{m}}
+  \end{symbols}
+  \whentouse{\emph{circular} orbits only. Shortcuts: $E = -K$ and $U = 2E$.}
+  \derive{gravity is the centripetal force.
+    \begin{align*}
+      \frac{mv^2}{r} &= \frac{GMm}{r^2}
+        && \text{$F_\mathrm{c} = F$, so $v^2 = GM/r$ and $v = \sqrt{GM/r}$}\\
+      K = \tfrac{1}{2}mv^2 &= \frac{GMm}{2r} && \text{put in } v^2 = GM/r\\
+      E = U + K &= -\frac{2GMm}{2r} + \frac{GMm}{2r} = -\frac{GMm}{2r}
+        && \text{add } U = -GMm/r = -2GMm/(2r)
+    \end{align*}}
+  \trap{for an ellipse use $K = \tfrac{1}{2}mv^2$. ``$E$ increases'' means it
+    gets \emph{less} negative.}
+\end{formulacard}
+
+
+\Cref{ch5:fig:KUE} and \cref{ch5:tab:trends} compare circular orbits of
+different radius.
+
+\begin{sidebyside}[0.48]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.96\linewidth, height=0.62\linewidth,
+        xmin=1, xmax=6, ymin=-66, ymax=36, xtick={1,2,...,6},
+        ytick={-60,-40,-20,0,20},
+        xlabel={$r$ (in units of $r_\mathrm{E}$)},
+        ylabel={energy of \qty{1}{kg} (\si{MJ})}]
+      \draw[hscink!70, line width=0.8pt] (axis cs:1,0) -- (axis cs:6,0);
+      \addplot[hscseriesA, domain=1:6, samples=80, line width=1.2pt, solid] {31.41/x};
+      \addplot[hscseriesB, domain=1:6, samples=80, line width=1.2pt, dashed] {-62.82/x};
+      \addplot[hscseriesC, domain=1:6, samples=80, line width=1.2pt, densely dotted] {-31.41/x};
+      \node[font=\small, text=hscseriesA, anchor=south] at (axis cs:4.2,7.9) {$K$};
+      % E label above its own curve (E = -19.6 MJ at x = 1.6), clear of the U curve below
+      \node[font=\small, text=hscseriesC, anchor=south] at (axis cs:1.6,-17.2) {$E$};
+      \node[font=\small, text=hscseriesB, anchor=north] at (axis cs:2.5,-26.6) {$U$};
+      \draw[guide] (axis cs:2,-31.41) -- (axis cs:2,15.70);
+      \fill[hscseriesA] (axis cs:2,15.70) circle (1.6pt);
+      \fill[hscseriesC] (axis cs:2,-15.70) circle (1.6pt);
+      \fill[hscseriesB] (axis cs:2,-31.41) circle (1.6pt);
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{$K$, $U$ and $E$ for \qty{1}{kg} in a circular orbit around
+    Earth. $U$ rises towards 0; $E = -K$ and $U = 2E$.}\label{ch5:fig:KUE}
+\nextside
+  \captionof{table}{Moving to a bigger circular orbit.}\label{ch5:tab:trends}
+  \centering\small
+  \begin{tabular}{@{}L{31mm}L{38mm}@{}}
+    \toprule
+    \colhead{Quantity} & \colhead{When $r$ increases}\\
+    \midrule
+    speed $v$ & decreases\\
+    force of gravity $F$ & decreases ($F \propto 1/r^2$)\\
+    kinetic energy $K$ & decreases\\
+    potential energy $U$ & increases (less negative)\\
+    total energy $E$ & increases (less negative)\\
+    period $T$ & increases\\
+    \bottomrule
+  \end{tabular}
+
+  \raggedright\vspace{2mm}
+  If $E < 0$, the object is \term{bound} (trapped by gravity): it orbits or
+  falls back. If $E \ge 0$, it escapes.
+\end{sidebyside}
+
+\subsection{Energy in elliptical orbits (Kepler's laws)}
+\covers{M5.IQ3.04, M5.IQ2.04}
+
+\textbf{Kepler's laws:} (1) each planet moves in an ellipse, with the Sun at one
+focus; (2) a line from the Sun to the planet sweeps out equal areas in equal
+times; (3) $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$ (on the sheet).
+\Cref{ch5:fig:ellipse} links them to energy.
+
+\begin{sidebyside}[0.45]
+  \centering
+  \begin{tikzpicture}[x=0.68cm, y=0.68cm]
+    \draw[hscmuted!70, line width=0.8pt] (0,0) ellipse (2.4 and 2.078);
+    \draw[->, hscmuted, line width=0.6pt] (60:2.75 and 2.40) arc (60:110:2.75 and 2.40);
+    \fill[hscacc] (1.2,0) circle (5pt);
+    \node[diagramlabel, font=\footnotesize, below=5pt] at (1.2,0) {Sun};
+    \draw[velocity] (2.4,0) -- (2.4,1.3) node[right, text=hscvel, font=\footnotesize] {$v$};
+    \fill[object] (2.4,0) circle (3.5pt);
+    \draw[velocity] (-2.4,0) -- (-2.4,-0.433) node[left, text=hscvel, font=\footnotesize] {$v$};
+    \fill[object] (-2.4,0) circle (3.5pt);
+    \coordinate (P) at (-1.2,-1.80);
+    % speed at P (r = 3.0) from energy conservation: 0.447 x perihelion speed, so length 0.58
+    \draw[velocity] (P) -- ++(0.520,-0.260) node[below, text=hscvel, font=\footnotesize] {$v$};
+    \draw[force] (P) -- ++(0.80,0.60) node[above left, text=hscforce, inner sep=1pt, font=\footnotesize] {$F$};
+    \fill[object] (P) circle (3.5pt);
+    \node[diagramlabel, font=\footnotesize, anchor=west] at (2.45,-0.35) {perihelion};
+    \node[diagramlabel, font=\footnotesize, anchor=east] at (-2.45,0.35) {aphelion};
+  \end{tikzpicture}
+  \captionof{figure}{A planet in an elliptical orbit (anticlockwise). On the way
+    in, part of $F$ points along $v$, so gravity speeds the planet
+    up.}\label{ch5:fig:ellipse}
+\nextside
+  \begin{itemize}
+    \item \textbf{Circle:} gravity is at \ang{90} to $v$, so
+          $W = Fs\cos\ang{90} = 0$. The speed stays the same.
+    \item \textbf{Ellipse:} gravity is the only force, so $E = K + U$ stays the
+          same. When $U$ goes down, $K$ goes up.
+    \item \textbf{Perihelion} (closest point to the Sun): $U$ lowest, $K$
+          largest, fastest. \textbf{Aphelion} (farthest): slowest. This agrees
+          with Kepler's second law.
+  \end{itemize}
+\end{sidebyside}
+
+At any point of any path where gravity is the only force,
+$E = K + U = \tfrac{1}{2}mv^2 - \dfrac{GMm}{r}$ (combine $K$ and $U$ from the
+sheet). Use $v$ and $r$ at the \emph{same} point.
+
+%% ==================================================================
+\section{Escape velocity}\label{ch5:sec:escape}
+\covers{M5.IQ3.05}
+
+\begin{bigidea}
+The \term{escape velocity} $v_\mathrm{esc}$ is the smallest launch speed that
+lets a projectile get away from a planet for ever. At exactly this speed, its
+total energy is zero.
+\end{bigidea}
+
+A \term{projectile} gets all its speed at the start, then moves with only
+gravity acting (no engine).
+
+The total energy decides the path. \Cref{ch5:fig:cannon} shows Newton's cannon
+(on a very tall mountain, above the air) firing sideways at five speeds.
+
+\begin{sidebyside}[0.50]
+  \centering
+  \begin{tikzpicture}[scale=0.88]
+    \fill[hscseriesA!12] (0,0) circle (1);
+    \draw[hscseriesA!60, line width=0.8pt] (0,0) circle (1);
+    \fill[hscmuted!45] (-0.20,0.98) -- (0,1.3) -- (0.20,0.98) -- cycle;
+    \draw[hscmuted, line width=1.1pt, dashed, domain=0:44.62, samples=50, variable=\t]
+      plot ({0.637/(1-0.51*cos(\t))*sin(\t)}, {0.637/(1-0.51*cos(\t))*cos(\t)});
+    \draw[hscseriesA, line width=1.1pt] (0,0) circle (1.3);
+    \draw[hscseriesC, line width=1.1pt, domain=0:360, samples=150, variable=\t]
+      plot ({1.573/(1+0.21*cos(\t))*sin(\t)}, {1.573/(1+0.21*cos(\t))*cos(\t)});
+    \draw[hscseriesB, line width=1.1pt, domain=0:108, samples=90, variable=\t]
+      plot ({2.6/(1+cos(\t))*sin(\t)}, {2.6/(1+cos(\t))*cos(\t)});
+    \draw[hscforce, line width=1.1pt, densely dashed, domain=0:96, samples=90, variable=\t]
+      plot ({3.328/(1+1.56*cos(\t))*sin(\t)}, {3.328/(1+1.56*cos(\t))*cos(\t)});
+    \fill[object] (0,1.3) circle (2.8pt);
+    \node[diagramlabel, above, font=\footnotesize] at (0,1.36) {launch};
+    \node[diagramlabel, font=\footnotesize] at (0,-0.25) {Earth};
+    \draw[hscmuted, line width=0.4pt] (0.72,0.70) -- (0.55,0.30);
+    \node[diagramlabel, font=\footnotesize, text=hscmuted] at (0.50,0.15) {1};
+    \node[diagramlabel, font=\footnotesize, text=hscseriesA] at (-1.44,0) {2};
+    \node[diagramlabel, font=\footnotesize, text=hscseriesC, anchor=north] at (0,-2.0) {3};
+    \node[diagramlabel, font=\footnotesize, text=hscseriesB, anchor=north west] at (3.42,-1.05) {4};
+    \node[diagramlabel, font=\footnotesize, text=hscforce, anchor=west] at (3.98,-0.42) {5};
+  \end{tikzpicture}
+  \captionof{figure}{Newton's cannon at five speeds (not to scale: the mountain
+    is drawn far too tall).}\label{ch5:fig:cannon}
+\nextside
+  \begin{enumerate}
+    \item slower than orbital speed: falls back
+    \item $v = \sqrt{GM/r}$: circle
+    \item between $\sqrt{GM/r}$ and $v_\mathrm{esc}$: ellipse
+    \item $v = v_\mathrm{esc}$: just escapes
+    \item $v > v_\mathrm{esc}$: escapes and is still moving when very far away
+  \end{enumerate}
+  Paths 1--3 have $E < 0$ (bound). Path 4 has $E = 0$: it reaches infinity
+  with $K = 0$ and $U = 0$. Path 5 has $E > 0$.
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet]{Escape velocity}
+  \cardformula{v_\mathrm{esc} = \sqrt{\frac{2GM}{r}}}
+  \begin{symbols}
+    \sym{$v_\mathrm{esc}$}{escape velocity (really a speed: the direction does
+      not matter)}{\si{m.s^{-1}}}
+    \sym{$G$}{universal gravitational constant, \num{6.67e-11}}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$}{mass of the planet, moon or star}{\si{kg}}
+    \sym{$r$}{distance from the centre where the object starts}{\si{m}}
+  \end{symbols}
+  \whentouse{a projectile, from the surface or from an orbit.}
+  \derive{energy is conserved. In the smallest case the object reaches infinity
+    with $K = 0$ and $U = 0$, so $K + U = 0$ at launch too.
+    \begin{align*}
+      \tfrac{1}{2}mv^2 - \frac{GMm}{r} = 0, \text{ so } \tfrac{1}{2}v^2 &= \frac{GM}{r}
+        && \text{add $GMm/r$, divide by $m$ ($m$ cancels)}\\
+      v_\mathrm{esc} &= \sqrt{\frac{2GM}{r}} && \text{multiply by 2, take the square root}
+    \end{align*}}
+  \trap{do not lose the 2. Without it you get the orbital speed $\sqrt{GM/r}$.}
+\end{formulacard}
+
+
+
+\begin{itemize}
+  \item $m$ cancels, so a pebble and a spacecraft need the same escape speed (the
+        heavier one needs more kinetic energy). From Earth's surface,
+        $v_\mathrm{esc} = \qty{11.2}{km.s^{-1}}$.
+  \item At the same $r$, $v_\mathrm{esc} = \sqrt{2}\times v_\text{orbital}$.
+  \item A rocket need not reach $v_\mathrm{esc}$: its engines keep adding energy,
+        and $v_\mathrm{esc}$ is smaller higher up. It escapes once $K + U$
+        reaches zero.
+\end{itemize}
+
+%% ==================================================================
+\section{Moving between orbits}\label{ch5:sec:transfer}
+\covers{M5.IQ3.05, M5.IQ3.03}
+
+\begin{bigidea}
+To reach a higher orbit, the engines must add energy $\Delta E$. The satellite
+ends up \emph{slower}: $K$ falls by $\Delta E$ and $U$ rises by $2\Delta E$. Air
+drag does the opposite.
+\end{bigidea}
+
+A bigger orbit has a less negative $E$, so the engines supply
+$\Delta E = E_2 - E_1$. Because $K = -E$ and $U = 2E$ in every circular orbit,
+$\Delta K = -\Delta E$ and $\Delta U = 2\Delta E$.
+
+\begin{formulacard}[notonsheet]{Energy to change circular orbit}
+  \cardformula{\Delta E = \frac{GMm}{2}\left(\frac{1}{r_1} - \frac{1}{r_2}\right)}
+  \begin{symbols}
+    \sym{$\Delta E$}{change in total energy (smallest engine work)}{\si{J}}
+    \sym{$G$}{universal gravitational constant, \num{6.67e-11}}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$, $m$}{mass of the planet, mass of the satellite}{\si{kg}}
+    \sym{$r_1$, $r_2$}{radius of the starting orbit, radius of the new orbit}{\si{m}}
+  \end{symbols}
+  \whentouse{from one circular orbit to another (not a launch from the ground).}
+  \derive{$\Delta E = E_2 - E_1 = -\dfrac{GMm}{2r_2} + \dfrac{GMm}{2r_1}$; take
+    out $\dfrac{GMm}{2}$.}
+  \trap{$\Delta E$ is not $\Delta U$. The engines supply only half of the rise in
+    $U$; the other half comes from the fall in $K$.}
+\end{formulacard}
+
+
+
+% layout QA (whole-book build): slash fractions in this paragraph keep its lines evenly spaced, so
+% Figure 5.4 fits on the same page as its text and the Key experiment box stays in one piece.
+\textbf{From the ground.} On the pad $K \approx 0$, so
+$E = U = -GMm/r_\mathrm{E}$. The smallest energy to reach a circular
+orbit is $\Delta E = -GMm/(2r) + GMm/r_\mathrm{E}$. For
+\qty{1}{kg}: \qty{32.6}{MJ} to a \qty{250}{km} orbit, \qty{58.1}{MJ} to
+geostationary orbit (GEO: above the equator, one turn per day, used by TV and
+weather satellites) and \qty{62.8}{MJ} to escape. So low Earth orbit (LEO: space
+station, Starlink) is much cheaper.
+
+\textbf{During a launch}, the fuel's chemical energy becomes extra $K$ and $U$
+(and heat and sound). After the engines stop, the rocket coasts up: $K$ turns
+into $U$, and $K + U$ stays constant.
+
+
+\subsection{The Hohmann transfer}
+
+A \term{Hohmann transfer} is a fuel-saving way to change orbit, using two short
+engine firings (\term{burns}). \term{Perigee} and \term{apogee} are the closest
+and farthest points of an orbit around Earth. \Cref{ch5:fig:hohmann} shows a
+move from a \qty{250}{km} orbit to GEO.
+
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=0.95cm, y=0.95cm]
+    \fill[hscseriesA!15] (0,0) circle (0.55);
+    \draw[hscseriesA!60, line width=0.8pt] (0,0) circle (0.55);
+    \node[diagramlabel, font=\footnotesize] at (0,0) {Earth};
+    \draw[hscmuted, line width=0.9pt] (0,0) circle (1.0);
+    \draw[hscmuted, line width=0.9pt] (0,0) circle (2.3);
+    \draw[hscseriesC, line width=1.2pt, domain=0:180, samples=80, variable=\t]
+      plot ({-0.65+1.65*cos(\t)}, {1.5166*sin(\t)});
+    \draw[hscseriesC!60, line width=0.7pt, dotted, domain=180:360, samples=60, variable=\t]
+      plot ({-0.65+1.65*cos(\t)}, {1.5166*sin(\t)});
+    \draw[hscseriesC, line width=1.2pt, ->, domain=40:72, samples=20, variable=\t]
+      plot ({-0.65+1.65*cos(\t)}, {1.5166*sin(\t)});
+    \draw[->, hscmuted, line width=0.7pt] (100:1.2) arc (100:140:1.2);
+    % radius guides start at the Earth's edge, so they do not cross the word "Earth"
+    \draw[guide] (-60:0.55) -- (-60:1.0) node[pos=0.5, left, font=\footnotesize, text=hscmuted] {$r_1$};
+    \draw[guide] (-125:0.55) -- (-125:2.3) node[pos=0.42, left, font=\footnotesize, text=hscmuted] {$r_2$};
+    \draw[accel] (1.0,0) -- (1.0,0.85) node[right, text=hscacc, font=\footnotesize, align=left, fill=white, inner sep=1pt] {burn 1};
+    \draw[accel] (-2.3,0) -- (-2.3,-0.85) node[left, text=hscacc, font=\footnotesize, align=right] {burn 2};
+    \fill[object] (1.0,0) circle (3pt);
+    \fill[object] (-2.3,0) circle (3pt);
+    \node[diagramlabel, font=\footnotesize, anchor=north west, fill=white, inner sep=1pt] at (1.0,-0.05) {perigee};
+    \node[diagramlabel, font=\footnotesize, anchor=south east] at (-2.32,0.05) {apogee};
+    \node[diagramlabel, font=\footnotesize, text=hscseriesC, align=center] at (-0.4,1.85) {transfer orbit};
+  \end{tikzpicture}
+  \captionof{figure}{Hohmann transfer, low orbit ($r_1$) to GEO ($r_2$), not to
+    scale.}\label{ch5:fig:hohmann}
+\nextside
+  \begin{enumerate}
+    \item \textbf{Burn 1} at perigee: push \emph{forwards} (along the motion)
+          into the elliptical \term{transfer orbit}.
+    \item \textbf{Coast:} gravity slows it; $K$ turns into $U$, $E$ is constant.
+    \item \textbf{Burn 2} at apogee: push forwards into the big circle.
+  \end{enumerate}
+  Both burns speed it up, but it ends \emph{slower} (7.77 to
+  \qty{3.08}{km.s^{-1}}). To move \emph{down}, push backwards.
+\end{sidebyside}
+
+\subsection{Orbital decay}
+
+\term{Orbital decay} is a slow fall to lower orbits. A LEO satellite moves
+through very thin air. \term{Atmospheric drag} (the push of this air against its
+motion) turns some mechanical energy into heat (\cref{ch5:fig:decay}).
+
+\begin{sidebyside}[0.32]
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \fill[hscseriesA!15] (0,0) circle (0.9);
+    \draw[hscseriesA!60, line width=0.8pt] (0,0) circle (0.9);
+    \node[diagramlabel, font=\footnotesize] at (0,-0.3) {Earth};
+    \draw[hscmuted, line width=0.9pt, domain=0:1080, samples=240, variable=\t, ->]
+      plot ({(2.0-0.6*\t/1080)*cos(\t)}, {(2.0-0.6*\t/1080)*sin(\t)});
+    \coordinate (S) at ({1.975*cos(45)}, {1.975*sin(45)});
+    \draw[velocity] (S) -- ++(135:0.95) node[above, text=hscvel, font=\footnotesize] {$v$};
+    \draw[force] (S) -- ++(-45:0.55) node[right, text=hscforce, font=\footnotesize] {drag};
+    % the "gravity" label sits inside the Earth disc, just below the arrow tip, so it covers
+    % neither the Earth's outline nor the spiral
+    \draw[force] (S) -- ($(S)!0.75cm!(0,0)$);
+    \node[anchor=north east, text=hscforce, font=\footnotesize, inner sep=1pt] at (45:0.775) {gravity};
+    \fill[object] (S) circle (3.5pt);
+  \end{tikzpicture}
+  \captionof{figure}{Drag makes the satellite spiral slowly inwards (spacing
+    exaggerated).}\label{ch5:fig:decay}
+\nextside
+  \begin{enumerate}
+    \item Drag removes energy, so $E$ falls (more negative).
+    \item $E = -\dfrac{GMm}{2r}$, so $r$ falls. The orbit gets lower.
+    \item $E = -K$, so $K$ \emph{rises}: the satellite speeds up.
+    \item $U = 2E$, so $U$ falls by twice the energy lost: half becomes heat,
+          half becomes extra $K$.
+  \end{enumerate}
+  Lower orbits meet denser air, so decay speeds up until the satellite burns
+  up. Decay is caused by drag, not by ``stronger gravity''.
+\end{sidebyside}
+
+%% ==================================================================
+\section{Key experiments}\label{ch5:sec:experiment}
+\covers{M5.IQ3.05, M5.IQ3.04}
+
+\begin{experiment}{Launch speed, total energy and escape (simulation)}
+\aim{To find how the launch speed decides whether a probe falls back, orbits or
+  escapes, and to test $v_\mathrm{esc} = \sqrt{2GM/r}$ using total energy.}
+\method{A computer orbit model (Earth's mass) launches a probe sideways from
+  $r_0 = \qty{1.00e7}{m}$ at 5 to \qty{9}{km.s^{-1}}. Each run gives the path
+  and $E/m = \tfrac{1}{2}v_0^2 - GM/r_0$.}
+\results{\begin{center}\small
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    $v_0$ (\si{km.s^{-1}}) & 5.00 & 6.33 & 7.00 & 8.94 & 8.95\\
+    $E/m$ (\si{MJ.kg^{-1}}) & $-27.5$ & $-20.0$ & $-15.5$ & $-0.06$ & $+0.03$\\
+    path & falls back & circle & ellipse & very long ellipse & escapes\\
+    \bottomrule
+  \end{tabular}
+  \end{center}}
+\conclusion{The probe escapes only when $E \ge 0$, between 8.94 and
+  \qty{8.95}{km.s^{-1}}; theory gives $\sqrt{2GM/r_0} = \qty{8.95}{km.s^{-1}}$.
+  Around an ellipse, $E$ stays the same while $K$ and $U$ swap.}
+\significance{Total energy, not speed alone, decides whether an object is bound.}
+\end{experiment}
+
+%% ==================================================================
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item $U = -\dfrac{GMm}{r}$: zero at infinity, negative everywhere else, with
+        $r = r_\mathrm{E} + \text{altitude}$.
+  \item Circular orbit: $K = \dfrac{GMm}{2r}$ and
+        $E = U + K = -\dfrac{GMm}{2r}$, so $E = -K$ and $U = 2E$.
+  \item Gravity only: $E = K + U$ stays constant. An elliptical orbit is fastest
+        at perihelion. $E < 0$: bound; $E \ge 0$: escapes.
+  \item $K + U = 0$ gives $v_\mathrm{esc} = \sqrt{\dfrac{2GM}{r}}$, whatever the
+        mass (\qty{11.2}{km.s^{-1}} from Earth's surface).
+  \item A higher orbit needs
+        $\Delta E = \dfrac{GMm}{2}\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$:
+        $E$ and $U$ rise, but $K$ falls.
+  \item Orbital decay: drag lowers the orbit and speeds the satellite up.
+\end{itemize}
+\end{summarybox}

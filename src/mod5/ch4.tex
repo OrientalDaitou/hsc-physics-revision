@@ -1,0 +1,1301 @@
+% ch4.tex -- Module 5, Chapter 4: Gravity, orbits and Kepler's laws
+% Dot points: M5.IQ3.01, M5.IQ3.02, M5.IQ3.03, M5.IQ3.04 (energy in orbits: Chapter 5)
+% Figures: TikZ inline, plus figures/ch4_cannonball.py, ch4_equalareas.py,
+%          ch4_ellipseforces.py (matplotlib, PDF next to each script)
+\chapter{Gravity, Orbits and Kepler's Laws}\label{ch4:chap}
+\covers{M5.IQ3.01, M5.IQ3.02, M5.IQ3.03, M5.IQ3.04}
+
+\inquiry{How does the force of gravity determine the motion of planets and satellites?}
+
+\begin{goals}
+  \item calculate the gravitational force between two masses, and the field strength $g$ on a
+        planet and above it
+  \item explain why a satellite stays in orbit, and calculate its speed, period and radius
+  \item state Kepler's three laws and explain them with forces and energy
+  \item compare low Earth orbits and geostationary orbits, and link them to their uses
+\end{goals}
+
+\begin{syllabus}
+  \item M5.IQ3.01: use Newton's law of universal gravitation to find the force between two
+        masses, investigate what affects $g = GM/r^2$, and predict $g$ at any point
+  \item M5.IQ3.02: investigate the orbits of planets and satellites, using gravitational force,
+        centripetal force and acceleration, mass, orbital radius, orbital velocity and period
+  \item M5.IQ3.03: predict the properties of low Earth orbits and geostationary orbits, and link
+        them to their uses
+  \item M5.IQ3.04: investigate how Kepler's laws are related to the forces on planets and to
+        their total energy (energy: \cref{ch5:chap}), using $v = 2\pi r/T$ and
+        $r^3/T^2 = GM/4\pi^2$
+\end{syllabus}
+
+%% ==================================================================
+\section{Newton's law of gravitation and field strength}\label{ch4:sec:newton}
+\covers{M5.IQ3.01}
+
+\begin{bigidea}
+Every mass pulls every other mass. The pull is bigger for bigger masses, and it gets weaker
+quickly with distance. A planet's field strength $g$ is its pull on each kilogram.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Gravitational force}{the pull between any two objects that have mass. Unit: newton (N).}
+  \kw{Universal gravitational constant ($G$)}{a fixed number that sets how strong gravity is.}
+  \kw{Inverse-square law}{a rule where doubling the distance makes the effect four times smaller.}
+  \kw{Gravitational field strength ($g$)}{the gravitational force on each kilogram at a point.}
+  \kw{Altitude ($h$)}{the height above a planet's surface.}
+\end{keywords}
+
+A pen falls because the Earth pulls it. The Moon orbits the Earth for the same reason. In 1687
+Isaac Newton showed that one law explains both. It is called the law of \term{universal
+gravitation}: ``universal'' means it works everywhere, on Earth and in space. Gravity acts between \emph{any}
+two masses, and it always attracts.
+
+\begin{refresher}{Mass, weight and Newton's third law}
+\term{Mass} ($m$, in kg) is the amount of matter in an object. It is the same everywhere.
+\term{Weight} is the gravitational force of a planet on an object (in N). Near the Earth's
+surface, weight $= mg = m \times 9.8$. Newton's third law: if A pulls B, then B pulls A with a
+force of the same size in the opposite direction.
+\end{refresher}
+
+\begin{sidebyside}[0.5]
+  \centering
+  \begin{tikzpicture}
+    \fill[object] (0,0) circle (0.85);
+    \node[diagramlabel] at (0,0.32) {$M$};
+    \fill[object] (4.0,0) circle (0.32);
+    \node[diagramlabel] at (4.0,0.6) {$m$};
+    \fill[hscink] (0,0) circle (1.3pt);
+    \fill[hscink] (4.0,0) circle (1.3pt);
+    \draw[force] (0.85,0) -- (1.85,0) node[above, pos=0.5, text=hscforce, font=\small] {$F$};
+    \draw[force] (3.68,0) -- (2.68,0) node[above, pos=0.5, text=hscforce, font=\small] {$F$};
+    \draw[hscmuted, line width=0.6pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}]
+      (0,-1.15) -- node[below, diagramlabel] {$r$ (centre to centre)} (4.0,-1.15);
+    \draw[guide] (0,-0.85) -- (0,-1.3);
+    \draw[guide] (4.0,-0.32) -- (4.0,-1.3);
+  \end{tikzpicture}
+  \captionof{figure}{Two masses pull each other with forces of equal size.}\label{ch4:fig:pair}
+\nextside
+  The force depends on (\cref{ch4:fig:pair}):
+  \begin{itemize}
+    \item the two masses, $M$ and $m$;
+    \item the distance $r$ between their \term{centres of mass} (the points where all their
+          mass seems to act; for a planet, its centre).
+  \end{itemize}
+  The arrows have the same length: $M$ pulls $m$ exactly as hard as $m$ pulls $M$.
+\end{sidebyside}
+
+\begin{toolkit}{Powers of ten, inverse squares and significant figures}
+\begin{itemize}
+  \item Type $6.67\times10^{-11}$ with the \texttt{EXP} (or $\times10^x$) key. Put brackets round a
+        number before squaring it: $(7.221\times10^{6})^2 = 5.214\times10^{13}$. The power of ten
+        doubles.
+  \item If $F \propto \dfrac{1}{r^2}$ and $r$ is multiplied by $k$, then $F$ is divided by $k^2$:
+        $r \times 2 \Rightarrow F \div 4$, \ $r \times 3 \Rightarrow F \div 9$.
+  \item Significant figures: the data sheet gives $M_\mathrm{E}$ to only 2 significant figures.
+        HSC answers with 2 or 3 significant figures are usually accepted. In Earth-orbit examples
+        this book gives 3, so you can check your working.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{Newton's law of universal gravitation}
+  \cardformula{F = \frac{GMm}{r^2}}
+  \begin{symbols}
+    \sym{$F$}{gravitational force on each of the two objects}{\si{N}}
+    \sym{$G$}{universal gravitational constant, \num{6.67e-11} (data sheet)}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$, $m$}{masses of the two objects ($M$ is usually the bigger one)}{\si{kg}}
+    \sym{$r$}{distance between the centres of the two objects}{\si{m}}
+  \end{symbols}
+  \inwords{the force is bigger when either mass is bigger. It is smaller when the objects are
+    further apart: double the distance and the force is 4 times smaller.}
+  \whentouse{two point masses or two spheres, with $r$ from centre to centre (planets, moons,
+    satellites). For other objects, such as people or cars, it gives only a rough estimate.}
+  \whennottouse{inside a planet ($r$ smaller than its radius). This is not in the HSC course.}
+  \rearranged{$r = \sqrt{\dfrac{GMm}{F}}$ \qquad $M = \dfrac{Fr^2}{Gm}$}
+  \tensecond{two lead spheres of \qty{2.0e3}{kg} and \qty{3.0e3}{kg}, with centres \qty{2.0}{m}
+    apart: $F = \dfrac{\num{6.67e-11} \times \num{2.0e3} \times \num{3.0e3}}{2.0^2} = \qty{1.0e-4}{N}$,
+    far too small to feel.}
+  \trap{$r$ goes from centre to centre, not surface to surface. Square all of $r$, including the
+    power of ten.}
+\end{formulacard}
+
+
+\subsection{Gravitational field strength}
+A skydiver feels the Earth's pull without touching the Earth. The Earth makes a
+\term{gravitational field}: a region where any mass feels a gravitational force. The
+\term{gravitational field strength} is the force on each kilogram, $g = \dfrac{F}{m}$.
+Its unit is \si{N.kg^{-1}}. This is the same as \si{m.s^{-2}}, because
+\qty{1}{N} = \qty{1}{kg.m.s^{-2}}. Newton's second law says $a = \dfrac{F}{m}$. So for an
+object in \term{free fall} (gravity is the only force on it), the force on each kilogram is also
+its acceleration.
+
+\begin{sidebyside}[0.56]
+  \centering
+  \begin{tikzpicture}[scale=0.82]
+    \fill[hscbrand!10, draw=hscink, line width=0.8pt] (0,0) circle (1.0);
+    \node[diagramlabel] at (0,-0.15) {planet};
+    \foreach \a in {0,30,...,330} \draw[field] (\a:2.0) -- (\a:1.05);
+    \draw[hscmuted, line width=0.6pt] (-0.22,0.82) rectangle (0.22,1.26);
+    \node[diagramlabel, align=center] at (0,-2.5) {radial field};
+    \begin{scope}[xshift=4.0cm]
+      \draw[hscmuted, line width=0.6pt] (-1.1,-1.1) rectangle (1.1,1.5);
+      \fill[ground] (-1.1,-1.1) rectangle (1.1,-0.75);
+      \draw[hscink, line width=0.8pt] (-1.1,-0.75) -- (1.1,-0.75);
+      \foreach \x in {-0.8,-0.4,0,0.4,0.8} \draw[field] (\x,1.3) -- (\x,-0.68);
+      \node[diagramlabel, align=center] at (0,-1.65) {near the surface:\\nearly uniform};
+    \end{scope}
+    \draw[guide] (0.22,1.26) -- (2.9,1.5);
+    \draw[guide] (0.22,0.82) -- (2.9,-1.1);
+  \end{tikzpicture}
+  \captionof{figure}{A planet's field. Arrows show the force on a mass.}\label{ch4:fig:field}
+\nextside
+  \term{Field lines} are arrows that show which way a mass would be pulled. Around a planet the
+  field lines point to the centre. This is a \term{radial field} (\cref{ch4:fig:field}). The
+  lines spread out further away, so the field gets weaker.
+
+  \smallskip
+  In a small region near the surface the lines are almost parallel. The field there is nearly a
+  \term{uniform field} (same size and direction everywhere). That is why projectile questions use
+  one value, $g = \qty{9.8}{m.s^{-2}}$.
+\end{sidebyside}
+
+Put Newton's law into $g = \dfrac{F}{m}$:
+\[ g = \frac{F}{m} = \frac{GMm}{r^2} \div m = \frac{GM}{r^2} \]
+The object's mass $m$ cancels. So \emph{all objects fall with the same acceleration} in the same
+place, if air resistance is small enough to ignore. In 1971 an astronaut on the airless Moon
+dropped a hammer and a feather, and they landed together.
+
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}
+    \fill[hscbrand!10, draw=hscink, line width=0.8pt] (0,0) circle (1.15);
+    \draw[hscmuted!70, dashed, line width=0.6pt] (40:2.55) arc (40:-26:2.55);
+    \fill[hscink] (0,0) circle (1.4pt);
+    \node[diagramlabel, left, inner sep=2pt] at (0,0) {centre};
+    \draw[hscink, line width=0.7pt] (0,0) -- (2.55,0);
+    \draw[hscink, line width=0.7pt] (1.15,0.1) -- (1.15,-0.1);
+    \node[diagramlabel, above] at (0.62,0) {$r_\mathrm{E}$};
+    \node[diagramlabel, above] at (1.85,0) {$h$};
+    \draw[guide] (0,0) -- (0,-1.6);
+    \draw[guide] (2.55,0) -- (2.55,-1.6);
+    \draw[hscmuted, line width=0.6pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}]
+      (0,-1.45) -- node[below, diagramlabel, inner sep=4pt] {$r = r_\mathrm{E} + h$} (2.55,-1.45);
+    \fill[object] (2.55,0) circle (4.5pt);
+    \node[diagramlabel, right, inner sep=5pt] at (2.55,0) {satellite};
+    \node[diagramlabel, text=hscmuted] at (0.1,0.75) {Earth};
+  \end{tikzpicture}
+  \captionof{figure}{Altitude $h$ and distance $r$ from the centre.}\label{ch4:fig:altitude}
+\nextside
+  Questions usually give the \term{altitude} $h$: the height above the surface. Gravity formulas
+  need $r$, measured from the \emph{centre} (\cref{ch4:fig:altitude}). So add the Earth's radius
+  to the altitude:
+  \[ r = r_\mathrm{E} + h \]
+  The data sheet gives the Earth's radius, $r_\mathrm{E} = \qty{6.371e6}{m}$, and its mass,
+  $M_\mathrm{E} = \qty{6.0e24}{kg}$.
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet]{Distance from the centre and altitude}
+  \cardformula{r = r_\mathrm{E} + h}
+  \begin{symbols}
+    \sym{$r$}{distance from the Earth's centre (the orbital radius)}{\si{m}}
+    \sym{$r_\mathrm{E}$}{radius of the Earth, \num{6.371e6} (data sheet)}{\si{m}}
+    \sym{$h$}{altitude: the height above the Earth's surface}{\si{m}}
+  \end{symbols}
+  \inwords{the distance from the centre is the Earth's radius plus the height above the ground.}
+  \whentouse{whenever a question gives a height above the surface. Do it first, before any
+    gravity formula. For another planet, use that planet's radius.}
+  \whennottouse{when the question already gives the distance from the centre (the orbital radius).}
+  \rearranged{$h = r - r_\mathrm{E}$ \quad (when a question asks for the altitude)}
+  \tensecond{$h = \qty{300}{km} = \qty{0.300e6}{m}$, so
+    $r = \qty{6.371e6}{m} + \qty{0.300e6}{m} = \qty{6.671e6}{m}$.}
+  \derive{it is a definition (\cref{ch4:fig:altitude}). The line from the centre to the satellite
+    crosses the surface. It has two parts: centre to surface ($r_\mathrm{E}$), then surface to
+    satellite ($h$). Add the two parts.}
+  \trap{change km to m first. Never put $h$ alone into $\dfrac{GM}{r^2}$, $\sqrt{\dfrac{GM}{r}}$
+    or Kepler's third law.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Gravitational field strength}
+  \cardformula{g = \frac{GM}{r^2}}
+  \begin{symbols}
+    \sym{$g$}{gravitational field strength (free-fall acceleration)}{\si{N.kg^{-1}} = \si{m.s^{-2}}}
+    \sym{$G$}{universal gravitational constant}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$}{mass of the planet (or star, or moon) that makes the field}{\si{kg}}
+    \sym{$r$}{distance from the planet's \emph{centre} to the point}{\si{m}}
+  \end{symbols}
+  \inwords{$g$ is bigger for a heavier planet. It is smaller further from the centre: double $r$
+    and $g$ is 4 times smaller. It does not depend on the object's mass.}
+  \whentouse{$g$ at a planet's surface ($r$ = its radius) or above it ($r = r_\mathrm{E} + h$),
+    and to compare planets.}
+  \whennottouse{inside a planet.}
+  \rearranged{$M = \dfrac{gr^2}{G}$ \qquad $r = \sqrt{\dfrac{GM}{g}}$}
+  \tensecond{at $r = 2r_\mathrm{E}$, $g = \dfrac{9.86}{2^2} = \dfrac{9.86}{4} = \qty{2.47}{m.s^{-2}}$.}
+  \derive{an object of mass $m$ feels $F = mg$ (definition of $g$) and $F = \dfrac{GMm}{r^2}$
+    (on the sheet).
+    \begin{align*}
+      mg &= \frac{GMm}{r^2} && \text{both are the same force}\\
+      g &= \frac{GM}{r^2} && \text{divide both sides by $m$; $m$ cancels}
+    \end{align*}}
+  \trap{$r$ is from the centre: $r = r_\mathrm{E} + h$, never the altitude $h$ alone. Change km to m.}
+\end{formulacard}
+
+\textbf{Two useful numbers.} Many questions need the product
+$GM_\mathrm{E} = \num{6.67e-11} \times \num{6.0e24} = \qty{4.0e14}{m^3.s^{-2}}$
+(\num{4.002e14} before rounding). At the surface, $r = r_\mathrm{E}$, so
+$g = \dfrac{GM_\mathrm{E}}{r_\mathrm{E}^2} = \dfrac{\qty{4.002e14}{m^3.s^{-2}}}{(\qty{6.371e6}{m})^2}
+= \qty{9.86}{m.s^{-2}}$.
+
+This is a little more than the sheet's $g = \qty{9.8}{m.s^{-2}}$. The difference comes from
+rounding $M_\mathrm{E}$ to \num{6.0e24}. The rule:
+\begin{itemize}
+  \item If a question gives $g$, or says ``use the data sheet'', use 9.8.
+  \item If you compare a calculated $\dfrac{GM}{r^2}$ with the surface value, use 9.86. Then both
+        numbers come from the same data.
+\end{itemize}
+
+\textbf{What affects $g$?} In the model $g = \dfrac{GM}{r^2}$ only two factors affect $g$: the
+planet's mass ($g \propto M$) and the distance from its centre ($g \propto \dfrac{1}{r^2}$).
+\Cref{ch4:fig:gr} shows the inverse-square fall. Doubling $r$ (an altitude of one Earth radius,
+\qty{6371}{km}) makes $g$ four times smaller.
+
+On the real Earth, $g$ also changes a little from place to place. It is about
+\qty{9.78}{m.s^{-2}} at the equator and \qty{9.83}{m.s^{-2}} at the poles. There are two reasons.
+The Earth bulges at the equator, so the surface there is further from the centre. The Earth also
+spins, and this reduces the measured $g$ most at the equator. High mountains and dense rock
+underground change $g$ slightly too.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.66\linewidth, height=0.30\linewidth,
+        xmin=0, xmax=5.5, ymin=0, ymax=11,
+        xlabel={distance from the Earth's centre, $r$ (in Earth radii)},
+        ylabel={$g$ (\si{m.s^{-2}})}, xtick={0,1,2,3,4,5}, ytick={0,2,4,6,8,10}]
+      \fill[hscmuted!15] (axis cs:0,0) rectangle (axis cs:1,11);
+      \node[font=\footnotesize, text=hscmuted, align=center] at (axis cs:0.5,5.5) {inside\\Earth};
+      \addplot[hscseriesA, line width=1.2pt, domain=1:5.5, samples=120, mark=none] {9.86/x^2};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(1,9.86) (2,2.465) (3,1.096) (4,0.616)};
+      \node[anchor=west, font=\small] at (axis cs:1.1,9.86) {9.86 at the surface};
+      \node[anchor=south west, font=\small] at (axis cs:2.05,2.6) {2.47 ($\div 4$)};
+      \node[anchor=south west, font=\small] at (axis cs:3.05,1.25) {1.10 ($\div 9$)};
+      \node[anchor=south west, font=\small] at (axis cs:4.05,0.75) {0.62 ($\div 16$)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Field strength against distance from the Earth's centre (data-sheet values).}\label{ch4:fig:gr}
+\end{figure}
+
+\begin{workedexample}{Gravity on a weather satellite}\label{ch4:we:gsat}
+A \qty{2500}{kg} weather satellite orbits \qty{850}{km} above the Earth's surface. Calculate
+(a) the gravitational force on it and (b) the gravitational field strength there.
+\given{$m = \qty{2500}{kg}$, \ $M_\mathrm{E} = \qty{6.0e24}{kg}$, \
+  $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$ (data sheet), \ add the altitude to the radius:
+  $r = r_\mathrm{E} + h = \qty{6.371e6}{m} + \qty{0.850e6}{m} = \qty{7.221e6}{m}$}
+\find{(a) the force $F$ \quad (b) the field strength $g$}
+\formula{$F = \dfrac{GMm}{r^2}$, \quad $g = \dfrac{F}{m}$}
+\substitute{\eqlines{GMm &= \qty{6.67e-11}{N.m^2.kg^{-2}} \times \qty{6.0e24}{kg} \times \qty{2500}{kg}\\
+    &= \qty{1.0005e18}{N.m^2}\\
+  F &= \frac{\qty{1.0005e18}{N.m^2}}{(\qty{7.221e6}{m})^2} = \qty{1.919e4}{N}\\
+  g &= \frac{\qty{1.919e4}{N}}{\qty{2500}{kg}} = \qty{7.68}{N.kg^{-1}}}}
+\answer{(a) \final{$F = \qty{1.92e4}{N}$} towards the Earth's centre. \ (b) \final{$g = \qty{7.68}{N.kg^{-1}}$},
+  which is $7.68 \div 9.86 = 0.78$ (78\,\%) of the surface value.}
+\checkstep{the other route:
+  $g = \dfrac{GM}{r^2} = \dfrac{\qty{4.002e14}{m^3.s^{-2}}}{\qty{5.214e13}{m^2}} = \qty{7.68}{N.kg^{-1}}$,
+  the same \cmark. (Here $r^2 = (\qty{7.221e6}{m})^2 = \qty{5.214e13}{m^2}$.) This is less than
+  \qty{9.86}{N.kg^{-1}} at the surface. That makes sense, because the satellite is further from
+  the centre.}
+\end{workedexample}
+
+\begin{toolkit}{Comparing two planets: divide one formula by the other}
+Write the formula once for each planet. Then divide the two:
+\[ \frac{g_\mathrm{X}}{g_\mathrm{E}} = \frac{GM_\mathrm{X}/r_\mathrm{X}^2}{GM_\mathrm{E}/r_\mathrm{E}^2}
+   = \frac{M_\mathrm{X}}{M_\mathrm{E}} \times \frac{r_\mathrm{E}^2}{r_\mathrm{X}^2}
+   = \frac{M_\mathrm{X}/M_\mathrm{E}}{(r_\mathrm{X}/r_\mathrm{E})^2} \]
+$G$ is on the top and on the bottom, so it cancels. Dividing by a fraction is the same as
+multiplying by it upside down. So you only need the two ratios, for example ``5.0 times the
+mass'' and ``1.6 times the radius''.
+\end{toolkit}
+
+\begin{workedexample}{Weighing yourself on another planet}\label{ch4:we:planetx}
+A rocky planet has 5.0 times the Earth's mass and 1.6 times the Earth's radius. (a) Find $g$ at
+its surface. (b) Find the weight of a \qty{70}{kg} astronaut there. (c) An Earth bathroom scale
+feels how hard you press on it. It shows that force divided by 9.8, and calls the result ``kg''.
+What would an Earth scale show there?
+\given{$\dfrac{M_\mathrm{X}}{M_\mathrm{E}} = 5.0$, \ $\dfrac{r_\mathrm{X}}{r_\mathrm{E}} = 1.6$, \
+  $g_\mathrm{E} = \qty{9.8}{m.s^{-2}}$, \ $m = \qty{70}{kg}$}
+\find{$g_\mathrm{X}$, the weight $W$, the scale reading}
+\formula{ratio of $g = \dfrac{GM}{r^2}$ for the two planets ($G$ cancels; see the toolkit above):
+  $\dfrac{g_\mathrm{X}}{g_\mathrm{E}} = \dfrac{M_\mathrm{X}/M_\mathrm{E}}{(r_\mathrm{X}/r_\mathrm{E})^2}$;
+  \ $W = mg$}
+\substitute{\eqlines{\frac{g_\mathrm{X}}{g_\mathrm{E}} &= \frac{5.0}{1.6^2} = \frac{5.0}{2.56} = 1.953\\
+  g_\mathrm{X} &= 1.953 \times \qty{9.8}{m.s^{-2}} = \qty{19.1}{m.s^{-2}}\\
+  W &= \qty{70}{kg} \times \qty{19.1}{m.s^{-2}} = \qty{1.34e3}{N}\\
+  \text{reading} &= \qty{1.34e3}{N} \div \qty{9.8}{m.s^{-2}} = \qty{137}{kg}}}
+\answer{(a) \final{$g_\mathrm{X} = \qty{19}{m.s^{-2}}$} \ (b) \final{$W = \qty{1.3e3}{N}$} \
+  (c) about \final{\qty{1.4e2}{kg}} (2 significant figures). Her mass is still \qty{70}{kg}; only
+  her weight has changed.}
+\checkstep{the extra mass multiplies $g$ by 5.0; the bigger radius divides it by 2.56. The net
+  effect is about $\times 2$, so the scale shows about twice \qty{70}{kg} \cmark.}
+\end{workedexample}
+
+\textbf{Fields from two bodies.} Field strength is a vector: it has a size and a direction. It
+points towards the centre of the mass that makes it. When two bodies pull on the same point, add
+their fields as vectors. On the line between two bodies the two fields point in opposite
+directions, so you subtract their sizes.
+
+\begin{workedexample}{A space probe between the Earth and the Moon}\label{ch4:we:earthmoon}
+A space probe is on the line joining the centres of the Earth and the Moon
+(\cref{ch4:fig:earthmoon}). It is \qty{3.00e8}{m} from the Earth's centre. The two centres are
+\qty{3.84e8}{m} apart, and the Moon's mass is \qty{7.35e22}{kg}. Find the net gravitational
+field strength at the probe.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \fill[hscbrand!10, draw=hscink, line width=0.8pt] (0,0) circle (0.55);
+    \node[diagramlabel, above, inner sep=4pt] at (0,0.55) {Earth};
+    \fill[hscmuted!25, draw=hscink, line width=0.6pt] (9.0,0) circle (0.22);
+    \node[diagramlabel, above, inner sep=4pt] at (9.0,0.22) {Moon};
+    \fill[hscink] (0,0) circle (1.2pt);
+    \fill[hscink] (9.0,0) circle (1.2pt);
+    \draw[force] (7.0,0) -- (4.4,0) node[below, pos=0.5, text=hscforce, font=\small]
+      {$g_\mathrm{E}$};
+    \draw[force] (7.0,0) -- (7.42,0) node[below right, pos=0.6, text=hscforce, font=\small,
+      inner sep=3pt] {$g_\mathrm{M}$};
+    \fill[object] (7.0,0) circle (3.5pt);
+    \node[diagramlabel, above, inner sep=5pt] at (7.0,0) {probe};
+    \draw[guide] (0,0) -- (0,-1.0);
+    \draw[guide] (7.0,0) -- (7.0,-1.0);
+    \draw[guide] (9.0,0) -- (9.0,-1.0);
+    \draw[hscmuted, line width=0.6pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}]
+      (0,-0.85) -- node[below, diagramlabel] {\qty{3.00e8}{m}} (7.0,-0.85);
+    \draw[hscmuted, line width=0.6pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}]
+      (7.0,-0.85) -- node[below, diagramlabel] {\qty{0.84e8}{m}} (9.0,-0.85);
+  \end{tikzpicture}
+  \caption{A probe between the Earth and the Moon (the sizes of the bodies are not to scale). The
+    two fields point in opposite directions. Arrow lengths show their sizes.}\label{ch4:fig:earthmoon}
+\end{figure}
+\given{$M_\mathrm{E} = \qty{6.0e24}{kg}$, \ $M_\mathrm{M} = \qty{7.35e22}{kg}$, \
+  $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$, \ distance to the Earth's centre $r_1 = \qty{3.00e8}{m}$, \
+  distance to the Moon's centre $r_2 = \qty{3.84e8}{m} - \qty{3.00e8}{m} = \qty{0.84e8}{m}$}
+\find{the net field strength $g_\mathrm{net}$ (size and direction)}
+\formula{$g = \dfrac{GM}{r^2}$ for each body; opposite directions, so
+  $g_\mathrm{net} = g_\mathrm{E} - g_\mathrm{M}$}
+\substitute{\eqlines{g_\mathrm{E} &= \frac{\qty{6.67e-11}{N.m^2.kg^{-2}} \times \qty{6.0e24}{kg}}{(\qty{3.00e8}{m})^2}\\
+    &= \qty{4.447e-3}{N.kg^{-1}} \quad\text{towards the Earth}\\
+  g_\mathrm{M} &= \frac{\qty{6.67e-11}{N.m^2.kg^{-2}} \times \qty{7.35e22}{kg}}{(\qty{0.84e8}{m})^2}\\
+    &= \qty{0.6948e-3}{N.kg^{-1}} \quad\text{towards the Moon}\\
+  g_\mathrm{net} &= g_\mathrm{E} - g_\mathrm{M} \quad\text{(opposite directions, so subtract)}\\
+    &= \qty{4.447e-3}{N.kg^{-1}} - \qty{0.6948e-3}{N.kg^{-1}}\\
+    &= \qty{3.752e-3}{N.kg^{-1}}}}
+\answer{\final{$g_\mathrm{net} = \qty{3.75e-3}{N.kg^{-1}}$ towards the Earth}}
+\checkstep{the Earth has 82 times the Moon's mass, but the probe is much closer to the Moon. The
+  Earth's field is still bigger here, so the net field points towards the Earth \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using the altitude $h$ (or the surface-to-surface distance) as $r$.
+        \cmark\ $r$ is from the centre: $r = r_\mathrm{E} + h$, in metres.
+  \item \xmark\ Using $g = \qty{9.8}{m.s^{-2}}$ high above the Earth. \cmark\ Calculate
+        $\dfrac{GM}{r^2}$ at that height.
+  \item \xmark\ ``The Earth pulls the Moon harder than the Moon pulls the Earth.'' \cmark\ The
+        forces are equal (third law). Only the accelerations differ.
+  \item \xmark\ ``There is no gravity in space.'' \cmark\ At \qty{420}{km}, $g$ is still
+        \qty{8.7}{m.s^{-2}}.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+Calculations are usually 2 marks: one for substituting with $r$ in metres from the centre, one
+for the answer with a unit. When a planet's mass and radius are given as multiples of the
+Earth's, use the ratio form. Multiple-choice questions often change two things at once. Write
+$F \propto \dfrac{Mm}{r^2}$ (or $g \propto \dfrac{M}{r^2}$). Then change one factor at a time.
+$g = \dfrac{GM}{r^2}$ is \emph{not} on the sheet, so derive it in one line from $mg = \dfrac{GMm}{r^2}$.
+Asked why $g$ is different in different places on the Earth? Give altitude, latitude (the
+Earth's shape and spin) and the density of the rock below.
+\end{examtip}
+
+\begin{quickcheck}
+  \item Two asteroids attract each other with a force $F$. The distance between their centres
+        is tripled and the mass of one asteroid is doubled. Find the new force in terms of $F$.
+  \item The Earth pulls a \qty{0.50}{kg} ball down with a force of \qty{4.9}{N}. (a) What force
+        does the ball exert on the Earth? (b) Explain why the Earth does not seem to move.
+  \item The Moon has a mass of \qty{7.35e22}{kg} and a radius of \qty{1.74e6}{m}. Calculate $g$
+        at its surface.
+  \item At what altitude above the Earth's surface is $g$ one ninth of its surface value?
+  \item Use the data in \cref{ch4:we:earthmoon}. How far from the Earth's centre is the net field
+        of the Earth and the Moon zero?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Satellites in circular orbits}\label{ch4:sec:orbits}
+\covers{M5.IQ3.02, M5.IQ3.04}
+
+\begin{bigidea}
+A satellite is always falling towards the Earth. It moves sideways so fast that the ground
+curves away beneath it, so it never lands. Gravity provides the centripetal force.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Satellite}{an object that orbits a bigger body. The Moon is a natural satellite.}
+  \kw{Orbital radius ($r$)}{the distance from the centre of the planet to the satellite.}
+  \kw{Orbital speed ($v$)}{the speed a satellite needs to stay in a circular orbit.}
+  \kw{Orbital period ($T$)}{the time for one full orbit.}
+  \kw{Free fall}{motion when gravity is the only force acting.}
+\end{keywords}
+
+\begin{refresher}{Circular motion (\cref{ch2:chap})}
+In uniform circular motion, $v = \dfrac{2\pi r}{T}$, the acceleration $a_\mathrm{c} = \dfrac{v^2}{r}$
+points to the centre, and the net force is $F_\mathrm{c} = \dfrac{mv^2}{r}$. $F_\mathrm{c}$ is not a
+new force: a real force (tension, friction, gravity) does this job.
+\end{refresher}
+
+\begin{sidebyside}[0.5]
+  \centering
+  \includegraphics{ch4_cannonball.pdf}
+  \captionof{figure}{Newton's cannonball (the mountain is drawn far too tall, so the paths can be
+    seen). C is a circular orbit: gravity $F$ is at \ang{90} to $v$.}\label{ch4:fig:cannon}
+\nextside
+  Newton imagined a cannon on a very tall mountain, with no air (\cref{ch4:fig:cannon}).
+  \begin{itemize}
+    \item A slow ball falls to the ground (A). A faster one lands further away (B).
+    \item At about \qty{7.9}{km.s^{-1}} near the surface, the ground curves away as fast as the
+          ball falls. It never lands: it is in \term{orbit} (C).
+    \item Faster still, the orbit is an oval (D). Above \qty{11.2}{km.s^{-1}} the ball escapes
+          (\cref{ch5:chap}).
+  \end{itemize}
+  An orbit is projectile motion that never ends. The satellite is in free fall.
+\end{sidebyside}
+
+Gravity points to the Earth's centre, exactly where a centripetal force must point. So
+\emph{gravity provides the centripetal force}: $\dfrac{GMm}{r^2} = \dfrac{mv^2}{r}$.
+
+\begin{formulacard}[notonsheet]{Orbital speed (circular orbit)}
+  \cardformula{v = \sqrt{\frac{GM}{r}}}
+  \begin{symbols}
+    \sym{$v$}{orbital speed of the satellite}{\si{m.s^{-1}}}
+    \sym{$G$}{universal gravitational constant}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$}{mass of the central body (the planet, \emph{not} the satellite)}{\si{kg}}
+    \sym{$r$}{orbital radius, from the centre of the central body}{\si{m}}
+  \end{symbols}
+  \inwords{a satellite closer to the planet must move faster.}
+  \whentouse{any circular orbit around a planet, moon or star.}
+  \whennottouse{an elliptical orbit (the speed changes), or a rocket during launch.}
+  \rearranged{$r = \dfrac{GM}{v^2}$ \qquad $M = \dfrac{v^2 r}{G}$}
+  \tensecond{around the Earth at $r = \qty{7.0e6}{m}$:
+    $v = \sqrt{\dfrac{\qty{4.0e14}{m^3.s^{-2}}}{\qty{7.0e6}{m}}} = \qty{7.6e3}{m.s^{-1}}$.}
+  \derive{set $F = F_\mathrm{c}$ (both on the sheet).
+    \begin{align*}
+      \frac{GMm}{r^2} &= \frac{mv^2}{r} && \text{gravity provides the centripetal force}\\
+      \frac{GM}{r^2} &= \frac{v^2}{r} && \text{divide both sides by $m$}\\
+      \frac{GM}{r} &= v^2 && \text{multiply both sides by $r$}\\
+      v &= \sqrt{\frac{GM}{r}} && \text{take the square root}
+    \end{align*}}
+  \trap{$M$ is the planet's mass, not the satellite's. $r$ is not the altitude.}
+\end{formulacard}
+
+The derivation shows four facts.
+\begin{enumerate}
+  \item The satellite's mass cancels. So every object at the same height needs the same speed.
+        A spanner dropped by an astronaut orbits beside the station.
+  \item A bigger orbit is slower: $v \propto \dfrac{1}{\sqrt r}$. For example, 9 times the radius
+        gives one third of the speed, because $\sqrt 9 = 3$.
+  \item Put $v^2 = \dfrac{GM}{r}$ into $a_\mathrm{c} = \dfrac{v^2}{r}$:
+        $a_\mathrm{c} = \dfrac{GM}{r} \div r = \dfrac{GM}{r^2}$. This is the field strength $g$ at
+        the orbit.
+  \item The velocity is along the tangent to the orbit, at \ang{90} to the radius. If a question
+        asks for the orbital \emph{velocity}, give the speed and say ``along the tangent to the
+        orbit''.
+\end{enumerate}
+
+\term{Apparent weightlessness} is the feeling of having no weight during free fall. Astronauts on
+the International Space Station (ISS, about \qty{420}{km} up) float. This is not because gravity is
+missing: $g$ there is \qty{8.7}{m.s^{-2}}. We feel our weight because the floor pushes up on us.
+This push is the \term{normal force}. In orbit, the astronaut and the station fall together with
+the same acceleration. So the floor does not push on the astronaut: the normal force is zero, and
+the astronaut feels weightless.
+
+\subsection{The period and Kepler's third law}
+In one orbit a satellite travels $2\pi r$ in time $T$, so $v = \dfrac{2\pi r}{T}$ (on the
+sheet). Joining this with the orbital speed links $r$ and $T$. This is Kepler's third law in the
+form Newton found (\cref{ch4:sec:kepler}). Johannes Kepler was an astronomer. In 1619 he found
+this rule from planet data.
+
+\begin{toolkit}{Cube roots, the power 3/2 and seconds}
+\begin{itemize}
+  \item Cube root: use the $\sqrt[3]{\phantom{x}}$ key. $\sqrt[3]{\num{8.0e21}} = \num{2.0e7}$,
+        because $(\num{2.0e7})^3 = \num{8.0e21}$.
+  \item $x^{3/2} = \sqrt{x^3}$: \ $9^{3/2} = \sqrt{729} = 27$. So 9 times the radius gives 27 times
+        the period.
+  \item \qty{1}{min} = \qty{60}{s}, \ \qty{1}{h} = \qty{3600}{s}, \ 1 day = \qty{86400}{s}.
+        Also, $4\pi^2 = 39.48$.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{Kepler's third law (Newton's form)}
+  \cardformula{\frac{r^3}{T^2} = \frac{GM}{4\pi^2}}
+  \begin{symbols}
+    \sym{$r$}{orbital radius (for an ellipse: the semi-major axis, \cref{ch4:sec:kepler})}{\si{m}}
+    \sym{$T$}{period: the time for one orbit}{\si{s}}
+    \sym{$G$}{universal gravitational constant}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$}{mass of the central body}{\si{kg}}
+  \end{symbols}
+  \inwords{$\dfrac{r^3}{T^2}$ is the same for everything that orbits the same body.}
+  \whentouse{to find $T$ from $r$, $r$ from $T$, or the central mass $M$ from $r$ and $T$.
+    For two objects orbiting the same body: $\dfrac{r_1^3}{T_1^2} = \dfrac{r_2^3}{T_2^2}$.}
+  \whennottouse{to compare objects that orbit different central bodies. For example, Titan
+    (orbits Saturn) and Venus (orbits the Sun) have different values of $\dfrac{r^3}{T^2}$.}
+  \rearranged{$T = 2\pi\sqrt{\dfrac{r^3}{GM}}$ \qquad $r = \sqrt[3]{\dfrac{GMT^2}{4\pi^2}}$ \qquad
+    $M = \dfrac{4\pi^2 r^3}{GT^2}$ \quad (steps in the toolkit below)}
+  \tensecond{at $r = \qty{7.0e6}{m}$ around the Earth,
+    $T = 2\pi\sqrt{\dfrac{(\qty{7.0e6}{m})^3}{\qty{4.0e14}{m^3.s^{-2}}}} = \qty{5.8e3}{s}
+    = \qty{97}{min}$.}
+  \derive{$v^2 = \dfrac{GM}{r}$ (orbital speed) and $v = \dfrac{2\pi r}{T}$ (on the sheet).
+    \begin{align*}
+      v^2 &= \frac{4\pi^2 r^2}{T^2} && \text{square both sides of $v = \frac{2\pi r}{T}$}\\
+      \frac{4\pi^2 r^2}{T^2} &= \frac{GM}{r} && \text{both expressions equal $v^2$}\\
+      \frac{4\pi^2 r^3}{T^2} &= GM && \text{multiply both sides by $r$}\\
+      \frac{r^3}{T^2} &= \frac{GM}{4\pi^2} && \text{divide both sides by $4\pi^2$}
+    \end{align*}}
+  \trap{$T$ must be in seconds. Use a cube root (not a square root) to find $r$, then subtract
+    $r_\mathrm{E}$ for the altitude.}
+\end{formulacard}
+
+\begin{toolkit}{Rearranging Kepler's third law}
+\begin{align*}
+  \frac{r^3}{T^2} &= \frac{GM}{4\pi^2} && \text{start (on the sheet)}\\
+  r^3 &= \frac{GMT^2}{4\pi^2} && \text{multiply both sides by $T^2$}\\
+  4\pi^2 r^3 &= GMT^2 && \text{multiply both sides by $4\pi^2$}\\
+  T^2 &= \frac{4\pi^2 r^3}{GM} && \text{divide both sides by $GM$}\\
+  T &= 2\pi\sqrt{\frac{r^3}{GM}} && \text{square root of both sides; $\sqrt{4\pi^2} = 2\pi$}
+\end{align*}
+To find $r$: take the cube root of both sides of the second line. To find $M$: divide both sides
+of the third line by $GT^2$.
+\end{toolkit}
+
+\begin{workedexample}{A satellite 600 km up}\label{ch4:we:sat600}
+A satellite moves in a circular orbit \qty{600}{km} above the Earth's surface. Calculate (a) its
+orbital speed and (b) its period in minutes.
+\given{$r = \qty{6.371e6}{m} + \qty{0.600e6}{m} = \qty{6.971e6}{m}$, \
+  $GM_\mathrm{E} = \num{6.67e-11} \times \num{6.0e24} = \qty{4.002e14}{m^3.s^{-2}}$}
+\find{(a) $v$ \quad (b) $T$}
+\formula{$v = \sqrt{\dfrac{GM}{r}}$, \quad $T = 2\pi\sqrt{\dfrac{r^3}{GM}}$ (Kepler's third law)}
+\substitute{\eqlines{v &= \sqrt{\frac{\qty{4.002e14}{m^3.s^{-2}}}{\qty{6.971e6}{m}}}
+    = \sqrt{\qty{5.741e7}{m^2.s^{-2}}}\\
+    &= \qty{7.577e3}{m.s^{-1}}\\
+  T &= 2\pi\sqrt{\frac{(\qty{6.971e6}{m})^3}{\qty{4.002e14}{m^3.s^{-2}}}} = 2\pi\sqrt{\qty{8.465e5}{s^2}}\\
+    &= 2\pi \times \qty{920.0}{s} = \qty{5.78e3}{s}\\
+  T &= \qty{5.78e3}{s} \div 60 = \qty{96.3}{min}}}
+\answer{(a) \final{$v = \qty{7.58e3}{m.s^{-1}}$} \ (b) \final{$T = \qty{96.3}{min}$}}
+\checkstep{$v = \dfrac{2\pi r}{T} = \dfrac{2\pi \times \num{6.971e6}}{\num{5.78e3}} = \qty{7.58e3}{m.s^{-1}}$,
+  the same speed \cmark. Also $a_\mathrm{c} = \dfrac{v^2}{r} = \qty{8.24}{m.s^{-2}} = \dfrac{GM}{r^2}$,
+  the local $g$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Finding the mass of Saturn}\label{ch4:we:saturn}
+Titan, Saturn's largest moon, has a near-circular orbit of radius \qty{1.22e9}{m} and a period of
+15.9 days. Calculate the mass of Saturn.
+\given{$r = \qty{1.22e9}{m}$, \ $T = 15.9 \times \qty{86400}{s} = \qty{1.374e6}{s}$, \
+  $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$ (data sheet)}
+\find{the mass $M$ of Saturn (the central body)}
+\formula{$\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$, \ rearranged: $M = \dfrac{4\pi^2 r^3}{GT^2}$}
+\substitute{\eqlines{M &= \frac{39.48 \times (\qty{1.22e9}{m})^3}{\qty{6.67e-11}{N.m^2.kg^{-2}} \times (\qty{1.374e6}{s})^2}\\
+  &= \frac{\qty{7.169e28}{m^3}}{\qty{125.9}{N.m^2.kg^{-2}.s^2}} = \qty{5.69e26}{kg}}}
+\answer{\final{$M = \qty{5.69e26}{kg}$} (3 significant figures). Keep all the calculator digits
+  until the end, then round.}
+\checkstep{this is $\num{5.69e26} \div \num{6.0e24} \approx 95$ Earth masses, sensible for a giant
+  planet \cmark. (The accepted value is \qty{5.68e26}{kg}.)}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting the satellite's mass in for $M$. \cmark\ $M$ is the central body's mass.
+  \item \xmark\ Using minutes, hours or days for $T$ with $G$. \cmark\ Change $T$ to seconds.
+  \item \xmark\ Taking a square root to find $r$ from $r^3$. \cmark\ Take a cube root.
+  \item \xmark\ ``Astronauts float because there is no gravity.'' \cmark\ They are in free fall
+        with their spacecraft.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Derive $v = \sqrt{\dfrac{GM}{r}}$'' or ``show that $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$''
+(2--3 marks):
+\begin{enumerate}
+  \item Write ``gravity provides the centripetal force''.
+  \item Write $\dfrac{GMm}{r^2} = \dfrac{mv^2}{r}$.
+  \item Show that $m$ cancels. Write one step per line.
+\end{enumerate}
+``Explain why astronauts feel weightless'' (2--3 marks). Give $g$ in orbit (about
+\qty{8.7}{m.s^{-2}}). Say that the astronaut and the craft are both in free fall with the same
+acceleration. Say that the normal force is zero.
+\end{examtip}
+
+\begin{quickcheck}
+  \item Calculate the orbital speed of a satellite \qty{2000}{km} above the Earth's surface.
+  \item Satellite B orbits the Earth at 4 times the orbital radius of satellite A. Compare their
+        speeds and their periods.
+  \item The Moon orbits the Earth at a radius of \qty{3.84e8}{m}. Calculate its period in days.
+  \item An astronaut on the ISS feels weightless, even though $g = \qty{8.7}{m.s^{-2}}$ there.
+        Explain why.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Kepler's laws of planetary motion}\label{ch4:sec:kepler}
+\covers{M5.IQ3.04}
+
+\begin{bigidea}
+Kepler found three rules for how planets move by studying careful measurements. Newton's law of
+gravitation explains all three. In an oval orbit, gravity speeds a planet up as it moves closer
+to the Sun and slows it down as it moves away.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Ellipse}{a stretched circle (an oval).}
+  \kw{Focus (plural: foci)}{one of two fixed points inside an ellipse, on its long axis. From any
+    point on the ellipse, the distances to the two foci add up to the same total.}
+  \kw{Semi-major axis ($a$)}{half of the longest diameter of an ellipse.}
+  \kw{Eccentricity ($e$)}{how stretched an ellipse is: 0 is a circle, close to 1 is very flat.}
+  \kw{Perihelion and aphelion}{the closest and farthest points of an orbit around the Sun
+    (around the Earth: perigee and apogee).}
+\end{keywords}
+
+In the late 1500s Tycho Brahe measured the positions of the planets very carefully, without a
+telescope. Johannes Kepler used Tycho's data on Mars to find his first two laws (1609). In 1619
+he found the third law by comparing the periods and distances of all the known planets. They are
+\term{empirical laws}: rules found from data, which describe the motion but do not explain it. In
+1687 Newton showed that a force with $F \propto \dfrac{1}{r^2}$ explains all three.
+
+\subsection{First law: the law of ellipses}
+\begin{sidebyside}[0.56]
+  \centering
+  \begin{tikzpicture}[scale=0.74]
+    \draw[hscink, line width=0.9pt] (0,0) ellipse (3 and 2.598);
+    \draw[guide] (-3,0) -- (3,0);
+    \fill[hscink] (0,0) circle (1.6pt);
+    \node[diagramlabel, below, inner sep=2pt] at (0,0) {centre};
+    \draw[hscink, line width=0.6pt] (-1.5,0) circle (2.2pt);
+    \node[diagramlabel, above, align=center, inner sep=4pt] at (-1.5,0.12) {empty\\focus};
+    \fill[hscray, draw=hscink, line width=0.5pt] (1.5,0) circle (5pt);
+    \node[diagramlabel, below, inner sep=3pt] at (1.5,-0.15) {Sun};
+    \draw[hscmuted, line width=0.6pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}]
+      (0,-1.35) -- node[below, diagramlabel] {$a$} (3,-1.35);
+    \fill[hscvel] (3,0) circle (2.2pt);
+    \node[diagramlabel, right] at (3.05,0) {perihelion};
+    \fill[hscvel] (-3,0) circle (2.2pt);
+    \node[diagramlabel, left] at (-3.05,0) {aphelion};
+    \fill[object] (-1.5,2.25) circle (4.5pt);
+    \node[diagramlabel, above left] at (-1.55,2.3) {planet};
+  \end{tikzpicture}
+  \captionof{figure}{An ellipse with $e = 0.5$, to scale. $a$ is the semi-major axis.}\label{ch4:fig:ellipse}
+\nextside
+  \emph{Each planet moves in an ellipse, with the Sun at one focus} (\cref{ch4:fig:ellipse}). The
+  Sun is not at the centre, and nothing sits at the other focus.
+
+  \smallskip
+  Most planet orbits are nearly circles (the Earth's $e$ is only 0.017), so HSC calculations treat
+  them as circles. Comets have very stretched orbits. For an ellipse, the $r$ in Kepler's third
+  law is the semi-major axis: $a = \dfrac{r_\mathrm{p} + r_\mathrm{a}}{2}$ (perihelion and
+  aphelion distances from the Sun).
+\end{sidebyside}
+
+\subsection{Second law: the law of equal areas}
+\begin{sidebyside}[0.56]
+  \centering
+  \includegraphics{ch4_equalareas.pdf}
+  \captionof{figure}{Equal times, equal areas: $\Delta t_1 = \Delta t_2$, so $A_1 = A_2$ (to scale).}
+  \label{ch4:fig:areas}
+\nextside
+  \emph{A line from the Sun to a planet sweeps out equal areas in equal times}
+  (\cref{ch4:fig:areas}).
+
+  \smallskip
+  Near the Sun the line is short. To sweep the same area, the planet must cover a longer arc in
+  the same time. So a planet moves \textbf{fastest at perihelion} and \textbf{slowest at
+  aphelion}.
+\end{sidebyside}
+
+\begin{refresher}{Work and energy (\cref{ch3:chap})}
+\term{Work} is energy given to an object by a force: $W = Fs\cos\theta$, where $\theta$ is the
+angle between the force and the motion. Positive work speeds an object up. Negative work slows it
+down. \term{Kinetic energy} $K = \tfrac12 mv^2$ is the energy of motion.
+\end{refresher}
+
+\begin{sidebyside}[0.56]
+  \centering
+  \includegraphics{ch4_ellipseforces.pdf}
+  \captionof{figure}{Velocity (blue): the arrow length shows the speed. Gravity (red): these
+    arrows show only the direction. At aphelion gravity is really 9 times weaker than at
+    perihelion. Dashed red: the part of gravity along the motion.}\label{ch4:fig:forces}
+\nextside
+  \textbf{With forces} (\cref{ch4:fig:forces}). A force does work only when part of it points
+  along the motion ($W = Fs\cos\theta$).
+  \begin{itemize}
+    \item \textbf{Circular orbit:} gravity is always at \ang{90} to $v$, so it does no work
+          ($\cos 90^\circ = 0$). The speed is constant.
+    \item \textbf{Moving closer:} part of gravity points along the motion and does work, so the
+          planet speeds up.
+    \item \textbf{Moving away:} part of gravity points against the motion, so it slows down.
+    \item At perihelion and aphelion gravity is at \ang{90} to $v$: the speed is at its largest
+          or smallest.
+  \end{itemize}
+\end{sidebyside}
+
+\textbf{With energy.} Only gravity acts on the planet. No other force adds or removes energy. So
+the planet's \term{total energy} (kinetic energy $K$ plus gravitational potential energy $U$)
+stays constant. The sheet gives $U = -\dfrac{GMm}{r}$. (\Cref{ch5:chap} explains the minus sign.)
+A smaller $r$ makes $\dfrac{GMm}{r}$ bigger, so $U$ is more negative. For example, $-10$ is lower
+than $-5$. So $U$ is lowest when the planet is closest to the Sun. The total stays the same, so
+$K$ is largest there, and the planet is fastest. In a circular orbit $r$ is constant, so $U$, $K$
+and the speed are all constant.
+
+% layout QA: short title on the continuation part, so the title bar stays on one line
+\begin{formulacard}[notonsheet, title after break={\hscboxtitle{\faIcon{square-root-alt}}{Formula card}{Kepler's second law}\hspace{0.5em}{\footnotesize\mdseries\itshape(continued)}}]{Kepler's second law at the closest and farthest points}
+  \cardformula{r_\mathrm{p} v_\mathrm{p} = r_\mathrm{a} v_\mathrm{a}}
+  \begin{symbols}
+    \sym{$r_\mathrm{p}$, $r_\mathrm{a}$}{distance from the centre of the central body (Sun,
+      Earth, \ldots) at the closest point and at the farthest point}{\si{m}}
+    \sym{$v_\mathrm{p}$, $v_\mathrm{a}$}{speed at the closest point (perihelion or perigee) and
+      at the farthest point (aphelion or apogee)}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{at the two ends of an orbit, distance $\times$ speed is the same.}
+  \whentouse{only at perihelion and aphelion (or perigee and apogee) of \emph{one} orbit.}
+  \whennottouse{at other points of the orbit, or to compare two different planets.}
+  \rearranged{$v_\mathrm{a} = \dfrac{r_\mathrm{p} v_\mathrm{p}}{r_\mathrm{a}}$ \qquad
+    $r_\mathrm{a} = \dfrac{r_\mathrm{p} v_\mathrm{p}}{v_\mathrm{a}}$}
+  \tensecond{twice as far away means half as fast: $r_\mathrm{a} = 2r_\mathrm{p}$ gives
+    $v_\mathrm{a} = \tfrac12 v_\mathrm{p}$.}
+  \derive{at perihelion and aphelion, $v$ is at \ang{90} to the line from the Sun. In a short time
+    $\Delta t$, the planet moves a distance $v\Delta t$. The line from the Sun sweeps out a thin
+    triangle. Its base is $r$ and its height is $v\Delta t$. So its area is
+    $\tfrac12 \times \text{base} \times \text{height} = \tfrac12 r v \Delta t$.
+    \begin{align*}
+      \tfrac12\, r_\mathrm{p} v_\mathrm{p}\Delta t &= \tfrac12\, r_\mathrm{a} v_\mathrm{a}\Delta t
+        && \text{equal areas in the same time}\\
+      r_\mathrm{p} v_\mathrm{p} &= r_\mathrm{a} v_\mathrm{a} && \text{cancel $\tfrac12$ and $\Delta t$}
+    \end{align*}}
+  \trap{measure both distances from the Sun (the focus), not from the centre of the ellipse.}
+\end{formulacard}
+
+\subsection{Third law: the law of periods}
+\emph{The square of the period is proportional to the cube of the orbital radius (semi-major
+axis)}: $T^2 \propto r^3$. Newton's form (\cref{ch4:sec:orbits}) is
+$\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$, so the constant depends only on the central mass. All the
+Sun's planets share one value; all the Earth's satellites share another. The ratio form
+$\dfrac{r_1^3}{T_1^2} = \dfrac{r_2^3}{T_2^2}$ works in any units, if both orbits use the same
+units. For example, use years and \term{astronomical units} (AU). One AU is the average
+Earth--Sun distance, about \qty{1.50e11}{m}.
+
+\begin{workedexample}{The speed of a comet}\label{ch4:we:comet}
+A comet orbits the Sun. At perihelion it is \qty{1.2e11}{m} from the Sun's centre and moves at
+\qty{4.29e4}{m.s^{-1}}. At aphelion it is \qty{6.0e11}{m} from the Sun's centre. Calculate its
+speed at aphelion.
+\given{$r_\mathrm{p} = \qty{1.2e11}{m}$, \ $v_\mathrm{p} = \qty{4.29e4}{m.s^{-1}}$, \
+  $r_\mathrm{a} = \qty{6.0e11}{m}$}
+\find{the speed $v_\mathrm{a}$ at aphelion}
+\formula{$r_\mathrm{p} v_\mathrm{p} = r_\mathrm{a} v_\mathrm{a}$ (the two ends of one orbit), so
+  $v_\mathrm{a} = \dfrac{r_\mathrm{p} v_\mathrm{p}}{r_\mathrm{a}}$}
+\substitute{$v_\mathrm{a} = \dfrac{\qty{1.2e11}{m} \times \qty{4.29e4}{m.s^{-1}}}{\qty{6.0e11}{m}}
+  = \qty{8.58e3}{m.s^{-1}}$}
+\answer{\final{$v_\mathrm{a} = \qty{8.6e3}{m.s^{-1}}$} (2 significant figures).}
+\checkstep{5 times further away, so 5 times slower \cmark. The comet is slower far from the Sun,
+  as Kepler's second law says.}
+\end{workedexample}
+
+\begin{workedexample}{The period of the comet}\label{ch4:we:cometT}
+Find the period of the comet in \cref{ch4:we:comet}. The Earth orbits the Sun at a radius of
+\qty{1.50e11}{m} with a period of 1.00 year.
+\given{comet: $r_\mathrm{p} = \qty{1.2e11}{m}$, $r_\mathrm{a} = \qty{6.0e11}{m}$; \
+  Earth: $r_1 = \qty{1.50e11}{m}$, $T_1 = \qty{1.00}{\yr}$}
+\find{the comet's period $T_2$, in years}
+\formula{\eqlines{a &= \frac{r_\mathrm{p} + r_\mathrm{a}}{2} \quad\text{(semi-major axis)}\\
+  \frac{r_1^3}{T_1^2} &= \frac{r_2^3}{T_2^2} \quad\text{(same central body: the Sun)}\\
+  T_2^2\, r_1^3 &= T_1^2\, r_2^3 \quad\text{(multiply both sides by $T_1^2 T_2^2$)}\\
+  T_2^2 &= T_1^2 \times \frac{r_2^3}{r_1^3} = T_1^2\left(\frac{r_2}{r_1}\right)^3
+    \quad\text{(divide both sides by $r_1^3$)}}}
+\substitute{\eqlines{r_2 = a &= \frac{\qty{1.2e11}{m} + \qty{6.0e11}{m}}{2} = \qty{3.6e11}{m}\\
+  T_2^2 &= (\qty{1.00}{\yr})^2 \times \left(\frac{\qty{3.6e11}{m}}{\qty{1.50e11}{m}}\right)^3\\
+    &= (\qty{1.00}{\yr})^2 \times 2.4^3 = \qty{13.82}{\yr^2}
+    \quad\text{(because $3.6 \div 1.50 = 2.4$)}\\
+  T_2 &= \sqrt{\qty{13.82}{\yr^2}} = \qty{3.72}{\yr} \quad\text{(square root)}}}
+\answer{\final{$T_2 = \qty{3.7}{\yr}$} (2 significant figures).}
+\checkstep{the comet's semi-major axis is 2.4 times the Earth's. Mars (1.5 times) takes
+  \qty{1.9}{\yr}. Jupiter (5.2 times) takes \qty{12}{\yr}. The comet's \qty{3.7}{\yr} lies between
+  them \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting the Sun at the centre of the ellipse. \cmark\ The Sun is at one focus.
+  \item \xmark\ ``Gravity is stronger near the Sun, so it pushes the planet faster.'' \cmark\ Give
+        the reason: part of gravity acts along the motion (work), or $U$ changes into $K$.
+  \item \xmark\ Using $r_\mathrm{p}v_\mathrm{p} = r_\mathrm{a}v_\mathrm{a}$ at any two points.
+        \cmark\ Only at perihelion and aphelion.
+  \item \xmark\ Using the perihelion distance as $r$ in the third law. \cmark\ Use the
+        semi-major axis.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why a planet moves fastest at perihelion'' (3--4 marks). Link three ideas:
+\begin{enumerate}
+  \item Equal areas in equal times. Near the Sun the line is short, so the planet must cover a
+        longer arc in the same time.
+  \item Total energy is constant. $U$ is lowest at perihelion, so $K$ is highest there.
+  \item On the way in, part of gravity points along the motion. It does work and speeds the
+        planet up.
+\end{enumerate}
+``Relate Kepler's third law to Newton's law'' needs the derivation from $F = F_\mathrm{c}$.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A satellite's perigee and apogee are \qty{7.0e6}{m} and \qty{1.4e7}{m} from the Earth's
+        centre. Its speed at perigee is \qty{8.73e3}{m.s^{-1}}. Find its speed at apogee.
+  \item The dwarf planet Ceres orbits the Sun with a semi-major axis 2.77 times the Earth's. Find
+        its period in Earth years.
+  \item Use forces to explain why a planet in a circular orbit moves at a constant speed, but a
+        planet in an elliptical orbit does not.
+  \item Use energy to explain why a comet moves most slowly at aphelion.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Low Earth orbits and geostationary orbits}\label{ch4:sec:leogeo}
+\covers{M5.IQ3.03}
+
+\begin{bigidea}
+The height of an orbit fixes its speed and period. Low satellites circle the Earth in about
+90 minutes, while geostationary satellites take one day and seem to hang still. Each height suits
+different jobs.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Low Earth orbit (LEO)}{an orbit about \qtyrange{200}{2000}{km} above the Earth's surface.}
+  \kw{Geostationary orbit}{an orbit in which a satellite stays above one point on the equator.}
+  \kw{Geosynchronous orbit}{any orbit with a period of one day. It may be tilted.}
+  \kw{Orbital decay}{the slow loss of height caused by drag from the thin upper atmosphere.}
+\end{keywords}
+
+\textbf{Low Earth orbit.} At \qtyrange{200}{2000}{km}, a satellite moves at
+\qtyrange{6.9}{7.8}{km.s^{-1}} and orbits in \qtyrange{88}{127}{min}. Thin air still drags on it,
+so it slowly sinks (\term{orbital decay}, \cref{ch5:chap}). A \emph{polar} LEO passes over both
+poles. The Earth turns beneath it, so it passes over every part of the Earth. A wide-view weather
+camera sees the whole Earth within a day. A narrow, detailed camera takes a few days or more.
+
+\textbf{Geostationary orbit.} A \term{geostationary} satellite needs all three conditions:
+\begin{enumerate}
+  \item a period of one day (strictly 23\,h\,56\,min, the time for the Earth to spin once);
+  \item a circular orbit in the plane of the equator;
+  \item motion from west to east, the same way as the Earth spins.
+\end{enumerate}
+Kepler's third law then allows only one radius, \qty{4.23e7}{m} (\cref{ch4:we:geo}). A
+\term{geosynchronous} orbit has the one-day period but may be tilted. Such a satellite drifts
+north and south in the sky each day, so it is not geostationary.
+
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}[scale=0.86]
+    % radii: Earth radius = 0.55 cm; ISS 1.066, GPS 4.18, GEO 6.64 Earth radii
+    \draw[hscseriesB, line width=0.9pt] (0,0) circle (3.652);
+    \draw[hscseriesC, line width=0.8pt, densely dotted] (0,0) circle (2.300);
+    \fill[hscbrand!15, draw=hscink, line width=0.7pt] (0,0) circle (0.55);
+    \draw[hscseriesA, line width=0.8pt] (0,0) circle (0.586);
+    \draw[->, hscink, line width=0.6pt] (60:0.3) arc (60:300:0.3);
+    \fill[object] (45:3.652) circle (3.5pt);
+    \draw[hscseriesB, ->, line width=1pt] (52:3.652) arc (52:72:3.652);
+    \node[diagramlabel, text=hscseriesB, font=\small\bfseries] at (0,3.25) {GEO};
+    \node[diagramlabel, text=hscseriesC, font=\small\bfseries] at (0,1.95) {GPS};
+    \draw[hscseriesA, line width=0.5pt] (0.62,0) -- (1.05,0);
+    \node[diagramlabel, text=hscseriesA, font=\small\bfseries, anchor=west, inner sep=1pt] at (1.05,0) {LEO};
+  \end{tikzpicture}
+  \captionof{figure}{Orbit sizes to scale, seen from above the North Pole (the tilts of the ISS
+    and GPS orbits are ignored). The Earth spins anticlockwise, and the satellites also move
+    anticlockwise.}\label{ch4:fig:orbitscale}
+\nextside
+  \Cref{ch4:fig:orbitscale} shows three orbits to scale:
+  \begin{itemize}
+    \item \textcolor{hscseriesA}{\bfseries LEO} (ISS): \qty{420}{km} up, \qty{93}{min}. It almost
+          touches the Earth.
+    \item \textcolor{hscseriesC}{\bfseries GPS}: about \qty{20200}{km} up, about \qty{12}{h}.
+    \item \textcolor{hscseriesB}{\bfseries GEO}: \qty{35900}{km} up, 1 day, 6.6 Earth radii from
+          the centre.
+  \end{itemize}
+
+  \smallskip
+  \Cref{ch4:tab:leogeo} links each property to a use. In an HSC answer, always say \emph{which}
+  property makes an orbit good for the job.
+\end{sidebyside}
+
+\begin{table}
+  \caption{Low Earth orbit and geostationary orbit compared.}\label{ch4:tab:leogeo}
+  \centering
+  \small
+  \begin{tabular}{@{}L{28mm}L{56mm}L{56mm}@{}}
+    \toprule
+    \colhead{Property} & \colhead{Low Earth orbit} & \colhead{Geostationary orbit}\\
+    \midrule
+    Altitude & \qtyrange{200}{2000}{km} (ISS: \qty{420}{km}) & about \qty{36000}{km}\\
+    Speed, period & about \qty{7.7}{km.s^{-1}}, about \qty{90}{min} & \qty{3.1}{km.s^{-1}}, 1 day\\
+    In the sky & crosses the sky in minutes & fixed, so ground dishes never move\\
+    View & small area, fine detail & about 40\,\% of the Earth at once; poor near the poles\\
+    Signal time (up, down) & a few milliseconds & about \qty{0.24}{s}\\
+    Problems & orbital decay; many satellites needed for constant cover & weaker signals; costly launch\\
+    Uses & ISS, imaging, mapping, polar weather satellites, internet constellations (large groups
+      of satellites that work together)
+      & TV, communications, weather images of a whole hemisphere (half of the Earth)\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{formulacard}[combine={$\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$}]{Orbit radius and altitude from the period}
+  \cardformula{r = \sqrt[3]{\frac{GMT^2}{4\pi^2}} \qquad h = r - r_\mathrm{E}}
+  \begin{symbols}
+    \sym{$r$}{orbital radius, from the Earth's centre}{\si{m}}
+    \sym{$T$}{period of the orbit}{\si{s}}
+    \sym{$G$}{universal gravitational constant}{\si{N.m^2.kg^{-2}}}
+    \sym{$M$}{mass of the central body (for the Earth, $M_\mathrm{E}$)}{\si{kg}}
+    \sym{$h$}{altitude: the height above the surface}{\si{m}}
+    \sym{$r_\mathrm{E}$}{radius of the Earth, \num{6.371e6} (data sheet)}{\si{m}}
+  \end{symbols}
+  \inwords{the period fixes the size of the orbit. Subtract the Earth's radius to get the height.}
+  \whentouse{to find how high a satellite must be for a given period (geostationary, GPS, any
+    circular orbit).}
+  \whennottouse{for an elliptical orbit. There $r$ is the semi-major axis, and the height changes
+    around the orbit.}
+  \rearranged{$T = 2\pi\sqrt{\dfrac{r^3}{GM}}$ \qquad $r = r_\mathrm{E} + h$}
+  \tensecond{$T = \qty{6.00}{h} = \qty{2.16e4}{s}$ gives $r = \qty{1.68e7}{m}$, so
+    $h = \qty{1.68e7}{m} - \qty{0.637e7}{m} = \qty{1.04e7}{m}$.}
+  \derive{start from Kepler's third law (on the sheet).
+    \begin{align*}
+      r^3 &= \frac{GMT^2}{4\pi^2} && \text{multiply both sides by $T^2$}\\
+      r &= \sqrt[3]{\frac{GMT^2}{4\pi^2}} && \text{take the cube root of both sides}\\
+      h &= r - r_\mathrm{E} && \text{subtract the Earth's radius ($r = r_\mathrm{E} + h$)}
+    \end{align*}}
+  \trap{$T$ must be in seconds (24 h = \qty{86400}{s}). The cube root gives $r$ from the centre.
+    Subtract $r_\mathrm{E}$ for the altitude.}
+\end{formulacard}
+
+\begin{workedexample}{The geostationary orbit}\label{ch4:we:geo}
+Calculate the orbital radius, the altitude and the speed of a geostationary satellite. Use
+$T = \qty{24.0}{h}$.
+\given{$T = 24.0 \times \qty{3600}{s} = \qty{8.64e4}{s}$, \ $GM_\mathrm{E} = \qty{4.002e14}{m^3.s^{-2}}$, \
+  $r_\mathrm{E} = \qty{6.371e6}{m}$}
+\find{$r$, the altitude $h$, the speed $v$}
+\formula{$r = \sqrt[3]{\dfrac{GMT^2}{4\pi^2}}$ (Kepler's third law), \ $h = r - r_\mathrm{E}$, \
+  $v = \dfrac{2\pi r}{T}$}
+\substitute{\eqlines{r^3 &= \frac{\qty{4.002e14}{m^3.s^{-2}} \times (\qty{8.64e4}{s})^2}{39.48}
+    = \qty{7.567e22}{m^3}\\
+  r &= \sqrt[3]{\qty{7.567e22}{m^3}} = \qty{4.230e7}{m} \quad\text{(cube root)}\\
+  r_\mathrm{E} &= \qty{6.371e6}{m} = \qty{0.6371e7}{m} \quad\text{(same power of ten as $r$)}\\
+  h &= \qty{4.230e7}{m} - \qty{0.6371e7}{m} = \qty{3.593e7}{m}\\
+  v &= \frac{2\pi \times \qty{4.230e7}{m}}{\qty{8.64e4}{s}} = \qty{3.08e3}{m.s^{-1}}}}
+\answer{\final{$r = \qty{4.23e7}{m}$}, \ \final{$h = \qty{3.59e7}{m}$} (about \qty{36000}{km}), \
+  \final{$v = \qty{3.08e3}{m.s^{-1}}$}}
+\checkstep{$r$ is 6.6 Earth radii, and the speed is lower than in LEO, as it should be for a
+  higher orbit \cmark. With $T$ = 23\,h\,56\,min you get $h = \qty{3.58e7}{m}$; both are accepted
+  if you show your $T$.}
+\end{workedexample}
+
+\begin{workedexample}{Internet from low Earth orbit}\label{ch4:we:internet}
+An internet company uses satellites in circular orbits \qty{550}{km} above the Earth.
+(a) Calculate their period in minutes. (b) A signal travels at \qty{3.00e8}{m.s^{-1}} from the
+ground to a satellite directly overhead and back. Find the round-trip time for one of these
+satellites and for a geostationary one (altitude \qty{3.59e7}{m}). (c) Give one advantage and
+one disadvantage of the low orbit.
+\given{$r = \qty{6.371e6}{m} + \qty{0.550e6}{m} = \qty{6.921e6}{m}$, \
+  $GM_\mathrm{E} = \qty{4.002e14}{m^3.s^{-2}}$, \ $c = \qty{3.00e8}{m.s^{-1}}$ (the speed of light)}
+\find{(a) $T$ \quad (b) $t_\mathrm{LEO}$ and $t_\mathrm{GEO}$ \quad (c) one advantage and one
+  disadvantage}
+\formula{$T = 2\pi\sqrt{\dfrac{r^3}{GM}}$, \quad time $= \dfrac{\text{distance}}{\text{speed}}
+  = \dfrac{2h}{c}$ (up and down)}
+\substitute{\eqlines{T &= 2\pi\sqrt{\frac{(\qty{6.921e6}{m})^3}{\qty{4.002e14}{m^3.s^{-2}}}}
+    = 2\pi \times \qty{910.2}{s} = \qty{5.72e3}{s}\\
+  T &= \qty{5.72e3}{s} \div 60 = \qty{95.3}{min}\\
+  t_\mathrm{LEO} &= \frac{2 \times \qty{5.50e5}{m}}{\qty{3.00e8}{m.s^{-1}}} = \qty{3.67e-3}{s}\\
+  t_\mathrm{GEO} &= \frac{2 \times \qty{3.59e7}{m}}{\qty{3.00e8}{m.s^{-1}}} = \qty{0.239}{s}}}
+\answer{(a) \final{$T = \qty{95.3}{min}$} \ (b) \final{$t_\mathrm{LEO} = \qty{3.67e-3}{s}$},
+  \final{$t_\mathrm{GEO} = \qty{0.239}{s}$} (65 times longer). (c) Advantage: the delay is tiny,
+  so video calls feel instant. Disadvantage: each satellite is overhead for only a few minutes,
+  so a large constellation (a group of many satellites) is needed for constant cover.}
+\checkstep{the period is a little longer than the ISS's \qty{93}{min}, which fits a slightly
+  higher orbit \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Giving $r$ when the question asks for the altitude. \cmark\ $h = r - r_\mathrm{E}$.
+  \item \xmark\ ``A geostationary satellite is not moving.'' \cmark\ It moves at
+        \qty{3.1}{km.s^{-1}}, keeping pace with the Earth's spin.
+  \item \xmark\ ``Any 24-hour orbit is geostationary.'' \cmark\ It must also be circular, above the
+        equator and moving west to east.
+  \item \xmark\ Listing uses without reasons. \cmark\ Link each use to a property.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Compare low Earth and geostationary orbits and relate them to their uses'' (4--5 marks). For
+each orbit, give a property with a number (altitude or period), then the use it allows, joined
+by ``so'' or ``because''. Use a table or ``whereas'' to compare. ``Compare'' means similarities
+\emph{and} differences, so also give one similarity. For example, in both orbits gravity provides
+the centripetal force, and both obey $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$ with the Earth's mass.
+In calculations, write $T$ in seconds (\qty{86400}{s}), take a cube root, then subtract
+$r_\mathrm{E}$.
+\end{examtip}
+
+\begin{quickcheck}
+  \item State the three conditions for a geostationary orbit.
+  \item Some navigation satellites have a period of \qty{14.1}{h}. Calculate their altitude.
+  \item A \qty{24}{h} orbit is tilted at \ang{40} to the equator. Is it geostationary? Explain.
+  \item Explain why a satellite that photographs single buildings must be in a low orbit.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch4:sec:experiments}
+\covers{M5.IQ3.01, M5.IQ3.02, M5.IQ3.04}
+
+The dot points say \emph{investigate}. A school cannot change the mass of a planet, so the first
+two investigations use \term{secondary data}: measurements made by others, such as space
+agencies. The third uses an orbit simulation, where you can change one thing at a time.
+(\Cref{ch5:sec:experiment} uses a simulation to study energy in elliptical orbits.)
+
+\begin{experiment}{What affects the field strength \texorpdfstring{$g$}{g}?}
+\aim{To use secondary data to show that a body's surface field strength is proportional to
+  $\dfrac{M}{r^2}$ ($M$: mass, $r$: radius of the body), as $g = \dfrac{GM}{r^2}$ predicts.}
+\apparatus{a reliable data source (such as a space agency's planetary fact sheet) and a
+  spreadsheet (\cref{ch4:fig:exp1flow}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[node distance=8mm]
+      \node[concept=33mm] (a) {data source: $M$, $r$ and surface $g$ for 5 bodies};
+      \node[concept=30mm, right=of a] (b) {spreadsheet: calculate $M/r^2$};
+      \node[concept=33mm, right=of b] (c) {graph of $g$ against $M/r^2$; find the gradient};
+      \draw[link] (a) -- (b);
+      \draw[link] (b) -- (c);
+    \end{tikzpicture}
+    \caption{The steps of this secondary-data investigation.}\label{ch4:fig:exp1flow}
+  \end{figure}}
+\method{\begin{enumerate}[beginpenalty=10000]
+  \item Record $M$, $r$ and the surface $g$ for the Moon, Mercury, Mars, Venus and the Earth.
+  \item Calculate $\dfrac{M}{r^2}$ for each body.
+  \item Plot $g$ (vertical) against $\dfrac{M}{r^2}$ (horizontal). Draw the line of best fit and
+        find its gradient.
+\end{enumerate}}
+\results{{\centering\small % not a center environment: it would let the page break after the heading
+  \smallskip
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Body & $M$ (\si{kg}) & $r$ (\si{m}) & $M/r^2$ ($\times10^{10}$ \si{kg.m^{-2}}) & $g$ (\si{m.s^{-2}})\\
+    \midrule
+    Moon    & \num{7.35e22} & \num{1.737e6} & 2.44  & 1.62\\
+    Mercury & \num{3.30e23} & \num{2.440e6} & 5.54  & 3.70\\
+    Mars    & \num{6.42e23} & \num{3.390e6} & 5.59  & 3.71\\
+    Venus   & \num{4.87e24} & \num{6.052e6} & 13.30 & 8.87\\
+    Earth   & \num{5.97e24} & \num{6.371e6} & 14.71 & 9.80\\
+    \bottomrule
+  \end{tabular}\par}
+  \medskip
+  In the $M/r^2$ column, 2.44 means $2.44 \times 10^{10}$ \si{kg.m^{-2}}. These values are more
+  precise than the data sheet, so the Earth's mass is \qty{5.97e24}{kg} here.
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.62\linewidth, height=0.34\linewidth,
+        xmin=0, xmax=16, ymin=0, ymax=11,
+        xlabel={$M/r^2$ ($\times10^{10}$ \si{kg.m^{-2}})}, ylabel={$g$ (\si{m.s^{-2}})},
+        xtick={0,4,8,12,16}, ytick={0,2,4,6,8,10}]
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:16, samples=2, mark=none] {0.6665*x};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(2.436,1.62) (5.543,3.70) (5.586,3.71) (13.30,8.87) (14.71,9.80)};
+      \node[anchor=west, font=\small] at (axis cs:7.0,1.6) {gradient $= \qty{6.67e-11}{N.m^2.kg^{-2}}$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Surface field strength against $M/r^2$ for five bodies.}\label{ch4:fig:exp1graph}
+  \end{figure}}
+\conclusion{The points lie on a straight line through the origin, so $g \propto \dfrac{M}{r^2}$.
+  The gradient, \qty{6.67e-11}{N.m^2.kg^{-2}}, equals $G$. This is consistent with
+  $g = \dfrac{GM}{r^2}$.}
+\significance{Used in reverse, $M = \dfrac{gr^2}{G}$ gives a planet's mass from $g$ and $r$, once
+  $G$ is known. In 1798 Henry Cavendish measured the tiny pull between lead spheres. His result is
+  the same as measuring $G$, so it gave the Earth's mass for the first time (``weighing the
+  Earth'').}
+\validity{\begin{itemize}[beginpenalty=10000]% keep the heading with the first item
+  \item \textbf{Validity:} use one trusted source, so all bodies are measured the same way (for
+        example, the average radius of each body).
+  \item \textbf{Limitation (validity):} space agencies find a planet's mass from $GM$ (measured
+        from the orbits of moons or spacecraft) divided by $G$. Many tables also calculate surface
+        $g$ from $\dfrac{GM}{r^2}$. So the data are not fully independent of the law. The graph
+        checks that the data agree with the law, but it is not a real test of it. The Earth's $g$
+        can be measured directly (for example with falling objects or a pendulum). For most other
+        bodies, $g$ is calculated.
+  \item \textbf{Reliability:} check the data against a second, independent source. Use five or
+        more bodies and the gradient of the line, not one point.
+  \item \textbf{Accuracy:} compare the gradient with $G$ on the data sheet. The line of best fit
+        gives \num{6.665e-11}, which differs from \num{6.67e-11} by less than 0.1\,\%.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Kepler's third law and the moons of Jupiter}
+\aim{To show that $\dfrac{r^3}{T^2}$ is the same for all the moons of one planet, and to use it to
+  find the mass of Jupiter.}
+\apparatus{a telescope (or published observatory data) and a spreadsheet. Galileo first saw these
+  four moons in 1610 (\cref{ch4:fig:jupiter}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \foreach \y/\lab/\pos in {0/Night 1/{-2.6/C,-1.2/E,0.9/I,2.0/G},
+                                -1.0/Night 2/{-1.9/G,-0.7/I,1.4/E,3.2/C}} {
+        \node[diagramlabel, anchor=east] at (-3.7,\y) {\lab};
+        \fill[hscbrand!12, draw=hscink, line width=0.6pt] (0,\y) circle (0.26);
+        \foreach \x/\m in \pos {
+          \fill[hscink] (\x,\y) circle (1.6pt);
+          \node[diagramlabel, above, inner sep=3pt, font=\footnotesize] at (\x,\y) {\m};
+        }
+      }
+      \node[diagramlabel] at (0,0.55) {Jupiter};
+      \draw[guide] (0,-1.26) -- (0,-1.6);
+      \draw[guide] (3.2,-1.05) -- (3.2,-1.6);
+      \draw[hscmuted, line width=0.6pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}]
+        (0,-1.5) -- node[below, diagramlabel] {$d$} (3.2,-1.5);
+    \end{tikzpicture}
+    \caption{Jupiter's four large moons (I = Io, E = Europa, G = Ganymede, C = Callisto) in a
+      small telescope on two nights (not to scale). They move along a line as they orbit. $d$ is a
+      moon's distance from Jupiter on one night. Its largest value, over many nights, is the
+      orbital radius $r$.}\label{ch4:fig:jupiter}
+  \end{figure}}
+\method{\begin{enumerate}[beginpenalty=10000]
+  \item For each moon, record its largest distance from Jupiter over many nights (as an angle, or
+        in Jupiter diameters). Use Jupiter's known diameter, \qty{1.43e8}{m}, to change this
+        distance to metres. This distance is the orbital radius $r$. (Published data already give
+        $r$.) Also record the period $T$: the time to return to the same position.
+  \item Change $T$ to seconds. Calculate $r^3$ and $T^2$.
+  \item Plot $r^3$ (vertical) against $T^2$ (horizontal) and find the gradient. Then
+        $M = \dfrac{4\pi^2 \times \text{gradient}}{G}$.
+\end{enumerate}}
+\results{{\centering\small % not a center environment (see the first experiment)
+  \smallskip
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Moon & $r$ (\si{m}) & $T$ (\si{s}) & $r^3$ ($\times10^{27}$ \si{m^3}) & $T^2$ ($\times10^{12}$ \si{s^2})\\
+    \midrule
+    Io       & \num{4.22e8} & \num{1.53e5} & 0.0752 & 0.0234\\
+    Europa   & \num{6.71e8} & \num{3.07e5} & 0.302  & 0.0942\\
+    Ganymede & \num{1.07e9} & \num{6.18e5} & 1.23   & 0.382\\
+    Callisto & \num{1.88e9} & \num{1.44e6} & 6.64   & 2.07\\
+    \bottomrule
+  \end{tabular}\par}
+  \medskip
+  In the $r^3$ column, 0.0752 means $0.0752 \times 10^{27}$ \si{m^3}. In the $T^2$ column, 0.0234
+  means $0.0234 \times 10^{12}$ \si{s^2}.
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.62\linewidth, height=0.34\linewidth,
+        xmin=0, xmax=2.3, ymin=0, ymax=7.5,
+        xlabel={$T^2$ ($\times10^{12}$ \si{s^2})}, ylabel={$r^3$ ($\times10^{27}$ \si{m^3})},
+        xtick={0,0.5,1,1.5,2}, ytick={0,2,4,6},
+        xticklabel style={/pgf/number format/.cd, fixed, precision=1}]
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:2.3, samples=2, mark=none] {3.2045*x};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(0.02341,0.07515) (0.09425,0.3021) (0.3819,1.225) (2.074,6.645)};
+      \node[anchor=west, font=\small] at (axis cs:0.9,1.0) {gradient $= \qty{3.20e15}{m^3.s^{-2}}$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Kepler's third law for the moons of Jupiter.}\label{ch4:fig:exp2graph}
+  \end{figure}}
+\conclusion{The graph is a straight line through the origin, so $r^3 \propto T^2$ (Kepler's
+  third law). The gradient is $\dfrac{GM}{4\pi^2} = \qty{3.205e15}{m^3.s^{-2}}$, so
+  \[ M = \frac{4\pi^2 \times \text{gradient}}{G} = \frac{39.48 \times \num{3.205e15}}{\num{6.67e-11}}
+     = \qty{1.90e27}{kg} \]
+  This is the mass of Jupiter (accepted value \qty{1.90e27}{kg}).}
+\significance{Jupiter's moons were the first objects found orbiting another planet. This showed that not
+  everything orbits the Earth, which supported the Sun-centred model. The same method gives the
+  masses of planets, stars and black holes.}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity:} all four moons orbit the same planet, so they share one value of
+        $\dfrac{GM}{4\pi^2}$. Their orbits are nearly circular and their masses are tiny compared
+        with Jupiter's, as the formula assumes.
+  \item \textbf{Reliability:} time many orbits, not one. Use the gradient of the line of best fit,
+        not a single moon.
+  \item \textbf{Accuracy:} the mass agrees with the accepted value to better than 0.1\,\%. Change
+        all units to metres and seconds first.
+\end{itemize}}
+\end{experiment}
+
+% layout QA: short title on the continuation part, so the title bar stays on one line
+\begin{experiment}[title after break={\hscboxtitle{\faFlask}{Key experiment}{Orbits in a simulation}\hspace{0.5em}{\footnotesize\mdseries\itshape(continued)}}]{Orbits in a simulation: mass, radius, speed and period}
+\aim{To find how a satellite's orbital period and speed depend on its own mass and on its
+  orbital radius.}
+\apparatus{\begin{sidebyside}[0.40]
+    \centering
+    \begin{tikzpicture}
+      \fill[hscbrand!10, draw=hscink, line width=0.8pt] (0,0) circle (0.5);
+      \node[diagramlabel, font=\footnotesize] at (0,0) {Earth};
+      \draw[hscmuted, dashed, line width=0.6pt] (0,0) circle (1.4);
+      \draw[guide] (0,0) -- (1.4,0);
+      \node[diagramlabel, below, font=\footnotesize] at (0.95,0) {$r$};
+      \draw[velocity] (1.4,0) -- (1.4,1.0) node[right, text=hscvel, font=\footnotesize] {$v$};
+      \fill[object] (1.4,0) circle (3.5pt);
+      \node[diagramlabel, right, font=\footnotesize, inner sep=5pt] at (1.4,-0.1) {$m$};
+    \end{tikzpicture}
+    \captionof{figure}{Simulation set-up: launch at \ang{90} to the radius.}\label{ch4:fig:simsetup}
+  \nextside
+    A computer orbit simulation (for example PhET ``Gravity and Orbits'', or a Python model) with
+    a timer (\cref{ch4:fig:simsetup}). Set the planet's mass to the Earth's, \qty{6.0e24}{kg}.
+    Launch the satellite at \ang{90} to the radius. Adjust the launch speed until the path is a
+    circle.
+  \end{sidebyside}}
+\method{\begin{enumerate}[beginpenalty=10000]
+  \item Set $r = \qty{7.0e6}{m}$. Time 5 orbits and divide by 5 to get the period $T$.
+  \item Keep $r$ the same. Change only the satellite's mass (\qty{100}{kg}, \qty{1000}{kg},
+        \qty{5000}{kg}). Find $T$ each time.
+  \item Keep the mass the same. Repeat for $r$ = \num{1.0e7}, \num{2.0e7} and \qty{4.0e7}{m}.
+        For each radius calculate $v = \dfrac{2\pi r}{T}$ and then $v^2 r$.
+\end{enumerate}}
+\results{The values below come from a simple Python model of the same set-up. Changing the mass
+  (\qty{100}{kg}, \qty{1000}{kg} or \qty{5000}{kg}) at $r = \qty{7.0e6}{m}$ gave the same period
+  every time, $T = \qty{5817}{s}$. For different radii:
+  \begin{center}\small
+  \begin{tabular}{@{}cccc@{}}
+    \toprule
+    $r$ (\si{m}) & $T$ (\si{s}) & $v = \dfrac{2\pi r}{T}$ (\si{m.s^{-1}}) & $v^2 r$ (\si{m^3.s^{-2}})\\
+    \midrule
+    \num{7.0e6} & 5817  & 7561 & \num{4.00e14}\\
+    \num{1.0e7} & 9932  & 6326 & \num{4.00e14}\\
+    \num{2.0e7} & 28092 & 4473 & \num{4.00e14}\\
+    \num{4.0e7} & 79457 & 3163 & \num{4.00e14}\\
+    \bottomrule
+  \end{tabular}
+  \end{center}}
+\conclusion{The period does not depend on the satellite's mass. A bigger orbit has a longer
+  period and a lower speed. $v^2 r$ is the same for every radius, so $v^2 \propto \dfrac{1}{r}$
+  and $v \propto \dfrac{1}{\sqrt r}$. This is what $v = \sqrt{\dfrac{GM}{r}}$ predicts, because it
+  gives $v^2 r = GM$.}
+\significance{All objects at one height move together, whatever their mass. That is why an
+  astronaut floats beside the space station. Engineers choose a satellite's height, not its mass,
+  to set its period.}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity:} change only one variable at a time (first the mass, then the radius).
+        The simulation is built on Newton's law, so it shows what the law predicts. It does not
+        test the law against real orbits.
+  \item \textbf{Reliability:} time 5 orbits, not one. Repeat each run with a smaller time step;
+        the results should not change.
+  \item \textbf{Accuracy:} compare $v^2 r$ with
+        $GM_\mathrm{E} = \num{6.67e-11} \times \num{6.0e24} = \qty{4.002e14}{m^3.s^{-2}}$
+        (percentage difference). Here they agree to better than 0.1\,\%.
+\end{itemize}}
+\end{experiment}
+
+%% ==================================================================
+% Chapter summary (added by the whole-book consistency edit: "How to use this guide" says
+% that every chapter ends with a short summary). Every statement is taught above.
+\begin{summarybox}[unbreakable]{\Cref{ch4:chap} in five lines}
+\begin{itemize}
+  \item $F = \frac{GMm}{r^2}$ and $g = \frac{GM}{r^2}$, with $r = r_\mathrm{E} + h$ measured from
+        the centre of the planet. Double $r$, and $F$ and $g$ become 4 times smaller.
+  \item Gravity provides the centripetal force, so $v = \sqrt{\frac{GM}{r}}$. The satellite's mass
+        cancels, and a higher orbit is slower.
+  \item Kepler's third law: $\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$ is the same for everything that
+        orbits one central body. Put $T$ in seconds, and use a cube root to find $r$.
+  \item Kepler's first two laws: each planet's orbit is an ellipse with the Sun at one focus,
+        and equal areas are swept in equal times, so a planet is fastest at perihelion.
+  \item Low Earth orbit (\qtyrange{200}{2000}{km} up, about \qty{90}{min}): fine detail and a
+        short signal delay. Geostationary orbit (about \qty{36000}{km} up, one day, above the equator): it
+        stays above one point.
+\end{itemize}
+\end{summarybox}

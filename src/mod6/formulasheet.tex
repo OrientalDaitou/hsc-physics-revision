@@ -1,0 +1,243 @@
+% formulasheet.tex -- Module 6: Formula sheet explained.
+% Grouped by chapter. In each chapter group:
+%   1. one row per formula card of that chapter (26 cards in ch1.tex ... ch5.tex), in card
+%      order, with the card's own notation and badge (on the sheet / [notonsheet] / [combine]);
+%   2. "Also used in Chapter N": the other formulas that chapter uses (from Year 11 or
+%      Module 5, and rearranged forms), each listed once, in the chapter that first uses it.
+% (sections 1, 2 and 4).
+% Notation note: motional emf is written epsilon = lvB, as on the Chapter 3 card (the order
+% official sheet, so there is no clash.
+% A compact longtable (same rules, colours and marks as the design system's formulatable)
+% keeps the whole list on about four pages.
+\unnumberedchapter[\faIcon{square-root-alt}]{Formula sheet explained}
+\phantomsection\label{fs:chap}
+
+% ---- helpers for this chapter only (prefix fs)
+\newcommand\fsYes{\textcolor{hscformula}{\footnotesize\bfseries\faCheck\ Yes}}
+\newcommand\fsNo{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes\ Learn it}}
+\newcommand\fsComb{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink\ Combine}}
+% \fspad{formula}: a little extra space above and below, so tall fractions never touch
+% the rules of the table
+\newcommand\fspad[1]{\raisebox{0pt}[\dimexpr\height+1.0ex\relax][\dimexpr\depth+0.8ex\relax]{#1}}
+% \fsrow{mark}{formula}{when to use it}
+\newcommand\fsrow[3]{\rule[-1.9ex]{0pt}{5.0ex}\fspad{#2} & #3 & #1\\\hline}
+% \fsch{chapter label}{chapter title}: a heading row inside the table
+% (\\* and \noalign{\nobreak} keep a heading row on the same page as the first formula
+% under it)
+\newcommand\fsch[2]{\multicolumn{3}{@{}l@{}}{\rule[-1.2ex]{0pt}{5.2ex}\normalsize
+  \cref{#1}: {\bfseries\color{hscbrand}#2}}\\*\hline\noalign{\nobreak}}
+% \fsalso{chapter label}: the sub-heading before a chapter's other formulas
+\newcommand\fsalso[1]{\multicolumn{3}{@{}l@{}}{\rule[-1.0ex]{0pt}{4.0ex}\footnotesize
+  \itshape\textcolor{hscmuted}{Also used in \cref{#1}: formulas from Year 11 or Module 5,
+  and rearranged forms}}\\*\hline\noalign{\nobreak}}
+\newcommand\fshead{\colhead{Formula} & \colhead{When to use it} & \colhead{On the sheet?}}
+
+This chapter lists every formula in Module~\modulenumber, chapter by chapter. Each
+chapter starts with its formula cards, in the same order as in the chapter. Then come the
+other formulas that the chapter uses: formulas from Year~11 or Module~5, and rearranged
+forms. Each row says when to use the formula.
+
+The last column is about the official HSC formula sheet.
+\begin{itemize}[itemsep=0pt, topsep=2pt]
+  \item \fsYes: it is printed on the sheet, so you are given it.
+  \item \fsNo: it is not on the sheet. Learn it, or learn how to derive it (its formula
+        card shows how).
+  \item \fsComb: it is not printed in this form. You can get it in one or two lines from
+        formulas on the sheet.
+\end{itemize}
+\par\smallskip
+
+{\small
+\setlength\LTpre{8pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.1}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}C{52mm}@{\hspace{4mm}}L{\dimexpr\linewidth-52mm-25mm-8mm\relax}%
+    @{\hspace{4mm}}C{25mm}@{}}
+  \fshead\\\hline\endfirsthead
+  \fshead\\\hline\endhead
+  % ------------------------------------------------------------------ Chapter 1
+  \fsch{ch1:chap}{Charged Particles in Electric and Magnetic Fields}
+  \fsrow{\fsYes}{$E = \dfrac{V}{d}$}
+    {The uniform field between two parallel plates. $d$ is the whole gap, in metres.}
+  \fsrow{\fsYes}{$\vec{F} = q\vec{E}$}
+    {Force on any charge in an electric field. With $\vec{F}_\mathrm{net} = m\vec{a}$:
+     $a = qE/m$. A negative charge is pushed against the field.}
+  \fsrow{\fsNo}{$qE = mg$ \quad $q = ne$}
+    {A small charged drop held still between horizontal plates. $n = q/e$ must be a whole
+     number.}
+  \fsrow{\fsYes}{$W = qV$ \quad $W = qEd$}
+    {Energy the field gives a charge. $W = qEd$ only in a uniform field, with $d$ the
+     distance moved along the field.}
+  \fsrow{\fsComb}{$\dfrac{1}{2}mv^2 = qV$ \quad $v = \sqrt{\dfrac{2qV}{m}}$}
+    {Speed of a charge sped up \emph{from rest} through a voltage $V$ (an electron gun).}
+  \fsrow{\fsComb}{$t = \dfrac{L}{u}$ \quad $y = \dfrac{1}{2}at^2 = \dfrac{qEL^2}{2mu^2}$}
+    {A charge that enters parallel to the plates: time between plates of length $L$, and
+     the sideways deflection $y$.}
+  \fsrow{\fsYes}{$F = qv_\perp B = qvB\sin\theta$}
+    {Magnetic force on a moving charge. $\theta$ is between $v$ and $B$. Direction: palm
+     rule (reverse it for a negative charge).}
+  \fsrow{\fsNo}{$r = \dfrac{mv}{qB}$ \quad $T = \dfrac{2\pi m}{qB}$}
+    {A charge moving at \ang{90} to a uniform $B$: radius and period of its circle. Start from
+     $qvB = mv^2/r$.}
+  \fsalso{ch1:chap}
+  \fsrow{\fsYes}{$\vec{F}_\mathrm{net} = m\vec{a}$}{Newton's second law: the acceleration of
+    a charge in a field, $a = qE/m$.}
+  \fsrow{\fsYes}{$V = \dfrac{\Delta U}{q}$}{Voltage is the energy change for each
+    coulomb ($U$ = electric potential energy).}
+  \fsrow{\fsYes}{$K = \dfrac{1}{2}mv^2$}{Kinetic energy gained by a charge. Also the energy a
+    magnetic brake removes (\cref{ch5:chap}).}
+  \fsrow{\fsComb}{$qV = \dfrac{1}{2}mv^2 - \dfrac{1}{2}mu^2$}{A charge that is already
+    moving (speed $u$) when the field starts to act.}
+  \fsrow{\fsYes}{\begin{tabular}{@{}c@{}}$v = u + at$ \quad $s = ut + \dfrac{1}{2}at^2$\\[3pt]
+    $v^2 = u^2 + 2as$\end{tabular}}
+    {Constant acceleration across the plates. Greatest height: $v_y = 0$ at the top.}
+  \fsrow{\fsNo}{\begin{tabular}{@{}c@{}}$u_x = u\cos\theta$ \quad $u_y = u\sin\theta$\\[3pt]
+    $v = \sqrt{v_x^2 + v_y^2}$ \quad $\theta = \tan^{-1}\!\left(\dfrac{v_y}{v_x}\right)$\end{tabular}}
+    {Components (Module~5): split the velocity of a charge that enters at an angle; join
+    them again to find the size and direction of the velocity as it leaves.}
+  \fsrow{\fsNo}{$y = \left(\dfrac{qE}{2mu^2}\right)x^2$}{Shape of the path between the
+    plates: $y \propto x^2$, so it is a parabola.}
+  \fsrow{\fsYes}{$W = F_\parallel s = Fs\cos\theta$}{The magnetic force is at \ang{90} to
+    $v$, so it does no work and the speed stays the same.}
+  \fsrow{\fsYes}{$F_\mathrm{c} = \dfrac{mv^2}{r}$ \quad $v = \dfrac{2\pi r}{T}$}{A charge
+    moving in a circle in a magnetic field: $qvB$ is the centripetal force.}
+  \fsrow{\fsNo}{$qE = qvB$}{Crossed fields: the forces cancel for one speed only,
+    $v = E/B$ (a velocity selector; more in Module~8).}
+  \fsrow{\fsYes}{$F = \dfrac{GMm}{r^2}$ \quad $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$}{Gravity
+    and satellite orbits, only to compare them with charges in fields. On an electron or an
+    ion, gravity is far too small to matter.}
+  % ------------------------------------------------------------------ Chapter 2
+  \fsch{ch2:chap}{The Motor Effect}
+  \fsrow{\fsYes}{$B = \dfrac{\mu_0 I}{2\pi r}$}
+    {Field near a long straight wire, $r$ from the centre of the wire. Direction: grip rule.
+     Shortcut: $\mu_0/2\pi = \qty{2e-7}{N.A^{-2}}$.}
+  \fsrow{\fsYes}{$B = \dfrac{\mu_0 NI}{L}$}
+    {The uniform field inside a long air-core solenoid. $L$ is the length of the coil.}
+  \fsrow{\fsYes}{$F = lI_\perp B = lIB\sin\theta$}
+    {Force on a straight current-carrying wire in an external field. $\theta$ is between the
+     wire and $B$.}
+  \fsrow{\fsYes}{$\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$}
+    {Force on each metre of two long parallel wires. Same direction: attract; opposite:
+     repel. \qty{1}{A} each, \qty{1}{m} apart: \qty{2e-7}{N.m^{-1}}.}
+  \fsalso{ch2:chap}
+  \fsrow{\fsYes}{$I = \dfrac{q}{t}$}{Current is charge per second: \qty{1}{A} means
+    \qty{1}{C} passes each second. This defines the coulomb.}
+  \fsrow{\fsComb}{$I_\perp = I\sin\theta$}{The part of the current at \ang{90} to $B$. Compare
+    the two forms of $F = lI_\perp B = lIB\sin\theta$.}
+  \fsrow{\fsComb}{$F = \Delta m\, g$}{Current balance: turn the change in the reading
+    ($\Delta m$, in kg) into a force. It is $\vec{F}_\mathrm{net} = m\vec{a}$ with $a = g$.}
+  % ------------------------------------------------------------------ Chapter 3
+  \fsch{ch3:chap}{Electromagnetic Induction: Flux, Faraday and Lenz}
+  \fsrow{\fsYes}{$\Phi = B_\parallel A = BA\cos\theta$}
+    {Flux through one flat loop. $\theta$ is between $B$ and the \emph{normal} to the loop.
+     Unit: \si{Wb}.}
+  \fsrow{\fsYes}{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+    {Average emf when the flux through a coil changes. The minus sign is Lenz's law. Current:
+     $I = \varepsilon/R$.}
+  \fsrow{\fsNo}{$\varepsilon = lvB$}
+    {A straight rod moving across a uniform field, with the rod, $v$ and $B$ all at \ang{90}
+     to each other.}
+  \fsrow{\fsComb}{$\lvert\varepsilon_\mathrm{s}\rvert = N_\mathrm{s}\,
+      \dfrac{\mu_0 N_\mathrm{p} A}{L}\,\dfrac{\lvert\Delta I_\mathrm{p}\rvert}{\Delta t}$}
+    {A secondary coil wound on a long air-core solenoid (the primary) whose current
+     changes.}
+  \fsalso{ch3:chap}
+  \fsrow{\fsNo}{$\Delta\Phi = \Phi_\mathrm{final} - \Phi_\mathrm{initial}$}{Change in flux
+    for Faraday's law. Reversing the field gives $\lvert\Delta\Phi\rvert = 2BA$.}
+  \fsrow{\fsYes}{$V = IR$}{Ohm's law, for any resistor or coil. In \cref{ch4:chap}: the
+    voltage lost along a power line, $V_\mathrm{drop} = IR$.}
+  \fsrow{\fsComb}{$I = \dfrac{\varepsilon}{R}$}{The induced current in a closed circuit:
+    Faraday's law with $V = IR$. $R$ is the total resistance.}
+  \fsrow{\fsYes}{$P = F_\parallel v = Fv\cos\theta$}{Power of the push that keeps a rod
+    moving at a steady speed. It equals the electrical power $VI$.}
+  \fsrow{\fsYes}{$\Delta U = mg\Delta h$}{Potential energy lost by a falling magnet. It
+    becomes heat (and some kinetic energy).}
+  % ------------------------------------------------------------------ Chapter 4
+  \fsch{ch4:chap}{Transformers and Power Transmission}
+  \fsrow{\fsYes}{$\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$}
+    {Voltages of a transformer on AC. Put the primary values on top of both fractions.}
+  \fsrow{\fsYes}{$P = VI$}
+    {Power of a coil or a device. The current a power station sends: $I = P/V$.}
+  \fsrow{\fsYes}{$V_\mathrm{p} I_\mathrm{p} = V_\mathrm{s} I_\mathrm{s}$}
+    {Ideal transformer: power in equals power out. Voltage up means current down.}
+  \fsrow{\fsNo}{$\eta = \dfrac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\%
+      = \dfrac{V_\mathrm{s}I_\mathrm{s}}{V_\mathrm{p}I_\mathrm{p}} \times 100\%$}
+    {A real transformer that wastes energy. Inside a formula, use $\eta$ as a decimal
+     (0.92, not 92).}
+  \fsrow{\fsYes}{$P = \dfrac{\Delta E}{\Delta t}$}
+    {Energy used or wasted in a given time. Change the time to seconds first.}
+  \fsrow{\fsNo}{$P_\mathrm{loss} = I^2R$}
+    {Heat lost in power lines or coils. Find $I = P/V$ first. Power received
+     $= P - P_\mathrm{loss}$.}
+  \fsalso{ch4:chap}
+  \fsrow{\fsComb}{$\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{V_\mathrm{p}}{V_\mathrm{s}}
+    = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$}{Currents in an ideal transformer: join the two
+    transformer equations. $I_\mathrm{s}$ is on top.}
+  \fsrow{\fsYes}{$V_\mathrm{drop} = IR$}{The voltage lost along a line ($V = IR$). The
+    voltage left at the far end is $V - V_\mathrm{drop}$.}
+  \fsrow{\fsYes}{$f = \dfrac{1}{T}$}{Frequency and period of AC (mains: \qty{50}{Hz}, so
+    $T = \qty{0.020}{s}$). Also a turning coil in \cref{ch5:chap}.}
+  % ------------------------------------------------------------------ Chapter 5
+  \fsch{ch5:chap}{Motors, Generators and Braking}
+  \fsrow{\fsYes}{$\tau = nIA_\perp B = nIAB\sin\theta$}
+    {Torque on a flat coil in a uniform field. $\theta$ is between $B$ and the normal, so the
+     torque is largest when the plane is parallel to $B$.}
+  \fsrow{\fsNo}{$I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$}
+    {Current in a running DC motor. At switch-on, or when stalled, $\varepsilon_\mathrm{back}
+     = 0$, so $I = V/R$ (large).}
+  \fsrow{\fsYes}{$\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+    {Average emf of a generator coil that turns from one position to another. Find each
+     $\Phi$ with $BA\cos\theta$.}
+  \fsrow{\fsComb}{$Q = \dfrac{1}{2}mu^2 - \dfrac{1}{2}mv^2$}
+    {Heat made by a magnetic brake on a level track: the kinetic energy lost.}
+  \fsalso{ch5:chap}
+  \fsrow{\fsYes}{$\tau = r_\perp F = rF\sin\theta$}{Torque from one force, for example when
+    only one side of a loop is in the field.}
+  \fsrow{\fsNo}{$VI = \varepsilon_\mathrm{back}I + I^2R$}{Energy in a DC motor: power in $=$
+    mechanical power $+$ heating power.}
+  \fsrow{\fsComb}{$Q = \left(\dfrac{1}{2}mu^2 - \dfrac{1}{2}mv^2\right) + mg\Delta h$}
+    {A brake on a drop tower or a slope: add the potential energy lost, $\Delta U =
+    mg\Delta h$.}
+\end{longtable}}
+
+\section*{Data sheet values used in this module}
+The exam gives you the data sheet. The table below shows the values that Module~6 uses,
+exactly as printed.
+
+\begin{table}
+  \caption*{Data sheet values used in Module~6}
+  \centering
+  \begin{tabular}{@{}L{55mm}L{44mm}L{41mm}@{}}
+    \toprule
+    \colhead{Quantity (as on the sheet)} & \colhead{Value} & \colhead{Used in}\\
+    \midrule
+    Charge on electron & $q_\mathrm{e} = \qty{-1.602e-19}{C}$ & \cref{ch1:chap}\\
+    Mass of electron & $m_\mathrm{e} = \qty{9.109e-31}{kg}$ & \cref{ch1:chap}\\
+    Mass of proton & $m_\mathrm{p} = \qty{1.673e-27}{kg}$ & \cref{ch1:chap}\\
+    Earth's gravitational acceleration & $g = \qty{9.8}{m.s^{-2}}$
+      & \cref{ch1:chap,ch2:chap,ch3:chap,ch5:chap}\\
+    Magnetic permeability constant & $\mu_0 = 4\pi \times 10^{-7}$ \si{N.A^{-2}}
+      & \cref{ch2:chap,ch3:chap}\\
+    \qty{1}{eV} & \qty{1.602e-19}{J} & \cref{ch1:chap}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item The sheet prints the electron's charge as negative. In $W = qV$, $F = qE$ and
+        $F = qvB\sin\theta$, use its size, $e = \qty{1.602e-19}{C}$. Then find the direction
+        with a rule (an electron is pushed against $E$, and the palm rule is reversed).
+  \item A proton has charge $+e$. An alpha particle has charge $+2e$.
+\end{itemize}
+
+\begin{toolkit}{Change to SI units first}
+Every formula in this module needs SI units.
+\begin{itemize}
+  \item \si{cm} to \si{m}: divide by 100. \si{mm} to \si{m}: divide by 1000.
+        \si{cm^2} to \si{m^2}: multiply by $10^{-4}$.
+  \item \si{mA} to \si{A} and \si{mT} to \si{T}: divide by 1000. \si{kV} to \si{V}: multiply
+        by 1000. \si{MW} to \si{W}: multiply by $10^6$.
+  \item \si{eV} to \si{J}: multiply by \num{1.602e-19}. \si{km.h^{-1}} to \si{m.s^{-1}}:
+        divide by 3.6. Minutes or hours to seconds: $\times 60$ or $\times 3600$.
+  \item Revolutions per minute to turns per second: divide by 60.
+\end{itemize}
+\end{toolkit}

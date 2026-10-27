@@ -1,0 +1,529 @@
+% questions.tex -- 30 multiple-choice questions, Module 5 Topic 3 (gravity).
+% Section A: Q1-6, Section B: Q7-18, Section C: Q19-30. Each section goes from easy to hard.
+% Key (balanced A/B/C/D): 1C 2D 3A 4B 5D 6C 7A 8D 9D 10B 11C 12D 13A 14C 15A
+%                         16B 17C 18D 19A 20B 21C 22D 23B 24C 25A 26C 27A 28B 29D 30B
+% Every number: checks/m5t3-booklet/numbers.py
+% \Needspace before each question keeps its stem, diagram and options together.
+\unnumberedchapter[\faDumbbell]{Questions}
+
+% =====================================================================
+\section*{Section A: Gravitational force and field strength}
+
+% ---- Q1 (Newton's third law)
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{}\label{bq:secA}
+A satellite of mass \qty{1000}{kg} orbits Earth. Which statement about the gravitational forces
+between Earth and the satellite is correct?
+\choices[1]{Earth pulls on the satellite with a bigger force than the satellite pulls on Earth.}
+  {The satellite does not pull on Earth, because its mass is too small.}
+  {The two forces are equal in size, but Earth's acceleration is much smaller than the
+   satellite's acceleration.}
+  {The two forces are equal in size, so Earth and the satellite have equal accelerations.}
+\end{practiceq}
+
+% ---- Q2 (g from mass and radius ratios)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+Planet P has 2 times the mass of Earth and half the radius of Earth. The gravitational field
+strength at Earth's surface is $g$. What is the gravitational field strength at the surface of
+planet P?
+\choices{$\dfrac{g}{2}$}{$2g$}{$4g$}{$8g$}
+\end{practiceq}
+
+% ---- Q3 (altitude where g is one-ninth)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+The gravitational field strength at Earth's surface is $g$. At what \emph{altitude} (height above
+Earth's surface) is the gravitational field strength equal to $\dfrac{g}{9}$? The radius of Earth is
+$r_\mathrm{E}$.
+\choices{$2r_\mathrm{E}$}{$3r_\mathrm{E}$}{$8r_\mathrm{E}$}{$9r_\mathrm{E}$}
+\end{practiceq}
+
+% ---- Q4 (force of Mars on Phobos)
+\Needspace{17\baselineskip}
+\begin{practiceq}{1}{}
+The table gives data for Mars and its moon Phobos.
+\begin{center}
+  \begin{tabular}{@{}L{70mm}R{32mm}@{}}
+    \toprule
+    Mass of Mars & \qty{6.42e23}{kg}\\
+    Mass of Phobos & \qty{1.07e16}{kg}\\
+    Mean orbital radius of Phobos & \qty{9.38e6}{m}\\
+    Orbital period of Phobos & \qty{2.75e4}{s}\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+What is the size of the gravitational force of Mars on Phobos?
+\choices{\qty{0.49}{N}}{\qty{5.2e15}{N}}{\qty{5.2e21}{N}}{\qty{4.9e22}{N}}
+\end{practiceq}
+
+% ---- Q5 (pendulum on Earth and the Moon: T^2 against l)
+\Needspace{28\baselineskip}
+\begin{practiceq}{1}{}
+A simple pendulum can be used to measure the gravitational field strength $g$, using
+\[ T = 2\pi\sqrt{\dfrac{l}{g}} \]
+where $T$ is the period and $l$ is the length of the pendulum. On the Moon, $g$ is about
+one-sixth of its value on Earth.
+
+A student plots $T^2$ (vertical axis) against $l$ (horizontal axis) for pendulums on Earth and on
+the Moon. Which graph is correct?
+\begin{center}
+  Key:\quad
+  \tikz[baseline=-0.6ex]\draw[hscseriesA, line width=1.3pt] (0,0) -- (0.9,0);\ Earth data
+  \qquad
+  \tikz[baseline=-0.6ex]\draw[hscseriesB, line width=1.3pt, dashed] (0,0) -- (0.9,0);\ Moon data
+\end{center}
+\choices[2]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.0,0) node[below left, font=\small] {$l$};
+    \draw[axisline] (0,0) -- (0,2.2) node[above, font=\small] {$T^2$};
+    \draw[hscseriesA, line width=1.3pt] (0,0) -- (2.6,1.85);
+    \draw[hscseriesB, line width=1.3pt, dashed] (0,0) -- (2.6,0.35);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.0,0) node[below left, font=\small] {$l$};
+    \draw[axisline] (0,0) -- (0,2.2) node[above, font=\small] {$T^2$};
+    \draw[hscseriesA, line width=1.3pt, domain=0:2.6, samples=60, smooth] plot (\x, {0.22*sqrt(\x)});
+    \draw[hscseriesB, line width=1.3pt, dashed, domain=0:2.6, samples=60, smooth] plot (\x, {1.15*sqrt(\x)});
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.0,0) node[below left, font=\small] {$l$};
+    \draw[axisline] (0,0) -- (0,2.2) node[above, font=\small] {$T^2$};
+    \draw[hscseriesA, line width=1.3pt, domain=0:2.6, samples=60, smooth] plot (\x, {1.15*sqrt(\x)});
+    \draw[hscseriesB, line width=1.3pt, dashed, domain=0:2.6, samples=60, smooth] plot (\x, {0.22*sqrt(\x)});
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.0,0) node[below left, font=\small] {$l$};
+    \draw[axisline] (0,0) -- (0,2.2) node[above, font=\small] {$T^2$};
+    \draw[hscseriesA, line width=1.3pt] (0,0) -- (2.6,0.35);
+    \draw[hscseriesB, line width=1.3pt, dashed] (0,0) -- (2.6,1.85);
+  \end{tikzpicture}}
+\end{practiceq}
+
+% ---- Q6 (point where the net force is zero, Earth-Moon)
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{}
+The mass of Earth is about 81 times the mass of the Moon. A spacecraft travels in a straight line
+from Earth to the Moon. At one point on this line, the net gravitational force on the spacecraft
+(from Earth and the Moon together) is zero. Where is this point? (Distances are measured between
+centres.)
+\choices[1]{halfway between Earth and the Moon}
+  {$\frac{1}{10}$ of the way from Earth to the Moon}
+  {$\frac{9}{10}$ of the way from Earth to the Moon}
+  {$\frac{81}{82}$ of the way from Earth to the Moon}
+\end{practiceq}
+
+% =====================================================================
+\Needspace{32\baselineskip}
+\section*{Section B: Orbits and Kepler's laws}
+
+% ---- Q7 (forces on a satellite in a stable circular orbit)
+\begin{practiceq}{1}{}\label{bq:secB}
+Which diagram correctly shows \emph{all} the forces acting on a satellite in a stable circular
+orbit around Earth?
+\begin{center}
+  \begin{tabular}{@{}L{62mm}L{62mm}@{}}
+    \toprule
+    $F_\mathrm{g}$ = gravitational force & $F_\mathrm{p}$ = propulsive force (engine thrust)\\
+    $F_\mathrm{c}$ = centripetal force & \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\choices[2]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \path (-1.8,-1.55) rectangle (1.8,2.25);
+    \draw[guide] (0,0) circle (1.5);
+    \shade[ball color=hscbrand!30] (0,0) circle (0.62);
+    \node[font=\footnotesize] at (0,0) {Earth};
+    \draw[force] (0,1.5) -- (0,0.82) node[pos=0.6, left, text=hscforce] {$F_\mathrm{g}$};
+    \draw[object] (-0.15,1.42) rectangle (0.15,1.58);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \path (-1.8,-1.55) rectangle (1.8,2.25);
+    \draw[guide] (0,0) circle (1.5);
+    \shade[ball color=hscbrand!30] (0,0) circle (0.62);
+    \node[font=\footnotesize] at (0,0) {Earth};
+    \draw[force] (0,1.5) -- (0,0.82) node[pos=0.6, left, text=hscforce] {$F_\mathrm{g}$};
+    \draw[force] (0,1.5) -- (0,2.18) node[pos=0.6, left, text=hscforce] {$F_\mathrm{c}$};
+    \draw[object] (-0.15,1.42) rectangle (0.15,1.58);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \path (-1.8,-1.55) rectangle (1.8,2.25);
+    \draw[guide] (0,0) circle (1.5);
+    \shade[ball color=hscbrand!30] (0,0) circle (0.62);
+    \node[font=\footnotesize] at (0,0) {Earth};
+    \draw[force] (0,1.5) -- (0,0.82) node[pos=0.6, left, text=hscforce] {$F_\mathrm{g}$};
+    \draw[force] (0,1.5) -- (0.8,1.5) node[above, text=hscforce] {$F_\mathrm{p}$};
+    \draw[object] (-0.15,1.42) rectangle (0.15,1.58);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \path (-1.8,-1.55) rectangle (1.8,2.25);
+    \draw[guide] (0,0) circle (1.5);
+    \shade[ball color=hscbrand!30] (0,0) circle (0.62);
+    \node[font=\footnotesize] at (0,0) {Earth};
+    \draw[force] (-0.09,1.5) -- (-0.09,0.82) node[pos=0.6, left, text=hscforce] {$F_\mathrm{g}$};
+    \draw[force] (0.09,1.5) -- (0.09,0.82) node[pos=0.6, right, text=hscforce] {$F_\mathrm{c}$};
+    \draw[object] (-0.15,1.42) rectangle (0.15,1.58);
+  \end{tikzpicture}}
+\end{practiceq}
+
+% ---- Q8 (geostationary orbit)
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{}
+Which statement about a geostationary satellite is correct?
+\choices[1]{It can stay above any point on Earth, for example above Sydney.}
+  {It has a lower altitude than a satellite in low Earth orbit.}
+  {It moves faster than a satellite in low Earth orbit.}
+  {It orbits above the equator, in the same direction as Earth spins, with a period of about
+   24 hours.}
+\end{practiceq}
+
+% ---- Q9 (two satellites in the same orbit, different masses)
+\Needspace{10\baselineskip}
+\begin{practiceq}{1}{}
+Two satellites, P and Q, move in the same circular orbit around Earth. Satellite Q has three
+times the mass of satellite P. Which quantity is the \emph{same} for both satellites?
+\choices[2]{Kinetic energy}{Gravitational force on the satellite}
+  {Gravitational potential energy}{Orbital speed}
+\end{practiceq}
+
+% ---- Q10 (orbital speed when r becomes 9r)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+A satellite moves in a circular orbit of radius $r$ around a planet, with orbital speed $v$. It is
+moved to a new circular orbit of radius $9r$. What is its new orbital speed?
+\choices{$\dfrac{v}{9}$}{$\dfrac{v}{3}$}{$3v$}{$9v$}
+\end{practiceq}
+
+% ---- Q11 (period when r becomes 4r)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+A moon orbits a planet in a circular orbit with period $T$. A second moon orbits the same planet.
+Its orbital radius is 4 times as big. What is the period of the second moon?
+\choices{$2T$}{$4T$}{$8T$}{$16T$}
+\end{practiceq}
+
+% ---- Q12 (which graph is a straight line)
+\Needspace{10\baselineskip}
+\begin{practiceq}{1}{}
+For satellites in circular orbits around the same planet, $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$.
+A student wants a graph that is a straight line through the origin. Which graph should the student
+plot?
+\choices[2]{$T$ against $r$}{$T$ against $r^3$}{$T^2$ against $r$}{$T^2$ against $r^3$}
+\end{practiceq}
+
+% ---- Q13 (Kepler's second law, equal areas)
+% Ellipse a = 3, b = 2.4, e = 0.6, star at the focus (1.8, 0). The shaded sectors have equal
+% areas: E from -0.5 to 0.5 rad and from pi-0.1328 to pi+0.1328 rad (numbers.py).
+\Needspace{30\baselineskip}
+\begin{practiceq}{1}{}
+The diagram shows the elliptical orbit of a planet around a star. The two shaded areas are equal.
+The planet takes 40 days to move from $P_1$ to $P_2$.
+\begin{center}
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    \fill[hscseriesA!22] (1.8,0) -- plot[domain=-0.5:0.5, samples=30, smooth]
+      ({3*cos(\x r)}, {2.4*sin(\x r)}) -- cycle;
+    \fill[hscseriesA!22] (1.8,0) -- plot[domain=3.0088:3.2744, samples=10, smooth]
+      ({3*cos(\x r)}, {2.4*sin(\x r)}) -- cycle;
+    \draw[line width=0.9pt, hscink] (0,0) ellipse (3 and 2.4);
+    \draw[->, line width=0.9pt, hscink] (0.35,2.4) -- (-0.35,2.4);
+    \shade[ball color=hscacc!80] (1.8,0) circle (0.2);
+    \node[below=5pt, font=\small] at (1.8,0) {Star};
+    \fill[hscink] (2.633,-1.151) circle (2pt) node[below right, font=\small] {$P_1$};
+    \fill[hscink] (2.633,1.151) circle (2pt) node[above right, font=\small] {$P_2$};
+    \fill[hscink] (-2.974,0.318) circle (2pt) node[above left, font=\small] {$P_3$};
+    \fill[hscink] (-2.974,-0.318) circle (2pt) node[below left, font=\small] {$P_4$};
+  \end{tikzpicture}
+\end{center}
+Which statement is correct?
+\choices[1]{It takes 40 days to move from $P_3$ to $P_4$. The planet moves faster between $P_1$
+   and $P_2$.}
+  {It takes 40 days to move from $P_3$ to $P_4$. The planet moves faster between $P_3$ and $P_4$.}
+  {It takes more than 40 days to move from $P_3$ to $P_4$. The planet moves faster between $P_1$
+   and $P_2$.}
+  {It takes less than 40 days to move from $P_3$ to $P_4$. The planet moves faster between $P_3$
+   and $P_4$.}
+\end{practiceq}
+
+% ---- Q14 (Kepler's third law in AU and years)
+\Needspace{9\baselineskip}
+\begin{practiceq}{1}{}
+A dwarf planet orbits the Sun with a period of 125 years. The average distance between Earth and
+the Sun is 1 astronomical unit (AU). What is the average distance between the dwarf planet and the
+Sun?
+\choices{\qty{5.0}{AU}}{\qty{11}{AU}}{\qty{25}{AU}}{\qty{1400}{AU}}
+\end{practiceq}
+
+% ---- Q15 (orbital speed of the ISS)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+The International Space Station (ISS) orbits Earth in a circular orbit at an altitude of
+\qty{420}{km}. What is its orbital speed?
+\choices{\qty{7.68e3}{m.s^{-1}}}{\qty{7.93e3}{m.s^{-1}}}{\qty{1.09e4}{m.s^{-1}}}
+  {\qty{3.09e4}{m.s^{-1}}}
+\end{practiceq}
+
+% ---- Q16 (altitude of a geostationary satellite)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+A geostationary satellite has an orbital period of 24.0 hours. What is its altitude above Earth's
+surface?
+\choices{\qty{1.80e5}{m}}{\qty{3.59e7}{m}}{\qty{4.23e7}{m}}{\qty{7.57e22}{m}}
+\end{practiceq}
+
+% ---- Q17 (mass of Jupiter from Io)
+\Needspace{9\baselineskip}
+\begin{practiceq}{1}{}
+Io is a moon of Jupiter. Its orbit is close to a circle, with radius \qty{4.22e8}{m} and period
+\qty{1.53e5}{s}. What is the mass of Jupiter?
+\choices{\qty{4.50e18}{kg}}{\qty{4.81e25}{kg}}{\qty{1.90e27}{kg}}{\qty{2.91e32}{kg}}
+\end{practiceq}
+
+% ---- Q18 (T^2 against r^3 for the moons of two planets)
+\Needspace{28\baselineskip}
+\begin{practiceq}{1}{}
+The graph shows $T^2$ against $r^3$ for the moons of two planets, X and Y.
+\begin{center}
+  \begin{tikzpicture}
+    \draw[axisline] (0,0) -- (4.4,0) node[below left, font=\small] {$r^3$};
+    \draw[axisline] (0,0) -- (0,3.0) node[above, font=\small] {$T^2$};
+    \draw[hscseriesA, line width=1.3pt] (0,0) -- (2.4,2.6) node[right, text=hscink, font=\small] {Planet X};
+    \draw[hscseriesB, line width=1.3pt] (0,0) -- (3.8,1.5) node[right, text=hscink, font=\small] {Planet Y};
+    \foreach \x/\y in {0.6/0.65, 1.2/1.3, 1.8/1.95} {\fill[hscseriesA] (\x,\y) circle (2pt);}
+    \foreach \x/\y in {0.9/0.355, 1.9/0.75, 2.85/1.125} {\fill[hscseriesB] (\x,\y) circle (2pt);}
+  \end{tikzpicture}
+\end{center}
+Which statement is correct?
+\choices[1]{Planet X has the greater mass, because its line is steeper.}
+  {The two planets have the same mass, because both lines pass through the origin.}
+  {The masses cannot be compared, because the moons have different masses.}
+  {Planet Y has the greater mass, because its line is less steep.}
+\end{practiceq}
+
+% =====================================================================
+\section*{Section C: Energy in orbits and escape velocity}
+
+% ---- Q19 (comet in an elliptical orbit)
+\Needspace{20\baselineskip}
+\begin{practiceq}{1}{}\label{bq:secC}
+A comet moves in an elliptical orbit around a star. $P$ is the point closest to the star. $Q$ is the
+point furthest from the star.
+\begin{center}
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm]
+    \draw[line width=0.9pt, hscink] (0,0) ellipse (3.2 and 1.6);
+    \draw[->, line width=0.9pt, hscink] (0.35,1.6) -- (-0.35,1.6);
+    \shade[ball color=hscacc!80] (-2.77,0) circle (0.17);
+    \node[right=4pt, font=\small] at (-2.77,0) {Star};
+    \fill[hscink] (-3.2,0) circle (2pt) node[left, font=\small] {$P$};
+    \fill[hscink] (3.2,0) circle (2pt) node[right, font=\small] {$Q$};
+  \end{tikzpicture}
+\end{center}
+Which quantity is \emph{greater} at $Q$ than at $P$?
+\choices[2]{Gravitational potential energy}{Kinetic energy}{Speed}{Total energy}
+\end{practiceq}
+
+% ---- Q20 (elliptical orbit: speed and total energy)
+\Needspace{30\baselineskip}
+\begin{practiceq}{1}{}
+A satellite orbits Earth in an elliptical orbit that passes through positions $X$ and $Y$.
+\begin{center}
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm]
+    \draw[guide, line width=0.8pt] (0,0) ellipse (3.2 and 2.0);
+    \shade[ball color=hscbrand!30] (-2.5,0) circle (0.42);
+    \node[below=9pt, font=\footnotesize] at (-2.5,0) {Earth};
+    \fill[hscink] (-3.2,0) circle (2pt) node[left, font=\small] {$X$};
+    \fill[hscink] (3.2,0) circle (2pt) node[right, font=\small] {$Y$};
+  \end{tikzpicture}
+\end{center}
+Which row of the table is correct?
+\begin{center}
+  \renewcommand\arraystretch{1.45}
+  \begin{tabular}{@{}C{10mm}C{38mm}C{55mm}@{}}
+    \toprule
+    & \colhead{Greater speed} & \colhead{Greater total energy (kinetic + potential)}\\
+    \midrule
+    \bkchoice{A} & $X$ & $X$\\
+    \bkchoice{B} & $X$ & the same at $X$ and $Y$\\
+    \bkchoice{C} & $Y$ & $Y$\\
+    \bkchoice{D} & $Y$ & the same at $X$ and $Y$\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\end{practiceq}
+
+% ---- Q21 (LEO and GEO: potential energy and speed)
+\Needspace{18\baselineskip}
+\begin{practiceq}{1}{}
+Two satellites have the same mass. One is in low Earth orbit (LEO). The other is in geostationary
+orbit (GEO). Which row of the table is correct?
+\begin{center}
+  \renewcommand\arraystretch{1.45}
+  \begin{tabular}{@{}C{10mm}C{60mm}C{40mm}@{}}
+    \toprule
+    & \colhead{Greater gravitational potential energy} & \colhead{Greater orbital speed}\\
+    \midrule
+    \bkchoice{A} & LEO & LEO\\
+    \bkchoice{B} & LEO & GEO\\
+    \bkchoice{C} & GEO & LEO\\
+    \bkchoice{D} & GEO & GEO\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\end{practiceq}
+
+% ---- Q22 (moving to a higher orbit)
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{}
+A satellite is moved from a low circular orbit to a higher circular orbit around Earth. Which
+statement is correct?
+\choices[1]{Its kinetic energy increases.}{Its gravitational potential energy decreases.}
+  {Its orbital period decreases.}{Its total energy increases.}
+\end{practiceq}
+
+% ---- Q23 (potential energy of a satellite)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+A satellite of mass \qty{1.20e3}{kg} orbits Earth at an altitude of \qty{3.50e3}{km}. What is its
+gravitational potential energy?
+\choices{\qty{-2.43e10}{J}}{\qty{-4.87e10}{J}}{\qty{-7.54e10}{J}}{\qty{-1.37e11}{J}}
+\end{practiceq}
+
+% ---- Q24 (change in U read from a graph; m = 200 kg)
+\Needspace{40\baselineskip}
+\begin{practiceq}{1}{}
+The graph shows how the gravitational potential energy $U$ of a \qty{200}{kg} satellite depends on
+its altitude above Earth's surface.
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=118mm, height=92mm,
+        axis x line*=top, axis y line*=left,
+        xmin=0, xmax=20000, ymin=-13, ymax=0,
+        xtick={0,4000,...,20000}, ytick={-13,-12,...,0},
+        minor x tick num=3, minor y tick num=1,
+        grid=both, minor grid style={hscrule!45, line width=0.2pt},
+        xticklabel style={/pgf/number format/1000 sep={\,}, font=\footnotesize},
+        xlabel={Altitude (km)}, ylabel={$U$ ($\times 10^{9}$ J)},
+        xlabel style={yshift=2pt}]
+      \addplot[hscseriesA, line width=1.4pt, domain=0:20000, samples=120, smooth]
+        {-6.67e-11*6.0e24*200/((6371+x)*1000)/1e9};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+The satellite is moved from an altitude of \qty{2000}{km} to an altitude of \qty{12000}{km}. What is
+the change in its gravitational potential energy?
+\choices{\qty{-1.4e10}{J}}{\qty{-5.2e9}{J}}{\qty[retain-explicit-plus]{+5.2e9}{J}}{\qty[retain-explicit-plus]{+1.4e10}{J}}
+\end{practiceq}
+
+% ---- Q25 (force falls to one-ninth: what happens to U)
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{}
+A satellite is moved to a new circular orbit. In the new orbit, the gravitational force on the
+satellite is one-ninth of the force in its first orbit. What is its gravitational potential
+energy in the new orbit? (Both values of potential energy are negative.)
+\choices[1]{one-third of its value in the first orbit}{one-ninth of its value in the first orbit}
+  {three times its value in the first orbit}{nine times its value in the first orbit}
+\end{practiceq}
+
+% ---- Q26 (escape velocity: distance matters, mass does not)
+\Needspace{10\baselineskip}
+\begin{practiceq}{1}{}
+A space probe of mass $m$ is at a distance $8r$ from the centre of Earth. The escape velocity for
+this probe is $v$. A second probe, of mass $2m$, is at a distance $2r$ from the centre of Earth.
+What is the escape velocity for the second probe?
+\choices{$\dfrac{v}{2}$}{$\sqrt{2}\,v$}{$2v$}{$4v$}
+\end{practiceq}
+
+% ---- Q27 (rank escape velocities from a data table)
+\Needspace{20\baselineskip}
+\begin{practiceq}{1}{}
+The table gives data for three planets, X, Y and Z.
+\begin{center}
+  \begin{tabular}{@{}C{18mm}C{30mm}C{30mm}C{42mm}@{}}
+    \toprule
+    \colhead{Planet} & \colhead{Mass (kg)} & \colhead{Diameter (km)} &
+      \colhead{Distance from its star ($\times 10^{6}$ km)}\\
+    \midrule
+    X & \num{2.0e24} & \num{8000} & 80\\
+    Y & \num{6.0e24} & \num{20000} & 150\\
+    Z & \num{1.0e24} & \num{3000} & 300\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+Which list gives the escape velocities from the surfaces of the planets, from largest to smallest?
+\choices{Z, Y, X}{Y, X, Z}{Z, X, Y}{X, Y, Z}
+\end{practiceq}
+
+% ---- Q28 (escape velocity from Mercury)
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{}
+Mercury has a mass of \qty{3.30e23}{kg} and a radius of \qty{2.44e6}{m}. What is the escape velocity
+from the surface of Mercury?
+\choices{\qty{3.00e3}{m.s^{-1}}}{\qty{4.25e3}{m.s^{-1}}}{\qty{1.34e5}{m.s^{-1}}}
+  {\qty{1.80e7}{m.s^{-1}}}
+\end{practiceq}
+
+% ---- Q29 (U of a mass moved along the line between two identical planets)
+% Correct curve: U = -k (1/x + 1/(3 - x)) for x from 0.25 to 2.75, with k = 0.45.
+\Needspace{36\baselineskip}
+\begin{practiceq}{1}{}
+Two identical planets, P and Q, are a fixed distance apart. A small mass is moved at a steady speed
+along the straight line from point $S$ (near P) to point $F$ (near Q). Ignore all other masses.
+\begin{center}
+  \begin{tikzpicture}
+    \shade[ball color=hscbrand!30] (0,0) circle (0.55);
+    \node[font=\small] at (0,0) {P};
+    \shade[ball color=hscbrand!30] (6,0) circle (0.55);
+    \node[font=\small] at (6,0) {Q};
+    \draw[displacement] (0.95,0) -- (5.05,0);
+    \fill[object] (0.95,0) circle (3pt) node[above=3pt, font=\small, text=hscink] {$S$};
+    \fill[hscink] (5.05,0) circle (1.5pt) node[above=3pt, font=\small] {$F$};
+  \end{tikzpicture}
+\end{center}
+Which graph best shows the gravitational potential energy $U$ of the small mass during this
+movement?
+\choices[2]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.2,0) node[above left, font=\small] {Time};
+    \draw[axisline] (0,0) -- (0,-2.3) node[below, font=\small] {$U$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt] (0.25,-1.3) -- (2.75,-1.3);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.2,0) node[above left, font=\small] {Time};
+    \draw[axisline] (0,0) -- (0,-2.3) node[below, font=\small] {$U$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt, domain=0.25:2.75, samples=60, smooth]
+      plot (\x, {-2.56 + 0.45*(1/\x + 1/(3-\x))});
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.2,0) node[above left, font=\small] {Time};
+    \draw[axisline] (0,0) -- (0,-2.3) node[below, font=\small] {$U$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt] (0.25,-1.96) -- (2.75,-0.6);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (3.2,0) node[above left, font=\small] {Time};
+    \draw[axisline] (0,0) -- (0,-2.3) node[below, font=\small] {$U$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt, domain=0.25:2.75, samples=60, smooth]
+      plot (\x, {-0.45*(1/\x + 1/(3-\x))});
+  \end{tikzpicture}}
+\end{practiceq}
+
+% ---- Q30 (minimum energy to move to a higher orbit)
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{}
+An \qty{800}{kg} satellite is moved from a circular orbit of radius \qty{7.0e6}{m} to a circular
+orbit of radius \qty{2.1e7}{m} around Earth. The total energy of a satellite in a circular orbit is
+$E = -\dfrac{GMm}{2r}$. What is the minimum energy that must be supplied to the satellite?
+\choices{\qty{7.6e9}{J}}{\qty{1.5e10}{J}}{\qty{3.0e10}{J}}{\qty{4.6e10}{J}}
+\end{practiceq}

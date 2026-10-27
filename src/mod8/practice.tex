@@ -1,0 +1,437 @@
+% practice.tex -- Module 8 (From the Universe to the Atom): Practice set.
+% 25 new HSC-style questions: Section I 9 multiple choice, Section II 10 short answer,
+% Section III 6 extended response. 81 marks. Ordered from easy to HSC-hard.
+% Independent check (solved again without the answers):
+% Answers: practice_answers.tex (one practiceans per practiceq, same order).
+% Local helpers (prefix "prac"), defined with \providecommand so the answers file can
+% define them too: \pracmarks, \pracblank, \pracNuc, \pracaq.
+% Figures and tables here use \caption* (no number): this chapter is unnumbered, so a
+% numbered caption would continue the numbering of Chapter 5.
+\providecommand\pracmarks[1]{\hfill\mbox{\textcolor{hscmuted}{\small(#1)}}}
+% \pracblank: an empty cell for the student to fill in (a short grey line).
+\providecommand\pracblank{\textcolor{hscmuted}{\rule[-2pt]{2.2em}{0.4pt}}}
+% \pracNuc{A}{Z}{X}: nuclide symbol, A above Z, both right-aligned before X.
+\providecommand\pracNuc[3]{\ensuremath{\mathord{%
+  \setbox0=\hbox{$\scriptstyle#1$}\setbox2=\hbox{$\scriptstyle#2$}%
+  \ifdim\wd0<\wd2 \setbox0=\hbox to\wd2{\hss\box0}\else\setbox2=\hbox to\wd0{\hss\box2}\fi
+  {}^{\box0}_{\box2}\mathrm{#3}}}}
+% \pracaq{d}: an antiquark (a bar over the quark letter).
+\providecommand\pracaq[1]{\ensuremath{\overline{\mathrm{#1}}}}
+
+\unnumberedchapter[\faDumbbell]{Practice set}
+
+These 25 questions are written in the style of the HSC exam. They test all five chapters of
+this book. They start easy and get harder.
+\begin{itemize}
+  \item \textbf{Section I:} 9 multiple-choice questions, 1 mark each. Choose A, B, C or D.
+  \item \textbf{Section II:} 10 short-answer questions, 3 or 4 marks each.
+  \item \textbf{Section III:} 6 extended-response questions, 5 to 8 marks each.
+\end{itemize}
+The total is 81 marks. Allow about 2 hours and 25 minutes. (In the HSC exam you have about
+1.8 minutes for each mark.)
+
+\textbf{For every question:}
+\begin{itemize}
+  \item Use the formula sheet and these data-sheet values: $e = \qty{1.602e-19}{C}$,
+        $m_\mathrm{e} = \qty{9.109e-31}{kg}$, $m_\mathrm{p} = \qty{1.673e-27}{kg}$,
+        $h = \qty{6.626e-34}{J.s}$, $c = \qty{3.00e8}{m.s^{-1}}$,
+        $R = \qty{1.097e7}{m^{-1}}$, $b = \qty{2.898e-3}{m.K}$, $g = \qty{9.8}{m.s^{-2}}$,
+        $\qty{1}{\amu} = \qty{931.5}{MeV}/c^2$ and $\qty{1}{eV} = \qty{1.602e-19}{J}$
+        (so $\qty{1}{MeV} = \qty{1.602e-13}{J}$).
+  \item Show your working. Give each answer with a unit and sensible significant figures.
+\end{itemize}
+
+The marks for each part of a question are shown on the right, like this:
+\textcolor{hscmuted}{\small(2 marks)}. The tag next to each question number (for example
+\textcolor{hscbrand}{Ch~2}) shows which chapter the question tests. If you get a question
+wrong, revise that chapter. Full worked answers and marking criteria are at the back of the
+book. Click a question number to jump to its answer.
+
+% =====================================================================
+\Needspace{15\baselineskip}
+\section*{Section I: Multiple choice}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:bigbang}
+Less than a second after the Big Bang, the Universe was filled with very high-energy photons.
+Which statement best describes how the first matter formed?
+\choices[1]{Photons joined together and made hydrogen atoms straight away.}
+  {Matter appeared from nothing, so energy was not conserved.}
+  {Photons with enough energy turned into pairs of particles and antiparticles, as
+   $E = mc^2$ allows.}
+  {The first stars formed, and their fusion made the first protons and neutrons.}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{1}{4}\label{pq:joliot}
+In 1934 Ir\`ene Curie and Fr\'ed\'eric Joliot fired alpha particles at aluminium. They made
+the first artificial (made by people) radioactive isotope:
+\[
+  \pracNuc{27}{13}{Al} + \pracNuc{4}{2}{He} \to \pracNuc{30}{15}{P} + \mathrm{X}
+\]
+What is X?
+\choices{a proton}{a neutron}{an electron}{a gamma ray}
+\end{practiceq}
+
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{5}\label{pq:dmeson}
+The $\mathrm{D}^+$ particle is made of a charm quark and an anti-down quark
+($\mathrm{c}\,\pracaq{d}$). What is its charge, and is it a fermion or a boson?
+\choices[2]{charge $+1e$; a boson}{charge $+1e$; a fermion}
+  {charge $+\tfrac13 e$; a boson}{charge $+\tfrac13 e$; a fermion}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:selector}
+A beam of electrons passes straight between two charged metal plates. The plates make an
+electric field. There is also a magnetic field. The two fields are at right angles to each
+other and to the beam. The electrons are then replaced by protons with the same speed and
+direction. The fields do not change. What happens to the protons?
+\choices[1]{They bend towards the negative plate, because the electric force on them is
+   reversed.}
+  {They bend less than the electrons would, because they have a larger mass.}
+  {They move in a circle, because the magnetic force on them is larger.}
+  {They pass straight through, because both forces are reversed and still balance.}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:chadwick}
+In 1932 Chadwick showed that the neutral radiation from beryllium was not gamma rays. Which
+argument did he use to show this?
+\choices[1]{Electric and magnetic fields did not bend the radiation, so it had no charge.}
+  {The radiation was stopped by a thin sheet of paper, so it was made of heavy particles.}
+  {To knock such fast protons out of paraffin wax, gamma photons would need more energy than
+   the reaction could supply.}
+  {Its speed was measured directly, and it was much less than the speed of light.}
+\end{practiceq}
+
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:longest}
+Electrons in hydrogen atoms make the four jumps below. Which jump gives out the photon with
+the \emph{longest} wavelength?
+\choices{$n = 2 \to n = 1$}{$n = 3 \to n = 2$}{$n = 4 \to n = 2$}{$n = 4 \to n = 3$}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{1}{4}\label{pq:becurve}
+The fission of uranium-235 and the fusion of hydrogen-2 both release energy. Which statement
+explains why?
+\choices[1]{In both reactions the products have a smaller binding energy per nucleon, so
+   energy is released as the nuclei break apart.}
+  {In both reactions the products have a larger binding energy per nucleon, so the products
+   have less mass than the starting nuclei.}
+  {In both reactions some nucleons disappear, and their mass becomes energy.}
+  {Fission releases energy because the products have more mass. Fusion releases energy
+   because the product has less mass.}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{5}\label{pq:cyclotronmc}
+The ions in a cyclotron move much more slowly than light. Which statement about the
+cyclotron is correct?
+\choices[1]{The electric field in the gap speeds the ions up, and the magnetic field bends
+   their path.}
+  {The magnetic field does work on the ions, so they speed up on every half turn.}
+  {The radius of the ions' path stays the same as they speed up.}
+  {The frequency of the AC supply must be increased as the ions speed up.}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:magnitude}
+Stars X and Y have the same surface temperature. The absolute magnitude of X is $-2.5$. The
+absolute magnitude of Y is $+7.5$. Which statement is correct?
+\choices[1]{Y is $10^4$ times more luminous than X, because its magnitude is larger.}
+  {X is 10 times more luminous than Y, and the two stars have the same radius.}
+  {X is $10^4$ times more luminous than Y, and X has a much larger radius than Y.}
+  {X is $10^4$ times more luminous than Y, and the two stars have the same radius.}
+\end{practiceq}
+
+% =====================================================================
+\section*{Section II: Short answer}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{3}{2}\label{pq:millikan}
+An oil drop has a mass of \qty{4.2e-15}{kg}. It is held still between two horizontal metal
+plates that are \qty{15.0}{mm} apart. The top plate is positive. The voltage between the
+plates is \qty{964}{V}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the size of the charge on the drop. \pracmarks{2 marks}
+  \item How many extra electrons does the drop carry? Justify your answer.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{3}{4}\label{pq:oxygen}
+An oxygen-16 nucleus ($\pracNuc{16}{8}{O}$) has a mass of \qty{15.990523}{\amu}. A proton
+has a mass of \qty{1.007276}{\amu}, and a neutron has a mass of \qty{1.008665}{\amu}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the mass defect of oxygen-16. \pracmarks{1 mark}
+  \item Calculate its binding energy in MeV. \pracmarks{1 mark}
+  \item Calculate its binding energy per nucleon. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{4}{1}\label{pq:wien}
+The continuous spectrum of a star peaks at a wavelength of \qty{460}{nm}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the surface temperature of the star. \pracmarks{1 mark}
+  \item State the star's spectral class and its colour. \pracmarks{1 mark}
+  \item The star's spectrum also has dark absorption lines. Explain how these lines are
+        produced, and how this spectrum is different from a black body spectrum.
+        \pracmarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{3}{3}\label{pq:debroglie}
+Low-energy electrons are used to study the surface of a crystal, as in Davisson and Germer's
+experiment. To give a clear diffraction pattern, the electrons need a de Broglie wavelength
+of \qty{1.10e-10}{m}, close to the spacing of the atoms. The electrons start from rest.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the speed the electrons need. \pracmarks{1 mark}
+  \item Calculate the voltage needed to accelerate the electrons to this speed.
+        \pracmarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{4}{1}\label{pq:hubble}
+The hydrogen-beta line has a wavelength of \qty{486.1}{nm} in the laboratory. In the spectrum
+of a distant galaxy, this line is at \qty{497.8}{nm}. Take
+$H_0 = \qty{68.0}{km.s^{-1}.Mpc^{-1}}$.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the recession velocity of the galaxy. \pracmarks{2 marks}
+  \item Calculate the distance to the galaxy in megaparsecs. \pracmarks{1 mark}
+  \item Almost every distant galaxy shows a redshift. A student says that this means the
+        Milky Way is at the centre of the Universe. Explain why this conclusion is wrong.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{3}{1}\label{pq:ppstep}
+The second step of the proton--proton chain is
+\[
+  \pracNuc{2}{1}{H} + \pracNuc{1}{1}{H} \to \pracNuc{3}{2}{He} + \gamma
+\]
+The atomic masses are: hydrogen-2 \qty{2.014102}{\amu}, hydrogen-1 \qty{1.007825}{\amu}
+and helium-3 \qty{3.016029}{\amu}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the energy released, in MeV. \pracmarks{2 marks}
+  \item Assume that the gamma photon carries all of this energy. Calculate its wavelength.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{4}{2}\label{pq:thomson}
+In a Thomson-type tube, a beam of electrons passes between two horizontal plates. The plates
+are \qty{2.0}{cm} apart, with \qty{400}{V} between them. A magnetic field of
+\qty{8.0e-4}{T} acts at right angles to the electric field and to the beam. The beam goes
+straight.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the speed of the electrons. \pracmarks{2 marks}
+  \item The electric field is switched off. The same magnetic field bends the beam into a
+        circular arc of radius \qty{17.8}{cm}. Calculate the charge-to-mass ratio of the
+        electrons. \pracmarks{1 mark}
+  \item Millikan measured the charge of the electron as \qty{1.602e-19}{C}. Use your answer
+        to (b) to calculate the mass of the electron. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{4}{4}\label{pq:technetium}
+Technetium-99m is used in medical scans. Its half-life is \qty{6.01}{h}. A patient is
+injected with a dose that has an activity of \qty{6.0e8}{Bq}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the decay constant in \si{s^{-1}}. \pracmarks{1 mark}
+  \item Calculate the number of technetium-99m nuclei in the dose when it is injected.
+        \pracmarks{1 mark}
+  \item Calculate the activity of the dose \qty{24.0}{h} later. \pracmarks{1 mark}
+  \item Calculate how long it takes for the activity to fall to \qty{1.0}{\percent} of its
+        starting value. Give your answer in hours. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{16\baselineskip}
+\begin{practiceq}{4}{4}\label{pq:fission}
+One possible fission of uranium-235 is
+\[
+  \pracNuc{235}{92}{U} + \pracNuc{1}{0}{n} \to \pracNuc{141}{56}{Ba} + \pracNuc{92}{36}{Kr}
+  + x\,\pracNuc{1}{0}{n}
+\]
+\begin{table}
+  \caption*{Binding energy per nucleon of the three nuclei.}
+  \centering
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    Nucleus & uranium-235 & barium-141 & krypton-92\\
+    \midrule
+    Binding energy per nucleon (\si{MeV}) & 7.59 & 8.33 & 8.51\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{enumerate}[label=(\alph*)]
+  \item Find $x$. \pracmarks{1 mark}
+  \item Use the table to estimate the energy released by one fission. \pracmarks{2 marks}
+  \item In a nuclear reactor, control rods keep this chain reaction steady. Explain how.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{4}{5}\label{pq:cyclotron}
+A hospital cyclotron accelerates deuterons. A deuteron is a hydrogen-2 nucleus. Its charge is
+$+e$ and its mass is \qty{3.344e-27}{kg}. The magnetic field is \qty{1.2}{T}. The deuterons
+leave the cyclotron when the radius of their path is \qty{0.45}{m}. The voltage across the
+gap between the dees is \qty{40}{kV}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the frequency of the AC supply. \pracmarks{1 mark}
+  \item Calculate the kinetic energy of the deuterons when they leave, in MeV.
+        \pracmarks{2 marks}
+  \item Estimate how many turns a deuteron makes in the cyclotron. (Hint: in each turn it
+        crosses the gap twice.) \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+% =====================================================================
+\section*{Section III: Extended response}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{5}{2}\label{pq:goldfoil}
+Thomson's model of the atom predicted that alpha particles fired at thin gold foil would
+pass through with only very small deflections.
+\begin{enumerate}[label=(\alph*)]
+  \item Describe the results that Geiger and Marsden observed. Explain how Rutherford used
+        these results to develop his nuclear model of the atom. \pracmarks{3 marks}
+  \item Classical physics predicts that Rutherford's atom cannot be stable. Explain why.
+        \pracmarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{6}{3}\label{pq:balmer}
+A student looks at the light from a hydrogen discharge tube through a spectrometer. Its
+diffraction grating has 500 lines per millimetre. She turns the telescope to the
+first-order cyan (blue-green) line. She reads the angle once, on one side of the
+straight-through position only. Her reading is $\theta = \ang{14.1}$. The angle scale reads
+to the nearest \ang{0.1}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the wavelength of the cyan line. \pracmarks{2 marks}
+  \item Use the Rydberg equation to show that this line is produced when electrons in
+        hydrogen drop from $n = 4$ to $n = 2$. \pracmarks{1 mark}
+  \item Evaluate the reliability of her method, and suggest TWO improvements.
+        \pracmarks{3 marks}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{6}{4}\label{pq:decaygraph}
+A student measures the count rate from a protactinium-234m source every \qty{30}{s}. The
+background count rate is 30 counts per minute.
+\begin{table}
+  \caption*{Count rates from the protactinium-234m source.}
+  \centering\small\setlength\tabcolsep{4pt}
+  \begin{tabular}{@{}L{36mm}*{9}{C{8.5mm}}@{}}
+    \toprule
+    Time $t$ (\si{s}) & 0 & 30 & 60 & 90 & 120 & 150 & 180 & 210 & 240\\
+    \midrule
+    Measured count rate (counts per minute) & 1001 & 797 & 577 & 437 & 328 & 250 & 195 & 150 & 117\\
+    \midrule
+    Corrected count rate (counts per minute) & \pracblank & \pracblank & \pracblank &
+      \pracblank & \pracblank & \pracblank & \pracblank & \pracblank & \pracblank\\
+    \midrule
+    $\ln(\text{corrected count rate})$ & \pracblank & \pracblank & \pracblank &
+      \pracblank & \pracblank & \pracblank & \pracblank & \pracblank & \pracblank\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{enumerate}[label=(\alph*)]
+  \item The count rate decays in the same way as the number of nuclei,
+        $N_\mathrm{t} = N_0 e^{-\lambda t}$. Show that a graph of
+        $\ln N_\mathrm{t}$ against $t$ is a straight line with gradient $-\lambda$.
+        (Hint: $\ln(ab) = \ln a + \ln b$.) \pracmarks{1 mark}
+  \item Complete the table. (Corrected count rate = measured count rate $-$ background
+        count rate.) \pracmarks{1 mark}
+  \item On the grid below, plot $\ln(\text{corrected count rate})$ against $t$. Draw a line of
+        best fit. \pracmarks{2 marks}
+  \item Use your graph to calculate the half-life of protactinium-234m. \pracmarks{2 marks}
+\end{enumerate}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.86\linewidth, height=0.6\linewidth,
+        xmin=0, xmax=250, ymin=4.0, ymax=7.0,
+        xlabel={Time $t$ (\si{s})}, ylabel={$\ln(\text{corrected count rate})$},
+        xtick={0,50,...,250}, ytick={4.0,4.5,...,7.0},
+        minor x tick num=4, minor y tick num=4,
+        grid=both, minor grid style={hscrule!45, line width=0.2pt},
+        yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \addplot[draw=none] coordinates {(0,4)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Grid for part (c).}
+\end{figure}
+\end{practiceq}
+
+\begin{practiceq}{5}{3}\label{pq:matterwaves}
+Bohr's model of the atom had limitations. Analyse how de Broglie's idea of matter waves
+helped to explain one of these limitations, and how it led to Schr\"odinger's model.
+\end{practiceq}
+
+\begin{practiceq}{6}{5}\label{pq:microscope}
+Particle accelerators are sometimes called ``the microscopes of particle physics''. Assess
+this description. In your answer, refer to how accelerators work and to evidence that they
+have produced for the Standard Model.
+\end{practiceq}
+
+\Needspace{28\baselineskip}
+\begin{practiceq}{8}{1}\label{pq:hrdiagram}
+The Hertzsprung--Russell (HR) diagram below shows four stars, P, Q, R and S, and the Sun. The
+grey dots are other stars.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.84\linewidth, height=0.62\linewidth,
+        xmode=log, ymode=log, x dir=reverse,
+        xmin=2400, xmax=42000, ymin=1e-5, ymax=1e6,
+        xtick={40000,20000,10000,5000,2500},
+        xticklabels={\num{40000},\num{20000},\num{10000},5000,2500},
+        ytick={1e-4,1e-2,1,1e2,1e4,1e6},
+        xlabel={Surface temperature (\si{K})}, ylabel={Luminosity ($L_\odot$)}]
+      \addplot[only marks, mark=*, mark size=1.3pt, color=hscmuted!55] coordinates {
+        (3133,0.0164) (3434,0.0128) (3630,0.0506) (3819,0.0598) (4232,0.0655) (4283,0.0562)
+        (4707,0.255) (5083,0.79) (5241,0.558) (5983,1.83) (6348,2.95) (6515,4.62)
+        (7221,4.34) (7880,7.73) (8068,12) (9058,77.4) (9325,42.4) (10271,37.4) (10655,114)
+        (12046,93.9) (12849,165) (13095,341) (14019,502) (15516,785) (15955,650)
+        (17474,958) (19409,1870) (20326,4150) (22133,25000) (22629,12900) (25520,18600)
+        (27432,26200) (28559,34900) (29945,49100)
+        (3726,848) (3754,407) (5073,808) (4020,92.8) (4344,437) (3594,396) (4835,596)
+        (3466,819) (3564,88.1) (4499,740)
+        (3700,39800) (4300,79400) (9000,126000) (15000,200000) (6500,63100)
+        (9747,0.000601) (9371,0.000236) (9430,0.000342) (7420,0.000143) (16043,0.00347)
+        (6430,6.77e-05) (24530,0.0091) (8419,0.000181)};
+      \addplot[only marks, mark=*, mark size=2.6pt, color=hscseriesA] coordinates {
+        (3600,300) (20000,3000) (9000,0.003) (4200,0.15)};
+      \addplot[only marks, mark=*, mark size=2.6pt, color=hscseriesB] coordinates {(5800,1)};
+      \node[anchor=west, font=\small\bfseries, text=hscink] at (axis cs:3450,300) {P};
+      \node[anchor=south, font=\small\bfseries, text=hscink, yshift=3pt] at (axis cs:20000,3000) {Q};
+      \node[anchor=west, font=\small\bfseries, text=hscink, xshift=2pt] at (axis cs:9000,0.003) {R};
+      \node[anchor=north, font=\small\bfseries, text=hscink, yshift=-3pt] at (axis cs:4200,0.15) {S};
+      \node[anchor=east, font=\small, text=hscseriesB, xshift=-2pt] at (axis cs:5800,1) {Sun};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{HR diagram. Both axes use log scales. Temperature increases to the left.}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+  \item Identify which star is a white dwarf and which is a red giant. Justify each choice
+        using the diagram. \pracmarks{2 marks}
+  \item Stars Q and S are both main sequence stars. Compare Q and S. Refer to their masses,
+        how long they stay on the main sequence, and the main fusion process in their cores.
+        \pracmarks{3 marks}
+  \item The Sun will one day become a star like P. Describe the changes in its core, and
+        the nuclear reactions that happen, from the end of its main sequence stage to the
+        end of its life. \pracmarks{3 marks}
+\end{enumerate}
+\end{practiceq}

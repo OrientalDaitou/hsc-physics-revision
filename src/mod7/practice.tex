@@ -1,0 +1,369 @@
+% practice.tex -- Module 7 (The Nature of Light): Practice set.
+% 23 new HSC-style questions (8 multiple choice, 10 short answer, 5 extended response),
+% ordered from easy to HSC level, covering Chapters 1-4.
+%   (solve.py, bbcheck.py, verify_answers.py; outputs saved next to them).
+% No homework, booklet or exam question (or its numbers) is reused.
+% Answers: practice_answers.tex (one practiceans per practiceq, same order).
+% \Needspace before each question keeps a question (and its options or parts) on one
+% page when it fits; it is conditional and never forces a page break by itself.
+\unnumberedchapter[\faDumbbell]{Practice set}
+
+% Marks for one part of a question, pushed to the right margin; if they do not fit on
+% the last line, they move to a new line as a whole (TeXbook \signed trick).
+% New macro for the practice set only (tell the design-system owner).
+\providecommand\practiceMarks[1]{{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak
+  \hfill\mbox{\small\textcolor{hscmuted}{(#1)}}\parfillskip=0pt\finalhyphendemerits=0\par}}
+
+% Small black body sketches for Question 4 (Planck curves; x = wavelength in um,
+% normalised so that the 6000 K curve peaks at 1).
+\pgfplotsset{pqbbsketch/.style={hsc, width=64mm, height=44mm,
+    xmin=0, xmax=2.6, ymin=0, ymax=1.3, xtick=\empty, ytick=\empty, grid=none,
+    axis lines=left, xlabel={wavelength}, ylabel={intensity},
+    label style={font=\footnotesize},
+    xlabel style={at={(axis description cs:0.5,0)}, anchor=north, yshift=-1pt},
+    ylabel style={at={(axis description cs:0,0.5)}, anchor=south, yshift=1pt},
+    legend style={at={(1,1)}, anchor=north east, font=\scriptsize, draw=none,
+      fill=white, inner sep=1pt, row sep=-1pt},
+    legend cell align=left,
+    domain=0.10:2.55, samples=160, smooth,
+    declare function={pqbb(\x,\t)=(\x)^(-5)/(exp(14388/(\x*\t))-1)/0.267374;}}}
+
+These 23 questions cover all four chapters. They start easy and finish at HSC level. The
+\textbf{Ch} tag next to each question number shows the chapter it tests. Click the tag to go
+to that chapter.
+\begin{itemize}
+  \item Total: 71 marks. Allow about 2 hours. (In the HSC exam you have about 1.8 minutes for
+        each mark.)
+  \item Use only a calculator and the HSC data sheet and formulae sheet.
+  \item Show all your working. Give every answer with a unit and sensible significant figures.
+  \item Full worked answers and marking criteria are in \emph{Practice set answers}, at the end
+        of the Answers chapter. Click a question number to jump to its answer.
+\end{itemize}
+
+%% ==================================================================
+\section*{Section I: multiple choice (8 marks)}
+Choose the best answer: A, B, C or D.
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:produce}
+Which of these produces an electromagnetic wave?
+\choices[1]{a charged metal sphere at rest on an insulating stand}
+  {an electron moving at a constant velocity in a vacuum}
+  {electrons moving up and down, again and again, in a radio antenna}
+  {a steady direct current in a long straight wire}
+\end{practiceq}
+
+\Needspace{7\baselineskip}
+\begin{practiceq}{1}{4}\label{pq:laser}
+A spacecraft moves towards a space station at $0.80c$. It sends a laser pulse forward, towards
+the station. What speed does an observer on the station measure for the laser pulse?
+\choices{$0.20c$}{$1.00c$}{$1.67c$}{$1.80c$}
+\end{practiceq}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:foucault}
+In 1850 Foucault measured the speed of light in water. Light travelled more slowly in water
+than in air. What did this result show?
+\choices[1]{Newton's particle explanation of refraction was wrong.}
+  {Light is an electromagnetic wave.}
+  {Light is a transverse wave.}
+  {Light is a stream of photons.}
+\end{practiceq}
+
+\Needspace{25\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:bbgraph}
+Which graph best shows the black body radiation curves of a star at \qty{4000}{K} and a star
+at \qty{6000}{K}?
+\choices[2]{%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \begin{axis}[pqbbsketch]
+      \addplot[hscseriesA, line width=1.1pt, domain=0:2.55] {exp(-((x-0.483)/0.22)^2)};
+      \addplot[hscseriesB, line width=1.1pt, dashed, domain=0:2.55] {0.132*exp(-((x-0.7245)/0.33)^2)};
+      \legend{\qty{6000}{K}, \qty{4000}{K}}
+    \end{axis}
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \begin{axis}[pqbbsketch]
+      \addplot[hscseriesA, line width=1.1pt] {7.59375*pqbb(x,4000)};
+      \addplot[hscseriesB, line width=1.1pt, dashed] {pqbb(x,6000)/7.59375};
+      \legend{\qty{6000}{K}, \qty{4000}{K}}
+    \end{axis}
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \begin{axis}[pqbbsketch]
+      \addplot[hscseriesA, line width=1.1pt] {pqbb(x,6000)};
+      \addplot[hscseriesB, line width=1.1pt, dashed] {4*pqbb(x,4000)};
+      \legend{\qty{6000}{K}, \qty{4000}{K}}
+    \end{axis}
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[baseline=(current bounding box.north)]
+    \begin{axis}[pqbbsketch]
+      \addplot[hscseriesA, line width=1.1pt] {pqbb(x,6000)};
+      \addplot[hscseriesB, line width=1.1pt, dashed] {pqbb(x,4000)};
+      \legend{\qty{6000}{K}, \qty{4000}{K}}
+    \end{axis}
+  \end{tikzpicture}}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:starlines}
+Every hydrogen line in the spectrum of star P is at a slightly longer wavelength than the same
+line in a laboratory spectrum. The lines are also much wider than the same lines in the Sun's
+spectrum. Which conclusion do these observations support best?
+\choices[1]{P is moving towards Earth, and its atmosphere has a lower density than the Sun's.}
+  {P is moving away from Earth, and its surface is hotter than the Sun's.}
+  {P is moving towards Earth, and it rotates faster than the Sun.}
+  {P is moving away from Earth, and it rotates faster or has a denser atmosphere than the Sun.}
+\end{practiceq}
+
+\Needspace{7\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:twofilters}
+Unpolarised light of intensity \qty{360}{W.m^{-2}} passes through two polarising filters. The
+angle between their transmission axes is \ang{50.0}. What is the intensity of the light that
+leaves the second filter?
+\choices{\qty{74.4}{W.m^{-2}}}{\qty{106}{W.m^{-2}}}{\qty{116}{W.m^{-2}}}{\qty{149}{W.m^{-2}}}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:lasers}
+Laser R gives out red light (\qty{660}{nm}). Laser B gives out blue light (\qty{470}{nm}). Both
+lasers have the same power. Which statement is correct?
+\choices[1]{Each photon from laser B has less energy than each photon from laser R.}
+  {Photons from laser B travel faster than photons from laser R.}
+  {Laser R gives out more photons each second than laser B.}
+  {The beam from laser B carries more energy each second than the beam from laser R.}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{4}\label{pq:proper}
+A spacecraft travels at a constant velocity from Earth to a space station. The station is at
+rest relative to Earth. Who measures the proper time and the proper length for this trip?
+\choices[1]{Proper time: clocks on Earth. \quad Proper length: the crew.}
+  {Proper time: the crew's clock. \quad Proper length: observers on Earth.}
+  {Both the proper time and the proper length: the crew.}
+  {Both the proper time and the proper length: observers on Earth.}
+\end{practiceq}
+
+%% ==================================================================
+\section*{Section II: short answer (33 marks)}
+Show all working for calculations.
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{3}{1}\label{pq:microwave}
+A student takes the turntable out of a microwave oven. The oven's label gives a frequency of
+\qty{2.45}{GHz}. She heats a flat bar of chocolate until a line of small spots melts.
+Neighbouring melted spots are half a wavelength apart. The centres of the first and the fifth
+melted spots are \qty{25.0}{cm} apart.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the speed of light from these results. \practiceMarks{2 marks}
+  \item Suggest one change to the method that would improve the accuracy or the reliability of
+        the result. Give a reason. \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{3}{3}\label{pq:filament}
+The tungsten filament of a lamp is at \qty{2700}{\degreeCelsius}. Treat it as a black body.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the peak wavelength of its radiation. Name the part of the electromagnetic
+        spectrum it is in. \practiceMarks{2 marks}
+  \item Calculate the energy, in electron volts, of one photon at this peak wavelength.
+        \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{3}{4}\label{pq:pions}
+Charged pions are unstable particles. At rest, their mean lifetime is \qty{2.60e-8}{s}. In a
+beam from an accelerator, pions travel at $0.920c$ relative to the laboratory.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the mean lifetime of these pions, measured in the laboratory.
+        \practiceMarks{2 marks}
+  \item Calculate the average distance a pion travels in the laboratory before it decays.
+        \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{3}{2}\label{pq:thirty}
+Unpolarised light passes through polariser P1, which has a vertical transmission axis. It then
+passes through polariser P2. The light that leaves P2 has 30\,\% of the intensity of the
+unpolarised light.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the angle between the transmission axes of P1 and P2. \practiceMarks{2 marks}
+  \item A third polariser, P3, with a horizontal transmission axis, is placed after P2. What
+        percentage of the original intensity leaves P3? \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{7\baselineskip}
+\begin{practiceq}{3}{2}\label{pq:doubleslit}
+Laser light passes through two narrow slits \qty{0.350}{mm} apart. Bright fringes form on a
+screen \qty{2.60}{m} away. The first-order ($m = 1$) and the sixth-order ($m = 6$) bright
+fringes are on the same side of the central fringe. Their centres are \qty{23.5}{mm} apart.
+Calculate the wavelength of the laser light.
+\end{practiceq}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{4}{3}\label{pq:magnesium}
+Ultraviolet light of wavelength \qty{220}{nm} falls on a clean magnesium surface. The work
+function of magnesium is \qty{3.66}{eV}. Calculate:
+\begin{enumerate}[label=(\alph*)]
+  \item the energy of each photon, in eV \practiceMarks{1 mark}
+  \item the maximum kinetic energy of the photoelectrons, in eV \practiceMarks{1 mark}
+  \item the stopping voltage \practiceMarks{1 mark}
+  \item the maximum speed of the photoelectrons. \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{3}{2}\label{pq:grating}
+Light from a hydrogen discharge tube passes through a diffraction grating with 420 lines per
+mm. The spectrum contains a red line of wavelength \qty{656}{nm}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the angle of the first-order red line. \practiceMarks{2 marks}
+  \item What is the highest order in which this red line can be seen? Justify your answer.
+        \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{3}{4}\label{pq:muonpair}
+A muon is a particle with a rest mass of \qty{1.884e-28}{kg}. Its antiparticle is the antimuon,
+which has the same mass. A muon and an antimuon, both almost at rest, annihilate. They make two
+gamma-ray photons.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the total energy released. \practiceMarks{1 mark}
+  \item Calculate the energy of each photon, in MeV. \practiceMarks{1 mark}
+  \item Explain why two photons are made, not one. \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{4}{3}\label{pq:planck}
+Classical physics could explain the long-wavelength part of a black body curve, but not the
+short-wavelength part.
+\begin{enumerate}[label=(\alph*)]
+  \item Describe what classical physics predicted for the intensity at short wavelengths.
+        \practiceMarks{1 mark}
+  \item Use Planck's hypothesis to explain why the measured intensity falls to zero at short
+        wavelengths. \practiceMarks{2 marks}
+  \item State one way in which Einstein's photon model went further than Planck's hypothesis.
+        \practiceMarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{4}{4}\label{pq:momentum}
+An electron in a medical linear accelerator moves at \qty{2.79e8}{m.s^{-1}}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate its relativistic momentum. Compare your answer with $m_0v$. \practiceMarks{2 marks}
+  \item The accelerator is made longer, so it does more work on the electron. Explain why the
+        electron's speed can never reach \qty{3.00e8}{m.s^{-1}}. \practiceMarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+%% ==================================================================
+\section*{Section III: extended response (30 marks)}
+Plan your answer before you write. Use correct physics words, and link each idea to the next.
+
+\Needspace{5\baselineskip}
+\begin{practiceq}{5}{1}\label{pq:maxwell}
+Analyse how Maxwell's theory of electromagnetism changed scientists' understanding of light.
+Include a calculation that uses values from the data sheet.
+\end{practiceq}
+
+\Needspace{24\baselineskip}
+\begin{practiceq}{6}{1}\label{pq:stars}
+An astronomer records the spectra of two stars, A and B. The table compares their absorption
+lines with laboratory lines. It also gives the peak wavelength of each star's continuous
+spectrum.
+\begin{center}\small
+  \begin{tabular}{@{}L{54mm}C{27mm}C{27mm}C{27mm}@{}}
+    \toprule
+    \colhead{Absorption line} & \colhead{Laboratory (\si{nm})} & \colhead{Star A (\si{nm})} &
+      \colhead{Star B (\si{nm})}\\
+    \midrule
+    Hydrogen & 434.05 & 433.92 & 434.15\\
+    Hydrogen & 486.13 & 485.98 & 486.24\\
+    Sodium & 589.00 & 588.82 & not seen\\
+    Sodium & 589.59 & 589.41 & not seen\\
+    Hydrogen & 656.28 & 656.08 & 656.43\\
+    \midrule
+    Width of the lines & & narrow & very broad\\
+    Peak of the continuous spectrum & & \qty{725}{nm} & \qty{322}{nm}\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the surface temperature of each star. \practiceMarks{2 marks}
+  \item Analyse what the absorption lines show about the chemical composition, the motion,
+        and the rotation or density of each star. \practiceMarks{4 marks}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{6\baselineskip}
+\begin{practiceq}{6}{2}\label{pq:models}
+In the 1700s most scientists used Newton's particle model of light. By the late 1800s they used
+a model of light as a transverse wave. Analyse how experimental evidence about refraction,
+interference and polarisation led to this change.
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{6}{4}\label{pq:muons}
+Cosmic rays make muons \qty{9.00}{km} above sea level (measured in the Earth frame). The muons
+travel straight down at $0.9960c$. The mean lifetime of a muon at rest is
+\qty{2.20}{\micro\second}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate how far a muon would travel in one mean lifetime if there were no time
+        dilation. \practiceMarks{1 mark}
+  \item In the Earth frame, calculate the mean lifetime of these muons and the time they take
+        to reach sea level. \practiceMarks{2 marks}
+  \item In the muon's frame, calculate the thickness of the \qty{9.00}{km} of atmosphere.
+        \practiceMarks{1 mark}
+  \item Detectors at sea level find that a large fraction of these muons arrive. Explain how
+        this supports special relativity. Refer to your answers to (a)--(c). \practiceMarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{48\baselineskip}
+\begin{practiceq}{7}{3}\label{pq:pegraph}
+A student shines ultraviolet light of different wavelengths onto a metal plate inside a vacuum
+photocell. For each wavelength she measures the stopping voltage $V_0$.
+\begin{center}\small
+  \begin{tabular}{@{}L{44mm}*{6}{C{13mm}}@{}}
+    \toprule
+    Wavelength $\lambda$ (\si{nm}) & 240 & 265 & 290 & 315 & 340 & 365\\
+    Frequency $f$ ($\times10^{14}$ \si{Hz})\rule{0pt}{7mm} & \rule{9mm}{0.4pt} & \rule{9mm}{0.4pt} &
+      \rule{9mm}{0.4pt} & \rule{9mm}{0.4pt} & \rule{9mm}{0.4pt} & \rule{9mm}{0.4pt}\\
+    Stopping voltage $V_0$ (\si{V}) & 2.33 & 1.77 & 1.43 & 1.05 & 0.81 & 0.52\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\begin{enumerate}[label=(\alph*)]
+  \item Complete the table by calculating the frequency for each wavelength. \practiceMarks{1 mark}
+  \item On the grid, plot a graph of $V_0$ (vertical axis) against $f$ (horizontal axis).
+        Draw a line of best fit. \practiceMarks{2 marks}
+  \item Use the gradient of your line to find a value for Planck's constant. \practiceMarks{2 marks}
+  \item Use your graph to find the threshold frequency and the work function of the metal.
+        (Extend your line if you need to.) Then use the table below to identify the metal.
+        \practiceMarks{2 marks}
+\end{enumerate}
+\begin{center}\small
+  \begin{tabular}{@{}L{36mm}C{20mm}C{20mm}C{20mm}C{20mm}@{}}
+    \toprule
+    Metal & potassium & calcium & magnesium & zinc\\
+    Work function (\si{eV}) & 2.29 & 2.87 & 3.66 & 4.30\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+\begin{center}
+  \begin{tikzpicture}[x=1mm, y=1mm]
+    \draw[step=2, hscrule!70, line width=0.2pt] (0,0) grid (130,80);
+    \draw[step=10, hscmuted!45, line width=0.45pt] (0,0) grid (130,80);
+  \end{tikzpicture}
+\end{center}
+\end{practiceq}

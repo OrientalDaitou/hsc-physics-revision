@@ -1,0 +1,501 @@
+% quiz_answers.tex -- answers and worked solutions for quiz.tex, same layout (quiz.sty).
+% The worked answers are the same text as src/m5t3_booklet/answers.tex.
+% Every number: checks/m5t3-booklet/numbers.py
+% Build: TEXINPUTS=.: xelatex quiz_answers.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{quiz}
+\hypersetup{pdftitle={Multiple Choice Quiz - Module 5 Topic 3 - Gravity - Answers}}
+% links between the two files are not possible, so question headings are plain text here
+\renewcommand\hyperlink[2]{#2}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Multiple Choice Quiz - Module 5 Topic 3 - Gravity: Answers}
+
+\begin{center}
+  \renewcommand\arraystretch{1.5}
+  \begin{tabular}{|l|*{10}{>{\centering\arraybackslash}p{7.5mm}|}}
+    \hline
+    \textbf{Question} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\ \hline
+    \textbf{Answer} & C & D & A & B & D & C & A & D & D & B\\ \hline\hline
+    \textbf{Question} & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20\\ \hline
+    \textbf{Answer} & C & D & A & C & A & B & C & D & A & B\\ \hline\hline
+    \textbf{Question} & 21 & 22 & 23 & 24 & 25 & 26 & 27 & 28 & 29 & 30\\ \hline
+    \textbf{Answer} & C & D & B & C & A & C & A & B & D & B\\ \hline
+  \end{tabular}
+\end{center}
+\vspace{4mm}
+
+\begin{practiceanswers}[Worked answers]
+
+% ===================================================================== Section A
+% ---- Q1
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Newton's third law: Earth pulls on the satellite, and the satellite pulls on Earth. These two
+  forces are equal in size and opposite in direction. But $a = \dfrac{F}{m}$. Earth's mass
+  (\qty{6.0e24}{kg}) is huge, so the same force gives Earth a tiny acceleration.
+  \begin{itemize}
+    \item \xmark\ A: the two forces of a third-law pair are \emph{always} equal in size.
+    \item \xmark\ B: every mass pulls on every other mass. $F = \dfrac{GMm}{r^2}$ is not zero.
+    \item \xmark\ D: equal forces do not give equal accelerations, because the masses are very
+          different.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q2
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $g = \dfrac{GM}{r^2}$. Mass $\times 2$ makes $g$ 2 times bigger. Radius $\times \frac{1}{2}$
+  makes $r^2$ 4 times smaller, so $g$ is 4 times bigger. Together: $2 \times 4 = 8$, so the field
+  strength is $8g$.
+  \begin{itemize}
+    \item \xmark\ A ($\frac{g}{2}$): multiplies by $\left(\frac{1}{2}\right)^2$ instead of dividing by it.
+    \item \xmark\ B ($2g$): ignores the change in radius.
+    \item \xmark\ C ($4g$): divides by $r$, not by $r^2$: $2 \div \frac{1}{2} = 4$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q3
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $g = \dfrac{GM}{r^2}$, so $g \propto \dfrac{1}{r^2}$. For $\dfrac{g}{9}$, $r^2$ must be 9 times
+  bigger, so $r$ is 3 times bigger: $r = 3r_\mathrm{E}$ from the \emph{centre} of Earth. The
+  altitude is measured from the surface: $3r_\mathrm{E} - r_\mathrm{E} = 2r_\mathrm{E}$.
+  \begin{itemize}
+    \item \xmark\ B ($3r_\mathrm{E}$): this is the distance from the centre, not the altitude.
+    \item \xmark\ C ($8r_\mathrm{E}$): uses $g \propto \frac{1}{r}$ (forgets the square), then subtracts
+          $r_\mathrm{E}$.
+    \item \xmark\ D ($9r_\mathrm{E}$): uses $g \propto \frac{1}{r}$ and does not subtract $r_\mathrm{E}$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q4
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  \[ F = \frac{GMm}{r^2}
+       = \frac{(\num{6.67e-11})(\num{6.42e23})(\num{1.07e16})}{(\num{9.38e6})^2}
+       = \qty{5.2e15}{N} \]
+  The period is extra data. You can use it as a check: gravity gives the centripetal force, and
+  $\dfrac{4\pi^2 m r}{T^2}$ also gives about \qty{5.2e15}{N}.
+  \begin{itemize}
+    \item \xmark\ A (\qty{0.49}{N}): this is $\dfrac{GM}{r^2}$, the field strength in
+          \si{N.kg^{-1}}. It forgets to multiply by the mass of Phobos.
+    \item \xmark\ C: uses $r$ in kilometres instead of metres.
+    \item \xmark\ D: forgets to square $r$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q5
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Square both sides of the formula:
+  \[ T^2 = \frac{4\pi^2}{g}\, l \]
+  This has the form $y = kx$. So $T^2$ against $l$ is a straight line through the origin with
+  gradient $\dfrac{4\pi^2}{g}$. On the Moon $g$ is smaller, so the gradient is bigger (about 6
+  times). The Moon line (dashed) is the steeper one.
+  \begin{itemize}
+    \item \xmark\ A: straight lines, but the Earth line is steeper. That would need a smaller $g$ on
+          Earth.
+    \item \xmark\ B and C: these curves have the shape of $T$ against $l$ ($T \propto \sqrt{l}$),
+          not $T^2$ against $l$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q6
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  At this point, the pull of Earth equals the pull of the Moon:
+  \[ \frac{GM_\mathrm{E}m}{d_\mathrm{E}^2} = \frac{GM_\mathrm{M}m}{d_\mathrm{M}^2}
+     \quad\Rightarrow\quad \frac{d_\mathrm{E}^2}{d_\mathrm{M}^2} = \frac{M_\mathrm{E}}{M_\mathrm{M}} = 81
+     \quad\Rightarrow\quad d_\mathrm{E} = 9\,d_\mathrm{M} \]
+  The whole distance is $d_\mathrm{E} + d_\mathrm{M} = 10\,d_\mathrm{M}$. So the point is
+  $\frac{9}{10}$ of the way from Earth. It is close to the Moon, because the Moon's pull is weaker.
+  \begin{itemize}
+    \item \xmark\ A: halfway is correct only if the two masses are equal.
+    \item \xmark\ B: close to Earth, Earth's pull is much stronger. $\frac{1}{10}$ is the distance
+          from the \emph{Moon}.
+    \item \xmark\ D: uses $F \propto \frac{1}{r}$, so it forgets the square root.
+  \end{itemize}
+\end{practiceans}
+
+% ===================================================================== Section B
+% ---- Q7
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Only one real force acts on the satellite: gravity, towards the centre of Earth. Gravity
+  \emph{is} the centripetal force. “Centripetal force” is just the name for the net force
+  towards the centre. It is not an extra force. No force is needed along the direction of motion:
+  the satellite keeps moving because of its inertia.
+  \begin{itemize}
+    \item \xmark\ B: there is no outward force. If the forces balanced, the satellite would move in a
+          straight line.
+    \item \xmark\ C: in a stable orbit there is no air resistance, so no thrust is needed.
+    \item \xmark\ D: $F_\mathrm{c}$ and $F_\mathrm{g}$ are the same force. Drawing both counts gravity
+          twice.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q8
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  A geostationary satellite stays above the same point on the equator. To do this, it must turn
+  with Earth: same direction, same period (about 24 hours), in an orbit above the equator. Its
+  altitude is about \qty{36000}{km}.
+  \begin{itemize}
+    \item \xmark\ A: the plane of every orbit passes through the centre of Earth. Only an orbit
+          above the equator can keep a satellite above the same point. Sydney is not on the
+          equator.
+    \item \xmark\ B: low Earth orbit is about 200 to \qty{2000}{km} high. Geostationary orbit is
+          much higher.
+    \item \xmark\ C: $v = \sqrt{\dfrac{GM}{r}}$, so a higher orbit is slower. GEO is about
+          \qty{3.1}{km.s^{-1}}, LEO about \qty{7.7}{km.s^{-1}}.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q9
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $v = \sqrt{\dfrac{GM}{r}}$. The speed depends only on the planet's mass $M$ and the radius $r$,
+  not on the satellite's mass. Same orbit, so same speed (and same period).
+  \begin{itemize}
+    \item \xmark\ A: $K = \frac{1}{2}mv^2$, so the heavier satellite has 3 times the kinetic energy.
+    \item \xmark\ B: $F = \dfrac{GMm}{r^2}$, so the force on the heavier satellite is 3 times bigger.
+    \item \xmark\ C: $U = -\dfrac{GMm}{r}$, so the heavier satellite's potential energy is 3 times bigger (more negative).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q10
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $v = \sqrt{\dfrac{GM}{r}}$, so $v \propto \dfrac{1}{\sqrt{r}}$. The radius becomes 9 times
+  bigger, so the speed is divided by $\sqrt{9} = 3$. The new speed is $\dfrac{v}{3}$.
+  \begin{itemize}
+    \item \xmark\ A: forgets the square root.
+    \item \xmark\ C and D: a higher orbit is \emph{slower}, not faster.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q11
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $\dfrac{r^3}{T^2}$ is the same for all moons of one planet, so $T^2 \propto r^3$. Radius
+  $\times 4$ gives $T^2 \times 4^3 = 64$, so $T \times \sqrt{64} = 8$. The period is $8T$.
+  \begin{itemize}
+    \item \xmark\ A ($2T$): uses $T \propto \sqrt{r}$.
+    \item \xmark\ B ($4T$): uses $T \propto r$.
+    \item \xmark\ D ($16T$): uses $T \propto r^2$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q12
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Rearrange: $T^2 = \dfrac{4\pi^2}{GM}\, r^3$. This has the form $y = kx$ with $y = T^2$ and
+  $x = r^3$. So $T^2$ against $r^3$ is a straight line through the origin. Its gradient is
+  $\dfrac{4\pi^2}{GM}$.
+  \begin{itemize}
+    \item \xmark\ A, B and C: each of these pairs gives a curve. For example $T \propto r^{3/2}$, so $T$
+          against $r$ curves upwards.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q13
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Kepler's second law: the line from the star to the planet sweeps out equal areas in equal times.
+  The areas are equal, so the times are equal: 40 days. The arc from $P_1$ to $P_2$ is much longer
+  than the arc from $P_3$ to $P_4$, but the planet covers it in the same time. So the planet moves
+  faster near the star.
+  \begin{itemize}
+    \item \xmark\ B: the planet is fastest near the star, not furthest from it.
+    \item \xmark\ C and D: equal areas \emph{always} mean equal times.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q14
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  For everything that orbits the Sun, $\dfrac{r^3}{T^2}$ is the same. For Earth, $r = \qty{1}{AU}$ and
+  $T = \qty{1}{\yr}$, so $\dfrac{r^3}{T^2} = 1$. For the dwarf planet:
+  \[ r^3 = T^2 = 125^2 = 15\,625 \quad\Rightarrow\quad r = \sqrt[3]{15\,625} = \qty{25}{AU} \]
+  \begin{itemize}
+    \item \xmark\ A (\qty{5.0}{AU}): uses $r^3 = T$, the cube root of 125.
+    \item \xmark\ B (\qty{11}{AU}): uses $r^2 = T$, the square root of 125.
+    \item \xmark\ D (\qty{1400}{AU}): swaps $r$ and $T$: $r^2 = T^3$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q15
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  The radius is measured from the centre of Earth:
+  $r = \num{6.371e6} + \num{4.20e5} = \qty{6.791e6}{m}$.
+  \[ v = \sqrt{\frac{GM}{r}} = \sqrt{\frac{(\num{6.67e-11})(\num{6.0e24})}{\num{6.791e6}}}
+       = \qty{7.68e3}{m.s^{-1}} \]
+  \begin{itemize}
+    \item \xmark\ B: uses $r = r_\mathrm{E}$ and forgets the altitude.
+    \item \xmark\ C: uses the escape velocity formula $\sqrt{\dfrac{2GM}{r}}$.
+    \item \xmark\ D: uses only the altitude (\qty{4.20e5}{m}) as $r$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q16
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  Change the period to seconds: $T = 24.0 \times 3600 = \qty{86400}{s}$.
+  \[ r = \sqrt[3]{\frac{GMT^2}{4\pi^2}}
+       = \sqrt[3]{\frac{(\num{6.67e-11})(\num{6.0e24})(86\,400)^2}{4\pi^2}}
+       = \qty{4.23e7}{m} \]
+  This is measured from the centre of Earth. The altitude is
+  $\num{4.23e7} - \num{6.371e6} = \qty{3.59e7}{m}$ (about \qty{36000}{km}).
+  \begin{itemize}
+    \item \xmark\ A: uses $T = 24.0$ (hours) instead of seconds. This radius is smaller than
+          Earth, so it is impossible.
+    \item \xmark\ C: this is the radius of the orbit. It forgets to subtract $r_\mathrm{E}$.
+    \item \xmark\ D: forgets the cube root. This number is $r^3$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q17
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Rearrange $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$ for $M$:
+  \[ M = \frac{4\pi^2 r^3}{GT^2}
+       = \frac{4\pi^2 (\num{4.22e8})^3}{(\num{6.67e-11})(\num{1.53e5})^2}
+       = \qty{1.90e27}{kg} \]
+  \begin{itemize}
+    \item \xmark\ A: uses $r^2$ instead of $r^3$.
+    \item \xmark\ B: forgets the $4\pi^2$.
+    \item \xmark\ D: forgets to square $T$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q18
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $T^2 = \dfrac{4\pi^2}{GM}\, r^3$, so the gradient of the line is $\dfrac{4\pi^2}{GM}$. The
+  planet's mass $M$ is on the bottom of the fraction. A bigger mass gives a \emph{smaller}
+  gradient. Planet Y's line is less steep, so Y has the greater mass.
+  \begin{itemize}
+    \item \xmark\ A: a steeper line means a \emph{smaller} mass.
+    \item \xmark\ B: both lines pass through the origin, but their gradients are different, so the
+          masses are different.
+    \item \xmark\ C: the moons' masses cancel out. $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$ contains
+          only the planet's mass.
+  \end{itemize}
+\end{practiceans}
+
+% ===================================================================== Section C
+% ---- Q19
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $U = -\dfrac{GMm}{r}$. At $Q$, $r$ is largest, so $U$ is the least negative. A less negative
+  number is a greater number, so $U$ is greatest at $Q$. The total energy stays the same, so when
+  $U$ goes up, the kinetic energy goes down.
+  \begin{itemize}
+    \item \xmark\ B and C: kinetic energy and speed are smallest at $Q$. The comet is slowest when it
+          is furthest from the star.
+    \item \xmark\ D: only gravity acts, so the total energy is the same at every point of the orbit.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q20
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $X$ is closer to Earth, so $U$ is more negative at $X$. The total energy stays the same, so the
+  kinetic energy is bigger at $X$: the satellite is faster at $X$. Only gravity does work on the
+  satellite (there is no air resistance), so the total energy $K + U$ is the same at $X$ and $Y$.
+  \begin{itemize}
+    \item \xmark\ A and C: the total energy does not change around the orbit.
+    \item \xmark\ C and D: the satellite is fastest at the closest point, $X$, not at $Y$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q21
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  GEO is much further from Earth than LEO ($r \approx \qty{4.2e7}{m}$ compared with about
+  \qty{7e6}{m}).
+  \begin{itemize}
+    \item Potential energy: $U = -\dfrac{GMm}{r}$. A bigger $r$ makes $U$ less negative, so $U$ is
+          greater in \textbf{GEO}.
+    \item Speed: $v = \sqrt{\dfrac{GM}{r}}$. A smaller $r$ gives a bigger speed, so the speed is
+          greater in \textbf{LEO}.
+  \end{itemize}
+  \begin{itemize}
+    \item \xmark\ A and B: “more negative” means \emph{smaller}. LEO has the more negative
+          $U$, so it has the smaller $U$.
+    \item \xmark\ B and D: a higher orbit is slower.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q22
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  The total energy is $E = -\dfrac{GMm}{2r}$. A bigger $r$ makes $E$ less negative, so the total
+  energy increases. This extra energy comes from the work done by the rocket engine.
+  \begin{itemize}
+    \item \xmark\ A: $K = \dfrac{GMm}{2r}$. A higher orbit is slower, so $K$ decreases.
+    \item \xmark\ B: $U = -\dfrac{GMm}{r}$ becomes less negative, so $U$ increases.
+    \item \xmark\ C: $T^2 \propto r^3$, so the period increases.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q23
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $r = r_\mathrm{E} + \text{altitude} = \num{6.371e6} + \num{3.50e6} = \qty{9.871e6}{m}$.
+  \[ U = -\frac{GMm}{r} = -\frac{(\num{6.67e-11})(\num{6.0e24})(\num{1.20e3})}{\num{9.871e6}}
+       = \qty{-4.87e10}{J} \]
+  \begin{itemize}
+    \item \xmark\ A: this is the total energy $E = \frac{1}{2}U$, not $U$.
+    \item \xmark\ C: uses $r = r_\mathrm{E}$ and forgets the altitude.
+    \item \xmark\ D: uses only the altitude as $r$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q24
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Read the graph: at \qty{2000}{km}, $U \approx \qty{-9.6e9}{J}$. At \qty{12000}{km},
+  $U \approx \qty{-4.4e9}{J}$.
+  \[ \Delta U = U_\mathrm{final} - U_\mathrm{initial} = (\num{-4.4e9}) - (\num{-9.6e9})
+     = \qty[retain-explicit-plus]{+5.2e9}{J} \]
+  The change is positive: moving away from Earth increases $U$, because work must be done against
+  gravity.
+  \begin{itemize}
+    \item \xmark\ A: adds the two values: $(-9.6) + (-4.4) = -14$, so \qty{-1.4e10}{J}.
+    \item \xmark\ B: the right size, but the wrong sign. It does initial $-$ final.
+    \item \xmark\ D: adds the two sizes: $9.6 + 4.4 = 14$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q25
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $F = \dfrac{GMm}{r^2}$. The force becomes $\frac{1}{9}$, so $r^2$ is 9 times bigger and $r$ is
+  3 times bigger. $U = -\dfrac{GMm}{r}$, so $U \propto \dfrac{1}{r}$: $U$ becomes $\frac{1}{3}$ of
+  its first value. For example, \qty{-9e9}{J} becomes \qty{-3e9}{J}. (This is an
+  \emph{increase}, because the value is less negative.)
+  \begin{itemize}
+    \item \xmark\ B: uses $U \propto \frac{1}{r^2}$, like the force. $U$ has only $r$ on the bottom.
+    \item \xmark\ C: multiplies $U$ by the change in $r$ instead of dividing.
+    \item \xmark\ D: multiplies by the change in $r^2$ instead of dividing by the change in $r$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q26
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $v_\mathrm{esc} = \sqrt{\dfrac{2GM}{r}}$. It depends on the planet's mass $M$ and the distance
+  $r$. It does \emph{not} depend on the probe's mass. The distance goes from $8r$ to $2r$, so it
+  is divided by 4. Then $v_\mathrm{esc}$ is multiplied by $\sqrt{4} = 2$. The answer is $2v$.
+  \begin{itemize}
+    \item \xmark\ A: the ratio is upside down. Closer to Earth, the escape velocity is bigger.
+    \item \xmark\ B: uses the change in the probe's mass. The probe's mass does not matter.
+    \item \xmark\ D: forgets the square root.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q27
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $v_\mathrm{esc} = \sqrt{\dfrac{2GM}{r}}$, where $r$ is the radius (half the diameter). Compare
+  $\dfrac{M}{r}$ for each planet:
+  \begin{itemize}
+    \item X: $\dfrac{\num{2.0e24}}{\num{4.0e6}} = \num{5.0e17}$
+          \quad(about \qty{8.2}{km.s^{-1}})
+    \item Y: $\dfrac{\num{6.0e24}}{\num{1.0e7}} = \num{6.0e17}$
+          \quad(about \qty{8.9}{km.s^{-1}})
+    \item Z: $\dfrac{\num{1.0e24}}{\num{1.5e6}} = \num{6.7e17}$
+          \quad(about \qty{9.4}{km.s^{-1}})
+  \end{itemize}
+  So Z is largest, then Y, then X. The distance from the star does not matter.
+  \begin{itemize}
+    \item \xmark\ B: ranks the planets by mass only.
+    \item \xmark\ C: ranks the planets by size only (smallest first).
+    \item \xmark\ D: ranks the planets by their distance from the star. This has nothing to do with
+          escape velocity from the surface.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q28
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  \[ v_\mathrm{esc} = \sqrt{\frac{2GM}{r}}
+       = \sqrt{\frac{2(\num{6.67e-11})(\num{3.30e23})}{\num{2.44e6}}}
+       = \qty{4.25e3}{m.s^{-1}} \]
+  \begin{itemize}
+    \item \xmark\ A: this is the orbital speed $\sqrt{\dfrac{GM}{r}}$. It forgets the 2.
+    \item \xmark\ C: uses $r$ in kilometres instead of metres.
+    \item \xmark\ D: forgets the square root.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q29
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Each planet adds its own (negative) potential energy:
+  \[ U = -\frac{GMm}{r_\mathrm{P}} - \frac{GMm}{r_\mathrm{Q}} \]
+  At $S$, the mass is very close to P, so $U$ is very negative (low). In the middle, the mass is
+  far from both planets, so $U$ rises to its highest (least negative) value. Near $F$, it is close
+  to Q, so $U$ falls again. $U$ rises, then falls, and stays below zero. The mass moves at a
+  steady speed, so the time axis is like a position axis.
+  \begin{itemize}
+    \item \xmark\ A: the distances to the planets change, so $U$ changes.
+    \item \xmark\ B: this shape has $U$ lowest in the middle. But the middle is where the mass is
+          furthest from both planets.
+    \item \xmark\ C: a steady rise ignores planet Q. Near $F$ the mass is close to Q, so $U$ must
+          fall again.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q30
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  The energy supplied is the change in total energy:
+  \[ \Delta E = \left(-\frac{GMm}{2r_2}\right) - \left(-\frac{GMm}{2r_1}\right)
+             = \frac{GMm}{2}\left(\frac{1}{r_1} - \frac{1}{r_2}\right) \]
+  \[ \Delta E = \frac{(\num{6.67e-11})(\num{6.0e24})(800)}{2}
+       \left(\frac{1}{\num{7.0e6}} - \frac{1}{\num{2.1e7}}\right) = \qty{1.5e10}{J} \]
+  \begin{itemize}
+    \item \xmark\ A: this is only the size of the total energy in the new orbit.
+    \item \xmark\ C: this is the change in $U$ only. In the higher orbit the satellite is slower,
+          so it loses kinetic energy. This gives back half of the increase in $U$.
+    \item \xmark\ D: this is the size of $U$ in the first orbit.
+  \end{itemize}
+\end{practiceans}
+
+\end{practiceanswers}
+
+\end{document}

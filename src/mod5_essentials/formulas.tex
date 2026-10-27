@@ -1,0 +1,176 @@
+% formulas.tex -- Module 5 ESSENTIALS: All formulas at a glance.
+% One row per formula of the module, in chapter order. Formulas, notation and sheet status
+% are copied from the full book's src/mod5/formulasheet.tex (which follows
+% (F_f <= mu F_N, W_net = Delta K, v = sqrt(gr)) are results stated in the chapters
+% (full book ch2/ch3 and these Essentials), all "not on the sheet".
+% COMBINE), a_c = omega^2 r (full book ch3 card "Speed of a point") and the dip/crest normal force
+% (full book and Essentials ch3) were added.
+\unnumberedchapter[\faIcon{square-root-alt}]{All formulas at a glance}
+\phantomsection\label{fg:chap}
+
+% ---- helpers for this part only (prefix fg)
+\newcommand\fgYes{\textcolor{hscformula}{\footnotesize\bfseries\faCheck~Yes}}
+\newcommand\fgNo{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes~Learn~it}}
+\newcommand\fgComb{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink~Combine}}
+% a formula with 2.4pt of clear space above and below it, so fractions never touch the rules
+\newcommand\fgf[1]{\raisebox{0pt}[\dimexpr\height+2.4pt\relax][\dimexpr\depth+2.4pt\relax]{#1}}
+% \fgrow{mark}{formula}{what it is for}{chapter}
+\newcommand\fgrow[4]{\fgf{#2} & #3 & #1 & #4\\\hline}
+% \fgrowii{mark}{formula, line 1}{formula, line 2}{what it is for}{chapter}
+\newcommand\fgrowii[5]{\fgf{#2}\newline\fgf{#3} & #4 & #1 & #5\\\hline}
+% a darker rule between two chapters
+\newcommand\fgnext{\noalign{\vskip-0.4pt{\color{hscbrand!45}\hrule height 0.9pt}}}
+% chapter number, linked to the chapter
+\newcommand\fgch[1]{\hyperref[ch#1:chap]{\textbf{#1}}}
+\newcommand\fghead{\colhead{Formula} & \colhead{What it is for} & \colhead{Sheet} &
+  \colhead{Ch.}}
+
+Every formula in Module~\modulenumber, in chapter order, written as on the official formula
+sheet. \fgYes: printed on the sheet, so you are given it in the exam. \fgNo: not on the
+sheet, so learn it or learn how to derive it. \fgComb: not printed in this form; join
+formulas from the sheet in one or two lines. ``Ch.'' is the chapter.
+
+{\small
+\setlength\LTpre{4pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.1}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}C{52mm}@{\hspace{3mm}}L{\dimexpr\linewidth-52mm-17mm-7mm-9mm\relax}%
+    @{\hspace{3mm}}C{17mm}@{\hspace{3mm}}C{7mm}@{}}
+  \fghead\\\hline\endfirsthead
+  \fghead\\\hline\endhead
+  % ---- Chapter 1: Projectile Motion
+  \fgrow{\fgNo}{$u_x = u\cos\theta$ \quad $u_y = u\sin\theta$}
+    {Parts of the launch velocity.}{\fgch{1}}
+  \fgrowii{\fgYes}{$v = u + at$ \quad $v^2 = u^2 + 2as$}{$s = ut + \dfrac{1}{2}at^2$}
+    {Constant acceleration, once in each direction: $a_x = 0$,
+     $a_y = \qty{-9.8}{m.s^{-2}}$.}{\fgch{1}}
+  \fgrow{\fgNo}{$t = \sqrt{\dfrac{2h}{g}}$ \quad $R = u\sqrt{\dfrac{2h}{g}}$}
+    {Horizontal launch from a height $h$.}{\fgch{1}}
+  \fgrow{\fgNo}{$t_\mathrm{top} = \dfrac{u_y}{g}$ \quad $h_\mathrm{max} = \dfrac{u_y^2}{2g}$}
+    {Time to the top; greatest height.}{\fgch{1}}
+  \fgrow{\fgNo}{$t_\mathrm{flight} = \dfrac{2u_y}{g}$}
+    {Time of flight on level ground.}{\fgch{1}}
+  \fgrow{\fgNo}{$R = \dfrac{u^2\sin 2\theta}{g}$}
+    {Range on level ground (largest at \ang{45}).}{\fgch{1}}
+  \fgrow{\fgNo}{$v = \sqrt{v_x^2 + v_y^2}$ \quad $\tan\alpha = \dfrac{\lvert v_y\rvert}{v_x}$}
+    {Speed and direction at landing.}{\fgch{1}}
+  \fgrow{\fgComb}{$-h = u_y t - \dfrac{1}{2}gt^2$}
+    {Launch from a height $h$ (up positive): a quadratic in $t$; keep the positive root.}{\fgch{1}}
+  \fgrow{\fgComb}{$\dfrac{1}{2}mv_2^2 - \dfrac{1}{2}mv_1^2 = mg(h_1 - h_2)$}
+    {Speed at a known height (no direction).}{\fgch{1}}
+  \fgrow{\fgComb}{$s = ut$ \quad $v = u$}
+    {Uniform velocity ($a = 0$).}{\fgch{1}}
+  \fgnext
+  % ---- Chapter 2: Circular Motion: Forces
+  \fgrow{\fgYes}{$v = \dfrac{2\pi r}{T}$}{Speed in a circle.}{\fgch{2}}
+  \fgrow{\fgYes}{$a_\mathrm{c} = \dfrac{v^2}{r}$}{Acceleration towards the centre.}{\fgch{2}}
+  \fgrow{\fgYes}{$F_\mathrm{c} = \dfrac{mv^2}{r}$}{Net force towards the centre (real forces
+    make it).}{\fgch{2}}
+  \fgrow{\fgNo}{$\tan\theta = \dfrac{v^2}{rg}$}{Conical pendulum; banked road at its design
+    speed; bowl.}{\fgch{2}}
+  \fgrow{\fgNo}{$v_\mathrm{max} = \sqrt{\mu g r}$}{Fastest speed on a flat bend.}{\fgch{2}}
+  \fgrow{\fgNo}{$v_\mathrm{min} = \sqrt{\dfrac{gr}{\mu}}$}{Slowest safe speed in a rotor.}
+    {\fgch{2}}
+  \fgnext
+  % ---- Chapter 3: Circular Motion: Angles, Energy, Work and Torque
+  \fgrow{\fgYes}{$\omega = \dfrac{\Delta\theta}{t}$}{Angular velocity ($\Delta\theta$ in
+    radians).}{\fgch{3}}
+  \fgrow{\fgNo}{$\omega = \dfrac{2\pi}{T} = 2\pi f$}{Angular velocity from $T$ or $f$.}
+    {\fgch{3}}
+  \fgrow{\fgNo}{$v = \omega r$}{Speed of a point on a spinning object.}{\fgch{3}}
+  \fgrow{\fgNo}{$a_\mathrm{c} = \omega^2 r$}{Centripetal acceleration of a point on a spinning
+    object.}{\fgch{3}}
+  \fgrow{\fgYes}{$W = F_\parallel s = Fs\cos\theta$}{Work by a force ($F_\mathrm{c}$ does
+    none).}{\fgch{3}}
+  \fgrow{\fgNo}{$W_\mathrm{other} = \Delta E = \Delta K + \Delta U$}{Work by forces other than
+    gravity.}{\fgch{3}}
+  \fgrow{\fgComb}{$\tfrac{1}{2}mv_1^2 + mgh_1 = \tfrac{1}{2}mv_2^2 + mgh_2$}{Speeds on a
+    vertical circle (no friction).}{\fgch{3}}
+  \fgrowii{\fgNo}{top: $F_\mathrm{T} + mg = \dfrac{mv^2}{r}$}
+    {bottom: $F_\mathrm{T} - mg = \dfrac{mv^2}{r}$}{Tension (or the normal force inside a
+    loop) at the very top or bottom of a vertical circle.}{\fgch{3}}
+  \fgrowii{\fgNo}{dip: $F_\mathrm{N} - mg = \dfrac{mv^2}{r}$}
+    {crest: $mg - F_\mathrm{N} = \dfrac{mv^2}{r}$}{Normal force (apparent weight) in a dip or
+    on a crest.}{\fgch{3}}
+  \fgrow{\fgYes}{$\tau = r_\perp F = rF\sin\theta$}{Torque ($\theta$ between $r$ and $F$).}
+    {\fgch{3}}
+  \fgrow{\fgNo}{$\sum\tau_\mathrm{clockwise} = \sum\tau_\mathrm{anticlockwise}$}{Balanced
+    torques: the rotation does not change.}{\fgch{3}}
+  \fgnext
+  % ---- Chapter 4: Gravity, Orbits and Kepler's Laws
+  \fgrow{\fgYes}{$F = \dfrac{GMm}{r^2}$}{Gravitational force ($r$ centre to centre).}
+    {\fgch{4}}
+  \fgrow{\fgNo}{$r = r_\mathrm{E} + h$}{Distance from the centre, from a height $h$.}{\fgch{4}}
+  \fgrow{\fgNo}{$g = \dfrac{GM}{r^2}$}{Field strength at or above a planet.}{\fgch{4}}
+  \fgrow{\fgNo}{$v = \sqrt{\dfrac{GM}{r}}$}{Speed in a circular orbit.}{\fgch{4}}
+  \fgrow{\fgYes}{$\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$}{Kepler's third law: find $T$, $r$ or
+    $M$.}{\fgch{4}}
+  \fgrow{\fgNo}{$r_\mathrm{p} v_\mathrm{p} = r_\mathrm{a} v_\mathrm{a}$}{Kepler's second law
+    (closest, farthest point).}{\fgch{4}}
+  \fgrow{\fgComb}{$r = \sqrt[3]{\dfrac{GMT^2}{4\pi^2}}$ \quad $h = r - r_\mathrm{E}$}
+    {Orbit radius and height from the period.}{\fgch{4}}
+  \fgnext
+  % ---- Chapter 5: Energy in Gravitational Fields
+  \fgrow{\fgYes}{$U = -\dfrac{GMm}{r}$}{Potential energy (zero at infinity).}{\fgch{5}}
+  \fgrowii{\fgNo}{$K = \dfrac{GMm}{2r}$}{$E = U + K = -\dfrac{GMm}{2r}$}{Kinetic and total
+    energy of a \emph{circular} orbit.}{\fgch{5}}
+  \fgrow{\fgComb}{$E = K + U = \dfrac{1}{2}mv^2 - \dfrac{GMm}{r}$}{Total energy on any path
+    with gravity only. $E < 0$: bound.}{\fgch{5}}
+  \fgrow{\fgNo}{$v_\mathrm{esc} = \sqrt{\dfrac{2GM}{r}}$}{Escape velocity (no engine).}
+    {\fgch{5}}
+  \fgrow{\fgNo}{$\Delta E = \dfrac{GMm}{2}\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$}
+    {Energy to change circular orbit.}{\fgch{5}}
+  \fgnext
+  % ---- Year 11 formulas and rearranged forms
+  \multicolumn{4}{@{}l@{}}{\rule[-1.1ex]{0pt}{4.2ex}\normalsize
+    {\bfseries\color{hscbrand}Other formulas used in this module} (Year 11, or rearranged
+    forms)}\\\hline
+  \fgrow{\fgYes}{$\vec{F}_\mathrm{net} = m\vec{a}$}{Newton's second law.}{\fgch{1}, \fgch{2}}
+  \fgrow{\fgYes}{$K = \dfrac{1}{2}mv^2$}{Kinetic energy.}{\fgch{1}, \fgch{3}}
+  \fgrow{\fgYes}{$\Delta U = mg\Delta h$}{Change in $U$ near the surface only.}
+    {\fgch{1}, \fgch{3}}
+  \fgrow{\fgYes}{$f = \dfrac{1}{T}$}{Frequency from the period.}{\fgch{2}}
+  \fgrow{\fgNo}{$F_\mathrm{f} \le \mu F_\mathrm{N}$}{Static friction is at most
+    $\mu F_\mathrm{N}$.}{\fgch{2}}
+  \fgrow{\fgComb}{$a_\mathrm{c} = \dfrac{4\pi^2 r}{T^2}$}{Centripetal acceleration from the
+    period.}{\fgch{2}}
+  \fgrow{\fgNo}{$s = r\theta$}{Arc length ($\theta$ in radians).}{\fgch{3}}
+  \fgrow{\fgNo}{$W_\mathrm{net} = \Delta K$}{Work--energy theorem.}{\fgch{3}}
+  \fgrow{\fgNo}{$v = \sqrt{gr}$}{Smallest speed at the top (string slack).}{\fgch{3}}
+  \fgrow{\fgComb}{$T = 2\pi\sqrt{\dfrac{r^3}{GM}}$}{Period of a circular orbit.}{\fgch{4}}
+  \fgrow{\fgComb}{$\dfrac{r_1^3}{T_1^2} = \dfrac{r_2^3}{T_2^2}$}{Two orbits around the
+    \emph{same} central body.}{\fgch{4}}
+  \fgrow{\fgComb}{$\Delta U = GMm\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$}{Change in $U$
+    from $r_1$ to $r_2$ ($U_2 - U_1$).}{\fgch{5}}
+  \fgrow{\fgNo}{$W_\text{by gravity} = -\Delta U$}{Gravity's work and the change in $U$.}
+    {\fgch{3}, \fgch{5}}
+\end{longtable}}
+
+\section*{Data sheet values used in this module}
+The exam gives you the data sheet. These are the values that Module~\modulenumber\ uses,
+exactly as printed.
+
+\begin{table}
+  \centering
+  \small
+  \begin{tabular}{@{}L{58mm}L{50mm}L{32mm}@{}}
+    \toprule
+    \colhead{Quantity (as on the sheet)} & \colhead{Value} & \colhead{Used in}\\
+    \midrule
+    Earth's gravitational acceleration & $g = \qty{9.8}{m.s^{-2}}$ & \cref{ch1:chap,ch2:chap,ch3:chap,ch4:chap,ch5:chap}\\
+    Universal gravitational constant & $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$ & \cref{ch4:chap,ch5:chap}\\
+    Mass of Earth & $M_\mathrm{E} = \qty{6.0e24}{kg}$ & \cref{ch4:chap,ch5:chap}\\
+    Radius of Earth & $r_\mathrm{E} = \qty{6.371e6}{m}$ & \cref{ch4:chap,ch5:chap}\\
+    Speed of light & $c = \qty{3.00e8}{m.s^{-1}}$ & \cref{ch4:chap} (signal delay)\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item The masses and radii of the Sun, the Moon and other planets are \emph{not} on the data
+        sheet. When they are needed, they are given to you.
+  \item $GM_\mathrm{E}/r_\mathrm{E}^2$ gives $g = \qty{9.86}{m.s^{-2}}$, because $M_\mathrm{E}$ is
+        rounded on the sheet. Use \qty{9.8}{m.s^{-2}} unless you must calculate $g$.
+  \item Use SI units: \si{km} $\times 1000$ gives \si{m}; \si{km.h^{-1}} $\div 3.6$ gives
+        \si{m.s^{-1}}; hours $\times 3600$ and days $\times \num{86400}$ give \si{s};
+        degrees $\times \pi/180$ give \si{rad}.
+\end{itemize}

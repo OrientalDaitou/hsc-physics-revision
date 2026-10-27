@@ -1,0 +1,1661 @@
+% ch1.tex -- Module 8, Chapter 1: Origins of the Elements (IQ1)
+% Figures: figures/ch1_*.py (matplotlib); the rest is TikZ below.
+\chapter{Origins of the Elements: the Big Bang and the Stars}\label{ch1:chap}
+\covers{M8.IQ1.01, M8.IQ1.02, M8.IQ1.03, M8.IQ1.04, M8.IQ1.05, M8.IQ1.06, M8.IQ1.07}
+
+% nuclide symbol with right-aligned mass number A and atomic number Z: \chOneNuc{A}{Z}{X}
+\newlength\chOneNucW
+\newlength\chOneNucV
+\newcommand\chOneNuc[3]{%
+  \settowidth\chOneNucW{$\scriptstyle #1$}\settowidth\chOneNucV{$\scriptstyle #2$}%
+  \ifdim\chOneNucV>\chOneNucW\chOneNucW=\chOneNucV\fi
+  {}^{\makebox[\chOneNucW][r]{$\scriptstyle #1$}}_{\makebox[\chOneNucW][r]{$\scriptstyle #2$}}\mathrm{#3}}
+
+\inquiry{What evidence is there for the origins of the elements?}
+
+\begin{goals}
+  \item explain how energy turned into matter after the Big Bang, using $E = mc^2$
+  \item describe Hubble's evidence for an expanding Universe and use $v = H_0 d$
+  \item explain continuous, emission and absorption spectra, and use
+        $\lambda_\mathrm{max} = \dfrac{b}{T}$
+  \item classify stars by their spectra and read a Hertzsprung--Russell diagram
+  \item describe the life of a star and the fusion reactions that make the elements
+\end{goals}
+
+%% ==================================================================
+\section{From radiation to matter: the Big Bang}\label{ch1:sec:bigbang}
+\covers{M8.IQ1.01, M8.IQ1.03}
+
+\begin{bigidea}
+About 13.8 billion years ago the Universe was extremely hot and dense. Since then
+space has expanded and the Universe has cooled. In the hot early Universe, energy
+turned into matter, as $E = mc^2$ allows.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Antiparticle}{a particle with the same mass as a normal particle but the opposite charge
+    (and other opposite properties).}
+  \kw{Pair production}{energy (photons) turning into a particle and its antiparticle.}
+  \kw{Annihilation}{a particle and its antiparticle meeting and turning into photons.}
+  \kw{Nucleosynthesis}{the making of new atomic nuclei.}
+\end{keywords}
+
+The \term{Big Bang} theory says the Universe began about 13.8 billion years ago. At
+first it was tiny, extremely hot and dense. It was \emph{not} an explosion into empty
+space. Space itself began to stretch, everywhere at once. So there is no centre and no
+edge.
+
+As space expanded, the Universe cooled. Air rushing out of a bike tyre feels cold for
+the same reason: an expanding gas cools down.
+
+\begin{refresher}{Mass is a form of energy (Module 7)}
+$E = mc^2$: mass can turn into energy and energy into mass. Because $c^2$ is huge, a
+tiny mass is a lot of energy. Small energies are measured in \term{electronvolts} (eV).
+One electronvolt is the energy one electron gains when it is pushed through 1 volt:
+$\qty{1}{eV} = \qty{1.602e-19}{J}$. One mega-electronvolt is $\qty{1}{MeV} = \qty{e6}{eV}$.
+\end{refresher}
+
+\subsection{How energy became matter}
+At first the Universe was full of \term{photons} (packets of light energy) with
+enormous energies. A photon with enough energy can pass close to a nucleus, or hit
+another photon. Then it can become a particle and its \term{antiparticle}. This is
+\term{pair production}. For example, it can become an electron ($\mathrm{e}^-$) and a
+positron ($\mathrm{e}^+$, the electron's antiparticle).
+
+The photon's energy must be at least the energy locked in the mass of \emph{both}
+particles, $mc^2$ for each one: $E \geq 2mc^2$. \Cref{ch1:fig:pairs} shows the two ways
+it can happen, and the reverse process, \term{annihilation}.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      photon/.style={decorate, decoration={snake, amplitude=0.8mm, segment length=2.4mm,
+        post length=2mm}, line width=0.9pt, color=hscray},
+      parrow/.style={-{Stealth[length=2.2mm, width=1.7mm]}, line width=1.1pt}]
+    \begin{scope}
+      \draw[photon, -{Stealth[length=2.2mm]}] (0,0) -- (1.55,0);
+      \node[diagramlabel, above] at (0.75,0.15) {$\gamma$};
+      \fill[hscmuted!55] (1.75,-0.5) circle (0.17);
+      \node[font=\scriptsize, text=white] at (1.75,-0.5) {$+$};
+      \node[diagramlabel, below, font=\footnotesize] at (1.75,-0.7) {nucleus};
+      \draw[parrow, hscvel] (1.7,0) -- (3.0,0.75) node[right, text=hscvel] {$\mathrm{e}^-$};
+      \draw[parrow, hscforce] (1.7,0) -- (3.0,-0.55) node[right, text=hscforce] {$\mathrm{e}^+$};
+      \node[diagramlabel, font=\footnotesize] at (1.6,-1.6) {(a) one photon near a nucleus};
+    \end{scope}
+    \begin{scope}[xshift=5.0cm]
+      \draw[photon, -{Stealth[length=2.2mm]}] (0,0) -- (1.3,0);
+      \draw[photon, -{Stealth[length=2.2mm]}] (3.0,0) -- (1.7,0);
+      \node[diagramlabel, above] at (0.6,0.15) {$\gamma$};
+      \node[diagramlabel, above] at (2.4,0.15) {$\gamma$};
+      \draw[parrow, hscvel] (1.5,0.1) -- (1.5,1.0) node[above, text=hscvel] {$\mathrm{e}^-$};
+      \draw[parrow, hscforce] (1.5,-0.1) -- (1.5,-0.9) node[below, text=hscforce] {$\mathrm{e}^+$};
+      \node[diagramlabel, font=\footnotesize] at (1.5,-1.6) {(b) two photons collide};
+    \end{scope}
+    \begin{scope}[xshift=10.0cm]
+      \draw[parrow, hscvel] (0,0) -- (1.3,0);
+      \draw[parrow, hscforce] (3.0,0) -- (1.7,0);
+      \node[diagramlabel, above, text=hscvel] at (0.5,0.1) {$\mathrm{e}^-$};
+      \node[diagramlabel, above, text=hscforce] at (2.5,0.1) {$\mathrm{e}^+$};
+      \draw[photon, -{Stealth[length=2.2mm]}] (1.5,0.15) -- (1.5,1.15);
+      \draw[photon, -{Stealth[length=2.2mm]}] (1.5,-0.15) -- (1.5,-1.0);
+      \node[diagramlabel, right] at (1.65,0.85) {$\gamma$};
+      \node[diagramlabel, right] at (1.65,-0.75) {$\gamma$};
+      \node[diagramlabel, font=\footnotesize] at (1.5,-1.6) {(c) annihilation};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Pair production turns energy into matter. (a) A single photon cannot make a
+    pair on its own, because energy and momentum could not both stay the same. A nearby
+    nucleus takes a little of the momentum. (b) No nucleus is needed. This matters
+    because the very early Universe had no nuclei. (c) Two photons fly off in opposite
+    directions, so the total momentum stays the same (zero).}\label{ch1:fig:pairs}
+\end{figure}
+
+While the Universe was very hot, pairs were made and destroyed all the time. As it
+cooled, photons lost energy. First they could no longer make heavy particles, such as
+protons and antiprotons. Within a few seconds they could not even make
+electron--positron pairs. Almost all matter annihilated
+with antimatter, but about one extra particle in a billion was left over. All the
+matter we see today comes from this small excess. Nobody yet knows why it existed.
+
+\begin{toolkit}{Powers of ten (scientific notation)}
+\num{3.00e8} means $3.00 \times \num{100000000} = \num{300000000}$.
+\begin{itemize}
+  \item Multiply: add the powers, $10^a \times 10^b = 10^{a+b}$. Example:
+        $\num{9.109e-31} \times \num{9.00e16} = (9.109 \times 9.00) \times 10^{-31+16}
+        = \num{81.98e-15} = \num{8.198e-14}$.
+  \item Divide: subtract the powers, $\dfrac{10^a}{10^b} = 10^{a-b}$.
+  \item Square: square the number and double the power,
+        $(\num{3.00e8})^2 = 3.00^2 \times 10^{8 \times 2} = \num{9.00e16}$.
+\end{itemize}
+On a calculator, type \num{9.109e-31} as \texttt{9.109 EXP -31} (or \texttt{×10\textsuperscript{x}}).
+\end{toolkit}
+
+\Cref{ch1:fig:timeline} shows the order of events. Two new words appear in it.
+\term{Quarks} are tiny particles: three quarks join to make each proton or neutron
+(\cref{ch5:sec:sm}). The \term{CMB} is light set free when the first atoms formed
+(\cref{ch1:sec:expansion}). Before about \qty{e-43}{s}, our laws of physics cannot
+describe the Universe.
+
+The step at 3 to 20 minutes is \term{Big Bang nucleosynthesis}: the making of the first
+helium nuclei. It left about \qty{75}{\percent} hydrogen and \qty{25}{\percent} helium by
+mass, and a trace of lithium. Heavier elements were made later, in stars.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1mm, y=1mm,
+      ev/.style={font=\footnotesize, text width=33mm, align=center, inner sep=1pt,
+        text=hscink}]
+    \draw[axisline, line width=0.9pt] (0,0) -- (150,0);
+    \foreach \x in {6, 24.5, 43, 61.5, 80, 98.5, 117, 135.5}
+      \fill[hscbrand] (\x,0) circle (1.1);
+    \foreach \x in {6, 43, 80, 117} \draw[hscmuted] (\x,1.3) -- (\x,3);
+    \foreach \x in {24.5, 61.5, 98.5, 135.5} \draw[hscmuted] (\x,-1.3) -- (\x,-3);
+    \node[ev, anchor=south west, text width=24mm, align=left] at (0,3.2)
+      {\textbf{Big Bang}\\ hot and dense};
+    \node[ev, anchor=north] at (24.5,-3.2) {\textbf{\num{e-36} to \qty{e-32}{s}}\\ inflation: very fast expansion};
+    \node[ev, anchor=south] at (43,3.2) {\textbf{before \qty{e-6}{s}}\\ photons make heavy particle--antiparticle pairs};
+    \node[ev, anchor=north] at (61.5,-3.2) {\textbf{about \qty{e-6}{s}}\\ quarks join into protons and neutrons};
+    \node[ev, anchor=south] at (80,3.2) {\textbf{3 to 20 minutes} (\qty{e9}{K})\\ protons and neutrons join into helium nuclei};
+    \node[ev, anchor=north] at (98.5,-3.2) {\textbf{\num{380000} years} (\qty{3000}{K})\\ atoms form; light (CMB) set free};
+    \node[ev, anchor=south] at (117,3.2) {\textbf{200 million years}\\ first stars and galaxies};
+    \node[ev, anchor=north east, text width=26mm, align=right] at (150,-3.2)
+      {\textbf{13.8 billion years}\\ today (\qty{2.7}{K})};
+  \end{tikzpicture}
+  \caption{A timeline of the Universe (not to scale). The temperature falls all the
+    time. Electron--positron pairs were still made until a few seconds after the Big
+    Bang.}\label{ch1:fig:timeline}
+\end{figure}
+
+\begin{toolkit}{Rearranging a formula}
+To make another symbol the subject, do the same thing to both sides until that symbol
+is alone.
+\begin{itemize}
+  \item Make $m$ the subject of $E = mc^2$: divide both sides by $c^2$. Then
+        $\dfrac{E}{c^2} = m$, that is $m = \dfrac{E}{c^2}$.
+  \item When the symbol is on the bottom, first move it to the top. Make $T$ the subject
+        of $\lambda_\mathrm{max} = \dfrac{b}{T}$ (Wien's law, \cref{ch1:sec:spectra}):
+        multiply both sides by $T$ ($\lambda_\mathrm{max}T = b$). Then divide both sides by
+        $\lambda_\mathrm{max}$: $T = \dfrac{b}{\lambda_\mathrm{max}}$.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{Mass--energy equivalence}
+  \cardformula{E = mc^2}
+  \begin{symbols}
+    \sym{$E$}{energy}{\si{J}}
+    \sym{$m$}{mass (made, or turned into energy)}{\si{kg}}
+    \sym{$c$}{speed of light, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{mass and energy are two forms of the same thing.}
+  \whentouse{energy turning into matter (pair production) or matter into energy
+    (annihilation; fusion, where light nuclei join).}
+  \whennottouse{kinetic energy of everyday objects (use $K = \frac{1}{2}mv^2$).}
+  \rearranged{$m = \dfrac{E}{c^2}$ \qquad pair: $E_\mathrm{min} = 2mc^2$}
+  \tensecond{$m = \qty{1.0e-3}{kg}$: $E = \num{1.0e-3} \times (\num{3.00e8})^2 = \qty{9.0e13}{J}$.}
+  \trap{$m$ in kg gives $E$ in J; divide by \qty{1.602e-19}{J} for eV. For a pair use $2m$.}
+\end{formulacard}
+
+\begin{workedexample}{Making a proton and an antiproton}\label{ch1:we:proton}
+A gamma photon near a heavy nucleus makes a proton--antiproton pair. Ignore the small
+energy the nucleus takes. Find the smallest photon energy, in J and in MeV.
+\given{$m_\mathrm{p} = \qty{1.673e-27}{kg}$, \ $c = \qty{3.00e8}{m.s^{-1}}$, \
+  $\qty{1}{eV} = \qty{1.602e-19}{J}$}
+\find{the minimum photon energy $E$}
+\formula{$E = mc^2$ with $m = 2m_\mathrm{p}$}
+\substitute{\eqlines{E &= 2 \times \qty{1.673e-27}{kg} \times (\qty{3.00e8}{m.s^{-1}})^2
+  = \qty{3.011e-10}{J}}\par
+  \eqlines{E &= \frac{\qty{3.011e-10}{J}}{\qty{1.602e-19}{J.eV^{-1}}} = \qty{1.880e9}{eV}
+  \quad\text{(change J to eV)}\\
+  E &= \frac{\qty{1.880e9}{eV}}{\num{e6}} = \qty{1.880e3}{MeV}
+  \quad\text{($\qty{1}{MeV} = \qty{e6}{eV}$)}}}
+\answer{\final{$E = \qty{3.01e-10}{J} = \qty{1.88e3}{MeV}$}}
+\checkstep{rough size, with $c^2 \approx 10^{17}$:
+  $2 \times \num{1.7e-27} \times 10^{17} \approx \qty{3.4e-10}{J}$, close \cmark.}
+\end{workedexample}
+
+\begin{refresher}{Photons, frequency and wavelength (Module 7)}
+Light comes in tiny packets of energy called photons. One photon has energy $E = hf$.
+Here $h = \qty{6.626e-34}{J.s}$ (Planck's constant) and $f$ is the frequency in hertz
+(\si{Hz}). For all waves $v = f\lambda$. For light $v = c$, so $c = f\lambda$ and
+$\lambda = \dfrac{c}{f}$. A higher frequency means a shorter wavelength and more energy
+in each photon. Gamma rays have the most energy per photon; radio waves have the least.
+\end{refresher}
+
+\begin{workedexample}{Two photons make an electron and a positron}\label{ch1:we:twophotons}
+Two identical photons hit each other head-on. Together they have the smallest energy
+that can make an electron and a positron. Find the frequency and wavelength of each
+photon. Which part of the spectrum is it?
+\given{$m_\mathrm{e} = \qty{9.109e-31}{kg}$, \ $h = \qty{6.626e-34}{J.s}$, \
+  $c = \qty{3.00e8}{m.s^{-1}}$}
+\find{$f$ and $\lambda$ of each photon}
+\formula{the pair needs $2m_\mathrm{e}c^2$, so each photon gives half: $E = m_\mathrm{e}c^2$;
+  \ then $E = hf$ \ and \ $v = f\lambda$ (with $v = c$)}
+\substitute{\eqlines{E &= \tfrac{1}{2} \times 2m_\mathrm{e}c^2 = m_\mathrm{e}c^2
+  \quad\text{(the two photons share the energy equally)}\\
+  E &= \qty{9.109e-31}{kg} \times (\qty{3.00e8}{m.s^{-1}})^2 = \qty{8.198e-14}{J}}\par
+  \eqlines{f &= \frac{E}{h} = \frac{\qty{8.198e-14}{J}}{\qty{6.626e-34}{J.s}} = \qty{1.2372e20}{Hz}\\
+  \lambda &= \frac{c}{f} = \frac{\qty{3.00e8}{m.s^{-1}}}{\qty{1.2372e20}{Hz}} = \qty{2.4248e-12}{m}\\
+  &\quad\text{(keep extra figures until the last step)}}}
+\answer{\final{$f = \qty{1.24e20}{Hz}$, \ $\lambda = \qty{2.42e-12}{m}$}: gamma rays.}
+\checkstep{gamma rays are the most energetic photons \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The Big Bang was an explosion from a centre.'' \cmark\ Space itself
+        expanded everywhere.
+  \item \xmark\ Using $m$ instead of $2m$ for a pair. \cmark\ $E_\mathrm{min} = 2mc^2$.
+  \item \xmark\ ``Annihilation makes one photon.'' \cmark\ At least two (momentum).
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Describe the processes that turned radiation into matter after the Big Bang''
+(4--5 marks). Full marks need these linked points:
+\begin{enumerate}
+  \item $E = mc^2$: energy can become mass.
+  \item Pair production: a photon (or two photons) with $E \geq 2mc^2$ makes a particle
+        and its antiparticle.
+  \item As space expanded, the Universe cooled. Photons became too weak to make pairs.
+  \item Matter and antimatter annihilated, but a tiny excess of matter was left.
+  \item The order: quarks $\to$ protons and neutrons (about \qty{e-6}{s}) $\to$ helium
+        nuclei (3--20 minutes) $\to$ atoms (\num{380000} years).
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Put in the order they formed: atoms, first stars, helium nuclei, protons, quarks.
+  \item Find the minimum energy, in MeV, of one photon that makes an electron and a
+        positron near a heavy nucleus. Ignore the energy the nucleus takes.
+  \item Explain why, as the Universe cooled, pair production of protons stopped before
+        pair production of electrons.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Evidence for an expanding Universe}\label{ch1:sec:expansion}
+\covers{M8.IQ1.02, M8.IQ1.01}
+
+\begin{bigidea}
+Light from distant galaxies is shifted to longer, redder wavelengths. The further away
+a galaxy is, the faster it moves away. So the Universe is expanding, and long ago it
+was small, hot and dense.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Galaxy}{a huge group of billions of stars held together by gravity.}
+  \kw{Redshift}{spectral lines moved to longer wavelengths, because the source moves away
+    or because space stretches while the light travels.}
+  \kw{Recession velocity ($v$)}{the speed at which a galaxy moves away from us.}
+  \kw{Megaparsec (Mpc)}{a distance unit: $\qty{1}{Mpc} = \qty{3.086e22}{m}$ (3.26 million light-years).}
+\end{keywords}
+
+\subsection{Redshift}
+Light from a star or a galaxy can be spread out into a rainbow of colours, called a
+\term{spectrum}. Gas in the star absorbs a few exact wavelengths, so the rainbow has
+thin dark lines in it. These \term{spectral lines} are at fixed wavelengths for each
+element, so they work like a fingerprint. (The top strip of \cref{ch1:fig:redshift}
+shows hydrogen's lines. \Cref{ch1:sec:spectra} explains why they form.)
+
+\begin{refresher}{The Doppler effect (Year 11)}
+A siren sounds lower in pitch (a deeper note) as an ambulance drives away. The
+ambulance moves away a little between one wave and the next, so the waves are
+stretched. They have a longer wavelength and a lower frequency. Light from a moving
+source behaves in the same way.
+\end{refresher}
+
+When a galaxy moves away from us, its light is stretched to longer wavelengths. In
+visible light, red has the longest wavelength, so we call this \term{redshift}. Light
+from a source moving towards us is squashed to shorter wavelengths: \term{blueshift}.
+
+In \cref{ch1:fig:redshift} every line has moved. But the pattern of lines is the same,
+so we can still tell which line is which. A bigger shift means a faster speed.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_redshift.pdf}
+  \caption{Redshift. Every line moves by the same \emph{fraction} of its wavelength
+    (here \qty{3.5}{\percent}).}\label{ch1:fig:redshift}
+\end{figure}
+
+\begin{formulacard}[notonsheet]{Redshift (low speeds)}
+  \cardformula{z = \frac{\Delta\lambda}{\lambda_0} = \frac{\lambda - \lambda_0}{\lambda_0}
+    \approx \frac{v}{c}}
+  \begin{symbols}
+    \sym{$z$}{redshift}{no unit}
+    \sym{$\lambda_0$, $\lambda$}{wavelength in the laboratory; wavelength observed}{\si{m} (or \si{nm})}
+    \sym{$\Delta\lambda$}{shift in wavelength, $\lambda - \lambda_0$}{\si{m} (or \si{nm})}
+    \sym{$v$}{recession velocity}{\si{m.s^{-1}}}
+    \sym{$c$}{speed of light, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{the fraction a wavelength stretches = the galaxy's speed as a fraction of $c$.}
+  \whentouse{a galaxy moving much slower than light ($v$ below about $0.1c$).}
+  \whennottouse{sound (use the Doppler formula on the sheet).}
+  \rearranged{$v = \dfrac{c\,\Delta\lambda}{\lambda_0}$ \qquad
+    $\Delta\lambda = \dfrac{\lambda_0 v}{c}$}
+  \tensecond{$\lambda_0 = \qty{500.0}{nm}$, $\lambda = \qty{505.0}{nm}$: $z = 0.010$,
+    so $v = 0.010c = \qty{3.0e6}{m.s^{-1}}$.}
+  \derive{the source sends one wave every period $T$, so $\lambda_0 = cT$. Moving away at
+    $v$, it is $vT$ further away when it sends the next wave, so each wave is stretched by
+    $\Delta\lambda = vT$. Then $\dfrac{\Delta\lambda}{\lambda_0} = \dfrac{vT}{cT} = \dfrac{v}{c}$.}
+  \trap{$\lambda$ and $\lambda_0$ in the same unit. $v$ comes out in \si{m.s^{-1}}:
+    divide by 1000 for \si{km.s^{-1}}.}
+\end{formulacard}
+
+\subsection{Hubble's evidence}
+\begin{itemize}
+  \item \emph{Speeds}: from about 1912, Vesto Slipher measured the spectra of faint,
+        fuzzy patches called ``spiral nebulae'' (we now know they are galaxies). Most
+        were redshifted, so most were moving away.
+  \item \emph{Distances}: a \term{Cepheid variable} is a star that gets brighter and
+        dimmer again and again, in a regular cycle. Henrietta Leavitt (1912) found that
+        the time for one cycle tells us the star's luminosity (true brightness).
+        Comparing this with how bright it looks from Earth gives its distance.
+  \item In 1924 Edwin Hubble used Cepheids to measure the distance to the Andromeda
+        ``nebula''. It is far outside the Milky Way, so it is another galaxy.
+  \item In 1929 Hubble plotted speed against distance. Speed was proportional to
+        distance: a galaxy twice as far away moved away twice as fast
+        (\cref{ch1:fig:hubble}).
+\end{itemize}
+
+\begin{toolkit}{Gradient of a straight-line graph}
+The gradient (slope) of a straight line $= \dfrac{\text{rise}}{\text{run}}
+= \dfrac{\text{change in the vertical quantity}}{\text{change in the horizontal quantity}}$.
+\begin{enumerate}
+  \item Pick two points on the line, far apart. Use points on the line, not data points.
+  \item Read both coordinates, with units.
+  \item Divide the rise by the run. The unit is (vertical unit) $\div$ (horizontal unit).
+\end{enumerate}
+\Cref{ch1:fig:hubble}: from (\qty{40}{Mpc}, \qty{2796}{km.s^{-1}}) to
+(\qty{120}{Mpc}, \qty{8388}{km.s^{-1}}), the gradient is
+$\dfrac{(8388 - 2796)\ \si{km.s^{-1}}}{(120 - 40)\ \si{Mpc}} = \dfrac{5592}{80}
+= \qty{69.9}{km.s^{-1}.Mpc^{-1}}$.
+\end{toolkit}
+
+\begin{sidebyside}[0.54]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.82\linewidth, height=0.64\linewidth,
+        xmin=0, xmax=150, ymin=0, ymax=11000,
+        xlabel={Distance $d$ (\si{Mpc})}, ylabel={$v$ (\si{km.s^{-1}})},
+        ytick={0,2000,...,10000},
+        yticklabel style={/pgf/number format/.cd, 1000 sep={\,}}]
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:150, samples=2] {69.9*x};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(22,1600) (48,3200) (75,5390) (104,7040) (140,9920)};
+      \draw[hscmuted, line width=0.6pt] (axis cs:40,2796) -- (axis cs:120,2796)
+        -- (axis cs:120,8388);
+      \node[font=\scriptsize, below] at (axis cs:80,2796) {$\Delta d = \qty{80}{Mpc}$};
+      \node[font=\scriptsize, align=left, anchor=west] at (axis cs:121,5300)
+        {$\Delta v =$\\\qty{5590}{km.s^{-1}}};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Recession velocity against distance for five galaxies (data in
+    \cref{ch1:sec:experiments}).}\label{ch1:fig:hubble}
+\nextside
+  \begin{itemize}
+    \item The points lie near a straight line through the origin. So $v \propto d$,
+          which means ``$v$ is proportional to $d$'': if $d$ doubles, $v$ doubles.
+    \item The gradient is the \term{Hubble constant}, $H_0$:
+          $\dfrac{\qty{5590}{km.s^{-1}}}{\qty{80}{Mpc}} = \qty{69.9}{km.s^{-1}.Mpc^{-1}}$.
+    \item If the axes are swapped ($d$ up, $v$ across), the gradient is
+          $\dfrac{d}{v} = \dfrac{1}{H_0}$.
+  \end{itemize}
+\end{sidebyside}
+
+\subsection{What the expansion means}
+All distant galaxies move away from us. That does not put Earth at the centre. The
+\term{cosmological principle} says that, on a very large scale, the Universe looks the
+same from every place and in every direction. From any galaxy, all other galaxies would
+be seen moving away.
+
+Picture a loaf of raisin bread rising in a warm oven. The dough between the raisins
+grows, so the raisins spread apart. Stand on any raisin: a raisin \qty{2}{cm} away
+moves off twice as fast as one \qty{1}{cm} away. Every raisin sees the same thing, so
+none of them is the centre. In the same way, \emph{space itself} is stretching.
+
+Run the expansion backwards: everything was once together, hot and dense. The Universe
+had a beginning.
+
+\begin{formulacard}[notonsheet]{Hubble's law and the age of the Universe}
+  \cardformula{v = H_0 d \qquad\qquad t \approx \frac{1}{H_0}}
+  \begin{symbols}
+    \sym{$v$}{recession velocity}{\si{m.s^{-1}} (usually given in \si{km.s^{-1}})}
+    \sym{$d$}{distance to the galaxy}{\si{m} (usually given in \si{Mpc})}
+    \sym{$H_0$}{Hubble constant (about 70 \si{km.s^{-1}.Mpc^{-1}}; given in the question)}{\si{s^{-1}} (usually given in \si{km.s^{-1}.Mpc^{-1}})}
+    \sym{$t$}{age of the Universe (use $H_0$ in \si{s^{-1}})}{\si{s}}
+  \end{symbols}
+  \inwords{a galaxy twice as far away moves away twice as fast.}
+  \whentouse{distant galaxies; $t \approx \frac{1}{H_0}$ for a rough age.}
+  \whennottouse{stars in our galaxy, or very close galaxies (Andromeda moves towards us).}
+  \rearranged{$d = \dfrac{v}{H_0}$ \qquad $H_0 = \dfrac{v}{d}$ (gradient of a $v$--$d$ graph)}
+  \tensecond{$d = \qty{40}{Mpc}$, $H_0 = 70$: $v = 70 \times 40 = \qty{2800}{km.s^{-1}}$.}
+  \derive{$v = H_0 d$ comes from the straight-line graph. For the age, assume each
+    galaxy has always moved at the same speed:
+    \begin{align*}
+      v &= \frac{d}{t} && \text{speed = distance $\div$ time}\\
+      H_0 d &= \frac{d}{t} && \text{replace $v$ with $H_0 d$}\\
+      H_0 &= \frac{1}{t} && \text{divide both sides by $d$}\\
+      t &= \frac{1}{H_0} && \text{flip both sides}
+    \end{align*}}
+  \trap{never mix \si{m} and \si{km}. Change $H_0$ into \si{s^{-1}} before using
+    $t \approx \frac{1}{H_0}$.}
+\end{formulacard}
+
+\subsection{More evidence: the CMB and the light elements}
+In 1965 Arno Penzias and Robert Wilson found a faint microwave signal. It came equally
+from every direction. It is the \term{cosmic microwave background} (CMB): light left
+over from the early Universe.
+
+Before \num{380000} years, the Universe was full of free electrons. They scattered light
+all the time, like fog scatters a car's headlights. Then the Universe cooled to about
+\qty{3000}{K}. Electrons joined nuclei to make atoms, the ``fog'' cleared, and light
+could travel freely. That light is the CMB. Then it was mostly infrared and visible light.
+
+Since then, the expansion of space has stretched its wavelengths about 1100 times, into
+microwaves. Today it matches a black body at \qty{2.7}{K}. (A black body is an ideal
+glowing object whose light depends only on its temperature: see \cref{ch1:sec:spectra}
+and \cref{ch1:we:cmb}.) The Big Bang theory predicted this light in 1948, before it was
+found.
+
+Big Bang nucleosynthesis predicts \qty{75}{\percent} hydrogen and \qty{25}{\percent}
+helium by mass. The oldest stars and gas clouds have almost exactly these amounts. Stars
+could not have made that much helium in 13.8 billion years.
+
+\begin{workedexample}{A galaxy's speed and its redshift}\label{ch1:we:galaxy}
+A galaxy is \qty{150}{Mpc} away. Take $H_0 = \qty{70.0}{km.s^{-1}.Mpc^{-1}}$. (a) Find
+its recession velocity. (b) Hydrogen's H-alpha line is at \qty{656.3}{nm} in the
+laboratory. At what wavelength do we observe it from this galaxy?
+\given{$d = \qty{150}{Mpc}$, \ $H_0 = \qty{70.0}{km.s^{-1}.Mpc^{-1}}$, \
+  $\lambda_0 = \qty{656.3}{nm}$, \ $c = \qty{3.00e8}{m.s^{-1}}$}
+\find{(a) $v$; \ (b) the observed wavelength $\lambda$}
+\formula{$v = H_0 d$, \ then $\Delta\lambda = \dfrac{\lambda_0 v}{c}$}
+\substitute{(a)\ \eqlines{v &= \qty{70.0}{km.s^{-1}.Mpc^{-1}} \times \qty{150}{Mpc}
+  = \qty{10500}{km.s^{-1}}\\
+  &\quad\text{(the Mpc cancel)}\\
+  v &= \num{10500} \times \qty{1000}{m.s^{-1}} = \qty{1.05e7}{m.s^{-1}}\\
+  &\quad\text{($\times\,1000$ changes km to m)}}\par
+  (b)\ \eqlines{\Delta\lambda &= \qty{656.3}{nm} \times \frac{\qty{1.05e7}{m.s^{-1}}}{\qty{3.00e8}{m.s^{-1}}}
+  = \qty{22.97}{nm}\\
+  \lambda &= \lambda_0 + \Delta\lambda \quad\text{(add the shift)}\\
+  &= \qty{656.3}{nm} + \qty{22.97}{nm} = \qty{679.27}{nm}}}
+\answer{(a) \final{$v = \qty{1.05e4}{km.s^{-1}}$} \quad (b) \final{$\lambda = \qty{679.3}{nm}$}}
+\checkstep{$v$ is only \qty{3.5}{\percent} of $c$, so the low-speed formula is fine.
+  This is the galaxy in \cref{ch1:fig:redshift} \cmark.}
+\end{workedexample}
+
+\begin{toolkit}{Changing $H_0$ into \si{s^{-1}}}
+$\si{Mpc^{-1}}$ means ``per megaparsec''. $\qty{1}{Mpc} = \qty{3.086e22}{m}
+= \qty{3.086e19}{km}$ (divide by 1000 to change m to km). So $H_0 = 70$ means
+\qty{70}{km.s^{-1}} for every \qty{3.086e19}{km}:
+\[
+  H_0 = \frac{\qty{70}{km.s^{-1}}}{\qty{3.086e19}{km}} = \qty{2.27e-18}{s^{-1}}
+\]
+The km on the top and the bottom cancel, leaving \si{s^{-1}}.
+Years to seconds: $\qty{1}{year} = 365.25 \text{ days} \times 24 \text{ hours} \times
+\qty{3600}{s} = \qty{3.156e7}{s}$.
+\end{toolkit}
+
+\begin{workedexample}{How old is the Universe?}\label{ch1:we:age}
+One team measured $H_0 = \qty{73}{km.s^{-1}.Mpc^{-1}}$. Estimate the age of the
+Universe in years, and state your assumption.
+\given{$H_0 = \qty{73}{km.s^{-1}.Mpc^{-1}}$, \ $\qty{1}{Mpc} = \qty{3.086e19}{km}$, \
+  $\qty{1}{year} = \qty{3.156e7}{s}$}
+\find{the age $t$ in years}
+\formula{$t \approx \dfrac{1}{H_0}$, with $H_0$ in \si{s^{-1}}}
+\substitute{\eqlines{H_0 &= \frac{\qty{73}{km.s^{-1}}}{\qty{3.086e19}{km}}
+  = \qty{2.366e-18}{s^{-1}} \quad\text{(change units first)}}\par
+  \eqlines{t &= \frac{1}{\qty{2.366e-18}{s^{-1}}} = \qty{4.227e17}{s}\\
+  t &= \frac{\qty{4.227e17}{s}}{\qty{3.156e7}{s.year^{-1}}} = \qty{1.339e10}{years}
+  \quad\text{(seconds to years)}}}
+\answer{\final{$t \approx \qty{1.3e10}{years}$}, assuming the galaxies have always moved
+  at the same speed.}
+\checkstep{close to the accepted 13.8 billion years \cmark. A larger $H_0$ gives a
+  younger Universe.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Hubble saw all the stars moving away.'' \cmark\ He measured
+        \emph{galaxies}.
+  \item \xmark\ ``Everything moves away from us, so we are at the centre.'' \cmark\ Every
+        galaxy sees the same, because space expands everywhere.
+  \item \xmark\ Using $H_0$ in \si{km.s^{-1}.Mpc^{-1}} in $t = \frac{1}{H_0}$.
+        \cmark\ Change it into \si{s^{-1}} first.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Outline the evidence that led Hubble to conclude that the Universe is expanding''
+(3--4 marks). Write: redshift of galaxy spectra (they move away; bigger shift = faster);
+distances from Cepheid variables; $v \propto d$, so $v = H_0 d$; with the cosmological
+principle, space itself expands. Write ``galaxies'', never ``stars''. The CMB and the
+helium abundance are \emph{extra} Big Bang evidence, not Hubble's.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A calcium line is at \qty{393.4}{nm} in the laboratory and at \qty{397.3}{nm} in a
+        galaxy's spectrum. Find the galaxy's speed and distance ($H_0 = 70$
+        \si{km.s^{-1}.Mpc^{-1}}).
+  \item An astronomer lives on a planet in a galaxy \qty{300}{Mpc} from us. She measures
+        the redshifts of many galaxies, including our Milky Way. Predict what she finds
+        ($H_0 = 70$ \si{km.s^{-1}.Mpc^{-1}}). What does this tell us about the
+        ``centre'' of the Universe?
+  \item A classmate says: ``The CMB is microwave radiation, so it must come from
+        something cold, like dust between the stars.'' The CMB comes equally from every
+        direction, and today its peak wavelength is about \qty{1}{mm}. Explain where the
+        CMB really came from, and why it is now microwave radiation.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Spectra and the classification of stars}\label{ch1:sec:spectra}
+\covers{M8.IQ1.04, M8.IQ1.05}
+
+\begin{bigidea}
+A hot, dense object gives a continuous spectrum that depends only on its temperature.
+Gases give bright or dark lines that identify the element. The dark lines in starlight
+sort stars by temperature into the classes O B A F G K M.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Spectrum}{light spread out into its different wavelengths (colours).}
+  \kw{Black body}{an ideal object that absorbs all light; its glow depends only on its temperature.}
+  \kw{Energy level}{one of the few energies an electron in an atom is allowed to have.}
+  \kw{Spectral class}{a letter (O, B, A, F, G, K, M) for stars with similar spectra.}
+\end{keywords}
+
+\subsection{Three kinds of spectrum}
+A prism or a diffraction grating spreads light into a spectrum
+(\cref{ch1:fig:spectra}). A \term{continuous spectrum} has every wavelength. An
+\term{emission spectrum} has bright lines only. An \term{absorption spectrum} is a
+continuous spectrum with dark lines. Each element has its own set of lines, so the
+lines tell us which elements are there.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_spectra.pdf}
+  \caption{The three kinds of spectrum. Hydrogen's dark lines are at exactly the same
+    wavelengths as its bright lines.}\label{ch1:fig:spectra}
+\end{figure}
+
+Line spectra come from electrons in atoms. Electrons can only be in certain
+\term{energy levels} (\cref{ch1:fig:levels}; more in \cref{ch3:sec:bohr}).
+
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=1cm,
+      photon/.style={decorate, decoration={snake, amplitude=0.7mm, segment length=2.2mm,
+        post length=1.8mm}, line width=0.8pt, color=hscray, -{Stealth[length=2mm]}}]
+    \foreach \y/\n in {0/1, 1.5/2, 2.25/3}{
+      \draw[hscink, line width=0.8pt] (0,\y) -- (5.2,\y);
+      \node[diagramlabel, right] at (5.2,\y) {$n = \n$};}
+    \draw[axisline] (-0.35,-0.1) -- (-0.35,2.6) node[above, font=\footnotesize] {energy};
+    \draw[-{Stealth[length=2mm]}, line width=1pt, hscvel] (0.9,2.25) -- (0.9,1.5);
+    \fill[hscvel] (0.9,2.25) circle (0.08);
+    \draw[photon] (1.05,1.87) -- (2.15,1.87);
+    \node[diagramlabel, font=\footnotesize] at (1.3,0.75) {emission};
+    \draw[photon] (2.95,1.87) -- (4.0,1.87);
+    \draw[-{Stealth[length=2mm]}, line width=1pt, hscvel] (4.25,1.5) -- (4.25,2.25);
+    \fill[hscvel] (4.25,1.5) circle (0.08);
+    \node[diagramlabel, font=\footnotesize] at (3.75,0.75) {absorption};
+  \end{tikzpicture}
+  \captionof{figure}{An electron jumps between energy levels and gives out or takes in
+    one photon.}\label{ch1:fig:levels}
+\nextside
+  \begin{itemize}
+    \item \emph{Excitation}: in a hot gas or a discharge tube, collisions or an electric
+          current lift electrons to higher levels.
+    \item \emph{Emission}: an electron drops to a lower level and gives out one photon,
+          $E = hf$ = the gap.
+    \item \emph{Absorption}: a photon with exactly the gap energy lifts an electron up.
+          The energy is given out again in random directions, so the line looks dark.
+    \item Same gaps, so the same wavelengths.
+  \end{itemize}
+\end{sidebyside}
+
+A \term{black body} absorbs all light that falls on it, and glows when hot. Its spectrum
+depends only on its temperature. In a hot, dense object the particles are packed close
+together and jostle all the time. So light of every wavelength is given out, not only
+the few wavelengths that match the gaps between energy levels. Stars are very nearly
+black bodies. In
+\cref{ch1:fig:blackbody}, a hotter body gives out more light at every wavelength. Its
+peak also moves to shorter wavelengths, so heated metal glows red, then orange, then white.
+\Cref{ch1:tab:spectra} compares the three kinds.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_blackbody.pdf}
+  \caption{Black body spectra for three temperatures.}\label{ch1:fig:blackbody}
+\end{figure}
+
+\begin{table}
+  \caption{Comparing the three kinds of spectrum.}\label{ch1:tab:spectra}
+  \centering\small
+  \begin{tabular}{@{}L{24mm}L{36mm}L{36mm}L{37mm}@{}}
+    \toprule
+    \colhead{Spectrum} & \colhead{Made by} & \colhead{Looks like} & \colhead{Depends on}\\
+    \midrule
+    Continuous (black body) & a hot, dense object (filament, inside of a star) & every
+      colour; a smooth curve with one peak & temperature only\\
+    Emission & a hot gas at low pressure (neon sign) & bright lines on a dark background &
+      which element (its energy levels)\\
+    Absorption & cooler gas in front of a hot source & a rainbow with dark lines & which
+      element; same places as its bright lines\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{toolkit}{Nanometres and metres}
+$\qty{1}{nm} = \qty{e-9}{m}$.
+\begin{itemize}
+  \item nm to m: multiply by $10^{-9}$. Example:
+        $\qty{362}{nm} = 362 \times \qty{e-9}{m} = \qty{3.62e-7}{m}$.
+  \item m to nm: multiply by $10^{9}$. Example:
+        $\qty{5.00e-7}{m} = \num{5.00e-7} \times 10^9\ \si{nm} = \qty{500}{nm}$.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{Wien's displacement law}
+  \cardformula{\lambda_\mathrm{max} = \frac{b}{T}}
+  \begin{symbols}
+    \sym{$\lambda_\mathrm{max}$}{wavelength where the spectrum peaks}{\si{m}}
+    \sym{$b$}{Wien's constant, \qty{2.898e-3}{m.K} (data sheet)}{\si{m.K}}
+    \sym{$T$}{surface temperature}{\si{K}}
+  \end{symbols}
+  \inwords{the hotter the object, the shorter its peak wavelength.}
+  \whentouse{black bodies: stars, the CMB, hot filaments.}
+  \whennottouse{emission or absorption lines.}
+  \rearranged{$T = \dfrac{b}{\lambda_\mathrm{max}}$}
+  \tensecond{an orange star, $T = \qty{4500}{K}$: $\lambda_\mathrm{max} =
+    \dfrac{\num{2.898e-3}}{4500} = \qty{6.44e-7}{m} = \qty{644}{nm}$.}
+  \trap{$T$ in kelvin, not \si{\degreeCelsius}. $\lambda_\mathrm{max}$ comes out in metres
+    ($\times 10^9$ for nm).}
+\end{formulacard}
+
+\subsection{Classifying stars by their spectra}
+Starlight gives an absorption spectrum. The hot, dense inside of the star makes a
+continuous spectrum. Cooler gas in the star's outer layers then absorbs some
+wavelengths. Astronomers sort stars into \term{spectral classes} by these lines
+(\cref{ch1:tab:classes}). Hottest to coolest: O B A F G K M (``\textbf{O}h \textbf{B}e
+\textbf{A} \textbf{F}ine \textbf{G}uy, \textbf{K}iss \textbf{M}e'').
+
+Three words in the table: a \term{neutral} atom still has all its electrons. An
+\term{ionised} atom has lost one or more electrons. Astronomers call every element
+heavier than helium a ``metal''.
+
+\begin{table}
+  \caption{Spectral classes (temperatures are approximate). $\lambda_\mathrm{max}$ is from
+    Wien's law.}\label{ch1:tab:classes}
+  \centering\small
+  \begin{tabular}{@{}C{9mm}L{27mm}L{20mm}L{17mm}L{58mm}@{}}
+    \toprule
+    \colhead{Class} & \colhead{Temperature (K)} & \colhead{Colour} &
+      \colhead{$\lambda_\mathrm{max}$ (nm)} & \colhead{Main absorption lines}\\
+    \midrule
+    O & above \num{30000} & blue & below 97 & ionised helium; weak hydrogen\\
+    B & \num{10000}--\num{30000} & blue-white & 97--290 & neutral helium; stronger hydrogen\\
+    A & \num{7500}--\num{10000} & white & 290--386 & hydrogen strongest\\
+    F & \num{6000}--\num{7500} & yellow-white & 386--483 & weaker hydrogen; ionised metals\\
+    G & \num{5000}--\num{6000} & yellow & 483--580 & ionised calcium; many metals (Sun)\\
+    K & \num{3500}--\num{5000} & orange & 580--828 & neutral metals; some molecules\\
+    M & below \num{3500} & red & above 828 & molecules (titanium oxide); very weak hydrogen\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Annie Jump Cannon set this order (about 1901--1912). In 1925 Cecilia Payne showed that
+the classes differ because of \emph{temperature}: most stars are made of almost the same
+mix, mainly hydrogen and helium. Each class has \term{subclasses} from 0 (hottest) to 9
+(coolest); the Sun is G2.
+
+Why are the hydrogen Balmer lines (hydrogen's visible lines) strongest in class A?
+Visible hydrogen lines come only from electrons that start in level $n = 2$.
+\begin{itemize}
+  \item Cool stars (K, M): nearly all electrons sit in $n = 1$, so the lines are weak.
+  \item About \qty{10000}{K} (A): the largest share of electrons is in $n = 2$, so the
+        lines are strongest.
+  \item Hot stars (O): hydrogen is ionised (its electron is knocked off), so the
+        lines are weak.
+\end{itemize}
+
+Spectra tell us more than the elements:
+\begin{itemize}
+  \item \emph{Line positions}: which elements are there.
+  \item \emph{Which lines appear, and how strong (dark) they are}: the surface
+        temperature. (An element's lines do not move when the temperature changes.)
+  \item \emph{A shift of all the lines}: motion towards us (blueshift) or away (redshift).
+  \item \emph{Line width}: how dense the star's outer gas is. Broad lines mean dense gas,
+        or a star that spins fast. Narrow lines mean thin gas.
+\end{itemize}
+A small, dense main sequence star has broad lines. A huge giant star has thin outer gas
+and narrow lines. (Giants and the main sequence are explained in \cref{ch1:sec:hr}.) So
+line width gives the star's \term{luminosity class}, a Roman number for its size group:
+I = supergiant, III = giant, V = main sequence. The Sun is G2V.
+
+\begin{workedexample}{Classifying a star}\label{ch1:we:classify}
+A star's continuous spectrum peaks at \qty{362}{nm}. Find its surface temperature,
+spectral class and colour.
+\given{$\lambda_\mathrm{max} = \qty{362}{nm} = \qty{3.62e-7}{m}$, \ $b = \qty{2.898e-3}{m.K}$}
+\find{the surface temperature $T$, then the class}
+\formula{$T = \dfrac{b}{\lambda_\mathrm{max}}$}
+\substitute{$T = \dfrac{\qty{2.898e-3}{m.K}}{\qty{3.62e-7}{m}} = \qty{8005.5}{K}$}
+\answer{\final{$T = \qty{8.01e3}{K}$}: class A (\num{7500} to \qty{10000}{K}), white.}
+\checkstep{hotter than the Sun, and its peak is shorter than the Sun's \qty{500}{nm}
+  \cmark. Expect strong hydrogen lines.}
+\end{workedexample}
+
+% Added by the coverage audit (M8.IQ1.04, M8.IQ1.05): numbers in
+\begin{workedexample}{Reading the lines in a star's spectrum}\label{ch1:we:lines}
+A star's absorption spectrum has dark lines at 393.4, 396.8, 486.1, 589.0, 589.6 and
+\qty{656.3}{nm}. The lines at 393.4 and \qty{396.8}{nm} are the darkest. The hydrogen lines
+are weak, and
+there are no bands from molecules. \Cref{ch1:tab:lablines} gives some laboratory lines.
+(a)~Which elements are in the star's outer gas? (b)~No helium lines appear. Does this mean
+the star has no helium? (c)~Suggest the star's spectral class. (d)~Find the energy gap, in
+eV, that gives the \qty{589.0}{nm} line.
+\begin{table}
+  \caption{Laboratory wavelengths of some spectral lines.}\label{ch1:tab:lablines}
+  \centering\small
+  \begin{tabular}{@{}L{34mm}L{56mm}@{}}
+    \toprule
+    \colhead{Element} & \colhead{Lines (nm)}\\
+    \midrule
+    hydrogen & 410.2, 434.0, 486.1, 656.3\\
+    helium & 447.1, 587.6, 667.8\\
+    sodium & 589.0, 589.6\\
+    ionised calcium & 393.4, 396.8\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\given{the star's dark lines; \cref{ch1:tab:lablines,ch1:tab:classes};
+  $h = \qty{6.626e-34}{J.s}$, \ $c = \qty{3.00e8}{m.s^{-1}}$, \
+  $\qty{1}{eV} = \qty{1.602e-19}{J}$}
+\find{(a) the elements; (b) a reason; (c) the class; (d) the energy gap $E$ in eV}
+\formula{(a) an element is there if its lines match the star's dark lines.\newline
+  (d) $f = \dfrac{c}{\lambda}$ (from $c = f\lambda$), then $E = hf$}
+\substitute{(a) Match each dark line with \cref{ch1:tab:lablines}: 393.4 and 396.8 are
+  ionised calcium; 486.1 and 656.3 are hydrogen; 589.0 and 589.6 are sodium. Every dark
+  line is matched.\par
+  (b) Helium's visible lines are absorbed only by electrons already lifted to high
+  levels. That needs a very hot star (classes O and B in \cref{ch1:tab:classes}).\par
+  (c) Darkest lines from ionised calcium, metal lines (sodium) and weak hydrogen: this
+  fits class G in \cref{ch1:tab:classes}.\par
+  (d) Change nm to m, then use the two formulas:\par
+  \eqlines{\lambda &= \qty{589.0}{nm} = \qty{5.890e-7}{m}\\
+  f &= \frac{\qty{3.00e8}{m.s^{-1}}}{\qty{5.890e-7}{m}} = \qty{5.093e14}{Hz}\\
+  E &= \qty{6.626e-34}{J.s} \times \qty{5.093e14}{Hz} = \qty{3.375e-19}{J}\\
+  E &= \frac{\qty{3.375e-19}{J}}{\qty{1.602e-19}{J.eV^{-1}}} = \qty{2.107}{eV}
+  \quad\text{(J to eV)}}}
+\answer{(a) \final{hydrogen, sodium and calcium}. \ (b) No. The star is too cool to lift
+  helium's electrons that high, so helium cannot absorb visible light. Stars like the Sun
+  are still about one quarter helium by mass. \ (c) \final{class G}, like the Sun. \
+  (d) \final{$E = \qty{2.11}{eV}$}. Sodium atoms in the cooler outer gas absorb photons
+  with exactly this energy. So the star's light has a dark line at \qty{589.0}{nm}.}
+\checkstep{a photon of yellow light carries about \qty{2}{eV} \cmark. No dark line is
+  left without an element, so the identification is complete.}
+\end{workedexample}
+
+\begin{workedexample}{The CMB then and now}\label{ch1:we:cmb}
+The CMB today matches a black body at \qty{2.725}{K}. When it was set free, the Universe
+was at about \qty{3000}{K}. Find the peak wavelength then and now, and the factor by which
+the waves have been stretched. How does this support an expanding Universe?
+\given{$T_\mathrm{then} = \qty{3000}{K}$, \ $T_\mathrm{now} = \qty{2.725}{K}$, \
+  $b = \qty{2.898e-3}{m.K}$}
+\find{both values of $\lambda_\mathrm{max}$, and their ratio}
+\formula{$\lambda_\mathrm{max} = \dfrac{b}{T}$}
+\substitute{\eqlines{\lambda_\mathrm{then} &= \frac{\qty{2.898e-3}{m.K}}{\qty{3000}{K}} = \qty{9.66e-7}{m}\\
+  \lambda_\mathrm{now} &= \frac{\qty{2.898e-3}{m.K}}{\qty{2.725}{K}} = \qty{1.063e-3}{m}}\par
+  \eqlines{\text{factor} &= \frac{\qty{1.063e-3}{m}}{\qty{9.66e-7}{m}} = \num{1.10e3}}}
+\answer{\final{\qty{966}{nm} (infrared) then, \qty{1.06}{mm} (microwave) now}, stretched
+  \final{about 1100 times}. This supports expansion. Stretching every wavelength by the
+  same factor keeps the black-body shape but lowers the temperature by that factor
+  (\qty{3000}{K} $\to$ \qty{2.7}{K}). The glow arrives equally from every direction, so
+  it is not one source moving away. Space itself has stretched about 1100 times while
+  the light travelled.}
+\checkstep{microwaves are about \qty{1}{mm} long \cmark. Also $\frac{3000}{2.725} = 1101$,
+  because $\lambda_\mathrm{max} \propto \frac{1}{T}$.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting \si{\degreeCelsius} into Wien's law. \cmark\ Use kelvin.
+  \item \xmark\ ``The hottest stars have the strongest hydrogen lines.'' \cmark\ Class A
+        does; in O stars hydrogen is ionised.
+  \item \xmark\ ``Stars of different classes are made of different elements.''
+        \cmark\ Temperature changes the lines, not the mix of elements.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Account for the production of emission and absorption spectra and compare them with a
+black body spectrum'' (4--5 marks). Full marks need:
+\begin{enumerate}
+  \item Energy levels, and $E = hf$ for the one photon given out or taken in.
+  \item How each kind is produced: excitation by heat or an electric current, then
+        emission; or absorption by cooler gas, with the energy given out again in all
+        directions.
+  \item The same wavelengths for both kinds of line.
+  \item \emph{Whereas} a black body gives every wavelength. Its shape and peak depend
+        only on temperature (Wien's law).
+\end{enumerate}
+A small table is a good way to compare.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A sodium street lamp gives a bright yellow line at \qty{589}{nm}. Sunlight has a
+        dark line at the same wavelength. Explain how each line is produced, and why both
+        are at \qty{589}{nm}.
+  \item A star's surface is at \qty{25000}{K}. Find $\lambda_\mathrm{max}$. In which part
+        of the spectrum is it, and what is the star's class?
+  \item Star P is class O9 and star Q is class M3. Both show only weak hydrogen lines.
+        Give a different reason for each star.
+  \item Two stars have absorption lines at the same wavelengths. Star X's lines are much
+        broader than star Y's. Which star is more likely to be a giant? Explain.
+\end{quickcheck}
+
+%% ==================================================================
+\section{The Hertzsprung--Russell diagram and the life of stars}\label{ch1:sec:hr}
+\covers{M8.IQ1.06, M8.IQ1.07}
+
+\begin{bigidea}
+A Hertzsprung--Russell (HR) diagram plots stars by luminosity against surface
+temperature. A star's place on it shows its temperature, colour, luminosity, size and
+stage of life. A star's mass decides how it lives and how it dies.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Luminosity ($L$)}{the total power a star gives out (W); distance does not change it.}
+  \kw{Absolute magnitude ($M$)}{how bright a star would look from 10 parsecs away.
+    Smaller (more negative) means brighter.}
+  \kw{Main sequence}{the long stage when a star's core fuses (joins) hydrogen into helium.}
+  \kw{Solar mass ($M_\odot$)}{the mass of the Sun, used as a unit for star masses.}
+\end{keywords}
+
+\subsection{Reading the HR diagram}
+A street light looks bright up close and faint far away, but its power does not change.
+Stars are the same.
+\begin{itemize}
+  \item \term{Apparent brightness} is how bright a star looks from Earth. It depends on
+        the star's distance.
+  \item \term{Luminosity} ($L$) is the star's true power output, in watts. We often
+        compare it with the Sun's: $L_\odot = \qty{3.83e26}{W}$.
+\end{itemize}
+
+Astronomers also use the \term{magnitude} scale, a number for brightness. Smaller
+numbers mean brighter. A difference of 5 magnitudes is a factor of 100.
+
+Absolute magnitude is the magnitude a star would have from 10 parsecs away. (A
+\term{parsec} (pc) is a distance unit: $\qty{1}{pc} = 3.26$ light-years.) Every star is
+put at the same distance, so absolute magnitude measures luminosity. Do not mix up $M$
+(absolute magnitude) with $M_\odot$ (the Sun's mass) or with class M.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_hr.pdf}
+  \caption{An HR diagram (simplified). Each dashed line shows where stars with the same
+    radius sit ($R_\odot$ = the Sun's radius). The numbered badges show the Sun's future:
+    1 = the Sun today (main sequence), 2 = red giant, 3 = white dwarf.}\label{ch1:fig:hr}
+\end{figure}
+
+\begin{toolkit}{Reading a log scale}
+On a normal scale, equal gaps mean equal \emph{added} amounts (0, 10, 20, 30). On a log
+scale, equal gaps mean equal \emph{multiplying} factors (1, 10, 100, 1000). On the left
+axis of \cref{ch1:fig:hr}, each labelled tick is 100 times the one below it. A star two
+labelled ticks higher is $100 \times 100 = \num{10000}$ times more luminous. A log scale
+lets one graph show stars from $10^{-4}$ to $10^{6}\,L_\odot$.
+\end{toolkit}
+
+Ejnar Hertzsprung and Henry Norris Russell first drew this diagram (about 1911--1913).
+In \cref{ch1:fig:hr}:
+\begin{itemize}
+  \item \emph{Across}: surface temperature, hot on the \textbf{left}. So it also shows
+        colour (blue to red) and spectral class (O to M). This axis is a log scale that
+        runs backwards.
+  \item \emph{Up}: luminosity (left axis) or absolute magnitude (right axis), brightest
+        at the \textbf{top}. The luminosity axis is a log scale. On the magnitude axis
+        the numbers get smaller towards the top, in equal steps of 5. Each step of 5 is
+        a factor of 100 in luminosity.
+  \item \emph{Main sequence}: the diagonal band. About \qty{90}{\percent} of stars are
+        here, because it is the longest stage of a star's life.
+  \item \emph{Top right}: \term{red giants} and supergiants: cool but very luminous, so
+        they must be huge. \emph{Bottom left}: \term{white dwarfs}: hot but dim, so tiny.
+\end{itemize}
+Why size? Two stars at the same temperature give out the same power from each square
+metre. So the more luminous star must have more square metres: it is bigger
+(extension: $L \propto R^2T^4$).
+
+Careful: the diagram shows \emph{surface} temperature. A red giant's core is much hotter
+than the Sun's. Also, the stars of one star cluster are all at about the same distance
+from us. So an HR diagram of one cluster can use apparent magnitude instead.
+
+\begin{formulacard}[notonsheet]{Comparing luminosities from magnitudes}
+  \cardformula{\frac{L_A}{L_B} = 100^{\frac{M_B - M_A}{5}}}
+  \begin{symbols}
+    \sym{$L_A$, $L_B$}{luminosities of stars A and B}{\si{W}}
+    \sym{$M_A$, $M_B$}{absolute magnitudes of stars A and B}{no unit}
+  \end{symbols}
+  \inwords{every 5 magnitudes smaller means 100 times more luminous.}
+  \whentouse{comparing the luminosities of two stars from their absolute magnitudes.
+    (With apparent magnitudes, the same rule compares how bright they look.)}
+  \whennottouse{to mix an apparent magnitude with an absolute magnitude, or to find a
+    luminosity in watts.}
+  \rearranged{$\dfrac{L_B}{L_A} = 100^{\frac{M_A - M_B}{5}}$ (the same rule the other way
+    round). \ Useful values: 1 magnitude $= 100^{1/5} = 2.512$ times; 5 magnitudes = 100
+    times; 10 magnitudes $= 10^4$ times.}
+  \tensecond{$M_A = -1$, $M_B = +4$: $M_B - M_A = 5$, so A is $100^{1} = 100$ times more
+    luminous.}
+  \tcbbreak % layout QA (book build): page break here, so "(continued)" is not a lone Trap line
+  \derive{the scale is defined so that 5 magnitudes is a factor of 100. A difference of
+    $M_B - M_A$ magnitudes is $\frac{M_B - M_A}{5}$ steps of 5. Each step multiplies by
+    100, so the factor is $100^{\frac{M_B - M_A}{5}}$. For example, 10 magnitudes is 2
+    steps: $100 \times 100 = 100^2$.}
+  \trap{a \emph{smaller} magnitude is brighter. Ten magnitudes is
+    $100 \times 100 = 10^4$ times, not $100 + 100 = 200$ times.}
+\end{formulacard}
+
+\begin{workedexample}{Comparing two stars from their magnitudes}\label{ch1:we:magnitude}
+Star C has absolute magnitude $+1.0$ and star D has $+8.5$. Which star is more luminous,
+and by what factor?
+\given{$M_C = +1.0$, \ $M_D = +8.5$}
+\find{the more luminous star, and $\dfrac{L_C}{L_D}$}
+\formula{$\dfrac{L_C}{L_D} = 100^{\frac{M_D - M_C}{5}}$}
+\substitute{\eqlines{M_D - M_C &= 8.5 - 1.0 = 7.5\\
+  &\quad\text{(C has the smaller magnitude, so C is brighter)}\\
+  \frac{L_C}{L_D} &= 100^{\frac{7.5}{5}} = 100^{1.5} \quad\text{(7.5 magnitudes is 1.5
+  steps of 5)}\\
+  &= 100 \times 100^{0.5} = 100 \times 10 = 1000\\
+  &\quad\text{(or type \texttt{100 \^{} 1.5} on a calculator)}}}
+\answer{star C is \final{about $\num{1.0e3}$ times} more luminous than star D.}
+\checkstep{7.5 magnitudes is between 5 ($\times 100$) and 10 ($\times\num{10000}$), and
+  1000 is between these \cmark.}
+\end{workedexample}
+
+\subsection{The life of a star}
+\begin{sidebyside}[0.36]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[hscacc!18] (0,0) circle (1.45);
+    \draw[hscacc!70, line width=0.8pt] (0,0) circle (1.45);
+    \fill[hscacc!55] (0,0) circle (0.5);
+    \node[font=\scriptsize, align=center, text=hscink] at (0,0) {core:\\fusion};
+    \foreach \a in {45,135,225,315}
+      \draw[force] (\a:2.25) -- (\a:1.55);
+    \foreach \a in {0,90,180,270}
+      \draw[velocity] (\a:0.6) -- (\a:1.3);
+    \node[diagramlabel, text=hscforce, anchor=south] at (0,1.6) {gravity (in)};
+    \node[diagramlabel, text=hscvel, align=left, anchor=west] at (1.5,-0.05) {gas\\pressure\\(out)};
+  \end{tikzpicture}
+  \captionof{figure}{Stellar equilibrium.}\label{ch1:fig:equilibrium}
+\nextside
+  \begin{itemize}
+    \item Gravity pulls a cloud of gas and dust (a \term{nebula}) into clumps. A
+          shrinking clump heats up: a \term{protostar}.
+    \item At about 10 million K, \term{nuclear fusion} starts in the core. Hydrogen
+          nuclei join to make helium, and this gives out energy
+          (\cref{ch1:sec:fusion}). The star is now on the main sequence.
+    \item Gravity pulls in; hot gas (and radiation) pushes out. They balance:
+          \term{stellar equilibrium} (\cref{ch1:fig:equilibrium}).
+  \end{itemize}
+\end{sidebyside}
+
+A more massive star has stronger gravity, a hotter core and much faster fusion. It is
+hotter, bluer and more luminous, but its life is much shorter. The Sun lasts about 10
+billion years, and a $10\,M_\odot$ star only about 30 million years. A $0.1\,M_\odot$
+star lasts trillions of years.
+
+When the core runs out of hydrogen, it shrinks and heats up, and hydrogen fuses in a
+shell around it. The outer layers swell and cool: a red giant (point 2 in
+\cref{ch1:fig:hr}). At about 100 million K, helium fuses into carbon.
+\Cref{ch1:fig:lifecycle} shows the two possible endings.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1mm, y=1mm,
+      st/.style={concept=#1, font=\footnotesize, inner sep=1.4mm},
+      fin/.style={concept=#1, font=\footnotesize, inner sep=1.4mm, fill=hscbrand!16}]
+    \node[st=12mm] (neb) at (7.4,0) {nebula};
+    \node[st=15mm] (pro) at (27.9,0) {protostar};
+    \node[st=15mm] (ms) at (49.9,0) {main\\sequence};
+    \node[st=17mm] (rg) at (76.9,11) {red giant};
+    \node[st=17mm] (rsg) at (76.9,-11) {red\\supergiant};
+    \node[st=15mm] (pn) at (99.9,11) {planetary\\nebula};
+    \node[st=15mm] (sn) at (99.9,-11) {supernova};
+    \node[fin=24mm] (wd) at (126.4,11) {white dwarf\\(core below $1.4\,M_\odot$)};
+    \node[fin=24mm] (ns) at (126.4,-4) {neutron star\\(core $1.4$--$3\,M_\odot$)};
+    \node[fin=24mm] (bh) at (126.4,-18) {black hole\\(core above $3\,M_\odot$)};
+    \draw[link] (neb) -- (pro);
+    \draw[link] (pro) -- (ms);
+    \draw[link] (ms.east) -- (rg.west);
+    \draw[link] (ms.east) -- (rsg.west);
+    \node[font=\footnotesize\bfseries, text=hscbrand, anchor=south west] at (64,17.5)
+      {Starting mass below $8\,M_\odot$};
+    \node[font=\footnotesize\bfseries, text=hscbrand, anchor=north west] at (64,-17.5)
+      {Starting mass above $8\,M_\odot$};
+    \draw[link] (rg) -- (pn);
+    \draw[link] (pn) -- (wd);
+    \draw[link] (rsg) -- (sn);
+    \draw[link] (sn.east) -- (ns.west);
+    \draw[link] (sn.east) -- (bh.west);
+  \end{tikzpicture}
+  \caption{The life cycle of a star depends on its starting mass. The masses on the right
+    are those of the leftover core.}\label{ch1:fig:lifecycle}
+\end{figure}
+
+\begin{itemize}
+  \item \emph{Below about $8\,M_\odot$} (like the Sun): the outer layers drift away as a
+        \term{planetary nebula}. The hot core is left as a white dwarf, about the size of
+        Earth. With no fusion it slowly cools. (A cold ``black dwarf'' would take longer
+        than the age of the Universe, so none exists yet.)
+  \item \emph{Above about $8\,M_\odot$}: the star swells into a \term{red supergiant}, a
+        huge, cool, very luminous star. Its core fuses heavier elements, up to iron.
+        Then the iron core collapses and the star explodes. This explosion is a
+        \term{supernova}. The leftover core becomes a \term{neutron star}: a ball about
+        \qty{20}{km} across, made almost only of neutrons. Its mass is 1.4 to 3 times the
+        Sun's mass. If the core is heavier than about $3\,M_\odot$, it becomes a
+        \term{black hole}: its gravity is so strong that nothing, not even light, can
+        escape.
+\end{itemize}
+
+\begin{workedexample}{Reading the HR diagram}\label{ch1:we:hr}
+Star P: $T = \qty{3300}{K}$, $L = 10^5\,L_\odot$. Star Q: $T = \qty{20000}{K}$,
+$L = 10^{-2}\,L_\odot$. Use \cref{ch1:fig:hr} to give each star's colour, class, type
+and size. Find each star's peak wavelength.
+\given{P: \qty{3300}{K}, $10^5\,L_\odot$; \ Q: \qty{20000}{K}, $10^{-2}\,L_\odot$; \
+  $b = \qty{2.898e-3}{m.K}$}
+\find{colour, class, type and size from the diagram; $\lambda_\mathrm{max}$}
+\formula{read the diagram for colour, class, type and size; then
+  $\lambda_\mathrm{max} = \dfrac{b}{T}$}
+\substitute{P: find \qty{3300}{K} on the bottom axis. It is in the M band, so P is red,
+  class M. Go up to $10^5\,L_\odot$ on the left axis. That point is in the Supergiants
+  band, at the top right. The nearest dashed line is $1000\,R_\odot$.\newline
+  Q: find \qty{20000}{K}. It is in the B band, so Q is blue-white, class B. Go up to
+  $10^{-2}\,L_\odot$. That point is in the White dwarfs region, at the bottom left, near
+  the $0.01\,R_\odot$ line.\newline
+  \eqlines{\text{P: } \lambda_\mathrm{max} &= \frac{\qty{2.898e-3}{m.K}}{\qty{3300}{K}}
+  = \qty{8.78e-7}{m} = \qty{878}{nm}\\
+  \text{Q: } \lambda_\mathrm{max} &= \frac{\qty{2.898e-3}{m.K}}{\qty{20000}{K}}
+  = \qty{1.45e-7}{m} = \qty{145}{nm}}}
+\answer{P: red, class M, top right: a \final{red supergiant}, about $1000\,R_\odot$; peak
+  \qty{878}{nm} (infrared). Q: blue-white, class B, bottom left: a \final{white dwarf},
+  about $0.01\,R_\odot$; peak \qty{145}{nm} (ultraviolet).}
+\checkstep{P is cool but very luminous, so huge; Q is hot but dim, so tiny \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Two stars, two endings}\label{ch1:we:endings}
+Star R starts with $2\,M_\odot$ and star S starts with $15\,M_\odot$. Describe each
+star's life and name its final remnant.
+\given{starting masses $2\,M_\odot$ (R) and $15\,M_\odot$ (S)}
+\find{the stages and the remnant of each star}
+\formula{the rule in \cref{ch1:fig:lifecycle}: starting mass below about $8\,M_\odot$
+  $\to$ red giant $\to$ planetary nebula $\to$ white dwarf; above about $8\,M_\odot$
+  $\to$ red supergiant $\to$ supernova $\to$ neutron star or black hole}
+\substitute{R: $2 < 8$, so R follows the top path. \ S: $15 > 8$, so S follows the
+  bottom path.}
+\answer{Both: nebula $\to$ protostar $\to$ main sequence (H to He).\newline
+  R: about 1--2 billion years on the main sequence $\to$ red giant (He to C)
+  $\to$ planetary nebula $\to$ \final{white dwarf}.\newline
+  S: hotter and far more luminous, only about 10--15 million years on the main
+  sequence $\to$ red supergiant (fusion up to iron) $\to$ supernova $\to$
+  \final{neutron star or black hole} (this depends on the mass of the leftover core).}
+\checkstep{S has more fuel, but burns it much faster, so it dies sooner \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Temperature increasing to the right. \cmark\ Hot stars are on the left.
+  \item \xmark\ ``A bigger magnitude is brighter.'' \cmark\ Smaller (more negative) is brighter.
+  \item \xmark\ ``A red supergiant becomes a white dwarf.'' \cmark\ It explodes as a
+        supernova: neutron star or black hole.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain how an HR diagram shows a star's surface temperature, colour and luminosity''
+(5--6 marks). Full marks need:
+\begin{enumerate}
+  \item The horizontal axis: surface temperature, hot on the left, log scale.
+  \item Colour comes from temperature: hot = blue, cool = red (Wien's law).
+  \item The vertical axis: luminosity or absolute magnitude, brightest at the top.
+  \item What each group means and its stage of life: main sequence; giants (cool but
+        bright, so big); white dwarfs (hot but dim, so small).
+  \item A neat labelled sketch.
+\end{enumerate}
+``Path of a Sun-like star'': main sequence $\to$ up and right (red giant) $\to$ left and
+down (white dwarf).
+\end{examtip}
+
+\begin{quickcheck}
+  \item Where on an HR diagram are stars that are cool but very luminous? What does this
+        tell you about their size?
+  \item Star A has absolute magnitude $-5$ and star B $+10$. Which is more luminous, and
+        by about what factor?
+  \item Explain why a $10\,M_\odot$ star spends much less time on the main sequence than
+        the Sun.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Fusion in stars: \texorpdfstring{$E = mc^2$}{E = mc2} and nucleosynthesis}\label{ch1:sec:fusion}
+\covers{M8.IQ1.03, M8.IQ1.07}
+
+\begin{bigidea}
+Stars shine by fusing light nuclei into heavier ones. The products have a little less
+mass, and the lost mass becomes energy: $E = \Delta m\,c^2$. Main sequence stars fuse
+hydrogen into helium. Stars that have left the main sequence (giants and supergiants)
+build heavier elements, up to iron.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Nuclear fusion}{two light nuclei joining to make one heavier nucleus.}
+  \kw{Mass defect ($\Delta m$)}{the mass that disappears in a nuclear reaction: mass before
+    minus mass after.}
+  \kw{Catalyst}{something that helps a reaction but is not used up.}
+\end{keywords}
+
+\begin{refresher}{Nuclear symbols}
+$\chOneNuc{A}{Z}{X}$: $Z$ = atomic number (protons), $A$ = mass number (protons +
+neutrons). Proton $\chOneNuc{1}{1}{H}$, positron $\chOneNuc{0}{+1}{e}$, gamma photon
+$\gamma$. \emph{Deuterium} $\chOneNuc{2}{1}{H}$ is hydrogen with one proton and one
+neutron. A \emph{neutrino} ($\nu_\mathrm{e}$) is a tiny neutral particle with almost no
+mass. In every nuclear equation, the $A$ values on the left add up to the same total as
+on the right. The $Z$ values do too.
+\end{refresher}
+
+\subsection{Mass becomes energy}
+Four hydrogen nuclei have a little more mass than one helium nucleus. When they fuse,
+about \qty{0.7}{\percent} of the mass disappears and comes out as energy.
+
+Fusion needs more than about 10 million K. Nuclei are positive, so they repel each
+other. Only very fast (very hot) nuclei get close enough to join. Fusion gives out
+energy only for nuclei up to iron (\cref{ch4:sec:binding} shows why).
+
+Fusing \qty{1}{kg} of hydrogen turns \qty{0.00712}{kg} into energy:
+$E = mc^2 = \qty{0.00712}{kg} \times (\qty{3.00e8}{m.s^{-1}})^2 = \qty{6.4e14}{J}$.
+Burning \qty{1}{kg} of petrol gives only about \qty{4.6e7}{J}. So fusion gives more than
+10 million times as much ($\num{6.4e14} \div \num{4.6e7} = \num{1.4e7}$). That is why
+stars can shine for billions of years.
+
+Nuclei are so light that we measure them in \term{atomic mass units} (u):
+$\qty{1}{u} = \qty{1.661e-27}{kg}$, about the mass of one proton. The data sheet also
+gives $\qty{1}{u} = \qty{931.5}{MeV}/c^2$. This means \qty{1}{u} of mass, turned fully
+into energy, gives \qty{931.5}{MeV}.
+
+\begin{formulacard}[combine={$E = mc^2$ and $\mathrm{u} = 931.5\ \mathrm{MeV}/c^2$}]{Energy released in a nuclear reaction}
+  \cardformula{E = \Delta m\,c^2 \qquad E\,(\mathrm{MeV}) = \Delta m\,(\mathrm{u}) \times 931.5}
+  \begin{symbols}
+    \sym{$E$}{energy released}{\si{J} (or \si{MeV})}
+    \sym{$\Delta m$}{mass defect = mass before $-$ mass after; in u, where
+      $\qty{1}{u} = \qty{1.661e-27}{kg} = \qty{931.5}{MeV}/c^2$}{\si{kg} (or u)}
+    \sym{$c$}{speed of light, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+    \sym{$P$, $\Delta t$}{power given out (a star's luminosity); time taken}{\si{W}; \si{s}}
+  \end{symbols}
+  \inwords{the mass that disappears in a reaction comes out as energy.}
+  \whentouse{fusion and other nuclear reactions with known masses; a star's mass loss.}
+  \whennottouse{with mass numbers ($A$): they always balance, giving $\Delta m = 0$.}
+  \rearranged{$\Delta m = \dfrac{E}{c^2}$ \qquad mass lost each second: power $P$ is
+    energy per second, so divide $E = \Delta m\,c^2$ by the time:
+    $\dfrac{\Delta m}{\Delta t} = \dfrac{P}{c^2}$}
+  \tensecond{$\Delta m = \qty{0.0200}{u}$: $E = 0.0200 \times 931.5 = \qty{18.6}{MeV}$.}
+  \derive{with $\qty{1}{u} = \qty{931.5}{MeV}/c^2$ (data sheet):
+    $E = \Delta m\,c^2 = \Delta m\,(\mathrm{u}) \times \dfrac{\qty{931.5}{MeV}}{c^2} \times c^2
+    = \Delta m\,(\mathrm{u}) \times \qty{931.5}{MeV}$.}
+  \trap{use one route only: u $\to$ $\times\,931.5$ MeV, or kg $\to$ $\times\,c^2$ for J.
+    Keep every decimal place of the masses.}
+\end{formulacard}
+
+\subsection{Main sequence stars: the proton--proton chain}
+Stars like the Sun (up to about $1.3\,M_\odot$, core below about 18 million K) mainly use
+the \term{proton--proton chain}. It is a chain of three fusion steps that turns four
+protons into one helium-4 nucleus (\cref{ch1:fig:pp}). Helium-4 has four particles (2
+protons + 2 neutrons). But four protons almost never hit each other at the same moment.
+So the star builds helium two particles at a time.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1mm, y=1mm,
+      rx/.style={concept=54mm, font=\small, inner sep=1.5mm},
+      st/.style={font=\footnotesize\bfseries, text=hscbrand, anchor=east}]
+    \node[rx] (a1) at (-31,0)
+      {$\chOneNuc{1}{1}{H} + \chOneNuc{1}{1}{H} \to \chOneNuc{2}{1}{H} + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$};
+    \node[rx] (a2) at (31,0)
+      {$\chOneNuc{1}{1}{H} + \chOneNuc{1}{1}{H} \to \chOneNuc{2}{1}{H} + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$};
+    \node[rx] (b1) at (-31,-13) {$\chOneNuc{2}{1}{H} + \chOneNuc{1}{1}{H} \to \chOneNuc{3}{2}{He} + \gamma$};
+    \node[rx] (b2) at (31,-13) {$\chOneNuc{2}{1}{H} + \chOneNuc{1}{1}{H} \to \chOneNuc{3}{2}{He} + \gamma$};
+    \node[rx, fill=hscbrand!16] (c) at (0,-27)
+      {$\chOneNuc{3}{2}{He} + \chOneNuc{3}{2}{He} \to \chOneNuc{4}{2}{He} + \chOneNuc{1}{1}{H} + \chOneNuc{1}{1}{H}$};
+    \draw[link] (a1) -- (b1);
+    \draw[link] (a2) -- (b2);
+    \draw[link] (b1.south) -- (c.north west);
+    \draw[link] (b2.south) -- (c.north east);
+    \node[st] at (-61,0) {Step 1};
+    \node[st] at (-61,-13) {Step 2};
+    \node[st] at (-61,-27) {Step 3};
+  \end{tikzpicture}
+  \caption{The proton--proton chain. In step 1 a proton turns into a neutron. Steps 1 and
+    2 happen twice for every step 3, which gives two protons back.}\label{ch1:fig:pp}
+\end{figure}
+
+Count what goes in and out to make one helium-4 nucleus:
+\begin{itemize}
+  \item \emph{In}: steps 1 and 2 each happen twice. That is $4\,\chOneNuc{1}{1}{H}$
+        (step 1) $+\ 2\,\chOneNuc{1}{1}{H}$ (step 2) $= 6\,\chOneNuc{1}{1}{H}$.
+  \item \emph{Made and then used again} (these cancel): $2\,\chOneNuc{2}{1}{H}$ (made in
+        step 1, used in step 2) and $2\,\chOneNuc{3}{2}{He}$ (made in step 2, used in
+        step 3).
+  \item \emph{Out}: $\chOneNuc{4}{2}{He} + 2\,\chOneNuc{1}{1}{H}$ (step 3),
+        $2\,\chOneNuc{0}{+1}{e} + 2\nu_\mathrm{e}$ (step 1, twice), $2\gamma$ (step 2,
+        twice).
+  \item 6 protons in and 2 protons out means 4 protons are used.
+\end{itemize}
+So the net change is
+\[
+  4\,\chOneNuc{1}{1}{H} \to \chOneNuc{4}{2}{He} + 2\,\chOneNuc{0}{+1}{e} + 2\nu_\mathrm{e} + 2\gamma
+  \qquad (\qty{24.7}{MeV}).
+\]
+The two positrons soon annihilate with two electrons. This gives more gamma photons and
+about \qty{2.0}{MeV} more energy. So the total is about \qty{26.7}{MeV} for each helium-4
+nucleus.
+
+\subsection{Main sequence stars: the CNO cycle}
+Stars above about $1.3\,M_\odot$ have hotter cores (above about 18 million K). They
+mainly use the \term{CNO cycle} (\cref{ch1:fig:cno}): a carbon-12 nucleus catches protons
+one at a time.
+
+\begin{sidebyside}[0.46]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      nuc/.style={circle, draw=hscbrand!60, fill=hscbrand!9, line width=0.7pt,
+        minimum size=8.5mm, inner sep=0pt, font=\small},
+      lab/.style={font=\scriptsize, text=hscmuted, align=center}]
+    \def\R{1.85}
+    \foreach \ang/\name/\txt in {90/c12/{\chOneNuc{12}{6}{C}}, 30/n13/{\chOneNuc{13}{7}{N}},
+        -30/c13/{\chOneNuc{13}{6}{C}}, -90/n14/{\chOneNuc{14}{7}{N}},
+        -150/o15/{\chOneNuc{15}{8}{O}}, 150/n15/{\chOneNuc{15}{7}{N}}}
+      \node[nuc] (\name) at (\ang:\R) {$\txt$};
+    \foreach \a/\b/\pos/\txt in {c12/n13/60/{1: $+\,^{1}\mathrm{H}$\\$\gamma$ out},
+        n13/c13/0/{2: $\mathrm{e}^{+}$, $\nu$\\out},
+        c13/n14/-60/{3: $+\,^{1}\mathrm{H}$\\$\gamma$ out},
+        n14/o15/-120/{4: $+\,^{1}\mathrm{H}$\\$\gamma$ out},
+        o15/n15/180/{5: $\mathrm{e}^{+}$, $\nu$\\out},
+        n15/c12/120/{6: $+\,^{1}\mathrm{H}$\\$^{4}\mathrm{He}$ out}}{
+      \draw[link, line width=0.8pt] (\a) to[bend left=22] (\b);
+      \node[lab] at (\pos:2.72) {\txt};}
+    \node[font=\footnotesize, align=center, text=hscink] at (0,0)
+      {$^{12}\mathrm{C}$ is a\\catalyst:\\used and\\returned};
+  \end{tikzpicture}
+  \captionof{figure}{The CNO cycle turns four protons into one helium-4
+    nucleus.}\label{ch1:fig:cno}
+\nextside
+  \small
+  \begin{enumerate}
+    \item $\chOneNuc{12}{6}{C} + \chOneNuc{1}{1}{H} \to \chOneNuc{13}{7}{N} + \gamma$
+    \item $\chOneNuc{13}{7}{N} \to \chOneNuc{13}{6}{C} + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$
+    \item $\chOneNuc{13}{6}{C} + \chOneNuc{1}{1}{H} \to \chOneNuc{14}{7}{N} + \gamma$
+    \item $\chOneNuc{14}{7}{N} + \chOneNuc{1}{1}{H} \to \chOneNuc{15}{8}{O} + \gamma$
+    \item $\chOneNuc{15}{8}{O} \to \chOneNuc{15}{7}{N} + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$
+    \item $\chOneNuc{15}{7}{N} + \chOneNuc{1}{1}{H} \to \chOneNuc{12}{6}{C} + \chOneNuc{4}{2}{He}$
+  \end{enumerate}
+  Count: 4 protons go in (steps 1, 3, 4, 6). 2 positrons and 2 neutrinos come out
+  (steps 2, 5). 3 gammas come out (steps 1, 3, 4). Carbon-12 comes back at the end.\par
+  Net: $4\,\chOneNuc{1}{1}{H} \to \chOneNuc{4}{2}{He} + 2\,\chOneNuc{0}{+1}{e}
+  + 2\nu_\mathrm{e} + 3\gamma$
+\end{sidebyside}
+
+The carbon-12 used in step 1 comes back in step 6, so it is a \term{catalyst}. But the
+star must already contain some carbon, made by earlier stars. \Cref{ch1:tab:ppcno}
+compares the two routes.
+
+\begin{table}
+  \caption{The proton--proton chain and the CNO cycle.}\label{ch1:tab:ppcno}
+  \centering\small
+  \begin{tabular}{@{}L{30mm}L{53mm}L{55mm}@{}}
+    \toprule
+    & \colhead{Proton--proton chain} & \colhead{CNO cycle}\\
+    \midrule
+    Main route in & the Sun and smaller stars (below about $1.3\,M_\odot$) &
+      more massive stars (above about $1.3\,M_\odot$)\\
+    Core temperature & below about 18 million K & above about 18 million K\\
+    Needs & only hydrogen & carbon, nitrogen or oxygen already there (catalysts)\\
+    Net result & 4 protons $\to$ helium-4, \qty{26.7}{MeV} & the same\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{After the main sequence: helium and heavier elements}
+In a red giant the core reaches about 100 million K, and helium fuses into carbon by
+the \term{triple-alpha process} (helium-4 nuclei are alpha particles):
+\[
+  \chOneNuc{4}{2}{He} + \chOneNuc{4}{2}{He} \to \chOneNuc{8}{4}{Be} \qquad
+  \chOneNuc{8}{4}{Be} + \chOneNuc{4}{2}{He} \to \chOneNuc{12}{6}{C} + \gamma \qquad
+  \text{net: } 3\,\chOneNuc{4}{2}{He} \to \chOneNuc{12}{6}{C} + \text{energy}
+\]
+Beryllium-8 breaks apart almost at once, so a third helium nucleus must arrive very
+quickly. Some carbon then catches another helium nucleus:
+$\chOneNuc{12}{6}{C} + \chOneNuc{4}{2}{He} \to \chOneNuc{16}{8}{O} + \gamma$.
+
+\begin{sidebyside}[0.3]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \r/\c in {2.0/hscacc!12, 1.62/hscacc!22, 1.27/hscacc!32, 0.97/hscacc!42,
+        0.72/hscacc!52, 0.48/hscmuted!35}
+      \fill[\c] (0,0) circle (\r);
+    \fill[hscmuted!70] (0,0) circle (0.25);
+    \foreach \r in {2.0, 1.62, 1.27, 0.97, 0.72, 0.48, 0.25}
+      \draw[hscink!40, line width=0.4pt] (0,0) circle (\r);
+    \foreach \y/\t in {1.81/H, 1.445/He, 1.12/C, 0.845/Ne, 0.6/O, 0.365/Si}
+      \node[font=\scriptsize, text=hscink] at (0,\y) {\t};
+    \node[font=\scriptsize\bfseries, text=white] at (0,0) {Fe};
+  \end{tikzpicture}
+  \captionof{figure}{Fusion shells in a massive star (not to scale).}\label{ch1:fig:onion}
+\nextside
+  \begin{itemize}
+    \item In massive stars the core keeps getting hotter. It fuses carbon, then neon,
+          oxygen and silicon. Each fuel burns in its own shell, like the layers of an
+          onion (\cref{ch1:fig:onion}).
+    \item Fusing iron \emph{takes in} energy. With no energy source left, the iron core
+          collapses: a supernova.
+    \item Elements heavier than iron (gold, uranium) form when nuclei catch neutrons:
+          in supernovae, neutron-star collisions and old giant stars.
+    \item Planetary nebulae and supernovae spread these elements into space, where new
+          stars and planets form.
+  \end{itemize}
+\end{sidebyside}
+
+So the elements came from three places. The Big Bang made hydrogen, most of the helium
+and a little lithium. Fusion in stars made more helium, and carbon up to iron. Neutron
+capture made the elements heavier than iron. The hydrogen in your body (in water, for
+example) was made in the Big Bang. Almost every heavier atom in your body, such as
+carbon, oxygen, calcium and iron, was made in stars.
+
+\begin{workedexample}{Energy from hydrogen fusion}\label{ch1:we:ppenergy}
+Use the atomic masses $m(\chOneNuc{1}{1}{H}) = \qty{1.007825}{u}$ and
+$m(\chOneNuc{4}{2}{He}) = \qty{4.002603}{u}$. Find the total energy released when four
+hydrogen nuclei fuse into one helium nucleus (the whole proton--proton chain). Also find
+the percentage of the mass that becomes energy.
+\given{$m(\mathrm{H}) = \qty{1.007825}{u}$, \ $m(\mathrm{He}) = \qty{4.002603}{u}$, \
+  $\qty{1}{u} = \qty{931.5}{MeV}/c^2$, \ $\qty{1}{eV} = \qty{1.602e-19}{J}$}
+\find{$E$ in MeV and in J, and $\dfrac{\Delta m}{m_\mathrm{before}} \times \qty{100}{\percent}$}
+\formula{$\Delta m = 4m(\mathrm{H}) - m(\mathrm{He})$, \ then
+  $E\,(\mathrm{MeV}) = \Delta m\,(\mathrm{u}) \times 931.5$}
+\substitute{\eqlines{\Delta m &= 4 \times \qty{1.007825}{u} - \qty{4.002603}{u}\\
+  &= \qty{4.031300}{u} - \qty{4.002603}{u} = \qty{0.028697}{u}\\
+  E &= \num{0.028697} \times \qty{931.5}{MeV} = \qty{26.73}{MeV}}\par
+  \eqlines{E &= \qty{26.73e6}{eV} \times \qty{1.602e-19}{J.eV^{-1}} \quad\text{(MeV to J)}\\
+  &= \qty{4.282e-12}{J}\\
+  \text{percentage} &= \frac{\qty{0.028697}{u}}{\qty{4.031300}{u}} \times \qty{100}{\percent}
+  = \qty{0.712}{\percent}}}
+\answer{\final{$E = \qty{26.7}{MeV} = \qty{4.28e-12}{J}$}; \ \final{\qty{0.712}{\percent}}
+  of the mass}
+\checkstep{matches the \qty{26.7}{MeV} and ``\qty{0.7}{\percent}'' above \cmark. These
+  masses are for whole atoms, so they include the electrons. So this answer also
+  includes the energy from the two positrons annihilating with electrons.}
+\end{workedexample}
+
+\begin{workedexample}{Does a star die because its mass runs out?}\label{ch1:we:massloss}
+Sirius A is a main sequence star. Its luminosity is \qty{9.73e27}{W} and its mass is
+\qty{4.10e30}{kg}. (a) How much mass does it turn into energy each second? (b) What
+percentage of its mass is that in 1.0 billion years? (c) A student says: ``A star dies
+because fusion has turned most of its mass into energy.'' Use (b) to evaluate this.
+\given{$P = \qty{9.73e27}{W}$, \ $m_\mathrm{star} = \qty{4.10e30}{kg}$, \
+  $c = \qty{3.00e8}{m.s^{-1}}$,\newline
+  $t = \num{1.0e9}\ \text{years} \times \qty{3.156e7}{s.year^{-1}} = \qty{3.156e16}{s}$}
+\find{(a) $\dfrac{\Delta m}{\Delta t}$; \ (b) the percentage of $m_\mathrm{star}$; \
+  (c) a judgement, using (b)}
+\formula{$\dfrac{\Delta m}{\Delta t} = \dfrac{P}{c^2}$, \ then mass $=$ rate $\times$ time}
+\substitute{\eqlines{\frac{\Delta m}{\Delta t} &= \frac{\qty{9.73e27}{W}}{(\qty{3.00e8}{m.s^{-1}})^2}
+  = \qty{1.081e11}{kg.s^{-1}}}\par
+  \eqlines{\text{mass} &= \qty{1.081e11}{kg.s^{-1}} \times \qty{3.156e16}{s} = \qty{3.412e27}{kg}\\
+  \text{percentage} &= \frac{\qty{3.412e27}{kg}}{\qty{4.10e30}{kg}} \times \qty{100}{\percent}
+  = \qty{0.0832}{\percent}}}
+\answer{(a) \final{\qty{1.08e11}{kg} each second} \ (b) \final{only \qty{0.0832}{\percent}}
+  \newline (c) The statement is wrong. In a billion years, fusion turns less than
+  \qty{0.1}{\percent} of the star's mass into energy (part b). A star leaves the main
+  sequence when the hydrogen in its \emph{core} runs out, not when its mass runs out.}
+\checkstep{\qty{1.08e11}{kg} each second sounds huge, but it is tiny next to the star's
+  mass \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using mass numbers: $4 \times 1 - 4 = 0$. \cmark\ Use the real masses, with
+        every decimal place.
+  \item \xmark\ ``Carbon is used up in the CNO cycle.'' \cmark\ It comes back: a catalyst.
+  \item \xmark\ Leaving out the positron and neutrino in step 1. \cmark\ Check that $Z$
+        balances: $1 + 1 = 1 + 1$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Compare the proton--proton chain and the CNO cycle'' (3--4 marks). Full marks need:
+\begin{enumerate}
+  \item One similarity: both turn 4 protons into one helium-4 nucleus and release
+        \qty{26.7}{MeV}, in main sequence stars.
+  \item Difference 1: p--p in the Sun and smaller stars (core below about 18 million K);
+        CNO in more massive, hotter stars.
+  \item Difference 2: CNO needs carbon already in the star, as a catalyst. The p--p
+        chain needs only hydrogen.
+\end{enumerate}
+Write balanced equations with $A$ and $Z$.
+
+For ``analyse $E = mc^2$ in stars'', link mass defect $\to$ energy $\to$ huge energy per
+kilogram $\to$ billions of years of shining.
+\end{examtip}
+
+\begin{quickcheck}
+  \item With $m(\chOneNuc{4}{2}{He}) = \qty{4.002603}{u}$ and $m(\chOneNuc{12}{6}{C}) =
+        \qty{12.000000}{u}$, find the energy (MeV) released when three helium-4 nuclei
+        fuse into carbon-12.
+  \item Complete this CNO step: $\chOneNuc{13}{6}{C} + \chOneNuc{1}{1}{H} \to \ ? \ + \gamma$.
+  \item Give two differences between the proton--proton chain and the CNO cycle.
+  \item Explain why elements heavier than iron are not made by fusion in a star's core.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch1:sec:experiments}
+\covers{M8.IQ1.02, M8.IQ1.04, M8.IQ1.05, M8.IQ1.06}
+
+\begin{experiment}{Hubble's law from galaxy data}
+\aim{To show that recession velocity is proportional to distance, and to estimate $H_0$
+  and the age of the Universe.}
+\apparatus{Hubble (1929): the \qty{2.5}{m} telescope at Mount Wilson with a spectrograph
+  (an instrument that spreads light into a spectrum and records it). Each galaxy's
+  spectrum was photographed next to a laboratory lamp's spectrum
+  (\cref{ch1:fig:hubbleapp}). Speeds came from redshifts measured by Vesto Slipher and
+  by Milton Humason, Hubble's assistant. Distances came from Cepheid variables. In
+  class: a table of galaxy data and a spreadsheet.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm,
+        box/.style={draw=hscbrand!70, fill=hscbrand!8, rounded corners=1pt,
+          minimum height=8.5mm, align=center, font=\footnotesize, inner sep=2pt}]
+      \fill[hscmuted!35] (0,0) ellipse (0.55 and 0.22);
+      \fill[hscmuted!75] (0,0) ellipse (0.17 and 0.08);
+      \node[diagramlabel, below, font=\footnotesize] at (0,-0.3) {galaxy};
+      \node[box, minimum width=21mm] (tel) at (2.55,0) {telescope\\(\qty{2.5}{m} mirror)};
+      \node[box, minimum width=9mm] (slit) at (4.65,0) {slit};
+      \node[box, minimum width=15mm] (gr) at (6.25,0) {prism or\\grating};
+      \node[box, minimum width=20mm] (plate) at (8.6,0) {photographic\\plate};
+      \node[box, minimum width=20mm] (lamp) at (4.65,1.45) {laboratory lamp};
+      \draw[ray] (0.6,0) -- (tel.west);
+      \draw[ray] (tel) -- (slit);
+      \draw[ray] (slit) -- (gr);
+      \draw[ray] (gr) -- (plate);
+      \draw[ray] (lamp) -- (slit);
+      \draw[hscmuted, decorate, decoration={brace, amplitude=4pt, mirror}]
+        (4.15,-0.6) -- (9.65,-0.6) node[midway, below=5pt, font=\footnotesize,
+        text=hscmuted] {spectrograph};
+      \begin{scope}[shift={(2.2,-3.35)}]
+        \fill[hscink!85] (0,1.0) rectangle (6,1.35);
+        \fill[hscacc!14] (0,0.45) rectangle (6,0.9);
+        \fill[hscink!85] (0,0) rectangle (6,0.35);
+        \foreach \x in {1.0, 2.9, 4.6} {
+          \draw[hscacc!70!yellow, line width=1.8pt] (\x,1.0) -- (\x,1.35);
+          \draw[hscacc!70!yellow, line width=1.8pt] (\x,0) -- (\x,0.35);
+          \draw[hscink, line width=1.5pt] (\x+0.4,0.45) -- (\x+0.4,0.9);}
+        \node[font=\footnotesize, anchor=east] at (-0.1,1.175) {lamp};
+        \node[font=\footnotesize, anchor=east] at (-0.1,0.675) {galaxy};
+        \node[font=\footnotesize, anchor=east] at (-0.1,0.175) {lamp};
+        \draw[guide] (4.6,0) -- (4.6,-0.3);
+        \draw[guide] (5.0,0.45) -- (5.0,-0.3);
+        \draw[hscink, {Stealth[length=1.6mm]}-{Stealth[length=1.6mm]}] (4.6,-0.25)
+          -- (5.0,-0.25) node[right, font=\footnotesize] {$\Delta\lambda$};
+        \node[font=\footnotesize, text=hscmuted, anchor=north] at (3,-0.35)
+          {longer wavelength (redder) $\rightarrow$};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{How redshifts were measured (not to scale). The galaxy's spectrum was
+      photographed between two spectra of a laboratory lamp. Each galaxy line sits a
+      distance $\Delta\lambda$ to the red side of the matching lamp
+      line.}\label{ch1:fig:hubbleapp}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item For each galaxy, find $\Delta\lambda = \lambda - \lambda_0$ for the H-alpha line
+        ($\lambda_0 = \qty{656.3}{nm}$), then $v = \dfrac{c\,\Delta\lambda}{\lambda_0}$ in
+        \si{km.s^{-1}}.
+  \item Plot $v$ against $d$. Draw the line of best fit through the origin.
+  \item Gradient $= H_0$; then $t \approx \dfrac{1}{H_0}$ (with $H_0$ in \si{s^{-1}}).
+\end{enumerate}}
+\results{{\centering\small
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    Galaxy & A & B & C & D & E\\
+    \midrule
+    Distance $d$ (\si{Mpc}) & 22 & 48 & 75 & 104 & 140\\
+    Observed $\lambda$ (\si{nm}) & 659.8 & 663.3 & 668.1 & 671.7 & 678.0\\
+    $\Delta\lambda$ (\si{nm}) & 3.5 & 7.0 & 11.8 & 15.4 & 21.7\\
+    $v$ (\si{km.s^{-1}}) & \num{1600} & \num{3200} & \num{5390} & \num{7040} & \num{9920}\\
+    \bottomrule
+  \end{tabular}\par}\medskip
+  % (a group, not a center environment, so the Results heading stays with its table)
+  Sample working (galaxy A):
+  $v = \dfrac{c\,\Delta\lambda}{\lambda_0} = \dfrac{\qty{3.00e5}{km.s^{-1}} \times
+  \qty{3.5}{nm}}{\qty{656.3}{nm}} = \qty{1.6e3}{km.s^{-1}}$ (the nm cancel).
+  The graph is \cref{ch1:fig:hubble}: gradient \qty{69.9}{km.s^{-1}.Mpc^{-1}}.}
+\conclusion{$v \propto d$, with $H_0 \approx \qty{70}{km.s^{-1}.Mpc^{-1}}$. The age:
+  $H_0 = \dfrac{\qty{69.9}{km.s^{-1}}}{\qty{3.086e19}{km}} = \qty{2.265e-18}{s^{-1}}$, so
+  $t = \dfrac{1}{H_0} = \qty{4.415e17}{s}$, and
+  $\dfrac{\qty{4.415e17}{s}}{\qty{3.156e7}{s.year^{-1}}} = \qty{1.40e10}{years}$.
+  The Universe is expanding.}
+\significance{the first strong evidence that the Universe is expanding, not static. It
+  points back to the Big Bang. Georges Lema\^{\i}tre predicted the expansion in 1927, so
+  this is also called the Hubble--Lema\^{\i}tre law.}
+\validity{
+  \textbf{Validity:} it assumes redshift comes from the expansion. Use distant
+        galaxies, because nearby ones have their own motion. Distances need a correct
+        Cepheid scale: Hubble's value (about \qty{500}{km.s^{-1}.Mpc^{-1}}) was far too big
+        because his distances were too small.\par
+  \textbf{Reliability:} use many galaxies and data from different teams and methods.\par
+  \textbf{Accuracy:} distance is the biggest uncertainty; a line of best fit
+        through many points reduces random errors.
+}
+\end{experiment}
+
+\begin{experiment}{Observing continuous, emission and absorption spectra}
+\aim{To see and compare the three kinds of spectrum.}
+\apparatus{hand-held spectroscope (or diffraction grating); a bright white filament lamp
+  (a halogen or projector lamp); gas discharge tubes (hydrogen, helium, neon) with a
+  high-voltage supply; a sodium flame (salt in a Bunsen flame). The flame is hot, but
+  cooler than the lamp's filament, so its sodium gas absorbs light.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \draw[hscink, line width=0.8pt] (0,0) circle (0.45);
+      \draw[hscacc, line width=0.9pt, decorate, decoration={zigzag, amplitude=0.6mm,
+        segment length=1.2mm}] (-0.2,0) -- (0.2,0);
+      \node[diagramlabel, below, align=center, font=\footnotesize] at (0,-0.55)
+        {filament lamp\\(or gas tube)};
+      \fill[hscray!60] (2.7,-0.45) .. controls (2.35,0.05) and (2.6,0.35) .. (2.7,0.6)
+        .. controls (2.8,0.35) and (3.05,0.05) .. (2.7,-0.45);
+      \draw[hscmuted, line width=0.8pt] (2.55,-0.45) rectangle (2.85,-0.95);
+      \node[diagramlabel, below, align=center, font=\footnotesize, text width=30mm]
+        at (2.7,-1.0) {sodium flame (cooler than the filament): only for absorption};
+      \draw[ray] (0.5,0) -- (4.8,0);
+      \draw[object] (4.8,-0.32) rectangle (7.9,0.32);
+      \draw[hscink, line width=1.4pt] (4.8,-0.12) -- (4.8,-0.32) (4.8,0.12) -- (4.8,0.32);
+      \node[diagramlabel, above, font=\footnotesize] at (4.8,0.35) {slit};
+      \draw[hscfield, line width=1pt] (7.6,-0.3) -- (7.6,0.3);
+      \node[diagramlabel, above, font=\footnotesize] at (7.6,0.35) {grating};
+      \node[diagramlabel, below, font=\footnotesize] at (6.35,-0.35) {spectroscope};
+      \draw[hscink, line width=0.8pt] (9.05,0.3) .. controls (8.65,0.15) and (8.5,0) ..
+        (8.5,0) .. controls (8.5,0) and (8.65,-0.15) .. (9.05,-0.3);
+      \fill[hscink] (8.7,0) circle (0.07);
+      \node[diagramlabel, right, font=\footnotesize] at (9.1,0) {eye};
+    \end{tikzpicture}
+    \caption{Viewing spectra. Remove the flame to see the lamp's continuous spectrum.}
+    \label{ch1:fig:spectroscope}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Look at the filament lamp through the spectroscope. Sketch the spectrum.
+  \item Look at each gas tube. Record the colour and scale reading of each bright line.
+  \item Put the sodium flame between the lamp and the spectroscope. Record any dark lines.
+        Compare all readings with a table of known wavelengths.
+\end{enumerate}}
+\results{the lamp gives a continuous rainbow. Each gas gives its own bright lines
+  (hydrogen: \qty{656}{nm} red, \qty{486}{nm} blue-green, 434 and \qty{410}{nm} violet).
+  Sodium gives a dark line at \qty{589}{nm}, where its bright yellow line is. This dark
+  line is faint; it is clearer with a brighter lamp. Another way to see dark lines: look
+  at daylight reflected from a white cloud (never at the Sun). Its spectrum shows the
+  Sun's own dark absorption lines (Fraunhofer lines).}
+\conclusion{hot dense sources give continuous spectra, hot thin gases give bright lines,
+  and cool gas in front of a hot source gives dark lines at the same wavelengths.}
+\significance{this is how astronomers find what stars are made of and how hot they are.}
+\validity{
+  \textbf{Validity:} same spectroscope and viewing distance; block stray room light.\par
+  \textbf{Reliability:} repeat each reading and compare with other groups.\par
+  \textbf{Accuracy:} a hand spectroscope reads to only about \qty{\pm 5}{nm}; a
+        grating on a spectrometer ($d\sin\theta = m\lambda$) is more accurate.
+        \emph{Safety:} gas tubes use high voltage; never look at the Sun.
+}
+\end{experiment}
+
+\begin{experiment}{Plotting an HR diagram from star data}
+\aim{To plot stars by surface temperature and absolute magnitude, and to find the main
+  groups of stars.}
+\apparatus{a data table of stars (\cref{ch1:tab:hrdata}; approximate values from a star
+  catalogue), and log graph paper or a spreadsheet.
+  \begin{table}
+    \caption{Data for ten real stars.}\label{ch1:tab:hrdata}
+    \centering\small
+    \begin{tabular}{@{}lrr@{\hspace{10mm}}lrr@{}}
+      \toprule
+      \colhead{Star} & \colhead{$T$ (K)} & \colhead{$M$} &
+        \colhead{Star} & \colhead{$T$ (K)} & \colhead{$M$}\\
+      \midrule
+      Sun & \num{5772} & $+4.8$ & Betelgeuse & \num{3600} & $-5.9$\\
+      Sirius A & \num{9940} & $+1.4$ & Aldebaran & \num{3900} & $-0.6$\\
+      Sirius B & \num{25000} & $+11.2$ & Procyon B & \num{7700} & $+13.0$\\
+      Vega & \num{9600} & $+0.6$ & Barnard's star & \num{3130} & $+13.2$\\
+      Rigel & \num{12100} & $-7.8$ & Proxima Centauri & \num{3040} & $+15.5$\\
+      \bottomrule
+    \end{tabular}
+  \end{table}}
+\method{\begin{enumerate}
+  \item Draw the temperature axis as a log scale, with hot on the \emph{left} (for
+        example from \qty{30000}{K} down to \qty{2500}{K}).
+  \item Draw the absolute magnitude axis with the negative (bright) numbers at the top.
+  \item Plot each star and write its name next to it.
+  \item Shade the diagonal band of the main sequence. Circle the giants, the supergiants
+        and the white dwarfs.
+\end{enumerate}}
+\results{\begin{figure}
+    \centering
+    \includegraphics{ch1_hrplot.pdf}
+    \caption{The ten stars of \cref{ch1:tab:hrdata} on an HR
+      diagram.}\label{ch1:fig:hrplot}
+  \end{figure}}
+\conclusion{the Sun, Sirius A, Vega, Barnard's star and Proxima Centauri lie on a
+  diagonal band: the main sequence. Aldebaran (a giant) and Betelgeuse and Rigel
+  (supergiants) lie above it. They are very luminous for their temperature, so they are
+  large. Sirius B and Procyon B lie below and to the left. They are hot but dim, so they
+  are small white dwarfs.}
+\significance{Hertzsprung and Russell found these groups in the same way (about
+  1911--1913). The groups showed that stars change as they age, and that the main
+  sequence is the long, steady stage of a star's life.}
+\validity{
+  \textbf{Validity:} use absolute magnitude, not apparent magnitude, so that distance does
+        not change a star's place. (Stars from one cluster are all at about the same
+        distance, so apparent magnitude works for a cluster.)\par
+  \textbf{Reliability:} use many stars (a large sample) from a trusted catalogue.\par
+  \textbf{Accuracy:} an error in a star's distance gives an error in its absolute
+        magnitude. Temperatures from spectra are good to a few per cent.
+}
+\end{experiment}
+

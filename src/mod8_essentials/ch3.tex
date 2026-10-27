@@ -1,0 +1,353 @@
+% ch3.tex -- Module 8 ESSENTIALS edition, Chapter 3: The quantum atom (Bohr, de Broglie,
+% Schrödinger). Knowledge points only: no questions, no worked examples.
+% check_numbers.py). The spectra are shown once, in Figure 1.1 (ch1:fig:spectra; the full
+% book's ch3_spectra figure shows the same three spectra, so it is not repeated here). The
+% diagrams are TikZ copied (some shrunk or rearranged) from the full chapter.
+\chapter[The Quantum Atom]{The Quantum Atom: Bohr, de~Broglie and Schrödinger}\label{ch3:chap}
+\covers{M8.IQ3.01, M8.IQ3.02, M8.IQ3.03, M8.IQ3.04, M8.IQ3.05}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item Why Rutherford's atom fails; Bohr's postulates and hydrogen's energy levels.
+  \item The line spectrum: $E = hf$, $E = hc/\lambda$, the Rydberg equation, the Balmer series.
+  \item De Broglie's matter waves, $\lambda = h/mv$, and the electron-diffraction evidence.
+  \item The limits of Bohr's model, and what Schrödinger added.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{From Rutherford's atom to Bohr's energy levels}\label{ch3:sec:bohr}
+\covers{M8.IQ3.01, M8.IQ3.03}
+
+\begin{bigidea}
+Classical physics says Rutherford's atom should collapse. Bohr fixed this with quantum rules:
+the electron has only certain energies. It gives out or takes in light only when it jumps.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Classical physics}{physics before quantum ideas: Newton's laws and Maxwell's
+    electromagnetism.}
+  \kw{Quantised}{only certain values are allowed.}
+  \kw{Stationary state}{an allowed orbit, where the electron does not radiate (give out EM
+    waves).}
+\end{keywords}
+
+\textbf{Why Rutherford's atom fails.} The \term{nuclear model} (1911) is a tiny,
+dense, positive nucleus with electrons moving around it. The nucleus explained the gold-foil
+results and is still accepted. But:
+\begin{itemize}
+  \item \textbf{It should collapse.} The orbiting electron accelerates $\to$ it gives out EM
+        waves (Maxwell) $\to$ it loses energy $\to$ it spirals into the nucleus in about
+        \qty{e-11}{s}. Real atoms are \term{stable}: they last for billions of years.
+  \item \textbf{Wrong spectrum.} Spiralling in, it turns faster and faster, so its light would
+        have every frequency: a \term{continuous spectrum}. Real hydrogen gives a
+        \term{line spectrum}: a few sharp wavelengths. It also absorbs the same
+        wavelengths (\cref{ch1:fig:spectra}).
+  \item It does not say what the nucleus is made of, or how the electrons are arranged.
+\end{itemize}
+
+\textbf{Bohr's postulates (1913).} Bohr kept the nucleus and added \term{postulates}: rules
+assumed without proof. Learn them by what they say (books number them differently):
+\begin{enumerate}
+  \item Electrons move in circular orbits, held by the electrostatic (Coulomb) attraction to
+        the nucleus.
+  \item Only certain orbits are allowed. In these \term{stationary states} the electron does
+        \emph{not} radiate, so its energy stays constant.
+  \item A jump between states emits or absorbs \emph{one} photon, with energy equal to the gap:
+        $hf = E_\mathrm{i} - E_\mathrm{f}$ (emission; $E_\mathrm{f} - E_\mathrm{i}$ for
+        absorption). i = initial, f = final. This is \textbf{conservation of energy}: the
+        energy the atom loses is the energy of the photon.
+  \item \term{Angular momentum} ($mvr$, the amount of turning motion) is quantised:
+        $mvr = \dfrac{nh}{2\pi}$, $n = 1, 2, 3, \ldots$ (not on the formula sheet).
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.8cm, font=\footnotesize]
+    \foreach \y/\n/\E in {0/1/-13.6, 3.0/2/-3.40, 4.3/3/-1.51, 5.1/4/-0.85, 5.7/5/-0.54,
+                          6.2/6/-0.38} {
+      \draw[hscink, line width=0.8pt] (0,\y) -- (11.2,\y);
+      \node[anchor=west] at (11.3,\y) {$n = \n$ \quad $\num{\E}$ eV};
+    }
+    \draw[hscink, line width=0.8pt, dashed] (0,6.8) -- (11.2,6.8);
+    \node[anchor=west] at (11.3,6.8) {$n = \infty$ \quad 0 eV};
+    \node[anchor=east, align=right] at (-0.1,0) {ground\\state};
+    \node[anchor=east, align=right] at (-0.1,4.6) {excited\\states};
+    \foreach \x/\y in {0.5/3.0, 0.9/4.3, 1.3/5.1, 1.7/5.7} {
+      \draw[->, line width=0.9pt, hscfield!80] (\x,\y) -- (\x,0.04);
+    }
+    \node[draw=hscfield!80, rounded corners=1pt, align=center, fill=white, inner sep=2pt]
+      at (3.7,0.65) {Lyman series\\(to $n=1$): ultraviolet};
+    \foreach \x/\y/\col/\lab in {4.7/4.3/red!85!black/656, 5.5/5.1/cyan!75!blue/486,
+                                 6.3/5.7/blue!80!black/434, 7.1/6.2/violet/410} {
+      \draw[->, line width=1.1pt, \col] (\x,\y) -- (\x,3.04);
+      \node[below, inner sep=1.5pt, text=\col] at (\x,3.0) {\lab};
+    }
+    \node[draw=hscink!60, rounded corners=1pt, align=center, fill=white, inner sep=2pt]
+      at (6.1,1.95) {Balmer series (to $n=2$): 4 visible\\lines (in nm) + UV lines};
+    \foreach \x/\y in {8.4/5.1, 8.8/5.7, 9.2/6.2} {
+      \draw[->, line width=0.9pt, red!45!black] (\x,\y) -- (\x,4.34);
+    }
+    \node[draw=red!45!black, rounded corners=1pt, align=center, fill=white, inner sep=2pt]
+      at (8.8,3.6) {Paschen series\\(to $n=3$): infrared};
+    \draw[->, line width=0.9pt, hscink, dashed] (10.5,0.04) -- (10.5,6.75);
+    \node[align=center, fill=white, inner sep=1pt] at (10.5,1.6)
+      {ionisation\\from $n=1$:\\13.6 eV};
+  \end{tikzpicture}
+  \caption{Energy levels of hydrogen (spacing not to scale) and the three main series of
+    lines.}
+  \label{ch3:fig:levels}
+\end{figure}
+
+\begin{itemize}
+  \item The allowed energies are \term{energy levels}, named by $n$, like the rungs of a ladder
+        (\cref{ch3:fig:levels}). $n = 1$ is the \term{ground state}; higher levels are
+        \term{excited states}. A jump between levels is a \term{transition}.
+  \item Energies are negative: 0 eV is a just-free electron ($n = \infty$), and a bound one has
+        less. Hydrogen: $E_n = -\dfrac{\qty{13.6}{eV}}{n^2}$ (not on the formula sheet).
+  \item Only certain gaps exist, so only certain photon energies come out: a line spectrum.
+        \textbf{Absorption} needs a photon that matches a gap \emph{exactly}.
+  \item \textbf{Ionisation:} the electron reaches $n = \infty$ and leaves. The
+        \term{ionisation energy} from $n = 1$ is \qty{13.6}{eV}; any extra becomes kinetic
+        energy.
+\end{itemize}
+
+\begin{formulacard}{Photon energy}
+  \cardformula{E = hf}
+  \begin{symbols}
+    \sym{$E$}{energy of one photon}{\si{J}}
+    \sym{$h$}{Planck constant, \num{6.626e-34}}{\si{J.s}}
+    \sym{$f$}{frequency of the light}{\si{Hz} ($\si{s^{-1}}$)}
+  \end{symbols}
+  \whentouse{a photon's energy from its frequency, or its frequency from an energy gap.}
+  \trap{use the \emph{gap}, not one level's energy. Change eV to J first:
+    $\qty{1}{eV} = \qty{1.602e-19}{J}$.}
+\end{formulacard}
+
+\begin{formulacard}[combine={$E = hf$ and $v = f\lambda$}]{Photon energy from wavelength}
+  \cardformula{E = \frac{hc}{\lambda}}
+  \begin{symbols}
+    \sym{$E$; $\lambda$}{energy of one photon; wavelength of the light}{\si{J}; \si{m}}
+    \sym{$h$; $c$}{Planck constant, \num{6.626e-34}; speed of light, \num{3.00e8}}{\si{J.s};
+      \si{m.s^{-1}}}
+  \end{symbols}
+  \whentouse{wavelength $\leftrightarrow$ photon energy. Shorter $\lambda$: more energy.}
+  \derive{for light $v = c$, so $f = \dfrac{c}{\lambda}$. Put it in $E = hf$.}
+  \trap{nm to m: $\times 10^{-9}$. Not for particles with mass.}
+\end{formulacard}
+
+
+%% ==================================================================
+\section{Hydrogen's line spectrum and the Rydberg equation}\label{ch3:sec:rydberg}
+\covers{M8.IQ3.02, M8.IQ3.03}
+
+\begin{bigidea}
+Each line in hydrogen's spectrum is one kind of jump between two energy levels. The Rydberg
+equation gives the wavelength of every line.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Balmer series}{lines from jumps that end on $n = 2$: four visible lines, then UV.}
+  \kw{Lyman / Paschen series}{jumps that end on $n = 1$ (UV, \qtyrange{91}{122}{nm}) /
+    $n = 3$ (IR, \qtyrange{820}{1875}{nm}).}
+\end{keywords}
+
+\begin{itemize}
+  \item Each element's lines are like a fingerprint (used to find hydrogen in stars). Balmer
+        and Rydberg found formulas for the lines; Bohr explained them.
+  \item Visible Balmer lines (\cref{ch1:fig:spectra}): \qty{656}{nm} (red, $3 \to 2$),
+        \qty{486}{nm} (cyan, $4 \to 2$), \qty{434}{nm} (blue-violet, $5 \to 2$), \qty{410}{nm}
+        (violet, $6 \to 2$). Then UV lines, down to the \term{series limit} (a jump from
+        $n = \infty$), \qty{365}{nm}.
+  \item \textbf{Link to the levels:} put $E_n = -\dfrac{\qty{13.6}{eV}}{n^2}$ into
+        $\dfrac{hc}{\lambda} = E_\mathrm{i} - E_\mathrm{f}$. This gives the Rydberg equation,
+        with $R = \dfrac{\qty{13.6}{eV}}{hc}$.
+\end{itemize}
+
+
+\begin{formulacard}{The Rydberg equation (hydrogen)}
+  \cardformula{\frac{1}{\lambda} = R\left(\frac{1}{n_\mathrm{f}^2} - \frac{1}{n_\mathrm{i}^2}\right)}
+  \begin{symbols}
+    \sym{$\lambda$}{wavelength of the emitted (or absorbed) photon}{\si{m}}
+    \sym{$R$}{Rydberg constant for hydrogen, \num{1.097e7}}{\si{m^{-1}}}
+    \sym{$n_\mathrm{f}$; $n_\mathrm{i}$}{number of the final (end) level; of the initial
+      (start) level}{no unit}
+  \end{symbols}
+  \whentouse{hydrogen lines only. Emission: $n_\mathrm{i} > n_\mathrm{f}$. Series limit:
+    $n_\mathrm{i} = \infty$.}
+  \trap{square each $n$ first. The equation gives $\frac{1}{\lambda}$: take the reciprocal at
+    the end to get $\lambda$. $R$ is not resistance.}
+\end{formulacard}
+
+%% ==================================================================
+\section{De Broglie's matter waves}\label{ch3:sec:debroglie}
+\covers{M8.IQ3.04, M8.IQ3.01}
+
+\begin{bigidea}
+Light waves can act like particles. De Broglie (1924) proposed the reverse: particles can act
+like waves. Electron diffraction confirmed it.
+\end{bigidea}
+
+\begin{itemize}
+  \item \term{Wave--particle duality}: light and matter both show wave and particle behaviour.
+  \item Photons carry \term{momentum} ($p$, amount of motion): $p = h/\lambda$ (not on the
+        formula sheet).
+  \item De Broglie's \term{hypothesis} (an idea to be tested): particles follow the same rule,
+        with $p = mv$. So $\lambda = \dfrac{h}{mv}$.
+  \item \term{Diffraction} (spreading out after a gap) is clear only when the gap is about the
+        wavelength. Only waves diffract.
+  \item A ball's $mv$ is large, so its $\lambda$ is far too small to notice. An electron at
+        lab speeds has $\lambda \approx \qty{e-10}{m}$, about the atom spacing in a crystal. So
+        crystals diffract electrons.
+  \item \textbf{Evidence (1927):} Davisson and Germer, and G.\,P. Thomson
+        (\cref{ch3:sec:experiments}). The evidence is that $\lambda$ from the pattern matched
+        $\dfrac{h}{mv}$.
+\end{itemize}
+
+\begin{sidebyside}[0.38]
+  \centering
+  \begin{tikzpicture}[x=0.75cm, y=0.75cm]
+    \foreach \n/\xx/\yy in {3/0/0, 4/3.0/0, 5/0/-2.9} {
+      \begin{scope}[shift={(\xx,\yy)}]
+        \draw[hscmuted!70, dashed, line width=0.5pt] (0,0) circle (0.75);
+        \fill[hscforce] (0,0) circle (1.8pt);
+        \draw[hscseriesA, line width=1.1pt] plot[domain=0:360, samples=240, smooth]
+          ({(0.75+0.14*sin(\n*\x))*cos(\x)}, {(0.75+0.14*sin(\n*\x))*sin(\x)});
+        \node[diagramlabel, align=center, anchor=north] at (0,-0.95) {$n = \n$};
+      \end{scope}
+    }
+    \begin{scope}[shift={(3.0,-2.9)}]
+      \draw[hscmuted!70, dashed, line width=0.5pt] (0,0) circle (0.75);
+      \fill[hscforce] (0,0) circle (1.8pt);
+      \draw[hscmistake, line width=0.8pt] plot[domain=0:720, samples=480, smooth]
+        ({(0.75+0.14*sin(3.4*\x))*cos(\x)}, {(0.75+0.14*sin(3.4*\x))*sin(\x)});
+      \node[diagramlabel, align=center, anchor=north] at (0,-0.95) {3.4 waves};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{Electron waves around orbits (not to scale). Blue: allowed, a whole
+    number of waves fits. Red: not allowed (two laps drawn, out of step).}
+  \label{ch3:fig:orbitwaves}
+\nextside
+  \textbf{Standing waves explain Bohr's orbits} (\cref{ch3:fig:orbitwaves}).
+  \begin{itemize}
+    \item An allowed orbit fits a whole number of wavelengths: $2\pi r = n\lambda$ (not on the
+          formula sheet). The wave joins itself: a \term{standing wave}.
+    \item A standing wave does not travel, so it carries no energy away: ``no radiation''. In
+          other orbits the wave cancels itself.
+    \item Put $\lambda = h/(mv)$ into $2\pi r = n\lambda$: $mvr = nh/(2\pi)$.
+          Bohr's angular-momentum postulate is \emph{explained}.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}{de Broglie wavelength}
+  \cardformula{\lambda = \frac{h}{mv}}
+  \begin{symbols}
+    \sym{$\lambda$}{de Broglie wavelength of the particle}{\si{m}}
+    \sym{$h$}{Planck constant, \num{6.626e-34}}{\si{J.s}}
+    \sym{$m$}{mass of the particle}{\si{kg}}
+    \sym{$v$}{speed of the particle}{\si{m.s^{-1}}}
+  \end{symbols}
+  \whentouse{any moving particle with mass (electron, proton, neutron, ball). Not photons.
+    Above about $0.1c$, use $\lambda = h/p_\mathrm{v}$ ($p_\mathrm{v}$ from the sheet).}
+  \trap{faster means a \emph{shorter} wavelength and less diffraction. This $\lambda$ is not
+    the decay constant.}
+\end{formulacard}
+
+%% ==================================================================
+\section{Bohr's limits and Schrödinger's quantum model}\label{ch3:sec:schrodinger}
+\covers{M8.IQ3.01, M8.IQ3.05}
+
+\begin{bigidea}
+Bohr's model works only for hydrogen-like atoms (one electron). Schrödinger (1926) treated the electron fully as a wave.
+His model gives probabilities, not orbits: the basis of today's model.
+\end{bigidea}
+
+\textbf{Bohr's model.} Successes: stable atoms (by assumption) and hydrogen's line spectrum
+(the Rydberg equation). Limitations:
+\begin{enumerate}
+  \item It works only for hydrogen and one-electron ions (such as He\textsuperscript{+}).
+  \item It cannot explain why some lines are brighter than others (their intensity).
+  \item It cannot explain \term{fine structure}: one line is really several very close lines.
+        It cannot explain the \term{Zeeman effect} (lines split in a magnetic field) or the
+        \term{Stark effect} (lines split in an electric field).
+  \item Its rules are assumed, not explained. It mixes classical orbits with quantum rules.
+  \item It gives the electron an exact path, which the uncertainty principle forbids.
+\end{enumerate}
+
+\Cref{ch3:tab:models} compares the three models.
+
+\begin{table}
+  \caption{Three models of the atom. The quantum numbers $l$ and $m_l$ give an orbital's shape
+    and direction.}\label{ch3:tab:models}
+  \centering
+  \small
+  \begin{tabular}{@{}L{21mm}L{36mm}L{38mm}L{42mm}@{}}
+    \toprule
+    & \colhead{Rutherford (1911)} & \colhead{Bohr (1913)} & \colhead{Schrödinger (1926)}\\
+    \midrule
+    Electron & a particle & a particle & a wave, described by $\psi$\\
+    Where & any orbit & fixed circular orbits & orbitals: probabilities only\\
+    Energy & any value & quantised by a postulate & quantised by the wave maths\\
+    Stability & no: should collapse & yes, by assumption & yes: standing waves\\
+    Quantum numbers & none & $n$ only (assumed) & $n$, $l$, $m_l$ (from the maths)\\
+    Works for & $\alpha$ scattering only; no stable atom & hydrogen and one-electron ions
+      only & all atoms
+      (approximately)\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{What Schrödinger added:}
+\begin{itemize}
+  \item A \term{wave equation} for the electron in 3-D, built on de Broglie's matter waves. Its
+        solutions are \term{wave functions}, $\psi$. Max Born (1926): $\psi^2$ gives the
+        \term{probability} of finding the electron at each place.
+  \item Heisenberg's \term{uncertainty principle} (1927): exact position and exact momentum
+        cannot both be known. So there are no exact orbits.
+  \item An \term{orbital} (1s, 2p, \ldots) is a 3-D cloud where \emph{one} electron is likely to
+        be; it is not a path. In 1s the most likely distance is the \term{Bohr radius},
+        \qty{5.29e-11}{m}.
+  \item Energy levels and \term{quantum numbers} come out of the maths, not from postulates.
+  \item It predicts line brightness and the simplest Zeeman splitting. Add electron spin
+        (built-in turning) and Pauli's exclusion principle (no two electrons in an atom in the
+        same state): it explains the periodic table. Add relativity (Dirac, 1928): fine structure.
+\end{itemize}
+
+%% ==================================================================
+\section{Key experiments}\label{ch3:sec:experiments}
+\covers{M8.IQ3.02, M8.IQ3.04}
+
+\begin{experiment}{Investigating the Balmer series of hydrogen}
+\textbf{Aim:} to measure hydrogen's visible lines and compare them with the Rydberg equation.
+\textbf{What was done:} a hydrogen \term{discharge tube} (glowing gas) lit a grating
+spectrometer (a diffraction grating, slit spacing $d$, with a scale to measure angles). Each
+line's first-order angle $\theta$ gave $\lambda = d\sin\theta$. Then $\frac{1}{\lambda}$ was
+plotted against $\left(\frac{1}{2^2} - \frac{1}{n_\mathrm{i}^2}\right)$. \textbf{Result:} four
+lines (red, cyan, blue-violet, violet), each within 1\% of the Rydberg value; a straight line
+through the origin, gradient \qty{1.10e7}{m^{-1}} $\approx R$. \textbf{Conclusion and
+significance:} each line is a jump down to $n = 2$ (from $n = 3$ to 6): quantised energy
+levels. These are the lines Bohr's model was built to explain. Astronomers use them to find
+hydrogen in stars.
+\end{experiment}
+
+\begin{experiment}{Electron diffraction (1927): Davisson--Germer, Thomson}
+\textbf{Aim:} to test de Broglie's matter waves. \textbf{What was done:} Davisson and Germer
+fired \qty{54}{V} electrons at a nickel crystal in a vacuum; a detector counted them at each
+angle. G.\,P. Thomson fired fast electrons through a thin metal film. \textbf{Result:}
+Davisson--Germer: a peak at \ang{50} that moved with voltage; $\lambda = \qty{1.65e-10}{m}$ from
+the pattern, $h/mv = \qty{1.67e-10}{m}$. Thomson: rings that shrank at higher voltage.
+\textbf{Conclusion and significance:} electrons diffract, so they act as waves; $\lambda$
+matched $h/mv$. This was the first direct evidence of matter waves. Electron microscopes use
+the same idea.
+\end{experiment}
+
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item Rutherford's atom should collapse and give a continuous spectrum.
+  \item Bohr: stationary states do \emph{not} radiate; a jump gives one photon,
+        $hf = E_\mathrm{i} - E_\mathrm{f}$ (conservation of energy).
+  \item Balmer series: jumps that end on $n = 2$; visible lines 656, 486, 434, \qty{410}{nm}.
+  \item De Broglie: $\lambda = h/mv$, shown by electron diffraction; $2\pi r = n\lambda$.
+  \item Schrödinger: $\psi^2$ = probability; orbitals, not orbits; levels from the maths.
+\end{itemize}
+\end{summarybox}

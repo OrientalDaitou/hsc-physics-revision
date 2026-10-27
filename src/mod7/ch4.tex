@@ -1,0 +1,1523 @@
+% ch4.tex -- Module 7, Chapter 4: Light and special relativity
+\chapter{Light and Special Relativity}\label{ch4:chap}
+\covers{M7.IQ4.01, M7.IQ4.02, M7.IQ4.03, M7.IQ4.04}
+
+\inquiry{How does the behaviour of light affect concepts of time, space and matter?}
+
+\begin{goals}
+  \item state Einstein's two postulates and evaluate the evidence for them
+  \item explain simultaneity, time dilation and length contraction
+  \item calculate time dilation, length contraction and relativistic momentum
+  \item explain why nothing with mass can reach the speed of light
+  \item use $E = mc^2$ for the Sun, annihilation and burning fuel
+  \item describe the key experiments and judge how well they support relativity
+\end{goals}
+
+\begin{syllabus}
+  \item M7.IQ4.01: evaluate the evidence for and against Einstein's two postulates
+  \item M7.IQ4.02: evidence for time dilation and length contraction, with calculations
+  \item M7.IQ4.03: relativistic momentum and the speed limit $c$
+  \item M7.IQ4.04: $E = mc^2$ for the Sun, annihilation and burning fuel
+\end{syllabus}
+
+%% ==================================================================
+\section{Frames of reference and Einstein's postulates}\label{ch4:sec:postulates}
+\covers{M7.IQ4.01}
+
+\begin{bigidea}
+Motion is always measured from a viewpoint. Einstein said that no steady viewpoint is special,
+and that everyone measures the same speed for light in a vacuum. The rest of this chapter
+follows from these two ideas.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Frame of reference}{a viewpoint, with its own rulers and clocks.}
+  \kw{Inertial frame}{a frame that is not accelerating: at rest or at constant velocity.}
+  \kw{Postulate}{a starting statement that a theory takes as true.}
+  \kw{Aether}{an invisible substance once thought to carry light. It does not exist.}
+\end{keywords}
+
+A \term{frame of reference} is a viewpoint, with its own rulers and clocks, from which we
+measure positions, times and motion. An \term{observer} measures in one frame. An \term{event}
+happens at one place and one instant, such as a flash of light.
+
+\begin{sidebyside}[0.4]
+  \centering
+  \begin{tikzpicture}[x=0.62cm, y=0.62cm]
+    \foreach \sy/\ttl in {0/{(a) constant velocity: \textbf{inertial}},
+                          -3.9/{(b) speeding up: \textbf{non-inertial}}} {
+      \begin{scope}[yshift=\sy cm]
+        \draw[object, fill=hscbrand!5] (0,0) rectangle (5.4,2.2);
+        \fill[hscink] (0.9,-0.17) circle (0.17) (4.5,-0.17) circle (0.17);
+        \draw[hscink, line width=0.8pt] (-0.3,-0.34) -- (5.7,-0.34);
+        \node[diagramlabel, font=\scriptsize] at (2.7,-0.8) {\ttl};
+      \end{scope}
+    }
+    \draw[hscink, line width=0.7pt] (1.0,2.2) -- (1.0,1.05);
+    \fill[hscforce] (1.0,1.0) circle (0.11);
+    \draw[hscvel, line width=1pt, ->] (3.05,0.75) -- (3.05,1.8);
+    \draw[hscvel, line width=1pt, ->] (3.35,1.8) -- (3.35,0.75);
+    \fill[object] (3.2,1.95) circle (0.1);
+    \fill[hscink] (3.2,0.6) circle (0.07);
+    \node[diagramlabel, font=\scriptsize, anchor=north] at (1.4,0.86) {pendulum};
+    \node[diagramlabel, font=\scriptsize, anchor=west] at (3.42,1.95) {ball};
+    \node[diagramlabel, font=\scriptsize, anchor=west] at (3.4,0.55) {hand};
+    \draw[velocity] (1.6,2.6) -- (2.9,2.6) node[right, text=hscvel, font=\scriptsize] {$v$ constant};
+    \begin{scope}[yshift=-3.9cm]
+      \draw[guide] (1.2,2.2) -- (1.2,0.9);
+      \draw[hscink, line width=0.7pt] (1.2,2.2) -- ++(250:1.15) coordinate (bob);
+      \fill[hscforce] (bob) circle (0.11);
+      \draw[hscvel, line width=1pt, ->] (3.5,0.75) .. controls (3.45,2.45) and (2.75,2.45) .. (2.6,0.75);
+      \fill[hscink] (3.5,0.6) circle (0.07);
+      \node[diagramlabel, font=\scriptsize, anchor=east] at (2.5,0.55) {lands here};
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (3.62,0.55) {hand};
+      \draw[accel] (1.6,2.6) -- (2.9,2.6) node[right, text=hscacc, font=\scriptsize] {$a$};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{A pendulum and a ball tossed straight up inside a closed
+    carriage.}\label{ch4:fig:frames}
+\nextside
+  An \term{inertial frame of reference} is not accelerating. It is at rest or moves at a
+  constant velocity (constant speed in a straight line). Newton's first law works in it.
+  A \term{non-inertial frame} is accelerating: it speeds up, slows down or turns. A car going
+  round a roundabout at a constant speed is non-inertial.
+
+  \Cref{ch4:fig:frames} shows a test. (a) In an inertial carriage the pendulum hangs straight
+  down and the ball lands back in the hand. (b) When the carriage speeds up, the pendulum tilts
+  back and the ball lands behind the hand. Most HSC questions treat the Earth's surface as
+  inertial.
+\end{sidebyside}
+
+\begin{refresher}{Relative velocity and Galilean relativity}
+In everyday life, velocities add. You walk forward at \qty{2}{m.s^{-1}} in a train moving at
+\qty{20}{m.s^{-1}}, so the platform measures $20 + 2 = \qty{22}{m.s^{-1}}$.
+
+\term{Galilean relativity} says that the laws of motion are the same in every inertial frame.
+On a smooth train with the blinds down, a ball you drop falls straight down. It does this whether
+the train moves steadily or stands at the station. No experiment with moving objects inside can
+tell the difference. (Einstein's first postulate, below, extends this to \emph{all} experiments,
+including ones with light.)
+\end{refresher}
+
+Light was a puzzle. Maxwell's equations (\cref{ch1:chap}) give its speed,
+$c = \qty{3.00e8}{m.s^{-1}}$, but do not say \emph{relative to what}.
+
+Scientists in the 1800s thought light needed a \term{medium}: a substance that a wave travels
+through, as sound travels through air. They imagined an invisible medium called the
+\term{luminiferous aether}. The Earth moves through space at about \qty{30}{km.s^{-1}}. So, if
+the aether existed, light should travel at slightly different speeds in different directions.
+In 1887 Michelson and Morley found no difference (\cref{ch4:sec:experiments}).
+
+\subsection{Einstein's two postulates (1905)}
+A \term{postulate} is a starting statement that a theory takes as true. Einstein's
+\term{special relativity} is the theory of how space and time behave for inertial observers.
+It rests on two postulates:
+\begin{enumerate}
+  \item \textbf{All inertial frames of reference are equivalent.} The laws of physics, including
+        those of light, are the same in every inertial frame. No experiment can show which
+        inertial frame is ``really'' at rest.
+  \item \textbf{The speed of light in a vacuum is an absolute constant.} Every inertial observer
+        measures $c = \qty{3.00e8}{m.s^{-1}}$, however fast the source or the observer moves.
+\end{enumerate}
+The two fit together. Maxwell's equations are laws of physics, so by postulate 1 they give the
+same $c$ in every inertial frame. Postulate 2 means that velocities do \emph{not} add for light.
+A car's headlight beam travels at $c$, not $c + v$, for every observer.
+
+Speed is distance divided by time. Two observers moving relative to each other measure the same
+speed for the same light beam. So they must disagree about the distance, the time, or both
+(\cref{ch4:sec:time}).
+
+\Cref{ch4:tab:evidence} sums up the evidence that confirms or denies the postulates.
+
+\begin{table}
+  \caption{Evidence about Einstein's postulates.}\label{ch4:tab:evidence}
+  \centering\small
+  \begin{tabular}{@{}L{36mm}L{78mm}L{20mm}@{}}
+    \toprule
+    \colhead{Evidence} & \colhead{What was found} & \colhead{Supports}\\
+    \midrule
+    Maxwell's equations (1860s) & one speed $c$ for light, with no frame mentioned & both\\
+    Michelson--Morley (1887) & no change in light's speed in any direction, so the Earth's
+      motion could not be detected: a \term{null result} (no effect found) & both\\
+    No test detects absolute motion & Michelson--Morley and every later test find the same laws
+      of physics in labs on the moving Earth, whatever its direction & postulate 1\\
+    Fast pions (short-lived particles), CERN 1964 & light from a source at $0.99975c$ still
+      travels at $c$ (\cref{ch4:we:pion}) & postulate 2\\
+    Modern laser tests & $c$ is the same in all directions to about 1 part in $10^{17}$ & postulate 2\\
+    Muons, atomic clocks, accelerators, GPS (satellite navigation) & every prediction of
+      relativity confirmed (\cref{ch4:sec:experiments}) & both\\
+    OPERA (2011): a claim \emph{against} relativity's speed limit & neutrinos (tiny, almost
+      massless particles) seemed to beat light by \qty{60}{ns}; the cause was a loose
+      fibre-optic cable, and repeat tests (ICARUS) found no effect & neither\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Judgement: the evidence strongly supports both postulates. Many independent tests over 100
+years agree, and no result against them has survived checking.
+
+One limitation: Michelson and Morley used a light source at rest in their lab. On its own, their
+result does not show that a \emph{moving} source gives the same $c$. The 1964 pion test does
+(\cref{ch4:we:pion}).
+
+\begin{workedexample}{Speeds measured from the shore}\label{ch4:we:car}
+A speedboat moves in a straight line at a constant \qty{15}{m.s^{-1}}. A passenger throws a ball
+forward at \qty{12}{m.s^{-1}} relative to the boat. Then she switches on a forward-pointing laser
+pointer. Find the speed of (a) the ball and (b) the light, measured by an observer on the shore.
+\given{boat \qty{15}{m.s^{-1}}; ball \qty{12}{m.s^{-1}} relative to the boat; light $c$ relative
+  to the boat}
+\find{the speeds of the ball and of the light relative to the shore}
+\formula{everyday velocity addition for the ball; postulate 2 for the light}
+\substitute{\eqlines{v_\mathrm{ball} &= \qty{15}{m.s^{-1}} + \qty{12}{m.s^{-1}} = \qty{27}{m.s^{-1}}\\
+  v_\mathrm{light} &= c = \qty{3.00e8}{m.s^{-1}} \quad \text{(not $c + \qty{15}{m.s^{-1}}$)}}}
+\answer{(a) \final{\qty{27}{m.s^{-1}}} \quad (b) \final{\qty{3.00e8}{m.s^{-1}}}, the same as
+  the passenger measures}
+\checkstep{addition would give \qty{300000015}{m.s^{-1}}, only 5 parts in 100 million more
+  than $c$. A slow source cannot test postulate 2. A very fast one can (\cref{ch4:we:pion}).}
+\end{workedexample}
+
+\begin{workedexample}{Light from a source moving at nearly $c$}\label{ch4:we:pion}
+Pions are short-lived particles made in accelerators. In an experiment like one at CERN in
+1964, pions moved at $0.99975c$. They gave off gamma rays (a type of light) in their direction of
+motion. Detectors \qty{40.0}{m} apart timed the gamma rays. Predict the travel time (a) if the
+source's speed adds to $c$ (b) using postulate 2. (c) The measured time is \qty{133}{ns}. Which
+prediction does it support?
+\given{$v = 0.99975c$; distance \qty{40.0}{m}; measured time \qty{133}{ns}
+  ($\qty{1}{ns} = \qty{e-9}{s}$)}
+\find{the two predicted travel times}
+\formula{time $= \dfrac{\text{distance}}{\text{speed}}$}
+\substitute{\eqlines{\text{(a) speed} &= (1 + 0.99975) \times \qty{3.00e8}{m.s^{-1}} = \qty{5.99925e8}{m.s^{-1}}\\
+  t &= \frac{\qty{40.0}{m}}{\qty{5.99925e8}{m.s^{-1}}} = \qty{6.67e-8}{s} = \qty{66.7}{ns}\\
+  \text{(b) } t &= \frac{\qty{40.0}{m}}{\qty{3.00e8}{m.s^{-1}}} = \qty{1.33e-7}{s} = \qty{133}{ns}}}
+\answer{(a) \final{\qty{66.7}{ns}} \quad (b) \final{\qty{133}{ns}} \quad (c) the measurement
+  matches (b), so it supports postulate 2: light's speed does not depend on its source's speed.}
+\checkstep{\cmark\ the predictions differ by a factor of 2. Timers measure to better than
+  \qty{1}{ns}, so the test can tell them apart easily.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Inertial means constant speed.'' \cmark\ Constant \emph{velocity}: moving in a
+        circle at constant speed is accelerating.
+  \item \xmark\ ``Light's speed is always the same.'' \cmark\ Only \emph{in a vacuum}. Light slows
+        in glass and water ($n_\mathrm{x} = \dfrac{c}{v_\mathrm{x}}$).
+  \item \xmark\ ``Michelson and Morley proved relativity.'' \cmark\ Their null result
+        \emph{supports} both postulates. Evidence supports a theory; it does not prove it.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Evaluate the evidence for the second postulate'' is worth 4--5 marks. Full marks need:
+\begin{enumerate}
+  \item the postulate stated exactly (``in a vacuum'', ``every inertial observer'');
+  \item two or more pieces of evidence and what each found;
+  \item a link from each piece of evidence to the postulate;
+  \item a clear judgement (``strongly supported: many independent tests agree and none
+        disagrees'') plus one specific limitation (for example, Michelson--Morley used a source
+        at rest).
+\end{enumerate}
+For the \emph{first} postulate, use the same plan. Evidence: no experiment, from
+Michelson--Morley to modern laser tests, can detect the Earth's own motion. Also, the
+predictions built on it (muons, atomic clocks, GPS) are confirmed.
+\end{examtip}
+
+\begin{quickcheck}
+  \item Which of these is an inertial frame? Give a reason. (A) a cyclist riding along a
+        straight, flat road at a steady \qty{6}{m.s^{-1}} (B) a bus turning a corner at a steady
+        speed (C) a lift slowing down as it reaches the top floor (D) a Ferris wheel seat moving
+        at a steady speed
+  \item State Einstein's two postulates of special relativity.
+  \item Light travels at \qty{2.25e8}{m.s^{-1}} in water. A student says this disproves the
+        second postulate. Explain why the student is wrong.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Time dilation and length contraction}\label{ch4:sec:time}
+\covers{M7.IQ4.02}
+
+\begin{bigidea}
+If everyone measures the same speed for light, observers moving relative to each other must
+disagree about time and length. A moving clock is measured to run slow. A moving object is
+measured to be shorter along its motion.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Thought experiment}{an imagined experiment, worked through with logic.}
+  \kw{Time dilation}{a moving clock is measured to run slow.}
+  \kw{Proper time ($t_0$)}{time between two events, measured by a clock present at both.}
+  \kw{Length contraction}{a moving object is measured shorter along its motion.}
+  \kw{Proper length ($l_0$)}{length measured in the frame where the object is at rest.}
+\end{keywords}
+
+A \term{thought experiment} is an experiment done in your head: you imagine a situation, apply
+the postulates and follow the logic. Einstein could not ride a train at nearly the speed of
+light, but he could imagine one. A thought experiment is \emph{not} evidence. It shows what the
+theory predicts, and real experiments then test it (\cref{ch4:sec:experiments}).
+
+\subsection{Thought experiment 1: lightning and a fast train}
+Two events are \term{simultaneous} if they happen at the same time. In \cref{ch4:fig:lightning}
+lightning strikes both ends of a very fast train and leaves marks A and B on the track. Olivia
+stands on the platform halfway between the marks. Peter sits in the middle of the train.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.95cm, y=0.85cm]
+    \foreach \yy/\xx/\lab in {0/0/{(1) Lightning strikes both ends of the train.},
+        -2.7/1.333/{(2) The front flash reaches Peter first. Both flashes are equally far
+          from Olivia.}} {
+      \node[diagramlabel, font=\footnotesize, anchor=west] at (0.5,\yy+1.6) {\lab};
+      \draw[hscink, line width=0.8pt] (-0.7,\yy) -- (10.2,\yy);
+      \foreach \mx/\ml in {0/A, 8/B} {
+        \draw[hscmuted, line width=1pt] (\mx-0.12,\yy-0.12) -- (\mx+0.12,\yy+0.12)
+          (\mx-0.12,\yy+0.12) -- (\mx+0.12,\yy-0.12);
+        \node[diagramlabel, font=\scriptsize, text=hscmuted] at (\mx,\yy-0.36) {\ml};
+      }
+      \draw[object] (\xx,\yy+0.12) rectangle (\xx+8,\yy+0.9);
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (\xx+0.12,\yy+0.51) {rear};
+      \node[diagramlabel, font=\scriptsize, anchor=east] at (\xx+7.88,\yy+0.51) {front};
+      \fill[hscvel] (\xx+4,\yy+0.42) circle (0.09);
+      \node[diagramlabel, font=\scriptsize, text=hscvel, anchor=east] at (\xx+3.85,\yy+0.45) {Peter};
+      \fill[hscforce] (4,\yy-0.42) circle (0.09);
+      \node[diagramlabel, font=\scriptsize, text=hscforce, anchor=west] at (4.1,\yy-0.48) {Olivia};
+    }
+    \foreach \bx in {0,8} {
+      \draw[hscacc, line width=1.1pt] (\bx+0.15,1.35) -- (\bx-0.05,1.12) -- (\bx+0.12,1.09) -- (\bx-0.02,0.92);
+    }
+    \draw[velocity] (8.3,0.5) -- (9.3,0.5) node[right, text=hscvel] {$v$};
+    \draw[hscray, line width=1.4pt] (2.667,-3.3) -- (2.667,-1.7);
+    \draw[hscray, line width=1pt, ->] (2.667,-1.65) -- ++(0.55,0);
+    \draw[hscray, line width=1.4pt] (5.333,-3.3) -- (5.333,-1.7);
+    \draw[hscray, line width=1pt, ->] (5.333,-1.65) -- ++(-0.55,0);
+    \node[diagramlabel, font=\scriptsize, text=hscray, anchor=west, align=left] at (9.4,-2.25)
+      {flash\\[-2pt]fronts};
+  \end{tikzpicture}
+  \caption{Lightning and a fast train, drawn in Olivia's (the platform's) frame. The orange
+    lines are the fronts of the two flashes.}\label{ch4:fig:lightning}
+\end{figure}
+
+\begin{itemize}
+  \item For Olivia the strikes are simultaneous. She is halfway between the marks and both
+        flashes travel at $c$, so they reach her together.
+  \item The train carries Peter towards the front flash, so it reaches him first.
+  \item All observers agree about what happens at one place. So the front flash reaches Peter
+        first in \emph{every} frame.
+  \item In Peter's own frame he is at rest in the middle of the train. Both flashes travel
+        at $c$ (postulate 2) over equal distances. Yet the front flash arrives first. So, for
+        Peter, the front strike \emph{really happened first}. By postulate 1 his frame is just
+        as valid as Olivia's.
+\end{itemize}
+This is the \term{relativity of simultaneity}. Two events at different places can be
+simultaneous in one inertial frame. In a second frame, moving along the line between them, they
+happen at different times. This is not a trick of what each person sees. Each observer has
+already allowed for the time the light takes to travel.
+
+\subsection{Thought experiment 2: the light clock}
+\begin{sidebyside}[0.5]
+  \centering
+  \begin{tikzpicture}[x=0.82cm, y=0.82cm]
+    \draw[hscink, line width=2pt] (-0.5,0) -- (0.5,0) (-0.5,2) -- (0.5,2);
+    \node[diagramlabel, font=\scriptsize, anchor=south] at (0,2.08) {mirror};
+    \node[diagramlabel, font=\scriptsize, anchor=north] at (0,-0.08) {mirror};
+    \draw[ray, ->] (-0.13,0.06) -- (-0.13,1.94);
+    \draw[ray, ->] (0.13,1.94) -- (0.13,0.06);
+    \draw[<->, hscmuted, line width=0.6pt] (0.8,0) -- node[right, text=hscink] {$d$} (0.8,2);
+    \node[diagramlabel, font=\footnotesize] at (0.1,-1.0) {(a) at rest};
+    \begin{scope}[xshift=2.0cm]
+      \foreach \x/\op in {0/25, 2.2/50, 4.4/100}
+        \draw[hscink!\op, line width=2pt] (\x-0.5,0) -- (\x+0.5,0) (\x-0.5,2) -- (\x+0.5,2);
+      \draw[ray] (0,0.04) -- (2.2,1.96);
+      \draw[ray] (2.2,1.96) -- (4.4,0.04);
+      \draw[guide] (0,-0.08) -- (2.2,-0.08) -- (2.2,1.96);
+      \node[diagramlabel, font=\footnotesize, below] at (1.1,-0.12) {$vt/2$};
+      \node[diagramlabel, font=\footnotesize, right] at (2.22,1.1) {$d$};
+      \node[diagramlabel, font=\footnotesize, above left, text=hscray] at (1.0,1.0) {$ct/2$};
+      \draw[velocity] (0.6,2.45) -- (1.8,2.45) node[right, text=hscvel] {$v$};
+      \node[diagramlabel, font=\footnotesize] at (2.2,-1.0) {(b) moving at speed $v$};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{A light clock in its own frame (a) and in a frame where it moves
+    (b).}\label{ch4:fig:lightclock}
+\nextside
+  A \term{light clock} is a pulse of light bouncing between two mirrors a distance $d$ apart.
+  One tick is one trip up and back (\cref{ch4:fig:lightclock}).
+  \begin{itemize}
+    \item (a) In its own frame, the light travels $2d$, so one tick takes $t_0 = \dfrac{2d}{c}$.
+    \item (b) For an observer for whom the clock moves, the mirrors move sideways while the
+          light travels. So the light must go on a slant to reach the top mirror. The slanted
+          path is longer, but the light still travels at $c$ (postulate 2). So each tick takes
+          longer.
+  \end{itemize}
+\end{sidebyside}
+
+A moving clock ticks more slowly. This is \term{time dilation}. Pythagoras' theorem for the
+triangle in \cref{ch4:fig:lightclock}(b) gives the formula. The algebra uses three skills.
+
+\begin{toolkit}{Squares, common factors and square roots}
+\begin{itemize}
+  \item Squaring a fraction squares the top and the bottom:
+        $\left(\dfrac{ct}{2}\right)^2 = \dfrac{c^2t^2}{4}$.
+  \item Taking out a common factor: $c^2t^2 - v^2t^2 = t^2\left(c^2 - v^2\right)$. Multiply the
+        bracket out again to check.
+  \item The square root of a product is the product of the square roots:
+        $\sqrt{c^2 - v^2} = \sqrt{c^2\left(1 - \dfrac{v^2}{c^2}\right)}
+        = c\sqrt{1 - \dfrac{v^2}{c^2}}$.
+\end{itemize}
+\end{toolkit}
+
+Each line below does one step.
+\begin{align}
+  \left(\frac{ct}{2}\right)^2 &= d^2 + \left(\frac{vt}{2}\right)^2
+    && \text{Pythagoras: slant$^2$ = height$^2$ + base$^2$}\notag\\
+  \frac{c^2t^2}{4} &= d^2 + \frac{v^2t^2}{4} && \text{square each bracket}\notag\\
+  c^2t^2 &= 4d^2 + v^2t^2 && \text{multiply every term by 4}\notag\\
+  c^2t^2 - v^2t^2 &= 4d^2 && \text{subtract $v^2t^2$ from both sides}\notag\\
+  t^2\left(c^2 - v^2\right) &= 4d^2 && \text{take out the common factor $t^2$}\notag\\
+  t^2 &= \frac{4d^2}{c^2 - v^2} && \text{divide both sides by $(c^2 - v^2)$}\notag\\
+  t &= \frac{2d}{\sqrt{c^2 - v^2}} && \text{square root of both sides}\notag\\
+  t &= \frac{2d}{c\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}
+    && \text{take $c^2$ out of the root (toolkit)}\notag\\
+  t &= \frac{t_0}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}
+    && \text{replace $\dfrac{2d}{c}$ by $t_0$}\label{ch4:eq:dilation}
+\end{align}
+
+\subsection{Proper time and proper length}
+The \term{proper time} $t_0$ is the time between two events measured by a clock that is present
+at \emph{both} events. Observers moving relative to that clock measure a longer time $t$. Ask:
+\emph{whose clock is at both events?} For a muon's life it is the muon's own clock. For a space
+trip it is the ship's clock, which is at the departure and the arrival.
+
+\begin{sidebyside}[0.46]
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \draw[object] (0,0) -- (3.2,0) -- (3.7,0.4) -- (3.2,0.8) -- (0,0.8) -- cycle;
+    \draw[<->, hscmuted, line width=0.6pt] (0,-0.25) -- node[below, text=hscink, font=\footnotesize] {$l_0$} (3.7,-0.25);
+    \node[diagramlabel, font=\footnotesize, anchor=east] at (-0.1,0.4) {at rest};
+    \begin{scope}[yshift=-1.75cm]
+      \draw[object] (0,0) -- (1.92,0) -- (2.22,0.4) -- (1.92,0.8) -- (0,0.8) -- cycle;
+      \draw[<->, hscmuted, line width=0.6pt] (0,-0.25) -- node[below, text=hscink, font=\footnotesize] {$l = 0.60\,l_0$} (2.22,-0.25);
+      \draw[velocity] (2.45,0.4) -- (3.55,0.4) node[right, text=hscvel, font=\footnotesize] {$0.80c$};
+      \node[diagramlabel, font=\footnotesize, anchor=east] at (-0.1,0.4) {moving};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{Only the length along the motion shrinks; the height stays the
+    same.}\label{ch4:fig:ship}
+\nextside
+  \term{Length contraction} means that a moving object is measured to be shorter along its
+  direction of motion, but not across it (\cref{ch4:fig:ship}). The \term{proper length} $l_0$
+  is measured by an observer for whom the object is at rest. Now think of a distance between two
+  places, such as the Earth and a star. Its proper length is measured in the frame where both
+  places are at rest. Everyone else measures a shorter length $l$.
+\end{sidebyside}
+
+Length contraction follows from time dilation. A ship flies at speed $v$ from the Earth to a
+star. The Earth and the star are at rest relative to each other. So the Earth measures the
+proper distance $l_0$ between them.
+\begin{align}
+  t &= \frac{l_0}{v} && \text{Earth frame: time $=$ distance $\div$ speed}\notag\\
+  t_0 &= t\sqrt{\left(1 - \frac{v^2}{c^2}\right)}
+    && \text{ship's clock is at both events; multiply \cref{ch4:eq:dilation} by the root}\notag\\
+  l &= v\,t_0 && \text{ship frame: the star comes towards the ship at $v$ for time $t_0$}\notag\\
+  l &= v \times \frac{l_0}{v}\sqrt{\left(1 - \frac{v^2}{c^2}\right)}
+    && \text{put in $t_0$ from line 2 and $t$ from line 1}\notag\\
+  l &= l_0\sqrt{\left(1 - \frac{v^2}{c^2}\right)}
+    && \text{the $v$ on top and the $v$ below cancel}\label{ch4:eq:contraction}
+\end{align}
+Both effects work both ways. An astronaut measures Earth's clocks running slow. Passengers on a
+fast train measure the platform as contracted. Your own clock and your own ruler always seem
+normal to you.
+
+\begin{toolkit}[breakable]{Working with speeds near $c$}
+\begin{itemize}
+  \item $v = 0.80c$ means $\dfrac{v}{c} = 0.80$, so $\dfrac{v^2}{c^2} = 0.80^2 = 0.64$. The $c$
+        cancels. If $v$ is in \si{m.s^{-1}}, divide by \num{3.00e8} first.
+  \item Order: square, subtract from 1, square root: $\sqrt{1 - 0.64} = \sqrt{0.36} = 0.60$.
+        The factor $\dfrac{1}{\sqrt{1 - v^2/c^2}}$ is 1.005 at $0.10c$, 2.29 at $0.90c$ and
+        7.09 at $0.99c$. Some books and answers call it the \term{Lorentz factor} $\gamma$. You
+        do not need this name: the HSC sheet always writes the full root.
+  \item To find $v$ from $t_0$ and $t$, start from $t_0 = t\sqrt{1 - v^2/c^2}$:
+        \begin{enumerate}
+          \item divide both sides by $t$: $\dfrac{t_0}{t} = \sqrt{1 - \dfrac{v^2}{c^2}}$;
+          \item square both sides: $\left(\dfrac{t_0}{t}\right)^2 = 1 - \dfrac{v^2}{c^2}$;
+          \item swap the two terms over: $\dfrac{v^2}{c^2} = 1 - \left(\dfrac{t_0}{t}\right)^2$;
+          \item square root, then multiply by $c$: $v = c\sqrt{1 - (t_0/t)^2}$.
+        \end{enumerate}
+        For lengths, use the same steps with $\dfrac{l}{l_0}$.
+  \item A \term{light-year} (ly) is the distance light travels in one year (about
+        \qty{9.46e15}{m}, not on the data sheet). Something moving at $0.90c$ covers 0.90 ly
+        each year. So time in years $=$ distance in ly $\div$ $\dfrac{v}{c}$. Example: 4.5 ly
+        at $0.90c$ takes $4.5 \div 0.90 = 5.0$ years. Also $\qty{1}{\micro\second} = \qty{e-6}{s}$.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}{Time dilation}
+  \cardformula{t = \frac{t_0}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}}
+  \begin{symbols}
+    \sym{$t$}{time measured in a frame where the clock moves}{\si{s}}
+    \sym{$t_0$}{proper time: by a clock present at both events}{\si{s}}
+    \sym{$v$}{relative speed of the clock and the observer}{\si{m.s^{-1}}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{a moving clock is measured to run slow, so $t$ is longer than $t_0$.}
+  \whentouse{the time between the same two events, in two inertial frames.}
+  \whennottouse{for lengths; or when you measure from an accelerating frame. Always measure $v$
+    from an inertial frame (for aeroplanes, the Earth's centre). A clock moving in a circle at a
+    steady speed is fine: use its speed.}
+  \rearranged{$t_0 = t\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}$ \qquad
+    $v = c\sqrt{1 - \left(t_0/t\right)^2}$}
+  \tensecond{$t_0 = \qty{1.00}{s}$, $v = 0.600c$:
+    $t = \dfrac{1.00}{\sqrt{1 - 0.360}} = \dfrac{1.00}{0.800} = \qty{1.25}{s}$.}
+  \trap{square $\dfrac{v}{c}$ first: $\sqrt{1 - 0.9^2}$, not $\sqrt{1 - 0.9}$. Check $t > t_0$.}
+\end{formulacard}
+
+\begin{formulacard}{Length contraction}
+  \cardformula{l = l_0\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}
+  \begin{symbols}
+    \sym{$l$}{length measured in a frame where the object moves}{\si{m}}
+    \sym{$l_0$}{proper length: measured where the object is at rest}{\si{m}}
+    \sym{$v$}{relative speed of the object and the observer}{\si{m.s^{-1}}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{a moving object is measured shorter along its motion, so $l$ is less than $l_0$.}
+  \whentouse{lengths and distances \emph{along} the motion (a ship; Earth to a star; the
+    thickness of the atmosphere for a muon).}
+  \whennottouse{for heights or widths at right angles to the motion. They do not change.}
+  \rearranged{$l_0 = \dfrac{l}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$ \qquad
+    $v = c\sqrt{1 - \left(l/l_0\right)^2}$}
+  \tensecond{$l_0 = \qty{10.0}{m}$, $v = 0.600c$: $l = 10.0 \times 0.800 = \qty{8.00}{m}$.}
+  \trap{$l_0$ belongs to the observer for whom the object is \emph{at rest}. If your $l$ is
+    longer than $l_0$, you divided instead of multiplied.}
+\end{formulacard}
+
+\begin{workedexample}{A clock on a space probe}\label{ch4:we:probe}
+A space probe passes the Earth at $0.800c$. A camera on the probe takes photos for
+\qty{12.0}{\minute} by the probe's own clock. How long does this last, as measured by mission
+control on Earth?
+\given{$t_0 = \qty{12.0}{\minute}$ (the probe's clock is at the start and the end); $v = 0.800c$}
+\find{the time $t$ measured on Earth}
+\formula{$t = \dfrac{t_0}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$}
+\substitute{\eqlines{\frac{v^2}{c^2} &= 0.800^2 = 0.640 \quad\text{(square first)}\\
+  t &= \frac{\qty{12.0}{\minute}}{\sqrt{1 - 0.640}} = \frac{\qty{12.0}{\minute}}{\sqrt{0.360}}
+  = \frac{\qty{12.0}{\minute}}{0.600} = \qty{20.0}{\minute}}}
+\answer{\final{$t = \qty{20.0}{\minute}$} (3 significant figures, as in the data)}
+\checkstep{$t > t_0$ \cmark. Minutes can stay as minutes, because the formula compares two times.}
+\end{workedexample}
+
+\begin{workedexample}{How fast is the rocket?}\label{ch4:we:rocket}
+A rocket is \qty{60.0}{m} long at rest. A space station measures its length as \qty{45.0}{m}
+as it flies past. Find the rocket's speed relative to the station.
+\given{$l_0 = \qty{60.0}{m}$ (the rocket is at rest in its own frame); $l = \qty{45.0}{m}$
+  (for the station the rocket moves)}
+\find{the speed $v$}
+\formula{$l = l_0\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}$, rearranged for $v$ (Maths toolkit)}
+\substitute{\eqlines{\sqrt{1 - \frac{v^2}{c^2}} &= \frac{l}{l_0} = \frac{\qty{45.0}{m}}{\qty{60.0}{m}} = 0.750
+    \quad\text{(divide both sides by $l_0$)}\\
+  0.750^2 &= 0.5625 = 1 - \frac{v^2}{c^2} \quad\text{(square both sides)}\\
+  \frac{v^2}{c^2} &= 1 - 0.5625 = 0.4375 \quad\text{(swap the terms over)}\\
+  \frac{v}{c} &= \sqrt{0.4375} = 0.661 \quad\text{(square root)}\\
+  v &= 0.661 \times \qty{3.00e8}{m.s^{-1}} = \qty{1.98e8}{m.s^{-1}}}}
+\answer{\final{$v = 0.661c = \qty{1.98e8}{m.s^{-1}}$} (3 significant figures)}
+\checkstep{$v < c$ \cmark. Put it back in: $\qty{60.0}{m} \times \sqrt{1 - 0.661^2} = \qty{45.0}{m}$
+  \cmark.}
+\end{workedexample}
+
+\subsection{Muons: both effects in action}
+\begin{sidebyside}[0.5]
+  \centering
+  \begin{tikzpicture}[x=0.72cm, y=0.72cm]
+    \fill[ground] (0,-0.25) rectangle (2.6,0);
+    \draw[hscink, line width=0.8pt] (0,0) -- (2.6,0);
+    \draw[hscmuted, dashed, line width=0.6pt] (0,3.6) -- (2.6,3.6);
+    \draw[<->, hscmuted, line width=0.6pt] (-0.2,0) -- node[left, text=hscink, font=\footnotesize]
+      {$l_0$} (-0.2,3.6);
+    \node[diagramlabel, font=\scriptsize, anchor=west] at (2.65,-0.12) {ground};
+    \node[diagramlabel, font=\scriptsize, anchor=south, align=center] at (1.3,3.62)
+      {top of\\[-2pt]atmosphere};
+    \fill[object] (1.0,3.3) circle (0.11);
+    \node[diagramlabel, font=\scriptsize, anchor=west] at (1.15,3.3) {muon};
+    \draw[velocity] (1.0,3.05) -- (1.0,1.9) node[left, text=hscvel, font=\scriptsize] {$v$};
+    \node[diagramlabel, font=\scriptsize, align=left, anchor=west] at (1.15,2.4)
+      {its clock\\[-2pt]runs slow};
+    \node[diagramlabel, font=\footnotesize] at (1.3,-0.7) {(a) Earth frame};
+    \begin{scope}[xshift=2.9cm]
+      \fill[ground] (0,1.95) rectangle (2.6,2.2);
+      \draw[hscink, line width=0.8pt] (0,2.2) -- (2.6,2.2);
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (2.65,2.08) {ground};
+      \draw[hscmuted, dashed, line width=0.6pt] (0,3.2) -- (2.6,3.2);
+      \node[diagramlabel, font=\scriptsize, anchor=south, align=center] at (1.3,3.22)
+        {top of\\[-2pt]atmosphere};
+      \draw[<->, hscmuted, line width=0.6pt] (-0.2,2.2) -- node[left, text=hscink, font=\footnotesize]
+        {$l$} (-0.2,3.2);
+      \fill[object] (1.0,2.95) circle (0.11);
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (1.15,2.92) {muon at rest};
+      \draw[velocity] (1.8,0.55) -- (1.8,1.75);
+      \node[diagramlabel, font=\scriptsize, align=right, anchor=east] at (1.65,1.1) {Earth\\[-2pt]rushes up};
+      \node[diagramlabel, font=\footnotesize] at (1.3,-0.7) {(b) muon frame};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{One muon trip in two frames (not to scale). (a) The atmosphere has its
+    proper thickness $l_0$. (b) In the muon frame the atmosphere is contracted to
+    $l$.}\label{ch4:fig:muons}
+\nextside
+  Cosmic rays are fast protons from space. They hit air nuclei 10--15 km above the ground. This
+  makes short-lived particles called pions, which quickly turn into \term{muons}. A muon is
+  like a heavy electron. It is \term{unstable}: after a short time it \term{decays} (breaks up
+  into other particles). At rest a muon has a \term{mean lifetime} (average life) of
+  \qty{2.2}{\micro\second}. Even at nearly $c$ it would go only about \qty{660}{m} in this time.
+  Yet many muons reach the ground (\cref{ch4:fig:muons}).
+  \begin{itemize}
+    \item (a) Earth frame: the muon's clock runs slow, so it lives long enough.
+    \item (b) Muon frame: the atmosphere is contracted, so the trip is short enough.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{workedexample}{Muons in two frames}\label{ch4:we:muon}
+Muons are made \qty{12.0}{km} above the ground (Earth measurement) and travel straight down at
+$0.9990c$. Their mean lifetime at rest is \qty{2.20}{\micro\second}. (a) How far would one go in
+one lifetime without relativity? (b) Earth frame: compare the trip time with the dilated
+lifetime. (c) Muon frame: find the thickness of the atmosphere and the trip time. (d) What do
+(b) and (c) mean for the number of muons that reach the ground?
+\given{$l_0 = \qty{1.20e4}{m}$ (atmosphere at rest in the Earth frame); $v = 0.9990c =
+  \qty{2.997e8}{m.s^{-1}}$; $t_0 = \qty{2.20e-6}{s}$ (the muon's own clock)}
+\find{(a) the distance $vt_0$ travelled in one lifetime without relativity \quad (b) the trip
+  time and the dilated lifetime $t$ \quad (c) the contracted thickness $l$ and the trip time
+  \quad (d) trip time $\div$ lifetime in each frame}
+\formula{distance $= vt$; \ $t = \dfrac{t_0}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$; \
+  $l = l_0\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}$}
+\substitute{\eqlines{\sqrt{1 - 0.9990^2} &= \sqrt{0.001999} = 0.04471 \quad\text{(work this out once)}\\
+  \text{(a) } vt_0 &= \qty{2.997e8}{m.s^{-1}} \times \qty{2.20e-6}{s} = \qty{659}{m}\\
+  \text{(b) trip} &= \frac{\qty{1.20e4}{m}}{\qty{2.997e8}{m.s^{-1}}} = \qty{40.0}{\micro\second}\\
+  t &= \frac{\qty{2.20}{\micro\second}}{0.04471} = \qty{49.2}{\micro\second}\\
+  \text{(c) } l &= \qty{1.20e4}{m} \times 0.04471 = \qty{537}{m}\\
+  \text{trip} &= \frac{\qty{537}{m}}{\qty{2.997e8}{m.s^{-1}}} = \qty{1.79}{\micro\second}\\
+  \text{(d) } \frac{40.0}{49.2} &= 0.81 \qquad \frac{1.79}{2.20} = 0.81}}
+\answer{(a) \final{\qty{659}{m}}, far less than \qty{12.0}{km} \quad (b) trip
+  \qty{40.0}{\micro\second} $<$ lifetime \qty{49.2}{\micro\second} \quad (c) \final{$l = \qty{537}{m}$};
+  trip \qty{1.79}{\micro\second} $<$ \qty{2.20}{\micro\second} \quad (d) both frames agree: the
+  trip lasts 0.81 of a mean lifetime. Decay is random, so some muons decay on the way. But a
+  large fraction of them (just under half) reach the ground.}
+\checkstep{\cmark\ the ratio is the same in both frames. Without relativity, the trip would last
+  $40.0 \div 2.20 = 18$ lifetimes, and almost no muons would arrive. Many do arrive.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Earth is at rest, so Earth time is proper time.'' \cmark\ Proper time belongs to
+        the clock present at both events, whatever frame it is in.
+  \item \xmark\ Shrinking the height or width. \cmark\ Only the length along the motion changes.
+  \item \xmark\ Using dilated time \emph{and} contracted length in one frame. \cmark\ Earth frame:
+        dilated time with proper distance. Muon frame: proper time with contracted distance.
+  \item \xmark\ ``Passengers measure the platform as longer.'' \cmark\ Each frame measures the
+        other as contracted.
+  \item \xmark\ ``Every muon lives exactly \qty{2.2}{\micro\second}.'' \cmark\ That is an average.
+        Decay is random: some muons live longer, some shorter.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+In calculations, one mark is often for choosing $t_0$ or $l_0$. Write a short line, such as
+``the ship's clock is at both events, so ship time $= t_0$''. Then substitute and check that
+$t > t_0$ or $l < l_0$.
+
+``Explain how muons support special relativity'' is worth 3--5 marks. Full marks need:
+\begin{enumerate}
+  \item the problem: about \qty{660}{m} in one lifetime, but muons are made 10--15 km up;
+  \item Earth frame: the muon's lifetime is dilated;
+  \item muon frame: the atmosphere is contracted;
+  \item both frames agree, and far more muons reach the ground than classical physics predicts.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A light on a spaceship flashes every \qty{30.0}{s} according to the crew. The ship moves at
+        $0.600c$ relative to Earth. Find the time between flashes measured from Earth.
+  \item In \cref{ch4:fig:lightning}, suppose the train moves to the \emph{left}. In Peter's frame,
+        which strike happens first? Explain briefly.
+  \item A shuttle is \qty{120}{m} long at rest and moves at $0.60c$ past a station. What length is
+        measured (a) by the station (b) by the shuttle's pilot?
+  \item A star is \qty{4.2}{\lightyear} from Earth (Earth frame). A probe flies there at $0.90c$.
+        Find (a) the distance measured by the probe (b) the trip time on the probe's clock.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Relativistic momentum and the speed limit}\label{ch4:sec:momentum}
+\covers{M7.IQ4.03}
+
+\begin{bigidea}
+At high speed, momentum grows much faster than $m_0v$. As the speed gets close to $c$, the
+momentum heads towards infinity. So nothing with mass can ever reach the speed of light.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Rest mass ($m_0$)}{the mass measured by an observer for whom the object is at rest.}
+  \kw{Relativistic momentum ($p_\mathrm{v}$)}{the correct momentum at any speed, even near $c$.}
+  \kw{Particle accelerator}{a machine that speeds up charged particles with electric fields
+    and steers them with magnetic fields.}
+\end{keywords}
+
+\begin{refresher}{Momentum and impulse}
+Momentum is $p = mv$ (unit \si{kg.m.s^{-1}}). A net force changes momentum:
+$\Delta\vec{p} = \vec{F}_\mathrm{net}\Delta t$ (on the sheet). A bigger force for a longer time
+gives a bigger change. With no outside force, total momentum is conserved.
+\end{refresher}
+
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.78\linewidth,
+        xmin=0, xmax=1.08, ymin=0, ymax=7, xtick={0,0.2,...,1.0},
+        xticklabel style={/pgf/number format/.cd, fixed, precision=1},
+        xlabel={speed $v/c$}, ylabel={momentum $p/(m_0c)$}]
+      \addplot[hscseriesA, no marks, line width=1.2pt, domain=0:0.99, samples=200] {x/sqrt(1-x^2)};
+      \addplot[hscseriesB, no marks, dashed, line width=1.2pt, domain=0:1.0, samples=2] {x};
+      \draw[guide] (axis cs:1,0) -- (axis cs:1,7);
+      \node[font=\footnotesize, anchor=east, text=hscseriesA] at (axis cs:0.92,5.2) {$p_\mathrm{v}$};
+      \node[font=\footnotesize, anchor=north, inner sep=1pt, text=hscseriesB] at (axis cs:0.8,0.68) {$m_0v$};
+      \node[font=\footnotesize, anchor=north, rotate=90] at (axis cs:1.02,3.5) {$v = c$};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Momentum against speed. Momentum is shown in units of $m_0c$, so the
+    numbers work for any particle. The dashed line is $p = m_0v$.}\label{ch4:fig:momentum}
+\nextside
+  Near $c$, $p = mv$ fails. With $p = mv$, momentum would be conserved in a fast collision in
+  one inertial frame but not in another. That would break postulate 1. The \term{relativistic momentum} is correct at
+  any speed (formula card below). It uses the \term{rest mass} $m_0$, the mass measured when
+  the object is at rest.
+  \begin{itemize}
+    \item At low speed the root is about 1, so $p_\mathrm{v} \approx m_0v$
+          (\cref{ch4:fig:momentum}).
+    \item Near $c$, $p_\mathrm{v}$ shoots upwards and never reaches the line $v = c$.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{toolkit}{Dividing by a very small number}
+The arrow $\to$ means ``gets closer and closer to''. So $v \to c$ means ``$v$ gets closer and
+closer to $c$''. The symbol $\infty$ means infinity: bigger than any number. Dividing by a small
+number gives a big answer: $\dfrac{1}{0.1} = 10$, $\dfrac{1}{0.01} = 100$,
+$\dfrac{1}{0.001} = 1000$. The root $\sqrt{1 - v^2/c^2}$ is 0.436 at $0.90c$, 0.141 at $0.99c$
+and 0.0447 at $0.999c$. As the bottom of the fraction gets closer to 0, $p_\mathrm{v}$ grows
+without limit.
+\end{toolkit}
+
+\textbf{Why nothing with mass can reach $c$.} As $v \to c$, the root
+$\sqrt{1 - v^2/c^2} \to 0$, so $p_\mathrm{v} \to \infty$. But a real force acting for a real time
+gives only a \emph{finite} change in momentum ($\Delta p = F_\mathrm{net}\Delta t$). No push can
+supply infinite momentum or energy. So an object with mass gets closer and closer to $c$ but
+never reaches it. Each extra bit of speed costs more than the last (\cref{ch4:we:proton}).
+A photon has no rest mass, so it always travels at $c$.
+
+\textbf{Consequences and applications.} The Large Hadron Collider gives protons about 7000 times
+their rest energy (the energy their mass is worth, \cref{ch4:sec:emc2}). Yet they travel just
+below $c$, at about $0.999\,999\,99c$.
+
+A magnet bends a moving charged particle into a circle. From Module 6, the magnetic force $qvB$
+provides the centripetal force $\dfrac{mv^2}{r}$, so $qvB = \dfrac{mv^2}{r}$. Multiply both
+sides by $r$: $qvBr = mv^2$. Divide both sides by $qvB$:
+$r = \dfrac{mv}{qB} = \dfrac{p}{qB}$ \hscbadgenotonsheet. Near $c$, use $p = p_\mathrm{v}$. In a \term{synchrotron}, a ring-shaped accelerator, $r$ is fixed. So the
+field $B$ must rise in step with $p_\mathrm{v}$, not $m_0v$.
+
+Some older books say that mass increases at high speed (``relativistic mass''). The HSC formula
+keeps $m_0$ fixed: it is the momentum that grows.
+
+\begin{formulacard}{Relativistic momentum}
+  \cardformula{p_\mathrm{v} = \frac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}}
+  \begin{symbols}
+    \sym{$p_\mathrm{v}$}{momentum of an object moving at speed $v$}{\si{kg.m.s^{-1}}}
+    \sym{$m_0$}{rest mass}{\si{kg}}
+    \sym{$v$}{speed of the object relative to the observer}{\si{m.s^{-1}}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{momentum is rest mass times velocity, divided by $\sqrt{1 - v^2/c^2}$. Near $c$
+    this root is tiny, so the momentum grows without limit.}
+  \whentouse{any moving object. Above about $0.1c$, $p = mv$ is no longer accurate, so you
+    \emph{must} use this formula.}
+  \whennottouse{for a photon (it has no rest mass and always travels at $c$, so the formula
+    does not apply); or with a speed measured by a different observer from the one who
+    measures $p_\mathrm{v}$.}
+  \rearranged{$m_0 = \dfrac{p_\mathrm{v}}{v}\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}$ \qquad
+    $\dfrac{p_\mathrm{v}}{m_0v} = \dfrac{1}{\sqrt{1 - v^2/c^2}}$}
+  \tensecond{an electron at $0.600c$:
+    $p_\mathrm{v} = \dfrac{9.109\times10^{-31} \times 1.80\times10^{8}}{0.800}
+    = \qty{2.05e-22}{kg.m.s^{-1}}$.}
+  \trap{on the top line use $v$ in \si{m.s^{-1}} ($0.600c = \qty{1.80e8}{m.s^{-1}}$), not 0.600.
+    Rest mass in kg: change tonnes to kg.}
+\end{formulacard}
+
+\begin{workedexample}{An electron at 0.90\texorpdfstring{$c$}{c}}\label{ch4:we:electron}
+An electron moves at $0.90c$. Calculate its relativistic momentum and compare it with $m_0v$.
+\given{$m_0 = \qty{9.109e-31}{kg}$ (data sheet); $v = 0.90 \times \qty{3.00e8}{m.s^{-1}}
+  = \qty{2.70e8}{m.s^{-1}}$}
+\find{$p_\mathrm{v}$ and $m_0v$}
+\formula{$p_\mathrm{v} = \dfrac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$}
+\substitute{\eqlines{\sqrt{1 - 0.90^2} &= \sqrt{1 - 0.81} = \sqrt{0.19} = 0.436
+    \quad\text{(root first)}\\
+  p_\mathrm{v} &= \frac{\qty{9.109e-31}{kg} \times \qty{2.70e8}{m.s^{-1}}}{0.436}\\
+    &= \qty{5.64e-22}{kg.m.s^{-1}}\\
+  m_0v &= \qty{9.109e-31}{kg} \times \qty{2.70e8}{m.s^{-1}}\\
+    &= \qty{2.46e-22}{kg.m.s^{-1}}}}
+\answer{\final{$p_\mathrm{v} = \qty{5.6e-22}{kg.m.s^{-1}}$}, which is
+  $\dfrac{5.64}{2.46} = 2.3$ times $m_0v$}
+\checkstep{\cmark\ the ratio is $\dfrac{1}{0.436} = 2.29$, the same factor as time dilation at $0.90c$.}
+\end{workedexample}
+
+\begin{workedexample}{Faster and faster, but never \texorpdfstring{$c$}{c}}\label{ch4:we:proton}
+An accelerator raises a proton's speed from $0.90c$ to $0.99c$. (a) Find its momentum at each
+speed. (b) Compare the increase in speed with the increase in momentum. (c) Explain why the
+proton can never reach $c$.
+\given{$m_0 = \qty{1.673e-27}{kg}$; $v_1 = \qty{2.70e8}{m.s^{-1}}$; $v_2 = \qty{2.97e8}{m.s^{-1}}$}
+\find{$p_1$, $p_2$ and the ratios}
+\formula{$p_\mathrm{v} = \dfrac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$}
+\substitute{\eqlines{p_1 &= \frac{\qty{1.673e-27}{kg} \times \qty{2.70e8}{m.s^{-1}}}{\sqrt{1 - 0.90^2}}
+    = \frac{\qty{4.517e-19}{kg.m.s^{-1}}}{0.4359}\\ &= \qty{1.04e-18}{kg.m.s^{-1}}\\
+  p_2 &= \frac{\qty{1.673e-27}{kg} \times \qty{2.97e8}{m.s^{-1}}}{\sqrt{1 - 0.99^2}}
+    = \frac{\qty{4.969e-19}{kg.m.s^{-1}}}{0.1411}\\ &= \qty{3.52e-18}{kg.m.s^{-1}}\\
+  \frac{v_2}{v_1} &= \frac{0.99}{0.90} = 1.10\\
+  \frac{p_2}{p_1} &= \frac{3.52}{1.04} = 3.4}}
+\answer{(a) \final{\qty{1.0e-18}{kg.m.s^{-1}}} and \final{\qty{3.5e-18}{kg.m.s^{-1}}}
+  (b) the speed rises by only 10\,\%, but the momentum more than triples (c) at $v = c$ the
+  momentum would be infinite, and a finite force for a finite time ($\Delta p =
+  F_\mathrm{net}\Delta t$) can never supply that, so $v$ stays below $c$.}
+\checkstep{$p_1$ is 2.3 times $m_0v_1$, the same factor as in \cref{ch4:we:electron} at $0.90c$
+  \cmark. Both answers are larger than $m_0v$ \cmark. (Going on to $0.999c$, only 0.9\,\%
+  faster, multiplies the momentum by another 3.2.)}
+\end{workedexample}
+
+%% Added by the Module 7 coverage audit (M7.IQ4.03, applications of relativistic momentum).
+\begin{workedexample}{Steering a fast proton}\label{ch4:we:ring}
+In a ring accelerator, a proton moves at $0.960c$ at \ang{90} to a magnetic field of
+\qty{1.50}{T}. (a) Find its relativistic momentum. (b) Find the radius of its circular path.
+(c) Find the radius that $p = m_0v$ would predict. (d) Explain why the ring's magnets must be
+designed with $p_\mathrm{v}$.
+\given{$m_0 = \qty{1.673e-27}{kg}$; $v = 0.960 \times \qty{3.00e8}{m.s^{-1}} =
+  \qty{2.88e8}{m.s^{-1}}$; $q = \qty{1.602e-19}{C}$; $B = \qty{1.50}{T}$}
+\find{(a) $p_\mathrm{v}$ \quad (b) $r$ \quad (c) $r$ from $m_0v$ \quad (d) why $p_\mathrm{v}$
+  matters}
+\formula{$p_\mathrm{v} = \dfrac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$, \ then
+  $r = \dfrac{p}{qB}$ (derived above; not on the sheet)}
+\substitute{root first: $\sqrt{1 - 0.960^2} = \sqrt{1 - 0.9216} = \sqrt{0.0784} = 0.280$\\
+  (a) top line, then divide by the root:\\
+  \eqlines{m_0v &= \qty{1.673e-27}{kg} \times \qty{2.88e8}{m.s^{-1}}\\
+    &= \qty{4.818e-19}{kg.m.s^{-1}}\\
+  p_\mathrm{v} &= \frac{\qty{4.818e-19}{kg.m.s^{-1}}}{0.280} = \qty{1.721e-18}{kg.m.s^{-1}}}\\[5pt]
+  (b) bottom line $qB$ first, then $r$:\\
+  \eqlines{qB &= \qty{1.602e-19}{C} \times \qty{1.50}{T} = \qty{2.403e-19}{C.T}\\
+  r &= \frac{\qty{1.721e-18}{kg.m.s^{-1}}}{\qty{2.403e-19}{C.T}} = \qty{7.161}{m}}\\[5pt]
+  (c) the same, with $m_0v$ on top:\\
+  \eqlines{r &= \frac{\qty{4.818e-19}{kg.m.s^{-1}}}{\qty{2.403e-19}{C.T}} = \qty{2.005}{m}}}
+\answer{(a) \final{$p_\mathrm{v} = \qty{1.72e-18}{kg.m.s^{-1}}$} \quad
+  (b) \final{$r = \qty{7.16}{m}$} \quad (c) \final{$r = \qty{2.01}{m}$}, far too small.
+  (d) The real path is $\dfrac{7.161}{2.005} = 3.57$ times wider. Magnets set up with $m_0v$
+  would be too weak. The protons would curve too little and hit the outer wall of the ring.}
+\checkstep{$\dfrac{1}{0.280} = 3.57$: the radius grows by the same factor as the momentum
+  \cmark. Unit: $\unit{kg.m.s^{-1}} \div (\unit{C} \times \unit{T}) = \unit{m}$, because
+  \qty{1}{T} $=$ \qty{1}{kg.C^{-1}.s^{-1}} \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $p = mv$ at $0.9c$. \cmark\ Use $p_\mathrm{v}$; above about $0.1c$ the
+        difference matters.
+  \item \xmark\ ``Its mass increases, so it can't go faster.'' \cmark\ Say that the momentum and
+        energy needed grow without limit as $v$ approaches $c$.
+  \item \xmark\ Forgetting that momentum depends on the frame. \cmark\ For someone moving with the
+        object, its momentum is zero.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why a particle with mass cannot reach the speed of light'' is worth 3 marks. Full
+marks need:
+\begin{enumerate}
+  \item as $v \to c$, the root $\to 0$, so $p_\mathrm{v} \to \infty$;
+  \item a finite force for a finite time (finite energy) gives only a finite momentum, so
+        $v < c$;
+  \item evidence: accelerator particles get closer and closer to $c$ but never reach it.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A cargo probe of rest mass \qty{1.5e5}{kg} moves at $0.80c$ past a space station. Find
+        its momentum measured (a) by the station (b) by a camera fixed to the probe.
+  \item At what speed is an object's relativistic momentum twice $m_0v$?
+  \item Explain why the magnets in a ring accelerator must get stronger as the particles speed up,
+        even though their speed hardly changes near $c$.
+  \item A proton synchrotron has a ring of radius \qty{25.0}{m}. Find the magnetic field needed
+        to keep protons on the ring at (a) $0.990c$ (b) $0.999c$. Compare the increase in speed
+        with the increase in field.\label{ch4:qc:ring}
+\end{quickcheck}
+
+%% ==================================================================
+\section{Mass--energy equivalence: \texorpdfstring{$E = mc^2$}{E = mc2}}\label{ch4:sec:emc2}
+\covers{M7.IQ4.04}
+
+\begin{bigidea}
+Mass is a very concentrated form of energy. When a process releases energy, the products have
+slightly less mass than the starting materials. The energy released is the lost mass times $c^2$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Rest energy}{the energy an object has because of its mass, $E = mc^2$.}
+  \kw{Mass defect ($\Delta m$)}{mass before minus mass after: the mass that disappears.}
+  \kw{Antiparticle}{a particle with the same mass as another but the opposite charge (and
+    other opposite properties).}
+  \kw{Annihilation}{a particle and its antiparticle meet and become photons.}
+\end{keywords}
+
+Special relativity shows that mass and energy are two forms of the same thing. This is
+\term{mass--energy equivalence}: any mass $m$ has a \term{rest energy} $E = mc^2$. Since
+$c^2 = \qty{9.00e16}{m^2.s^{-2}}$, a tiny mass holds a huge energy. One gram is equivalent to
+\qty{9.0e13}{J}. That is about one day's output of a \qty{1000}{MW} power station
+($\qty{1.0e9}{W} \times \qty{86400}{s} = \qty{8.6e13}{J}$).
+
+When a process releases energy (heat, light, motion), the products have slightly less rest mass
+than the starting materials. The mass lost is the \term{mass defect}
+$\Delta m = m_\mathrm{before} - m_\mathrm{after}$, and $\Delta E = \Delta m\,c^2$. A sealed
+container only gets lighter when that energy escapes from it. (In Module 8 you will also meet the
+mass defect of a \emph{nucleus}. That is the mass of its separate protons and neutrons minus the
+mass of the nucleus.) The syllabus names three examples.
+
+\textbf{1. The Sun.} The Sun shines by \term{nuclear fusion}: light \term{nuclei} (the tiny
+centres of atoms) joining to make a heavier one. In its core, four hydrogen nuclei join in steps
+to make one helium-4 nucleus (2 protons and 2 neutrons). This is the \term{proton--proton
+chain} (Module 8). About 0.7\,\% of the mass becomes energy (\cref{ch4:we:sun}).
+
+\textbf{2. Annihilation.} Every particle has an \term{antiparticle}, with the same mass but
+the opposite charge. The electron's antiparticle is called the \term{positron} ($\mathrm{e}^+$).
+It has the electron's mass but a positive charge. When they meet, both vanish and all their mass
+becomes gamma-ray photons: \term{annihilation}. For a pair at rest, \emph{two} photons fly off in
+opposite directions (\cref{ch4:fig:annihilation}), because the total momentum must stay zero.
+Hospital PET scanners (positron emission tomography, a type of medical scan) detect these photon
+pairs.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    \fill[hscvel!80] (0,0) circle (0.2) node[white, font=\footnotesize\bfseries] {$-$};
+    \fill[hscforce!85] (2.4,0) circle (0.2) node[white, font=\footnotesize\bfseries] {$+$};
+    \draw[velocity] (0.3,0) -- (0.95,0);
+    \draw[velocity] (2.1,0) -- (1.45,0);
+    \node[diagramlabel, font=\footnotesize, below=2.5mm] at (0,0) {electron};
+    \node[diagramlabel, font=\footnotesize, below=2.5mm] at (2.4,0) {positron};
+    \node[diagramlabel, font=\footnotesize, align=center] at (1.2,-1.45) {before:\\ total momentum $= 0$};
+    \draw[->, hscmuted, line width=1pt] (3.3,0) -- (4.2,0);
+    \begin{scope}[xshift=6.6cm]
+      \fill[hscacc] (0,0) circle (0.07);
+      \foreach \dir in {1,-1}
+        \draw[hscray, line width=1.1pt, decorate, decoration={snake, amplitude=1.1mm,
+          segment length=3mm, post length=2.5mm}, ->] (\dir*0.15,0) -- (\dir*2.1,0);
+      \node[diagramlabel, font=\footnotesize, above=2mm, text=hscray] at (1.3,0) {photon};
+      \node[diagramlabel, font=\footnotesize, above=2mm, text=hscray] at (-1.3,0) {photon};
+      \node[diagramlabel, font=\footnotesize, align=center] at (0,-1.45) {after: two equal photons
+        in opposite directions,\\ so total momentum $= 0$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Electron--positron annihilation gives two photons, not one.}\label{ch4:fig:annihilation}
+\end{figure}
+
+\textbf{3. Burning fuel.} Chemical reactions also lose mass, but very little. Burning
+\qty{1.00}{kg} of petrol releases about \qty{4.6e7}{J}, so
+$\Delta m = \dfrac{\Delta E}{c^2} = \dfrac{\qty{4.6e7}{J}}{\qty{9.00e16}{m^2.s^{-2}}}
+= \qty{5.1e-10}{kg}$: about 5 parts in 10 billion of the fuel's mass. This is far too small to
+measure. We know it only by calculation. Compare: about 0.7\,\% for fusion, 100\,\% for annihilation.
+
+\begin{toolkit}{Energy units: J, eV, MeV and u}
+$\qty{1}{\eV} = \qty{1.602e-19}{J}$ (data sheet), so $\qty{1}{\mega\eV} = \qty{1.602e-13}{J}$.
+Joules to eV: divide by \num{1.602e-19}. Atomic masses are often in atomic mass units:
+$\qty{1}{\amu} = \qty{1.661e-27}{kg}$, equivalent to \qty{931.5}{\mega\eV} (data sheet).
+Mass in u: multiply $\Delta m$ by 931.5 to get MeV. Mass in kg: use $E = mc^2$ to get J. Do not
+mix the two routes in one answer.
+\end{toolkit}
+
+\begin{formulacard}{Mass--energy equivalence}
+  \cardformula{E = mc^2}
+  \begin{symbols}
+    \sym{$E$}{energy equivalent to the mass (energy released)}{\si{J}}
+    \sym{$m$}{mass; use $\Delta m$, the mass lost, for energy released}{\si{kg}}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{multiply a mass by $c^2$ to get the energy it is equivalent to.}
+  \whentouse{energy released when mass is lost (fusion, fission, annihilation, burning); the rest
+    energy of a particle.}
+  \whennottouse{for the kinetic energy of an everyday object ($K = \frac{1}{2}mv^2$), or with a
+    mass in g or u.}
+  \rearranged{$m = \dfrac{E}{c^2}$ \qquad $\Delta E = \Delta m\,c^2$}
+  \tensecond{$\Delta m = \qty{2.0e-6}{kg}$:
+    $E = 2.0\times10^{-6} \times (3.00\times10^{8})^2 = \qty{1.8e11}{J}$.}
+  \trap{square $c$ ($c^2 = \qty{9.00e16}{m^2.s^{-2}}$). Use only the mass that is \emph{lost}
+    (in annihilation, all of it).}
+\end{formulacard}
+
+\begin{formulacard}[combine={$P = \frac{\Delta E}{\Delta t}$ and $E = mc^2$}]{Mass lost each second}
+  \cardformula{\frac{\Delta m}{\Delta t} = \frac{P}{c^2}}
+  \begin{symbols}
+    \sym{$\dfrac{\Delta m}{\Delta t}$}{mass lost each second}{\si{kg.s^{-1}}}
+    \sym{$P$}{power output: energy given out each second}{\si{W} (\si{J.s^{-1}})}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{anything that gives out energy at a steady power $P$ loses mass at the rate
+    $\dfrac{P}{c^2}$.}
+  \whentouse{the Sun or another star; a power station or reactor with a known power output.}
+  \whennottouse{for one single reaction (use $\Delta E = \Delta m\,c^2$ instead).}
+  \rearranged{$P = \dfrac{\Delta m}{\Delta t}\,c^2$}
+  \tensecond{$P = \qty{1.8e9}{W}$:
+    $\dfrac{\Delta m}{\Delta t} = \dfrac{1.8\times10^{9}}{9.00\times10^{16}} = \qty{2.0e-8}{kg.s^{-1}}$.}
+  \derive{$P = \dfrac{\Delta E}{\Delta t}$ and $\Delta E = \Delta m\,c^2$, so
+    $P = \dfrac{\Delta m\,c^2}{\Delta t}$. Divide both sides by $c^2$.}
+  \trap{change MW to W first ($\qty{1}{MW} = \qty{e6}{W}$), and square $c$.}
+\end{formulacard}
+
+\begin{workedexample}{Annihilation in a PET scan}\label{ch4:we:annihilation}
+In a PET scan, a positron meets an electron. Both are almost at rest, and they annihilate into two
+gamma-ray photons. Find (a) the total energy released (b) the energy of each photon in J and MeV
+(c) the wavelength of each photon. (d) A scanner detects \num{2.0e8} annihilations each second.
+What power do the gamma rays carry?
+\given{each mass $m_\mathrm{e} = \qty{9.109e-31}{kg}$ (a positron has the electron's mass);
+  $h = \qty{6.626e-34}{J.s}$; $\qty{1}{\mega\eV} = \qty{1.602e-13}{J}$; \num{2.0e8} pairs
+  each second}
+\find{$\Delta E$, the energy of each photon, its wavelength $\lambda$, and the power $P$}
+\formula{$E = mc^2$ with $\Delta m = 2m_\mathrm{e}$; then $E = hf$ and $c = f\lambda$ for one
+  photon; $P = \dfrac{\Delta E}{\Delta t}$}
+\substitute{\eqlines{\text{(a) } \Delta m &= 2 \times \qty{9.109e-31}{kg} = \qty{1.8218e-30}{kg}\\
+  \Delta E &= \qty{1.8218e-30}{kg} \times (\qty{3.00e8}{m.s^{-1}})^2\\
+  &= \qty{1.640e-13}{J}\\
+  \text{(b) } E_\mathrm{photon} &= \frac{\qty{1.640e-13}{J}}{2} = \qty{8.20e-14}{J}\\
+  &= \frac{\num{8.20e-14}}{\num{1.602e-13}}\,\si{\mega\eV} = \qty{0.512}{\mega\eV}\\
+  \text{(c) } f &= \frac{E}{h} = \frac{\qty{8.20e-14}{J}}{\qty{6.626e-34}{J.s}} = \qty{1.24e20}{Hz}\\
+  \lambda &= \frac{c}{f} = \frac{\qty{3.00e8}{m.s^{-1}}}{\qty{1.24e20}{Hz}} = \qty{2.42e-12}{m}\\
+  \text{(d) } P &= \num{2.0e8} \times \qty{1.640e-13}{J} \text{ each second}\\
+  &= \qty{3.3e-5}{W}}}
+\answer{(a) \final{\qty{1.64e-13}{J}} \quad (b) \final{\qty{8.20e-14}{J} = \qty{0.512}{\mega\eV}}
+  each \quad (c)~\final{\qty{2.42e-12}{m}} \quad (d)~\final{\qty{3.3e-5}{W}}}
+\checkstep{a wavelength near \qty{e-12}{m} is in the gamma-ray range \cmark. The power is tiny,
+  because each photon carries very little energy \cmark. (The accurate photon energy is
+  \qty{0.511}{\mega\eV}; the data-sheet $c$ is rounded.)}
+\end{workedexample}
+
+\begin{workedexample}{How the Sun loses mass}\label{ch4:we:sun}
+The Sun gives out \qty{3.85e26}{W}. (a) How much mass does it lose each second? (b) In the
+proton--proton chain, four hydrogen-1 atoms (\qty{1.007825}{\amu} each) end up as one helium-4
+atom (\qty{4.002603}{\amu}). Find the energy released each time. (c) How many helium-4 nuclei does
+the Sun make each second?
+\given{$P = \qty{3.85e26}{W}$ (joules each second); masses in u; $\qty{1}{\amu} =
+  \qty{931.5}{\mega\eV}/c^2$; $\qty{1}{\mega\eV} = \qty{1.602e-13}{J}$}
+\find{(a) $\dfrac{\Delta m}{\Delta t}$ \quad (b) energy per helium-4 \quad (c) number per second}
+\formula{$P = \dfrac{\Delta E}{\Delta t}$ and $\Delta E = \Delta m\,c^2$ give
+  $\dfrac{\Delta m}{\Delta t} = \dfrac{P}{c^2}$; \ $E\,(\mathrm{MeV}) = \Delta m\,(\mathrm{u}) \times 931.5$}
+\substitute{\eqlines{\text{(a) } \frac{\Delta m}{\Delta t} &= \frac{\qty{3.85e26}{J.s^{-1}}}
+    {(\qty{3.00e8}{m.s^{-1}})^2} = \qty{4.28e9}{kg.s^{-1}}\\
+  \text{(b) } \Delta m &= 4 \times \qty{1.007825}{\amu} - \qty{4.002603}{\amu} = \qty{0.028697}{\amu}\\
+  E &= 0.028697 \times \qty{931.5}{\mega\eV} = \qty{26.73}{\mega\eV}\\
+  E &= 26.73 \times \qty{1.602e-13}{J} = \qty{4.282e-12}{J}\\
+  \text{(c) } N &= \frac{\qty{3.85e26}{J.s^{-1}}}{\qty{4.282e-12}{J}} = \qty{8.99e37}{s^{-1}}}}
+\answer{(a) \final{\qty{4.28e9}{kg}} each second \quad (b) \final{\qty{26.7}{\mega\eV}
+  = \qty{4.28e-12}{J}} \quad (c) \final{\num{8.99e37}} each second}
+\checkstep{the starting mass is $4 \times \qty{1.007825}{\amu} = \qty{4.0313}{\amu}$, and
+  $0.028697 \div 4.0313 = 0.0071$: 0.7\,\% of the mass, as expected for fusion \cmark.
+  Even at 4 million tonnes a second, the Sun loses under 0.1\,\% of its mass in 10 billion years.}
+\end{workedexample}
+
+%% Added by the Module 7 coverage audit (M7.IQ4.04, burning conventional fuel).
+\begin{workedexample}{Burning natural gas}\label{ch4:we:fuel}
+A gas heater burns \qty{1.00}{kg} of methane (natural gas) with \qty{3.99}{kg} of oxygen. The
+reaction releases \qty{5.55e7}{J} of heat. (a) Find the mass that becomes energy. (b) What
+fraction of the starting mass (methane plus oxygen) is this? (c) A good school balance shows
+changes as small as \qty{0.01}{g}. Explain why this mass change cannot be measured by weighing.
+\given{$\Delta E = \qty{5.55e7}{J}$; \ starting mass $m = 1.00 + 3.99 = \qty{4.99}{kg}$; \
+  $c = \qty{3.00e8}{m.s^{-1}}$; \ smallest change the balance shows: $\qty{0.01}{g} =
+  \qty{1e-5}{kg}$}
+\find{(a) the mass lost $\Delta m$ \quad (b) the fraction $\dfrac{\Delta m}{m}$ \quad (c) how
+  $\Delta m$ compares with \qty{1e-5}{kg}}
+\formula{$\Delta E = \Delta m\,c^2$. Divide both sides by $c^2$: $\Delta m = \dfrac{\Delta E}{c^2}$}
+\substitute{square $c$ first:\\
+  \eqlines{c^2 &= (\qty{3.00e8}{m.s^{-1}})^2 = \qty{9.00e16}{m^2.s^{-2}}\\
+  \text{(a) } \Delta m &= \frac{\qty{5.55e7}{J}}{\qty{9.00e16}{m^2.s^{-2}}} = \qty{6.17e-10}{kg}\\
+  \text{(b) } \frac{\Delta m}{m} &= \frac{\qty{6.17e-10}{kg}}{\qty{4.99}{kg}} = \num{1.24e-10}}\\[5pt]
+  (c) how many times bigger the balance's smallest step is than $\Delta m$:\\
+  \eqlines{\frac{\qty{1e-5}{kg}}{\qty{6.17e-10}{kg}} &= \num{1.6e4}}}
+\answer{(a) \final{$\Delta m = \qty{6.17e-10}{kg}$} \quad (b) \final{\num{1.24e-10}}, about 1 part
+  in 8 billion \quad (c) the smallest change the balance can show is about \num{16000} times
+  bigger than $\Delta m$. So the change is far too small to weigh. We know it only by
+  calculation with $E = mc^2$.}
+\checkstep{unit: $\unit{J} \div \unit{m^2.s^{-2}} = \unit{kg.m^2.s^{-2}} \div \unit{m^2.s^{-2}} =
+  \unit{kg}$ \cmark. The size is close to the petrol example above (\qty{5.1e-10}{kg} for
+  \qty{1.00}{kg} of fuel) \cmark. Fusion turns 0.7\,\% of its mass into energy: more than 50
+  million times the fraction here.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ One photon from annihilation. \cmark\ Two photons in opposite directions
+        (momentum is conserved), and $\Delta m = 2m_\mathrm{e}$.
+  \item \xmark\ Multiplying a mass in u by $c^2$. \cmark\ Mass in u: multiply by 931.5 to get MeV.
+  \item \xmark\ ``Only nuclear reactions turn mass into energy.'' \cmark\ In every process that
+        releases energy, the products have less mass. In chemistry the difference is too small to
+        measure.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Calculate the energy released'' is worth 2--3 marks. Full marks need:
+\begin{enumerate}
+  \item $\Delta m$ from the correct masses (mass before minus mass after);
+  \item $\Delta E = \Delta m\,c^2$ (or $\times\,931.5$ MeV for masses in u);
+  \item the answer with its unit, after any unit change.
+\end{enumerate}
+Annihilation: say \emph{two} photons, and give each one half of the energy. Multiple-choice
+questions ask about fuel burning in a sealed jar. Its mass falls very slightly, but only as the
+heat and light leave the jar. Questions can also ask about the reverse process: in an
+accelerator, the energy of a collision can make new particles that have mass.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A nuclear reactor releases energy at \qty{3.0e9}{W}. How much mass becomes energy
+        (a) each second (b) each year ($\qty{1}{\yr} = \qty{3.16e7}{s}$)?
+  \item A proton and an antiproton at rest annihilate. Assume they make two photons (in real
+        life they usually make other particles called pions). Find each photon's energy in J
+        and in MeV.
+  \item Burning \qty{1.0}{kg} of coal releases \qty{3.0e7}{J}. Find the decrease in mass. Why can
+        it not be measured?
+  \item Deuterium (hydrogen-2, \qty{2.014102}{\amu}) and tritium (hydrogen-3,
+        \qty{3.016049}{\amu}) fuse into helium-4
+        (\qty{4.002603}{\amu}) and a neutron (\qty{1.008665}{\amu}). Find the energy released in MeV
+        and in J.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch4:sec:experiments}
+\covers{M7.IQ4.01, M7.IQ4.02, M7.IQ4.03}
+
+\begin{refresher}{Validity, reliability and accuracy}
+These are the same words as in \cref{ch1:sec:speed}.
+\textbf{Validity}: the method really tests what it claims to, with other variables controlled
+(a fair test). \textbf{Reliability}: repeats give consistent results. \textbf{Accuracy}: how
+close a result is to the true (or predicted) value.
+\end{refresher}
+
+\begin{experiment}{Michelson and Morley (1887): looking for the aether}
+\aim{To detect the Earth's motion through the aether. An \term{interferometer} is an
+  instrument that splits light into two beams and joins them again. Here it compares the speed
+  of light in two directions at right angles.}
+\apparatus{
+  \begin{sidebyside}[0.52]
+    \centering
+    \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+      \fill[hscmuted!12, rounded corners=2mm] (-0.9,-2.9) rectangle (6.9,3.5);
+      \node[diagramlabel, font=\scriptsize, text=hscmuted, anchor=north west, align=left] at (-0.85,3.45)
+        {stone slab\\[-2pt]on mercury};
+      \draw[object] (-0.7,-0.3) rectangle (0,0.3);
+      \node[diagramlabel, font=\scriptsize, above] at (-0.35,0.3) {source};
+      \draw[ray] (0,0.06) -- (2.95,0.06);
+      \draw[hscink, line width=1.6pt] (2.65,-0.35) -- (3.35,0.35);
+      \node[diagramlabel, font=\scriptsize, anchor=north east, align=right] at (2.8,-0.35)
+        {half-silvered\\[-2pt] mirror};
+      \draw[ray] (3.05,0.06) -- (5.9,0.06);
+      \draw[ray] (5.9,-0.08) -- (3.08,-0.08);
+      \draw[hscink, line width=2pt] (6.0,-0.5) -- (6.0,0.5);
+      \node[diagramlabel, font=\scriptsize, anchor=south] at (6.0,0.55) {mirror};
+      \draw[ray] (2.94,0.1) -- (2.94,2.9);
+      \draw[ray] (3.08,2.9) -- (3.08,0.1);
+      \draw[hscink, line width=2pt] (2.5,3.0) -- (3.5,3.0);
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (3.55,3.0) {mirror};
+      \draw[ray] (3.0,-0.12) -- (3.0,-1.75);
+      \draw[object] (2.65,-2.35) rectangle (3.35,-1.8);
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (3.4,-2.05) {telescope};
+      \node[diagramlabel, font=\scriptsize, text=hscmuted] at (4.5,0.45) {arm 1};
+      \node[diagramlabel, font=\scriptsize, text=hscmuted, anchor=east] at (2.85,1.7) {arm 2};
+    \end{tikzpicture}
+    \captionof{figure}{The interferometer, seen from above.}\label{ch4:fig:mm}
+  \nextside
+    A light source; a half-silvered mirror that splits the beam; two equal arms at right angles
+    with mirrors (each light path about \qty{11}{m}); a telescope to watch the interference
+    fringes; a heavy stone slab floating on mercury, so the apparatus could turn smoothly.
+  \end{sidebyside}}
+\method{\begin{enumerate}
+  \item Split one beam into two at right angles. Each goes along its arm and back, and the two
+        recombine to make interference fringes (bright and dark bands).
+  \item Slowly rotate the apparatus and watch for a fringe shift. Repeat at different times of
+        day and year, as the Earth's motion changes direction.
+\end{enumerate}}
+\results{The aether idea predicted a shift of about 0.4 of a fringe. The shift seen was less than
+  0.02 of a fringe: a null result (the expected effect was not found).}
+\conclusion{No aether wind: light has the same speed in all directions on the moving Earth.}
+\significance{It found none of the effects the aether predicted, so there was no evidence for an
+  aether. The result agrees with both postulates.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} both beams came from one source and were compared with each other,
+        so only turning the apparatus (changing direction) could shift the fringes.
+  \item \textbf{Reliability:} repeated many times; modern laser versions always give a null result.
+  \item \textbf{Accuracy:} it could detect 0.01 fringe, far less than the 0.4 expected.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Cosmic-ray muons on a mountain (Frisch and Smith, 1963)}
+\aim{To test time dilation by counting fast muons on a mountain top and at sea level.}
+\apparatus{
+  \begin{sidebyside}[0.4]
+    \centering
+    \begin{tikzpicture}[x=0.6cm, y=0.6cm]
+      \fill[hscmuted!25] (0,0) -- (2.4,2.6) -- (4.6,0) -- cycle;
+      \draw[hscink, line width=0.8pt] (-0.4,0) -- (6.6,0);
+      \draw[object] (2.1,2.6) rectangle (2.7,3.0);
+      \draw[object] (5.3,0) rectangle (5.9,0.4);
+      \foreach \x in {2.25,2.55} \draw[velocity, line width=0.9pt] (\x,4.2) -- (\x,3.1);
+      \foreach \x in {5.45,5.75} \draw[velocity, line width=0.9pt] (\x,4.2) -- (\x,0.5);
+      \node[diagramlabel, font=\scriptsize, anchor=south] at (4.0,4.2) {muons};
+      \draw[<->, hscmuted, line width=0.6pt] (1.0,0) -- (1.0,2.6);
+      \node[diagramlabel, font=\scriptsize, anchor=east] at (0.95,1.3) {\qty{1.9}{km}};
+      \node[diagramlabel, font=\scriptsize, anchor=north] at (5.6,-0.05) {sea level};
+    \end{tikzpicture}
+    \captionof{figure}{Counting muons at two heights.}\label{ch4:fig:mountain}
+  \nextside
+    A scintillator (it flashes when a muon passes) under a block of iron. Only muons with
+    speeds near $0.995c$ stopped inside it and were counted. The same detector was used on
+    Mount Washington (USA), about \qty{1.9}{km} up, and near sea level. At sea level some iron
+    was removed, to make up for the energy muons lose in \qty{1.9}{km} of air. So the same
+    group of muons was counted.
+  \end{sidebyside}}
+\method{\begin{enumerate}
+  \item Count the muons near $0.995c$ arriving each hour on the mountain, then at sea level.
+  \item Time each stopped muon from the flash when it arrives to the flash when it decays. The
+        average gives the mean lifetime at rest (\qty{2.2}{\micro\second}).
+\end{enumerate}}
+\results{About 563 muons per hour arrived on top, and 408 per hour at sea level. The trip down
+  takes about \qty{6.4}{\micro\second} in the Earth frame. That is nearly 3 lifetimes. Without
+  time dilation, only about 30 per hour should survive.}
+\conclusion{Far more muons survive than classical physics predicts. The counts match a
+  time-dilation factor of about 9. Relativity predicts this value once you allow for the muons
+  slowing down in the air.}
+\significance{Direct evidence for time dilation (and, in the muon frame, length contraction).}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} one narrow speed range, the same detector, and the iron adjusted for
+        the air, so the same muons were compared.
+  \item \textbf{Reliability:} hundreds of counts per hour for many hours; repeated by others.
+  \item \textbf{Accuracy:} decay is random and muons slow in air, so averages and corrections are
+        needed. The result agreed with the prediction within its uncertainty.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Atomic clocks on aeroplanes (Hafele and Keating, 1971)}
+\aim{To test time dilation with very accurate atomic clocks flown around the world.}
+\apparatus{
+  \begin{sidebyside}[0.45]
+    \centering
+    \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+      \fill[hscvel!10] (0,0) circle (1.3);
+      \draw[hscvel!60, line width=0.8pt] (0,0) circle (1.3);
+      \fill[hscink] (0,0) circle (0.05);
+      \node[diagramlabel, font=\scriptsize, below] at (0,-0.02) {North Pole};
+      \draw[->, hscmuted, line width=0.8pt] (40:0.6) arc (40:140:0.6);
+      \node[diagramlabel, font=\scriptsize, text=hscmuted] at (0,0.85) {Earth spins};
+      \fill[hscink] (270:1.3) circle (0.07);
+      \draw[velocity] (270:1.3) -- ++(0:0.9);
+      \node[diagramlabel, font=\scriptsize, anchor=north] at (270:1.4) {ground clock};
+      \fill[hscforce] (330:1.55) circle (0.07);
+      \draw[velocity] (330:1.55) -- ++(60:1.3);
+      \node[diagramlabel, font=\scriptsize, anchor=south, align=center] at (1.75,1.55)
+        {eastward plane:\\[-2pt] fastest};
+      \fill[hscacc] (150:1.55) circle (0.07);
+      \draw[velocity] (150:1.55) -- ++(240:0.42);
+      \node[diagramlabel, font=\scriptsize, anchor=south, align=center] at (-1.6,1.0)
+        {westward plane:\\[-2pt] slowest};
+    \end{tikzpicture}
+    \captionof{figure}{Speeds relative to the Earth's centre, seen from above the North Pole
+      (not to scale). Arrow length shows speed.}\label{ch4:fig:hk}
+  \nextside
+    Four caesium \term{atomic clocks} (very accurate clocks that use the vibrations of atoms);
+    normal passenger jets; reference atomic clocks on the ground (US Naval Observatory); flight
+    records of speed, height and route.
+  \end{sidebyside}}
+\method{Use the Earth's centre as an (almost) inertial frame (\cref{ch4:fig:hk}). The ground
+  moves east as the Earth spins. The eastward plane moves fastest, so its clock should run
+  slowest. The westward plane partly cancels the spin, so it moves slowest and its clock should
+  run fastest.
+  \begin{enumerate}
+  \item Synchronise the four clocks with the ground clocks.
+  \item Fly them around the world eastward, then westward. Compare with the ground clocks after
+        each trip.
+\end{enumerate}}
+\results{Time gained (+) or lost (\textminus) by the flying clocks, in nanoseconds:
+  \begin{center}\small
+  \begin{tabular}{@{}L{18mm}C{25mm}C{25mm}C{20mm}C{18mm}@{}}
+    \toprule
+    \colhead{Trip} & \colhead{Predicted: speed (special relativity)} & \colhead{Predicted: height
+      (gravity)} & \colhead{Predicted total} & \colhead{Measured}\\
+    \midrule
+    Eastward & $-184 \pm 18$ & $+144 \pm 14$ & $-40 \pm 23$ & $-59 \pm 10$\\
+    Westward & $+96 \pm 10$ & $+179 \pm 18$ & $+275 \pm 21$ & $+273 \pm 7$\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  The ``height'' effect (higher clocks run faster) comes from general relativity, Einstein's
+  later theory of gravity. It is not in the HSC course. The special-relativity effects alone
+  ($-184$ and $+96$) do not match the measurements; adding the height effect does.}
+\conclusion{Measured and predicted times agree within the uncertainties: moving clocks run slow,
+  even at aeroplane speeds.}
+\significance{The first test with man-made atomic clocks carried on aircraft. GPS (satellite
+  navigation) satellites use the same corrections (about
+  \qty{38}{\micro\second} a day); without them, positions would drift about \qty{11}{km} a day.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} the same ground clocks were the reference; the gravity effect was included.
+  \item \textbf{Reliability:} only one trip each way, on uncontrolled flights; later repeats agreed.
+  \item \textbf{Accuracy:} the effects are only tens to hundreds of nanoseconds, so four clocks were
+        averaged; both results agree within their uncertainties.
+\end{itemize}}
+\end{experiment}
+
+\begin{toolkit}{When $v$ is tiny compared with $c$}
+For an aeroplane, $\dfrac{v^2}{c^2}$ is about $10^{-12}$. A calculator then shows
+$\sqrt{1 - v^2/c^2}$ as exactly 1, so the time difference seems to be zero. Use this shortcut
+instead:
+\[ t - t_0 \approx t \times \frac{v^2}{2c^2} \]
+{\centering\hscbadgenotonsheet\par}
+Where it comes from:
+\begin{itemize}
+  \item For a tiny number $x$, $\sqrt{1 - x} \approx 1 - \dfrac{x}{2}$. Check:
+        $\left(1 - \dfrac{x}{2}\right)^2 = 1 - x + \dfrac{x^2}{4}$, and $\dfrac{x^2}{4}$ is far
+        too small to matter.
+  \item So $t_0 = t\sqrt{1 - x} \approx t - t \times \dfrac{x}{2}$.
+  \item Rearrange: $t - t_0 \approx t \times \dfrac{x}{2}$. Then put in $x = \dfrac{v^2}{c^2}$.
+\end{itemize}
+Example: a plane flies at \qty{200}{m.s^{-1}} for \qty{10.0}{h} ($t = \qty{36000}{s}$).
+Then $\dfrac{v^2}{c^2} = \left(\dfrac{200}{\num{3.00e8}}\right)^2 = \num{4.44e-13}$, and half
+of this is $\dfrac{v^2}{2c^2} = \num{2.22e-13}$. So
+$t - t_0 = \num{36000} \times \num{2.22e-13} = \qty{8.0e-9}{s} = \qty{8.0}{ns}$.
+\end{toolkit}
+
+%% Added by the Module 7 coverage audit (M7.IQ4.02, atomic clocks analysed quantitatively).
+\begin{workedexample}{Clocks flown east and west}\label{ch4:we:clocks}
+A jet flies along the equator for \qty{40.0}{h} at a steady \qty{240}{m.s^{-1}} relative to
+the ground. One trip goes east and another goes west. The Earth turns once in \qty{24.0}{h}. Use the Earth's centre as the inertial frame, and use special relativity only
+(ignore the height effect). After each trip, how far ahead of, or behind, a clock on the ground
+at the equator is the flying clock? (a) Eastward trip. (b) Westward trip.
+\given{$r_\mathrm{E} = \qty{6.371e6}{m}$ (data sheet); \ $T = 24.0 \times \qty{3600}{s} =
+  \qty{86400}{s}$; \ jet speed over the ground $v_\mathrm{jet} = \qty{240}{m.s^{-1}}$; \
+  $t = 40.0 \times \qty{3600}{s} = \qty{1.44e5}{s}$}
+\find{the speed of each clock relative to the Earth's centre; how far each clock falls behind;
+  then flying clock minus ground clock}
+\formula{$v = \dfrac{2\pi r}{T}$ (on the sheet) for the ground clock. The eastward jet moves
+  with the spin: $v_\mathrm{ground} + v_\mathrm{jet}$. The westward jet moves against it:
+  $v_\mathrm{ground} - v_\mathrm{jet}$. Then the toolkit shortcut $t - t_0 \approx t \times
+  \dfrac{v^2}{2c^2}$ for each clock.}
+\substitute{speeds relative to the Earth's centre:\\
+  \eqlines{v_\mathrm{ground} &= \frac{2\pi \times \qty{6.371e6}{m}}{\qty{86400}{s}}
+    = \qty{463.3}{m.s^{-1}}\\
+  v_\mathrm{east} &= \qty{463.3}{m.s^{-1}} + \qty{240}{m.s^{-1}} = \qty{703.3}{m.s^{-1}}\\
+  v_\mathrm{west} &= \qty{463.3}{m.s^{-1}} - \qty{240}{m.s^{-1}} = \qty{223.3}{m.s^{-1}}}\\[5pt]
+  how far each clock falls behind a clock at rest at the Earth's centre
+  ($2c^2 = \qty{1.80e17}{m^2.s^{-2}}$; \ $\qty{1}{ns} = \qty{e-9}{s}$). Ground clock:\\
+  \eqlines{\frac{v^2}{2c^2} &= \frac{(\qty{463.3}{m.s^{-1}})^2}{\qty{1.80e17}{m^2.s^{-2}}}
+    = \num{1.1925e-12}\\
+  t - t_0 &= \qty{1.44e5}{s} \times \num{1.1925e-12} = \qty{1.717e-7}{s} = \qty{171.7}{ns}}\\
+  Eastward clock:\\
+  \eqlines{\frac{v^2}{2c^2} &= \frac{(\qty{703.3}{m.s^{-1}})^2}{\qty{1.80e17}{m^2.s^{-2}}}
+    = \num{2.7479e-12}\\
+  t - t_0 &= \qty{1.44e5}{s} \times \num{2.7479e-12} = \qty{3.957e-7}{s} = \qty{395.7}{ns}}\\
+  Westward clock:\\
+  \eqlines{\frac{v^2}{2c^2} &= \frac{(\qty{223.3}{m.s^{-1}})^2}{\qty{1.80e17}{m^2.s^{-2}}}
+    = \num{2.7702e-13}\\
+  t - t_0 &= \qty{1.44e5}{s} \times \num{2.7702e-13} = \qty{3.99e-8}{s} = \qty{39.9}{ns}}\\[5pt]
+  compare with the ground clock. Each clock reads $t$ minus its own lag, so
+  (flying clock) $-$ (ground clock) $=$ (ground lag) $-$ (flying lag):\\
+  \eqlines{\text{(a) } \qty{171.7}{ns} - \qty{395.7}{ns} &= \qty{-224.0}{ns}\\
+  \text{(b) } \qty{171.7}{ns} - \qty{39.9}{ns} &= +\qty{131.8}{ns}}}
+\answer{(a) the eastward clock is \final{\qty{224}{ns} behind} the ground clock. (b) The
+  westward clock is \final{\qty{132}{ns} ahead} of it. (3 significant figures.)}
+\checkstep{the signs match the speed predictions in the Hafele--Keating table ($-184$ and
+  $+96$\,ns) \cmark. The real flights were not along the equator and took different times, so
+  the numbers differ. The eastward clock moves fastest, so it runs slowest \cmark.}
+\end{workedexample}
+
+\begin{experiment}{Evidence from particle accelerators}
+\aim{To test the speed limit, relativistic momentum and time dilation with very fast particles.}
+\apparatus{
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \draw[object, fill=hscbrand!5] (0,0) rectangle (2.3,0.8);
+      \node[diagramlabel, font=\scriptsize, align=center] at (1.15,0.4)
+        {accelerator\\[-2pt](electric field)};
+      \draw[velocity] (2.35,0.4) -- (3.2,0.4);
+      \node[diagramlabel, font=\scriptsize, text=hscvel, anchor=south] at (5.9,0.45) {electrons};
+      \fill[hscmuted] (3.3,0.05) rectangle (3.48,0.75);
+      \node[diagramlabel, font=\scriptsize, anchor=north, align=center] at (3.39,0)
+        {detector A\\[-2pt](start timer)};
+      \draw[hscvel, dashed, line width=0.8pt, ->] (3.5,0.4) -- (8.25,0.4);
+      \fill[hscmuted!60] (8.3,-0.05) rectangle (8.9,0.85);
+      \draw[hscink, line width=0.8pt] (8.6,0.85) -- (8.6,1.35);
+      \fill[hscforce] (8.6,0.85) circle (0.07);
+      \node[diagramlabel, font=\scriptsize, anchor=west] at (8.7,1.25) {thermometer};
+      \node[diagramlabel, font=\scriptsize, anchor=north, align=center] at (8.6,-0.1)
+        {aluminium target\\[-2pt](stop timer)};
+      \draw[<->, hscmuted, line width=0.6pt] (3.39,1.0) -- node[above, text=hscink,
+        font=\scriptsize] {flight path \qty{8.4}{m}} (8.3,1.0);
+    \end{tikzpicture}
+    \caption{Bertozzi's apparatus (1964), simplified. The electrons are timed between
+      detector A and the target; the target's temperature rise gives their
+      energy.}\label{ch4:fig:bertozzi-app}
+  \end{figure}
+  Bertozzi (1964): an accelerator (electric fields speed up the electrons); a detector and an
+  aluminium target \qty{8.4}{m} apart to time them; a thermometer on the target. CERN (1977): a
+  ring of magnets that stores fast muons, and detectors that record when each muon decays.}
+\method{\begin{enumerate}
+  \item Bertozzi (1964): give electrons \qtyrange{0.5}{15}{\mega\eV} of kinetic energy; time them
+        over the flight path; measure their energy separately (heat in the target).
+  \item CERN (1977): store muons in the magnetic ring, moving at $0.999418c$. At this speed the
+        time-dilation factor $\dfrac{1}{\sqrt{1 - v^2/c^2}}$ is 29.3. (Keep all six digits. Near
+        $c$ the factor changes fast: $0.9994c$ would give 28.9.) Measure how long the muons live.
+\end{enumerate}}
+\results{
+  \begin{sidebyside}[0.5]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.95\linewidth, height=0.5\linewidth,
+          xmin=0, xmax=15, ymin=0, ymax=2, ytick={0,1,2},
+          xlabel={kinetic energy (\si{\mega\eV})}, ylabel={speed $v/c$}]
+        \addplot[hscseriesA, no marks, line width=1.2pt, domain=0:15, samples=150]
+          {sqrt(1-1/(1+x/0.511)^2)};
+        \addplot[hscseriesB, no marks, dashed, line width=1.2pt, domain=0:1.02, samples=60]
+          {sqrt(2*x/0.511)};
+        \draw[guide] (axis cs:0,1) -- (axis cs:15,1);
+        \node[font=\scriptsize, anchor=south east] at (axis cs:15,1.03) {speed of light};
+        \node[font=\scriptsize, anchor=north east, text=hscseriesA, align=right] at (axis cs:15,0.93)
+          {relativity (matches\\ the measurements)};
+        \node[font=\scriptsize, anchor=west, text=hscseriesB] at (axis cs:1.2,1.75)
+          {classical $K = \frac{1}{2}mv^2$};
+      \end{axis}
+    \end{tikzpicture}
+    \captionof{figure}{Electron speed against kinetic energy. The dashed line is the classical
+      prediction; real electrons follow the solid line.}\label{ch4:fig:bertozzi}
+  \nextside
+    The electrons' speed approached $c$ but never passed it (\cref{ch4:fig:bertozzi}). At
+    \qty{15}{\mega\eV}, $\frac{1}{2}mv^2$ predicts $7.7c$; the measured speed was just below $c$.
+
+    The stored muons lived \qty{64.4}{\micro\second}. That is 29.3 times their lifetime at rest
+    (\qty{2.197}{\micro\second}), as time dilation predicts, to about 0.1\,\%. Check:
+    $\qty{2.197}{\micro\second} \times 29.3 = \qty{64.4}{\micro\second}$.
+  \end{sidebyside}}
+\conclusion{The speed limit $c$ and time dilation are confirmed. Steering magnets must match $p_\mathrm{v}$.}
+\significance{Every accelerator (such as the LHC) is designed with $p_\mathrm{v}$: a daily test.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} speed and energy were measured separately: a fair comparison.
+  \item \textbf{Reliability:} huge numbers of particles and many repeated runs.
+  \item \textbf{Accuracy:} precise speeds and lifetimes that agree with relativity.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Evidence from cosmology: slow-motion supernovae}
+\aim{To test whether events in very distant galaxies are measured to run slow.}
+\apparatus{
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \fill[hscmuted!25] (0,0) ellipse (0.85 and 0.4);
+      \fill[hscacc] (0.25,0.08) circle (0.11);
+      \node[diagramlabel, font=\scriptsize, anchor=north, align=center] at (0,-0.45)
+        {distant galaxy\\[-2pt]with a supernova};
+      \draw[hscray, line width=1.1pt, domain=0:3.25, samples=240, smooth]
+        plot ({1.0+\x}, {0.12*sin(deg(34.91*ln(1+0.9*\x)))});
+      \draw[hscray, line width=1.1pt, ->] (4.25,0) -- (4.45,0);
+      \node[diagramlabel, font=\scriptsize, anchor=north, align=center, text=hscray] at (2.7,-0.25)
+        {light, stretched by the\\[-2pt]expanding Universe};
+      \draw[object, fill=hscbrand!5] (4.5,-0.3) -- (6.0,-0.18) -- (6.0,0.18) -- (4.5,0.3) -- cycle;
+      \node[diagramlabel, font=\scriptsize, anchor=south] at (5.25,0.32) {telescope};
+      \draw[hscmuted, line width=0.8pt, ->] (6.05,0.05) -- (6.9,0.55);
+      \draw[hscmuted, line width=0.8pt, ->] (6.05,-0.05) -- (6.9,-0.55);
+      \draw[object, fill=hscbrand!5] (6.95,0.35) rectangle (7.55,0.8);
+      \node[diagramlabel, font=\scriptsize, anchor=west, align=left] at (7.6,0.58)
+        {camera: brightness\\[-2pt]night after night};
+      \draw[object, fill=hscbrand!5] (6.95,-0.8) rectangle (7.55,-0.35);
+      \node[diagramlabel, font=\scriptsize, anchor=west, align=left] at (7.6,-0.58)
+        {spectroscope: spectrum\\[-2pt]$\to$ redshift $z$};
+    \end{tikzpicture}
+    \caption{Measuring a distant supernova, simplified.}\label{ch4:fig:sn-app}
+  \end{figure}
+  Telescopes with cameras that measure a supernova's brightness night after night;
+  \term{spectroscopes} (instruments that spread light into a spectrum, \cref{ch1:sec:spectra})
+  that measure its
+  \term{redshift} $z$ (how much its light is stretched by the expanding Universe).}
+\method{A \term{Type Ia supernova} is an exploding star. They all brighten and fade in nearly the
+  same way over a few weeks. Measure this ``light curve'' and $z$ for hundreds of supernovae at
+  different distances.}
+\results{
+  \begin{sidebyside}[0.5]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.95\linewidth, height=0.56\linewidth,
+          xmin=0, xmax=120, ymin=0, ymax=1.2, ytick={0,0.5,1},
+          yticklabel style={/pgf/number format/.cd, fixed, precision=1},
+          xlabel={time seen from Earth (days)}, ylabel={relative brightness}]
+        \addplot[hscseriesA, no marks, line width=1.2pt, domain=0:120, samples=160]
+          {(x/18)^2*exp(2*(1-x/18))};
+        \addplot[hscseriesB, no marks, dashed, line width=1.2pt, domain=0:120, samples=160]
+          {(x/36)^2*exp(2*(1-x/36))};
+        \node[font=\scriptsize, anchor=south west, text=hscseriesA] at (axis cs:21,1.0) {nearby};
+        \node[font=\scriptsize, anchor=north east, text=hscseriesB, align=left] at (axis cs:119,1.15)
+          {distant ($z = 1$):\\ 2 times slower};
+      \end{axis}
+    \end{tikzpicture}
+    \captionof{figure}{Light curves of two Type Ia supernovae (simplified; each scaled to the
+      same peak).}\label{ch4:fig:supernova}
+  \nextside
+    Distant supernovae brighten and fade more slowly (\cref{ch4:fig:supernova}). One at
+    $z = 1$ takes twice as long as a nearby one.
+  \end{sidebyside}
+  The stretch factor is $1 + z$ \hscbadgenotonsheet. The same factor stretches the wavelength of
+  their light:
+  \[ 1 + z = \frac{\lambda_\mathrm{observed}}{\lambda_\mathrm{emitted}} \]
+  Example:
+  a supernova that fades in 20 days nearby takes $20 \times (1 + 0.80) = 36$ days at $z = 0.80$.
+
+  In 2023 an Australian-led team found the same slow motion in quasars (very bright galaxy
+  centres). These were seen when the Universe was just over a billion years old.}
+\conclusion{Events in distant galaxies are measured to run slow: \term{cosmological time
+  dilation}. It comes mainly from the expansion of the Universe (general relativity, which grew
+  out of special relativity).}
+\significance{Time is not absolute, even across the Universe. It rules out the ``tired light''
+  idea (that light just loses energy on its long trip), which predicts no stretch in time.}
+\validity{\begin{itemize}[beginpenalty=10000]% layout: no break after the heading
+  \item \textbf{Validity:} Type Ia supernovae are very alike, so they are fair comparisons; their
+        spectra also age more slowly, an independent check.
+  \item \textbf{Reliability:} hundreds of supernovae and several independent teams agree.
+  \item \textbf{Accuracy:} single curves are uncertain, but the average stretch matches $1 + z$.
+\end{itemize}}
+\end{experiment}
+
+\begin{examtip}
+``Recount an experiment that confirmed time dilation'' (about 3 marks) needs:
+\begin{enumerate}
+  \item the experiment named, and what was measured (muon counts at two heights, or atomic
+        clocks flown east and west);
+  \item the result with numbers (408 muons per hour at sea level instead of about 30; or
+        $-59$ and $+273$\,ns);
+  \item a link from the result to the prediction of special relativity.
+\end{enumerate}
+``Assess the validity (or reliability)'' (2--3 marks): name one specific feature of the method
+(for example, four clocks were averaged). Say what it controls or repeats, and how far it lets
+you trust the result. A definition alone earns no marks.
+\end{examtip}
+
+\begin{examtip}
+``Assess the role of thought experiments'' is worth about 5 marks. Full marks need:
+\begin{enumerate}
+  \item what a thought experiment is;
+  \item two examples and what each predicted (light clock: time dilation; train and lightning:
+        simultaneity);
+  \item a strength (it explores speeds near $c$ that could not be tested in 1905) and a
+        limitation (it is not evidence);
+  \item the experiments that later confirmed them (muons, Hafele--Keating, accelerators), and
+        a judgement: essential for predictions, but accepted only after experiments.
+\end{enumerate}
+``Analyse the consequences of special relativity'' (about 8 marks): link each consequence to
+its evidence: time dilation (muons, atomic clocks), length contraction (the muon frame),
+momentum and the speed limit (accelerators).
+\end{examtip}
+
+\begin{quickcheck}
+  \item Outline how counting muons on a mountain and at sea level gives evidence for time
+        dilation.
+  \item In the Hafele--Keating experiment, explain why the eastward clocks lost time compared
+        with the ground clocks.
+  \item A jet flies at \qty{250}{m.s^{-1}} (relative to the Earth's centre) for \qty{48.0}{h}.
+        Find (a) $v^2/c^2$ (b) how far its clock falls behind. Use the toolkit shortcut.
+  \item A distant Type Ia supernova at $z = 0.50$ takes 30 days to fade, measured from Earth. How
+        long would the same fading take for a nearby one?
+\end{quickcheck}

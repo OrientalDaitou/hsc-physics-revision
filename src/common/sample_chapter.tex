@@ -1,0 +1,410 @@
+% sample_chapter.tex -- design-system SAMPLE chapter (not part of any book).
+% It shows every environment and macro of hscphys.sty in a realistic setting.
+% (sample_chapter_answers.tex is added automatically.)
+% hsc-chapter: 2
+\chapter{Uniform circular motion}\label{ch2:chap}
+\covers{M5.IQ2.01, M5.IQ2.02, M5.IQ2.03}
+
+\inquiry{Why do objects move in circles?}
+
+\begin{goals}
+  \item explain why an object moving in a circle at a constant speed is accelerating
+  \item use $v = \dfrac{2\pi r}{T}$, $a_\mathrm{c} = \dfrac{v^2}{r}$ and $F_\mathrm{c} = \dfrac{mv^2}{r}$
+  \item name the real force that keeps an object in its circle, and test
+        $F_\mathrm{c} = \dfrac{mv^2}{r}$ in an experiment
+\end{goals}
+
+\begin{syllabus}
+  \item M5.IQ2.01: investigate how centripetal force, mass, speed and radius are related
+  \item M5.IQ2.02: analyse the forces on objects in uniform circular motion
+  \item M5.IQ2.03: solve problems with $a_\mathrm{c}$, $v$, $F_\mathrm{c}$ and $\omega$
+\end{syllabus}
+
+%% ------------------------------------------------------------------
+\section{Moving in a circle}\label{ch2:sec:circle}
+
+\begin{bigidea}
+An object can move at a constant speed and still accelerate. In a circle, the
+direction of motion changes all the time. A net force towards the centre causes
+this change.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Uniform circular motion}{moving in a circle at a constant speed.}
+  \kw{Period ($T$)}{the time for one full turn. Unit: second (s).}
+  \kw{Centripetal}{pointing towards the centre of the circle.}
+  \kw{Centripetal force ($F_\mathrm{c}$)}{the net force towards the centre that
+    keeps an object moving in a circle.}
+\end{keywords}
+
+Swing a ball on a string in a horizontal circle above your head. The ball goes
+round at the same speed all the time. This is called \term{uniform circular
+motion}. \emph{Uniform} means ``not changing''. Here the speed does not change.
+
+\begin{refresher}{Velocity is a vector}
+Velocity has a size (the speed) and a direction. If the size \emph{or} the
+direction changes, the velocity changes. A change in velocity is an
+acceleration. Newton's second law, $\vec{F}_\mathrm{net} = m\vec{a}$, says that
+an acceleration always needs a net force.
+\end{refresher}
+
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscmuted!55, line width=0.8pt] (0,0) circle (1.9);
+    \draw[->, hscmuted, line width=0.6pt] (140:2.25) arc (140:185:2.25);
+    \node[diagramlabel, text=hscmuted, anchor=east] at (162:2.4) {motion};
+    \coordinate (A) at (40:1.9);
+    \coordinate (B) at (215:1.9);
+    \draw[guide] (0,0) -- node[pos=0.3, above left, diagramlabel, inner sep=1pt] {$r$} (A);
+    \fill[hscink] (0,0) circle (1.5pt);
+    \node[diagramlabel, below right, inner sep=2pt] at (0,0) {centre};
+    \draw[velocity] (A) -- ++(130:1.35) node[above, inner sep=2pt, text=hscvel] {$v$};
+    \draw[force] (A) -- ($(A)!0.52!(0,0)$) node[pos=0.6, below right, inner sep=1pt, text=hscforce] {$F_\mathrm{c}$};
+    \draw[velocity] (B) -- ++(305:1.35) node[right, inner sep=2pt, text=hscvel] {$v$};
+    \draw[force] (B) -- ($(B)!0.52!(0,0)$) node[pos=0.55, above left, inner sep=1pt, text=hscforce] {$F_\mathrm{c}$};
+    \fill[object] (A) circle (4.5pt);
+    \fill[object] (B) circle (4.5pt);
+  \end{tikzpicture}
+  \captionof{figure}{Top view of a ball on a string at two moments.}
+  \label{ch2:fig:topview}
+\nextside
+  Look at \cref{ch2:fig:topview}.
+  \begin{itemize}
+    \item The \textcolor{hscvel}{\bfseries velocity} arrow touches the circle.
+          It is a \term{tangent} to the circle.
+    \item The velocity arrow keeps turning as the ball moves round.
+    \item The \textcolor{hscforce}{\bfseries force} arrow points to the centre.
+    \item The force is at \ang{90} to the velocity. It changes the direction,
+          not the speed.
+  \end{itemize}
+\end{sidebyside}
+
+What makes the direction change? A net force towards the centre. We call it the
+\term{centripetal force} (``centripetal'' means ``centre-seeking'').
+
+The centripetal force is \emph{not} a new kind of force. It is a job that a real
+force does. \Cref{ch2:tab:forces} shows which real force does the job.
+
+\begin{table}
+  \caption{Which real force gives the centripetal force?}\label{ch2:tab:forces}
+  \centering
+  \begin{tabular}{@{}L{55mm}L{70mm}@{}}
+    \toprule
+    \colhead{Situation} & \colhead{Real force towards the centre}\\
+    \midrule
+    Ball on a string (horizontal circle) & tension in the string\\
+    Car on a flat bend & friction between the tyres and the road\\
+    Satellite orbiting the Earth & gravity (the Earth's pull)\\
+    Car on a banked track & part of the normal force from the road\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+If the string breaks, the ball does not fly outwards. With no net force it
+moves in a straight line along the tangent (Newton's first law).
+
+\begin{quickcheck}
+  \item A runner goes once around a circular track of radius \qty{50}{m} in
+        \qty{40}{s}. Calculate her speed.
+  \item A car goes around a roundabout at a constant \qty{30}{km.h^{-1}}.
+        Explain why it is accelerating.\label{ch2:qc:roundabout}
+\end{quickcheck}
+
+%% ------------------------------------------------------------------
+\section{Speed, acceleration and force}\label{ch2:sec:formulas}
+\covers{M5.IQ2.03}
+
+In one full turn, an object travels the circumference of the circle, $2\pi r$.
+It takes one period, $T$, to do this.
+
+\begin{formulacard}{Speed in a circle}
+  \cardformula{v = \frac{2\pi r}{T}}
+  \begin{symbols}
+    \sym{$v$}{speed of the object}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+    \sym{$T$}{period: time for one full turn}{\si{s}}
+  \end{symbols}
+  \inwords{speed = distance for one turn ($2\pi r$) $\div$ time for one turn ($T$).}
+  \whentouse{an object goes round a circle at a constant speed.}
+  \whennottouse{the speed changes during the turn (for example, a ball whirled
+    in a vertical circle).}
+  \rearranged{$T = \dfrac{2\pi r}{v}$ \qquad $r = \dfrac{vT}{2\pi}$}
+  \tensecond{$r = \qty{2.0}{m}$, $T = \qty{4.0}{s}$, so
+    $v = \dfrac{2\pi \times 2.0}{4.0} = \qty{3.1}{m.s^{-1}}$.}
+  \trap{use the radius, not the diameter. ``2 turns per second'' means
+    $T = \qty{0.50}{s}$ (use $f = \dfrac{1}{T}$).}
+\end{formulacard}
+
+\begin{formulacard}{Centripetal force}
+  \formula{F_\mathrm{c} = \frac{mv^2}{r}}
+  \begin{symbols}
+    \sym{$F_\mathrm{c}$}{net force towards the centre}{\si{N}}
+    \sym{$m$}{mass of the object}{\si{kg}}
+    \sym{$v$}{speed of the object}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+  \end{symbols}
+  \inwords{a heavier or faster object needs a bigger inward force. A tighter
+    circle (smaller $r$) also needs a bigger force.}
+  \whentouse{any object in uniform circular motion. It is
+    $F_\mathrm{net} = ma$ with $a_\mathrm{c} = \dfrac{v^2}{r}$.}
+  \whennottouse{to find a force along the direction of motion.
+    $F_\mathrm{c}$ only points to the centre.}
+  \rearranged{$v = \sqrt{\dfrac{F_\mathrm{c}\, r}{m}}$ \qquad
+    $r = \dfrac{mv^2}{F_\mathrm{c}}$ \qquad $m = \dfrac{F_\mathrm{c}\, r}{v^2}$}
+  \tensecond{$m = \qty{2.0}{kg}$, $v = \qty{3.0}{m.s^{-1}}$, $r = \qty{1.5}{m}$,
+    so $F_\mathrm{c} = \dfrac{2.0 \times 3.0^2}{1.5} = \qty{12}{N}$.}
+  \trap{$F_\mathrm{c}$ is the \emph{net} force. Never draw it as an extra
+    arrow next to the tension or the friction.}
+\end{formulacard}
+
+\Cref{ch2:fig:forcespeed} shows that the force grows quickly with speed.
+Doubling the speed makes the force four times bigger, because $v$ is squared.
+
+\begin{figure}
+  \centering
+  \includegraphics{sample_force_speed.pdf}
+  \caption{Centripetal force against speed for a \qty{2.0}{kg} object, for
+    three radii.}\label{ch2:fig:forcespeed}
+\end{figure}
+
+Sometimes a question gives the period instead of the speed. You can join the
+two formulas into one. Each line below does one small step.
+\begin{align}
+  a_\mathrm{c} &= \frac{v^2}{r}
+     && \text{start with the formula on the sheet}\notag\\
+  &= \frac{1}{r}\left(\frac{2\pi r}{T}\right)^{2}
+     && \text{replace $v$ with $\dfrac{2\pi r}{T}$}\notag\\
+  &= \frac{4\pi^2 r^2}{r\,T^2}
+     && \text{square the top and the bottom}\notag\\
+  &= \frac{4\pi^2 r}{T^2}
+     && \text{cancel one $r$}\label{ch2:eq:acT}
+\end{align}
+For the ball in \cref{ch2:we:ball} (below), \cref{ch2:eq:acT} gives
+$a_\mathrm{c} = \dfrac{4\pi^2 \times 0.80}{0.50^2} = \qty{126}{m.s^{-2}}$,
+the same as $\dfrac{v^2}{r}$.
+
+\begin{toolkit}{Radians}
+Angles in circular motion are measured in \term{radians} (rad).
+One full turn is $2\pi$ rad, which is the same as \ang{360}.
+\begin{itemize}
+  \item degrees $\to$ radians: multiply by $\dfrac{\pi}{180}$.
+        Example: $\ang{90} = 90 \times \dfrac{\pi}{180} = \dfrac{\pi}{2} = \qty{1.57}{rad}$.
+  \item Angular velocity $\omega$ is measured in \si{rad.s^{-1}}.
+\end{itemize}
+\end{toolkit}
+
+\begin{formulacard}[notonsheet]{Speed from angular velocity}
+  \cardformula{v = \omega r}
+  \begin{symbols}
+    \sym{$v$}{speed of a point on the circle}{\si{m.s^{-1}}}
+    \sym{$\omega$}{angular velocity: angle turned each second}{\si{rad.s^{-1}}}
+    \sym{$r$}{distance from the centre}{\si{m}}
+  \end{symbols}
+  \inwords{points further from the centre move faster, even though they turn
+    through the same angle.}
+  \whentouse{you know how fast something spins and need the speed of one point.}
+  \whennottouse{$\omega$ is in revolutions per minute or degrees per second.
+    Change it to \si{rad.s^{-1}} first.}
+  \rearranged{$\omega = \dfrac{v}{r}$ \qquad $r = \dfrac{v}{\omega}$}
+  \tensecond{$\omega = \qty{4.0}{rad.s^{-1}}$ and $r = \qty{0.50}{m}$, so
+    $v = 4.0 \times 0.50 = \qty{2.0}{m.s^{-1}}$.}
+  \derive{start from two formulas on the sheet. In one period the angle is
+    $\Delta\theta = 2\pi$.
+    \begin{align*}
+      \omega &= \frac{\Delta\theta}{t} = \frac{2\pi}{T}
+        && \text{one full turn in time $T$}\\
+      v &= \frac{2\pi r}{T} = \left(\frac{2\pi}{T}\right) r = \omega r
+        && \text{group $\dfrac{2\pi}{T}$ together}
+    \end{align*}}
+  \trap{$\omega$ must be in \si{rad.s^{-1}}, not in revolutions per minute.}
+\end{formulacard}
+
+\begin{workedexample}{A ball on a string}\label{ch2:we:ball}
+A \qty{0.15}{kg} ball moves in a horizontal circle of radius \qty{0.80}{m}.
+It makes 2.0 full turns every second. Calculate the centripetal force on the ball.
+\given{$m = \qty{0.15}{kg}$, \ $r = \qty{0.80}{m}$, \ 2.0 turns each second,
+  so $T = \dfrac{1}{2.0} = \qty{0.50}{s}$}
+\find{the centripetal force $F_\mathrm{c}$ (first find the speed $v$)}
+\formula{$v = \dfrac{2\pi r}{T}$ \quad then \quad $F_\mathrm{c} = \dfrac{mv^2}{r}$}
+\substitute{\eqlines{v &= \frac{2\pi \times \qty{0.80}{m}}{\qty{0.50}{s}}
+  = \qty{10.05}{m.s^{-1}} \quad\text{(keep the extra digits)}\\
+  F_\mathrm{c} &= \frac{\qty{0.15}{kg} \times (\qty{10.05}{m.s^{-1}})^2}{\qty{0.80}{m}}
+  = \qty{18.95}{N}}}
+\answer{\final{$F_\mathrm{c} = \qty{19}{N}$} towards the centre
+  (2 significant figures, like the data).}
+\checkstep{units: $\unit{kg} \times (\unit{m.s^{-1}})^2 \div \unit{m}
+  = \unit{kg.m.s^{-2}} = \unit{N}$ \cmark. About \qty{19}{N} is a firm pull,
+  which fits a ball whirled fast.}
+\end{workedexample}
+
+\begin{workedexample}{How fast can a car take a flat bend?}\label{ch2:we:car}
+A \qty{1500}{kg} car drives around a flat bend of radius \qty{45}{m}. The largest
+friction force the road can give is \qty{8.1e3}{N}. Find the fastest speed the
+car can go around the bend without skidding. Give it in \si{m.s^{-1}} and
+\si{km.h^{-1}}.
+\given{$m = \qty{1500}{kg}$, \ $r = \qty{45}{m}$, \
+  largest friction $= \qty{8.1e3}{N}$. Friction gives the centripetal force.}
+\find{the largest speed $v_\mathrm{max}$}
+\formula{$F_\mathrm{c} = \dfrac{mv^2}{r}$, \ rearranged:
+  $v = \sqrt{\dfrac{F_\mathrm{c}\, r}{m}}$}
+\substitute{$v_\mathrm{max} = \sqrt{\dfrac{\qty{8.1e3}{N} \times \qty{45}{m}}{\qty{1500}{kg}}}
+  = \sqrt{\qty{243}{m^2.s^{-2}}} = \qty{15.6}{m.s^{-1}}$}
+\answer{\final{$v_\mathrm{max} = \qty{16}{m.s^{-1}}$}
+  \ ($15.6 \times 3.6 = \qty{56}{km.h^{-1}}$)}
+\checkstep{\qty{56}{km.h^{-1}} is a sensible speed for a tight town bend.
+  Faster than this, the car needs more than \qty{8.1e3}{N}, so it slides to the
+  outside of the bend.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``An outward \emph{centrifugal} force pushes the ball out.''
+        \cmark\ There is no outward force on the ball. Without the inward force
+        it would go straight on, along the tangent.
+  \item \xmark\ Using the diameter in $v = \dfrac{2\pi r}{T}$.
+        \cmark\ $r$ is the radius.
+  \item \xmark\ Putting a speed in \si{km.h^{-1}} into a formula.
+        \cmark\ Divide by 3.6 to get \si{m.s^{-1}}.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why an object moving in a circle at constant speed is accelerating''
+is a common 3-mark question. Full marks need three linked points:
+\begin{enumerate}
+  \item the direction of motion keeps changing, so the velocity changes;
+  \item a change in velocity is an acceleration, and it points to the centre;
+  \item by Newton's second law there is a net force towards the centre. Name
+        the real force (tension, friction, gravity, \ldots).
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A \qty{0.50}{kg} ball moves in a circle of radius \qty{1.2}{m} at
+        \qty{4.0}{m.s^{-1}}. Calculate the centripetal force.\label{ch2:qc:ball}
+  \item The ball in \cref{ch2:qc:ball} now moves twice as fast in the same circle. What
+        happens to the centripetal force?
+  \item A wheel of radius \qty{0.30}{m} turns through $3\pi$ rad in
+        \qty{1.5}{s}. Find its angular velocity and the speed of a point on
+        the rim.
+\end{quickcheck}
+
+%% ------------------------------------------------------------------
+\section{Key experiment: whirling a stopper}\label{ch2:sec:experiment}
+\covers{M5.IQ2.01}
+
+\begin{experiment}{Testing $F_\mathrm{c} = mv^2/r$}
+\aim{To find how the centripetal force depends on speed (same mass and radius).}
+\apparatus{rubber stopper (\qty{0.025}{kg}), string, smooth plastic tube,
+  hanging masses (\qtyrange{0.050}{0.250}{kg}), paper clip, metre rule, stopwatch.}
+\method{\begin{enumerate}
+  \item Thread the string through the tube. Tie the stopper to the top end and
+        hang a \qty{0.050}{kg} mass on the bottom end.
+  \item Clip a paper clip to the string so the length from the tube to the
+        stopper is $r = \qty{0.60}{m}$. Whirl the stopper in a horizontal
+        circle, keeping the clip just below the tube.
+  \item Time 10 full turns. Divide by 10 to get the period $T$.
+  \item Repeat with hanging masses up to \qty{0.250}{kg}.
+\end{enumerate}
+The hanging mass does not move, so the tension in the string equals its weight
+$Mg$. The tension gives the centripetal force: $F_\mathrm{c} = Mg$.}
+\results{\begin{center}\small
+  \begin{tabular}{@{}cccccc@{}}
+    \toprule
+    $M$ (\si{kg}) & $F_\mathrm{c} = Mg$ (\si{N}) & time for 10 turns (\si{s})
+      & $T$ (\si{s}) & $v$ (\si{m.s^{-1}}) & $v^2$ (\si{m^2.s^{-2}})\\
+    \midrule
+    0.050 & 0.49 & 11.2 & 1.12 & 3.37 & 11.3\\
+    0.100 & 0.98 & 7.7  & 0.77 & 4.90 & 24.0\\
+    0.150 & 1.47 & 6.4  & 0.64 & 5.89 & 34.7\\
+    0.200 & 1.96 & 5.4  & 0.54 & 6.98 & 48.7\\
+    0.250 & 2.45 & 4.9  & 0.49 & 7.69 & 59.2\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.62\linewidth, height=0.30\linewidth,
+        xmin=0, xmax=65, ymin=0, ymax=2.8,
+        xlabel={$v^2$ (\si{m^2.s^{-2}})}, ylabel={$F_\mathrm{c}$ (\si{N})},
+        ytick={0,0.5,...,2.5}, yticklabel style={/pgf/number format/.cd, fixed, precision=1}]
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(11.33,0.490) (23.97,0.980) (34.70,1.470) (48.74,1.960) (59.19,2.450)};
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:65, samples=2] {0.04118*x};
+      \node[anchor=west, font=\small, text=hscink] at (axis cs:36,0.85)
+        {line of best fit: gradient \qty{0.041}{kg.m^{-1}}};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Centripetal force against speed squared.}\label{ch2:fig:expgraph}
+  \end{figure}}
+\conclusion{The graph is a straight line through the origin, so
+  $F_\mathrm{c} \propto v^2$ when $m$ and $r$ stay the same. The gradient,
+  \qty{0.041}{kg.m^{-1}}, is close to
+  $\dfrac{m}{r} = \dfrac{0.025}{0.60} = \qty{0.042}{kg.m^{-1}}$.
+  This supports $F_\mathrm{c} = \dfrac{mv^2}{r}$.}
+\significance{The experiment links a force we can measure (the weight of the
+  hanging masses) to the motion (speed and radius). Engineers use the same
+  relationship to design road bends and fairground rides.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} keep the stopper's mass and the radius the same (use
+        the paper clip). Keep the circle as close to horizontal as you can.
+  \item \textbf{Reliability:} repeat each trial three times and average the
+        times.
+  \item \textbf{Accuracy:} time 10 turns, not 1, so your reaction time (about
+        \qty{0.2}{s}) matters less. A smooth tube reduces friction.
+\end{itemize}}
+\end{experiment}
+
+%% ------------------------------------------------------------------
+\section{Bringing it together}\label{ch2:sec:summary}
+
+\begin{summarybox}{Uniform circular motion}
+\begin{itemize}
+  \item Constant speed in a circle is still acceleration: the direction changes.
+  \item The net force and the acceleration point to the centre.
+  \item $F_\mathrm{c}$ is a job done by a real force (tension, friction, gravity).
+  \item Double the speed and you need four times the force.
+\end{itemize}
+\end{summarybox}
+
+\subsection{Formulas in this chapter}
+\begin{formulatable}
+  \frow{$v = \dfrac{2\pi r}{T}$}{speed from the radius and the period}
+  \frow{$a_\mathrm{c} = \dfrac{v^2}{r}$}{centripetal acceleration (towards the centre)}
+  \frow{$F_\mathrm{c} = \dfrac{mv^2}{r}$}{net force needed to keep $m$ in the circle}
+  \frow[combine={$a_\mathrm{c} = \frac{v^2}{r}$ and $v = \frac{2\pi r}{T}$}]%
+    {$a_\mathrm{c} = \dfrac{4\pi^2 r}{T^2}$}{acceleration when you know the period}
+  \frow[notonsheet]{$v = \omega r$}{speed from the angular velocity
+    ($\omega$ in \si{rad.s^{-1}})}
+\end{formulatable}
+
+\subsection{Words from this chapter}
+\begin{glossarytable}
+  \gterm{Uniform circular motion}{moving in a circle at a constant speed}{匀速圆周运动}
+  \gterm{Centripetal force}{the net force towards the centre of the circle}{向心力}
+  \gterm{Period}{the time for one full turn}{周期}
+  \gterm{Angular velocity}{the angle turned each second, in \si{rad.s^{-1}}}{角速度}
+\end{glossarytable}
+
+%% ------------------------------------------------------------------
+\section*{Practice questions (sample)}
+
+\begin{practiceq}{1}{2}
+A stone on a string moves in a horizontal circle at a constant speed. Which
+statement is correct?
+\choices{Its velocity is constant.}{The net force on it is zero.}
+        {Its acceleration points to the centre.}{An outward force acts on it.}
+\end{practiceq}
+
+\begin{practiceq}{3}{2}
+A \qty{1200}{kg} car travels around a flat curve of radius \qty{60}{m} at
+\qty{54}{km.h^{-1}}. Calculate the friction force needed.
+\end{practiceq}
+
+\begin{practiceq}{3}{2}
+Explain why a car on a flat road can skid on an icy bend, even when it is
+driven at a speed that is safe on a dry day.
+\answerlines{3}
+\end{practiceq}

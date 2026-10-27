@@ -1,0 +1,37 @@
+% =====================================================================
+% main.tex -- Module 5 Topic 3 (Motion in Gravitational Fields):
+% multiple-choice practice booklet. 30 new HSC-style questions with worked answers.
+%
+% Build (3 xelatex passes, from this folder):
+%   TEXINPUTS=.:../common//: xelatex -output-directory=<dir> main.tex
+% Every number: checks/m5t3-booklet/numbers.py
+% =====================================================================
+\documentclass[11pt,a4paper,oneside,openany]{book}
+\makeatletter\def\input@path{{./}{../common/}}\makeatother
+\usepackage{hscphys}
+\def\modulenumber{5}
+\def\moduletitle{Motion in Gravitational Fields}
+
+% ---- cover texts for this booklet
+\makeatletter
+\renewcommand\hsccoversubtitle{Topic 3: Gravity\\Multiple-choice practice booklet}
+\renewcommand\hsccoverchips{%
+  \hsc@coverchip{hscqc}{\faQuestionCircle}{30 HSC-style questions}\hspace{2mm}%
+  \hsc@coverchip{hscexample}{\faIcon{pencil-alt}}{Worked answers}\\[2.5mm]%
+  \hsc@coverchip{hscmistake}{\faTimes}{Why each wrong option is wrong}\hspace{2mm}%
+  \hsc@coverchip{hscformula}{\faIcon{square-root-alt}}{Formulas and data}}
+\renewcommand\hsccoverfooter{Simple English \textperiodcentered\ every step shown
+  \textperiodcentered\ new questions on the same ideas as past HSC papers}
+% letter in a circle, the same as in \choices (used in the table-style questions)
+\let\bkchoice\hsc@choicelabel
+\makeatother
+
+\begin{document}
+\hypersetup{pdftitle={Module 5 Topic 3: Gravity - Multiple-choice practice booklet}}
+
+\makecover
+\input{./intro}
+\input{./questions}
+\input{./answers}
+
+\end{document}

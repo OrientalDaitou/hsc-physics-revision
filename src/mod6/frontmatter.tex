@@ -1,0 +1,211 @@
+% frontmatter.tex -- Module 6 (Electromagnetism): cover, How to use this guide,
+% Contents, Module overview.
+% \inquiry boxes of ch1.tex ... ch5.tex (Chapters 3 and 4 share IQ3).
+% "Formulas at a glance" = one row per formula card in ch1.tex ... ch5.tex (26 cards), in
+% card order, with the card's own notation and badge (on the sheet / not on the sheet /
+% Experiment list: the Key experiment boxes of ch1.tex ... ch5.tex.
+%
+% Local layout fix (common/ is shared, so it is made here, inside a group; same fix as
+% Module 8): three-digit page numbers in the contents were 2 pt wider than the
+% page-number box (titletoc \@pnumwidth = 1.55em), so they stuck out into the margin.
+% The box is made 1.9em wide; the correction 0.65em keeps the text margin at 2.55em.
+\makecover
+\IfFileExists{../common/howtouse.tex}{\input{../common/howtouse}}{}
+\begingroup
+  \contentsmargin[0.65em]{1.9em}%
+  \tableofcontents
+\endgroup
+
+\unnumberedchapter[\faMap]{Module overview}
+
+% ---- helpers for the overview only (prefix ov)
+% sheet marks: on the sheet / learn it / combine (same colours and icons as \frow)
+\newcommand\ovYes{\textcolor{hscformula}{\faCheck}}
+\newcommand\ovNo{\textcolor{hscmistake}{\faTimes}}
+\newcommand\ovComb{\textcolor{hsctiptext}{\faLink}}
+% one row of the formula grid:  \ovrow{mark}{formula}{what it is for}
+\newcommand\ovrow[3]{#1 & #2 & {\footnotesize #3}\\\hline}
+% chapter heading row of the formula grid
+\newcommand\ovch[2]{\multicolumn{3}{@{}l@{}}{\rule{0pt}{3.4ex}\cref{#1}:
+  {\bfseries\color{hscbrand}#2}}\\\hline}
+\newenvironment{ovgrid}{%
+  \small\renewcommand\arraystretch{1.32}\arrayrulecolor{hscrule}%
+  \begin{tabular}[t]{@{}C{4.5mm}@{\hspace{1.5mm}}L{40mm}@{\hspace{1.5mm}}L{\dimexpr\linewidth-47.5mm\relax}@{}}}%
+  {\end{tabular}}
+
+\section*{What this module is about}
+
+Module~6 is about how electricity and magnetism work together. Two ideas run through the
+whole module.
+\begin{itemize}
+  \item A magnetic field pushes on a \emph{moving} charge. So a wire that carries a current
+        feels a force in a magnetic field. This is the \emph{motor effect}.
+  \item A \emph{changing} magnetic field makes a voltage (an emf) in a wire or a coil. This
+        is \emph{electromagnetic induction}.
+\end{itemize}
+These two ideas explain motors, generators, transformers, the power grid and magnetic
+brakes. In Year~11 you met charge, current, voltage and the magnetic field of a current.
+This module puts them to work.
+
+\section*{How the parts fit together}
+
+\Cref{ov:fig:map} shows how the five chapters build on each other.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \node[concept=104mm, fill=hsctool!8, draw=hsctool!60] (y11) at (0,0)
+      {\textbf{Year 11 tools:} charge, current, voltage, force, energy;
+       a current makes a magnetic field};
+    \node[concept=52mm] (c1) at (-4.0,-1.85)
+      {\textbf{Ch 1 Charged particles in fields}\\ \mbox{$F = qE$} and \mbox{$F = qvB\sin\theta$}};
+    \node[concept=52mm] (c2) at (4.0,-1.85)
+      {\textbf{Ch 2 The motor effect}\\ \mbox{$F = lIB\sin\theta$}; parallel wires};
+    \node[concept=52mm] (c3) at (-4.0,-4.0)
+      {\textbf{Ch 3 Electromagnetic induction}\\ flux; Faraday's and Lenz's laws};
+    \node[concept=52mm] (c5) at (4.0,-4.0)
+      {\textbf{Ch 5 Motors, generators, brakes}\\ torque; back emf; eddy currents};
+    \node[concept=62mm] (c4) at (-4.0,-6.15)
+      {\textbf{Ch 4 Transformers and power lines}\\ step up, step down; \mbox{$I^2R$} loss};
+    \draw[link] (c1.north |- y11.south) -- node[linklabel, left=5pt] {forces on charges} (c1.north);
+    \draw[link] (c2.north |- y11.south) -- node[linklabel, right=5pt] {field of a current} (c2.north);
+    \draw[link] (c1.east) -- node[linklabel, above=1pt, align=center] {current = many\\moving charges} (c2.west);
+    \draw[link] (c1.south) -- node[linklabel, right=5pt, align=left] {charges in a\\moving wire} (c3.north);
+    \draw[link] (c2.south) -- node[linklabel, left=5pt, align=right] {forces on a coil\\give a torque} (c5.north);
+    \draw[link] (c3.east) -- node[linklabel, above=1pt, align=center] {changing flux in\\a turning coil} (c5.west);
+    \draw[link] (c3.south) -- node[linklabel, right=5pt, align=left] {two coils share\\a changing flux} (c4.north);
+    \draw[link] (c5.south) |- node[linklabel, pos=0.75, above=1pt] {generators make the AC} (c4.east);
+  \end{tikzpicture}
+  \caption{How the ideas in this module are linked. Each arrow means ``this idea is used in
+    the next one'' (``Ch'' means chapter).}\label{ov:fig:map}
+\end{figure}
+
+\section*{The inquiry questions}
+
+The syllabus asks four inquiry questions (big questions). \Cref{ov:tab:iq} shows which
+chapters answer each one.
+
+\begin{table}
+  \caption{The inquiry questions of Module~6 and the chapters that answer them.}
+  \label{ov:tab:iq}
+  \centering
+  \small
+  \begin{tabular}{@{}L{10mm}L{97mm}L{33mm}@{}}
+    \toprule
+    & \colhead{Inquiry question (from the syllabus)} & \colhead{Answered in}\\
+    \midrule
+    \textbf{IQ1} & \emph{What happens to stationary and moving charged particles when they
+      interact with an electric or magnetic field?} & \cref{ch1:chap}\\
+    \textbf{IQ2} & \emph{Under what circumstances is a force produced on a current-carrying
+      conductor in a magnetic field?} & \cref{ch2:chap}\\
+    \textbf{IQ3} & \emph{How are electric and magnetic fields related?}
+      & \cref{ch3:chap,ch4:chap}\\
+    \textbf{IQ4} & \emph{How has knowledge about the motor effect been applied to
+      technological advances?} & \cref{ch5:chap}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{Key experiments}
+
+The syllabus asks you to carry out or study these investigations (\cref{ov:tab:experiments}).
+Each has a Key experiment box: aim, method, results, conclusion, and validity, reliability
+and accuracy.
+
+\begin{table}
+  \caption{The key experiments of Module~6. ``Required'' marks the practical investigation
+    that the syllabus names.}\label{ov:tab:experiments}
+  \centering
+  \small
+  \begin{tabular}{@{}L{46mm}L{56mm}L{17mm}L{17mm}@{}}
+    \toprule
+    \colhead{Experiment} & \colhead{What it shows} & \colhead{Dot point} & \colhead{Where}\\
+    \midrule
+    Paths of charges between plates (simulation)
+      & the path is a parabola; the deflection grows in step with $V$
+      & M6.IQ1.01, IQ1.02 & \cref{ch1:sec:experiments}\\
+    Speed gained from an accelerating voltage (simulation)
+      & $v^2$ grows in step with $V$, as $qV = \frac{1}{2}mv^2$ predicts
+      & M6.IQ1.01 & \cref{ch1:sec:experiments}\\
+    The force on a wire (current balance)
+      & $F$ grows in step with $I$; largest at \ang{90} to $B$, zero when parallel
+      & M6.IQ2.01 & \cref{ch2:sec:experiments}\\
+    Two parallel wires (\textbf{required})
+      & like currents attract, unlike repel; testing $F/l = (\mu_0/2\pi)(I_1 I_2/r)$
+      & M6.IQ2.02 & \cref{ch2:sec:experiments}\\
+    Faraday's induction experiments (1831)
+      & an emf is induced only while the flux changes
+      & M6.IQ3.02 & \cref{ch3:sec:experiments}\\
+    Falling magnets and swinging plates
+      & eddy currents oppose the motion (Lenz); energy becomes heat
+      & M6.IQ3.02, IQ4.03 & \cref{ch3:sec:experiments}\\
+    Testing the transformer equations
+      & $V_\mathrm{s}$ grows in step with $N_\mathrm{s}$; real transformers lose some energy
+      & M6.IQ3.03, IQ3.04 & \cref{ch4:sec:experiments}\\
+    Investigating a simple DC motor
+      & the job of each part; back emf lowers the current
+      & M6.IQ4.01 & \cref{ch5:sec:experiments}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{All the formulas at a glance}
+
+Every formula card in this book. \ovYes\ = on the HSC formula sheet; \ovNo\ = not on the
+sheet: learn it or derive it; \ovComb\ = join formulas from the sheet.
+\hyperref[fs:chap]{\emph{Formula sheet explained}} (page~\pageref{fs:chap}) says when to use
+each one.
+
+\par\smallskip\noindent
+\begin{minipage}[t]{0.488\linewidth}
+\begin{ovgrid}
+  \ovch{ch1:chap}{Charged particles in fields}
+  \ovrow{\ovYes}{$E = \frac{V}{d}$}{field between parallel plates}
+  \ovrow{\ovYes}{$\vec{F} = q\vec{E}$}{force on a charge in an electric field}
+  \ovrow{\ovNo}{$qE = mg$, \ $q = ne$}{charged drop held still between plates}
+  \ovrow{\ovYes}{$W = qV$, \ $W = qEd$}{work done on a charge by the field}
+  \ovrow{\ovComb}{$\frac{1}{2}mv^2 = qV$\newline $v = \sqrt{\frac{2qV}{m}}$}
+    {speed gained from rest}
+  \ovrow{\ovComb}{$t = \frac{L}{u}$\newline $y = \frac{1}{2}at^2 = \frac{qEL^2}{2mu^2}$}
+    {sideways deflection between plates}
+  \ovrow{\ovYes}{$F = qv_\perp B = qvB\sin\theta$}{magnetic force on a moving charge}
+  \ovrow{\ovNo}{$r = \frac{mv}{qB}$, \ $T = \frac{2\pi m}{qB}$}
+    {radius and period of the circle in a magnetic field}
+  \ovch{ch2:chap}{The motor effect}
+  \ovrow{\ovYes}{$B = \frac{\mu_0 I}{2\pi r}$}{field near a long straight wire}
+  \ovrow{\ovYes}{$B = \frac{\mu_0 NI}{L}$}{field inside a solenoid}
+  \ovrow{\ovYes}{$F = lI_\perp B = lIB\sin\theta$}{force on a current-carrying wire}
+  \ovrow{\ovYes}{$\frac{F}{l} = \frac{\mu_0}{2\pi}\frac{I_1 I_2}{r}$}
+    {force between two parallel wires}
+\end{ovgrid}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.488\linewidth}
+\begin{ovgrid}
+  \ovch{ch3:chap}{Electromagnetic induction}
+  \ovrow{\ovYes}{$\Phi = B_\parallel A = BA\cos\theta$}{magnetic flux through a loop}
+  \ovrow{\ovYes}{$\varepsilon = -N\frac{\Delta\Phi}{\Delta t}$}
+    {Faraday's law: the induced emf}
+  \ovrow{\ovNo}{$\varepsilon = lvB$}{emf of a rod moving across a field}
+  \ovrow{\ovComb}{$\lvert\varepsilon_\mathrm{s}\rvert = N_\mathrm{s}\frac{\mu_0 N_\mathrm{p} A}{L}
+    \frac{\lvert\Delta I_\mathrm{p}\rvert}{\Delta t}$}{emf in a coil wound on a solenoid}
+  \ovch{ch4:chap}{Transformers and power lines}
+  \ovrow{\ovYes}{$\frac{V_\mathrm{p}}{V_\mathrm{s}} = \frac{N_\mathrm{p}}{N_\mathrm{s}}$}
+    {transformer (turns) equation}
+  \ovrow{\ovYes}{$P = VI$}{electrical power}
+  \ovrow{\ovYes}{$V_\mathrm{p} I_\mathrm{p} = V_\mathrm{s} I_\mathrm{s}$}
+    {ideal transformer: power in = power out}
+  \ovrow{\ovNo}{$\eta = \frac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\%$\newline
+    $\phantom{\eta} = \frac{V_\mathrm{s}I_\mathrm{s}}{V_\mathrm{p}I_\mathrm{p}} \times 100\%$}
+    {efficiency of a real transformer}
+  \ovrow{\ovYes}{$P = \frac{\Delta E}{\Delta t}$}{energy used or wasted in a time}
+  \ovrow{\ovNo}{$P_\mathrm{loss} = I^2R$}{power lost as heat in a line}
+  \ovch{ch5:chap}{Motors, generators, brakes}
+  \ovrow{\ovYes}{$\tau = nIA_\perp B = nIAB\sin\theta$}{torque on a coil}
+  \ovrow{\ovNo}{$I = \frac{V - \varepsilon_\mathrm{back}}{R}$}
+    {current in a running motor (back emf)}
+  \ovrow{\ovYes}{$\varepsilon = -N\frac{\Delta\Phi}{\Delta t}$}
+    {average emf of a turning generator coil}
+  \ovrow{\ovComb}{$Q = \frac{1}{2}mu^2 - \frac{1}{2}mv^2$}{heat made by a magnetic brake}
+\end{ovgrid}
+\end{minipage}
+\par\medskip

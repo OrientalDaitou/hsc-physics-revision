@@ -1,0 +1,1694 @@
+% ch2.tex -- Module 7, Chapter 2: Light as a wave (diffraction, interference, polarisation)
+% Dot points: M7.IQ2.01, M7.IQ2.02, M7.IQ2.03, M7.IQ2.04
+% Figures: figures/ch2_*.py (matplotlib, PDF next to each script) and TikZ below.
+\chapter{Light as a Wave: Diffraction, Interference and Polarisation}\label{ch2:chap}
+\covers{M7.IQ2.01, M7.IQ2.02, M7.IQ2.03, M7.IQ2.04}
+
+\inquiry{What evidence supports the classical wave model of light, and what
+predictions can be made using this model?}
+
+\begin{goals}
+  \item describe Newton's particle model and Huygens' wave model of light, and
+        analyse the evidence for each one
+  \item describe and explain the diffraction of light
+  \item use $d\sin\theta = m\lambda$ for a double slit and a diffraction grating
+  \item use $I = I_\mathrm{max}\cos^2\theta$, and evaluate what polarisation tells us
+        about light
+\end{goals}
+
+%% ==================================================================
+\section{Newton's and Huygens' models of light}\label{ch2:sec:models}
+\covers{M7.IQ2.03}
+
+\begin{bigidea}
+Around 1700 there were two models of light. Newton said light is a stream of tiny
+particles. Huygens said light is a wave. Experiments decided between them.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Model}{a simple picture that explains what we see and predicts new results.}
+  \kw{Wavefront}{a line joining points of a wave that are in step, such as all the crests.}
+  \kw{Normal}{a line at \ang{90} to a surface. Angles of rays are measured from it.}
+  \kw{Refractive index ($n$)}{how many times slower light is in a material than in a
+    vacuum. No unit.}
+\end{keywords}
+
+Nobody can see what light is made of. So scientists build a \term{model}: a simple
+picture that explains what we see. If a model's prediction fails, the model must change.
+
+\paragraph{Newton's particle model.} In his book \emph{Opticks} (1704), Isaac Newton said
+light is a stream of tiny particles. He called them \term{corpuscles} (``little bodies'').
+Think of tiny tennis balls fired out of a lamp. They have mass and obey Newton's laws.
+With no force on them they travel in straight lines. This explains sharp shadows.
+
+\begin{sidebyside}[0.62]
+\paragraph{Huygens' wave model.} Christiaan Huygens (1678) said light is a wave. He
+thought it was a \emph{longitudinal} wave, like sound (this matters in
+\cref{ch2:sec:polarisation}). His rule for how a wave moves is \term{Huygens'
+principle} (\cref{ch2:fig:huygens}):
+\begin{enumerate}
+  \item Every point on a \term{wavefront} acts as a tiny new source.
+  \item Each point sends out a small circular wave, called a \term{wavelet}.
+  \item The line touching the front of all the wavelets is the new wavefront.
+\end{enumerate}
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \y in {-1.0,-0.5,0,0.5,1.0} {
+      \draw[hscmuted, line width=0.5pt] (0,\y) ++(-90:0.65) arc (-90:90:0.65);
+      \fill[hscink] (0,\y) circle (1.4pt);
+    }
+    \draw[hscvel, line width=1.1pt] (0,-1.45) -- (0,1.45);
+    \node[text=hscvel, anchor=east, font=\footnotesize] at (-0.12,1.25) {wavefront now};
+    \draw[hscvel, line width=0.4pt] (-0.12,1.25) -- (-0.02,1.15);
+    \draw[hscvel, line width=1.1pt, dashed] (0.65,-1.45) -- (0.65,1.45);
+    \node[text=hscvel, anchor=north west, font=\footnotesize] at (0.6,-1.45) {new wavefront};
+    \draw[->, hscink, line width=0.7pt] (1.0,0.25) -- (1.6,0.25) node[right, font=\footnotesize] {travel};
+    \draw[hscmuted, line width=0.4pt] (1.5,1.05) node[right, font=\footnotesize, text=hscink] {wavelet} -- (0.55,0.85);
+  \end{tikzpicture}
+  \captionof{figure}{Huygens' principle.}
+  \label{ch2:fig:huygens}
+\end{sidebyside}
+
+Sound bends around corners, but light seems not to. Huygens could not explain this.
+Newton also had a huge reputation. So most scientists followed Newton for about 100
+years.
+
+\begin{toolkit}{Sine and parts of a velocity}
+In a right-angled triangle, the \emph{hypotenuse} $h$ is the longest side. The side
+opposite the angle $\theta$ is $h\sin\theta$. The side next to $\theta$ is $h\cos\theta$.
+Draw a velocity $v$ as the hypotenuse, at $\theta$ to the normal. The part along the
+normal is next to $\theta$, so it is $v\cos\theta$. The part along the surface is opposite
+$\theta$, so it is $v\sin\theta$. To get an angle from its sine, use $\sin^{-1}$:
+$\sin\theta = 0.500$ gives $\theta = \ang{30.0}$. Use \textbf{degrees} mode.
+\end{toolkit}
+
+\paragraph{Reflection: both models work.} Angles are measured from the \term{normal}, a
+line at \ang{90} to the surface. The \term{angle of incidence} ($\theta_\mathrm{i}$) is the
+angle between the incoming ray and the normal. The \term{angle of reflection}
+($\theta_\mathrm{r}$) is the angle between the reflected ray and the normal
+(\cref{ch2:fig:reflection}).
+\begin{itemize}
+  \item \textbf{Newton:} near the surface a \term{repulsive force} (a push away from the
+        surface) acts along the normal. It reverses the part of the corpuscle's velocity
+        along the normal. The part along the surface does not change. The corpuscle
+        bounces like a perfectly bouncy ball.
+  \item \textbf{Huygens:} each point of the surface sends out a wavelet when the
+        wavefront reaches it. Points hit earlier have bigger wavelets. The line touching
+        all the wavelets is the reflected wavefront. It leaves at the same angle.
+\end{itemize}
+Both models give $\theta_\mathrm{i} = \theta_\mathrm{r}$. So reflection cannot decide
+between them.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \begin{scope}
+      \fill[hscmuted!22] (-3.4,-0.35) rectangle (3.4,0);
+      \draw[hscink, line width=0.8pt] (-3.4,0) -- (3.4,0);
+      \draw[guide] (0,0) -- (0,2.15);
+      \node[font=\scriptsize, text=hscmuted, anchor=south] at (0,2.15) {normal};
+      \coordinate (O) at (0,0); \coordinate (N) at (0,1);
+      \coordinate (P1) at (-1.286,1.532); \coordinate (P2) at (1.286,1.532);
+      \draw[velocity] (P1) -- (O) node[pos=0.3, left=3pt, text=hscvel] {$v$};
+      \draw[velocity] (O) -- (P2) node[pos=0.65, right=3pt, text=hscvel] {$v$};
+      \pic[draw=hscink, line width=0.5pt, angle radius=8mm, "$\theta_\mathrm{i}$", angle eccentricity=1.45] {angle = N--O--P1};
+      \pic[draw=hscink, line width=0.5pt, angle radius=8mm, "$\theta_\mathrm{r}$", angle eccentricity=1.45] {angle = P2--O--N};
+      % velocity parts before (left) and after (right)
+      \draw[hscmuted, line width=0.8pt, ->] (-3.1,1.25) -- (-2.52,1.25);
+      \draw[hscmuted, line width=0.8pt, ->] (-3.1,1.25) -- (-3.1,0.56);
+      \node[font=\scriptsize, anchor=south] at (-2.81,1.3) {before};
+      \draw[hscmuted, line width=0.8pt, ->] (2.3,0.25) -- (2.88,0.25) node[right, font=\scriptsize, text=hscink] {same};
+      \draw[hscmuted, line width=0.8pt, ->] (2.3,0.25) -- (2.3,0.94) node[above, font=\scriptsize, text=hscink] {reversed};
+      \node[font=\scriptsize, anchor=east] at (2.22,0.6) {after};
+      \node[font=\footnotesize\bfseries] at (0,-0.85) {(a) Newton: the normal part reverses};
+    \end{scope}
+    \begin{scope}[xshift=7.4cm]
+      \fill[hscmuted!22] (-1.6,-0.35) rectangle (3.4,0);
+      \draw[hscink, line width=0.8pt] (-1.6,0) -- (3.4,0);
+      \coordinate (A) at (0,0); \coordinate (B) at (1.905,1.1);
+      \coordinate (C) at (2.54,0); \coordinate (T) at (0.635,1.1);
+      \foreach \cx/\r in {0/1.270, 0.635/0.953, 1.270/0.635, 1.905/0.318}
+        \draw[hscmuted, line width=0.5pt] (\cx+\r,0) arc (0:180:\r);
+      \draw[hscvel, line width=1.1pt] (A) -- (B);
+      \draw[hscvel, line width=1.1pt, dashed] (T) -- (C);
+      \draw[ray] (-0.45,0.779) -- (A);
+      \draw[ray] (1.455,1.879) -- (B) -- (C);
+      \draw[ray] (A) -- ($(A)!1.3!(T)$);
+      \draw[ray] (C) -- (2.99,0.779);
+      \fill[hscink] (A) circle (1.4pt) node[below=2pt, font=\scriptsize] {A};
+      \fill[hscink] (C) circle (1.4pt) node[below=2pt, font=\scriptsize] {C};
+      \node[font=\footnotesize\bfseries] at (0.9,-0.85) {(b) Huygens: reflected wavelets};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Reflection in the two models. (a) Newton: the grey arrows are the parts of the
+    velocity along the surface and along the normal. The normal part reverses, so
+    $\theta_\mathrm{i} = \theta_\mathrm{r}$. (b) Huygens: the arriving wavefront (solid
+    blue) reaches A first and C last. So the wavelet from A is the biggest. The reflected
+    wavefront (dashed blue) touches all the wavelets.}
+  \label{ch2:fig:reflection}
+\end{figure}
+
+\begin{refresher}{Refraction and Snell's law (Year 11)}
+\term{Refraction} is when light changes direction as it goes from one material into
+another. Light entering water or glass from air bends \emph{towards} the normal. The sheet
+gives $n_1\sin\theta_1 = n_2\sin\theta_2$. The values $n_\mathrm{air} = 1.00$ and
+$n_\mathrm{water} = 1.33$ are not on the sheet; questions give them. Example: air to water
+at \ang{40.0}: $\sin\theta_2 = \dfrac{1.00 \times \sin\ang{40.0}}{1.33} = 0.483$, so
+$\theta_2 = \ang{28.9}$.
+\end{refresher}
+
+\paragraph{Refraction: the models disagree.} Both models explain why light bends towards
+the normal in water. But they need opposite speeds (\cref{ch2:fig:refraction}).
+\textbf{Newton:} the water pulls each corpuscle inwards, along the normal. The normal
+part of its velocity grows. The part along the surface stays the same. So light should
+be \emph{faster} in water. \textbf{Huygens:} the part of the wavefront that enters first
+slows down first. So the wavefront swings towards the normal, and light should be
+\emph{slower} in water.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \begin{scope}
+      \fill[hscvel!9] (-2.1,-2.4) rectangle (2.3,0);
+      \draw[hscink, line width=0.8pt] (-2.1,0) -- (2.3,0);
+      \node[anchor=south west, font=\footnotesize] at (-2.1,0.02) {air};
+      \node[anchor=north west, font=\footnotesize] at (-2.1,-0.02) {water};
+      \draw[guide] (0,1.5) -- (0,-1.74);
+      \node[font=\scriptsize, text=hscmuted, anchor=south] at (0,1.5) {normal};
+      \draw[hscmuted, line width=0.6pt, ->] (-1.226,1.028) -- (0,1.028);
+      \draw[hscmuted, line width=0.6pt, ->] (0,1.028) -- (0,0.04);
+      \draw[velocity] (-1.226,1.028) -- (0,0) node[pos=0.35, left=1pt, text=hscvel] {$v_1$};
+      \draw[hscmuted, line width=0.6pt, ->] (0,0) -- (0,-1.740);
+      \draw[hscmuted, line width=0.6pt, ->] (0,-1.740) -- (1.226,-1.740);
+      \draw[velocity] (0,0) -- (1.226,-1.740) node[pos=0.55, right=1pt, text=hscvel] {$v_2$};
+      \node[text=hscmuted, font=\scriptsize, anchor=south east] at (-0.06,1.03) {parallel part};
+      \node[text=hscmuted, font=\scriptsize, anchor=north] at (0.62,-1.76) {same parallel part};
+      \node[text=hscmuted, font=\scriptsize, anchor=east, align=right] at (-0.05,-1.0) {bigger\\normal part};
+      \draw[force] (1.5,0.35) -- (1.5,-0.45) node[right, text=hscforce, font=\footnotesize] {pull};
+      \node[font=\footnotesize\bfseries] at (0.1,-3.0) {(a) Newton: faster in water};
+    \end{scope}
+    \begin{scope}[xshift=6.0cm]
+      \fill[hscvel!9] (-2.1,-2.4) rectangle (2.1,0);
+      \begin{scope}
+        \clip (-2.1,-2.4) rectangle (2.1,1.5);
+        \foreach \k in {-7,...,6} {
+          \draw[hscvel, line width=0.7pt] (\k*0.718,0) -- ++(50:3.5);
+          \draw[hscvel, line width=0.7pt] (\k*0.718,0) -- ++(215.2:3.5);
+        }
+      \end{scope}
+      \draw[hscink, line width=0.8pt] (-2.1,0) -- (2.1,0);
+      \draw[guide] (0,1.5) -- (0,-2.4);
+      \node[font=\scriptsize, text=hscmuted, anchor=south] at (0,1.5) {normal};
+      \draw[ray] (-1.532,1.286) -- (0,0);
+      \draw[ray] (0,0) -- (1.094,-1.553);
+      \node[fill=white, inner sep=1.5pt, anchor=south west, font=\footnotesize] at (-2.1,1.1) {air};
+      \node[fill=hscvel!9, inner sep=1.5pt, anchor=north west, font=\footnotesize] at (-2.1,-1.9) {water};
+      \node[font=\footnotesize\bfseries] at (0,-3.0) {(b) Huygens: slower in water};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Air to water, \ang{50} to \ang{35}. (a) Newton: a pull at the surface makes the
+    normal part of the velocity bigger. (b) Huygens: wavefronts (blue) are closer together
+    in the slower water, so the ray (orange) turns towards the normal.}
+  \label{ch2:fig:refraction}
+\end{figure}
+
+In 1850 L\'eon Foucault found that light is \emph{slower} in water
+(\cref{ch2:sec:experiments}). This disproved Newton's explanation of refraction and
+agreed with Huygens. But on its own it did not prove the wave model.
+\Cref{ch2:tab:evidence} collects all the evidence in this chapter.
+
+\begin{table}
+  \caption{The evidence for each model of light.}\label{ch2:tab:evidence}
+  \centering\small
+  \begin{tabular}{@{}L{25mm}L{31mm}L{36mm}L{40mm}@{}}
+    \toprule
+    \colhead{What we see} & \colhead{Newton (particles)} & \colhead{Huygens (waves)} &
+      \colhead{What the evidence shows}\\
+    \midrule
+    Sharp shadows & particles go straight & hard to explain at first &
+      both, once we know light's wavelength is tiny\\
+    Reflection & a repulsive force reverses the normal part of the velocity &
+      reflected wavelets & both work: no decision\\
+    Refraction & faster in water & slower in water & Foucault (1850): slower, so
+      Newton is wrong\\
+    Diffraction and interference (\cref{ch2:sec:diffraction,ch2:sec:interference}) &
+      cannot make dark bands & wavelets spread into the shadow; Young and Fresnel later
+      added that waves can cancel & strong support for waves (Young, 1801; Fresnel and
+      Arago, 1818)\\
+    Polarisation (\cref{ch2:sec:polarisation}) & no natural explanation & Huygens'
+      \emph{longitudinal} wave cannot be polarised; a \emph{transverse} wave can & light
+      is a transverse wave, so Huygens' model had to change\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{toolkit}{Powers of ten (reminder)}
+From \cref{ch1:chap}: $\qty{1}{nm} = \qty{e-9}{m}$, $\qty{1}{\micro m} = \qty{e-6}{m}$,
+$\qty{1}{mm} = \qty{e-3}{m}$. So $\qty{550}{nm} = \qty{5.50e-7}{m}$. On a calculator,
+use the $\times 10^{x}$ (or EXP) key.
+\end{toolkit}
+
+\begin{toolkit}{Rearranging a formula (reminder)}
+From \cref{ch1:chap}: to get one symbol on its own, do the same thing to both sides. Example:
+$n_\mathrm{x} = \dfrac{c}{v_\mathrm{x}}$. Multiply both sides by $v_\mathrm{x}$:
+$n_\mathrm{x}v_\mathrm{x} = c$. Divide both sides by $n_\mathrm{x}$:
+$v_\mathrm{x} = \dfrac{c}{n_\mathrm{x}}$. Check by putting numbers back in: both sides
+must still be equal.
+\end{toolkit}
+
+\begin{formulacard}{Refractive index and the speed of light}
+  \cardformula{n_\mathrm{x} = \frac{c}{v_\mathrm{x}}}
+  \begin{symbols}
+    \sym{$n_\mathrm{x}$}{refractive index of material x}{no unit}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+    \sym{$v_\mathrm{x}$}{speed of light in material x}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{$n$ says how many times slower light is in the material than in a vacuum.}
+  \whentouse{you need the speed of light in water or glass, or $n$ from a speed.}
+  \whennottouse{to find the angle of a refracted ray: use $n_1\sin\theta_1 = n_2\sin\theta_2$.}
+  \rearranged{$v_\mathrm{x} = \dfrac{c}{n_\mathrm{x}}$ \qquad $c = n_\mathrm{x}v_\mathrm{x}$}
+  \tensecond{glass, $n = 1.50$: $v = \dfrac{\qty{3.00e8}{m.s^{-1}}}{1.50}
+    = \qty{2.00e8}{m.s^{-1}}$.}
+  \trap{$n$ is 1 or more, so $v_\mathrm{x}$ is never bigger than $c$. If you get
+    $v > c$, you divided the wrong way.}
+\end{formulacard}
+
+\begin{workedexample}{Light crossing a swimming pool}\label{ch2:we:pool}
+Light travels \qty{25.0}{m} along a pool of water ($n = 1.33$). Find the speed of the
+light in the water and the time it takes.
+\given{$n = 1.33$, \ $s = \qty{25.0}{m}$, \ $c = \qty{3.00e8}{m.s^{-1}}$ (data sheet)}
+\find{the speed $v$ in water, then the time $t$}
+\formula{$v_\mathrm{x} = \dfrac{c}{n_\mathrm{x}}$ (rearranged in the toolkit), \quad then
+  $t = \dfrac{s}{v}$ (time $=$ distance $\div$ speed; this is $s = ut$ with $a = 0$)}
+\substitute{\eqlines{v &= \frac{\qty{3.00e8}{m.s^{-1}}}{1.33} = \qty{2.256e8}{m.s^{-1}}\\
+  t &= \frac{\qty{25.0}{m}}{\qty{2.256e8}{m.s^{-1}}} = \qty{1.108e-7}{s}}}
+\answer{\final{$v = \qty{2.26e8}{m.s^{-1}}$} and \final{$t = \qty{1.11e-7}{s}$}
+  (3 significant figures, like the data)}
+\checkstep{$v < c$ \cmark. In a vacuum $t = \qty{8.33e-8}{s}$; the water time is 1.33
+  times longer \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Testing the two models with a glass block}\label{ch2:we:glass}
+Light in air meets a glass block at \ang{50.0} to the normal. In the glass the ray is at
+\ang{30.0} to the normal. (a) Find $n$ for the glass. (b) Find the speed of light in the
+glass that the wave model predicts. (c) In Newton's model the part of the velocity along
+the surface does not change. Find the speed Newton's model predicts.
+\given{$n_1 = 1.00$, \ $\theta_1 = \ang{50.0}$, \ $\theta_2 = \ang{30.0}$, \
+  $v_1 = c = \qty{3.00e8}{m.s^{-1}}$}
+\find{(a) $n_2$ \quad (b) $v_2$, wave model \quad (c) $v_2$, Newton's model}
+\formula{(a) $n_1\sin\theta_1 = n_2\sin\theta_2$ \quad (b) $v_\mathrm{x} = \dfrac{c}{n_\mathrm{x}}$
+  \quad (c) Newton (not on the formula sheet): the pull acts only along the normal, so the
+  part of the velocity along the surface does not change. From the toolkit, that part is
+  $v\sin\theta$, so $v_1\sin\theta_1 = v_2\sin\theta_2$.}
+\substitute{\eqlines{&\sin\ang{50.0} = 0.766, \quad \sin\ang{30.0} = 0.500\\
+  \text{(a) } n_2 &= \frac{n_1\sin\theta_1}{\sin\theta_2} \quad \text{(divide both sides by $\sin\theta_2$)}\\
+  &= \frac{1.00 \times 0.766}{0.500} = 1.532\\
+  \text{(b) } v_2 &= \frac{\qty{3.00e8}{m.s^{-1}}}{1.532} = \qty{1.958e8}{m.s^{-1}}\\
+  \text{(c) } v_2 &= \frac{v_1\sin\theta_1}{\sin\theta_2} \quad \text{(divide both sides by $\sin\theta_2$)}\\
+  &= \frac{\qty{3.00e8}{m.s^{-1}} \times 0.766}{0.500} = \qty{4.596e8}{m.s^{-1}}}}
+\answer{(a) \final{$n = 1.53$} \quad (b) \final{$v = \qty{1.96e8}{m.s^{-1}}$} (slower)
+  \quad (c) \final{$v = \qty{4.60e8}{m.s^{-1}}$} (faster)}
+\checkstep{the models give opposite answers. So measuring the speed of light in glass or
+  water decides between them. Foucault's result (slower) matches (b).}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Foucault proved Huygens right.'' \cmark\ It proved Newton's explanation
+        of refraction wrong, and agreed with Huygens.
+  \item \xmark\ ``Reflection supports the wave model.'' \cmark\ Both models explain it.
+  \item \xmark\ ``Newton said light slows down in water.'' \cmark\ His model needs it to
+        speed up.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Analyse the evidence for Newton's and Huygens' models'' (5--6 marks). Full marks need:
+\begin{enumerate}
+  \item each model in one sentence;
+  \item for straight-line travel, reflection and refraction, how \emph{each} model
+        explains it;
+  \item the deciding evidence in time order: interference and diffraction (Young 1801;
+        Fresnel and Arago 1818), then Foucault's slower speed in water (1850);
+  \item a judgement, such as ``by 1850 the evidence strongly favoured the wave model''.
+\end{enumerate}
+A table like \cref{ch2:tab:evidence} organises the answer quickly.
+\end{examtip}
+
+\begin{quickcheck}
+  \item Calculate the speed of light in diamond ($n = 2.42$).
+  \item Explain why the law of reflection could not decide between Newton's and
+        Huygens' models.
+  \item State what each model predicts for the speed of light in water. State what
+        Foucault found, and which model's explanation it ruled out.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Diffraction}\label{ch2:sec:diffraction}
+\covers{M7.IQ2.01, M7.IQ2.03}
+
+\begin{bigidea}
+Waves spread out as they pass through a gap or around an edge. This is diffraction. The
+narrower the gap (compared with the wavelength), the more the wave spreads. Light
+diffracts too, which is evidence that light is a wave.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Diffraction}{the spreading of a wave as it passes through a gap or around an edge.}
+  \kw{Slit width ($a$)}{how wide one slit is. Unit: m.}
+  \kw{Central maximum}{the wide bright band in the middle of a single-slit pattern.}
+\end{keywords}
+
+\begin{refresher}{Wave words (Year 11)}
+A \term{crest} is a highest point of a wave. A \term{trough} is a lowest point. The
+\term{amplitude} is the height of a crest above the middle line. The \term{wavelength}
+($\lambda$) is the distance from one crest to the next (unit: m). The \term{frequency}
+($f$) is the number of waves passing each second (unit: Hz). They are linked by
+$v = f\lambda$ (on the sheet); for light in a vacuum $v = c$. Visible light runs from about
+\qty{400}{nm} (violet) to \qty{700}{nm} (red). The \term{phase} says where a wave is in
+its cycle: at a crest, at a trough, or in between.
+\end{refresher}
+
+Stand outside an open door. You can hear people inside, even when you cannot see them.
+The sound bends around the edges of the doorway. This is \term{diffraction}: the
+spreading of a wave as it passes through a gap or around an edge.
+
+How much a wave spreads depends on the size of the gap compared with the wavelength
+(\cref{ch2:fig:gaps}):
+\begin{itemize}
+  \item \textbf{Gap much wider than $\lambda$:} most of the wave goes straight through.
+        Only the edges bend (\cref{ch2:fig:gaps}a).
+  \item \textbf{Gap about $\lambda$, or narrower:} the wave spreads out in almost
+        circles, far into the ``shadow'' (\cref{ch2:fig:gaps}b).
+  \item $\lambda$, $f$ and the speed do not change. Only the direction does.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \begin{scope}
+      \fill[hscink!70] (-0.06,1.3) rectangle (0.06,2.4);
+      \fill[hscink!70] (-0.06,-1.3) rectangle (0.06,-2.4);
+      \foreach \x in {0.4,0.8,1.2,1.6} {
+        \draw[hscvel, line width=0.7pt] (-\x,-2.2) -- (-\x,2.2);
+        \draw[hscvel, line width=0.7pt] (\x,-1.3) -- (\x,1.3);
+        \draw[hscvel, line width=0.7pt] (0,1.3) ++(0:\x) arc (0:30:\x);
+        \draw[hscvel, line width=0.7pt] (0,-1.3) ++(0:\x) arc (0:-30:\x);
+      }
+      \node[font=\footnotesize\bfseries, align=center] at (0,-3.3) {(a) gap $\gg \lambda$:\\little spreading};
+    \end{scope}
+    \begin{scope}[xshift=4.3cm]
+      \fill[hscink!70] (-0.06,0.2) rectangle (0.06,2.4);
+      \fill[hscink!70] (-0.06,-0.2) rectangle (0.06,-2.4);
+      \foreach \x in {0.4,0.8,1.2,1.6} {
+        \draw[hscvel, line width=0.7pt] (-\x,-2.2) -- (-\x,2.2);
+        \draw[hscvel, line width=0.7pt] (0,0) ++(-82:\x) arc (-82:82:\x);
+      }
+      \node[font=\footnotesize\bfseries, align=center] at (0,-3.3) {(b) gap $\approx \lambda$:\\strong spreading};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Water waves (seen from above) reaching a gap. Blue lines are crests, one
+    wavelength apart. ($\gg$ means ``much bigger than''; $\approx$ means ``about equal
+    to''.)}
+  \label{ch2:fig:gaps}
+\end{figure}
+
+Huygens' principle explains this. Only the points inside the gap send out wavelets. The
+wavelets at the edges spread sideways into the shadow.
+
+\paragraph{Why light seems to go in straight lines.} Light's wavelength is less than a
+millionth of a metre. A doorway is over a million times wider. So light spreads by an
+amount we cannot notice, and shadows look sharp. To see light diffract, you need a slit
+narrower than about \qty{0.1}{mm}.
+
+\begin{sidebyside}[0.5]
+  \centering
+  \includegraphics{ch2_singleslit.pdf}
+  \captionof{figure}{Single-slit patterns from a red laser (same peak height).}
+  \label{ch2:fig:singleslit}
+\nextside
+  \paragraph{The single-slit pattern.} A laser through one narrow slit gives a wide,
+  bright \term{central maximum}: the bright band in the middle of the pattern. Beside it
+  are weak bright bands and dark bands (\cref{ch2:fig:singleslit}). The dark bands form
+  where wavelets from different parts of the slit cancel.
+  \begin{itemize}
+    \item A \textbf{narrower slit} gives a \textbf{wider} pattern.
+    \item A \textbf{longer wavelength} gives a \textbf{wider} pattern: red spreads more
+          than violet.
+  \end{itemize}
+  The spreading depends on $\lambda \div a$, where $a$ is the slit width. The HSC course
+  needs no single-slit formula. Describe and explain the pattern in words.
+\end{sidebyside}
+
+\paragraph{Diffraction and the two models.} Newton suggested that forces at the edges
+bend the corpuscles. But particles cannot explain the dark bands. Adding light to a place
+cannot make it darker. Waves explain the spreading, the dark bands and why red spreads
+more. In 1818 Fresnel's wave theory even predicted a bright spot in the middle of the
+shadow of a small disc. Arago looked, and found it.
+
+\begin{workedexample}{Hearing, but not seeing, through a doorway}\label{ch2:we:door}
+A doorway is \qty{0.80}{m} wide. Sound of \qty{500}{Hz} travels at \qty{340}{m.s^{-1}}.
+Green light has $\lambda = \qty{550}{nm}$. Use $\dfrac{\text{gap}}{\lambda}$ to explain
+why the sound spreads into the room beside the door but the light does not.
+\given{gap $= \qty{0.80}{m}$; \ sound $f = \qty{500}{Hz}$, $v = \qty{340}{m.s^{-1}}$; \
+  light $\lambda = \qty{5.50e-7}{m}$}
+\find{$\lambda$ of the sound, then $\dfrac{\text{gap}}{\lambda}$ for each wave}
+\formula{$v = f\lambda$, so $\lambda = \dfrac{v}{f}$ (divide both sides by $f$)}
+\substitute{\eqlines{\lambda_\mathrm{sound} &= \frac{\qty{340}{m.s^{-1}}}{\qty{500}{Hz}}
+  = \qty{0.68}{m}\\
+  \text{sound: } \frac{\text{gap}}{\lambda} &= \frac{\qty{0.80}{m}}{\qty{0.68}{m}} = 1.2\\
+  \text{light: } \frac{\text{gap}}{\lambda} &= \frac{\qty{0.80}{m}}{\qty{5.50e-7}{m}}
+  = \num{1.5e6}}}
+\answer{the gap is about \final{1.2} sound wavelengths, so sound diffracts strongly. It is
+  about \final{\num{1.5e6}} light wavelengths, so light hardly spreads.}
+\checkstep{this matches everyday life: you hear around a door, but the door's shadow looks
+  sharp \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Radio behind a hill}\label{ch2:we:radio}
+A town lies behind a hill about \qty{500}{m} wide. An AM radio station broadcasts at
+\qty{900}{kHz}. An FM station broadcasts at \qty{100}{MHz}. Radio waves travel at
+$c = \qty{3.00e8}{m.s^{-1}}$. Explain why the town receives the AM station well but the FM
+station badly.
+\given{hill width $\approx \qty{500}{m}$; \ AM $f = \qty{9.00e5}{Hz}$; \
+  FM $f = \qty{1.00e8}{Hz}$; \ $c = \qty{3.00e8}{m.s^{-1}}$}
+\find{$\lambda$ of each wave, then $\dfrac{\text{hill width}}{\lambda}$}
+\formula{$v = f\lambda$ with $v = c$, so $\lambda = \dfrac{c}{f}$ (divide both sides by $f$)}
+\substitute{\eqlines{\lambda_\mathrm{AM} &= \frac{\qty{3.00e8}{m.s^{-1}}}{\qty{9.00e5}{Hz}}
+  = \qty{333}{m}\\
+  \lambda_\mathrm{FM} &= \frac{\qty{3.00e8}{m.s^{-1}}}{\qty{1.00e8}{Hz}} = \qty{3.00}{m}\\
+  \text{AM: } \frac{\text{hill width}}{\lambda} &= \frac{\qty{500}{m}}{\qty{333}{m}} = 1.5\\
+  \text{FM: } \frac{\text{hill width}}{\lambda} &= \frac{\qty{500}{m}}{\qty{3.00}{m}} = 167}}
+\answer{the hill is only about \final{1.5} AM wavelengths wide, so AM waves diffract
+  strongly around it and reach the town. It is about \final{167} FM wavelengths wide, so
+  FM waves hardly bend. The town is in their ``shadow''.}
+\checkstep{diffraction is strong when the gap or obstacle is about one wavelength wide, or
+  less. AM wavelengths are hundreds of metres, like hills \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``A wider gap gives more diffraction.'' \cmark\ A narrower gap (nearer to
+        $\lambda$) gives more spreading.
+  \item \xmark\ ``Diffraction changes the wavelength.'' \cmark\ Only the direction
+        changes. $\lambda$, $f$ and the speed stay the same.
+  \item \xmark\ ``Light does not diffract, because shadows are sharp.'' \cmark\ It does,
+        but $\lambda$ is tiny. You need a slit narrower than about \qty{0.1}{mm} to see it.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Describe the pattern from a narrow slit'' (2--3 marks): a wide bright central
+        band, weaker bands beside it, dark bands between; wider for a narrower slit or a
+        longer $\lambda$. Add a labelled sketch.
+  \item ``Explain how diffraction supports the wave model'' (3 marks): waves spread
+        through gaps (Huygens' wavelets); particles cannot cancel to make dark bands;
+        light spreads and makes dark bands, more for a longer $\lambda$, so it behaves
+        as a wave.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Water waves meet a gap \qty{2.0}{cm} wide. Which spread out more: waves with
+        $\lambda = \qty{1.5}{cm}$ or with $\lambda = \qty{0.30}{cm}$? Explain.
+  \item A red laser shines through a narrow slit onto a screen. Describe how the pattern
+        changes when (a) the slit is made narrower, (b) the red laser is replaced by a
+        blue laser.
+  \item Explain why the dark bands in a single-slit pattern are evidence for the wave
+        model of light.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Interference: Young's double-slit experiment}\label{ch2:sec:interference}
+\covers{M7.IQ2.02, M7.IQ2.03}
+
+\begin{bigidea}
+Where two waves overlap, they add or cancel. This is interference. Light through two
+narrow slits makes bright and dark bands on a screen. Only waves can cancel to make
+darkness, so Young's experiment is strong evidence that light is a wave.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Superposition}{when waves meet, their displacements add.}
+  \kw{Constructive / destructive interference}{waves add to a bigger wave / waves cancel.}
+  \kw{Fringe}{one bright or dark band in an interference pattern.}
+  \kw{Coherent}{waves with the same frequency and a fixed phase difference (the shift
+    between their crests never changes).}
+  \kw{Monochromatic}{one wavelength (one colour) only.}
+  \kw{Path difference ($\delta$)}{how much further one wave travels than the other. Unit: m.}
+  \kw{Order ($m$)}{the number of a fringe, counted out from the centre (bright:
+    $m = 0, 1, 2, \ldots$; dark: $m = 1, 2, \ldots$).}
+\end{keywords}
+
+Where two waves meet, their \term{displacements} (how far each wave is above or below
+its middle line) add together. This is \term{superposition}
+(\cref{ch2:fig:superposition}).
+\begin{itemize}
+  \item Two waves are \term{in phase} when their crests line up. Crest meets crest, and
+        they make a bigger wave. This is \term{constructive interference}: bright light.
+  \item Two waves are \term{\ang{180} out of phase} when one is half a wavelength behind
+        the other. Crest meets trough, and the waves cancel. This is
+        \term{destructive interference}: darkness.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.72cm, y=0.8cm]
+    \foreach \col/\sgn/\name in {0/1/{(a) constructive}, 3.0/-1/{(b) destructive}} {
+      \begin{scope}[xshift=\col cm]
+        \draw[hscseriesA, line width=0.9pt, domain=0:3.2, samples=60] plot (\x, {0.25*sin(\x*225)});
+        \draw[hscseriesB, line width=0.9pt, domain=0:3.2, samples=60] plot (\x, {-0.8+\sgn*0.25*sin(\x*225)});
+        \draw[hscink, line width=1.2pt, domain=0:3.2, samples=60] plot (\x, {-1.85+(1+\sgn)*0.25*sin(\x*225)});
+        \node[font=\footnotesize\bfseries] at (1.6,-2.65) {\name};
+      \end{scope}
+    }
+    \node[font=\footnotesize, anchor=east] at (-0.05,0) {wave 1};
+    \node[font=\footnotesize, anchor=east] at (-0.05,-0.8) {wave 2};
+    \node[font=\footnotesize\bfseries, anchor=east] at (-0.05,-1.85) {sum};
+  \end{tikzpicture}
+  \caption{Two waves (a) in phase and (b) \ang{180} out of phase.}
+  \label{ch2:fig:superposition}
+\end{figure}
+
+Light $+$ light $=$ darkness only makes sense for waves. Two streams of particles just
+add up to more light.
+
+In about 1801, Thomas Young passed light through two narrow slits that were very close
+together (\cref{ch2:fig:young}). On a far screen he saw evenly spaced bright and dark
+bands. These bands are called \term{fringes}.
+
+Light diffracts at each slit, so the waves from the two slits overlap. Where they arrive
+in phase, there is a bright fringe. Where they arrive \ang{180} out of phase, there is a
+dark fringe.
+
+The two slits must be \term{coherent} sources: their waves have the same frequency and a
+fixed phase difference. So Young lit both slits from one small opening (sunlight through a
+pinhole). Today a single slit or a laser does the same job. Two separate lamps change
+phase at random, so their pattern washes out.
+
+\term{Monochromatic} light has one wavelength only. It gives the clearest fringes. A laser
+is both monochromatic and coherent.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.75cm]
+    \fill[hsctip!70] (0,0) circle (0.25);
+    \draw[hscink, line width=0.6pt] (0,0) circle (0.25);
+    \foreach \a in {0,45,...,315} \draw[hsctip, line width=0.7pt] (\a:0.33) -- (\a:0.48);
+    \node[font=\footnotesize, align=center, anchor=north] at (0,-0.6) {light\\source};
+    \fill[hscink!75] (1.3,0.07) rectangle (1.38,2.3);
+    \fill[hscink!75] (1.3,-0.07) rectangle (1.38,-2.3);
+    \begin{scope}
+      \clip (1.38,-2.2) rectangle (3.0,2.2);
+      \foreach \r in {0.291,0.582,...,1.6} \draw[hscmuted!70, line width=0.45pt] (1.34,0) circle (\r);
+    \end{scope}
+    \node[font=\footnotesize, anchor=south] at (1.34,2.35) {single slit};
+    \fill[hscink!75] (3.0,0.67) rectangle (3.08,2.3);
+    \fill[hscink!75] (3.0,0.53) rectangle (3.08,-0.53);
+    \fill[hscink!75] (3.0,-0.67) rectangle (3.08,-2.3);
+    \begin{scope}
+      \clip (3.08,-2.3) rectangle (7.0,2.3);
+      \foreach \r in {0.291,0.582,...,4.2} {
+        \draw[hscmuted!70, line width=0.45pt] (3.04,0.6) circle (\r);
+        \draw[hscmuted!70, line width=0.45pt] (3.04,-0.6) circle (\r);
+      }
+      \foreach \yy in {0,1.0,-1.0,2.0,-2.0} \draw[hscray, line width=0.9pt, dashed] (3.04,0) -- (7.0,\yy);
+    \end{scope}
+    \node[font=\footnotesize, anchor=south] at (3.04,2.35) {double slit};
+    \node[font=\footnotesize, anchor=east] at (2.95,0.85) {$S_1$};
+    \node[font=\footnotesize, anchor=east] at (2.95,-0.85) {$S_2$};
+    \draw[|<->|, hscink, line width=0.5pt] (2.45,0.6) -- (2.45,-0.6) node[midway, left, font=\footnotesize] {$d$};
+    \fill[black!85] (7.0,-2.4) rectangle (7.3,2.4);
+    \foreach \yy in {0,1.0,-1.0,2.0,-2.0} \fill[hscforce!80!white] (7.0,\yy-0.17) rectangle (7.3,\yy+0.17);
+    \node[font=\footnotesize, anchor=south] at (7.15,2.45) {screen};
+    \node[font=\footnotesize, anchor=west] at (7.4,0) {bright ($m = 0$)};
+    \node[font=\footnotesize, anchor=west] at (7.4,0.5) {dark};
+    \node[font=\footnotesize, anchor=west] at (7.4,1.0) {bright ($m = 1$)};
+    \node[font=\footnotesize, anchor=west] at (7.4,1.5) {dark};
+    \node[font=\footnotesize, anchor=west] at (7.4,2.0) {bright ($m = 2$)};
+    \draw[|<->|, hscink, line width=0.5pt] (3.04,-2.75) -- (7.0,-2.75) node[midway, below, font=\footnotesize] {$L$ (not to scale: really $L \gg d$)};
+  \end{tikzpicture}
+  \caption{Young's experiment (modern version, with a single slit as the one source).
+    Grey circles are crests from each slit. Along the orange dashed lines the waves
+    arrive in phase, so bright fringes form. In between, the waves cancel.}
+  \label{ch2:fig:young}
+\end{figure}
+
+\subsection{Path difference and \texorpdfstring{$d\sin\theta = m\lambda$}{d sin(theta) = m lambda}}
+Light from the two slits travels different distances to a point P on the screen. The
+difference between these two distances is the \term{path difference} ($\delta$). If
+$\delta = 0, \lambda, 2\lambda, \ldots$ the waves arrive in phase: bright. If
+$\delta = \tfrac{1}{2}\lambda, 1\tfrac{1}{2}\lambda, \ldots$ they arrive \ang{180} out of
+phase: dark. At the centre $\delta = 0$, so the centre is always bright. To find $\delta$
+(\cref{ch2:fig:pathdiff}):
+\begin{enumerate}
+  \item The screen is far away compared with $d$, so the two rays to P are almost parallel.
+  \item Draw $S_1$Q at \ang{90} to the rays. From $S_1$ and from Q, the two paths to P
+        are equal. So $\delta = S_2$Q.
+  \item The rays make angle $\theta$ with the central line. The slit line $S_1S_2$ is at
+        \ang{90} to the central line. The line $S_1$Q is at \ang{90} to the rays. So
+        $S_1S_2$ and $S_1$Q are the central line and the ray, each turned through
+        \ang{90}. Turning both lines by the same amount does not change the angle between
+        them. So the angle at $S_1$ is also $\theta$.
+  \item In the right-angled triangle $S_1$Q$S_2$ the hypotenuse is $d$, and $\delta$ is
+        opposite $\theta$. So $\delta = d\sin\theta$. Bright needs $\delta = m\lambda$.
+\end{enumerate}
+$\delta = d\sin\theta$ is not on the formula sheet. Learn it, or derive it as above.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.85cm, y=0.82cm]
+    \begin{scope}
+      \fill[hscink!75] (-0.05,0.68) rectangle (0.05,1.3);
+      \fill[hscink!75] (-0.05,0.52) rectangle (0.05,-0.52);
+      \fill[hscink!75] (-0.05,-0.68) rectangle (0.05,-1.3);
+      \draw[hscink, line width=1.2pt] (6,-1.3) -- (6,2.4) node[above, font=\footnotesize] {screen};
+      \draw[guide] (0,0) -- (6,0);
+      \coordinate (P) at (6,2.0);
+      \coordinate (M) at (0,0); \coordinate (X) at (6,0);
+      \draw[ray] (0,0.6) -- (P);
+      \draw[ray] (0,-0.6) -- (P);
+      \draw[hscmuted, line width=0.5pt] (0,0) -- (P);
+      \pic[draw=hscink, line width=0.5pt, angle radius=11mm, "$\theta$", angle eccentricity=1.25] {angle = X--M--P};
+      \fill[hscink] (P) circle (1.6pt) node[right, font=\footnotesize] {P};
+      \draw[|<->|, line width=0.5pt] (6.65,0) -- (6.65,2.0) node[midway, right, font=\footnotesize] {$y$};
+      \draw[|<->|, line width=0.5pt] (0,-1.6) -- (6,-1.6) node[midway, below, font=\footnotesize] {$L$};
+      \node[font=\footnotesize, anchor=east] at (-0.1,0.75) {$S_1$};
+      \node[font=\footnotesize, anchor=east] at (-0.1,-0.75) {$S_2$};
+      \node[font=\footnotesize, anchor=north] at (3.2,-0.02) {central line};
+      \node[font=\footnotesize\bfseries] at (3,-2.3) {(a) the set-up (not to scale)};
+    \end{scope}
+    \begin{scope}[xshift=8.4cm, yshift=0.15cm]
+      \coordinate (S1) at (0,1); \coordinate (S2) at (0,-1);
+      \coordinate (Q) at (0.866,-0.5); \coordinate (H) at (1.2,-1);
+      \coordinate (R2) at (3.2,0.848);
+      \draw[ray] (S1) -- (2.4,2.386);
+      \draw[ray] (S2) -- (R2);
+      \draw[hscink, line width=0.8pt] (S1) -- (S2) node[midway, left, font=\footnotesize] {$d$};
+      \draw[hscink, dashed, line width=0.7pt] (S1) -- (Q);
+      \draw[guide] (S2) -- (2.0,-1);
+      \draw[hscforce, line width=2pt] (S2) -- (Q);
+      \node[text=hscforce, font=\footnotesize, anchor=north west] at (0.05,-1.12) {$\delta = d\sin\theta$};
+      \pic[draw=hscink, line width=0.5pt, angle radius=4mm, "$\theta$", angle eccentricity=1.5] {angle = S2--S1--Q};
+      \pic[draw=hscink, line width=0.5pt, angle radius=13mm, "$\theta$", angle eccentricity=1.18] {angle = H--S2--Q};
+      \pic[draw=hscink, line width=0.4pt, angle radius=1.6mm] {right angle = S1--Q--R2};
+      \fill[hscink] (S1) circle (1.5pt) node[above left, font=\footnotesize] {$S_1$};
+      \fill[hscink] (S2) circle (1.5pt) node[below left, font=\footnotesize] {$S_2$};
+      \node[font=\footnotesize, anchor=north west, xshift=0.5pt, yshift=0.5pt] at (Q) {Q};
+      \node[font=\footnotesize, anchor=west] at (2.45,2.35) {to P};
+      \node[font=\footnotesize, anchor=west] at (3.25,0.85) {to P};
+      \node[font=\footnotesize\bfseries] at (1.3,-2.45) {(b) close-up of the slits};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) Light from both slits reaches P, a height $y$ up a screen $L$ away.
+    (b) Close-up: the extra path for light from $S_2$ is $\delta = d\sin\theta$ (pink).}
+  \label{ch2:fig:pathdiff}
+\end{figure}
+
+\begin{formulacard}{Bright fringes (double slit or grating)}
+  \cardformula{d\sin\theta = m\lambda}
+  \begin{symbols}
+    \sym{$d$}{slit separation: distance between the centres of neighbouring slits}{\si{m}}
+    \sym{$\theta$}{angle from the central line to the bright fringe}{degree (\si{\degree})}
+    \sym{$m$}{order of the bright fringe: 0 (centre), 1, 2, \ldots}{no unit}
+    \sym{$\lambda$}{wavelength}{\si{m}}
+  \end{symbols}
+  \inwords{a bright fringe forms where the path difference $d\sin\theta$ is a whole number
+    of wavelengths.}
+  \whentouse{bright fringes of a double slit or a grating, with a far screen ($L \gg d$).}
+  \whennottouse{dark fringes (next card), or with the width of one slit ($a$, not $d$).}
+  \rearranged{$\lambda = \dfrac{d\sin\theta}{m}$ \qquad $\sin\theta = \dfrac{m\lambda}{d}$
+    \qquad $d = \dfrac{m\lambda}{\sin\theta}$}
+  \tensecond{$d = \qty{2.00e-6}{m}$, $\lambda = \qty{500}{nm}$, $m = 1$:
+    $\sin\theta = \dfrac{5.00\times10^{-7}}{2.00\times10^{-6}} = 0.250$, $\theta = \ang{14.5}$.}
+  \trap{change nm, \si{\micro m} and mm into metres first. Here $m$ is the order, not a
+    mass. Calculator in degrees.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Dark fringes}
+  \cardformula{d\sin\theta = \left(m - \tfrac{1}{2}\right)\lambda, \qquad m = 1, 2, 3, \ldots}
+  \begin{symbols}
+    \sym{$m$}{number of the dark fringe, counted from the centre: 1 for the first}{no unit}
+    \sym{$d$, $\theta$, $\lambda$}{as in the bright-fringe card}{\si{m}, \si{\degree}, \si{m}}
+  \end{symbols}
+  \inwords{a dark fringe forms where the path difference is a whole number of wavelengths
+    plus a half.}
+  \whentouse{the angle of a dark fringe (a minimum) of a \emph{double slit}.}
+  \whennottouse{bright fringes, or gratings (a grating is dark almost everywhere between
+    its sharp bright lines). Never put $m = 0$ in this formula.}
+  \rearranged{$\sin\theta = \dfrac{\left(m - \frac{1}{2}\right)\lambda}{d}$}
+  \tensecond{same slits, first dark fringe ($m = 1$): $\sin\theta =
+    \dfrac{0.5 \times 5.00\times10^{-7}}{2.00\times10^{-6}} = 0.125$, $\theta = \ang{7.18}$.}
+  \derive{dark needs $\delta = \frac{1}{2}\lambda, \frac{3}{2}\lambda, \frac{5}{2}\lambda,
+    \ldots = \left(m - \frac{1}{2}\right)\lambda$. Set this equal to $\delta = d\sin\theta$.}
+  \trap{some books write $\left(m + \frac{1}{2}\right)\lambda$ with $m = 0, 1, 2, \ldots$
+    Count from the centre: the first dark fringe has $\delta = \frac{1}{2}\lambda$ and the
+    third has $\delta = 2\frac{1}{2}\lambda$ in both versions.}
+\end{formulacard}
+
+%% Added by the Module 7 coverage audit (M7.IQ2.02, path difference from two distances).
+\subsection{When you know both distances}
+
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    \fill[hscink!75] (-0.06,0.75) rectangle (0.06,1.6);
+    \fill[hscink!75] (-0.06,0.35) rectangle (0.06,-0.35);
+    \fill[hscink!75] (-0.06,-0.75) rectangle (0.06,-1.6);
+    \coordinate (S1) at (0,0.55); \coordinate (S2) at (0,-0.55);
+    \coordinate (P) at (4.3,1.45);
+    \draw[ray] (S1) -- (P) node[pos=0.5, above, sloped, font=\footnotesize, text=hscink] {$S_1P$};
+    \draw[ray] (S2) -- (P) node[pos=0.55, below, sloped, font=\footnotesize, text=hscink] {$S_2P$ (longer)};
+    \fill[hscink] (S1) circle (1.5pt) node[left=2pt, font=\footnotesize] {$S_1$};
+    \fill[hscink] (S2) circle (1.5pt) node[left=2pt, font=\footnotesize] {$S_2$};
+    \fill[hscink] (P) circle (1.6pt) node[right, font=\footnotesize] {P};
+    \draw[|<->|, hscink, line width=0.5pt] (-0.75,0.55) -- (-0.75,-0.55)
+      node[midway, left, font=\footnotesize] {$d$};
+  \end{tikzpicture}
+  \captionof{figure}{Two sources and a point P. The path difference is
+    $\delta = S_2P - S_1P$.}\label{ch2:fig:twodist}
+\nextside
+  Some questions give the distance from each source to a point P. Then you do not need
+  an angle. Subtract the two distances to get the path difference $\delta$
+  (\cref{ch2:fig:twodist}). Then divide by $\lambda$:
+  \begin{itemize}
+    \item a whole number (0, 1, 2, \ldots): crest meets crest. Constructive: bright light,
+          loud sound, a strong signal;
+    \item a whole number plus a half: crest meets trough. Destructive: dark, quiet, a
+          weak signal.
+  \end{itemize}
+  This works for any waves (light, microwaves, sound, water), near the sources or far away.
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet]{Path difference from two distances}
+  \cardformula{\delta = \left|S_2P - S_1P\right|}
+  \begin{symbols}
+    \sym{$\delta$}{path difference at the point P}{\si{m}}
+    \sym{$S_1P$, $S_2P$}{distance from source 1, and from source 2, to P}{\si{m}}
+    \sym{$\lambda$}{wavelength of the waves}{\si{m}}
+    \sym{$m$}{a whole number: 0, 1, 2, \ldots\ (constructive); 1, 2, 3, \ldots\ (destructive)}{no unit}
+  \end{symbols}
+  \inwords{if $\delta$ is a whole number of wavelengths the waves add (constructive); if it is
+    a whole number plus a half they cancel (destructive).}
+  \whentouse{two coherent sources that send out waves in phase (two slits, two speakers, two
+    antennas), when you know both distances to P.}
+  \whennottouse{sources that are \ang{180} out of phase: then constructive and destructive swap.
+    If you know only an angle, use $d\sin\theta = m\lambda$.}
+  \rearranged{constructive: $\delta = m\lambda$, so $\lambda = \dfrac{\delta}{m}$\newline
+    destructive: $\delta = \left(m - \tfrac{1}{2}\right)\lambda$, so
+    $\lambda = \dfrac{\delta}{m - \frac{1}{2}}$ \ ($m = 1, 2, \ldots$)}
+  \tensecond{$S_1P = \qty{2.00}{m}$, $S_2P = \qty{2.75}{m}$, $\lambda = \qty{0.500}{m}$:
+    $\delta = \qty{0.75}{m}$ and $\dfrac{\delta}{\lambda} = 1.5$, so destructive.}
+  \derive{the two waves leave their sources in step. The wave from the further source travels
+    $\delta$ further, so it arrives $\dfrac{\delta}{\lambda}$ cycles behind. A whole number of
+    cycles behind: crest still meets crest. Half a cycle more: crest meets trough. For a far
+    screen, $\delta = d\sin\theta$ (above).}
+  \trap{subtract the two distances to P. Do not use the distance between the sources. Keep
+    $\delta$ and $\lambda$ in the same unit (both in cm, or both in m).}
+\end{formulacard}
+
+\subsection{Where the fringes land}
+
+\begin{toolkit}{tan, \texorpdfstring{$\tan^{-1}$}{tan-1} and small angles}
+In a right-angled triangle, $\tan\theta = \dfrac{\text{opposite}}{\text{adjacent}}$. (The
+adjacent side is the side next to $\theta$ that is not the hypotenuse.) In
+\cref{ch2:fig:pathdiff}a the side opposite $\theta$ is $y$ and the side next to it is $L$,
+so $\tan\theta = \dfrac{y}{L}$. To get the angle back, use $\tan^{-1}$ (SHIFT, then tan):
+$\tan\theta = 0.200$ gives $\theta = \ang{11.3}$.
+
+For small angles $\sin\theta \approx \tan\theta$: they differ by 0.4\,\% at \ang{5},
+1.5\,\% at \ang{10} and 6.4\,\% at \ang{20}. Below about \ang{10} you may use
+$\sin\theta \approx \dfrac{y}{L}$. For bigger angles find
+$\theta = \tan^{-1}\!\left(\dfrac{y}{L}\right)$ first, then take $\sin\theta$.
+\end{toolkit}
+
+A fringe at angle $\theta$ lands a distance $y$ from the centre of the central bright
+fringe. The screen is a distance $L$ from the slits (\cref{ch2:fig:pathdiff}a).
+
+\begin{formulacard}[notonsheet]{Where a fringe lands on the screen}
+  \cardformula{y = L\tan\theta}
+  \begin{symbols}
+    \sym{$y$}{distance on the screen from the centre of the central bright fringe}{\si{m}}
+    \sym{$L$}{distance from the slits to the screen (at \ang{90} to the screen)}{\si{m}}
+    \sym{$\theta$}{angle of the fringe from the central line}{degree (\si{\degree})}
+  \end{symbols}
+  \inwords{the bigger the angle, or the further away the screen, the further the fringe is
+    from the centre.}
+  \whentouse{changing an angle into a position on the screen, or a measured position into
+    an angle. It works at any angle.}
+  \whennottouse{on its own to find $\lambda$: first find $\theta$, then use
+    $d\sin\theta = m\lambda$. For the gap between neighbouring fringes at small angles,
+    $\Delta y = \dfrac{\lambda L}{d}$ is quicker.}
+  \rearranged{$\theta = \tan^{-1}\!\left(\dfrac{y}{L}\right)$ \qquad $L = \dfrac{y}{\tan\theta}$}
+  \tensecond{$L = \qty{2.00}{m}$, $\theta = \ang{5.0}$: $y = 2.00 \times \tan\ang{5.0}
+    = \qty{0.175}{m}$.}
+  \derive{in the right-angled triangle of \cref{ch2:fig:pathdiff}a,
+    $\tan\theta = \dfrac{\text{opposite}}{\text{adjacent}} = \dfrac{y}{L}$. Multiply both
+    sides by $L$.}
+  \trap{use tan here, not sin. Measure $y$ from the centre of the central bright fringe,
+    not from the next fringe.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Fringe spacing (small angles)}
+  \cardformula{\Delta y = \frac{\lambda L}{d}}
+  \begin{symbols}
+    \sym{$\Delta y$}{distance between the centres of neighbouring bright (or dark) fringes}{\si{m}}
+    \sym{$y_m$}{distance from the centre to bright fringe number $m$}{\si{m}}
+    \sym{$L$}{distance from the slits to the screen}{\si{m}}
+    \sym{$\lambda$, $d$}{wavelength, slit separation}{\si{m}}
+  \end{symbols}
+  \inwords{fringes are further apart for a longer $\lambda$, a further screen, or slits
+    closer together.}
+  \whentouse{a double slit at small angles (below about \ang{10}).}
+  \whennottouse{large angles, as with most gratings: use $d\sin\theta = m\lambda$ and
+    $y = L\tan\theta$.}
+  \rearranged{$\lambda = \dfrac{d\,\Delta y}{L}$ \qquad $d = \dfrac{\lambda L}{\Delta y}$}
+  \tensecond{$\lambda = \qty{600}{nm}$, $L = \qty{2.0}{m}$, $d = \qty{0.40}{mm}$:
+    $\Delta y = \dfrac{6.00\times10^{-7} \times 2.0}{4.0\times10^{-4}} = \qty{3.0e-3}{m}$.}
+  \derive{\begin{align*}
+      d\,\frac{y_m}{L} &= m\lambda && \text{$d\sin\theta = m\lambda$ with $\sin\theta \approx \tfrac{y_m}{L}$}\\
+      y_m &= \frac{m\lambda L}{d} && \text{multiply both sides by $\tfrac{L}{d}$}\\
+      \Delta y = y_{m+1} - y_m &= \frac{\lambda L}{d} && \text{subtract neighbouring fringes}
+    \end{align*}}
+  \trap{$d$ is the slit separation, not a slit's width. $\Delta y$ is the gap between
+    neighbours, not the distance from the centre.}
+\end{formulacard}
+
+\Cref{ch2:fig:pattern} shows the pattern. From the centre outwards: $m = 0$ bright, 1st
+dark, $m = 1$ bright, 2nd dark, \ldots. Neighbouring bright fringes are $\Delta y$ apart,
+and so are neighbouring dark fringes. Each dark fringe is halfway between two bright
+fringes, $\tfrac{1}{2}\Delta y$ from each.
+
+The fringes fade away from the centre. Each slit has its own single-slit pattern
+(\cref{ch2:fig:singleslit}), and this pattern dims the outer fringes. In
+\cref{ch2:fig:pattern} it is the dashed curve, called the \term{envelope}.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch2_doubleslit.pdf}
+  \caption{A double-slit pattern: the fringes on the screen (top) and their brightness
+    (bottom), with each bright fringe's order $m$.}
+  \label{ch2:fig:pattern}
+\end{figure}
+
+\paragraph{Predictions.} From $\Delta y = \dfrac{\lambda L}{d}$, the fringes spread
+further apart for a longer wavelength (red rather than blue), a further screen, or slits
+closer together. With white light, the central fringe is white, because $\delta = 0$ for
+every colour. Beside it are coloured fringes, with blue on the inside and red on the
+outside.
+
+\paragraph{Impact.} Young showed that light can cancel light. Particles cannot do this.
+He also measured the wavelengths of colours. But Newton's reputation was huge. The wave
+model was widely accepted only after Fresnel and Arago (1818--1819) and Foucault (1850).
+(In Module~8, electrons make the same pattern.)
+
+\begin{workedexample}{Fringes from a green laser}\label{ch2:we:green}
+Green laser light ($\lambda = \qty{532}{nm}$) passes through two slits \qty{0.250}{mm}
+apart onto a screen \qty{3.00}{m} away. Find (a) the angle of the second-order bright
+fringe, (b) its distance from the centre, (c) the fringe spacing.
+\given{$\lambda = \qty{5.32e-7}{m}$, \ $d = \qty{2.50e-4}{m}$, \ $L = \qty{3.00}{m}$, \ $m = 2$}
+\find{(a) $\theta$ \quad (b) $y$ \quad (c) $\Delta y$}
+\formula{$d\sin\theta = m\lambda$, so $\sin\theta = \dfrac{m\lambda}{d}$ (divide both
+  sides by $d$); \quad $y = L\tan\theta$; \quad $\Delta y = \dfrac{\lambda L}{d}$}
+\substitute{\eqlines{\sin\theta &= \frac{2 \times \qty{5.32e-7}{m}}{\qty{2.50e-4}{m}}
+  = \num{4.256e-3}, \text{ so } \theta = \ang{0.2439}\\
+  y &= \qty{3.00}{m} \times \tan\ang{0.2439} = \qty{1.277e-2}{m} = \qty{12.8}{mm}\\
+  \Delta y &= \frac{\qty{5.32e-7}{m} \times \qty{3.00}{m}}{\qty{2.50e-4}{m}}
+  = \qty{6.38e-3}{m} = \qty{6.38}{mm}\\
+  &\text{(m to mm: multiply by 1000)}}}
+\answer{(a) \final{$\theta = \ang{0.244}$} \quad (b) \final{$y = \qty{12.8}{mm}$} \quad
+  (c) \final{$\Delta y = \qty{6.38}{mm}$}}
+\checkstep{the $m = 2$ fringe is two spacings out: $2 \times 6.38 = \qty{12.8}{mm}$ \cmark.
+  The angle is tiny, so the small-angle formula is fine.}
+\end{workedexample}
+
+\begin{workedexample}{Where is the third dark fringe?}\label{ch2:we:dark}
+Orange light ($\lambda = \qty{610}{nm}$) passes through two slits \qty{0.180}{mm} apart
+onto a screen \qty{2.20}{m} away. How far from the centre is the third dark fringe?
+\given{$\lambda = \qty{6.10e-7}{m}$, \ $d = \qty{1.80e-4}{m}$, \ $L = \qty{2.20}{m}$, \
+  third dark fringe, so $m = 3$}
+\find{$y$, the distance of the third dark fringe from the centre}
+\formula{$d\sin\theta = \left(m - \tfrac{1}{2}\right)\lambda$, so
+  $\sin\theta = \dfrac{\left(m - \frac{1}{2}\right)\lambda}{d}$ (divide both sides by $d$);
+  \quad then $y = L\tan\theta$}
+\substitute{\eqlines{m - \tfrac{1}{2} &= 3 - 0.5 = 2.5\\
+  \sin\theta &= \frac{2.5 \times \qty{6.10e-7}{m}}{\qty{1.80e-4}{m}} = \num{8.472e-3}\\
+  \theta &= \sin^{-1}(\num{8.472e-3}) = \ang{0.4854}\\
+  y &= \qty{2.20}{m} \times \tan\ang{0.4854} = \qty{1.864e-2}{m}\\
+  &= \qty{18.64}{mm} \quad \text{(m to mm: multiply by 1000)}}}
+\answer{\final{$y = \qty{18.6}{mm}$} from the centre (3 significant figures)}
+\checkstep{$\Delta y = \dfrac{\lambda L}{d} = \qty{7.456}{mm}$. The third dark fringe is
+  $2\tfrac{1}{2}$ spacings out: $2.5 \times 7.456 = \qty{18.6}{mm}$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Microwaves from two slits}\label{ch2:we:microwave}
+Microwaves of wavelength \qty{2.80}{cm} pass through two slits \qty{10.0}{cm} apart in a
+metal sheet. A detector is placed at two points. P is \qty{52.0}{cm} from slit 1 and
+\qty{59.0}{cm} from slit 2. Q is \qty{48.6}{cm} from slit 1 and \qty{54.2}{cm} from slit 2.
+(a) Is the signal strong or weak at P? (b) At Q? (c) The wavelength is changed. Find the
+longest wavelength that gives a strong signal at P.
+\given{$\lambda = \qty{2.80}{cm}$; \ P: $S_1P = \qty{52.0}{cm}$, $S_2P = \qty{59.0}{cm}$; \
+  Q: $S_1Q = \qty{48.6}{cm}$, $S_2Q = \qty{54.2}{cm}$}
+\find{(a), (b) the path difference at P and at Q, in wavelengths \quad (c) the longest
+  $\lambda$ that makes P constructive}
+\formula{$\delta = \left|S_2P - S_1P\right|$, then $\dfrac{\delta}{\lambda}$. Constructive
+  needs $\delta = m\lambda$, so $\lambda = \dfrac{\delta}{m}$ (divide both sides by $m$).}
+\substitute{\eqlines{\text{(a) } \delta_\mathrm{P} &= \qty{59.0}{cm} - \qty{52.0}{cm} = \qty{7.0}{cm}\\
+  \frac{\delta_\mathrm{P}}{\lambda} &= \frac{\qty{7.0}{cm}}{\qty{2.80}{cm}} = 2.5\\
+  \text{(b) } \delta_\mathrm{Q} &= \qty{54.2}{cm} - \qty{48.6}{cm} = \qty{5.6}{cm}\\
+  \frac{\delta_\mathrm{Q}}{\lambda} &= \frac{\qty{5.6}{cm}}{\qty{2.80}{cm}} = 2.0\\
+  \text{(c) } \lambda &= \frac{\delta_\mathrm{P}}{m} = \frac{\qty{7.0}{cm}}{1} = \qty{7.0}{cm}
+  \quad\text{(longest $\lambda$: smallest $m$, which is 1)}}}
+\answer{(a) $2\tfrac{1}{2}$ wavelengths: crest meets trough, so the signal is \final{weak}
+  (destructive: the third minimum, $m = 3$). (b) 2 whole wavelengths: the signal is
+  \final{strong} (constructive: the second-order maximum, $m = 2$). (c)
+  \final{$\lambda = \qty{7.0}{cm}$}.}
+\checkstep{a path difference can never be more than the slit separation. 7.0 and
+  \qty{5.6}{cm} are both less than \qty{10.0}{cm} \cmark. Both lengths are in cm, so the units
+  cancel in $\dfrac{\delta}{\lambda}$ \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using a slit's width for $d$. \cmark\ $d$ is the distance between slit centres.
+  \item \xmark\ Leaving $\lambda$ in nm or $d$ in mm. \cmark\ Change both to metres first.
+  \item \xmark\ Using $m\lambda$ for a dark fringe. \cmark\ Dark: $\left(m - \frac{1}{2}\right)\lambda$,
+        $m = 1, 2, \ldots$
+  \item \xmark\ ``A bright fringe and the next dark fringe are $\Delta y$ apart.''
+        \cmark\ They are $\tfrac{1}{2}\Delta y$ apart.
+  \item \xmark\ Using $\sin\theta \approx \dfrac{y}{L}$ at large angles. \cmark\ Above about
+        \ang{10}, find $\theta = \tan^{-1}\!\left(\dfrac{y}{L}\right)$, then $\sin\theta$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Describe Young's experiment and assess its impact'' (4--5 marks): a labelled
+        diagram (source, single slit, double slit $d$, screen $L$); the result (draw the
+        brightness graph, \cref{ch2:fig:pattern}); bright where $\delta = m\lambda$, dark where
+        $\delta = \left(m - \frac{1}{2}\right)\lambda$; the judgement: strong evidence for
+        waves, but not accepted at once because of Newton's reputation.
+  \item Calculations (2--3 marks): show the conversion to metres, the rearranged formula,
+        the substitution with units, and the answer with a unit.
+  \item ``Is P bright or dark (loud or quiet)?'' (2 marks): one mark for
+        $\delta = \left|S_2P - S_1P\right|$ divided by $\lambda$; one mark for the conclusion
+        with its reason (whole number: constructive; plus a half: destructive).
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Explain why the centre of a double-slit pattern is bright for every wavelength,
+        and why it is white when white light is used.
+  \item Blue light ($\lambda = \qty{450}{nm}$) passes through two slits \qty{0.200}{mm}
+        apart onto a screen \qty{2.40}{m} away. Calculate the fringe spacing.
+  \item Do the fringes move closer together or further apart? (a) Red light is replaced
+        by green. (b) The screen is moved further away. (c) The slits are moved further
+        apart.
+  \item Light of wavelength \qty{600}{nm} passes through two slits \qty{0.300}{mm} apart
+        onto a screen \qty{2.00}{m} away. Find the angle of the second dark fringe and its
+        distance from the centre.
+  \item Two loudspeakers are connected to one signal generator, so they give out sound in
+        phase. The frequency is \qty{850}{Hz} and the speed of sound is \qty{340}{m.s^{-1}}.
+        A microphone is \qty{3.00}{m} from one speaker and \qty{3.60}{m} from the other.
+        (a) Is the sound loud or quiet at the microphone? Explain. (b) Find the lowest
+        frequency that would make the sound loud there.\label{ch2:qc:speakers}
+\end{quickcheck}
+
+%% ==================================================================
+\section{Diffraction gratings}\label{ch2:sec:gratings}
+\covers{M7.IQ2.02}
+
+\begin{bigidea}
+A diffraction grating is a slide with many equally spaced slits. It makes sharp, bright
+lines at the angles where $d\sin\theta = m\lambda$. Each colour goes to its own angle, so
+a grating splits white light into a spectrum.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Diffraction grating}{a slide with many equally spaced, parallel slits.}
+  \kw{Grating spacing ($d$)}{the distance from one slit to the next. Unit: m.}
+  \kw{Spectrum}{a band of all the colours, in order of wavelength.}
+\end{keywords}
+
+A CD shows rainbow colours because its tracks are thousands of close, equally spaced
+lines. It acts as a \term{diffraction grating}: a slide with many equally spaced slits.
+Real gratings have about 100 to 1000 slits per millimetre. The rule for the bright lines
+is still $d\sin\theta = m\lambda$. Here $d$ is the \term{grating spacing}: the distance
+from one slit to the next.
+\begin{itemize}
+  \item \textbf{Sharp, bright lines.} A bright line needs the waves from \emph{all} the
+        slits to be in step. This happens only at the exact angles where
+        $d\sin\theta = m\lambda$. Just off these angles, the many waves cancel. More slits
+        also pass more light.
+  \item \textbf{Large angles.} $d$ is tiny, so the lines are far apart and easy to measure.
+        Use $d\sin\theta = m\lambda$ and $y = L\tan\theta$, not $\Delta y = \dfrac{\lambda L}{d}$.
+  \item \textbf{A highest order.} $\sin\theta$ cannot be more than 1, so $m\lambda$ cannot be
+        more than $d$. The highest order is $\dfrac{d}{\lambda}$ rounded \emph{down}. If
+        $\dfrac{d}{\lambda}$ is exactly a whole number, that order would be at \ang{90}
+        (along the grating) and cannot be seen. Then the highest order you can see is one
+        less.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Grating spacing from lines per metre}
+  \cardformula{d = \frac{1}{N}}
+  \begin{symbols}
+    \sym{$d$}{grating spacing (distance from one slit to the next)}{\si{m}}
+    \sym{$N$}{number of lines (slits) in each metre of the grating}{\si{m^{-1}}}
+  \end{symbols}
+  \inwords{$N$ lines in each metre means the lines are $\dfrac{1}{N}$ of a metre apart.}
+  \whentouse{a grating is given in ``lines per mm'' or ``lines per cm''.}
+  \whennottouse{$d$ is already given as a distance.}
+  \rearranged{$N = \dfrac{1}{d}$}
+  \tensecond{250 lines per mm $= \num{2.50e5}$ lines per m, so
+    $d = \dfrac{1}{2.50\times10^{5}} = \qty{4.00e-6}{m}$.}
+  \derive{$N$ gaps of width $d$ fill one metre, so $Nd = \qty{1}{m}$; divide both sides by $N$.}
+  \trap{change to lines per metre first: lines per mm $\times 1000$, lines per cm
+    $\times 100$. $d$ is not $N$.}
+\end{formulacard}
+
+\paragraph{White light through a grating} (\cref{ch2:fig:spectra}). At $m = 0$ every
+colour has $\theta = 0$, so the central line is white. Each order ($m = 1, 2, \ldots$) is
+a full \term{spectrum}: a band of all the colours. In each band, violet (shortest
+$\lambda$) is nearest the centre and red is furthest out. This is true on both sides.
+Higher orders spread more and can overlap. (A prism bends violet most; a grating sends red
+to the biggest angle.)
+
+\term{Spectroscopes} (instruments that spread light into a spectrum so you can study it)
+use gratings to study light from stars and gases (\cref{ch1:sec:spectra}).
+
+\begin{figure}
+  \centering
+  \includegraphics{ch2_spectra.pdf}
+  \caption{White light (\qtyrange{400}{700}{nm}) through a grating with 300 lines per mm.
+    Each order is drawn in its own row. In every order violet is nearest the centre and
+    red is furthest out. Orders 2 and 3 overlap between about \ang{21} and \ang{25}.}
+  \label{ch2:fig:spectra}
+\end{figure}
+
+\begin{workedexample}{A green laser and a grating}\label{ch2:we:grating}
+Green laser light ($\lambda = \qty{532}{nm}$) shines through a grating with 500 lines per
+mm. Find (a) the angle of the first-order line, (b) the highest order, (c) the number of
+bright spots on the wall.
+\given{$N = 500 \times 1000 = \num{5.00e5}$ lines per m, \ $\lambda = \qty{5.32e-7}{m}$}
+\find{(a) $\theta$ for $m = 1$ \quad (b) highest $m$ \quad (c) number of spots}
+\formula{$d = \dfrac{1}{N}$; \quad $\sin\theta = \dfrac{m\lambda}{d}$ (divide both sides
+  of $d\sin\theta = m\lambda$ by $d$); \quad highest $m$ $=$ $\dfrac{d}{\lambda}$ rounded
+  down}
+\substitute{\eqlines{d &= \frac{1}{\num{5.00e5}\,\unit{m^{-1}}} = \qty{2.00e-6}{m}\\
+  \sin\theta &= \frac{1 \times \qty{5.32e-7}{m}}{\qty{2.00e-6}{m}} = 0.266,
+  \text{ so } \theta = \ang{15.4}\\
+  \frac{d}{\lambda} &= \frac{\qty{2.00e-6}{m}}{\qty{5.32e-7}{m}} = 3.76
+  \text{, so the highest order is } m = 3}}
+\answer{(a) \final{$\theta = \ang{15.4}$} \quad (b) \final{$m = 3$} (at \ang{52.9}) \quad
+  (c) \final{7 spots}: $m = 0$, plus $m = 1, 2, 3$ on each side}
+\checkstep{$m = 4$ would need $\sin\theta = 1.064$, which is impossible \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Finding a laser's wavelength from the spots}\label{ch2:we:spots}
+A laser shines through a grating with 600 lines per mm onto a wall \qty{1.50}{m} away. The
+two first-order spots are \qty{1.21}{m} apart. Find the wavelength of the laser light.
+\given{$N = 600 \times 1000 = \num{6.00e5}$ lines per m; \ $L = \qty{1.50}{m}$; \
+  first-order spots \qty{1.21}{m} apart, so $m = 1$}
+\find{the wavelength $\lambda$}
+\formula{$d = \dfrac{1}{N}$; \quad $\tan\theta = \dfrac{y}{L}$; \quad
+  $\lambda = \dfrac{d\sin\theta}{m}$ (divide both sides of $d\sin\theta = m\lambda$ by $m$)}
+\substitute{\eqlines{d &= \frac{1}{\num{6.00e5}\,\unit{m^{-1}}} = \qty{1.667e-6}{m}\\
+  y &= \qty{1.21}{m} \div 2 = \qty{0.605}{m} \quad \text{(half the gap between the spots)}\\
+  \tan\theta &= \frac{\qty{0.605}{m}}{\qty{1.50}{m}} = 0.4033\\
+  \theta &= \tan^{-1}(0.4033) = \ang{21.97}\\
+  \sin\theta &= \sin\ang{21.97} = 0.3741\\
+  \lambda &= \frac{\qty{1.667e-6}{m} \times 0.3741}{1} = \qty{6.234e-7}{m}}}
+\answer{\final{$\lambda = \qty{6.23e-7}{m} = \qty{623}{nm}$} (3 significant figures)}
+\checkstep{\qty{623}{nm} is orange-red light, inside 400--\qty{700}{nm} \cmark. Using
+  $\sin\theta \approx \dfrac{y}{L}$ would give \qty{672}{nm}, about 8\,\% too big, because
+  \ang{22} is not a small angle.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Rounding the highest order up (3.76 $\to$ 4). \cmark\ Round down.
+  \item \xmark\ ``Violet is bent most, like in a prism.'' \cmark\ In a grating (and in
+        diffraction) red goes to the biggest angle.
+  \item \xmark\ Taking $y$ as the distance between the two first-order spots. \cmark\ $y$
+        is half of it: from the centre to one spot.
+  \item \xmark\ Using $\Delta y = \dfrac{\lambda L}{d}$ for a grating. \cmark\ Grating angles
+        are large: use $\tan^{-1}\!\left(\dfrac{y}{L}\right)$, then $d\sin\theta = m\lambda$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Explain how a grating makes a spectrum'' (3 marks): cause (each $\lambda$ has
+        its own angle) $\to$ link (longer $\lambda$, bigger $\theta$) $\to$ effect (colours
+        spread out, violet nearest the white centre).
+  \item ``Calculate the wavelength from the spot positions'' (3--4 marks): one mark each
+        for $d = \dfrac{1}{N}$ in metres, $\theta$ from $\tan^{-1}\!\left(\dfrac{y}{L}\right)$,
+        $d\sin\theta = m\lambda$ rearranged, and the answer with a unit.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A grating has 800 lines per mm. Blue light of \qty{445}{nm} passes through it.
+        Find $d$, the first-order angle, and the highest order.
+  \item A laser shines through a grating with 400 lines per mm onto a wall \qty{1.20}{m}
+        away. The two first-order spots are \qty{0.640}{m} apart. Find the wavelength.
+  \item White light passes through a grating. In the first-order spectrum, which colour is
+        closest to the central white line? Explain using $d\sin\theta = m\lambda$.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Polarisation and Malus' law}\label{ch2:sec:polarisation}
+\covers{M7.IQ2.04, M7.IQ2.03}
+
+\begin{bigidea}
+In light, the electric field vibrates at \ang{90} to the direction of travel: light is a
+transverse wave. A polarising filter lets through only one direction of vibration. Only
+transverse waves can be polarised, so polarisation tells us what kind of wave light is.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Polarised light}{light whose electric field vibrates in one direction only.}
+  \kw{Transmission axis}{the direction of vibration that a polarising filter lets through.}
+  \kw{Intensity ($I$)}{the power of light falling on each square metre. Unit: \si{W.m^{-2}}.}
+\end{keywords}
+
+\begin{refresher}{Transverse and longitudinal waves (Year 11)}
+In a \term{transverse wave} the vibration is at \ang{90} to the direction of travel (a rope
+shaken up and down). In a \term{longitudinal wave} it is along the direction of travel (a
+slinky pushed back and forth, or sound). Light is an electromagnetic wave
+(\cref{ch1:chap}): its electric and magnetic fields vibrate at \ang{90} to each other and
+to the direction of travel.
+\end{refresher}
+
+A rope wave shaken up and down passes through a \emph{vertical} gap in a fence, but a
+\emph{horizontal} gap stops it. A back-and-forth (longitudinal) wave would pass both gaps
+in the same way. A transverse wave that vibrates in one direction only is
+\term{polarised}. This property is called \term{polarisation}. A filter is one way to
+polarise a wave. Only transverse waves can be polarised, because only they have a sideways
+direction of vibration for a filter to select.
+
+Light from the Sun or a lamp is \term{unpolarised}: its electric field vibrates in every
+direction across the beam, changing at random. A \term{polariser} passes only the part of
+the vibration along its \term{transmission axis}. The light that comes out is
+\term{plane-polarised}: it vibrates in one direction only. A second filter, the
+\term{analyser}, passes only the part along its own axis (\cref{ch2:fig:polarisers}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.95cm, y=0.95cm]
+    \begin{scope}
+      \draw[hscmuted!50, line width=3pt, -{Stealth[length=4mm]}] (-0.9,-1.6) -- (8.9,-1.6);
+      \node[text=hscmuted, font=\footnotesize, fill=white, inner sep=1pt] at (3.1,-1.6) {direction of travel};
+      \draw[hscmuted, line width=0.5pt] (0,0) circle (0.62);
+      \foreach \a in {0,45,90,135} \draw[hscfield, line width=1pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}] (\a:0.5) -- (\a+180:0.5);
+      \node[font=\footnotesize, anchor=north] at (0,-0.66) {unpolarised, $I_0$};
+      \fill[hscmuted!15] (2.1,0) circle (0.7);
+      \draw[hscink, line width=0.6pt] (2.1,0) circle (0.7);
+      \draw[hscink, line width=1.4pt] (2.1,-0.7) -- (2.1,0.7);
+      \node[font=\scriptsize, anchor=west] at (2.15,0.22) {axis};
+      \node[font=\footnotesize, anchor=south] at (2.1,0.72) {polariser};
+      \draw[hscmuted, line width=0.5pt] (4.1,0) circle (0.62);
+      \draw[hscfield, line width=1.2pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}] (4.1,-0.5) -- (4.1,0.5);
+      \node[font=\footnotesize, anchor=north] at (4.1,-0.66) {$\tfrac{1}{2}I_0$};
+      \fill[hscmuted!15] (6.1,0) circle (0.7);
+      \draw[hscink, line width=0.6pt] (6.1,0) circle (0.7);
+      \draw[guide] (6.1,-0.7) -- (6.1,0.7);
+      \draw[hscink, line width=1.4pt] ($(6.1,0)+(-55:0.7)$) -- ($(6.1,0)+(125:0.7)$);
+      \draw[hscink, line width=0.5pt] (6.1,0.45) arc (90:125:0.45);
+      \node[font=\footnotesize] at ($(6.1,0)+(105:0.62)$) {$\theta$};
+      \node[font=\footnotesize, anchor=south] at (6.1,0.72) {analyser};
+      \draw[hscmuted, line width=0.5pt] (8.1,0) circle (0.62);
+      \draw[hscfield, line width=1.2pt, {Stealth[length=2mm]}-{Stealth[length=2mm]}] ($(8.1,0)+(-55:0.41)$) -- ($(8.1,0)+(125:0.41)$);
+      \node[font=\footnotesize, anchor=north] at (8.1,-0.66) {$\tfrac{1}{2}I_0\cos^2\theta$};
+      \node[font=\footnotesize\bfseries] at (4.0,-2.2) {(a) looking along the beam at each stage};
+    \end{scope}
+    \begin{scope}[xshift=11.3cm, yshift=-0.55cm]
+      \draw[guide] (0,-0.6) -- (0,1.75);
+      \draw[hscink, line width=0.8pt] (-55:0.7) -- (125:1.85) node[left, font=\footnotesize] {analyser axis};
+      \draw[hscfield, line width=1.2pt, ->] (0,0) -- (0,1.5) node[right, font=\footnotesize, text=hscfield] {$A$};
+      \draw[hscmuted, dashed, line width=0.5pt] (0,1.5) -- (125:1.229);
+      \draw[hscforce, line width=1.6pt, ->] (0,0) -- (125:1.229);
+      \draw[hscink, line width=0.5pt] (0,0.55) arc (90:125:0.55);
+      \node[font=\footnotesize] at (108:0.75) {$\theta$};
+      \node[text=hscforce, font=\footnotesize, anchor=north east] at (125:0.75) {$A\cos\theta$};
+      \node[font=\footnotesize\bfseries, align=center] at (0,-1.65) {(b) the part that passes};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) Each circle shows the light as if the beam were coming straight towards
+    you. The dark line on each filter is its transmission axis. The polariser passes only
+    the vertical vibration, so $I_\mathrm{max} = \tfrac{1}{2}I_0$ reaches the analyser. The
+    analyser, at $\theta$ to the polariser, passes only the part along its own axis.
+    (b) A vibration of amplitude $A$ has a part $A\cos\theta$ along the analyser's axis.}
+  \label{ch2:fig:polarisers}
+\end{figure}
+
+\begin{formulacard}[notonsheet]{Unpolarised light through one polariser}
+  \cardformula{I = \tfrac{1}{2}I_0}
+  \begin{symbols}
+    \sym{$I_0$}{intensity of the unpolarised light arriving}{\si{W.m^{-2}}}
+    \sym{$I$}{intensity coming out of the filter}{\si{W.m^{-2}}}
+  \end{symbols}
+  \inwords{an ideal polariser passes half of unpolarised light, at any angle.}
+  \whentouse{unpolarised light (sunlight, a lamp) meets the first polariser.}
+  \whennottouse{the light is already polarised: use Malus' law.}
+  \rearranged{$I_0 = 2I$}
+  \tensecond{\qty{50}{W.m^{-2}} of sunlight through one polariser gives \qty{25}{W.m^{-2}}.}
+  \derive{split every vibration into two parts: one along the transmission axis and one at
+    \ang{90} to it. In unpolarised light no direction is special. So, on average, the two
+    parts carry the same energy. The filter passes the part along its axis and blocks the
+    other part. So half of the intensity passes.}
+  \trap{do not use $\cos^2\theta$ at the first filter for unpolarised light. Its angle does
+    not matter.}
+\end{formulacard}
+
+\begin{formulacard}{Malus' law}
+  \cardformula{I = I_\mathrm{max}\cos^2\theta}
+  \begin{symbols}
+    \sym{$I$}{intensity that passes through the filter}{\si{W.m^{-2}}}
+    \sym{$I_\mathrm{max}$}{intensity of the polarised light arriving (what passes at $\theta = 0$)}{\si{W.m^{-2}}}
+    \sym{$\theta$}{angle between the light's vibration and the filter's transmission axis}{degree (\si{\degree})}
+  \end{symbols}
+  \inwords{the further the filter is turned from the light's vibration, the less passes. At
+    \ang{90}, none passes.}
+  \whentouse{light that is \emph{already} plane-polarised meets a polariser.}
+  \whennottouse{unpolarised light: use $I = \frac{1}{2}I_0$.}
+  \rearranged{$I_\mathrm{max} = \dfrac{I}{\cos^2\theta}$ \qquad
+    $\cos\theta = \sqrt{\dfrac{I}{I_\mathrm{max}}}$ \qquad
+    $\theta = \cos^{-1}\!\sqrt{\dfrac{I}{I_\mathrm{max}}}$}
+  \tensecond{$I_\mathrm{max} = \qty{40}{W.m^{-2}}$, $\theta = \ang{60}$:
+    $I = 40 \times (\cos\ang{60})^2 = 40 \times 0.25 = \qty{10}{W.m^{-2}}$.}
+  \derive{only the part $A\cos\theta$ of the amplitude $A$ (the size of the vibration) passes
+    (\cref{ch2:fig:polarisers}b). Intensity is proportional to amplitude squared (double the
+    amplitude gives four times the intensity). So
+    $\dfrac{I}{I_\mathrm{max}} = \dfrac{(A\cos\theta)^2}{A^2} = \cos^2\theta$.}
+  \trap{$\cos^2\theta$ means $(\cos\theta)^2$. Measure $\theta$ from the \emph{previous}
+    filter, not from the vertical.}
+\end{formulacard}
+
+\begin{toolkit}{Gradient of a straight-line graph}
+Gradient $=$ rise $\div$ run $= \dfrac{\text{change in the vertical value}}{\text{change in
+the horizontal value}}$. Use two points far apart on the line of best fit, not two data
+points. Its unit is the vertical unit $\div$ the horizontal unit. A straight line through
+the origin means the vertical quantity is proportional to the horizontal one.
+\end{toolkit}
+
+\Cref{ch2:fig:malus} shows the two graphs you must know. The graph of $I$ against $\theta$
+is a curve: greatest at \ang{0} and \ang{180}, zero at \ang{90}. The graph of $I$ against
+$\cos^2\theta$ is a straight line through the origin with gradient $I_\mathrm{max}$. The
+points in (b) are the sample results of the Malus' law investigation
+(\cref{ch2:sec:experiments}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.47\linewidth, height=0.31\linewidth,
+        xmin=0, xmax=180, ymin=0, ymax=1.15, xtick={0,45,90,135,180},
+        ytick={0,0.5,1}, yticklabels={0, $\tfrac{1}{2}I_\mathrm{max}$, $I_\mathrm{max}$},
+        xlabel={$\theta$ (\si{\degree})}, ylabel={$I$}, title={(a) theory: $I$ against $\theta$},
+        title style={font=\footnotesize\bfseries}]
+      \addplot[hscseriesA, line width=1.2pt, domain=0:180, samples=91] {cos(x)^2};
+    \end{axis}
+  \end{tikzpicture}\hfill
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.47\linewidth, height=0.31\linewidth,
+        xmin=0, xmax=1.05, ymin=0, ymax=13.5, xtick={0,0.25,0.5,0.75,1},
+        xlabel={$\cos^2\theta$}, ylabel={$I$ (\si{W.m^{-2}})},
+        title={(b) data: $I$ against $\cos^2\theta$}, title style={font=\footnotesize\bfseries},
+        legend style={at={(0.98,0.03)}, anchor=south east, font=\scriptsize}]
+      \addplot[hscseriesA, only marks, mark=*, mark size=1.8pt]
+        coordinates {(1.000,12.0) (0.933,11.3) (0.750,8.9) (0.500,6.1) (0.250,3.1) (0.067,0.9) (0.000,0.1)};
+      \addlegendentry{\ang{0} to \ang{90}}
+      \addplot[hscseriesC, only marks, mark=o, mark size=2.6pt, line width=0.8pt]
+        coordinates {(0.067,0.9) (0.250,3.0) (0.500,6.0) (0.750,9.0) (0.933,11.2) (1.000,12.0)};
+      \addlegendentry{\ang{105} to \ang{180}}
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:1.05, samples=2] {12.02*x};
+      \node[anchor=west, font=\footnotesize, text=hscink] at (axis cs:0.02,11.8)
+        {gradient $= I_\mathrm{max} = \qty{12.0}{W.m^{-2}}$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Malus' law. (a) $I$ against $\theta$ is a $\cos^2$ curve. (b) $I$ against
+    $\cos^2\theta$ is a straight line through the origin.}
+  \label{ch2:fig:malus}
+\end{figure}
+
+\paragraph{Three filters.} Two filters at \ang{90} (``crossed'') block all the light. Slide
+a third filter at \ang{45} \emph{between} them, and light gets through! Each filter
+re-polarises the light along its own axis. So the vibration is turned step by step
+(\cref{ch2:we:three}).
+
+\paragraph{Uses.} Glare is light reflected from water or a road. It is partly polarised
+horizontally. Polarising sunglasses have a vertical transmission axis, so they block much
+of the glare. LCD screens and 3D-cinema glasses also use polarisers.
+
+\paragraph{Why polarisation matters for the model of light.}
+\begin{itemize}
+  \item Only transverse waves can be polarised, so light must be a \emph{transverse} wave.
+  \item Huygens' wave was longitudinal. A longitudinal wave cannot be polarised, so his
+        model had to change. Young (1817) and Fresnel (1821) proposed that light waves are
+        transverse.
+  \item Newton's particle model had no natural explanation. (Newton could only guess that
+        light rays have ``sides''.) A transverse wave explains polarisation, and Malus' law
+        follows from the part $A\cos\theta$ of the vibration.
+  \item Maxwell's theory (1865) predicts that light is an electromagnetic wave with fields at
+        \ang{90} to the travel: a transverse wave. Polarisation fits it exactly.
+\end{itemize}
+So polarisation was highly significant. With interference, it completed the classical
+model: light is a transverse electromagnetic wave. (\Cref{ch3:chap} shows that even this
+model is not the whole story.)
+
+\begin{workedexample}{Sunlight through two filters}\label{ch2:we:two}
+Unpolarised sunlight of \qty{600}{W.m^{-2}} passes through a polariser and then an
+analyser at \ang{25.0} to it. Find the intensity after each filter.
+\given{$I_0 = \qty{600}{W.m^{-2}}$ (unpolarised), \ $\theta = \ang{25.0}$ between the filters}
+\find{$I_1$ after the polariser, \ $I_2$ after the analyser}
+\formula{$I_1 = \tfrac{1}{2}I_0$ \quad then \quad $I_2 = I_\mathrm{max}\cos^2\theta$ with
+  $I_\mathrm{max} = I_1$}
+\substitute{\eqlines{I_1 &= \tfrac{1}{2} \times \qty{600}{W.m^{-2}} = \qty{300}{W.m^{-2}}\\
+  I_2 &= \qty{300}{W.m^{-2}} \times (\cos\ang{25.0})^2 = 300 \times 0.8214 = \qty{246.4}{W.m^{-2}}}}
+\answer{\final{$I_1 = \qty{300}{W.m^{-2}}$} and \final{$I_2 = \qty{246}{W.m^{-2}}$}}
+\checkstep{\ang{25.0} is much less than \ang{90}, so most of the light
+  ($\cos^2\ang{25.0} = 0.82$, i.e.\ 82\,\%) passes the analyser. $I_2$ is less than $I_1$,
+  as it must be \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Three filters let more light through than two}\label{ch2:we:three}
+Unpolarised light of \qty{480}{W.m^{-2}} meets a vertical polariser and then a horizontal
+one. (a) Find the intensity that comes out. (b) A third filter at \ang{30} to the vertical
+is placed between them. Find the new intensity. (c) Which angle of the middle filter
+passes the most light?
+\given{$I_0 = \qty{480}{W.m^{-2}}$. Filters at \ang{0} and \ang{90} to the vertical. In (b)
+  a middle filter is at \ang{30}, so the angle between it and the last filter is
+  $\ang{90} - \ang{30} = \ang{60}$.}
+\find{(a) $I$ with two filters \quad (b) $I$ with three \quad (c) the best middle angle:
+  try several angles (\ang{30} is done in (b))}
+\formula{first filter $I = \tfrac{1}{2}I_0$; each later filter $I = I_\mathrm{max}\cos^2\theta$,
+  with $\theta$ from the filter before it}
+\substitute{\eqlines{\text{(a) } I &= \tfrac{1}{2}(480) \times (\cos\ang{90})^2
+  = 240 \times 0 = \qty{0}{W.m^{-2}}\\
+  \text{(b) } I_1 &= \tfrac{1}{2} \times 480 = \qty{240}{W.m^{-2}}\\
+  I_2 &= 240 \times (\cos\ang{30})^2 = 240 \times 0.75 = \qty{180}{W.m^{-2}}\\
+  I_3 &= 180 \times (\cos\ang{60})^2 = 180 \times 0.25 = \qty{45}{W.m^{-2}}}\par
+  (c) Middle filter at \ang{60}, so \ang{30} from the last filter:\par
+  \eqlines{I_3 &= 240 \times (\cos\ang{60})^2 \times (\cos\ang{30})^2\\
+  &= 240 \times 0.25 \times 0.75 = \qty{45}{W.m^{-2}}}\par
+  Middle filter at \ang{45}, so \ang{45} from the last filter:\par
+  \eqlines{I_3 &= 240 \times (\cos\ang{45})^2 \times (\cos\ang{45})^2\\
+  &= 240 \times 0.500 \times 0.500 = \qty{60}{W.m^{-2}}}\par
+  In the same way, \ang{15} and \ang{75} each give \qty{15}{W.m^{-2}}.}
+\answer{(a) \final{\qty{0}{W.m^{-2}}} \quad (b) \final{\qty{45}{W.m^{-2}}} \quad
+  (c) \final{\ang{45}} (\qty{60}{W.m^{-2}}, the most)}
+\checkstep{\ang{30} and \ang{60} give the same \qty{45}{W.m^{-2}}. Half-way, at \ang{45},
+  gives more. Two equal \ang{45} steps turn the vibration through \ang{90} with the least
+  loss \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ $\cos^2\theta$ for unpolarised light. \cmark\ The first filter passes half:
+        $I = \frac{1}{2}I_0$.
+  \item \xmark\ $\cos\theta$ instead of $\cos^2\theta$. \cmark\ Square the cosine.
+  \item \xmark\ Measuring every angle from the vertical. \cmark\ Use the angle from the
+        filter before.
+  \item \xmark\ ``Polarisation proves light is electromagnetic.'' \cmark\ It shows light is
+        \emph{transverse}; Maxwell's theory explains why.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item Multiple choice ``Which graph shows Malus' law?'': $I$ against $\cos^2\theta$ is a
+        straight line through the origin (\cref{ch2:fig:malus}b).
+  \item ``Evaluate the significance of polarisation'' (4--5 marks): make the four points
+        in the list above, then finish with a judgement (``highly significant, because
+        \ldots'').
+  \item With several filters, show the intensity after \emph{each} filter.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Polarised light of \qty{20.0}{W.m^{-2}} meets a filter at \ang{60.0} to its
+        vibration. Calculate the intensity that passes.
+  \item A lamp's light passes one polarising filter with its axis at \ang{30} to the
+        vertical. \qty{12}{W.m^{-2}} comes out. Find the lamp's intensity before the filter.
+  \item Polarised light meets a polarising filter. Only 40\,\% of it passes
+        ($I = 0.40\,I_\mathrm{max}$). Find the angle between the light's vibration and the
+        filter's axis.
+  \item Unpolarised light of \qty{200}{W.m^{-2}} passes through three filters with axes at
+        \ang{0}, \ang{20} and \ang{90} to the vertical. Find the intensity that comes out.
+  \item Explain why sound waves cannot be polarised, but light can.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch2:sec:experiments}
+\covers{M7.IQ2.01, M7.IQ2.02, M7.IQ2.03, M7.IQ2.04}
+
+This section describes the historical experiments and the three required investigations
+for this chapter.
+
+\begin{experiment}{Foucault: is light faster or slower in water? (1850)}
+\aim{To compare the speed of light in water and in air, and so test Newton's and Huygens'
+  predictions for refraction.}
+\apparatus{a light source; a glass plate (it lets light through, and also reflects some of
+  the returning light into the eyepiece); a fast-spinning mirror; a distant fixed mirror; a
+  tube of water; and an eyepiece with a scale (\cref{ch2:fig:foucault}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.72cm, y=0.72cm]
+      \fill[hsctip!70] (2.4,-3.0) circle (0.2); \draw[hscink, line width=0.5pt] (2.4,-3.0) circle (0.2);
+      \node[font=\footnotesize, anchor=west] at (2.65,-3.0) {source};
+      \draw[ray] (2.4,-2.8) -- (2.4,0);
+      \draw[hscvel!70, line width=1.6pt] (2.12,-1.88) -- (2.68,-1.32);
+      \node[font=\footnotesize, anchor=west] at (2.75,-1.6) {glass plate};
+      \fill[hscvel!15] (4.6,-0.28) rectangle (8.2,0.28);
+      \draw[hscvel, line width=0.6pt] (4.6,-0.28) rectangle (8.2,0.28);
+      \node[font=\footnotesize, anchor=north] at (6.4,-0.35) {tube of water (second trial)};
+      \draw[ray] (2.4,0) -- (10.0,0);
+      \draw[hscink, line width=2.2pt] (2.12,-0.28) -- (2.68,0.28);
+      \fill[hscink] (2.4,0) circle (1.6pt);
+      \draw[->, hscink, line width=0.6pt] (2.95,0.25) arc (20:110:0.6);
+      \node[font=\footnotesize, anchor=south] at (2.4,0.75) {spinning mirror};
+      \draw[hscink, line width=2.2pt] ($(2.4,0)+(-5:7.6)$) arc[start angle=-5, end angle=5, radius=7.6];
+      \node[font=\footnotesize, anchor=west] at (10.15,0) {fixed mirror};
+      \draw[hscray, line width=0.7pt, dashed, ->] (2.4,-1.6) -- (0.75,-1.72);
+      \draw[hscray, line width=0.7pt, dashed, ->] (2.4,-1.6) -- (0.75,-2.05);
+      \draw[hscink, line width=0.6pt] (0.65,-2.4) -- (0.65,-1.2);
+      \foreach \y in {-2.3,-2.2,...,-1.25} \draw[hscink, line width=0.4pt] (0.65,\y) -- (0.55,\y);
+      \node[font=\scriptsize, anchor=east] at (0.5,-1.72) {air};
+      \node[font=\scriptsize, anchor=east] at (0.5,-2.05) {water};
+      \node[font=\footnotesize, anchor=north, align=center] at (0.45,-2.45) {scale in\\the eyepiece};
+    \end{tikzpicture}
+    \caption{Foucault's method (simplified). The spinning mirror reflects the light to the
+      fixed mirror, and the light comes back the same way. A bigger shift on the scale
+      means a longer travel time.}
+    \label{ch2:fig:foucault}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Light reflects off the spinning mirror to the fixed mirror and back. The mirror
+        turns a little during the round trip, so the returning image is shifted along the
+        scale. Measure the shift.
+  \item Put the water tube in the path, keep the spin rate the same, and measure the shift
+        again.
+\end{enumerate}}
+\results{the shift was bigger with water in the path.}
+\conclusion{the light took longer, so light is slower in water than in air.}
+\significance{Newton's model needed light to be faster in water, so his explanation of
+  refraction was wrong. Huygens' model agreed. The result disproved one model; it did not
+  prove the other on its own.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} the same apparatus and spin rate in both trials, so only the
+        material in the path changes.
+  \item \textbf{Reliability:} repeat each measurement and average.
+  \item \textbf{Accuracy:} the shift is tiny, so the mirror must spin very fast at a steady,
+        known rate.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Diffraction and interference with lasers}
+\aim{(A) To see how diffraction depends on the slit width and the wavelength
+  (qualitative). (B) To measure the wavelength of a red laser with a double slit and a
+  grating, using $d\sin\theta = m\lambda$ (quantitative). Young first did the double-slit
+  part of (B), with sunlight, in about 1801.}
+\apparatus{a red laser (label: $\lambda = \qty{650}{nm}$) and a green laser (label:
+  $\lambda = \qty{532}{nm}$), both low power; single slits \qty{0.080}{mm},
+  \qty{0.040}{mm} and \qty{0.020}{mm} wide; a double slit ($d = \qty{0.250}{mm}$); a
+  grating (300 lines per mm); a screen; a tape measure; a darkened room
+  (\cref{ch2:fig:diffsetup}). Young used sunlight through a pinhole and a card with two
+  slits (\cref{ch2:fig:young}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.85cm, y=0.7cm]
+      \fill[hscmuted!35] (0,-0.25) rectangle (1.4,0.25);
+      \draw[hscink, line width=0.6pt] (0,-0.25) rectangle (1.4,0.25);
+      \node[font=\footnotesize] at (0.7,0) {laser};
+      \draw[hscforce, line width=1.2pt] (1.4,0) -- (2.6,0);
+      \fill[hscink!70] (2.6,-0.9) rectangle (2.7,0.9);
+      \node[font=\footnotesize, anchor=south] at (2.65,0.95) {slit, double slit or grating};
+      \fill[hscforce!25] (2.7,0) -- (8.0,1.35) -- (8.0,-1.35) -- cycle;
+      \draw[hscforce, line width=0.8pt] (2.7,0) -- (8.0,0);
+      \draw[hscforce, line width=0.6pt, dashed] (2.7,0) -- (8.0,0.85);
+      \fill[hscink!88] (8.0,-1.5) rectangle (8.25,1.5);
+      \foreach \yy/\h in {0/0.2, 0.85/0.1, -0.85/0.1} \fill[hscforce!85!white] (8.0,\yy-\h) rectangle (8.25,\yy+\h);
+      \node[font=\footnotesize, anchor=south] at (8.12,1.55) {screen};
+      \draw[|<->|, line width=0.5pt] (2.65,-1.25) -- (8.0,-1.25) node[midway, below, font=\footnotesize] {$L$};
+      \draw[|<->|, line width=0.5pt] (8.55,0) -- (8.55,0.85) node[midway, right, font=\footnotesize] {$y$};
+    \end{tikzpicture}
+    \caption{Set-up for the laser investigations (seen from above).}
+    \label{ch2:fig:diffsetup}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item (A) Shine each laser through each single slit, with $L = \qty{2.00}{m}$. Photograph
+        each pattern next to a ruler and measure the central band.
+  \item (B) Double slit: measure across 10 fringe spacings and divide by 10 to get
+        $\Delta y$. Do this for $L$ from 1.00 to \qty{3.00}{m}, and plot $\Delta y$ against $L$.
+  \item (B) Grating, $L = \qty{1.000}{m}$: measure the distance between the two first-order
+        spots and halve it to get $y$.
+  \item Safety: never look into the beam or its reflections; keep it below eye level.
+\end{enumerate}}
+\results{(A) Width of the central band (sample results):
+  \begin{center}\small
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    Slit width (\si{mm}) & Red (\si{mm}) & Green (\si{mm})\\
+    \midrule
+    0.080 & 33 & 27\\
+    0.040 & 65 & 53\\
+    0.020 & 130 & 106\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  Every pattern looked like \cref{ch2:fig:singleslit}.\par
+  (B) Double slit (sample results):
+  \begin{center}\small
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    $L$ (\si{m}) & 1.00 & 1.50 & 2.00 & 2.50 & 3.00\\
+    $\Delta y$ (\si{mm}) & 2.56 & 3.94 & 5.15 & 6.58 & 7.72\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.56\linewidth, height=0.26\linewidth,
+          xmin=0, xmax=3.3, ymin=0, ymax=9, xtick={0,0.5,...,3},
+          xticklabel style={/pgf/number format/.cd, fixed, precision=1},
+          xlabel={$L$ (\si{m})}, ylabel={$\Delta y$ (\si{mm})}]
+        \addplot[hscseriesA, only marks, mark=*, mark size=1.8pt]
+          coordinates {(1.00,2.56) (1.50,3.94) (2.00,5.15) (2.50,6.58) (3.00,7.72)};
+        \addplot[hscseriesB, dashed, line width=1pt, domain=0:3.3, samples=2] {2.5947*x};
+        \node[anchor=west, font=\footnotesize, text=hscink] at (axis cs:1.55,1.6)
+          {gradient $= \qty{2.59}{mm.m^{-1}}$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Fringe spacing against screen distance (double slit).}
+    \label{ch2:fig:dygraph}
+  \end{figure}
+  Analysis, step by step:\par\nopagebreak
+  \begin{enumerate}[beginpenalty=10000]
+    \item Double slit: the line of best fit goes through $(0, 0)$ and
+          $(\qty{3.00}{m}, \qty{7.78}{mm})$. Gradient $=$ rise $\div$ run
+          $= \dfrac{\qty{7.78}{mm} - 0}{\qty{3.00}{m} - 0} = \qty{2.59}{mm.m^{-1}}$.
+          Change mm to m ($\times 10^{-3}$): \qty{2.59e-3}{m} per m. The units cancel, so
+          the gradient is \num{2.59e-3} (no unit).
+    \item $\Delta y = \dfrac{\lambda}{d}L$, so the gradient is $\dfrac{\lambda}{d}$.
+          Multiply both sides by $d$: $\lambda = \text{gradient} \times d =
+          \num{2.59e-3} \times \qty{2.50e-4}{m} = \qty{6.48e-7}{m}$.
+    \item Grating: $d = \dfrac{1}{N} = \dfrac{1}{300 \times \qty{1000}{m^{-1}}}
+          = \dfrac{1}{\num{3.00e5}\,\unit{m^{-1}}} = \qty{3.333e-6}{m}$.
+    \item The two first-order spots were \qty{397}{mm} apart, so
+          $y = \qty{397}{mm} \div 2 = \qty{198.5}{mm} = \qty{0.1985}{m}$.
+          $\tan\theta = \dfrac{y}{L} = \dfrac{\qty{0.1985}{m}}{\qty{1.000}{m}} = 0.1985$,
+          so $\theta = \tan^{-1}(0.1985) = \ang{11.23}$.
+    \item First order, $m = 1$: $\sin\ang{11.23} = 0.1947$, so
+          $\lambda = \dfrac{d\sin\theta}{m} = \dfrac{\qty{3.333e-6}{m} \times 0.1947}{1}
+          = \qty{6.49e-7}{m}$.
+  \end{enumerate}}
+\conclusion{(A) Light spreads more through a narrower slit and with a longer wavelength,
+  as waves do. (B) Light from two slits interferes: bright where $\delta = m\lambda$, dark
+  where $\delta = \left(m - \frac{1}{2}\right)\lambda$. The double slit gives
+  $\lambda = \qty{648}{nm}$ and the grating gives \qty{649}{nm}. Both are within 0.3\,\% of
+  the label value (\qty{650}{nm}).}
+\significance{(A) Light spreads through narrow slits, just as water and sound waves do. It
+  spreads noticeably only when the slit is very narrow, which is why everyday shadows look
+  sharp. (B) Particles cannot cancel to make dark fringes, so Young's result was strong
+  evidence for waves. It also gave the first wavelengths of colours.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} change one variable at a time. A laser (or Young's single
+        source) makes the slits coherent. Use $\Delta y = \dfrac{\lambda L}{d}$ only at small
+        angles (here less than \ang{2}); for the grating (\ang{11}) use $\tan^{-1}$, then $\sin$.
+  \item \textbf{Reliability:} repeat readings; measure across 10 spacings, on both sides of
+        the centre; use a line through 5 points.
+  \item \textbf{Accuracy:} percentage error $= \dfrac{648 - 650}{650} \times 100\,\% =
+        -0.31\,\%$ (double slit) and $\dfrac{649 - 650}{650} \times 100\,\% = -0.15\,\%$
+        (grating). Sharp grating spots and a bigger $L$ make the percentage
+        \emph{uncertainty} in $y$ smaller, which improves accuracy.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Testing Malus' law}
+\aim{To test Malus' law, $I = I_\mathrm{max}\cos^2\theta$, for plane-polarised light.}
+\apparatus{a lamp; a polariser and an analyser with an angle scale; a light sensor (a lux
+  meter or a data logger; its reading is proportional to intensity, so the graphs have the
+  same shape); a darkened room (\cref{ch2:fig:malussetup}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.85cm, y=0.6cm]
+      \fill[hsctip!70] (0,0) circle (0.25); \draw[hscink, line width=0.5pt] (0,0) circle (0.25);
+      \foreach \a in {0,45,...,315} \draw[hsctip, line width=0.6pt] (\a:0.32) -- (\a:0.46);
+      \node[font=\footnotesize, anchor=north] at (0,-0.55) {lamp};
+      \draw[hscforce!60, line width=3pt] (0.5,0) -- (6.6,0);
+      \fill[hscmuted!20] (2.2,0) ellipse (0.18 and 0.8); \draw[hscink, line width=0.6pt] (2.2,0) ellipse (0.18 and 0.8);
+      \node[font=\footnotesize, anchor=north] at (2.2,-0.85) {polariser (fixed)};
+      \fill[hscmuted!20] (4.6,0) ellipse (0.18 and 0.8); \draw[hscink, line width=0.6pt] (4.6,0) ellipse (0.18 and 0.8);
+      \draw[->, hscink, line width=0.6pt] (4.2,0.95) arc (150:30:0.45);
+      \node[font=\footnotesize, anchor=south] at (4.6,1.2) {turn by $\theta$};
+      \node[font=\footnotesize, anchor=north] at (4.6,-0.85) {analyser};
+      \fill[hscmuted!40] (6.6,-0.35) rectangle (7.3,0.35); \draw[hscink, line width=0.6pt] (6.6,-0.35) rectangle (7.3,0.35);
+      \node[font=\footnotesize, anchor=north] at (6.95,-0.45) {sensor};
+      \draw[hscink, line width=0.6pt] (7.3,0) -- (7.9,0);
+      \draw[hscink, line width=0.6pt, fill=white] (7.9,-0.4) rectangle (10.1,0.4);
+      \node[font=\footnotesize] at (9.0,0) {data logger};
+    \end{tikzpicture}
+    \caption{Set-up for testing Malus' law.}
+    \label{ch2:fig:malussetup}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Line up the lamp, filters and sensor in a dark room. With the lamp off, record the
+        background reading and subtract it from every later reading.
+  \item Turn the analyser until the reading is greatest: this is $\theta = \ang{0}$. Then
+        turn it in \ang{15} steps from \ang{0} to \ang{180}, recording $I$.
+  \item Plot $I$ against $\theta$, and $I$ against $\cos^2\theta$.
+\end{enumerate}}
+\results{\begin{center}\small
+  \begin{tabular}{@{}lccccccc@{}}
+    \toprule
+    $\theta$ (\si{\degree}) & 0 & 15 & 30 & 45 & 60 & 75 & 90\\
+    $\cos^2\theta$ & 1.000 & 0.933 & 0.750 & 0.500 & 0.250 & 0.067 & 0.000\\
+    $I$ (\si{W.m^{-2}}) & 12.0 & 11.3 & 8.9 & 6.1 & 3.1 & 0.9 & 0.1\\
+    \midrule
+    $\theta$ (\si{\degree}) & 105 & 120 & 135 & 150 & 165 & 180 & \\
+    $\cos^2\theta$ & 0.067 & 0.250 & 0.500 & 0.750 & 0.933 & 1.000 & \\
+    $I$ (\si{W.m^{-2}}) & 0.9 & 3.0 & 6.0 & 9.0 & 11.2 & 12.0 & \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  These are sample results (background subtracted). The graph of $I$ against $\theta$ has
+  the shape of \cref{ch2:fig:malus}a: the readings at $\theta$ and $\ang{180} - \theta$
+  match. The graph of $I$ against $\cos^2\theta$ is \cref{ch2:fig:malus}b.}
+\conclusion{the graph of $I$ against $\cos^2\theta$ is a straight line through the origin.
+  Two points on the line of best fit are $(0, 0)$ and $(1.00, \qty{12.0}{W.m^{-2}})$, so
+  the gradient is $\dfrac{12.0 - 0}{1.00 - 0} = \qty{12.0}{W.m^{-2}} = I_\mathrm{max}$. So
+  $I \propto \cos^2\theta$ and Malus' law is supported. Almost no light passes at
+  \ang{90}.}
+\significance{light can be polarised, so it is a transverse wave, as Maxwell's theory predicts.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} change only $\theta$; keep the lamp, distances and sensor fixed;
+        subtract background light.
+  \item \textbf{Reliability:} repeat the full turn and average. The readings at $\theta$
+        and $\ang{180} - \theta$ should match.
+  \item \textbf{Accuracy:} read the angle scale carefully, as $I$ changes fastest near
+        \ang{45}. Real filters leak a little, so the \ang{90} reading is just above zero.
+\end{itemize}}
+\end{experiment}

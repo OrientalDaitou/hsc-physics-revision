@@ -1,0 +1,98 @@
+% =====================================================================
+% main.tex -- HSC Physics ESSENTIALS, Module 7: The Nature of Light.
+% The condensed, knowledge-only companion to the full revision guide
+% (src/mod7/main.tex). Same document class and design system.
+%
+% Build with:
+%     ./build.sh mod7_essentials
+%     (final copy: build_book.sh mod7_essentials Module7_Nature_of_Light_Essentials.pdf)
+%
+% Book order (Essentials editions):
+%   cover - How to use these Essentials (below) - Contents
+%   ch1 The Electromagnetic Spectrum: Maxwell, the Speed of Light and Spectroscopy
+%   ch2 Light as a Wave: Diffraction, Interference and Polarisation
+%   ch3 Light as a Particle: Black Bodies and the Photoelectric Effect
+%   ch4 Light and Special Relativity
+%   All formulas at a glance                                      (formulas.tex)
+%   Key experiments at a glance                                   (experiments.tex)
+%   Glossary                                                      (glossary.tex)
+% No questions, answers, practice set or "Answering HSC questions" part.
+% A missing part file is skipped, so a half-finished book still compiles.
+% =====================================================================
+\documentclass[11pt,a4paper,oneside,openany]{book}
+\makeatletter\def\input@path{{./}{../common/}}\makeatother
+\usepackage{hscphys}
+\IfFileExists{./module_info.tex}{\input{./module_info}}{}
+% PDF title of this edition (hscphys.sty sets the full guide's title; this runs after it)
+\AtBeginDocument{\hypersetup{
+  pdftitle={Module \modulenumber: \moduletitle\space - HSC Physics Essentials}}}
+
+\begin{document}
+
+%% ---------------------------------------------------------------- front
+\makecover
+
+\unnumberedchapter[\faInfoCircle]{How to use these Essentials}
+
+This is the short, knowledge-only companion to the full \textbf{HSC Physics Revision Guide}
+for Module~\modulenumber\ (\moduletitle). It covers every syllabus dot point (NSW Physics
+Stage~6 Syllabus, 2017), with no questions. The worked examples, Quick checks and the
+practice set with answers are in the full guide.
+
+\subsection*{What the coloured boxes mean}
+
+\begin{sidebyside}[0.5]
+  \begin{bigidea}[before skip=0pt, after skip=0pt, equal height group=esslegA, fontupper=\normalsize]
+    Violet: the main point of a section in one to three sentences. Read it first.
+  \end{bigidea}
+\nextside
+  \begin{keywords}[before skip=0pt, after skip=0pt, equal height group=esslegA]
+    \kw{Term}{teal: a key word and its meaning. New words are \term{bold}.}
+  \end{keywords}
+\end{sidebyside}
+
+\begin{formulacard}[unbreakable, before skip=6pt, after skip=6pt]{Name of the formula}
+  \cardformula{E = hf}
+  Blue: the formula as on the official sheet, its symbols with SI units, when to use it
+  and a common trap. The badge is about the official HSC formula sheet:
+  \begin{itemize}[itemsep=0pt, topsep=1pt]
+    \item \hscbadgeonsheet\ \ printed on the sheet: you are given it in the exam;
+    \item \hscbadgenotonsheet\ \ learn it, or learn how to derive it;
+    \item \hscbadgecombine{two formulas}\ \ join two formulas.
+  \end{itemize}
+\end{formulacard}
+
+\begin{sidebyside}[0.5]
+  \begin{experiment}[unbreakable, before skip=0pt, after skip=0pt, equal height group=esslegB]{}
+    Brown: an experiment: aim, what was done, result, conclusion.
+  \end{experiment}
+\nextside
+  \begin{summarybox}[unbreakable, before skip=0pt, after skip=0pt, equal height group=esslegB]{Remember}
+    Navy: \emph{In this chapter} and \emph{Remember}: the must-know points.
+  \end{summarybox}
+\end{sidebyside}
+
+\subsection*{How to study with these Essentials}
+\begin{itemize}[itemsep=1pt]
+  \item \textbf{Read one chapter a day.} Start each section with its key idea. Learn the
+        formulas with the red badge. If a part is not clear, read it in the full guide.
+  \item \textbf{The night before the exam} (Wednesday 4~November 2026), re-read the
+        \emph{Remember} boxes and \emph{All formulas at a glance}.
+\end{itemize}
+
+% Contents: smaller gaps between the entries than between text paragraphs, so that the
+% contents of this short book fit on one page (local to this group; the style is unchanged).
+{\setlength\parskip{0pt plus 0.5pt}\tableofcontents}
+
+%% ---------------------------------------------------------------- chapters
+\IfFileExists{./ch1.tex}{\setcounter{chapter}{0}\input{./ch1}}{}% The Electromagnetic Spectrum
+\IfFileExists{./ch2.tex}{\setcounter{chapter}{1}\input{./ch2}}{}% Light as a Wave
+\IfFileExists{./ch3.tex}{\setcounter{chapter}{2}\input{./ch3}}{}% Light as a Particle
+\IfFileExists{./ch4.tex}{\setcounter{chapter}{3}\input{./ch4}}{}% Light and Special Relativity
+
+%% ---------------------------------------------------------------- back
+\IfFileExists{./formulas.tex}{\input{./formulas}}{}
+\IfFileExists{./experiments.tex}{\input{./experiments}}{}
+\IfFileExists{./glossary.tex}{\input{./glossary}}{}
+
+\end{document}

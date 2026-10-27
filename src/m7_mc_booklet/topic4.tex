@@ -1,0 +1,183 @@
+% topic4.tex -- Module 7 Topic 4: Light and special relativity, Q55-72.
+\topictitle{Topic 4 - Light and Special Relativity}
+
+% ---- Q55 (Einstein's postulates)
+\begin{quizq}{}
+Which statement is one of Einstein's two postulates of special relativity?
+\opts{The speed of light in a vacuum is the same for all observers in inertial frames of reference.}
+  {Mass and energy are equivalent.}{Moving clocks run slow.}{Light needs a medium to travel through.}
+\end{quizq}
+
+% ---- Q56 (Michelson-Morley)
+\Needspace{16\baselineskip}
+\begin{quizq}{}
+What was the result of the Michelson--Morley experiment?
+\opts{It detected the aether wind and measured Earth's speed through it.}
+  {It showed that light is made of particles.}
+  {It showed that light travels faster in the direction of Earth's motion.}
+  {It found no difference in the speed of light in different directions, so no aether wind was
+   detected.}
+\end{quizq}
+
+% ---- Q57 (time dilation)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+A clock on a spaceship ticks once every \qty{2.0}{s}, as measured on the ship. The ship moves past Earth
+at $0.80c$. How long is the time between ticks, as measured by an observer on Earth?
+\opts{\qty{1.2}{s}}{\qty{2.0}{s}}{\qty{3.3}{s}}{\qty{5.6}{s}}
+\end{quizq}
+
+% ---- Q58 (muons)
+\Needspace{14\baselineskip}
+\begin{quizq}{}
+Muons have a mean lifetime of \qty{2.2}{\micro s} when at rest. Muons are made high in the atmosphere and
+move at $0.995c$. In Earth's frame of reference, about how far does a typical muon travel before it
+decays?
+\opts{\qty{0.066}{km}}{\qty{0.66}{km}}{\qty{6.6}{km}}{\qty{66}{km}}
+\end{quizq}
+
+% ---- Q59 (length contraction)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+A spaceship is \qty{120}{m} long when measured at rest. It moves past Earth at $0.60c$. What is its
+length, as measured by an observer on Earth?
+\opts{\qty{72}{m}}{\qty{96}{m}}{\qty{120}{m}}{\qty{150}{m}}
+\end{quizq}
+
+% ---- Q60 (who measures proper time)
+\Needspace{15\baselineskip}
+\begin{quizq}{}
+An astronaut on a fast spaceship measures the time between two of her heartbeats. An observer on
+Earth also measures this time. Who measures the proper time?
+\opts{The astronaut, because both heartbeats happen at the same place in her frame.}
+  {The observer on Earth, because Earth is not moving.}{Both of them, because time is the same for
+  everyone.}{Neither of them.}
+\end{quizq}
+
+% ---- Q61 (relativistic momentum)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+What is the relativistic momentum of an electron moving at $0.90c$?
+\opts{\qty{2.5e-22}{kg.m.s^{-1}}}{\qty{5.6e-22}{kg.m.s^{-1}}}{\qty{1.3e-21}{kg.m.s^{-1}}}{\qty{2.7e8}{kg.m.s^{-1}}}
+\end{quizq}
+
+% ---- Q62 (momentum against speed)
+\Needspace{30\baselineskip}
+\begin{quizq}{}
+Which graph best shows the relativistic momentum $p$ of a particle against its speed $v$?
+\gridopts{%
+  \begin{tikzpicture}\gaxesP{$p$}{$v$}
+    \draw[guide] (2.0,0) -- (2.0,1.75); \node[below, font=\footnotesize] at (2.0,0) {$c$};
+    \draw[line width=1pt] (0,0) -- (2.5,1.5);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}\gaxesP{$p$}{$v$}
+    \draw[guide] (2.0,0) -- (2.0,1.75); \node[below, font=\footnotesize] at (2.0,0) {$c$};
+    \draw[line width=1pt, domain=0:2.0, samples=50, smooth] plot (\x, {1.2*sin(45*\x)});
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}\gaxesP{$p$}{$v$}
+    \draw[guide] (2.0,0) -- (2.0,1.75); \node[below, font=\footnotesize] at (2.0,0) {$c$};
+    \draw[line width=1pt, domain=0:2.6, samples=50, smooth] plot (\x, {0.22*\x*\x});
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}\gaxesP{$p$}{$v$}
+    \draw[guide] (2.0,0) -- (2.0,1.75); \node[below, font=\footnotesize] at (2.0,0) {$c$};
+    \draw[line width=1pt, domain=0:1.8, samples=80, smooth] plot (\x, {0.4*\x/sqrt(1-(\x/2.0)^2)});
+  \end{tikzpicture}}
+\end{quizq}
+
+% ---- Q63 (E = mc^2)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+In a nuclear reaction, the total mass decreases by \qty{3.0e-29}{kg}. How much energy is released?
+\opts{\qty{3.3e-46}{J}}{\qty{9.0e-21}{J}}{\qty{2.7e-12}{J}}{\qty{8.1e-4}{J}}
+\end{quizq}
+
+% ---- Q64 (the Sun's mass loss)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+The Sun radiates energy at a rate of \qty{3.8e26}{W}. About how much mass does it convert into energy each
+second?
+\opts{\qty{2.4e-10}{kg}}{\qty{4.2e9}{kg}}{\qty{1.3e18}{kg}}{\qty{3.4e43}{kg}}
+\end{quizq}
+
+% ---- Q65 (GPS)
+\Needspace{16\baselineskip}
+\begin{quizq}{}
+GPS satellites carry very accurate atomic clocks. Which statement about these clocks is correct,
+considering special relativity only?
+\opts{They run at exactly the same rate as clocks on Earth.}
+  {They run fast compared with clocks on Earth, because the satellites are moving.}
+  {They stop when the satellites are above the equator.}
+  {They run slow compared with clocks on Earth because of the satellites' speed, so their times must be
+   corrected.}
+\end{quizq}
+
+% ---- Q66 (Hafele-Keating)
+\Needspace{16\baselineskip}
+\begin{quizq}{}
+In 1971, Hafele and Keating flew atomic clocks around the world on aircraft and compared them with
+clocks that stayed on the ground. What did the experiment show?
+\opts{The time differences agreed with the predictions of relativity.}
+  {All the clocks stayed exactly in step.}
+  {The flown clocks gained time in the same way whichever direction they flew.}
+  {The speed of light depends on the speed of the aircraft.}
+\end{quizq}
+
+% ---- Q67 (simultaneity)
+\Needspace{16\baselineskip}
+\begin{quizq}{}
+Lightning strikes both ends of a moving train. An observer on the platform, halfway between the two
+strikes, sees both flashes at the same moment, so the strikes are simultaneous in the platform's frame.
+What does a passenger in the middle of the train observe?
+\opts{The strikes happen at the same time.}
+  {The strike at the back of the train happens first.}
+  {The strike at the front of the train happens first.}
+  {The passenger cannot see either strike.}
+\end{quizq}
+
+% ---- Q68 (inertial frames)
+\Needspace{16\baselineskip}
+\begin{quizq}{}
+A scientist is in a closed laboratory with no windows. The laboratory moves at a high constant velocity.
+Which statement is correct?
+\opts{A pendulum will swing more slowly than in a laboratory at rest.}
+  {Measuring the speed of light in different directions will show the laboratory's velocity.}
+  {The laboratory's clocks will be seen to run slow by the scientist.}
+  {No experiment inside the laboratory can detect its constant velocity.}
+\end{quizq}
+
+% ---- Q69 (speed of light from a moving source)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+A spaceship moving towards Earth at $0.50c$ shines a light beam at Earth. What speed does an observer on
+Earth measure for the light?
+\opts{$0.50c$}{$c$}{$1.5c$}{$2.0c$}
+\end{quizq}
+
+% ---- Q70 (shape of a moving object)
+\Needspace{15\baselineskip}
+\begin{quizq}{}
+A cube-shaped space probe moves past Earth at $0.90c$, with one face pointing in the direction of motion.
+How does its shape appear to an observer on Earth?
+\opts{Shorter in the direction of motion; its height and width are unchanged.}
+  {Shorter in all three directions.}{Longer in the direction of motion.}{Exactly the same as at rest.}
+\end{quizq}
+
+% ---- Q71 (speed for gamma = 2)
+\Needspace{12\baselineskip}
+\begin{quizq}{}
+At what speed does a moving clock run at half the rate of an identical clock at rest?
+\opts{$0.50c$}{$0.71c$}{$0.87c$}{$0.97c$}
+\end{quizq}
+
+% ---- Q72 (particle accelerators)
+\Needspace{15\baselineskip}
+\begin{quizq}{}
+In a particle accelerator, protons are given more and more energy. Which statement is correct?
+\opts{Their speed increases without limit.}{Their momentum stays constant once they reach $0.9c$.}
+  {Their speed reaches $c$ once they have enough energy.}
+  {Their speed gets closer and closer to $c$, but never reaches it, while their energy and momentum
+   increase without limit.}
+\end{quizq}

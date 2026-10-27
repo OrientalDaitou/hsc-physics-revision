@@ -1,0 +1,471 @@
+% ch1.tex -- Module 7 ESSENTIALS, Chapter 1: The electromagnetic spectrum
+% (Maxwell, the speed of light and spectroscopy). Dot points M7.IQ1.01-M7.IQ1.06.
+% Knowledge points only (no questions). Condensed from src/mod7/ch1.tex:
+% same notation, same facts. Figures: figures/ch1_*.pdf (copied from the full book)
+% and TikZ copied from the full chapter.
+\chapter[The Electromagnetic Spectrum]{The Electromagnetic Spectrum: Maxwell, the Speed of Light and Spectroscopy}\label{ch1:chap}
+\covers{M7.IQ1.01, M7.IQ1.02, M7.IQ1.03, M7.IQ1.04, M7.IQ1.05, M7.IQ1.06}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item Maxwell's unification; how EM waves are made and how they travel.
+  \item How the speed of light was measured, and how it now defines the metre.
+  \item How spectra identify elements and tell us about the stars.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{Maxwell and electromagnetic waves}\label{ch1:sec:maxwell}
+\covers{M7.IQ1.01, M7.IQ1.02}
+
+\begin{bigidea}
+Maxwell unified electricity and magnetism. His theory predicted electromagnetic (EM) waves
+that travel at the speed of light. So light is an EM wave.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Unification}{showing that two things that look different are parts of one thing.}
+  \kw{Electromagnetic (EM) wave}{a travelling wave of electric and magnetic fields that change
+    together.}
+  \kw{Accelerating charge}{a charge that speeds up, slows down or changes direction.}
+  \kw{Transverse wave}{a wave whose vibrations are at \ang{90} to its direction of travel.}
+  \kw{In phase}{reaching their peaks at the same time and the same place.}
+\end{keywords}
+
+\textbf{Before the 1860s}, some links were known (Oersted, 1820; Faraday, 1831), but there was
+no single theory. Light was thought to be a wave in the \term{luminiferous aether}, an invisible
+material filling all space. From 1861 to 1865, Maxwell wrote all of electricity and magnetism as
+one set of laws, now written as four laws:
+\begin{enumerate}
+  \item \textbf{Gauss's law (electric):} charges make electric fields (lines go from $+$ to $-$).
+  \item \textbf{Gauss's law for magnetism:} field lines form closed loops; no single N or S pole.
+  \item \textbf{Faraday's law:} a changing magnetic field makes an electric field, even in empty
+        space.
+  \item \textbf{Ampère--Maxwell law:} a current \emph{and} a changing electric field make a
+        magnetic field.
+\end{enumerate}
+
+\begin{itemize}
+  \item \textbf{Maxwell's new idea} was the second half of law 4. Now each changing field makes
+        the other: one \term{electromagnetic field}. This is the unification of
+        electricity and magnetism.
+  \item \textbf{Prediction 1: EM waves.} The changing fields keep making each other and travel
+        away, with no wire and no charges, at any frequency (most kinds are invisible).
+  \item \textbf{Prediction 2: their speed.} It comes from the \term{permeability of free space}
+        ($\mu_0$, for magnetic fields in a vacuum) and the \term{permittivity of free space}
+        ($\varepsilon_0$, for electric fields). Both are measured with currents and charges. Maxwell
+        got about \qty{3.1e8}{m.s^{-1}} (1862); Fizeau had measured light at about
+        \qty{3.1e8}{m.s^{-1}} (1849). So \textbf{light is an EM wave}.
+  \item Maxwell only \emph{predicted} (and still believed in the aether). \textbf{Hertz (1887)}
+        made and detected radio waves with sparks. They reflected, refracted and were polarised,
+        like light, and travelled at about $c$: this confirmed Maxwell's theory.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Speed of electromagnetic waves (Maxwell)}
+  \cardformula{c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}}
+  \begin{symbols}
+    \sym{$c$}{speed of EM waves in a vacuum}{\si{m.s^{-1}}}
+    \sym{$\mu_0$}{permeability of free space, $4\pi\times10^{-7}$ (data sheet)}{\si{N.A^{-2}}}
+    \sym{$\varepsilon_0$}{permittivity of free space, \num{8.854e-12} (data sheet)}%
+      {\si{A^2.s^4.kg^{-1}.m^{-3}}}
+  \end{symbols}
+  \whentouse{Maxwell's predicted speed of EM waves (\qty{2.998e8}{m.s^{-1}}).}
+  \derive{laws 3 and 4 combine into a wave with $v^2\mu_0\varepsilon_0 = 1$.}
+  \trap{forgetting the square root gives \num{8.99e16}, which is $c^2$, not $c$.}
+\end{formulacard}
+
+\subsection{How EM waves are made and how they travel}
+
+\begin{itemize}
+  \item No wave from a charge at rest or at a \emph{constant} velocity. An \emph{accelerating}
+        charge disturbs its field; this disturbance spreads out at $c$.
+  \item An oscillating charge sends out an EM wave of the \emph{same frequency}. A radio
+        transmitter's AC supply pushes electrons back and forth in the \term{antenna} (a metal rod
+        that sends out or picks up radio waves). In a receiving antenna, the wave makes a small
+        AC current.
+\end{itemize}
+
+\begin{sidebyside}[0.49]
+  \centering
+  \begin{tikzpicture}[x={(0.82cm,0cm)}, y={(0cm,0.82cm)}, z={(-0.24cm,-0.30cm)}]
+    \def\lam{3.0}
+    \fill[hscseriesA!7] (0,-1.25,0) -- (6,-1.25,0) -- (6,1.25,0) -- (0,1.25,0) -- cycle;
+    \fill[hscforce!15] (0,0,-1.25) -- (6,0,-1.25) -- (6,0,1.25) -- (0,0,1.25) -- cycle;
+    \foreach \x in {0.125,0.25,...,6.01}
+      \draw[hscseriesA!55, line width=0.35pt] (\x,0,0) -- (\x,{1.25*sin(360*\x/\lam)},0);
+    \draw[hscseriesA, line width=1.3pt, domain=0:6, samples=121, smooth]
+      plot (\x,{1.25*sin(360*\x/\lam)},0);
+    \foreach \x in {0.125,0.25,...,6.01}
+      \draw[hscforce!55, line width=0.35pt] (\x,0,0) -- (\x,0,{1.25*sin(360*\x/\lam)});
+    \draw[hscforce, line width=1.3pt, domain=0:6, samples=121, smooth]
+      plot (\x,0,{1.25*sin(360*\x/\lam)});
+    \draw[axisline] (0,0,0) -- (6.9,0,0) node[below, diagramlabel, align=center]
+      {direction\\of travel};
+    \draw[axisline] (0,0,0) -- (0,1.7,0);
+    \draw[axisline] (0,0,0) -- (0,0,2.0);
+    \node[diagramlabel, text=hscseriesA, anchor=west] at (4.05,1.05,0) {$E$};
+    \node[diagramlabel, text=hscforce, anchor=north east] at (0.65,0,1.3) {$B$};
+    \draw[<->, line width=0.6pt, hscink] (0.75,1.62,0) -- (3.75,1.62,0)
+      node[midway, above, diagramlabel] {$\lambda$};
+    \draw[guide] (0.75,1.3,0) -- (0.75,1.68,0);
+    \draw[guide] (3.75,1.3,0) -- (3.75,1.68,0);
+    % one pair of crests: E and B are largest at the same place (in phase)
+    \draw[hscink, line width=0.6pt, dashed] (3.75,1.25,0) -- (3.75,0,0) -- (3.75,0,1.25);
+    \fill[hscink] (3.75,1.25,0) circle (1.6pt);
+    \fill[hscink] (3.75,0,1.25) circle (1.6pt);
+    \draw[hscforce, line width=0.5pt] (3.75,0,1.25) -- ++(0cm,-0.66cm)
+      node[below, inner sep=1pt, diagramlabel, text=hscforce] {$B$ largest};
+  \end{tikzpicture}
+  \captionof{figure}{An EM wave at one instant: $E$ (blue, vertical plane), $B$ (red,
+    horizontal plane, drawn coming out towards you). Black dots: both largest at the same
+    place.}%
+  \label{ch1:fig:emwave}
+\nextside
+  \begin{itemize}
+    \item $E$ and $B$ have the same frequency and are in phase.
+    \item $E$, $B$ and the direction of travel are all at \ang{90}: a transverse wave.
+    \item No medium is needed. It travels at $c$ in a vacuum and carries energy.
+    \item Maxwell's laws predict all of this (\cref{ch1:fig:emwave}), and the speed $c$.
+  \end{itemize}
+\end{sidebyside}
+
+\subsection{The electromagnetic spectrum}
+
+All EM waves travel at $c$ in a vacuum and differ only in frequency, and so in wavelength
+(\cref{ch1:fig:emspectrum}). Visible light is about \qty{400}{nm} (violet) to \qty{700}{nm}
+(red). Every source involves charges: accelerating in an antenna, or changing energy inside
+atoms and nuclei.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_emspectrum.pdf}
+  \caption{The electromagnetic spectrum, with a typical source of each band. Band edges are
+    approximate.}\label{ch1:fig:emspectrum}
+\end{figure}
+
+\begin{formulacard}[combine={$v = f\lambda$ with $v = c$}]{Wave equation for light}
+  \cardformula{c = f\lambda}
+  \begin{symbols}
+    \sym{$c$}{speed of light in a vacuum, \qty{3.00e8}{m.s^{-1}}}{\si{m.s^{-1}}}
+    \sym{$f$}{frequency (from a period: $f = 1/T$, on the sheet)}{\si{Hz}}
+    \sym{$\lambda$}{wavelength}{\si{m}}
+  \end{symbols}
+  \whentouse{any EM wave, from radio to gamma rays, in a vacuum or in air.}
+  \derive{the sheet gives $v = f\lambda$ for every wave. For EM waves in a vacuum, $v = c$.}
+  \trap{change \si{nm} to \si{m} ($\times10^{-9}$), and \si{MHz} or \si{GHz} to \si{Hz},
+    before you substitute.}
+\end{formulacard}
+
+%% ==================================================================
+\section{Measuring the speed of light}\label{ch1:sec:speed}
+\covers{M7.IQ1.03}
+
+\begin{bigidea}
+Each new method measured a time or a distance better: machines, then atomic clocks, replaced
+human timing. Since 1983, $c$ has an exact value, and the metre is defined from it.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Direct method}{measure a distance and a travel time, then calculate $c = d/t$.}
+  \kw{Indirect method}{calculate $c$ from other measured quantities, for example $c = f\lambda$.}
+  \kw{Atomic clock}{an extremely accurate clock that counts oscillations of radiation from atoms.}
+\end{keywords}
+
+\Cref{ch1:tab:history} sums up the methods. The main ones follow.
+
+\begin{table}
+  \caption{Measuring the speed of light.}\label{ch1:tab:history}
+  \centering\small
+  \begin{tabular}{@{}L{24mm}L{39mm}L{31mm}L{42mm}@{}}
+    \toprule
+    \colhead{Who, when} & \colhead{Method} & \colhead{Result (\si{m.s^{-1}})} &
+      \colhead{What limited it}\\
+    \midrule
+    Galileo, about 1638 & lanterns on two hills about \qty{1.5}{km} apart & no delay seen &
+      reaction time is far longer than the travel time\\
+    Rømer, 1676 & delays of the eclipses of Jupiter's moon Io & not instant; Huygens (1690):
+      about \num{2.2e8} & eclipse timing; size of Earth's orbit\\
+    Fizeau, 1849 & toothed wheel; mirror \qty{8.6}{km} away & about \num{3.1e8} & judging
+      ``darkness'' by eye\\
+    Foucault, 1862 & rotating mirror & \num{2.98e8} & measuring a tiny angle\\
+    Michelson, 1926 & rotating 8-sided mirror; \qty{35}{km} each way & \num{2.99796e8} &
+      air slows light a little; uncertainty \qty{4}{km.s^{-1}}\\
+    Lasers, 1972 & measure $f$ and $\lambda$ of a laser; $c = f\lambda$ & \num{299792456}
+      ($\pm1$) & the metre itself (then defined by krypton light)\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Direct method} \hscbadgenotonsheet\ $c = d/t$. A reflected signal goes there
+        \emph{and back}: $d = 2D$. Do not use $s$ for speed: on the sheet, $s$ is
+        displacement.
+  \item \textbf{Rømer (1676):} Io's \term{eclipses} (Io hidden in Jupiter's shadow) happen
+        every 1.77 days. When Earth was on the far side of its orbit, they came up to
+        \qty{22}{min} late (modern value \qty{16.6}{min}). Light takes time to cross the orbit
+        ($d = 2r$).
+  \item \textbf{Lasers (1972):} $f$ was counted with a caesium atomic clock; $\lambda$ was
+        compared with krypton light. An indirect method: $c = f\lambda$.
+  \item \textbf{A school method:} in a microwave oven with no turntable, the microwaves make a
+        \term{standing wave} (a wave pattern that stays in one place). Chocolate melts at its
+        \term{antinodes}: fixed spots where the wave is always strong. Melted spots are half a
+        wavelength apart: $\lambda = 2\times\text{(spacing)}$. With the oven's
+        $f = \qty{2.45}{GHz}$, $c = f\lambda \approx \qty{3.0e8}{m.s^{-1}}$.
+  \item \textbf{Since 1983}, $c$ is \emph{defined} as exactly \qty{299792458}{m.s^{-1}} (the
+        krypton metre had limited the laser result).
+        \textbf{One metre} is the distance light travels in a vacuum in $1/299\,792\,458$ of a
+        second. \textbf{The second} (since 1967) is \num{9192631770} oscillations of the
+        radiation from one energy jump in a caesium-133 atom.
+  \item This metre (before: a metal bar, then krypton light) can be made in any laboratory and
+        rests on a constant of nature. We measure lengths by timing light (radar, GPS).
+\end{itemize}
+
+
+
+%% ==================================================================
+\section{Spectra and identifying elements}\label{ch1:sec:spectra}
+\covers{M7.IQ1.04, M7.IQ1.05}
+
+\begin{bigidea}
+Hot, dense objects give a spectrum with all colours. Low-density gases give lines, unique to
+each element. So spectra identify elements.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Spectrum (plural spectra)}{light spread out in order of wavelength.}
+  \kw{Spectroscope}{an instrument that spreads light into a spectrum.}
+  \kw{Discharge tube}{a glass tube of gas at low pressure that glows when a high voltage is
+    applied.}
+  \kw{Incandescent}{glowing because it is hot.}
+\end{keywords}
+
+A spectroscope uses a prism or a \term{diffraction grating} (thousands of tiny, equal slits).
+Using spectra to learn about a source is \term{spectroscopy}. \Cref{ch1:fig:spectra} shows the
+three kinds (Kirchhoff's rules, 1859).
+
+\begin{sidebyside}[0.675]
+  \centering
+  \includegraphics{ch1_spectra.pdf}
+  \captionof{figure}{The three kinds of spectra.}\label{ch1:fig:spectra}
+\nextside
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=1cm]
+    \draw[->, axisline] (-0.55,0) -- (-0.55,2.7) node[above, font=\footnotesize] {energy};
+    \foreach \y/\n in {0/1, 1.45/2, 2.1/3, 2.45/4}
+      \draw[line width=0.9pt, hscink] (0,\y) -- (3.15,\y) node[right, font=\footnotesize] {$n=\n$};
+    \draw[->, line width=1.1pt, hscforce] (0.95,2.1) -- (0.95,1.48);
+    \draw[->, decorate, decoration={snake, amplitude=1.3pt, segment length=5pt, post length=2mm},
+      line width=0.8pt, hscray] (0.85,1.78) -- (0.05,1.78);
+    \node[font=\footnotesize, align=center, anchor=north] at (0.5,1.38) {emission:\\photon out};
+    \draw[->, line width=1.1pt, hscvel] (2.25,1.45) -- (2.25,2.07);
+    \draw[->, decorate, decoration={snake, amplitude=1.3pt, segment length=5pt, post length=2mm},
+      line width=0.8pt, hscray] (3.1,1.78) -- (2.35,1.78);
+    \node[font=\footnotesize, align=center, anchor=north] at (2.68,1.38) {absorption:\\photon in};
+    \node[font=\footnotesize, anchor=north] at (1.6,-0.05) {lowest level};
+  \end{tikzpicture}
+  \captionof{figure}{Electrons jump between energy levels. Wavy arrows: photons.}%
+  \label{ch1:fig:levels}
+\end{sidebyside}
+
+\begin{enumerate}
+  \item \term{Continuous}: all wavelengths, no gaps. From a hot, dense object: an incandescent
+        filament, lava, the inside of a star.
+  \item \term{Emission}: bright lines on a dark background. From a \term{low-density} gas (atoms
+        far apart) whose atoms are \term{excited} (given extra energy). A flame or a discharge
+        tube excites them. Seen from any side.
+  \item \term{Absorption}: a continuous spectrum with dark lines, when light from a hot dense
+        source passes through a cooler, low-density gas. Seen only looking through the gas at
+        the source. The dark lines are at \emph{exactly the same wavelengths} as that gas's
+        bright lines.
+\end{enumerate}
+
+\begin{itemize}
+  \item \textbf{Where lines come from:} electrons in an atom have only certain energies: \term{energy
+        levels} (\cref{ch1:fig:levels}). An electron that drops a level gives out a
+        \term{photon} (a packet of light energy) equal to the gap. One gap gives one frequency
+        ($E = hf$): one line. An atom absorbs only photons that match a gap: dark lines.
+        Each element has its own levels, so its own lines; emission and absorption use the same
+        gaps, so the same wavelengths.
+  \item \textbf{Identifying elements:} compare the lines with laboratory lines (for example
+        hydrogen: 410, 434, 486, \qty{656}{nm}). A line given as a frequency: use $c = f\lambda$.
+        An element is present only if \emph{all} its strong lines are there.
+  \item Helium was found in the Sun's spectrum (1868) before it was found on Earth.
+\end{itemize}
+
+%% ==================================================================
+\section{What starlight tells us}\label{ch1:sec:stars}
+\covers{M7.IQ1.06}
+
+\begin{bigidea}
+The peak of a star's spectrum gives its temperature; its lines give its composition. Shifted
+lines show motion; wider lines show rotation or density.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Black body}{an ideal object that absorbs all radiation and is a perfect emitter. Its
+    spectrum depends only on its temperature.}
+  \kw{Doppler effect}{the change in wavelength when a source and an observer move towards or
+    away from each other.}
+  \kw{Redshift, blueshift}{lines moved to longer (red) or shorter (blue) wavelengths.}
+  \kw{Translational velocity}{how fast the whole star moves through space.}
+  \kw{Rotational velocity}{how fast the star spins (the speed of its surface as it turns).}
+  \kw{Line broadening}{spectral lines becoming wider.}
+\end{keywords}
+
+A star's hot, dense inside gives a continuous spectrum. Atoms in its cooler, lower-density
+outer layers (its \term{atmosphere}) absorb the wavelengths that match their energy gaps. So a
+star gives an absorption spectrum (in sunlight: the \term{Fraunhofer lines}). Its continuous
+part is close to the spectrum of a black body.
+
+\textbf{1. Chemical composition:} match the dark lines with laboratory lines. The Sun's lines
+show hydrogen, sodium, magnesium, calcium, iron and many more elements.
+
+\begin{sidebyside}[0.675]
+  \centering
+  \includegraphics{ch1_blackbody.pdf}
+  \captionof{figure}{Black-body spectra at three temperatures.}\label{ch1:fig:blackbody}
+\nextside
+  \textbf{2. Surface temperature} (\cref{ch1:fig:blackbody}). A hotter star:
+  \begin{itemize}
+    \item peaks at a shorter wavelength (Wien's law);
+    \item gives out more light at every wavelength from each square metre;
+    \item looks bluer.
+  \end{itemize}
+\end{sidebyside}
+
+Line strengths also depend on temperature: hydrogen lines are strongest near \qty{10000}{K};
+cool stars (below about \qty{3700}{K}) show wide bands made by molecules. Classes O, B, A, F, G,
+K, M go from hottest to coolest.
+
+\begin{formulacard}{Wien's displacement law}
+  \cardformula{\lambda_\mathrm{max} = \frac{b}{T}}
+  \begin{symbols}
+    \sym{$\lambda_\mathrm{max}$}{peak wavelength of the continuous spectrum}{\si{m}}
+    \sym{$b$}{Wien's displacement constant, \num{2.898e-3} (data sheet)}{\si{m.K}}
+    \sym{$T$}{surface temperature}{\si{K}}
+  \end{symbols}
+  \whentouse{the peak of the continuous (black-body) spectrum, never one line.}
+  \trap{$T$ in kelvin: $T(\unit{K}) = T(\unit{\degreeCelsius}) + 273$. Change \si{nm} to \si{m}.}
+\end{formulacard}
+
+\textbf{3. Translational velocity.} A siren sounds higher as it comes towards you and lower
+as it goes away: the Doppler effect. Light does the same (\cref{ch1:fig:starlines}).
+\begin{itemize}
+  \item Moving away: redshift (every line moves to a longer wavelength). Moving towards us:
+        blueshift. Faster star, bigger shift. The whole pattern moves, so the elements can
+        still be recognised. Only motion along our \term{line of sight} shows up.
+  \item $\Delta\lambda = \dfrac{\lambda v}{c}$ \hscbadgenotonsheet\ (for $v$ much smaller than
+        $c$). In one period $T = \lambda/c$ (here $T$ is a period, not a temperature), a star
+        moving away travels $vT$. So its crests are $\lambda + vT$ apart:
+        $\Delta\lambda = vT = \lambda v/c$.
+  \item Shifts are tiny, because $v$ is far below $c$. So spectroscopes must be very precise.
+        The sheet's Doppler formula is for sound.
+\end{itemize}
+
+\begin{sidebyside}[0.71]
+  \centering
+  \includegraphics{ch1_starlines.pdf}
+  \captionof{figure}{Hydrogen absorption lines in four cases.}\label{ch1:fig:starlines}
+\nextside
+  \textbf{4. Rotational velocity.} One edge turns towards us (blueshift), the other away
+  (redshift). We see both at once, so each line is broadened, but its centre does not move.
+  Faster spin, wider lines.
+\end{sidebyside}
+
+\textbf{5. Density.} In a dense atmosphere, atoms collide often and sit close to other charged
+particles. This disturbs their energy levels, so the lines are wider (\term{pressure
+broadening}). \term{Giant stars} (huge, swollen, near the end of their lives) have low-density
+outer layers and narrow lines; \term{main-sequence stars} such as the Sun are denser.
+
+%% ==================================================================
+\section{Key experiments}\label{ch1:sec:experiments}
+\covers{M7.IQ1.03, M7.IQ1.04}
+
+\begin{experiment}{Fizeau's toothed wheel (1849)}
+\aim{To measure the speed of light directly, on Earth.}
+\method{Light from a \term{half-silvered mirror} (it reflects half the light and lets half
+  through) passes a gap in a \term{toothed wheel} ($N = 720$ teeth and 720 gaps). It goes to a
+  mirror \qty{8.63}{km} away and back (\cref{ch1:fig:fizeau}). The wheel spins faster until the
+  returning light first hits the next tooth: darkness.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \draw[line width=0.8pt] (0,0) circle (0.2);
+      \fill[hscink] (0.09,0) circle (0.07);
+      \node[font=\footnotesize, anchor=north] at (0,-0.25) {observer};
+      \draw[line width=1.6pt, hscfield!80] (1.1,-0.28) -- (1.66,0.28);
+      \node[font=\footnotesize, align=center, anchor=south] at (1.38,0.35) {half-silvered\\mirror};
+      \draw[line width=0.8pt, fill=hscray!35] (1.38,-1.3) circle (0.2);
+      \node[font=\footnotesize, anchor=east] at (1.12,-1.3) {lamp};
+      \draw[ray] (1.38,-1.07) -- (1.38,-0.07);
+      \foreach \y in {-0.95,-0.55,0.25,0.65}
+        \fill[hscink] (2.9,\y) rectangle (3.08,\y+0.3);
+      \draw[line width=0.6pt, hscmuted] (2.99,-1.05) -- (2.99,1.05);
+      \node[font=\footnotesize, align=left, anchor=west] at (3.15,-0.85) {wheel\\(edge-on)};
+      \draw[ray] (1.44,0.06) -- (4.5,0.06);
+      \draw[ray] (5.7,0.06) -- (8.1,0.06);
+      \draw[ray] (8.1,-0.08) -- (5.7,-0.08);
+      \draw[ray] (4.5,-0.08) -- (0.28,-0.08);
+      \draw[line width=0.6pt] (4.85,-0.28) -- (5.05,0.28);
+      \draw[line width=0.6pt] (5.15,-0.28) -- (5.35,0.28);
+      \draw[line width=2pt, hscink] (8.2,-0.55) -- (8.2,0.55);
+      \fill[ground] (8.22,-0.55) rectangle (8.42,0.55);
+      \node[font=\footnotesize, anchor=north] at (8.25,-0.6) {mirror};
+      \draw[<->, line width=0.6pt, hscmuted] (2.99,-1.6) -- (8.2,-1.6)
+        node[midway, fill=tcbcolback, font=\footnotesize, text=hscmuted] {$D = \qty{8.63}{km}$};
+      \begin{scope}[shift={(6.1,1.15)}]
+        \foreach \i in {0,...,15}
+          \fill[hscink] ({22.5*\i-5.6}:0.45) -- ({22.5*\i-5.6}:0.62)
+            arc ({22.5*\i-5.6}:{22.5*\i+5.6}:0.62) -- ({22.5*\i+5.6}:0.45)
+            arc ({22.5*\i+5.6}:{22.5*\i-5.6}:0.45) -- cycle;
+        \draw[line width=0.8pt, fill=hscmuted!20] (0,0) circle (0.45);
+        \fill[hscink] (0,0) circle (0.05);
+        \node[font=\footnotesize, align=left, anchor=west] at (0.72,0) {wheel face-on:\\$N$ teeth, $N$ gaps};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{Fizeau's apparatus. Light leaves through a gap. At the right speed, it returns to
+      find a tooth.}\label{ch1:fig:fizeau}
+  \end{figure}}
+\results{Darkness at $f \approx 12.6$ turns per second (here $f$ is how fast the wheel turns,
+  not a light frequency). In the light's travel time, a gap turns to the next tooth: $1/(2N)$ of
+  a turn. One turn takes $1/f$. \textbf{Travel time} \hscbadgenotonsheet\ $t = 1/(2Nf)$. With
+  $d = 2D$: $c \approx \qty{3.13e8}{m.s^{-1}}$.}
+\conclusion{$c \approx \qty{3.1e8}{m.s^{-1}}$, within about 5\,\% of today's value.}
+\significance{The first measurement of $c$ on Earth. Maxwell compared his prediction with
+  values like this.}
+\end{experiment}
+
+\begin{experiment}{Spectra of discharge tubes, a lamp and the Sun}
+\aim{To observe and compare the spectra of different light sources.}
+\method{In a dark room, view H, He, Ne and Hg discharge tubes through a spectroscope. Then view
+  a filament lamp, and sunlight reflected from a white card. Read each line's wavelength.
+  Safety: thousands of volts; mercury tubes give out UV; never look at the Sun.}
+\results{{\centering\small
+  \begin{tabular}{@{}L{32mm}L{98mm}@{}}
+    \toprule
+    \colhead{Source} & \colhead{Spectrum seen}\\
+    \midrule
+    discharge tubes & emission: bright lines on black, a different set for each gas\\
+    filament lamp & continuous: all colours, brightest at the red end\\
+    reflected sunlight & continuous, with narrow dark lines, e.g.\ \qty{589}{nm} (Na), \qty{656}{nm} (H)\\
+    \bottomrule
+  \end{tabular}\par}}
+\conclusion{Hot dense sources give continuous spectra. Excited gases give line spectra,
+  unique to each element.}
+\significance{The basis of spectroscopy in the laboratory and in astronomy.}
+\end{experiment}
+
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item Maxwell: a changing electric field makes a magnetic field (unification). He predicted EM
+        waves at $1/\sqrt{\mu_0\varepsilon_0} = c$, so light is an EM wave. Hertz confirmed it.
+  \item Accelerating charges make EM waves: $E$ and $B$ in phase, at \ang{90} to each other and
+        to the direction of travel, no medium. All travel at $c = f\lambda$.
+  \item Since 1983, $c = \qty{299792458}{m.s^{-1}}$ exactly; the metre comes from $c$ and the
+        caesium second.
+  \item Continuous: hot dense source. Emission: excited low-density gas. Absorption: cool gas in
+        front of a hot source. Same element, same wavelengths.
+  \item Star: peak $\to$ temperature ($T$ in kelvin); lines $\to$ composition; shift $\to$ motion
+        along the line of sight; broadening $\to$ rotation or density.
+\end{itemize}
+\end{summarybox}

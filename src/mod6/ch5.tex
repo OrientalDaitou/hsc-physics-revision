@@ -1,0 +1,1700 @@
+% ch5.tex -- Module 6, Chapter 5: Applications of the motor effect
+\chapter[Motors, Generators and Braking]{Applications of the Motor Effect: Motors, Generators and Braking}\label{ch5:chap}
+\covers{M6.IQ4.01, M6.IQ4.02, M6.IQ4.03}
+
+% ---- chapter-local TikZ helpers (prefix chfive) ----
+\tikzset{
+  chfiveIn/.pic={\draw[hscink, line width=0.7pt, fill=white] (0,0) circle (0.16);
+    \draw[hscink, line width=0.7pt] (-0.11,-0.11) -- (0.11,0.11) (-0.11,0.11) -- (0.11,-0.11);},
+  chfiveOut/.pic={\draw[hscink, line width=0.7pt, fill=white] (0,0) circle (0.16);
+    \fill[hscink] (0,0) circle (0.05);},
+  chfiveWire/.style={hscink, line width=1.4pt},
+  pics/chfivePoles/.style={code={
+    \fill[hscforce!15, draw=hscink, line width=0.5pt] (-2.05,-1.15) rectangle (-1.8,1.15);
+    \node[font=\small\bfseries] at (-1.925,1.38) {N};
+    \fill[hscvel!15, draw=hscink, line width=0.5pt] (1.8,-1.15) rectangle (2.05,1.15);
+    \node[font=\small\bfseries] at (1.925,1.38) {S};
+    \foreach \yy in {-0.95,-0.35,0.35,0.95}
+      \draw[field, hscfield!45] (-1.8,\yy) -- (1.8,\yy);}},
+}
+
+\inquiry{How has knowledge about the motor effect been applied to technological advances?}
+
+\begin{goals}
+  \item calculate the torque on a coil and give the job of each part of a DC motor
+  \item explain back emf, the start-up current and the maximum speed of a motor
+  \item compare DC and AC generators and sketch their output graphs
+  \item explain how AC induction motors and magnetic brakes work
+  \item use Lenz's law and conservation of energy for all of these devices
+\end{goals}
+
+%% ------------------------------------------------------------------
+\section{Torque on a coil and the simple DC motor}\label{ch5:sec:torque}
+\covers{M6.IQ4.01}
+
+\begin{bigidea}
+A coil carrying a current in a magnetic field feels opposite forces on its two
+sides, so it turns. The torque is largest when the plane of the coil is parallel to
+the field. In a DC motor, a split-ring commutator reverses the current every half
+turn, so the coil keeps turning the same way.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Normal}{a line at \ang{90} to the flat face (the plane) of the coil.}
+  \kw{Torque ($\tau$)}{the turning effect of a force. Unit: newton metre (\si{N.m}).}
+  \kw{Stator}{the part of a motor that does not move. It makes the magnetic field.}
+  \kw{Rotor (armature)}{the part that turns: a coil on an iron core, fixed to the axle.}
+  \kw{Split-ring commutator}{two half-rings that reverse the current every half turn.}
+  \kw{Brushes}{fixed contacts that connect the spinning coil to the supply.}
+\end{keywords}
+
+Every electric motor, from a phone's vibration motor to a train, uses one idea. A
+current-carrying wire in a magnetic field feels a force. Wind the wire into a
+\term{coil}: many loops of wire, where each loop is one \emph{turn}. Put the coil on an
+axle, and the forces make it turn.
+
+\begin{refresher}{Force on a wire, and torque}
+\begin{itemize}
+  \item A wire of length $l$ with current $I$ in a field $B$ feels a force
+        $F = lIB\sin\theta$ (\cref{ch2:chap}). The right-hand palm rule gives its
+        direction: fingers along $B$, thumb along $I$, and the palm pushes along $F$.
+  \item Torque: $\tau = r_\perp F = rF\sin\theta$ (on the sheet). $r_\perp$ is the
+        \term{lever arm}: the perpendicular distance from the axis to the line of the
+        force. (Here $\theta$ is the angle between $r$ and $F$. In the coil formula
+        below, $\theta$ means a different angle.)
+\end{itemize}
+\end{refresher}
+
+\subsection{Why a coil turns}
+Put a rectangular coil between the poles of a magnet, on an \term{axle} (a rod through
+its middle). \Cref{ch5:fig:endon} shows the coil end-on: you look along the axle.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % (a) theta = 90
+    \begin{scope}
+      \pic {chfivePoles};
+      \draw[guide, ->] (1.06,0) -- (1.62,0) node[pos=0.45, below, font=\footnotesize, text=hscmuted] {$B$};
+      \draw[->, hscmuted, line width=0.7pt, dashed] (0,0) -- (90:1.25) node[right, font=\footnotesize, text=hscmuted] {normal};
+      \draw[hscmuted] (0.42,0) arc (0:90:0.42);
+      \node[font=\footnotesize, text=hscmuted] at (45:0.62) {$\theta$};
+      \draw[hscink, line width=2.2pt] (180:0.85) -- (0:0.85);
+      \pic at (180:0.85) {chfiveOut};
+      \pic at (0:0.85) {chfiveIn};
+      \draw[force] ($(180:0.85)+(0,0.18)$) -- ++(0,0.62) node[left, text=hscforce, font=\footnotesize] {$F$};
+      \draw[force] ($(0:0.85)+(0,-0.18)$) -- ++(0,-0.62) node[right, text=hscforce, font=\footnotesize] {$F$};
+      \fill[hscink] (0,0) circle (1.6pt);
+      \node[font=\footnotesize, align=center, anchor=north] at (0,-1.7)
+        {(a) Plane parallel to $B$\\($\theta = \ang{90}$): largest lever\\arm, largest torque.};
+    \end{scope}
+    % (b) theta = 50
+    \begin{scope}[xshift=4.75cm]
+      \pic {chfivePoles};
+      \draw[guide, ->] (0,0) -- (1.3,0) node[pos=0.85, below, font=\footnotesize, text=hscmuted] {$B$};
+      \draw[->, hscmuted, line width=0.7pt, dashed] (0,0) -- (50:1.25) node[above, font=\footnotesize, text=hscmuted] {normal};
+      \draw[hscmuted] (0.42,0) arc (0:50:0.42);
+      \node[font=\footnotesize, text=hscmuted] at (25:0.62) {$\theta$};
+      \draw[hscink, line width=2.2pt] (140:0.85) -- (-40:0.85);
+      \draw[guide] (140:0.85) -- ({0.85*cos(140)},0);
+      \draw[hscacc, line width=1.4pt] ({0.85*cos(140)},0) -- (0,0);
+      \node[font=\footnotesize, text=hscacc, below] at ({0.425*cos(140)},0) {$r_\perp$};
+      \pic at (140:0.85) {chfiveOut};
+      \pic at (-40:0.85) {chfiveIn};
+      \draw[force] ($(140:0.85)+(0,0.18)$) -- ++(0,0.62) node[left, text=hscforce, font=\footnotesize] {$F$};
+      \draw[force] ($(-40:0.85)+(0,-0.18)$) -- ++(0,-0.62) node[right, text=hscforce, font=\footnotesize] {$F$};
+      \fill[hscink] (0,0) circle (1.6pt);
+      \node[font=\footnotesize, align=center, anchor=north] at (0,-1.7)
+        {(b) In between\\($\theta = \ang{50}$): smaller lever\\arm, smaller torque.};
+    \end{scope}
+    % (c) theta = 0
+    \begin{scope}[xshift=9.5cm]
+      \pic {chfivePoles};
+      \draw[->, hscmuted, line width=0.7pt, dashed] (0,0) -- (0:1.25) node[pos=0.62, above, font=\scriptsize, text=hscmuted] {normal};
+      \draw[hscink, line width=2.2pt] (90:0.85) -- (-90:0.85);
+      \pic at (90:0.85) {chfiveOut};
+      \pic at (-90:0.85) {chfiveIn};
+      \draw[force] ($(90:0.85)+(0,0.18)$) -- ++(0,0.42) node[right, text=hscforce, font=\footnotesize] {$F$};
+      \draw[force] ($(-90:0.85)+(0,-0.18)$) -- ++(0,-0.42) node[right, text=hscforce, font=\footnotesize] {$F$};
+      \fill[hscink] (0,0) circle (1.6pt);
+      \node[font=\footnotesize, align=center, anchor=north] at (0,-1.7)
+        {(c) Plane perpendicular to $B$\\($\theta = 0$): forces in line,\\zero torque.};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A coil seen end-on, looking along the axle (black dot). $\odot$ = current out
+    of the page, $\otimes$ = current into the page. The forces turn the coil clockwise in
+    (a) and (b). $\theta$ is the angle between $B$ and the normal.}\label{ch5:fig:endon}
+\end{figure}
+
+\begin{itemize}
+  \item The two long sides are at \ang{90} to the field. Each turn of wire feels a
+        force $lIB$, so with $n$ turns each long side feels $F = nlIB$. Their currents
+        flow opposite ways, so one force points up and the other points down.
+  \item The two forces are not along the same line. They form a \term{couple}: two
+        equal and opposite forces that turn an object without moving it sideways.
+  \item The forces on the short end sides point along the axle. They cancel and give
+        no torque.
+\end{itemize}
+The size of each force stays the same as the coil turns. What changes is the lever
+arm $r_\perp$. It is largest in (a). It is zero in (c), where both forces act along one
+line through the axle. In the formula, $\theta$ is measured from the \emph{normal},
+not from the plane of the coil.
+
+\begin{toolkit}{Areas in square metres, and angles}
+\begin{itemize}
+  \item $\qty{1}{cm^2} = (\qty{e-2}{m})^2 = \qty{e-4}{m^2}$ and
+        $\qty{1}{mm^2} = \qty{e-6}{m^2}$. Example: $\qty{12}{cm^2} = 12 \times
+        \qty{e-4}{m^2} = \qty{1.2e-3}{m^2}$. Circle: $A = \pi r^2$ (radius, not diameter).
+  \item If the field makes an angle $\phi$ with the \emph{plane} of the coil, then
+        $\theta = \ang{90} - \phi$. Also $\sin(\ang{90} - \phi) = \cos\phi$ and
+        $\cos(\ang{90} - \phi) = \sin\phi$. Example: plane at \ang{35} to $B$ gives
+        $\theta = \ang{55}$, and $\sin\ang{55} = \cos\ang{35} = 0.819$.
+\end{itemize}
+\end{toolkit}
+
+\textbf{Where the formula comes from.} Let each long side have length $l$, and let the
+coil have width $w$. Then the area of one turn is $A = lw$. Each long side is
+$\tfrac{w}{2}$ from the axle. The forces are vertical, so the lever arm is the
+horizontal distance from the axle to the side. The plane of the coil makes an angle
+$(\ang{90} - \theta)$ with the field, so
+$r_\perp = \tfrac{w}{2}\cos(\ang{90} - \theta) = \tfrac{w}{2}\sin\theta$
+(\cref{ch5:fig:endon}(b)).
+\begin{align*}
+  \tau_\mathrm{one\ side} &= F r_\perp = nlIB \times \tfrac{w}{2}\sin\theta
+    && \text{torque from one long side}\\
+  \tau &= 2 \times nlIB \times \tfrac{w}{2}\sin\theta
+    && \text{both sides turn the coil the same way}\\
+  &= nIB\,(lw)\sin\theta
+    && \text{the 2 cancels the $\tfrac{1}{2}$; group $l$ and $w$}\\
+  \tau &= nIAB\sin\theta && \text{replace $lw$ with $A$}
+\end{align*}
+
+\begin{formulacard}{Torque on a coil}
+  \cardformula{\tau = nIA_\perp B = nIAB\sin\theta}
+  \begin{symbols}
+    \sym{$\tau$}{torque on the coil}{\si{N.m}}
+    \sym{$n$}{number of turns in the coil}{no unit}
+    \sym{$I$}{current in the coil}{\si{A}}
+    \sym{$A$}{area of one turn of the coil}{\si{m^2}}
+    \sym{$A_\perp$}{$A\sin\theta$. It equals $A$ when the plane of the coil is
+      parallel to $B$, and 0 when the plane is perpendicular to $B$}{\si{m^2}}
+    \sym{$B$}{magnetic field strength}{\si{T}}
+    \sym{$\theta$}{angle between $B$ and the normal to the coil}{degree (\si{\degree})}
+  \end{symbols}
+  \inwords{more turns, more current, a bigger coil or a stronger field give more
+    torque, and the torque depends on how the coil faces the field.}
+  \whentouse{a flat coil of any shape that turns on an axle in a uniform field. In a
+    radial field (see \emph{Radial fields} below), $\sin\theta = 1$ in every position.}
+  \whennottouse{only one side of a loop is inside the field. Then find $F = lIB$ for
+    that side and use $\tau = r_\perp F$.}
+  \rearranged{$\tau_\mathrm{max} = nIAB$ (plane $\parallel B$) \qquad
+    $I = \dfrac{\tau}{nAB\sin\theta}$ \qquad $B = \dfrac{\tau}{nIA\sin\theta}$}
+  \tensecond{$n = 10$, $I = \qty{2.0}{A}$, $A = \qty{0.010}{m^2}$, $B = \qty{0.50}{T}$,
+    plane parallel to $B$: $\tau = 10 \times 2.0 \times 0.010 \times 0.50 \times 1
+    = \qty{0.10}{N.m}$.}
+  \trap{$\theta$ is measured from the \emph{normal}. If the plane of the coil makes
+    \ang{30} with the field, use $\theta = \ang{60}$. Change \si{cm^2} to \si{m^2}
+    (multiply by \num{e-4}). Put your calculator in degree mode.}
+\end{formulacard}
+
+\begin{workedexample}{Maximum torque on a motor coil}\label{ch5:we:maxtorque}
+A motor coil has 150 turns. Each turn is a rectangle \qty{4.0}{cm} long and
+\qty{2.5}{cm} wide. The \qty{4.0}{cm} sides are parallel to the axle. The coil carries
+\qty{0.80}{A} in a uniform \qty{0.25}{T} field. Calculate the maximum torque on the coil.
+\given{$n = 150$, \ $I = \qty{0.80}{A}$, \ $B = \qty{0.25}{T}$.
+  Area: $A = \qty{4.0}{cm} \times \qty{2.5}{cm} = \qty{10}{cm^2}
+  = 10 \times \qty{e-4}{m^2} = \qty{1.0e-3}{m^2}$.
+  Maximum torque: plane parallel to $B$, so $\theta = \ang{90}$.}
+\find{the maximum torque $\tau_\mathrm{max}$}
+\formula{$\tau = nIAB\sin\theta$}
+\substitute{$\tau = 150 \times \qty{0.80}{A} \times \qty{1.0e-3}{m^2} \times
+  \qty{0.25}{T} \times \sin\ang{90} = \qty{0.030}{N.m}$}
+\answer{\final{$\tau_\mathrm{max} = \qty{3.0e-2}{N.m}$} (2 significant figures)}
+\checkstep{each \qty{4.0}{cm} side feels $F = nlIB = 150 \times 0.040 \times 0.80
+  \times 0.25 = \qty{1.2}{N}$. Each side is half the width from the axle:
+  $r = 0.025 \div 2 = \qty{0.0125}{m}$. Two sides:
+  $\tau = 2 \times 1.2 \times 0.0125 = \qty{0.030}{N.m}$, the same answer \cmark.}
+\end{workedexample}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \pic {chfivePoles};
+    \draw[hscink, line width=2.2pt] (180:0.85) -- (0:0.85);
+    \pic at (180:0.85) {chfiveIn};
+    \pic at (0:0.85) {chfiveOut};
+    \fill[hscink] (0,0) circle (1.6pt);
+    \node[font=\scriptsize, text=hscink] at (-0.85,-0.62) {left side};
+    \node[font=\scriptsize, text=hscink] at (0.85,-0.62) {right side};
+    \node[font=\footnotesize, text=hscfield] at (1.55,0.6) {$B$};
+  \end{tikzpicture}
+  \caption{The coil in \cref{ch5:we:whichway}, seen end-on. $\otimes$ = current into the
+    page, $\odot$ = current out of the page.}\label{ch5:fig:whichway}
+\end{figure}
+
+\begin{workedexample}{Which way does the coil turn?}\label{ch5:we:whichway}
+\Cref{ch5:fig:whichway} shows a motor coil seen end-on, from the commutator end. The
+field points from N (left) to S (right). The current flows into the page in the
+left-hand side and out of the page in the right-hand side. Find the direction of the
+force on each long side, and the direction in which the coil turns.
+\given{$B$ points to the right. Left side: current into the page. Right side: current
+  out of the page.}
+\find{the force on each side, then the direction of turning}
+\formula{the right-hand palm rule: fingers along $B$, thumb along $I$, and the palm
+  pushes in the direction of $F$}
+\substitute{Left side: fingers to the right, thumb into the page. The palm faces down,
+  so the force on the left side points \emph{down}.\par
+  Right side: fingers to the right, thumb out of the page. The palm faces up, so the
+  force on the right side points \emph{up}.\par
+  The left side is pushed down and the right side is pushed up, so the coil turns
+  anticlockwise.}
+\answer{left side \final{down}, right side \final{up}; the coil turns
+  \final{anticlockwise}, seen from the commutator end.}
+\checkstep{in \cref{ch5:fig:endon}(a) the currents flow the other way round, and that
+  coil turns clockwise. Reversing the current reverses both forces \cmark.}
+\end{workedexample}
+
+\subsection{The simple DC motor}
+\textbf{A coil on its own will not keep spinning.} Start the coil in position (a) of
+\cref{ch5:fig:endon}. The torque turns it to position (c), where the torque is zero.
+The coil is moving, so it swings a little past (c). Now the forces turn it
+\emph{back}. So the coil rocks back and forth, then stops in position (c). To keep it
+turning one way, the current must reverse each time the coil passes position (c).
+
+\Cref{ch5:fig:motor} shows a simple \term{DC motor}: a device that changes electrical
+energy from a DC supply into rotational kinetic energy. \Cref{ch5:tab:parts} gives the
+job of each part.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x={(1cm,0cm)}, y={(0cm,1cm)}, z={(0.42cm,0.30cm)}]
+    \def\mz{2.8}
+    % N magnet (left)
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!28] (-2.6,-1,0) -- (-2.6,-1,\mz) -- (-2.6,1,\mz) -- (-2.6,1,0) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!14] (-3.7,1,0) -- (-2.6,1,0) -- (-2.6,1,\mz) -- (-3.7,1,\mz) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!22] (-3.7,-1,0) -- (-2.6,-1,0) -- (-2.6,1,0) -- (-3.7,1,0) -- cycle;
+    \node[font=\bfseries] at (-3.15,0,0) {N};
+    % field lines
+    \draw[field] (-2.6,0.62,1.4) -- (2.6,0.62,1.4);
+    \draw[field] (-2.6,-0.92,0.25) -- (2.6,-0.92,0.25); % low and near the front: misses the commutator
+    % S magnet (right)
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!14] (2.6,1,0) -- (3.7,1,0) -- (3.7,1,\mz) -- (2.6,1,\mz) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!28] (3.7,-1,0) -- (3.7,-1,\mz) -- (3.7,1,\mz) -- (3.7,1,0) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!22] (2.6,-1,0) -- (3.7,-1,0) -- (3.7,1,0) -- (2.6,1,0) -- cycle;
+    \node[font=\bfseries] at (3.15,0,0) {S};
+    % axle
+    \draw[hscmuted, line width=0.9pt, dashed] (0,0,-1.9) -- (0,0,3.4);
+    % coil: current enters the right side (into the page), leaves by the left side
+    \draw[chfiveWire, midarrow] (1.4,0,0.3) -- (1.4,0,2.3);
+    \draw[chfiveWire, midarrow] (1.4,0,2.3) -- (-1.4,0,2.3);
+    \draw[chfiveWire, midarrow] (-1.4,0,2.3) -- (-1.4,0,0.3);
+    \draw[chfiveWire] (1.4,0,0.3) -- (0.12,0,0.3) -- (0.12,0,-0.9);
+    \draw[chfiveWire] (-1.4,0,0.3) -- (-0.12,0,0.3) -- (-0.12,0,-0.9);
+    \node[font=\footnotesize, text=hscink] at (1.75,-0.2,1.6) {$I$};
+    \node[font=\footnotesize, text=hscink] at (-1.62,0.25,1.6) {$I$};
+    % forces
+    \draw[force] (1.4,-0.08,1.3) -- (1.4,-1.0,1.3) node[right, text=hscforce, font=\footnotesize] {$F$};
+    \draw[force] (-1.4,0.08,1.3) -- (-1.4,1.0,1.3) node[left, text=hscforce, font=\footnotesize] {$F$};
+    \node[font=\footnotesize, text=hscfield] at (2.0,0.85,1.4) {$B$};
+    % commutator and brushes at z = -0.9
+    \begin{scope}[shift={(0,0,-0.9)}]
+      \fill[white] (0,0) circle (0.36);
+      \draw[hscseriesB, line width=3pt] (100:0.27) arc (100:260:0.27);
+      \draw[hscseriesA, line width=3pt] (-80:0.27) arc (-80:80:0.27);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.78,-0.09) rectangle (-0.34,0.09);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (0.34,-0.09) rectangle (0.78,0.09);
+      \draw[hscink, line width=0.8pt] (-0.78,0) -- (-1.5,0) -- (-1.5,-2.0) -- (-0.36,-2.0);
+      \draw[hscink, line width=0.8pt] (0.78,0) -- (1.5,0) -- (1.5,-2.0) -- (0.0,-2.0);
+      \draw[hscink, line width=1.6pt] (-0.36,-2.14) -- (-0.36,-1.86);
+      \draw[hscink, line width=0.9pt] (0,-2.3) -- (0,-1.7);
+      \node[font=\footnotesize] at (0.22,-1.65) {$+$};
+      \node[font=\footnotesize] at (-0.58,-1.65) {$-$};
+      \node[diagramlabel, anchor=north] at (-0.18,-2.35) {DC supply};
+      \draw[hscmuted, line width=0.4pt] (-0.24,-0.22) -- (-1.75,-0.95) node[anchor=north east, diagramlabel, inner sep=1pt, align=right] {split-ring\\commutator};
+      \draw[hscmuted, line width=0.4pt] (0.65,-0.09) -- (1.75,-0.95) node[anchor=north west, diagramlabel, inner sep=1pt] {brush};
+    \end{scope}
+    \draw[hscmuted, line width=0.4pt] (0,0,3.4) -- ++(0.6,0.5) node[anchor=south west, diagramlabel, inner sep=1pt] {axle};
+    \draw[hscmuted, line width=0.4pt] (-0.4,0,2.3) -- ++(-0.2,1.05) node[anchor=south, diagramlabel, inner sep=1pt] {coil (rotor)};
+    \node[diagramlabel, anchor=south] at (-3.15,1,2.9) {magnet (stator)};
+  \end{tikzpicture}
+  \caption{A simple DC motor. The current flows into the page along the right side and
+    out of the page along the left side. The coil turns clockwise, as seen from the
+    commutator end.}\label{ch5:fig:motor}
+\end{figure}
+
+\begin{table}
+  \caption{The parts of a simple DC motor and their jobs.}\label{ch5:tab:parts}
+  \centering
+  \small
+  \begin{tabular}{@{}L{36mm}L{102mm}@{}}
+    \toprule
+    \colhead{Part} & \colhead{Its job}\\
+    \midrule
+    Stator (field magnets) & permanent magnets or electromagnets that do not move. They
+      make the magnetic field.\\
+    Rotor (armature) & a coil of many turns on a soft-iron core, fixed to the axle. It
+      carries the current, and the forces on it make the torque. The iron makes the
+      field stronger.\\
+    Axle & turns with the rotor and drives the load (a fan, a wheel, a drill bit).\\
+    Split-ring commutator & two insulated half-rings, each joined to one end of the
+      coil. It reverses the current in the coil every half turn, so the torque always
+      turns the coil the same way.\\
+    Brushes & fixed carbon (graphite) blocks that press on the commutator. They keep the
+      spinning coil connected to the fixed circuit.\\
+    DC power supply & a battery or power pack. It gives a current that flows one way.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{How the commutator works} (\cref{ch5:fig:commutator}). Each half-ring is joined
+to one end of the coil and turns with it. The brushes stay still. Every half turn, each
+half-ring moves from one brush to the other. So each end of the coil swaps between the
+$+$ and $-$ terminals. The swap happens when the plane of the coil is perpendicular to
+$B$. For an instant the brushes touch the gaps, and no current flows. The coil keeps
+going because of its \term{rotational inertia}: the tendency of a spinning object to
+keep spinning.
+
+\textbf{The dead spot.} A motor with only one coil has a problem. If it stops with its
+plane perpendicular to $B$, the torque is zero, so it cannot start by itself. You must
+give it a push. With many coils, at least one coil always has a torque, so the motor
+starts by itself.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % (a) start
+    \begin{scope}
+      \pic {chfivePoles};
+      \draw[->, hscmuted, line width=0.8pt] (125:1.45) arc (125:55:1.45);
+      \draw[hscink, line width=2.2pt] (180:1.0) -- (0:1.0);
+      \fill[white] (0,0) circle (0.36);
+      \draw[hscseriesB, line width=2.6pt] (100:0.22) arc (100:260:0.22);
+      \draw[hscseriesA, line width=2.6pt] (-80:0.22) arc (-80:80:0.22);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.5,-0.06) rectangle (-0.26,0.06);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (0.26,-0.06) rectangle (0.5,0.06);
+      \node[font=\scriptsize] at (0.38,0.2) {$+$};
+      \node[font=\scriptsize] at (-0.38,0.2) {$-$};
+      \pic at (180:1.0) {chfiveOut};
+      \draw[hscseriesB, line width=1.2pt] (180:1.0) circle (0.19);
+      \pic at (0:1.0) {chfiveIn};
+      \draw[hscseriesA, line width=1.2pt] (0:1.0) circle (0.19);
+      \node[font=\footnotesize, text=hscseriesB] at (-1.0,-0.42) {X};
+      \node[font=\footnotesize, text=hscseriesA] at (1.0,0.42) {Y};
+      \draw[force] ($(180:1.0)+(0,0.2)$) -- ++(0,0.6);
+      \draw[force] ($(0:1.0)+(0,-0.2)$) -- ++(0,-0.6);
+      \node[font=\footnotesize, text width=4.5cm, align=center, anchor=north] at (0,-1.35)
+        {(a) X is joined to $-$ through its half-ring: current out of the page in X.};
+    \end{scope}
+    % (b) switching moment
+    \begin{scope}[xshift=4.75cm]
+      \pic {chfivePoles};
+      \draw[->, hscmuted, line width=0.8pt] (125:1.45) arc (125:55:1.45);
+      \draw[hscink, line width=2.2pt] (90:1.0) -- (-90:1.0);
+      \fill[white] (0,0) circle (0.36);
+      \draw[hscseriesB, line width=2.6pt] (10:0.22) arc (10:170:0.22);
+      \draw[hscseriesA, line width=2.6pt] (190:0.22) arc (190:350:0.22);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.5,-0.06) rectangle (-0.26,0.06);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (0.26,-0.06) rectangle (0.5,0.06);
+      \filldraw[fill=white, draw=hscseriesB, line width=1.2pt] (90:1.0) circle (0.19);
+      \filldraw[fill=white, draw=hscseriesA, line width=1.2pt] (-90:1.0) circle (0.19);
+      \node[font=\footnotesize, text=hscseriesB] at (0.42,1.0) {X};
+      \node[font=\footnotesize, text=hscseriesA] at (0.42,-1.0) {Y};
+      \node[font=\footnotesize, text width=4.5cm, align=center, anchor=north] at (0,-1.35)
+        {(b) The gaps pass the brushes: no current, no torque. The coil keeps moving.};
+    \end{scope}
+    % (c) half a turn later
+    \begin{scope}[xshift=9.5cm]
+      \pic {chfivePoles};
+      \draw[->, hscmuted, line width=0.8pt] (125:1.45) arc (125:55:1.45);
+      \draw[hscink, line width=2.2pt] (180:1.0) -- (0:1.0);
+      \fill[white] (0,0) circle (0.36);
+      \draw[hscseriesB, line width=2.6pt] (-80:0.22) arc (-80:80:0.22);
+      \draw[hscseriesA, line width=2.6pt] (100:0.22) arc (100:260:0.22);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.5,-0.06) rectangle (-0.26,0.06);
+      \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (0.26,-0.06) rectangle (0.5,0.06);
+      \node[font=\scriptsize] at (0.38,0.2) {$+$};
+      \node[font=\scriptsize] at (-0.38,0.2) {$-$};
+      \pic at (0:1.0) {chfiveIn};
+      \draw[hscseriesB, line width=1.2pt] (0:1.0) circle (0.19);
+      \pic at (180:1.0) {chfiveOut};
+      \draw[hscseriesA, line width=1.2pt] (180:1.0) circle (0.19);
+      \node[font=\footnotesize, text=hscseriesB] at (1.0,0.42) {X};
+      \node[font=\footnotesize, text=hscseriesA] at (-1.0,-0.42) {Y};
+      \draw[force] ($(180:1.0)+(0,0.2)$) -- ++(0,0.6);
+      \draw[force] ($(0:1.0)+(0,-0.2)$) -- ++(0,-0.6);
+      \node[font=\footnotesize, text width=4.5cm, align=center, anchor=north] at (0,-1.35)
+        {(c) X is now joined to $+$, so its current has reversed. The torque is still
+         clockwise.};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{The commutator seen end-on (it is in front of the coil). Each half-ring has
+    the colour of the coil side it is joined to. The right brush is joined to the $+$
+    terminal. Current flows from the $+$ brush, round the coil, to the $-$ brush. The
+    commutator is at the front (towards you), so current leaving the coil through X
+    flows towards you: out of the page.}\label{ch5:fig:commutator}
+\end{figure}
+
+\textbf{Torque during a turn.} \Cref{ch5:fig:torquegraph} shows the torque on one coil
+turning at a steady rate. Without a commutator the torque changes direction (a). With a
+split ring it always acts the same way, but it drops to zero twice in every turn (b).
+Real motors have many coils at different angles. Each coil has its own pair of
+commutator segments (pieces of the split ring). Their torques add up to a smooth torque
+that is never zero.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, name=ta, scale only axis, width=10.4cm, height=1.3cm,
+        xmin=0, xmax=720, ymin=-1.3, ymax=1.3, xtick={0,90,...,720}, xticklabels={},
+        ytick={-1,0,1}, yticklabels={$-\tau_\mathrm{max}$,0,$\tau_\mathrm{max}$}]
+      \addplot[hscseriesA, domain=0:720, samples=181] {cos(x)};
+      \node[anchor=west, font=\footnotesize] at (axis cs:735,0.0) {(a) no commutator};
+      \pgfplotsinvokeforeach{90,270,450,630}{\draw[guide] (axis cs:#1,-1.3) -- (axis cs:#1,1.3);}
+      \node[anchor=south, font=\scriptsize, text=hscmuted] at (axis cs:90,1.3) {plane $\perp B$};
+      \node[anchor=south, font=\scriptsize, text=hscmuted] at (axis cs:270,1.3) {plane $\perp B$};
+    \end{axis}
+    \begin{axis}[hsc, name=tb, at={(ta.south west)}, anchor=north west, yshift=-0.3cm,
+        scale only axis, width=10.4cm, height=1.1cm,
+        xmin=0, xmax=720, ymin=-0.2, ymax=1.3, xtick={0,90,...,720}, xticklabels={},
+        ytick={0,1}, yticklabels={0,$\tau_\mathrm{max}$}]
+      \addplot[hscseriesB, dashed, domain=0:720, samples=181] {abs(cos(x))};
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:735,0.55) {(b) split ring,\\ uniform field};
+    \end{axis}
+    \begin{axis}[hsc, name=tc, at={(tb.south west)}, anchor=north west, yshift=-0.3cm,
+        scale only axis, width=10.4cm, height=1.1cm,
+        xmin=0, xmax=720, ymin=-0.2, ymax=1.3, xtick={0,90,...,720},
+        ytick={0,1}, yticklabels={0,$\tau_\mathrm{max}$},
+        xlabel={angle turned (degrees), starting with the plane of the coil parallel to $B$}]
+      \addplot[hscseriesC, domain=0:720, samples=721, line width=1.2pt] {min(1, abs(cos(x))/0.12)};
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:735,0.55) {(c) split ring,\\ radial field};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Torque on a single coil turned at a steady rate, with a constant current.
+    (For (a), imagine the coil is turned by hand.) $\tau_\mathrm{max} = nIAB$ in all
+    three graphs.}\label{ch5:fig:torquegraph}
+\end{figure}
+
+\begin{sidebyside}[0.40]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \filldraw[fill=hscforce!18, draw=hscink, line width=0.5pt]
+      (-2.6,0.996) -- (-1.187,0.996) arc (140:220:1.55) -- (-2.6,-0.996) -- cycle;
+    \filldraw[fill=hscvel!18, draw=hscink, line width=0.5pt]
+      (2.6,0.996) -- (1.187,0.996) arc (40:-40:1.55) -- (2.6,-0.996) -- cycle;
+    \node[font=\bfseries] at (-2.1,0) {N};
+    \node[font=\bfseries] at (2.1,0) {S};
+    \filldraw[fill=hscmuted!22, draw=hscink, line width=0.5pt] (0,0) circle (0.9);
+    \node[font=\footnotesize, align=center] at (0,0) {soft-iron\\core};
+    \foreach \a in {145,160,175,190,205,215} \draw[field] (\a:1.55) -- (\a:0.9);
+    \foreach \a in {-35,-20,-5,10,25,35} \draw[field] (\a:0.9) -- (\a:1.55);
+    \pic at (150:1.22) {chfiveOut};
+    \pic at (-30:1.22) {chfiveIn};
+    \draw[force] ($(150:1.22)+(60:0.18)$) -- ++(60:0.7) node[above, text=hscforce, font=\footnotesize] {$F$};
+    \draw[force] ($(-30:1.22)+(240:0.18)$) -- ++(240:0.7) node[below, text=hscforce, font=\footnotesize] {$F$};
+    \node[diagramlabel, font=\footnotesize, anchor=north] (pp) at (-1.85,-1.08) {curved pole piece};
+    \draw[hscmuted, line width=0.4pt] (-1.62,-1.05) -- (205:1.55);
+  \end{tikzpicture}
+  \captionof{figure}{A radial field. Each side of the coil always moves at \ang{90} to
+    the field lines.}\label{ch5:fig:radial}
+\nextside
+  \textbf{Radial fields.} Many motors use curved \term{pole pieces} (the shaped ends
+  of the magnets) and a soft-iron core in the middle (\cref{ch5:fig:radial}). Together
+  they make a \term{radial magnetic field}: a field whose lines point straight out from
+  the centre, like the spokes of a wheel. At each side of the coil, the field lies along
+  the plane of the coil. So the field is at \ang{90} to the normal: $\theta = \ang{90}$
+  in every position. The torque stays at its maximum, $nIAB$, for almost the whole turn
+  (\cref{ch5:fig:torquegraph}(c)).
+\end{sidebyside}
+The maximum torque in a radial field is \emph{not} bigger, but the average torque is. So
+the motor runs more smoothly and speeds up more quickly.
+
+\begin{workedexample}{A tilted coil, then a radial field}\label{ch5:we:tilted}
+A circular coil of radius \qty{2.0}{cm} has 50 turns and carries \qty{1.5}{A} in a
+\qty{0.40}{T} field. (a) The field is uniform and the plane of the coil makes \ang{35}
+with it. Calculate the torque. (b) A radial-field motor has a rectangular coil with the
+same area, number of turns and current. Its radial field has the same strength.
+Calculate its torque.
+\given{$n = 50$, \ $r = \qty{2.0}{cm} = 2.0 \times \qty{e-2}{m} = \qty{0.020}{m}$,
+  \ $I = \qty{1.5}{A}$, \ $B = \qty{0.40}{T}$.
+  Area: $A = \pi r^2 = \pi \times 0.020^2 = \qty{1.257e-3}{m^2}$.
+  (a) plane at \ang{35} to $B$, so $\theta = \ang{90} - \ang{35} = \ang{55}$.
+  (b) radial field: $\theta = \ang{90}$.}
+\find{the torque $\tau$ in each case}
+\formula{$\tau = nIAB\sin\theta$}
+\substitute{\eqlines{nIAB &= 50 \times \qty{1.5}{A} \times \qty{1.257e-3}{m^2}
+  \times \qty{0.40}{T} = \qty{0.0377}{N.m}\\
+  \text{(a)}\ \tau &= \qty{0.0377}{N.m} \times \sin\ang{55} = 0.0377 \times 0.819
+  = \qty{0.0309}{N.m}\\
+  \text{(b)}\ \tau &= \qty{0.0377}{N.m} \times \sin\ang{90} = \qty{0.0377}{N.m}}}
+\answer{(a) \final{$\tau = \qty{3.1e-2}{N.m}$} \quad
+  (b) \final{$\tau = \qty{3.8e-2}{N.m}$} in every position}
+\checkstep{(a) is less than (b) \cmark. Using $\sin\ang{35}$ by mistake gives
+  \qty{2.2e-2}{N.m}.}
+\end{workedexample}
+
+\begin{toolkit}{Proportional reasoning}
+``$y \propto x$'' ($y$ is proportional to $x$) means $y$ doubles when $x$ doubles:
+$y_2 = y_1 \times \dfrac{x_2}{x_1}$. If $y \propto ab$, then
+$\dfrac{y_2}{y_1} = \dfrac{a_2}{a_1} \times \dfrac{b_2}{b_1}$. Example: $\tau \propto IB$.
+Making $I$ 3 times larger and $B$ 2 times larger makes $\tau$ $3 \times 2 = 6$ times larger.
+\end{toolkit}
+
+\textbf{Only one side in the field.} Some HSC questions show a loop that turns about a
+\term{pivot}: the fixed line it turns around. Only the far side of the loop is in the
+field (\cref{ch5:fig:oneside}). Then $\tau = nIAB\sin\theta$ does not apply. Find the
+force on that one side with $F = lIB\sin\theta$, then use $\tau = r_\perp F$.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[hscfield!8] (3.65,-1.0) rectangle (5.35,1.0);
+    \foreach \yy in {-0.72,0.72} \draw[->, hscfield, line width=0.8pt] (3.7,\yy) -- (5.3,\yy);
+    \node[font=\footnotesize, text=hscfield, anchor=south] at (4.5,1.0) {field $B$};
+    \draw[hscink, line width=0.6pt, fill=hscmuted!30] (0,0) -- (-0.22,-0.42) -- (0.22,-0.42) -- cycle;
+    \fill[ground] (-0.45,-0.57) rectangle (0.45,-0.42);
+    \draw[hscink, line width=0.6pt] (-0.45,-0.42) -- (0.45,-0.42);
+    \node[diagramlabel, font=\footnotesize, anchor=east] at (-0.3,0.05) {pivot};
+    \draw[chfiveWire] (0,0) -- (4.5,0);
+    \fill[hscink] (0,0) circle (2pt);
+    \pic at (4.5,0) {chfiveIn};
+    \draw[force] (4.5,-0.18) -- (4.5,-1.15) node[below, text=hscforce, font=\footnotesize] {$F$};
+    \draw[<->, hscacc, line width=0.7pt] (0,0.32) -- (4.5,0.32)
+      node[pos=0.4, above, font=\footnotesize, text=hscacc] {$r_\perp$};
+    \node[diagramlabel, font=\footnotesize, anchor=north, align=center] at (2.1,-0.1) {the loop,\\seen edge-on};
+    \node[diagramlabel, font=\footnotesize, anchor=west, align=left] at (5.45,0)
+      {far side of the loop\\(current into the page)};
+  \end{tikzpicture}
+  \caption{A loop that turns about a pivot, seen from the side (looking along the pivot).
+    Only the far side is in the field. The long sides are parallel to $B$, so they feel
+    no force.}\label{ch5:fig:oneside}
+\end{figure}
+
+\begin{workedexample}{Only one side in the field}\label{ch5:we:oneside}
+A wire loop can turn about a pivot, as in \cref{ch5:fig:oneside}. Only its far side is
+inside a \qty{0.080}{T} field, at \ang{90} to the field. That side is \qty{6.0}{cm} long,
+carries \qty{2.5}{A} and is \qty{12}{cm} from the pivot. The force on it is at \ang{90} to
+the line from the pivot. (a) Calculate the torque. (b) The current is halved. How must
+$B$ change to keep the same torque?
+\given{$l = \qty{6.0}{cm} = \qty{0.060}{m}$, \ $I = \qty{2.5}{A}$, \ $B = \qty{0.080}{T}$,
+  \ $\theta = \ang{90}$, \ $r_\perp = \qty{12}{cm} = \qty{0.12}{m}$}
+\find{(a) $\tau$; \ (b) the new $B$}
+\formula{$F = lIB\sin\theta$ (one side only), then $\tau = r_\perp F$}
+\substitute{\eqlines{F &= \qty{0.060}{m} \times \qty{2.5}{A} \times \qty{0.080}{T}
+    \times \sin\ang{90} && \text{force on the far side}\\
+  &= \qty{0.012}{N}\\
+  \tau &= \qty{0.12}{m} \times \qty{0.012}{N} = \qty{1.44e-3}{N.m}
+    && \text{force $\times$ lever arm}\\
+  \text{(b)}\ \tau &= r_\perp lIB\text{, so } \tau \propto IB
+    && \text{$r_\perp$ and $l$ stay the same}}}
+\answer{(a) \final{$\tau = \qty{1.4e-3}{N.m}$} \quad (b) $I \times \tfrac{1}{2}$ needs
+  $B \times 2$: \final{double $B$ to \qty{0.16}{T}}}
+\checkstep{$\tfrac{1}{2} \times 2 = 1$, so the product $IB$, and the torque, stay the
+  same \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Taking $\theta$ from the plane of the coil. \cmark\ $\theta$ is between
+        $B$ and the normal. Plane parallel to $B$ means $\theta = \ang{90}$.
+  \item \xmark\ Forgetting $n$, or using $\qty{1}{cm^2} = \qty{e-2}{m^2}$. \cmark\ Use $n$, and
+        $\qty{1}{cm^2} = \qty{e-4}{m^2}$.
+  \item \xmark\ ``The current reverses when the plane of the coil is parallel to the
+        field.'' \cmark\ It reverses when the plane is \emph{perpendicular} to the field.
+  \item \xmark\ ``A radial field increases the maximum torque.'' \cmark\ The maximum is
+        the same. It lasts for longer.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Calculate the torque'' (2 marks): write $\tau = nIAB\sin\theta$, put $A$ in
+        \si{m^2}, and give \si{N.m}. If only one side is in the field, use $F = lIB$,
+        then $\tau = r_\perp F$.
+  \item ``Explain why a split-ring commutator is needed'' (3--4 marks). Without it,
+        the torque reverses each time the plane passes the position perpendicular to
+        $B$, so the coil rocks and stops. The split ring reverses the current every half
+        turn there, so the torque always acts the same way.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A square coil (side \qty{2.5}{cm}, 200 turns, \qty{0.50}{A}) is in a
+        \qty{0.30}{T} field. Find the torque (a) at its maximum, (b) when its plane
+        makes \ang{60} with the field.
+  \item In \cref{ch5:we:whichway}, the supply is connected the other way round.
+        (a) Which way does the coil turn now? (b) The magnets are then swapped as well
+        (N on the right). Which way does it turn? Explain each answer.
+  \item A wire loop can turn about a pivot, as in \cref{ch5:fig:oneside}. Only one side
+        of the loop is in a \qty{0.050}{T} field, at \ang{90} to the field. That side is
+        \qty{4.0}{cm} long, carries \qty{3.0}{A} and is \qty{15}{cm} from the pivot. The
+        force on it is at \ang{90} to the line from the pivot. (a) Find the torque.
+        (b) The current is made 4 times larger. How must $B$ change so that the torque is
+        only 2 times larger?
+  \item Name the part of a DC motor that (a) reverses the current every half turn,
+        (b) keeps the contact with the spinning coil, (c) makes the field.
+  \item A coil with no commutator is released with its plane parallel to the field.
+        Describe and explain its motion.
+\end{quickcheck}
+
+%% ------------------------------------------------------------------
+\section{Back emf, maximum speed and energy}\label{ch5:sec:backemf}
+\covers{M6.IQ4.01, M6.IQ4.03}
+
+\begin{bigidea}
+A spinning motor coil is also a generator. Its induced emf, the back emf, opposes the
+supply. Back emf explains the large current at start-up, the motor's maximum speed,
+and how the motor turns electrical energy into kinetic energy.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Back emf ($\varepsilon_\mathrm{back}$)}{the emf induced in a spinning motor coil.
+    It opposes the supply emf.}
+  \kw{Net emf}{supply emf minus back emf. It pushes the current through the coil.}
+  \kw{Load}{whatever the motor drives (fan blades, a drill bit). It resists the turning.}
+\end{keywords}
+
+\begin{refresher}{Flux, Faraday's law and Lenz's law (\cref{ch3:chap})}
+Flux through a coil: $\Phi = BA\cos\theta$ (unit \si{Wb}). Faraday's law: a changing
+flux induces an emf, $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$. A faster change
+gives a bigger emf. Lenz's law: the induced emf opposes the change that produced it
+(the minus sign).
+\end{refresher}
+
+When a motor coil spins, the flux through it keeps changing. So, by Faraday's law, an
+emf is induced in the coil. By Lenz's law, this emf opposes the change that caused it:
+the rotation driven by the supply. So it acts against the supply. It is called the
+\term{back emf} ($\varepsilon_\mathrm{back}$): the emf induced in a spinning motor coil.
+Every motor has one, AC or DC. The faster the coil spins, the faster the flux changes.
+So the back emf is proportional to the speed: double the speed, double the back emf.
+
+\begin{refresher}{Ohm's law and power (Year 11, and \cref{ch4:chap})}
+$V = IR$: the voltage across a resistor equals current $\times$ resistance. $P = VI$: the
+power (energy each second) from a supply. Put $V = IR$ into $P = VI$:
+$P = I \times IR = I^2R$. This is the heating power in a resistance $R$.
+\end{refresher}
+
+\begin{sidebyside}[0.48]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscink, line width=0.8pt] (0,0) -- (0,0.88);
+    \draw[hscink, line width=0.8pt] (0,1.12) -- (0,2) -- (1.3,2);
+    \draw[hscink, line width=0.8pt] (2.5,2) -- (3.6,2) -- (3.6,1.12);
+    \draw[hscink, line width=0.8pt] (3.6,0.88) -- (3.6,0) -- (0,0);
+    \draw[hscink, line width=1.6pt] (-0.12,0.88) -- (0.12,0.88);
+    \draw[hscink, line width=0.9pt] (-0.28,1.12) -- (0.28,1.12);
+    \node[font=\scriptsize] at (-0.42,1.25) {$+$};
+    \node[diagramlabel, anchor=east, align=right] at (-0.4,0.75) {supply\\$V$};
+    \draw[hscink, line width=1.6pt] (3.48,0.88) -- (3.72,0.88);
+    \draw[hscink, line width=0.9pt] (3.32,1.12) -- (3.88,1.12);
+    \node[font=\scriptsize] at (4.02,1.25) {$+$};
+    \node[diagramlabel, anchor=west] at (3.9,0.8) {$\varepsilon_\mathrm{back}$};
+    \filldraw[fill=white, draw=hscink, line width=0.8pt] (1.3,1.84) rectangle (2.5,2.16);
+    \node[diagramlabel, above] at (1.9,2.16) {$R$};
+    \draw[->, hscink, line width=0.8pt] (0.25,2.3) -- (1.05,2.3) node[midway, above, font=\footnotesize] {$I$};
+    \draw[hscmuted, dashed, line width=0.6pt] (1.1,0.3) rectangle (4.6,2.75);
+    \node[diagramlabel, text=hscmuted, font=\footnotesize] at (2.4,0.55) {the motor coil};
+  \end{tikzpicture}
+  \captionof{figure}{A model of a running motor. The back emf faces the opposite way
+    to the supply.}\label{ch5:fig:circuit}
+\nextside
+  In \cref{ch5:fig:circuit} the coil acts like a resistor $R$ (its wire) joined to a
+  ``battery'' that faces the wrong way.
+  \begin{itemize}
+    \item The \term{net emf}, $V - \varepsilon_\mathrm{back}$, is what pushes the
+          current. So $I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$.
+    \item The supply voltage $V$ stays the same. The back emf changes with speed.
+  \end{itemize}
+\end{sidebyside}
+
+\subsection{From switch-on to maximum speed}
+\Cref{ch5:fig:startup} shows what happens after switch-on.
+\begin{enumerate}
+  \item At switch-on the coil is still, so $\varepsilon_\mathrm{back} = 0$ and
+        $I = \dfrac{V}{R}$. The resistance is small, so the current and torque are large.
+  \item As the motor speeds up, the back emf grows. The current and torque fall. The
+        motor still speeds up, but more slowly.
+  \item The motor stops speeding up when its torque just balances friction and the
+        load. This is its \term{maximum speed} (the top speed it settles at). In a real
+        motor the back emf is then a little less than $V$, and a small current still
+        flows. In an ideal motor (no friction, no load), the back emf would almost equal
+        $V$. The current would then be almost zero.
+\end{enumerate}
+You may have seen this at home. When a vacuum cleaner or a fridge starts, the lights
+can dim for a moment. The motor draws a large current until it speeds up and its back
+emf grows.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, name=g1, scale only axis, width=5.1cm, height=2.6cm,
+        xmin=0, xmax=5, ymin=0, ymax=1.25, xtick=\empty, ytick={0,1},
+        yticklabels={0,$V$}, xlabel={time from switch-on}, ylabel={emf}]
+      \addplot[hscmuted, dashed, domain=0:5, samples=2] {1};
+      \addplot[hscseriesA, domain=0:5, samples=100] {0.9*(1-exp(-x))};
+      \node[anchor=south, font=\footnotesize, text=hscmuted] at (axis cs:3.2,1.0) {supply emf $V$};
+      \node[anchor=north west, font=\footnotesize, text=hscseriesA, align=left] at (axis cs:1.75,0.68)
+        {back emf $\varepsilon_\mathrm{back}$ (same\\shape as the speed)};
+    \end{axis}
+    \begin{axis}[hsc, name=g2, at={(g1.south east)}, anchor=south west, xshift=1.9cm,
+        scale only axis, width=5.1cm, height=2.6cm,
+        xmin=0, xmax=5, ymin=0, ymax=1.25, xtick=\empty, ytick={0,1},
+        yticklabels={0,$\dfrac{V}{R}$}, xlabel={time from switch-on}, ylabel={current}]
+      \addplot[hscseriesB, domain=0:5, samples=100] {0.1+0.9*exp(-x)};
+      \addplot[hscseriesC, densely dotted, line width=1.2pt, domain=0:5, samples=100] {exp(-x)};
+      \node[anchor=south west, font=\footnotesize, text=hscseriesB] at (axis cs:2.4,0.2) {real motor};
+      \node[anchor=south west, font=\scriptsize, text=hscseriesC, align=left, inner sep=1pt] (idl) at (axis cs:0.12,0.03) {ideal\\motor};
+      \draw[hscseriesC, line width=0.4pt] (idl.north east) -- (axis cs:0.95,0.39);
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:0.35,0.95)
+        {largest at switch-on;\\ torque has the same shape};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{A DC motor after switch-on. Left: the back emf rises and levels off just below
+    the supply emf. Right: the current falls and levels off. A real motor keeps a small
+    current to overcome friction.}\label{ch5:fig:startup}
+\end{figure}
+
+\textbf{Loads and stalls.} A bigger \term{load} (whatever the motor drives) slows the
+motor. The back emf falls, so the current rises. The torque rises until it balances the
+load at a lower speed. If the motor jams, it \term{stalls}: it is switched on but cannot
+turn. The back emf is zero, so the current is $\dfrac{V}{R}$, which is large. The coil
+overheats. The insulation (the thin coat of enamel or plastic on the wire) can melt,
+and the motor ``burns out''. A \term{starting resistor} is a variable resistor in series
+with the motor. It limits the start-up current. Its resistance is reduced as the motor
+speeds up.
+
+\textbf{Torque and speed.} In a radial field, $\tau = nIAB$, so the torque is
+proportional to the current. The back emf is proportional to the speed. So each equal
+step up in speed adds the same amount of back emf. It lowers the current
+$I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$, and the torque, by the same amount each
+time. So a graph of torque against speed is a straight line sloping down. The torque is
+largest at zero speed (switch-on).
+
+\subsection{Energy in a DC motor, and why Lenz's law must be true}
+\covers{M6.IQ4.03}
+The \term{law of conservation of energy} says that energy cannot be made or destroyed;
+it only changes form. In a motor, electrical energy from the supply ($P = VI$) becomes
+mechanical energy. This is the kinetic energy of the rotor and the work done on the
+load. Some energy is wasted. It becomes heat in the coil ($I^2R$). It also becomes heat and sound from
+friction in the \term{bearings} (the parts that hold the spinning axle) and the brushes.
+
+Power in is $VI$. The coil wastes $I^2R$ as heat. By conservation of energy, the rest,
+$VI - I^2R$, must become mechanical energy. The formula card below shows that this rest
+equals $\varepsilon_\mathrm{back}I$. So back emf is not a fault: it is how the motor
+does work. A stalled motor has no back emf, so all of its input energy becomes heat.
+
+\textbf{Lenz's law and energy.} Imagine the induced emf \emph{helped} the supply. Then a
+faster coil would get a bigger current and a bigger torque. So it would spin faster
+still, with no limit. Its kinetic energy and the heat in the coil would both keep
+growing. Together they would be more than the energy the supply gives. Energy would be
+made from nothing. That breaks the law of conservation of energy. So the induced emf
+must oppose the supply: Lenz's law is conservation of energy applied to induction.
+
+\begin{formulacard}[notonsheet]{Current and power in a running motor}
+  \cardformula{I = \frac{V - \varepsilon_\mathrm{back}}{R}}
+  \begin{symbols}
+    \sym{$I$}{current in the motor coil}{\si{A}}
+    \sym{$V$}{supply emf (supply voltage)}{\si{V}}
+    \sym{$\varepsilon_\mathrm{back}$}{back emf induced in the spinning coil}{\si{V}}
+    \sym{$R$}{resistance of the coil}{\si{\ohm}}
+  \end{symbols}
+  \inwords{the current is set by the net emf (supply minus back emf), not by the supply
+    alone.}
+  \whentouse{a DC motor that is running, speeding up or slowing down. At switch-on or
+    when stalled, $\varepsilon_\mathrm{back} = 0$.}
+  \whennottouse{a generator, where the induced emf is the only emf, so
+    $I = \dfrac{\varepsilon}{R}$. Never use $I = \dfrac{V}{R}$ for a running motor: it is
+    true only at switch-on or when the motor is stalled.}
+  \rearranged{$\varepsilon_\mathrm{back} = V - IR$ \qquad power:
+    $VI = \varepsilon_\mathrm{back}I + I^2R$ \quad (power in $=$ mechanical power
+    $+$ heating power)}
+  \tensecond{$V = \qty{6.0}{V}$, $\varepsilon_\mathrm{back} = \qty{4.0}{V}$,
+    $R = \qty{2.0}{\ohm}$: $I = \dfrac{6.0 - 4.0}{2.0} = \qty{1.0}{A}$. Power in
+    \qty{6.0}{W} $=$ \qty{4.0}{W} mechanical $+$ \qty{2.0}{W} heat.}
+  \derive{Ohm's law, $V = IR$ (on the sheet), applies to the coil's resistance. The
+    emf that pushes current through $R$ is the net emf.
+    \begin{align*}
+      V - \varepsilon_\mathrm{back} &= IR && \text{net emf $=$ current $\times$ resistance}\\
+      I &= \frac{V - \varepsilon_\mathrm{back}}{R} && \text{divide both sides by $R$}\\
+      VI &= \varepsilon_\mathrm{back}I + I^2R && \text{write $V = \varepsilon_\mathrm{back} + IR$, multiply by $I$}
+    \end{align*}}
+  \trap{the back emf is zero at switch-on, not at top speed. In a motor driven by its
+    supply, $\varepsilon_\mathrm{back}$ is less than $V$, so a negative current means a
+    mistake. (If an outside force spins it faster, $\varepsilon_\mathrm{back} > V$ and it
+    becomes a generator. See regenerative braking in \cref{ch5:sec:induction}.) In $I^2R$
+    use the actual current, not $\dfrac{V}{R}$.}
+\end{formulacard}
+
+\begin{workedexample}{Start-up, running and energy}\label{ch5:we:startup}
+A \qty{12.0}{V} DC motor has a coil resistance of \qty{1.5}{\ohm}.
+(a) Calculate the current at switch-on. (b) At full speed it draws \qty{0.80}{A}.
+Calculate the back emf. (c) At full speed, find the input power, the heating power and
+the mechanical power. Compare the heating with the heating at switch-on.
+\given{$V = \qty{12.0}{V}$, \ $R = \qty{1.5}{\ohm}$. At switch-on
+  $\varepsilon_\mathrm{back} = 0$. At full speed $I = \qty{0.80}{A}$.}
+\find{$I_\mathrm{start}$, \ $\varepsilon_\mathrm{back}$, \ $P_\mathrm{in}$,
+  $P_\mathrm{heat}$, $P_\mathrm{mech}$}
+\formula{$I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$ \ (so
+  $\varepsilon_\mathrm{back} = V - IR$), \quad $VI = \varepsilon_\mathrm{back}I + I^2R$}
+\substitute{\eqlines{I_\mathrm{start} &= \frac{\qty{12.0}{V} - 0}{\qty{1.5}{\ohm}}
+    = \qty{8.0}{A} && \text{(a) no back emf yet}\\
+  \varepsilon_\mathrm{back} &= \qty{12.0}{V} - \qty{0.80}{A} \times \qty{1.5}{\ohm}
+    = \qty{10.8}{V} && \text{(b) } \varepsilon_\mathrm{back} = V - IR}\par
+  \eqlines{P_\mathrm{in} &= \qty{12.0}{V} \times \qty{0.80}{A} = \qty{9.6}{W}
+    && \text{(c) power in, } VI\\
+  P_\mathrm{heat} &= (\qty{0.80}{A})^2 \times \qty{1.5}{\ohm} = \qty{0.96}{W}
+    && \text{heating in the coil, } I^2R\\
+  P_\mathrm{mech} &= \qty{10.8}{V} \times \qty{0.80}{A} = \qty{8.64}{W}
+    && \text{the rest, } \varepsilon_\mathrm{back}I\\
+  P_\mathrm{heat,\,start} &= (\qty{8.0}{A})^2 \times \qty{1.5}{\ohm} = \qty{96}{W}
+    && \text{at switch-on, all heat}}}
+\answer{(a) \final{\qty{8.0}{A}} \quad (b) \final{\qty{10.8}{V}} \quad
+  (c) \final{\qty{9.6}{W}, \qty{0.96}{W}, \qty{8.6}{W}}. At switch-on, all \qty{96}{W}
+  becomes heat: 100 times more heating.}
+\checkstep{$8.64 + 0.96 = \qty{9.60}{W}$, so energy is conserved \cmark. The back emf
+  is less than \qty{12.0}{V} \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{A motor under load}\label{ch5:we:load}
+A \qty{24.0}{V} motor with a radial field has a coil resistance of \qty{2.0}{\ohm}.
+With no load it spins at \qty{3000}{rpm} (revolutions per minute) with a back emf of
+\qty{22.0}{V}.
+(a) Calculate the current. (b) A load slows it to \qty{2400}{rpm}. Calculate the new
+current. (c) By what factor does the torque change?
+\given{$V = \qty{24.0}{V}$, \ $R = \qty{2.0}{\ohm}$, \ $\varepsilon_1 = \qty{22.0}{V}$
+  at \qty{3000}{rpm}, then \qty{2400}{rpm}. Back emf $\propto$ speed. Radial field:
+  $\tau = nIAB$, so $\tau \propto I$.}
+\find{$I_1$, \ $I_2$ and $\dfrac{\tau_2}{\tau_1}$}
+\formula{$I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$, \quad
+  $\varepsilon_2 = \varepsilon_1 \times \dfrac{\text{speed}_2}{\text{speed}_1}$, \quad
+  $\dfrac{\tau_2}{\tau_1} = \dfrac{I_2}{I_1}$}
+\substitute{\eqlines{I_1 &= \frac{\qty{24.0}{V} - \qty{22.0}{V}}{\qty{2.0}{\ohm}} = \qty{1.0}{A}
+    && \text{(a) net emf $\div$ resistance}\\
+  \varepsilon_2 &= \qty{22.0}{V} \times \frac{2400}{3000} = \qty{17.6}{V}
+    && \text{back emf $\propto$ speed}\\
+  I_2 &= \frac{\qty{24.0}{V} - \qty{17.6}{V}}{\qty{2.0}{\ohm}} = \qty{3.2}{A}
+    && \text{(b) new net emf $\div$ resistance}\\
+  \frac{\tau_2}{\tau_1} &= \frac{\qty{3.2}{A}}{\qty{1.0}{A}} = 3.2
+    && \text{(c) $\tau \propto I$ in a radial field}}}
+\answer{(a) \final{\qty{1.0}{A}} \quad (b) \final{\qty{3.2}{A}} \quad
+  (c) the torque becomes \final{3.2 times larger}}
+\checkstep{slower means less back emf, so more current and more torque to drive the
+  load \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Back emf comes from the resistance of the coil.'' \cmark\ It comes
+        from the changing flux in the spinning coil (Faraday). Lenz gives its direction.
+  \item \xmark\ ``The supply voltage falls as the motor speeds up.'' \cmark\ $V$ stays
+        the same; the \emph{net} emf falls.
+  \item \xmark\ Drawing the current falling to zero for a real motor.
+        \cmark\ It levels off above zero, because friction needs some torque.
+  \item \xmark\ ``More load means less current.'' \cmark\ More load means less speed,
+        less back emf and \emph{more} current.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why a motor can burn out if it jams'' (3 marks) is a chain, one mark per link.
+Do not skip the back emf link:
+\begin{enumerate}
+  \item The spinning coil has a changing flux, so a back emf is induced (Faraday). It
+        opposes the supply (Lenz). It is proportional to the speed.
+  \item When the motor jams, the back emf falls to zero. So $I = \dfrac{V}{R}$, which is
+        large.
+  \item The heating power $I^2R$ is very large, so the insulation melts.
+\end{enumerate}
+For a current--time sketch:
+\begin{itemize}
+  \item label both axes;
+  \item start at $\dfrac{V}{R}$;
+  \item draw a curve that levels off above zero;
+  \item say if the motor is real or ideal.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A \qty{9.0}{V} motor has a coil resistance of \qty{3.0}{\ohm}. (a) Find the
+        current at switch-on. (b) When running, it draws \qty{0.40}{A}. Find the back emf.
+  \item Sketch the current in a real DC motor against time from switch-on. Label its
+        main features.
+  \item A cordless drill has an \qty{18.0}{V} motor with a coil resistance of
+        \qty{0.40}{\ohm}. In normal use it draws \qty{3.0}{A}. (a) Find the back emf.
+        (b) The bit jams. Find the new current. (c) Compare the heating power in the
+        coil in the two cases, and explain why the motor may burn out.
+  \item Use the law of conservation of energy to explain why the back emf must oppose
+        the supply emf.
+\end{quickcheck}
+
+%% ------------------------------------------------------------------
+\section{Generators: AC and DC}\label{ch5:sec:generators}
+\covers{M6.IQ4.02, M6.IQ4.03}
+
+\begin{bigidea}
+A generator is a motor run backwards. An outside force turns a coil in a magnetic
+field, and the changing flux induces an emf (Faraday's law). Slip rings give an
+alternating output; a split-ring commutator gives a one-way output.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Generator}{a device that changes kinetic energy into electrical energy.}
+  \kw{Alternating current (AC)}{current that keeps reversing direction.}
+  \kw{Direct current (DC)}{current that flows one way only.}
+  \kw{Slip rings}{two full rings on the axle. Each is always joined to the same end of
+    the coil.}
+  \kw{Peak emf}{the largest emf in one cycle.}
+\end{keywords}
+
+A \term{generator} is a device that changes kinetic energy into electrical energy. It
+has the same parts as a motor: magnets, a coil on an axle, brushes and rings. But the
+energy goes the other way. An outside force (a hand, a turbine or an engine) turns the coil.
+The output goes to a load such as a lamp (\cref{ch5:fig:acgen}). As the coil turns, the
+angle between $B$ and the normal changes. So the flux $\Phi = BA\cos\theta$ changes, and
+an emf is induced.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x={(1cm,0cm)}, y={(0cm,1cm)}, z={(0.42cm,0.30cm)}, scale=0.95]
+    \def\mz{2.8}
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!28] (-2.6,-1,0) -- (-2.6,-1,\mz) -- (-2.6,1,\mz) -- (-2.6,1,0) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!14] (-3.7,1,0) -- (-2.6,1,0) -- (-2.6,1,\mz) -- (-3.7,1,\mz) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!22] (-3.7,-1,0) -- (-2.6,-1,0) -- (-2.6,1,0) -- (-3.7,1,0) -- cycle;
+    \node[font=\bfseries] at (-3.15,0,0) {N};
+    \draw[field] (-2.6,0.62,1.4) -- (2.6,0.62,1.4);
+    \draw[field] (-2.6,-0.4,2.6) -- (2.6,-0.4,2.6); % behind the coil: keeps the rings clear
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!14] (2.6,1,0) -- (3.7,1,0) -- (3.7,1,\mz) -- (2.6,1,\mz) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!28] (3.7,-1,0) -- (3.7,-1,\mz) -- (3.7,1,\mz) -- (3.7,1,0) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!22] (2.6,-1,0) -- (3.7,-1,0) -- (3.7,1,0) -- (2.6,1,0) -- cycle;
+    \node[font=\bfseries] at (3.15,0,0) {S};
+    \draw[hscmuted, line width=0.9pt, dashed] (0,0,-2.4) -- (0,0,3.4);
+    \draw[hscink, line width=1.6pt] (0,0,3.4) -- (0,0.75,3.4) -- (0,0.75,3.9);
+    \draw[->, hscmuted, line width=0.8pt] ([shift={(0,0,3.4)}]150:0.55) arc (150:30:0.55);
+    \node[diagramlabel, anchor=west] at (0.5,1.0,3.6) {handle (or turbine)};
+    \draw[chfiveWire] (1.4,0,0.3) -- (1.4,0,2.3) -- (-1.4,0,2.3) -- (-1.4,0,0.3) -- (-0.12,0,0.3) -- (-0.12,0,-0.4);
+    \draw[chfiveWire] (1.4,0,0.3) -- (0.12,0,0.3) -- (0.12,0,-1.95);
+    \draw[hscseriesA, line width=2.6pt] (0,0,-2.0) circle (0.27);
+    \draw[hscseriesB, line width=2.6pt] (0,0,-0.45) circle (0.27);
+    \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.07,-0.33,-0.45) rectangle (0.07,-0.62,-0.45);
+    \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.07,-0.33,-2.0) rectangle (0.07,-0.62,-2.0);
+    % both leads end on the lamp, in the lamp's plane (z = -1.2)
+    \draw[hscink, line width=0.8pt] (0,-0.62,-0.45) -- (0,-1.0,-0.45) -- (1.6,-1.0,-0.45) -- (1.6,-2.05,-0.45) -- (1.6,-2.05,-1.2) -- (0.39,-2.05,-1.2);
+    \draw[hscink, line width=0.8pt] (0,-0.62,-2.0) -- (0,-2.05,-2.0) -- (-0.09,-2.05,-1.2);
+    \begin{scope}[shift={(0.15,-2.05,-1.2)}]
+      \filldraw[fill=hsctip!25, draw=hscink, line width=0.7pt] (0,0) circle (0.24);
+      \draw[hscink, line width=0.6pt] (-0.17,-0.17) -- (0.17,0.17) (-0.17,0.17) -- (0.17,-0.17);
+    \end{scope}
+    \node[diagramlabel, anchor=north west] at (-0.05,-2.35,-1.2) {lamp (load)};
+    \node[diagramlabel, anchor=north east, align=right, inner sep=1pt] at (-1.2,-0.8,0) {slip\\ring};
+    \draw[hscmuted, line width=0.4pt] (-0.27,0,-2.0) -- (-1.18,-0.85,0);
+    \node[diagramlabel, anchor=west, inner sep=1pt] at (0.62,-0.42,0) {slip ring};
+    \draw[hscmuted, line width=0.4pt] (0.27,0,-0.45) -- (0.6,-0.38,0);
+    \draw[hscmuted, line width=0.4pt] (0.07,-0.5,-0.45) -- (2.75,-1.25,-0.45) node[anchor=west, diagramlabel, inner sep=1pt] {brushes};
+    \draw[hscmuted, line width=0.4pt] (-0.4,0,2.3) -- ++(-0.2,1.05) node[anchor=south, diagramlabel, inner sep=1pt] {coil};
+  \end{tikzpicture}
+  \caption{A simple AC generator. Each slip ring is joined to one end of the coil and
+    always touches the same brush.}\label{ch5:fig:acgen}
+\end{figure}
+
+\begin{toolkit}{The gradient of a graph is a rate of change}
+The gradient (slope) of a graph shows how fast a quantity changes. Where a flux--time
+graph is steep, the flux changes quickly, so the emf is large. At the top of a hump the
+graph is flat for an instant, so the emf is zero. The emf graph follows the gradient of
+the flux graph (with a minus sign).
+\end{toolkit}
+
+\Cref{ch5:fig:gengraphs} shows the flux and the emf for a coil turning at a steady
+rate. Two positions matter most:
+\begin{itemize}
+  \item \textbf{Plane perpendicular to $B$:} the flux is largest ($BA$) but not changing
+        for an instant (the sides move along the field lines). The emf is \emph{zero}.
+  \item \textbf{Plane parallel to $B$:} the flux is zero but changing fastest (the sides
+        cut straight across the field lines). The emf is \emph{largest}.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, name=fa, scale only axis, width=10.2cm, height=1.2cm,
+        xmin=0, xmax=2, ymin=-1.3, ymax=1.3, xtick={0,0.25,...,2}, xticklabels={},
+        ytick={-1,0,1}, yticklabels={$-BA$,0,$BA$}, ylabel={$\Phi$},
+        ylabel style={rotate=-90}]
+      \addplot[hscseriesA, domain=0:2, samples=161] {cos(360*x)};
+    \end{axis}
+    \foreach \f/\ang in {0/90, 0.125/0, 0.25/90, 0.375/0, 0.5/90} {
+      \coordinate (ic) at ($(fa.north west)!\f!(fa.north east)+(0,0.95)$);
+      \draw[hscink, line width=1.6pt] ($(ic)+({\ang}:0.24)$) -- ($(ic)+({\ang+180}:0.24)$);
+      \fill[hscink] (ic) circle (1pt);
+    }
+    \node[anchor=west, font=\footnotesize, text=hscmuted] at ($(fa.north west)!0.56!(fa.north east)+(0,0.95)$)
+      {$\leftarrow$ the coil seen end-on (field $B$ to the right)};
+    \node[anchor=south, font=\scriptsize, text=hscmuted, align=center] at ($(fa.north west)!0.0!(fa.north east)+(0,1.22)$) {plane\\$\perp B$};
+    \node[anchor=south, font=\scriptsize, text=hscmuted, align=center] at ($(fa.north west)!0.125!(fa.north east)+(0,1.22)$) {plane\\$\parallel B$};
+    \begin{axis}[hsc, name=fb, at={(fa.south west)}, anchor=north west, yshift=-0.3cm,
+        scale only axis, width=10.2cm, height=1.2cm,
+        xmin=0, xmax=2, ymin=-1.3, ymax=1.3, xtick={0,0.25,...,2}, xticklabels={},
+        ytick={-1,0,1}, yticklabels={$-\varepsilon_\mathrm{peak}$,0,$\varepsilon_\mathrm{peak}$},
+        ylabel={emf}]
+      \addplot[hscseriesB, domain=0:2, samples=161] {sin(360*x)};
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:2.05,0) {AC\\(slip rings)};
+    \end{axis}
+    \begin{axis}[hsc, name=fc, at={(fb.south west)}, anchor=north west, yshift=-0.3cm,
+        scale only axis, width=10.2cm, height=1.2cm,
+        xmin=0, xmax=2, ymin=-0.3, ymax=1.3, xtick={0,0.25,...,2},
+        xticklabels={0,$T/4$,$T/2$,$3T/4$,$T$,,,,$2T$},
+        ytick={0,1}, yticklabels={0,$\varepsilon_\mathrm{peak}$}, ylabel={emf}, xlabel={time}]
+      \addplot[hscseriesC, domain=0:2, samples=161] {abs(sin(360*x))};
+      \node[anchor=west, font=\footnotesize, align=left] at (axis cs:2.05,0.5) {DC\\(split ring)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Flux and output emf for a coil that starts with its plane perpendicular to $B$
+    and turns at a steady rate. $T$ is the time for one turn.}\label{ch5:fig:gengraphs}
+\end{figure}
+
+\textbf{AC generator.} It has \term{slip rings}: two full rings, each always joined to
+the same end of the coil. So each brush always touches the same ring. The emf in the
+coil reverses every half turn, so the output reverses too. This is
+\term{alternating current (AC)}: current that keeps reversing direction.
+
+\textbf{DC generator.} It looks like the motor in \cref{ch5:fig:motor}. But a load,
+such as a lamp, replaces the DC supply, and a handle or turbine turns the axle. It has a
+split-ring commutator, as in a motor. The connections
+swap every half turn, just when the emf is zero (plane perpendicular to $B$). So the
+output never reverses. It is \term{direct current (DC)}: current that flows one way
+only. It pulses between zero and the peak; more coils make it smoother. The emf
+\emph{inside} the coil still alternates. The split ring only flips the outside
+connection.
+
+\textbf{What changes the output?} Turning faster makes the flux change faster, so the
+\term{peak emf} (the largest emf in a cycle) is bigger. Each turn also takes less time,
+so the frequency is higher. Twice the speed gives twice the peak and half the period.
+More turns, a stronger field or a bigger coil raise the peak only. Turning the other
+way flips the graph upside down.
+
+\textbf{Lenz's law and energy.} With the circuit open, no current flows, and the coil is
+easy to turn. With a lamp connected, a current flows in the coil. This current is in a
+magnetic field, so it feels a motor-effect force. By Lenz's law, the force opposes the
+rotation, so you must do work against it. That work becomes the electrical energy in
+the lamp. A lower-resistance load draws a bigger current, so the handle is harder to
+turn. If the force helped the rotation, the generator would make energy from nothing.
+
+\begin{formulacard}{Average emf of a turning coil}
+  \cardformula{\varepsilon = -N\frac{\Delta\Phi}{\Delta t}}
+  \begin{symbols}
+    \sym{$\varepsilon$}{average induced emf}{\si{V}}
+    \sym{$N$}{number of turns in the coil (the same as $n$ in the torque formula;
+      the sheet uses a capital $N$ here)}{no unit}
+    \sym{$\Delta\Phi$}{change in flux through one turn: $\Phi_\mathrm{final} - \Phi_\mathrm{initial}$}{\si{Wb}}
+    \sym{$\Delta t$}{time taken for the change}{\si{s}}
+  \end{symbols}
+  \inwords{the faster the flux through the coil changes, the bigger the emf. The minus
+    sign means the emf opposes the change (Lenz's law).}
+  \whentouse{a generator coil turns from one position to another. Find each flux with
+    $\Phi = BA\cos\theta$ (on the sheet).}
+  \whennottouse{to find the emf at one instant (such as the peak). This formula gives
+    the \emph{average} emf over $\Delta t$.}
+  \rearranged{$|\varepsilon| = \dfrac{N\,|\Delta\Phi|}{\Delta t}$ \qquad
+    $\Delta t = \dfrac{N\,|\Delta\Phi|}{|\varepsilon|}$. For a quarter turn between plane
+    $\parallel B$ and plane $\perp B$, $|\Delta\Phi| = BA$.}
+  \tensecond{$N = 100$, $|\Delta\Phi| = \qty{2.0e-3}{Wb}$ in \qty{0.050}{s}:
+    $|\varepsilon| = \dfrac{100 \times 2.0\times10^{-3}}{0.050} = \qty{4.0}{V}$.}
+  \trap{``plane parallel to $B$'' means $\theta = \ang{90}$, so $\Phi = 0$, not $BA$.
+    Change \si{cm^2} to \si{m^2} first.}
+\end{formulacard}
+
+\begin{workedexample}{Average emf for a quarter turn}\label{ch5:we:quarter}
+A generator coil has 200 turns, each \qty{5.0}{cm} by \qty{4.0}{cm}, in a \qty{0.15}{T}
+field. It turns from the position where its plane is parallel to the field to where its
+plane is perpendicular, in \qty{0.010}{s}. Calculate the average emf.
+\given{$N = 200$, \ $A = 0.050 \times 0.040 = \qty{2.0e-3}{m^2}$, \ $B = \qty{0.15}{T}$,
+  \ $\Delta t = \qty{0.010}{s}$. Start: plane $\parallel B$ ($\theta = \ang{90}$). End:
+  plane $\perp B$ ($\theta = 0$).}
+\find{the average emf $\varepsilon$}
+\formula{$\Phi = BA\cos\theta$, \quad then \quad $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$}
+\substitute{\eqlines{\Phi_\mathrm{initial} &= BA\cos\ang{90} = 0\\
+  \Phi_\mathrm{final} &= \qty{0.15}{T} \times \qty{2.0e-3}{m^2} \times \cos 0 = \qty{3.0e-4}{Wb}\\
+  \varepsilon &= -200 \times \frac{\qty{3.0e-4}{Wb} - 0}{\qty{0.010}{s}} = \qty{-6.0}{V}}}
+\answer{the average emf is \final{\qty{6.0}{V}} in size. The minus sign shows that it
+  opposes the change in flux (Lenz's law).}
+\checkstep{units: $\si{Wb} \div \si{s} = \si{V}$ \cmark. A few volts from a quick
+  quarter turn of a hand-sized coil is sensible.}
+\end{workedexample}
+
+\begin{toolkit}{Revolutions per minute}
+rpm to turns per second: divide by 60 (\qty{3000}{rpm} $= 50$ turns each second). Turns
+per second is the frequency $f$ (in \si{Hz}). The time for one turn is $T = \dfrac{1}{f}$
+(from $f = \dfrac{1}{T}$ on the sheet).
+\end{toolkit}
+
+\begin{workedexample}{Turning faster, and the other way}\label{ch5:we:faster}
+An AC generator turns at \qty{1200}{rpm}. Its peak emf is \qty{15}{V}. (a) Calculate the
+frequency and period of the output. (b) It is now turned at \qty{2400}{rpm} in the
+opposite direction. State the new peak emf and period, and sketch both graphs.
+\given{\qty{1200}{rpm}, peak \qty{15}{V}; then \qty{2400}{rpm}, opposite direction}
+\find{$f$ and $T$; then the new peak and $T$}
+\formula{$f = \dfrac{\text{rpm}}{60}$, \quad $T = \dfrac{1}{f}$, \quad peak emf $\propto$ speed}
+\substitute{\eqlines{f &= \frac{1200}{60} = \qty{20}{Hz}, \qquad T = \frac{1}{\qty{20}{Hz}} = \qty{0.050}{s}\\
+  f_\mathrm{new} &= \frac{2400}{60} = \qty{40}{Hz}, \qquad T_\mathrm{new} = \frac{1}{\qty{40}{Hz}} = \qty{0.025}{s}\\
+  \text{peak}_\mathrm{new} &= \qty{15}{V} \times \frac{2400}{1200} = \qty{30}{V}}}
+\answer{(a) \final{\qty{20}{Hz}, \qty{0.050}{s}} \quad (b) \final{\qty{30}{V}, \qty{0.025}{s}},
+  and the graph is upside down (\cref{ch5:fig:faster}).}
+\checkstep{twice the speed: the flux changes twice as fast (double the emf), and each
+  turn takes half the time \cmark.}
+\end{workedexample}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, scale only axis, width=10.2cm, height=2.2cm,
+        xmin=0, xmax=0.1, ymin=-35, ymax=35, xtick={0,0.025,0.05,0.075,0.1},
+        xticklabels={0,0.025,0.050,0.075,0.100},
+        ytick={-30,-15,0,15,30}, xlabel={time (\si{s})}, ylabel={emf (\si{V})}]
+      \addplot[hscseriesA, domain=0:0.1, samples=401] {15*sin(360*20*x)};
+      \addplot[hscseriesB, dashed, domain=0:0.1, samples=401] {-30*sin(360*40*x)};
+      \node[anchor=west, font=\footnotesize, text=hscseriesA] at (axis cs:0.101,15) {\qty{1200}{rpm}};
+      \node[anchor=west, font=\footnotesize, text=hscseriesB, align=left] at (axis cs:0.101,-26) {\qty{2400}{rpm},\\ other way};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Output of the generator in \cref{ch5:we:faster}.}\label{ch5:fig:faster}
+\end{figure}
+
+\textbf{Motors and generators compared.} \Cref{ch5:tab:motorgen} sums up how a DC motor
+and a DC generator are alike and how they differ.
+
+\begin{table}
+  \caption{DC motor and DC generator compared.}\label{ch5:tab:motorgen}
+  \centering
+  \small
+  \begin{tabular}{@{}L{28mm}L{55mm}L{57mm}@{}}
+    \toprule
+     & \colhead{DC motor} & \colhead{DC generator}\\
+    \midrule
+    Same parts & \multicolumn{2}{L{114mm}}{magnets (stator), coil on an axle (rotor),
+      split-ring commutator, brushes}\\
+    Connected to & a DC supply; drives a load & a turbine or handle; feeds a load\\
+    Energy change & electrical $\to$ kinetic & kinetic $\to$ electrical\\
+    Main physics & motor effect: force on a current in a field & induction: Faraday's law\\
+    Side effect & back emf: it also acts as a generator
+      & opposing torque when current flows: it also acts as a motor\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The emf is largest when the flux is largest.'' \cmark\ It is largest
+        when the flux is zero but changing fastest (plane parallel to $B$).
+  \item \xmark\ ``Turning faster only changes the frequency.'' \cmark\ It raises the
+        peak \emph{and} the frequency.
+  \item \xmark\ Calling slip rings a commutator. \cmark\ Only the split ring is a
+        commutator.
+  \item \xmark\ ``A generator is easier to turn when more current is drawn.''
+        \cmark\ More current means a bigger opposing force, so it is harder to turn.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\textbf{Generator graph sketches} (2--3 marks):
+\begin{itemize}
+  \item keep the shape: a sine wave for slip rings, one-way humps for a split ring;
+  \item multiply the peak by the speed factor, and divide the period by it;
+  \item flip the graph if the direction is reversed;
+  \item label both axes with units.
+\end{itemize}
+\textbf{``Explain why the handle is harder to turn with a lamp connected''} (3 marks):
+\begin{enumerate}
+  \item A current flows in the coil.
+  \item The current is in a field, so it feels a force.
+  \item By Lenz's law the force opposes the turning.
+  \item Your extra work becomes electrical energy (conservation of energy).
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}[breakable]
+  \item State the difference in structure between an AC and a DC generator, and its
+        effect on the output.
+  \item The flux through a generator coil is zero when its plane is parallel to the
+        field. Explain why the emf is largest at this moment.
+  \item A generator coil is turned clockwise (seen from the front) in a field that
+        points from left to right. At one moment its plane is parallel to the field, so
+        its right-hand side moves down. Use Lenz's law and the right-hand palm rule to
+        find the direction of the induced current in this side.
+  \tcbbreak % layout QA (book build): break here, so "(continued)" is not one lone question
+  \item A coil of 50 turns and area \qty{1.2e-3}{m^2} is in a \qty{0.30}{T} field. It
+        turns from plane perpendicular to plane parallel to the field in \qty{0.020}{s}.
+        Calculate the average emf.
+  \item An AC generator turns at \qty{1500}{rpm} and has a peak emf of \qty{8.0}{V}.
+        (a) Find the period of its output. (b) It is slowed to \qty{750}{rpm}. State the
+        new peak emf and period.
+\end{quickcheck}
+
+%% ------------------------------------------------------------------
+\section{AC induction motors and magnetic braking}\label{ch5:sec:induction}
+\covers{M6.IQ4.02, M6.IQ4.03}
+
+\begin{bigidea}
+When a magnetic field and a piece of metal move past each other, currents are induced
+in the metal. By Lenz's law, the forces on these currents oppose the \emph{relative}
+motion. A moving field drags the metal along (an AC induction motor), and a still field
+slows moving metal down (a magnetic brake).
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Eddy currents}{loops of current induced inside a solid piece of metal when the
+    flux through it changes.}
+  \kw{Rotating magnetic field}{a field of fixed strength whose direction turns steadily.
+    Coils that do not move make it.}
+  \kw{Squirrel-cage rotor}{metal bars joined at both ends by end rings, like a cage.}
+  \kw{Slip}{the difference between the speed of the field and the speed of the rotor.}
+  \kw{Magnetic braking}{slowing a moving metal object with eddy currents, without
+    touching it.}
+  \kw{Relative motion}{how one thing moves compared with another. A magnet moving past
+    still metal, and metal moving past a still magnet, are the same relative motion.}
+\end{keywords}
+
+You met eddy currents in \cref{ch3:chap,ch4:chap}. In a transformer they waste energy.
+Here they do useful jobs.
+
+A simple demonstration shows the idea. Spin a strong magnet just above a light
+aluminium disc that is free to turn. The magnet does not touch the disc, and aluminium
+is not magnetic. Yet the disc turns the same way as the magnet, but more slowly. The
+moving field changes the flux through parts of the disc, so eddy currents flow
+(Faraday). These currents are in the field, so they feel forces. By Lenz's law, the
+forces oppose the relative motion, so they drag the disc after the magnet.
+
+\subsection{AC induction motors}
+Many motors in fans, pumps, washing machines and factories are \term{AC induction
+motors}. In these motors the current in the rotor is induced: no wire supplies it. They
+have no brushes and no commutator.
+
+\textbf{Step 1: the stator makes a rotating field.} The stator has three pairs of coils
+around a ring (\cref{ch5:fig:stator}). Each pair is joined to its own AC supply.
+Together the three supplies are called \term{three-phase AC}: three AC supplies that
+peak one after another. They are a third of a cycle (\ang{120}) apart. Each supply is
+one \emph{phase}.
+\begin{itemize}
+  \item At $t_1$ current 1 peaks, so the combined field points along pair 1.
+  \item A third of a cycle later ($t_2$), current 2 peaks. The field points along pair 2.
+  \item Another third of a cycle later ($t_3$), current 3 peaks. The field points along
+        pair 3.
+\end{itemize}
+The field keeps the same strength while its direction turns. This is a
+\term{rotating magnetic field}. No coil moves, but the field really rotates. With one
+pair of coils per phase, it makes one full turn in every AC cycle.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, name=ph, scale only axis, width=5.4cm, height=2.4cm,
+        xmin=0, xmax=1, ymin=-1.25, ymax=1.25, xtick={0,0.5,1},
+        xticklabels={0,$\frac{T}{2}$,$T$}, ytick={-1,0,1}, yticklabels={,0,},
+        xlabel={time}, ylabel={current}]
+      \addplot[hscseriesA, domain=0:1, samples=120] {cos(360*x)};
+      \addplot[hscseriesB, dashed, domain=0:1, samples=120] {cos(360*x-120)};
+      \addplot[hscseriesC, densely dotted, line width=1.2pt, domain=0:1, samples=120] {cos(360*x-240)};
+      \draw[guide] (axis cs:0.3333,-1.25) -- (axis cs:0.3333,1.25);
+      \draw[guide] (axis cs:0.6667,-1.25) -- (axis cs:0.6667,1.25);
+      \node[font=\scriptsize, anchor=south] at (axis cs:0.01,1.25) {$t_1$};
+      \node[font=\scriptsize, anchor=south] at (axis cs:0.3333,1.25) {$t_2$};
+      \node[font=\scriptsize, anchor=south] at (axis cs:0.6667,1.25) {$t_3$};
+      \node[font=\scriptsize, text=hscseriesA, anchor=south west] at (axis cs:0.03,1.0) {1};
+      \node[font=\scriptsize, text=hscseriesB, anchor=south west] at (axis cs:0.35,1.0) {2};
+      \node[font=\scriptsize, text=hscseriesC, anchor=south west] at (axis cs:0.6833,1.0) {3};
+    \end{axis}
+    \begin{scope}[shift={($(ph.east)+(3.6,0.1)$)}, x=1cm, y=1cm]
+      \draw[hscmuted!70, line width=4pt] (0,0) circle (1.75);
+      \foreach \a/\c/\n in {90/hscseriesA/1, 270/hscseriesA/1, -30/hscseriesB/2, 150/hscseriesB/2, 210/hscseriesC/3, 30/hscseriesC/3} {
+        \begin{scope}[rotate=\a]
+          \filldraw[fill=\c!20, draw=\c, line width=0.7pt] (1.12,-0.2) rectangle (1.65,0.2);
+          \foreach \w in {1.2,1.32,1.44,1.56} \draw[\c, line width=0.7pt] (\w,-0.24) -- (\w,0.24);
+        \end{scope}
+        \node[font=\scriptsize, text=\c] at (\a:0.95) {\n};
+      }
+      \draw[->, hscfield!35, line width=2.2pt] (0,0) -- (90:0.7);
+      \draw[->, hscfield!65, line width=2.2pt] (0,0) -- (-30:0.7);
+      \draw[->, hscfield, line width=2.2pt] (0,0) -- (210:0.7);
+      \node[font=\scriptsize, text=hscfield] at (112:0.5) {$t_1$};
+      \node[font=\scriptsize, text=hscfield] at (-55:0.45) {$t_2$};
+      \node[font=\scriptsize, text=hscfield] at (235:0.5) {$t_3$};
+      \draw[->, hscmuted, line width=0.8pt] (115:2.05) arc (115:65:2.05);
+      \node[font=\footnotesize, text=hscmuted, anchor=south] at (90:2.08) {field turns};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Left: the three phase currents. Right: the stator; each coil pair has the
+    colour of its phase. The arrows show the combined field at $t_1$, $t_2$ and $t_3$:
+    it turns clockwise.}\label{ch5:fig:stator}
+\end{figure}
+
+\begin{sidebyside}[0.44]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \a in {0,45,...,315} {
+      \pgfmathsetmacro\yy{0.95*sin(\a)}
+      \pgfmathsetmacro\xx{0.32*cos(\a)}
+      \pgfmathtruncatemacro\isback{cos(\a) < -0.01 ? 1 : 0}
+      \ifnum\isback=1
+        \draw[hscmuted!60, line width=1.1pt] (\xx,\yy) -- ({\xx+3.0},\yy);
+      \fi
+    }
+    \draw[hscmuted, line width=0.9pt, dashed] (-0.8,0) -- (3.8,0);
+    \foreach \a in {0,45,...,315} {
+      \pgfmathsetmacro\yy{0.95*sin(\a)}
+      \pgfmathsetmacro\xx{0.32*cos(\a)}
+      \pgfmathtruncatemacro\isback{cos(\a) < -0.01 ? 1 : 0}
+      \ifnum\isback=0
+        \draw[hscseriesB!85!black, line width=1.6pt] (\xx,\yy) -- ({\xx+3.0},\yy);
+      \fi
+    }
+    \draw[hscink, line width=2.4pt] (0,0) ellipse (0.32 and 0.95);
+    \draw[hscink, line width=2.4pt] (3.0,0) ellipse (0.32 and 0.95);
+    \node[diagramlabel, anchor=north] at (0,-1.05) {end ring};
+    \node[diagramlabel, anchor=north] at (3.0,-1.05) {end ring};
+    \draw[hscmuted, line width=0.4pt] (1.6,0.67) -- (1.9,1.3) node[anchor=south, diagramlabel] {metal bars};
+    \node[diagramlabel, anchor=west] at (3.8,0) {axle};
+  \end{tikzpicture}
+  \captionof{figure}{A squirrel-cage rotor (iron core not shown).}\label{ch5:fig:cage}
+\nextside
+  \textbf{Step 2: the rotor.} It is a \term{squirrel-cage rotor} (\cref{ch5:fig:cage}):
+  copper or aluminium bars joined at both ends by end rings. So currents can flow round
+  loops of bars. The bars sit in an iron core made of thin insulated sheets. The sheets
+  reduce eddy-current losses in the core, as in a transformer.
+\end{sidebyside}
+
+\begin{sidebyside}[0.36]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \filldraw[fill=hscforce!15, draw=hscink, line width=0.5pt] (-1.7,1.0) rectangle (1.7,1.3);
+    \node[font=\footnotesize\bfseries] at (0,1.15) {N};
+    \filldraw[fill=hscvel!15, draw=hscink, line width=0.5pt] (-1.7,-1.3) rectangle (1.7,-1.0);
+    \node[font=\footnotesize\bfseries] at (0,-1.15) {S};
+    \foreach \xx in {-1.4,-0.8,0.8,1.4} \draw[field] (\xx,1.0) -- (\xx,-1.0);
+    \node[font=\footnotesize, text=hscfield] at (-1.1,0.5) {$B$};
+    \draw[->, hscmuted, line width=0.9pt] (-0.9,1.55) -- (0.9,1.55)
+      node[midway, above, font=\footnotesize, text=hscmuted] {field moves};
+    \pic at (0,0) {chfiveOut};
+    \draw[force] (0.2,0) -- (0.64,0) node[pos=0.55, above, text=hscforce, font=\footnotesize] {$F$};
+    \node[diagramlabel, font=\footnotesize, anchor=north] at (0,-0.22) {rotor bar};
+  \end{tikzpicture}
+  \captionof{figure}{One rotor bar, end-on. The field sweeps right, past the bar. The
+    induced current flows out of the page ($\odot$). The force $F$ on the bar points
+    right: the bar is dragged after the field.}\label{ch5:fig:bar}
+\nextside
+  \textbf{Step 3: why the rotor turns} (\cref{ch5:fig:bar}).
+  \begin{enumerate}
+    \item The rotating field sweeps past the bars, so the flux through each loop of
+          bars keeps changing.
+    \item By Faraday's law, emfs are induced in the bars. The end rings complete the
+          circuit, so currents flow.
+    \item These currents are in the field, so each bar feels a force (the motor
+          effect, $F = lIB$).
+    \item By Lenz's law, the induced currents oppose the \emph{relative} motion of
+          field and rotor. So the forces drag the rotor round in the same direction as
+          the field.
+  \end{enumerate}
+\end{sidebyside}
+
+\textbf{Slip and load.} The rotor always turns a little slower than the field. The
+difference in speed is the \term{slip}. If the rotor caught up, there would be no
+relative motion. Then there would be no flux change, no current and no force, so
+friction would slow the rotor again. A bigger load slows the rotor, so the slip grows.
+The flux changes faster, so the induced currents and the torque are larger. The motor
+settles at a slightly lower speed.
+
+Slip $=$ speed of the field $-$ speed of the rotor (not on the formula sheet). Example:
+the field turns at \qty{1500}{rpm} and the rotor at \qty{1440}{rpm}. Slip
+$= 1500 - 1440 = \qty{60}{rpm}$, which is $60 \div 60 = 1$ turn each second.
+
+\textbf{Advantages:} no brushes or commutator, so little wear, no sparking and little
+maintenance; tough and cheap. \textbf{Limitations:} the rotor speed stays close to the
+field speed. The supply frequency sets the field speed. So the motor speed is hard to
+change without extra electronics. Homes use single-phase AC (one AC supply, not three).
+It cannot make a rotating field by itself, so appliances need an extra starting coil.
+
+\subsection{Magnetic braking}
+\term{Magnetic braking} is slowing a moving metal object with eddy currents, without
+touching it. \Cref{ch5:fig:disc} shows how it works for a spinning disc.
+
+\begin{sidebyside}[0.45]
+  \centering
+  \begin{tikzpicture}[x=1.0cm, y=1.0cm]
+    \filldraw[fill=hscmuted!12, draw=hscink, line width=0.9pt] (0,0) circle (1.9);
+    \fill[hscink] (0,0) circle (1.5pt);
+    \draw[->, hscmuted, line width=0.9pt] (125:2.15) arc (125:55:2.15);
+    \node[font=\footnotesize, text=hscmuted, anchor=south] at (90:2.17) {disc turns clockwise};
+    \filldraw[fill=hscfield!14, draw=hscfield, dashed, line width=0.6pt] (0.35,-0.75) rectangle (1.75,0.75);
+    \foreach \xx in {0.55,1.55} \foreach \yy in {-0.42,0.42}
+      \node[text=hscfield, font=\footnotesize] at (\xx,\yy) {$\times$};
+    \node[font=\scriptsize, text=hscfield, anchor=east, align=right] at (0.3,0.55) {$B$ into\\the page};
+    \draw[hscseriesB, line width=1.2pt, ->] (1.05,0.75) ++(-90:0.3) arc (-90:250:0.3);
+    \draw[hscseriesA, line width=1.2pt, ->] (1.05,-0.75) ++(90:0.3) arc (90:-250:0.3);
+    \draw[->, hscink, line width=0.9pt] (0.5,-0.15) -- (1.6,-0.15) node[pos=0.25, above, font=\scriptsize] {$I$};
+    \draw[force] (1.05,-0.08) -- (1.05,0.4) node[pos=0.55, right, text=hscforce, font=\footnotesize] {$F$};
+    \draw[velocity] (1.85,0.45) -- (1.85,-0.45) node[pos=0.5, right, text=hscvel, font=\footnotesize] {$v$};
+    \node[font=\scriptsize, text=hscseriesB, anchor=west] at (1.42,1.28) {metal enters field};
+    \node[font=\scriptsize, text=hscseriesA, anchor=west] at (1.42,-1.28) {metal leaves field};
+  \end{tikzpicture}
+  \captionof{figure}{A metal disc turning through a field into the page ($\times$) on its
+    right side.}\label{ch5:fig:disc}
+\nextside
+  Where the metal \emph{enters} the field, the flux into the page grows. The eddy
+  current flows anticlockwise. It makes a field out of the page that opposes the growth.
+  Where the metal \emph{leaves}, the flux falls, so the eddy current flows clockwise.
+\end{sidebyside}
+Inside the field both loops carry current $I$ to the right. This current is in the
+field, so it feels a force $F$ that points \emph{up}: opposite to the motion $v$. The
+disc slows down.
+
+\textbf{Energy.} The disc's kinetic energy becomes electrical energy of the eddy
+currents, then heat in the metal. If the force helped the motion, the disc would speed
+itself up and gain energy from nothing. That breaks conservation of energy. So again,
+Lenz's law is conservation of energy.
+
+\textbf{Properties of magnetic brakes.}
+\begin{itemize}
+  \item The braking force grows with speed (faster motion, faster flux change, bigger
+        eddy currents). It is strong at high speed and weak at low speed.
+  \item At zero speed there is no flux change and no force. So a magnetic brake cannot
+        hold an object still. Friction brakes finish the stop.
+  \item A stronger field, or thicker metal that conducts better, brakes more strongly.
+        Slots cut in the metal break up the eddy-current loops and weaken the braking
+        (the same idea as a laminated transformer core).
+  \item Uses: roller coasters, drop towers, trains, exercise bikes. Advantages: no
+        contact, so no wear; smooth and quiet; works in the wet. Permanent magnets need
+        no power, so the brake still works in a power failure.
+\end{itemize}
+
+\textbf{Regenerative braking.} Electric cars and trains use \term{regenerative braking}:
+the motor acts as a generator, and the battery stores the energy. The wheels turn the
+motor's coil, so its induced emf becomes larger than the battery voltage. The current
+reverses and charges the battery (kinetic $\to$ electrical $\to$ chemical energy). The
+current in the coil feels a force that opposes the rotation (Lenz). So the vehicle
+slows, and energy is saved instead of wasted as heat.
+
+\begin{formulacard}[combine={$K = \frac{1}{2}mv^2$}]{Heat made by a magnetic brake}
+  \cardformula{Q = \frac{1}{2}mu^2 - \frac{1}{2}mv^2}
+  \begin{symbols}
+    \sym{$Q$}{heat produced in the metal of the brake}{\si{J}}
+    \sym{$m$}{mass of the moving object}{\si{kg}}
+    \sym{$u$}{speed before braking}{\si{m.s^{-1}}}
+    \sym{$v$}{speed after braking}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{the heat made by the brake equals the kinetic energy lost.}
+  \whentouse{an object slowed by magnetic brakes on a level track, other losses ignored.
+    Average heating power: $P = \dfrac{\Delta E}{\Delta t}$ (on the sheet).}
+  \whennottouse{on its own when the height changes (a drop tower, a slope). Then add
+    the potential energy lost, $\Delta U = mg\Delta h$ (on the sheet).}
+  \rearranged{$Q = \dfrac{1}{2}m\left(u^2 - v^2\right)$ \qquad
+    $v = \sqrt{u^2 - \dfrac{2Q}{m}}$}
+  \tensecond{$m = \qty{2.0}{kg}$, $u = \qty{3.0}{m.s^{-1}}$, $v = \qty{1.0}{m.s^{-1}}$:
+    $Q = \frac{1}{2}(2.0)(3.0^2) - \frac{1}{2}(2.0)(1.0^2) = 9.0 - 1.0 = \qty{8.0}{J}$.}
+  \derive{use conservation of energy and $K = \frac{1}{2}mv^2$ (on the sheet).
+    \begin{align*}
+      \tfrac{1}{2}mu^2 &= \tfrac{1}{2}mv^2 + Q && \text{energy before $=$ energy after}\\
+      Q &= \tfrac{1}{2}mu^2 - \tfrac{1}{2}mv^2 && \text{subtract $\tfrac{1}{2}mv^2$ from both sides}
+    \end{align*}}
+  \trap{square each speed before you subtract: $\frac{1}{2}m(u^2 - v^2)$, not
+    $\frac{1}{2}m(u - v)^2$. Change \si{km.h^{-1}} to \si{m.s^{-1}} first (divide by 3.6).}
+\end{formulacard}
+
+\begin{workedexample}{Braking a roller coaster}\label{ch5:we:coaster}
+A \qty{1800}{kg} roller-coaster train enters a level magnetic braking section at
+\qty{25}{m.s^{-1}}. It leaves \qty{3.5}{s} later at \qty{8.0}{m.s^{-1}}. Calculate
+(a) the heat produced in the brakes and (b) the average braking power.
+\given{$m = \qty{1800}{kg}$, \ $u = \qty{25}{m.s^{-1}}$, \ $v = \qty{8.0}{m.s^{-1}}$,
+  \ $\Delta t = \qty{3.5}{s}$; level track}
+\find{(a) $Q$; \ (b) $P$}
+\formula{$Q = \frac{1}{2}mu^2 - \frac{1}{2}mv^2$, \quad $P = \dfrac{\Delta E}{\Delta t}$}
+\substitute{\eqlines{\tfrac{1}{2}mu^2 &= \tfrac{1}{2}(\qty{1800}{kg})(\qty{25}{m.s^{-1}})^2 = \qty{562500}{J}\\
+  \tfrac{1}{2}mv^2 &= \tfrac{1}{2}(\qty{1800}{kg})(\qty{8.0}{m.s^{-1}})^2 = \qty{57600}{J}\\
+  Q &= \qty{562500}{J} - \qty{57600}{J} = \qty{504900}{J}\\
+  P &= \frac{\qty{504900}{J}}{\qty{3.5}{s}} = \qty{1.44e5}{W}}}
+\answer{(a) \final{$Q = \qty{5.0e5}{J}$} \quad (b) \final{$P = \qty{1.4e5}{W}$}}
+\checkstep{$Q$ (\qty{5.0e5}{J}) is less than the starting kinetic energy
+  (\qty{5.6e5}{J}) \cmark. $v \div u = 0.32$, so $0.32^2 \approx 10\%$ of the kinetic
+  energy is left: about 90\% is removed \cmark. Deceleration
+  $(25 - 8.0) \div 3.5 = \qty{4.9}{m.s^{-2}}$, about half of $g$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{A drop-tower ride}\label{ch5:we:droptower}
+A \qty{500}{kg} drop-tower car falls freely, then reaches magnetic brakes. During the
+last \qty{20}{m} of its fall, the brakes slow it from \qty{30}{m.s^{-1}} to
+\qty{5.0}{m.s^{-1}}. Ignore air resistance and friction. Calculate the heat produced in
+the brakes.
+\given{$m = \qty{500}{kg}$, \ $u = \qty{30}{m.s^{-1}}$, \ $v = \qty{5.0}{m.s^{-1}}$,
+  \ $\Delta h = \qty{20}{m}$, \ $g = \qty{9.8}{m.s^{-2}}$}
+\find{the heat $Q$}
+\formula{heat $=$ kinetic energy lost $+$ potential energy lost:
+  $Q = \left(\frac{1}{2}mu^2 - \frac{1}{2}mv^2\right) + mg\Delta h$}
+\substitute{\eqlines{K\text{ lost} &= \tfrac{1}{2}(\qty{500}{kg})(\qty{30}{m.s^{-1}})^2
+  - \tfrac{1}{2}(\qty{500}{kg})(\qty{5.0}{m.s^{-1}})^2\\
+  &= \qty{225000}{J} - \qty{6250}{J} = \qty{218750}{J}\\
+  U\text{ lost} &= \qty{500}{kg} \times \qty{9.8}{m.s^{-2}} \times \qty{20}{m} = \qty{98000}{J}\\
+  Q &= \qty{218750}{J} + \qty{98000}{J} = \qty{316750}{J}}}
+\answer{\final{$Q = \qty{3.2e5}{J}$}}
+\checkstep{$Q$ is bigger than the kinetic energy lost, because the brakes also take the
+  energy the car gains by falling \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Current is fed to the rotor through brushes.'' \cmark\ Nothing is
+        joined to the rotor; its currents are induced.
+  \item \xmark\ ``The rotor turns at the same speed as the field.'' \cmark\ It is always
+        a little slower (slip). The field really rotates.
+  \item \xmark\ ``The magnet attracts the copper or aluminium.'' \cmark\ These metals are
+        not magnetic. The force comes from induced eddy currents (Lenz).
+  \item \xmark\ ``A magnetic brake can stop a train and hold it still.'' \cmark\ There
+        is no braking force at zero speed.
+  \item \xmark\ Writing $\frac{1}{2}m(u - v)^2$. \cmark\ $\frac{1}{2}m(u^2 - v^2)$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}[breakable]
+Both topics are often asked as 5--7 mark ``explain'' questions with a diagram. Each
+linked step can earn a mark.
+
+\textbf{Induction motor:}
+\begin{enumerate}
+  \item Parts: stator coils on three-phase AC; a squirrel cage of bars and end rings.
+  \item The stator makes a rotating field.
+  \item The flux through the loops of bars changes, so currents are induced (Faraday).
+  \item The currents are in the field, so the bars feel forces (motor effect).
+  \item Lenz: the forces oppose the relative motion, so the rotor follows the field.
+  \item Slip: the rotor is always a little slower than the field.
+\end{enumerate}
+\textbf{Magnetic brake:}
+\begin{enumerate}
+  \item Draw the metal, the field, the eddy currents and the force opposite to $v$.
+  \item The flux through the moving metal changes, so eddy currents are induced
+        (Faraday).
+  \item Lenz: the force on the eddy currents opposes the motion.
+  \item Energy: kinetic $\to$ electrical $\to$ heat.
+  \item It cannot hold an object still: no motion, no flux change, no force.
+  \item Link to the context, for example: no contact, so no wear.
+\end{enumerate}
+``Assess'' or ``evaluate'' questions also need a clear judgement at the end.
+\end{examtip}
+
+\begin{quickcheck}[breakable]
+  \item Explain why an AC induction motor does not need brushes or a commutator.
+  \item The field of an induction motor turns at \qty{3000}{rpm}. The rotor turns at
+        \qty{2910}{rpm}. (a) Find the slip in rpm and in turns each second. (b) What
+        happens to the slip, the induced current and the torque when the load increases?
+  \item Explain why magnetic brakes alone cannot hold a train still on a slope.
+  \item A \qty{3.0e4}{kg} train carriage is slowed by magnetic brakes from
+        \qty{20}{m.s^{-1}} to \qty{12}{m.s^{-1}} on a level track. Calculate the heat
+        produced.
+  \item A spinning metal disc slows down when a magnet is brought near it. Relate this
+        to Lenz's law and the law of conservation of energy.
+\end{quickcheck}
+%% ------------------------------------------------------------------
+\section{Key experiments}\label{ch5:sec:experiments}
+\covers{M6.IQ4.01, M6.IQ4.03}
+
+\begin{experiment}{Investigating a simple DC motor}
+\aim{To build a simple DC motor, find the job of each part, and see how back emf
+  affects the current.}
+\apparatus{enamelled copper wire (copper wire with a thin insulating coat), two large
+  paper clips, a strong magnet, a \qty{3.0}{V} DC supply, an ammeter, a switch,
+  sandpaper, leads, and a small lab DC motor (for the current readings)
+  (\cref{ch5:fig:expmotor}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \fill[ground] (-2.6,-0.25) rectangle (2.6,0);
+      \draw[hscink, line width=0.6pt] (-2.6,0) -- (2.6,0);
+      \filldraw[fill=hscmuted!45, draw=hscink, line width=0.6pt] (-0.45,0) rectangle (0.45,0.28);
+      \node[diagramlabel, font=\footnotesize, anchor=south] at (0,0.3) {magnet};
+      \draw[hscmuted!80!black, line width=1.6pt] (-1.4,0) -- (-1.4,1.55);
+      \draw[hscmuted!80!black, line width=1.6pt] (1.4,0) -- (1.4,1.55);
+      \draw[hscmuted!80!black, line width=1.2pt] (-1.4,1.68) circle (0.13);
+      \draw[hscmuted!80!black, line width=1.2pt] (1.4,1.68) circle (0.13);
+      \draw[hscseriesB!85!black, line width=1.3pt] (0,1.68) ellipse (0.55 and 0.62);
+      \draw[hscseriesB!85!black, line width=1.3pt] (0,1.68) ellipse (0.5 and 0.57);
+      \draw[hscseriesB!85!black, line width=1.3pt] (-1.62,1.68) -- (-0.55,1.68);
+      \draw[hscseriesB!85!black, line width=1.3pt] (0.55,1.68) -- (1.62,1.68);
+      \draw[hscink, line width=0.7pt] (-1.4,0.4) -- (-3.2,0.4) -- (-3.2,-0.9) -- (-0.8,-0.9);
+      \draw[hscink, line width=0.7pt] (1.4,0.4) -- (3.2,0.4) -- (3.2,-0.9) -- (1.35,-0.9);
+      \filldraw[fill=white, draw=hscink, line width=0.7pt] (1.1,-0.9) circle (0.25);
+      \node[font=\footnotesize\bfseries] at (1.1,-0.9) {A};
+      \draw[hscink, line width=0.7pt] (0.85,-0.9) -- (0.2,-0.9);
+      \draw[hscink, line width=1.6pt] (-0.8,-1.04) -- (-0.8,-0.76);
+      \draw[hscink, line width=0.9pt] (-0.5,-1.18) -- (-0.5,-0.62);
+      \draw[hscink, line width=0.7pt] (-0.5,-0.9) -- (-0.2,-0.9);
+      \draw[hscink, line width=0.7pt] (-0.2,-0.9) -- (0.15,-0.72);
+      \fill[hscink] (-0.2,-0.9) circle (1.2pt) (0.2,-0.9) circle (1.2pt);
+      \node[diagramlabel, font=\footnotesize, anchor=north] at (-0.65,-1.2) {DC supply};
+      \node[diagramlabel, font=\footnotesize, anchor=south] at (0.0,-0.68) {switch};
+      \node[diagramlabel, font=\footnotesize, anchor=north] at (1.25,-1.2) {ammeter};
+      \draw[hscmuted, line width=0.4pt] (-1.0,1.68) -- (-2.4,2.45) node[anchor=south, diagramlabel, font=\footnotesize, align=center] {end fully scraped};
+      \draw[hscmuted, line width=0.4pt] (1.0,1.68) -- (2.6,2.45) node[anchor=south, diagramlabel, font=\footnotesize, align=center] {end half scraped\\(acts as a commutator)};
+      \draw[hscmuted, line width=0.4pt] (0.1,2.3) -- (0.1,3.0) node[anchor=south, diagramlabel, font=\footnotesize] {coil (20 turns)};
+      \draw[hscmuted, line width=0.4pt] (1.4,1.0) -- (2.3,1.15) node[anchor=west, diagramlabel, font=\footnotesize, align=left] {paper-clip support\\(acts as a brush)};
+    \end{tikzpicture}
+    \caption{A simple DC motor made from a coil of wire, paper clips and a magnet.}
+    \label{ch5:fig:expmotor}
+  \end{figure}}
+\method{\begin{enumerate}[beginpenalty=10000]
+  \item Wind about 20 turns into a coil \qtyrange{2}{3}{cm} across, with straight ends as
+        the axle. Sand all the insulation off one end, but only the top half off the
+        other end. That end switches the current off for the half turn when the torque
+        would act the wrong way.
+  \item Rest the ends in the supports above the magnet. Connect the supply, switch and
+        ammeter in series. Close the switch and push the coil gently. (A single coil can
+        stop where the torque is zero, so it may need a start.)
+  \item Change one variable at a time (turns, magnets, voltage). Note how easily the coil
+        starts and how quickly it gains speed.
+  \item Back emf: connect the small lab DC motor in place of the coil. Read the current
+        while it runs freely. Then hold its shaft still for 1--2 seconds and read the
+        current again.
+\end{enumerate}}
+\results{the coil spins only when one end is half scraped. More turns, a stronger magnet
+  or a larger voltage give more torque, so the coil starts more easily and gains speed
+  more quickly. Sample readings for the lab motor: held still \qty{1.5}{A}; running freely
+  \qty{0.30}{A}.}
+\conclusion{the motor effect gives a torque on the coil. The half-scraped end works like
+  a commutator, so the torque always acts the same way. The lab motor draws less current
+  when it runs, because its spinning coil makes a back emf that opposes the supply. Held
+  still, it has no back emf, so the resistance of the whole circuit is
+  $R = \dfrac{3.0}{1.5} = \qty{2.0}{\ohm}$. Running:
+  $\varepsilon_\mathrm{back} = V - IR = 3.0 - 0.30 \times 2.0 = \qty{2.4}{V}$.
+  (The current in the paper-clip motor also falls when it spins. The main reason is
+  different: the half-scraped end switches the current off for half of each turn. Its
+  small coil makes a back emf of only about \qty{0.1}{V}.)}
+\significance{it shows every part of a DC motor, in a motor you can build in minutes.
+  The lab motor makes back emf easy to see.}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity:} change one variable at a time. Keep the coil size, the magnet
+        distance and the voltage the same, and balance the coil.
+  \item \textbf{Reliability:} repeat each reading three times and average. Close
+        agreement means the results are reliable.
+  \item \textbf{Accuracy:} use a digital ammeter and read it when steady. Measure speed
+        with slow-motion video or a tachometer (a meter that measures how fast something
+        spins), not by eye.
+  \item \textbf{Safety:} a motor that is held still draws a large current and gets hot.
+        Hold the lab motor still for only 1--2 seconds. Switch off between trials.
+\end{itemize}}
+\end{experiment}
+
+\textbf{Magnetic braking practical.} The falling-magnet and swinging-plate experiment in
+\cref{ch3:chap} is the key practical for magnetic braking. It shows the same physics as the
+brakes in \cref{ch5:sec:induction}: eddy currents, Lenz's law, and kinetic or potential
+energy changing to heat.
+
+%% ------------------------------------------------------------------
+\begin{summarybox}[unbreakable]{\Cref{ch5:chap} in five lines}
+\begin{itemize}
+  \item A coil in a field feels a torque $\tau = nIAB\sin\theta$, with $\theta$ from the
+        normal. It is largest when the plane of the coil is parallel to $B$. A split-ring
+        commutator reverses the current every half turn.
+  \item A spinning motor coil makes a back emf that opposes the supply:
+        $I = \dfrac{V - \varepsilon_\mathrm{back}}{R}$ (not on the sheet). The current is
+        largest at switch-on.
+  \item A generator coil turned in a field has a changing flux, so an emf is induced.
+        Slip rings give AC; a split ring gives DC. Faster turning raises the peak and the
+        frequency.
+  \item AC induction motor: a rotating field induces currents in the rotor, which follows
+        the field a little more slowly (slip).
+  \item Magnetic brake: eddy currents oppose the motion and turn kinetic energy into heat.
+        There is no braking force at zero speed.
+\end{itemize}
+\end{summarybox}

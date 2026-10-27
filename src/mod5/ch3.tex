@@ -1,0 +1,1247 @@
+% ch3.tex -- Module 5, Chapter 3: Circular Motion: Angles, Energy, Work and Torque
+% Dot points: M5.IQ2.04 (total energy and work in UCM), M5.IQ2.05 (torque),
+% plus angular velocity from M5.IQ2.03 (omega = Delta theta / t).
+\chapter{Circular Motion: Angles, Energy, Work and Torque}\label{ch3:chap}
+\covers{M5.IQ2.04, M5.IQ2.05}
+
+\inquiry{Why do objects move in circles?}
+
+\begin{goals}
+  \item measure angles in radians and use $\omega = \dfrac{\Delta\theta}{t}$ and $v = \omega r$
+  \item explain why the centripetal force does no work, so the speed stays constant
+  \item explain how work done by other forces changes the total energy
+  \item use energy to find speeds and forces in vertical circles
+  \item calculate torque with $\tau = r_\perp F = rF\sin\theta$ and explain how torque changes rotation
+\end{goals}
+
+\begin{syllabus}
+  \item M5.IQ2.03: solve problems with $\omega = \Delta\theta/t$ (angular velocity; the other
+        circular-motion formulas are in \cref{ch2:chap})
+  \item M5.IQ2.04: investigate how the total energy of an object in uniform circular motion is
+        related to the work done on it
+  \item M5.IQ2.05: investigate how the rotation of mechanical systems depends on the torque
+        applied, using $\tau = r_\perp F = rF\sin\theta$
+\end{syllabus}
+
+%% ==================================================================
+\section{Angles and angular velocity}\label{ch3:sec:omega}
+\covers{M5.IQ2.03}
+
+\begin{bigidea}
+Every point on a spinning object turns through the same angle in the same time. So every
+point has the same angular velocity $\omega$. Points further from the centre travel further
+in each turn. So they move faster: $v = \omega r$.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Radian (rad)}{a unit for angles. One full turn is $2\pi$ rad, the same as \ang{360}.}
+  \kw{Angular displacement ($\Delta\theta$)}{the angle an object turns through, measured at the centre.}
+  \kw{Angular velocity ($\omega$)}{the angle turned each second. Unit: \si{rad.s^{-1}}.}
+\end{keywords}
+
+Think of a merry-go-round. Mia sits near the centre and Sam sits at the edge. They go round
+once in the same time. But Sam travels around a bigger circle, so he moves faster. The
+merry-go-round turns at the same rate for both of them. We describe this turning with
+angles. The \term{angular displacement} ($\Delta\theta$) is the angle that a line from the
+centre to the object turns through. ($\theta$, ``theta'', is the Greek letter for an angle.)
+
+\begin{toolkit}{Radians and turns}
+\begin{sidebyside}[0.68]
+For $\omega$ and for arc length, angles must be in \term{radians} (rad). We use radians
+because $s = r\theta$ and $v = \omega r$ are only true when the angle is in radians. One
+radian is the angle at the centre when the arc is as long as the radius (\cref{ch3:fig:radian}).
+\begin{itemize}
+  \item One full turn $= 2\pi \text{ rad} = \ang{360}$, so $1 \text{ rad} \approx \ang{57.3}$.
+        Degrees to radians: multiply by $\dfrac{\pi}{180}$ (so $\ang{90} = \qty{1.57}{rad}$).
+  \item Turns to radians: multiply by $2\pi$ (3 turns $\approx \qty{18.8}{rad}$).
+        \term{rpm} (turns per minute) to \si{rad.s^{-1}}: multiply by $\dfrac{2\pi}{60}$.
+        \si{rad.s^{-1}} to rpm: multiply by $\dfrac{60}{2\pi}$.
+  \item \term{Arc length} (distance along the edge): $s = r\theta$, with $\theta$ in rad (not on
+        the sheet). On the formula sheet $s$ means displacement; here $s$ means the distance
+        along the arc.
+  \item $\num{7.27e-5}$ means $7.27 \div 100\,000 = 0.0000727$. Type it with the EXP
+        (or $\times10^x$) key.
+\end{itemize}
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \def\R{1.35}
+    \draw[hscmuted!60, line width=0.8pt] (0,0) circle (\R);
+    \draw[line width=2.4pt, hscvel] (0:\R) arc (0:57.2958:\R);
+    \draw[hscink, line width=0.9pt] (0,0) -- node[below, diagramlabel] {$r$} (0:\R);
+    \draw[hscink, line width=0.9pt] (0,0) -- node[above left, diagramlabel, inner sep=1pt] {$r$} (57.2958:\R);
+    \draw[hscink, line width=0.6pt] (0:0.4) arc (0:57.2958:0.4);
+    \node[diagramlabel, anchor=west, font=\footnotesize] at (24:0.42) {1 rad};
+    \node[diagramlabel, text=hscvel, anchor=west, align=left] at (30:\R+0.08) {arc\\$= r$};
+    \fill[hscink] (0,0) circle (1.5pt);
+  \end{tikzpicture}
+  \captionof{figure}{One radian.}\label{ch3:fig:radian}
+\end{sidebyside}
+\end{toolkit}
+
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \def\R{1.8}
+    \fill[hscbrand!6] (0,0) circle (\R);
+    \draw[hscmuted!70, line width=0.8pt] (0,0) circle (\R);
+    \draw[guide] (0,0) -- (-30:\R);
+    \draw[guide] (0,0) -- (40:\R);
+    \draw[displacement] (-30:0.85) arc (-30:40:0.85);
+    \draw[displacement] (-30:1.7) arc (-30:40:1.7);
+    \draw[hscink, line width=0.6pt] (-30:0.35) arc (-30:40:0.35);
+    \node[diagramlabel, font=\footnotesize] at (5:0.6) {$\Delta\theta$};
+    \node[diagramlabel, text=hscmuted] at (5:1.25) {$s_\mathrm{A}$};
+    \node[diagramlabel, text=hscmuted, anchor=west] at (5:1.8) {$s_\mathrm{B}$};
+    \coordinate (A) at (40:0.85);
+    \coordinate (B) at (40:1.7);
+    \draw[velocity] (A) -- ++(130:0.55) node[left, text=hscvel, inner sep=1pt] {$v_\mathrm{A}$};
+    \draw[velocity] (B) -- ++(130:1.1) node[left, text=hscvel, inner sep=1pt] {$v_\mathrm{B}$};
+    \fill[object] (A) circle (3.5pt);
+    \fill[object] (B) circle (3.5pt);
+    \node[diagramlabel, anchor=south, inner sep=1pt] at ($(A)+(80:0.2)$) {A};
+    \node[diagramlabel, anchor=south, inner sep=1pt] at ($(B)+(80:0.2)$) {B};
+    \fill[hscink] (0,0) circle (1.5pt);
+  \end{tikzpicture}
+  \captionof{figure}{A and B turn through the same angle $\Delta\theta$ in the same time.}\label{ch3:fig:sameomega}
+\nextside
+  The \term{angular velocity} ($\omega$, ``omega'') is the angle turned each second.
+  \begin{itemize}
+    \item In \cref{ch3:fig:sameomega}, A and B turn through the same angle in the same time.
+          They have the same $\omega$.
+    \item B is twice as far from the centre. Its arc $s_\mathrm{B}$ is twice as long as
+          $s_\mathrm{A}$, so it moves twice as fast.
+    \item The speed of a point along its circle is its \term{tangential speed} $v$.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}[unbreakable]{Angular velocity}
+  \cardformula{\omega = \frac{\Delta\theta}{t}}
+  \begin{symbols}
+    \sym{$\omega$}{angular velocity: angle turned each second}{\si{rad.s^{-1}}}
+    \sym{$\Delta\theta$}{angular displacement: angle turned}{\si{rad}}
+    \sym{$t$}{time taken}{\si{s}}
+  \end{symbols}
+  \inwords{angular velocity = angle turned $\div$ time taken.}
+  \whentouse{anything that spins or moves round a circle: wheels, fans, the Earth.}
+  \whennottouse{the angle is in degrees or turns. Change it to radians first.}
+  \rearranged{$\Delta\theta = \omega t$ \qquad $t = \dfrac{\Delta\theta}{\omega}$}
+  \tensecond{\qty{12}{rad} in \qty{3.0}{s}: $\omega = \dfrac{12}{3.0} = \qty{4.0}{rad.s^{-1}}$.}
+  \trap{one turn is $2\pi$ rad, not 1 rad. ``5 turns'' means $\Delta\theta = 10\pi$ rad.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Angular velocity from the period}
+  \cardformula{\omega = \frac{2\pi}{T} = 2\pi f}
+  \begin{symbols}
+    \sym{$\omega$}{angular velocity}{\si{rad.s^{-1}}}
+    \sym{$T$}{period: time for one full turn}{\si{s}}
+    \sym{$f$}{frequency: turns each second}{\si{Hz} ($= \si{s^{-1}}$)}
+  \end{symbols}
+  \inwords{one full turn ($2\pi$ rad) takes one period $T$.}
+  \whentouse{you know the period $T$ or the frequency $f$. For rpm, first find
+    $f = \text{rpm} \div 60$ (turns each second).}
+  \whennottouse{the turning rate changes. Then it gives only an average $\omega$.}
+  \rearranged{$T = \dfrac{2\pi}{\omega}$ \qquad $f = \dfrac{\omega}{2\pi}$}
+  \tensecond{the Earth turns once a day ($T = \qty{24}{h} = \qty{86400}{s}$, the value HSC
+    questions use), so $\omega = \dfrac{2\pi}{86400} = \qty{7.27e-5}{rad.s^{-1}}$.}
+  \derive{start from formulas on the sheet.
+    \begin{align*}
+      \omega &= \frac{\Delta\theta}{t} = \frac{2\pi}{T}
+        && \text{one turn: $\Delta\theta = 2\pi$ in the time $t = T$}\\
+      \omega &= 2\pi \times \frac{1}{T} = 2\pi f
+        && \text{$f = \dfrac{1}{T}$ (on the sheet)}
+    \end{align*}}
+  \trap{$T$ must be in seconds: 1 min = \qty{60}{s}, 1 h = \qty{3600}{s}.}
+\end{formulacard}
+
+\begin{formulacard}[notonsheet]{Speed from angular velocity}
+  \cardformula{v = \omega r}
+  \begin{symbols}
+    \sym{$v$}{tangential speed of a point}{\si{m.s^{-1}}}
+    \sym{$\omega$}{angular velocity}{\si{rad.s^{-1}}}
+    \sym{$r$}{distance of the point from the centre (axis)}{\si{m}}
+  \end{symbols}
+  \inwords{for the same $\omega$, a point twice as far out moves twice as fast.}
+  \whentouse{you know $\omega$ and need the speed of one point on a spinning object (or the reverse).}
+  \whennottouse{$\omega$ is in rpm or degrees per second. Change it to \si{rad.s^{-1}} first.}
+  \rearranged{$\omega = \dfrac{v}{r}$ \qquad $r = \dfrac{v}{\omega}$}
+  \tensecond{at the equator, $v = \omega r_\mathrm{E}$, where $r_\mathrm{E} = \qty{6.371e6}{m}$ is
+    the radius of the Earth (data sheet): $v = \num{7.27e-5} \times \num{6.371e6} = \qty{463}{m.s^{-1}}$.}
+  \derive{start from $v = \dfrac{2\pi r}{T}$ (on the sheet).
+    \begin{align*}
+      v &= \frac{2\pi r}{T} = \left(\frac{2\pi}{T}\right) r = \omega r
+        && \text{group $\dfrac{2\pi}{T}$, which is $\omega$}\\
+      a_\mathrm{c} &= \frac{v^2}{r} = \frac{(\omega r)^2}{r} = \omega^2 r
+        && \text{put $v = \omega r$ into $a_\mathrm{c} = \dfrac{v^2}{r}$; cancel one $r$}
+    \end{align*}}
+  \trap{measure $r$ from the centre: the radius, not the diameter.}
+\end{formulacard}
+
+\begin{workedexample}{A ceiling fan}\label{ch3:we:fan}
+A ceiling fan makes 15 full turns in \qty{6.0}{s} at a steady rate. The tip of each blade
+is \qty{0.60}{m} from the centre. Calculate (a) the angular velocity and (b) the speed of a
+blade tip.
+\given{15 turns in $t = \qty{6.0}{s}$, \ $r = \qty{0.60}{m}$}
+\find{(a) $\omega$ \quad (b) the tip speed $v$}
+\formula{$\omega = \dfrac{\Delta\theta}{t}$ \quad then \quad $v = \omega r$}
+\substitute{\eqlines{\Delta\theta &= 15 \times 2\pi = \qty{94.248}{rad} \qquad \text{(turns to radians)}\\
+  \omega &= \qty{94.248}{rad} \div \qty{6.0}{s} = \qty{15.708}{rad.s^{-1}} \qquad \text{(angle $\div$ time)}\\
+  v &= \qty{15.708}{rad.s^{-1}} \times \qty{0.60}{m} = \qty{9.425}{m.s^{-1}} \qquad \text{(speed $= \omega \times r$)}}}
+\answer{(a) \final{$\omega = \qty{16}{rad.s^{-1}}$} \quad (b) \final{$v = \qty{9.4}{m.s^{-1}}$}
+  (2 significant figures, like the data)}
+\checkstep{another route: $T = 6.0 \div 15 = \qty{0.40}{s}$ and
+  $v = 2\pi r \div T = 2\pi \times 0.60 \div 0.40 = \qty{9.42}{m.s^{-1}}$ \cmark. That is about
+  \qty{34}{km.h^{-1}}, a sensible speed for a fan tip.}
+\end{workedexample}
+
+\begin{workedexample}{A laboratory centrifuge}\label{ch3:we:washer}
+A laboratory centrifuge spins at 3600 rpm. A test tube sits \qty{0.0800}{m} from the axis.
+Find (a) the angular velocity, (b) the speed of the tube and (c) its centripetal
+acceleration. Compare (c) with $g$.
+\given{3600 turns in \qty{60}{s}, \ $r = \qty{0.0800}{m}$, \ $g = \qty{9.8}{m.s^{-2}}$}
+\find{(a) $\omega$ \quad (b) $v$ \quad (c) $a_\mathrm{c}$}
+\formula{$\omega = \dfrac{\Delta\theta}{t}$, \quad $v = \omega r$, \quad
+  $a_\mathrm{c} = \dfrac{v^2}{r}$ (on the sheet, \cref{ch2:chap})}
+\substitute{\eqlines{\omega &= (3600 \times 2\pi \text{ rad}) \div \qty{60}{s}
+    = \qty{376.99}{rad.s^{-1}} \qquad \text{(rpm to \si{rad.s^{-1}})}\\
+  v &= \qty{376.99}{rad.s^{-1}} \times \qty{0.0800}{m} = \qty{30.159}{m.s^{-1}} \qquad \text{($v = \omega r$)}\\
+  a_\mathrm{c} &= (\qty{30.159}{m.s^{-1}})^2 \div \qty{0.0800}{m} = \qty{11370}{m.s^{-2}} \qquad
+    \text{($a_\mathrm{c} = v^2 \div r$)}}}
+\answer{(a) \final{$\omega = \qty{377}{rad.s^{-1}}$} \quad (b) \final{$v = \qty{30.2}{m.s^{-1}}$}
+  \quad (c) \final{$a_\mathrm{c} = \qty{1.14e4}{m.s^{-2}}$}, about $11\,370 \div 9.8 \approx 1200$ times $g$.
+  (Keep the unrounded values in your calculator until you round here.)}
+\checkstep{$\omega^2 r = 376.99^2 \times 0.0800 = \qty{1.14e4}{m.s^{-2}}$, the same \cmark. The tube
+  must be pushed towards the centre with a force about 1200 times its weight. So centrifuge
+  tubes must be strong.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting turns, degrees or rpm straight into $\omega = \dfrac{\Delta\theta}{t}$.
+        \cmark\ Change to radians: 1 turn $= 2\pi$ rad.
+  \item \xmark\ ``All points on a wheel move at the same speed.''
+        \cmark\ They have the same $\omega$. The speed $v = \omega r$ grows with $r$.
+  \item \xmark\ Using the diameter in $v = \omega r$. \cmark\ $r$ is measured from the centre.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+Multiple-choice questions often ask what is the same for every point on a spinning object.
+The answer: $\omega$, $T$ and $f$ are the same, but $v$ and $a_\mathrm{c}$ grow with $r$. In calculations, write the
+conversion line, for example $3600 \text{ rpm} = 3600 \times 2\pi \div 60 =
+\qty{377}{rad.s^{-1}}$. It often earns a mark.
+\end{examtip}
+
+\begin{quickcheck}
+  \item Change to radians: (a) \ang{60} \quad (b) 2.5 turns. (c) Change 3000 rpm to \si{rad.s^{-1}}.
+  \item A turntable spins at 45 rpm. Point A is \qty{0.050}{m} and point B is \qty{0.15}{m} from
+        the centre. (a) Which point has the larger $\omega$? (b) Find the speed of each point.
+  \item A car travels at \qty{72}{km.h^{-1}}. Its wheels have a radius of \qty{0.30}{m} and do not
+        slip. Find the angular velocity of a wheel in \si{rad.s^{-1}} and in rpm.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Work and energy in circular motion}\label{ch3:sec:work}
+\covers{M5.IQ2.04}
+
+\begin{bigidea}
+A force does work only when part of it points along the motion. In uniform circular motion
+the net force is at \ang{90} to the motion. So it does no work, and the speed stays constant.
+If only gravity does work in a vertical circle (no friction, no motor), the speed changes,
+but $K + U$ stays constant.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Work ($W$)}{energy transferred by a force when the object moves along the direction of
+    the force (or of part of it). Unit: joule (J).}
+  \kw{Total mechanical energy ($E$)}{kinetic energy plus potential energy: $E = K + U$.}
+  \kw{Non-uniform circular motion}{moving in a circle with a changing speed.}
+  \kw{Apparent weight}{the push of the seat or floor on you. It is what you feel as your weight.}
+  \kw{Dip / crest}{the low point of a valley / the top of a hill in a track.}
+\end{keywords}
+
+\begin{refresher}{Work and energy (Year 11)}
+\begin{itemize}
+  \item \term{Kinetic energy} (energy of motion) is $K = \tfrac{1}{2}mv^2$.
+        \term{Gravitational potential energy} ($U$) is energy stored because of height. When the
+        height changes by $\Delta h$, it changes by $\Delta U = mg\Delta h$.
+  \item A force $F$ at angle $\theta$ to the motion has a part $F\cos\theta$ along the motion.
+        Only this part does work.
+  \item \term{Work--energy theorem}: the work done by the net force equals the change in
+        kinetic energy, $W_\mathrm{net} = \Delta K$ (not on the sheet).
+\end{itemize}
+\end{refresher}
+
+Imagine you carry a heavy bag across a flat room. Your hand pushes \emph{up}, but the bag moves
+\emph{sideways}. Your push is at \ang{90} to the motion, so it does no work on the bag.
+
+The same thing happens in a circle (\cref{ch3:fig:work}a). The \term{centripetal force} (the net
+force towards the centre) is at \ang{90} to the velocity at every instant.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---- (a) uniform
+    \begin{scope}
+      \def\R{1.2}
+      \draw[hscmuted!60, line width=0.8pt] (0,0) circle (\R);
+      \fill[hscink] (0,0) circle (1.5pt);
+      \node[diagramlabel, left, inner sep=3pt, font=\footnotesize] at (0,0) {centre};
+      \coordinate (P) at (\R,0);
+      \draw[hscink, line width=0.5pt] ($(P)+(-0.22,0)$) -- ($(P)+(-0.22,0.22)$) -- ($(P)+(0,0.22)$);
+      \draw[force] (P) -- ++(-0.8,0) node[pos=0.5, below, inner sep=3pt, text=hscforce] {$F_\mathrm{c}$};
+      \draw[velocity] (P) -- ++(0,1.0) node[right, inner sep=2pt, text=hscvel] {$v$};
+      \draw[displacement] ($(P)+(0.3,0.0)$) -- ++(0,0.45) node[right, inner sep=2pt, text=hscmuted, font=\footnotesize] {$\Delta s$};
+      \fill[object] (P) circle (4.5pt);
+      \node[diagramlabel, align=center] at (0.55,-1.6) {\textbf{(a) Uniform:} $W = F_\mathrm{c}\,\Delta s\cos\ang{90} = 0$};
+    \end{scope}
+    % ---- (b) speeding up
+    \begin{scope}[xshift=6.9cm]
+      \def\R{1.2}
+      \draw[hscmuted!60, line width=0.8pt] (0,0) circle (\R);
+      \fill[hscink] (0,0) circle (1.5pt);
+      \node[diagramlabel, left, inner sep=3pt, font=\footnotesize] at (0,0) {centre};
+      \coordinate (P) at (\R,0);
+      \draw[guide] ($(P)+(-0.8,0)$) -- ($(P)+(-0.8,0.6)$) -- ($(P)+(0,0.6)$);
+      \draw[force, dashed, line width=1pt] (P) -- ++(-0.8,0) node[pos=0.78, below, inner sep=4pt, text=hscforce, font=\footnotesize] {radial};
+      \draw[force, dashed, line width=1pt] (P) -- ++(0,0.6) node[right, inner sep=3pt, text=hscforce, font=\footnotesize, align=left] {tangential:\\does work};
+      \draw[force] (P) -- ++(-0.8,0.6) node[above left, inner sep=1pt, text=hscforce] {$F_\mathrm{net}$};
+      \draw[->, hscmuted, line width=0.6pt] (-55:1.5) arc (-55:-15:1.5);
+      \node[diagramlabel, text=hscmuted, anchor=west, font=\footnotesize] at (-35:1.55) {motion};
+      \fill[object] (P) circle (4.5pt);
+      \node[diagramlabel, align=center] at (0.55,-1.6) {\textbf{(b) Speeding up}};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) The net force is at \ang{90} to the velocity: no work.
+    (b) The net force has a part along the motion.}\label{ch3:fig:work}
+\end{figure}
+
+Split the path into tiny steps $\Delta s$ along the tangent. For each step,
+$W = F_\mathrm{c}\,\Delta s\cos\ang{90} = 0$. So the net work is zero.
+
+By the work--energy theorem, $\Delta K = W_\mathrm{net} = 0$. The kinetic energy and the speed stay
+constant. The centripetal force changes only the \emph{direction} of the velocity.
+
+If the object speeds up, the net force has two parts: a \emph{radial} part (towards the
+centre) and a \emph{tangential} part (along the path). Only the tangential part does work
+(\cref{ch3:fig:work}b).
+
+\begin{formulacard}{Work done by a force}
+  \cardformula{W = F_\parallel s = Fs\cos\theta}
+  \begin{symbols}
+    \sym{$W$}{work done by the force}{\si{J}}
+    \sym{$F$, $F_\parallel$}{the force, and its part along the displacement}{\si{N}}
+    \sym{$s$}{displacement of the object (for a force that always points along a curved path:
+      the distance along the path)}{\si{m}}
+    \sym{$\theta$}{angle between the force and the displacement}{\si{\degree} (calculator in
+      degree mode)}
+  \end{symbols}
+  \inwords{only the part of the force along the motion does work.}
+  \whentouse{a steady force acts on an object while it moves. For a circle, use it for each
+    tiny step along the tangent.}
+  \whennottouse{to find the work of a centripetal force by multiplying it by the distance
+    round the circle. It is at \ang{90} to every step, so $W = 0$.}
+  \rearranged{$F = \dfrac{W}{s\cos\theta}$ \qquad $s = \dfrac{W}{F\cos\theta}$}
+  \tensecond{\qty{20}{N} at \ang{60} to a \qty{5.0}{m} displacement:
+    $W = 20 \times 5.0 \times \cos\ang{60} = \qty{50}{J}$. At \ang{90}, $W = 0$.}
+  \trap{a ball whirled on a \qty{4.3}{N} string through half a turn (\qty{2.4}{m}) does
+    \emph{not} gain $4.3 \times 2.4 = \qty{10}{J}$. The tension is at \ang{90} to the motion: $W = 0$.}
+\end{formulacard}
+
+\textbf{Total energy.} The \term{total mechanical energy} is $E = K + U$. In a horizontal circle
+the height does not change, so $U$ is constant. No net work is done, so $K$ is constant. So $E$
+is constant too. A satellite in a circular orbit is the same. Gravity is at \ang{90} to its
+motion, and the radius does not change (see \cref{ch5:chap}).
+
+(In real life, air resistance slowly takes energy from a whirled ball. To keep the speed steady,
+your hand moves in a small circle a little ahead of the ball. Then the string is not exactly at
+\ang{90} to the motion. It pulls a little forwards and puts the lost energy back.)
+
+\textbf{How work changes the total energy.} The work done by gravity is already counted in $U$.
+Any \emph{other} force that does work changes the total energy: $W_\mathrm{other} = \Delta E$.
+In a horizontal circle or a circular orbit, $W_\mathrm{other} = 0$, so $E$ stays constant.
+
+A Ferris wheel is different. It turns at a steady speed in a vertical circle. So $K$ stays the
+same, but $U$ grows as a rider rises. The seat pushes the rider up and does positive work. This
+energy comes from the motor.
+
+Example: a \qty{60}{kg} rider on a wheel of radius \qty{20}{m} goes from the bottom to the top.
+The rider rises by the diameter, $2r = \qty{40}{m}$. So
+$\Delta U = mg\Delta h = 60 \times 9.8 \times 40 = \qty{2.4e4}{J}$. The seat does
+\qty{2.4e4}{J} of work on the rider, and gravity does $-\qty{2.4e4}{J}$. The net work is zero,
+so $\Delta K = 0$.
+
+\begin{formulacard}[notonsheet]{Work and total energy}
+  \cardformula{W_\mathrm{other} = \Delta E = \Delta K + \Delta U}
+  \begin{symbols}
+    \sym{$W_\mathrm{other}$}{work done by all forces except gravity}{\si{J}}
+    \sym{$\Delta E$}{change in total mechanical energy}{\si{J}}
+    \sym{$\Delta K$}{change in kinetic energy}{\si{J}}
+    \sym{$\Delta U$}{change in gravitational potential energy}{\si{J}}
+  \end{symbols}
+  \inwords{forces other than gravity (a push, a motor, friction, air resistance) change the
+    total energy by the work they do.}
+  \whentouse{to decide whether $E = K + U$ stays constant, or to find the work done by a motor,
+    a push or friction.}
+  \whennottouse{to find a force at one instant. Use $F_\mathrm{c} = \dfrac{mv^2}{r}$ for that.}
+  \rearranged{$\Delta K = W_\mathrm{other} - \Delta U$; \ if $W_\mathrm{other} = 0$, $K + U$ stays constant}
+  \tensecond{air resistance does $-\qty{0.30}{J}$ of work on a whirled ball. Its total energy
+    falls by \qty{0.30}{J}.}
+  \derive{start from the work--energy theorem.
+    \begin{align*}
+      W_\text{by gravity} + W_\mathrm{other} &= \Delta K
+        && \text{net work $=$ gravity's work $+$ other work}\\
+      -\Delta U + W_\mathrm{other} &= \Delta K
+        && \text{gravity's work is the loss of $U$: $W_\text{by gravity} = -\Delta U$}\\
+      W_\mathrm{other} &= \Delta K + \Delta U = \Delta E
+        && \text{add $\Delta U$ to both sides}
+    \end{align*}}
+  \trap{do not count gravity twice. Its work is already in $\Delta U$, so leave it out of
+    $W_\mathrm{other}$.}
+\end{formulacard}
+
+\begin{workedexample}{Speeding up on a roundabout}\label{ch3:we:roundabout}
+A \qty{1200}{kg} car drives around a flat roundabout of radius \qty{25}{m}. (a) At a steady
+\qty{18}{km.h^{-1}}, find the friction force towards the centre and the work it does in one
+lap. (b) The driver then speeds up to \qty{36}{km.h^{-1}} during half a lap. Find the net work
+done on the car and the average tangential (forward) force. Ignore air resistance.
+\given{$m = \qty{1200}{kg}$, \ $r = \qty{25}{m}$, \ $u = 18 \div 3.6 = \qty{5.0}{m.s^{-1}}$, \
+  $v = 36 \div 3.6 = \qty{10.0}{m.s^{-1}}$; \ half a lap: distance along the path
+  $s = \pi r = \qty{78.54}{m}$ (not the straight-line displacement $2r = \qty{50}{m}$)}
+\find{(a) $F_\mathrm{c}$ and its work \quad (b) $W_\mathrm{net}$ and the tangential force $F_\parallel$}
+\formula{$F_\mathrm{c} = \dfrac{mv^2}{r}$, \quad $W_\mathrm{net} = \Delta K = \tfrac{1}{2}mv^2 - \tfrac{1}{2}mu^2$,
+  \quad $W = F_\parallel s$}
+\substitute{\eqlines{\text{(a) } F_\mathrm{c} &= \qty{1200}{kg} \times (\qty{5.0}{m.s^{-1}})^2 \div \qty{25}{m}
+    = \qty{1200}{N}\\
+  \text{work by } F_\mathrm{c} &= 0 \qquad \text{(the force is at \ang{90} to the motion)}\\
+  \text{(b) } W_\mathrm{net} &= \tfrac{1}{2}(\qty{1200}{kg})(\qty{10.0}{m.s^{-1}})^2
+    - \tfrac{1}{2}(\qty{1200}{kg})(\qty{5.0}{m.s^{-1}})^2\\
+  &= \qty{6.0e4}{J} - \qty{1.5e4}{J} = \qty{4.5e4}{J}\\
+  F_\parallel &= W_\mathrm{net} \div s = \qty{4.5e4}{J} \div \qty{78.54}{m} = \qty{573.0}{N}}\par
+  (We rearranged $W = F_\parallel s$. $F_\parallel$ always points along the path, so we add up
+  the tiny steps: $s$ is the distance along the arc.)}
+\answer{(a) \final{$F_\mathrm{c} = \qty{1.2e3}{N}$}, \ work $= \qty{0}{J}$ \quad
+  (b) \final{$W_\mathrm{net} = \qty{4.5e4}{J}$}, \ \final{$F_\parallel = \qty{5.7e2}{N}$}}
+\checkstep{the forward acceleration is $a = F_\parallel \div m = 573.0 \div 1200 =
+  \qty{0.4775}{m.s^{-2}}$. Then $v^2 = u^2 + 2as = 5.0^2 + 2 \times 0.4775 \times 78.54 = 100$, so
+  $v = \qty{10.0}{m.s^{-1}}$, as given \cmark. At the end, $a_\mathrm{c} = 10.0^2 \div 25 =
+  \qty{4.0}{m.s^{-2}}$ (0.41\,$g$), which a dry road can supply. While the car speeds up, its
+  motion is not uniform.}
+\end{workedexample}
+
+\subsection{Vertical circles}
+
+Swing a ball on a string in a vertical circle, or ride a rollercoaster loop. If only gravity
+does work (no motor, no push from your hand, no friction), the speed is slowest at the top and
+fastest at the bottom. This is \term{non-uniform circular motion} (moving in a circle with a
+changing speed).
+
+\begin{sidebyside}[0.5]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \def\R{1.7}
+    \draw[hscmuted!60, line width=0.8pt] (0,0) circle (\R);
+    \draw[hscink!60, line width=0.6pt] (0,0) -- (0,\R);
+    \draw[hscink!60, line width=0.6pt] (0,0) -- (\R,0);
+    \draw[hscink!60, line width=0.6pt] (0,0) -- (0,-\R);
+    \fill[hscink] (0,0) circle (1.5pt);
+    \node[diagramlabel, left, inner sep=3pt] at (0,0) {centre};
+    \draw[->, hscmuted, line width=0.6pt] (155:2.0) arc (155:205:2.0);
+    \node[diagramlabel, text=hscmuted, anchor=east] at (180:2.1) {motion};
+    % top
+    \draw[force] (-0.11,\R) -- (-0.11,1.1) node[left, inner sep=1pt, text=hscforce] {$F_\mathrm{T}$};
+    \draw[force] (0.11,\R) -- (0.11,0.85) node[right, inner sep=1pt, text=hscforce] {$mg$};
+    \draw[velocity] (0,\R) -- (-0.7,\R) node[left, inner sep=2pt, text=hscvel] {$v$};
+    \fill[object] (0,\R) circle (4.5pt);
+    \node[diagramlabel, above, inner sep=6pt] at (0,\R) {slowest};
+    % side
+    \draw[force] (\R,0) -- (0.9,0) node[above, inner sep=2pt, text=hscforce] {$F_\mathrm{T}$};
+    \draw[force] (\R,0) -- (\R,-0.85) node[right, inner sep=2pt, text=hscforce] {$mg$};
+    \draw[velocity] (\R,0) -- (\R,1.05) node[right, inner sep=2pt, text=hscvel] {$v$};
+    \fill[object] (\R,0) circle (4.5pt);
+    % bottom
+    \draw[force] (0,-\R) -- (0,-0.4) node[right, pos=0.6, inner sep=2pt, text=hscforce] {$F_\mathrm{T}$};
+    \draw[force] (0,-\R) -- (0,-2.55) node[right, inner sep=2pt, text=hscforce] {$mg$};
+    \draw[velocity] (0,-\R) -- (1.5,-\R) node[right, inner sep=2pt, text=hscvel] {$v$};
+    \fill[object] (0,-\R) circle (4.5pt);
+    \node[diagramlabel, anchor=north east, inner sep=3pt] at (-0.15,-\R) {fastest};
+  \end{tikzpicture}
+  \captionof{figure}{A ball on a string in a vertical circle. Arrows are not to scale: at the
+    bottom the tension is much bigger than $mg$.}\label{ch3:fig:vertical}
+\nextside
+  Look at \cref{ch3:fig:vertical}.
+  \begin{itemize}
+    \item The tension $F_\mathrm{T}$ (the pull of the string, \cref{ch2:chap}) always points
+          along the string, to the centre. It is at \ang{90} to the motion, so it does no work.
+    \item Gravity always points down. At the top and the bottom it is at \ang{90} to the motion.
+    \item Everywhere else, part of the weight is along the path. Going up, it points backwards
+          and slows the ball. Going down, it points forwards and speeds the ball up.
+  \end{itemize}
+\end{sidebyside}
+
+So for a ball on a string (with no push from your hand), only gravity does work. This work
+equals the loss of potential energy.
+With no friction or air resistance, energy moves between $K$ and $U$, but the total stays the
+same. This is the \term{conservation of mechanical energy}. From the top of a circle to the
+bottom, the object falls through the diameter, $2r$.
+
+\begin{formulacard}[combine={$K = \frac{1}{2}mv^2$ and $\Delta U = mg\Delta h$}]{Energy along a vertical circle}
+  \cardformula{\tfrac{1}{2}mv_1^2 + mgh_1 = \tfrac{1}{2}mv_2^2 + mgh_2}
+  \begin{symbols}
+    \sym{$m$}{mass of the object}{\si{kg}}
+    \sym{$v_1$, $v_2$}{speed at point 1 and at point 2}{\si{m.s^{-1}}}
+    \sym{$h_1$, $h_2$}{height of point 1 and of point 2}{\si{m}}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+  \end{symbols}
+  \inwords{kinetic energy plus potential energy is the same at every point of the path.}
+  \whentouse{speeds at different heights on a vertical circle, a rollercoaster or a pendulum,
+    when friction and air resistance are small.}
+  \whennottouse{friction, air resistance or a motor does a lot of work. Also, it gives speeds,
+    not forces.}
+  \rearranged{$v_2 = \sqrt{v_1^2 + 2g(h_1 - h_2)}$; \ top to bottom of a circle:
+    $v_\mathrm{bottom}^2 = v_\mathrm{top}^2 + 4gr$}
+  \tensecond{$v_\mathrm{top} = \qty{3.0}{m.s^{-1}}$, $r = \qty{0.50}{m}$:
+    $v_\mathrm{bottom} = \sqrt{3.0^2 + 4 \times 9.8 \times 0.50} = \qty{5.3}{m.s^{-1}}$.}
+  \derive{the tension (or normal force) is at \ang{90} to the motion, so it does no work. With no
+    friction, $W_\mathrm{other} = 0$, so $\Delta E = 0$ (``Work and total energy'' card).
+    \begin{align*}
+      \tfrac{1}{2}mv_1^2 + mgh_1 &= \tfrac{1}{2}mv_2^2 + mgh_2
+        && \text{$E$ is the same at points 1 and 2}\\
+      \tfrac{1}{2}mv_2^2 &= \tfrac{1}{2}mv_1^2 + mg(h_1 - h_2)
+        && \text{subtract $mgh_2$ from both sides}\\
+      v_2^2 &= v_1^2 + 2g(h_1 - h_2)
+        && \text{multiply both sides by $\dfrac{2}{m}$}\\
+      v_\mathrm{bottom}^2 &= v_\mathrm{top}^2 + 2g(2r) = v_\mathrm{top}^2 + 4gr
+        && \text{top to bottom: $h_1 - h_2 = 2r$}
+    \end{align*}}
+  \trap{from the top to the bottom the height falls by $2r$, not $r$. The mass cancels, so you
+    do not need $m$ to find a speed.}
+\end{formulacard}
+
+\textbf{Forces at the top and bottom.} To find a force, first find the speed at that point.
+
+The net force towards the centre must be $F_\mathrm{c} = \dfrac{mv^2}{r}$ (on the sheet). It is
+not an extra force. It is the sum of the real forces.
+
+At the top and the bottom, every force is vertical. Take ``towards the centre'' as positive. A
+force that points to the centre is $+$. A force that points away from the centre is $-$.
+\Cref{ch3:fig:track} shows a cart in a dip and on a crest.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[guide] (-0.2,0) -- (10.4,0);
+    \node[diagramlabel, anchor=south west, text=hscmuted, font=\footnotesize] at (-0.2,0) {ground level};
+    % track (heights to scale: 1 cm = 10 m)
+    \draw[hscink, line width=1.4pt] (0,3.2) .. controls (1.5,3.2) and (2.0,0) .. (3.5,0)
+      .. controls (5.0,0) and (5.6,2.0) .. (7.2,2.0)
+      .. controls (8.6,2.0) and (9.2,0.6) .. (10,0.6);
+    % A
+    \fill[object] (0.2,3.32) circle (3.5pt);
+    \node[diagramlabel, anchor=south west, inner sep=4pt, align=left] at (0.2,3.32) {\textbf{A}: at rest, \qty{32}{m} high};
+    % B: dip
+    \coordinate (B) at (3.5,0.12);
+    \fill[hscink] (3.5,1.85) circle (1.5pt);
+    \node[diagramlabel, anchor=west, font=\footnotesize, align=left] at (3.6,1.85) {centre of the dip\\(above B)};
+    \draw[force] (B) -- (3.5,1.4) node[left, pos=0.7, inner sep=2pt, text=hscforce] {$F_\mathrm{N}$};
+    \draw[force] (B) -- (3.5,-0.45) node[left, inner sep=2pt, text=hscforce] {$mg$};
+    \fill[object] (B) circle (3.5pt);
+    \node[diagramlabel, anchor=north west, align=left, font=\footnotesize] at (3.75,-0.08) {\textbf{B}: dip, $r = \qty{25}{m}$;\\net force up};
+    % C: crest
+    \coordinate (C) at (7.2,2.12);
+    \fill[hscink] (7.2,1.05) circle (1.5pt);
+    \node[diagramlabel, anchor=north, font=\footnotesize, align=center, inner sep=2pt] at (7.2,0.98) {centre of the crest\\(below C)};
+    \draw[force] (C) -- (7.2,2.45) node[left, inner sep=2pt, text=hscforce] {$F_\mathrm{N}$};
+    \draw[force] (C) -- (7.2,1.3) node[right, inner sep=2pt, text=hscforce] {$mg$};
+    \fill[object] (C) circle (3.5pt);
+    \node[diagramlabel, anchor=south west, align=left, font=\footnotesize] at (7.35,2.2) {\textbf{C}: crest, \qty{20}{m} high,\\$r = \qty{30}{m}$; net force down};
+  \end{tikzpicture}
+  \caption{A cart in a dip (B) and on a crest (C). The centre of the circle is above a dip and
+    below a crest, so the net force points up at B and down at C. (Heights to scale; radii and
+    arrows not to scale.)}\label{ch3:fig:track}
+\end{figure}
+
+\begin{itemize}
+  \item String, top: the centre is below the ball. $F_\mathrm{T}$ and $mg$ both point down, to
+        the centre. Both are $+$.
+  \item String, bottom: the centre is above the ball. $F_\mathrm{T}$ points up ($+$). $mg$ points
+        down, away ($-$).
+  \item Cart in a \term{dip} (the low point of a valley in the track): the centre is above the
+        cart. The \term{normal force} $F_\mathrm{N}$ (the push of the track or seat) is $+$, and
+        $mg$ is $-$.
+  \item Cart on a \term{crest} (the top of a hill in the track): the centre is below the cart.
+        $mg$ is $+$, and $F_\mathrm{N}$ is $-$.
+\end{itemize}
+
+
+\begin{formulacard}[notonsheet]{Forces at the top and bottom of a vertical circle}
+  \cardformula{\text{top: } F_\mathrm{T} + mg = \frac{mv^2}{r} \qquad
+    \text{bottom: } F_\mathrm{T} - mg = \frac{mv^2}{r}}
+  \begin{symbols}
+    \sym{$F_\mathrm{T}$}{tension in the string (use $F_\mathrm{N}$ for a track or seat)}{\si{N}}
+    \sym{$m$}{mass of the object}{\si{kg}}
+    \sym{$g$}{gravitational acceleration, 9.8}{\si{m.s^{-2}}}
+    \sym{$v$}{speed at that point}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+  \end{symbols}
+  \inwords{forces towards the centre minus forces away from it $= mv^2/r$.}
+  \whentouse{only at the very top or bottom, where every force is vertical.}
+  \whennottouse{at the side of the circle, or to find a speed (use energy).}
+  \rearranged{top: $F_\mathrm{T} = \dfrac{mv^2}{r} - mg$; \ bottom: $F_\mathrm{T} = mg + \dfrac{mv^2}{r}$;
+    \ dip: $F_\mathrm{N} = mg + \dfrac{mv^2}{r}$; \ crest: $F_\mathrm{N} = mg - \dfrac{mv^2}{r}$;
+    \ smallest speed at the top: $v = \sqrt{gr}$}
+  \tensecond{a \qty{0.20}{kg} ball at the bottom, $r = \qty{0.50}{m}$, $v = \qty{4.0}{m.s^{-1}}$:
+    $F_\mathrm{T} = 0.20 \times 9.8 + \dfrac{0.20 \times 4.0^2}{0.50} = 1.96 + 6.4 = \qty{8.4}{N}$.}
+  \derive{$F_\mathrm{net} = F_\mathrm{c} = \dfrac{mv^2}{r}$ (on the sheet). Add the real forces,
+    with ``towards the centre'' $+$. Top: $(+F_\mathrm{T}) + (+mg)$. Bottom: $(+F_\mathrm{T}) + (-mg)$.}
+  \trap{at the top, $mg$ points \emph{to} the centre, so it is $+mg$, not $-mg$.}
+\end{formulacard}
+
+At the top, the string goes \emph{slack} (loose, with no pull) when $F_\mathrm{T} = 0$. Then
+gravity alone gives the centripetal force:
+\begin{align*}
+  mg &= \frac{mv^2}{r} && \text{top, with } F_\mathrm{T} = 0\\
+  g &= \frac{v^2}{r} && \text{divide both sides by } m\\
+  v^2 &= gr && \text{multiply both sides by } r\\
+  v &= \sqrt{gr} && \text{take the square root}
+\end{align*}
+This is the smallest speed at the top. Water in a swung bucket stays in for the same reason
+when $v \geq \sqrt{gr}$. A cart on a crest uses the same steps: set $F_\mathrm{N} = 0$ in
+$mg - F_\mathrm{N} = \dfrac{mv^2}{r}$. So a cart leaves a crest if its speed is more than
+$\sqrt{gr}$.
+
+On a ride you feel the seat's push $F_\mathrm{N}$. This is your \term{apparent weight}. You feel
+heavier in a dip ($F_\mathrm{N} > mg$) and lighter on a crest ($F_\mathrm{N} < mg$).
+
+\begin{workedexample}{Is the rollercoaster safe?}\label{ch3:we:coaster}
+A rollercoaster cart with riders has a mass of \qty{650}{kg}. It starts from rest at A,
+\qty{32}{m} above the ground. It rolls down into a dip B at ground level (radius \qty{25}{m}).
+Then it goes over a crest C that is \qty{20}{m} high (radius \qty{30}{m}); see \cref{ch3:fig:track}.
+Assume no friction or air resistance. (a) Find the normal force on the cart at B. (b) Show
+that the cart stays on the track at C, and find the normal force there.
+\given{$m = \qty{650}{kg}$, \ $v_\mathrm{A} = 0$, \ $h_\mathrm{A} = \qty{32}{m}$; \
+  $h_\mathrm{B} = 0$, $r_\mathrm{B} = \qty{25}{m}$; \ $h_\mathrm{C} = \qty{20}{m}$, $r_\mathrm{C} = \qty{30}{m}$}
+\find{(a) $F_\mathrm{N}$ at B \quad (b) whether $F_\mathrm{N} \geq 0$ at C, and its value}
+\formula{energy from A: $v^2 = 2g(h_\mathrm{A} - h)$ (from $\tfrac12 mv_\mathrm{A}^2 + mgh_\mathrm{A} =
+  \tfrac12 mv^2 + mgh$ with $v_\mathrm{A} = 0$: divide by $m$, multiply by 2, then subtract $2gh$); \
+  dip: $F_\mathrm{N} = mg + \dfrac{mv^2}{r}$; \ crest: $F_\mathrm{N} = mg - \dfrac{mv^2}{r}$}
+\substitute{\eqlines{v_\mathrm{B}^2 &= 2(\qty{9.8}{m.s^{-2}})(\qty{32}{m} - \qty{0}{m}) = \qty{627.2}{m^2.s^{-2}}
+    \qquad \text{(A to B)}\\
+  F_\mathrm{N,B} &= mg + \frac{mv_\mathrm{B}^2}{r_\mathrm{B}} \qquad \text{(dip)}\\
+  &= (\qty{650}{kg})(\qty{9.8}{m.s^{-2}}) + \frac{(\qty{650}{kg})(\qty{627.2}{m^2.s^{-2}})}{\qty{25}{m}}\\
+  &= \qty{6370}{N} + \qty{16307}{N} = \qty{22677}{N}}\par
+  \eqlines{v_\mathrm{C}^2 &= 2(\qty{9.8}{m.s^{-2}})(\qty{32}{m} - \qty{20}{m}) = \qty{235.2}{m^2.s^{-2}}
+    \qquad \text{(A to C)}\\
+  v_\mathrm{C} &= \sqrt{\qty{235.2}{m^2.s^{-2}}} = \qty{15.34}{m.s^{-1}}\\
+  \sqrt{g r_\mathrm{C}} &= \sqrt{(\qty{9.8}{m.s^{-2}})(\qty{30}{m})} = \qty{17.15}{m.s^{-1}}
+    \qquad \text{(speed limit at C)}}\par
+  \eqlines{F_\mathrm{N,C} &= mg - \frac{mv_\mathrm{C}^2}{r_\mathrm{C}} \qquad \text{(crest)}\\
+  &= \qty{6370}{N} - \frac{(\qty{650}{kg})(\qty{235.2}{m^2.s^{-2}})}{\qty{30}{m}}\\
+  &= \qty{6370}{N} - \qty{5096}{N} = \qty{1274}{N}}}
+\answer{(a) \final{$F_\mathrm{N} = \qty{2.3e4}{N}$} at B (3.6 times the weight) \quad
+  (b) $v_\mathrm{C} < \sqrt{gr_\mathrm{C}}$, so it stays on: \final{$F_\mathrm{N} = \qty{1.3e3}{N}$}
+  at C (0.20 times the weight)}
+\checkstep{$F_\mathrm{N} > mg$ in the dip (riders feel heavy) and $F_\mathrm{N} < mg$ on the crest
+  (riders feel light) \cmark. A crest radius below $\dfrac{v_\mathrm{C}^2}{g} = \qty{24}{m}$ would
+  throw the cart off.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The centripetal force does work: force $\times$ distance round the circle.''
+        \cmark\ It is at \ang{90} to the motion, so $W = 0$.
+  \item \xmark\ Height change $r$ from the top to the bottom of a circle. \cmark\ It is $2r$.
+  \item \xmark\ $F_\mathrm{T} - mg = \dfrac{mv^2}{r}$ at the top. \cmark\ Both point to the centre:
+        $F_\mathrm{T} + mg$.
+  \item \xmark\ ``$K + U$ is constant in every vertical circle.'' \cmark\ Only if no other force
+        does work. A Ferris wheel's motor adds energy.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why the kinetic energy in uniform circular motion is constant'' (3 marks). Make three
+linked points. (1) The net force points to the centre, at \ang{90} to the velocity at every
+instant. (2) So $W = Fs\cos\ang{90} = 0$. (3) By the work--energy theorem, $\Delta K = 0$, so the
+speed is constant. If the question asks about \emph{total} energy, add (4): the height (or orbit
+radius) does not change, so $U$ is constant, and so $E = K + U$ is constant.
+Vertical-circle questions have two steps. First use energy to find the speed (write ``no
+friction''). Then use the forces at the top or bottom. End with a comment: heavier or lighter,
+stays on or not.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A \qty{0.050}{kg} puck slides on a smooth horizontal table in a circle of radius
+        \qty{0.60}{m} at \qty{5.0}{m.s^{-1}}. A string ties it to a pin at the centre. Find (a) the
+        tension, (b) the work done by the tension in 10 turns and (c) the puck's kinetic energy.
+  \item Explain why a satellite in a circular orbit keeps a constant speed and a constant total energy.
+  \item A bucket of water is swung in a vertical circle of radius \qty{1.1}{m}. (a) Find the
+        smallest speed at the top that keeps the water in. (b) Find the speed at the bottom if the
+        top speed has this value.
+  \item A Ferris wheel of radius \qty{15}{m} turns at a steady speed. A \qty{50}{kg} rider goes from
+        the bottom to the top. (a) Does the rider's kinetic energy change? (b) Find the change in
+        potential energy. (c) Which force does the work that supplies this energy?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Torque: what makes things turn}\label{ch3:sec:torque}
+\covers{M5.IQ2.05}
+
+\begin{bigidea}
+A force can make an object turn about a pivot. Its turning effect is the torque,
+$\tau = r_\perp F$. A big force, far from the pivot and at \ang{90} to the lever, gives a big
+torque. If the torques balance, the rotation does not change.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Torque ($\tau$)}{the turning effect of a force. Unit: newton metre (\si{N.m}).}
+  \kw{Pivot (axis)}{the point or line that an object turns about, such as a hinge.}
+  \kw{Lever}{a bar that turns about a pivot, such as a spanner or a door.}
+  \kw{Line of action}{the line along which a force acts, drawn longer in both directions.}
+  \kw{Perpendicular distance ($r_\perp$)}{the shortest distance from the pivot to the line of
+    action of the force.}
+\end{keywords}
+
+Push a door next to its hinges and it hardly moves. Push at the handle, far from the hinges,
+and it swings easily. Push straight towards the hinges and it does not turn at all. The turning
+effect of a force is its \term{torque} ($\tau$, ``tau''). The point it turns about is the
+\term{pivot}.
+
+Torque is bigger when:
+\begin{itemize}
+  \item the force is bigger;
+  \item the force acts further from the pivot;
+  \item the force is closer to \ang{90} to the \term{lever} (the bar that turns).
+\end{itemize}
+
+\begin{toolkit}{Sine in torque problems}
+Splitting a force (toolkit in \cref{ch1:sec:model}): with $\theta$ measured from the lever, the
+part of $F$ at \ang{90} to the lever is opposite $\theta$, so it is $F\sin\theta$ (SOH). The part
+along the lever is next to $\theta$, so it is $F\cos\theta$ (CAH).
+\begin{itemize}
+  \item $\sin\ang{90} = 1$ gives the most torque. $\sin\ang{0} = \sin\ang{180} = 0$, so a force
+        along the lever gives none.
+  \item $\sin\theta = \sin(\ang{180} - \theta)$, for example $\sin\ang{30} = \sin\ang{150} = 0.5$.
+        So you may measure the angle on either side of the force: $\theta$ and
+        $\ang{180} - \theta$ give the same torque.
+  \item If the angle is measured from a line at \ang{90} to the lever, use \ang{90} minus that angle.
+  \item The angles here are in degrees. Set your calculator to degree mode (DEG): $\sin\ang{90}$
+        must give 1. In radian mode, $\sin 90$ gives 0.894, which is wrong here.
+\end{itemize}
+\end{toolkit}
+
+\Cref{ch3:fig:torque} shows two ways to find a torque. Both give the same answer. In both, $r$
+goes from the pivot to the point where the force acts. $\theta$ is the angle between $r$ and
+the force.
+\begin{itemize}
+  \item \textbf{(a) Perpendicular distance.} Extend the force into a line: its \term{line of
+        action}. Draw a line from the pivot that meets it at \ang{90}. This is the
+        \term{perpendicular distance}, $r_\perp = r\sin\theta$. Then $\tau = r_\perp F$.
+  \item \textbf{(b) Perpendicular force.} Split $F$ into $F\sin\theta$ (at \ang{90} to the lever)
+        and $F\cos\theta$ (along the lever). Only $F\sin\theta$ turns, so $\tau = r \times F\sin\theta$.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---- (a) perpendicular distance
+    \begin{scope}
+      \draw[object, rounded corners=1.5pt] (0.25,-0.13) rectangle (3.25,0.13);
+      \draw[object] (0:0.34) -- (60:0.34) -- (120:0.34) -- (180:0.34) -- (240:0.34) -- (300:0.34) -- cycle;
+      \fill[hscink] (0,0) circle (1.6pt);
+      \node[diagramlabel, below, inner sep=5pt] at (0,-0.3) {pivot};
+      \coordinate (P) at (3.0,0);
+      \coordinate (Q) at (2.25,-1.299);
+      \draw[guide] (P) -- (3.9,0);
+      \draw[guide] ($(Q)+(240:0.35)$) -- (P);
+      \draw[hscbrand, line width=1.1pt] (0,0) -- node[below left, diagramlabel, text=hscbrand, inner sep=1pt] {$r_\perp$} (Q);
+      \draw[hscink, line width=0.5pt] ($(Q)+(150:0.2)$) -- ($(Q)+(150:0.2)+(60:0.2)$) -- ($(Q)+(60:0.2)$);
+      \draw[hscink, <->, line width=0.5pt] (0,0.42) -- node[above, diagramlabel] {$r$} (3.0,0.42);
+      \draw[hscink, line width=0.6pt] ($(P)+(0:0.5)$) arc (0:60:0.5);
+      \node[diagramlabel] at ($(P)+(30:0.75)$) {$\theta$};
+      \draw[force] (P) -- ++(60:1.3) node[above, inner sep=2pt, text=hscforce] {$F$};
+      \fill[hscink] (P) circle (1.4pt);
+      \node[diagramlabel] at (1.6,-1.95) {\textbf{(a)} $r_\perp = r\sin\theta$, \ $\tau = r_\perp F$};
+    \end{scope}
+    % ---- (b) perpendicular force
+    \begin{scope}[xshift=6.9cm]
+      \draw[object, rounded corners=1.5pt] (0.25,-0.13) rectangle (3.25,0.13);
+      \draw[object] (0:0.34) -- (60:0.34) -- (120:0.34) -- (180:0.34) -- (240:0.34) -- (300:0.34) -- cycle;
+      \fill[hscink] (0,0) circle (1.6pt);
+      \node[diagramlabel, below, inner sep=5pt] at (0,-0.3) {pivot};
+      \draw[hscink, <->, line width=0.5pt] (0,0.42) -- node[above, diagramlabel] {$r$} (2.92,0.42);
+      \coordinate (P) at (3.0,0);
+      \draw[guide] ($(P)+(0.65,0)$) -- ($(P)+(60:1.3)$) -- ($(P)+(0,1.126)$);
+      \draw[force, hscforce!40, line width=1pt] (P) -- ++(60:1.3) node[right, inner sep=2pt, text=hscforce!70] {$F$};
+      \draw[force] (P) -- ++(0,1.126) node[left, inner sep=5pt, text=hscforce, align=right] {$F\sin\theta$\\(turns)};
+      \draw[force] (P) -- ++(0.65,0) node[right, inner sep=3pt, text=hscforce, align=left] {$F\cos\theta$\\(no turning)};
+      \draw[hscink, line width=0.6pt] ($(P)+(0:0.35)$) arc (0:60:0.35);
+      \node[diagramlabel] at ($(P)+(25:0.58)$) {$\theta$};
+      \fill[hscink] (P) circle (1.4pt);
+      \node[diagramlabel] at (1.6,-1.95) {\textbf{(b)} $\tau = r \times F\sin\theta$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A force $F$ on a spanner at angle $\theta$ to the handle. (a) The perpendicular
+    distance from the pivot to the line of action. (b) Only the part of $F$ at \ang{90} to the
+    handle turns the nut.}\label{ch3:fig:torque}
+\end{figure}
+
+\begin{formulacard}{Torque}
+  \cardformula{\tau = r_\perp F = rF\sin\theta}
+  \begin{symbols}
+    \sym{$\tau$}{torque: turning effect of the force}{\si{N.m}}
+    \sym{$r_\perp$}{perpendicular distance from the pivot to the line of action}{\si{m}}
+    \sym{$F$}{size of the force}{\si{N}}
+    \sym{$r$}{distance from the pivot to where the force acts}{\si{m}}
+    \sym{$\theta$}{angle between $r$ and the force}{\si{\degree} (calculator in degree mode)}
+  \end{symbols}
+  \inwords{turning effect = force $\times$ perpendicular distance from the pivot.}
+  \whentouse{a force turns an object about a pivot: doors, spanners, pedals, seesaws, motor
+    coils (Module 6).}
+  \whennottouse{the angle you are given is measured from a line at \ang{90} to the lever.
+    Change it to the angle between $r$ and $F$ first ($\theta = \ang{90} - $ that angle).}
+  \rearranged{$F = \dfrac{\tau}{r\sin\theta}$ \qquad $r = \dfrac{\tau}{F\sin\theta}$ \qquad
+    $\sin\theta = \dfrac{\tau}{rF}$}
+  \tensecond{\qty{50}{N} at \ang{90} to the end of a \qty{0.30}{m} spanner:
+    $\tau = 0.30 \times 50 \times \sin\ang{90} = \qty{15}{N.m}$.}
+  \trap{measure $r$ from the pivot, not from the end of the object. The unit is \si{N.m}
+    (not J, and not ``nm'').}
+\end{formulacard}
+
+\textbf{How torque changes rotation.} A force changes straight-line motion. In the same way, a
+torque changes turning motion.
+\begin{itemize}
+  \item If the net torque is not zero, the object starts to turn, speeds up or slows down. A bigger
+        net torque changes the rotation faster. A bicycle chain's torque speeds up the wheel. The
+        brakes' opposite torque slows it down.
+  \item If the torques are \term{balanced} (net torque zero), the rotation does not change. This is
+        Newton's first law for turning: with no net torque, a still object stays still, and a
+        turning object keeps turning at the same rate. The \term{clockwise} torques (turning the
+        same way as a clock's hands) then equal the \term{anticlockwise} torques (turning the
+        other way).
+\end{itemize}
+
+Take every torque about the same pivot.
+
+Example: a \qty{20}{kg} child sits \qty{1.5}{m} from a seesaw's pivot. Her torque is
+$20 \times 9.8 \times 1.5 = \qty{294}{N.m}$ (anticlockwise). A \qty{30}{kg} child sits
+\qty{1.0}{m} from the pivot on the other side. His torque is $30 \times 9.8 \times 1.0 =
+\qty{294}{N.m}$ (clockwise). The torques are equal, so the seesaw balances.
+
+\begin{formulacard}[notonsheet]{Balanced torques}
+  \cardformula{\sum\tau_\mathrm{clockwise} = \sum\tau_\mathrm{anticlockwise}}
+  \begin{symbols}
+    \sym{$\tau$}{each torque about the pivot (clockwise: the same way as a clock's hands;
+      anticlockwise: the other way)}{\si{N.m}}
+    \sym{$\sum$}{``add up all of them''}{no unit}
+  \end{symbols}
+  \inwords{if the turning effects each way are equal, the rotation does not change.}
+  \whentouse{seesaws, signs on poles, a balanced metre rule: the rotation does not change.}
+  \whennottouse{the rotation starts, speeds up or slows down (the net torque is not zero).}
+  \rearranged{one force each side: $r_1F_1 = r_2F_2$, so $r_2 = \dfrac{r_1F_1}{F_2}$ and
+    $F_2 = \dfrac{r_1F_1}{r_2}$}
+  \tensecond{a \qty{250}{N} child \qty{2.0}{m} from the pivot is balanced by a \qty{400}{N}
+    child at $r_2 = \dfrac{2.0 \times 250}{400} = \qty{1.25}{m}$ on the other side.}
+  \derive{no change in rotation means the net torque is zero:
+    $\sum\tau_\mathrm{clockwise} - \sum\tau_\mathrm{anticlockwise} = 0$. Add
+    $\sum\tau_\mathrm{anticlockwise}$ to both sides.}
+  \trap{take every torque about the \emph{same} pivot, and measure every $r$ from that pivot.}
+\end{formulacard}
+
+Everyday uses of torque:
+\begin{itemize}
+  \item door handles far from the hinges;
+  \item long spanners, wide steering wheels and wide tap handles;
+  \item bicycle pedals: the \term{crank} (the arm from the pedal to the axle) gives the most torque
+        when it is horizontal and none when it is vertical, if the foot pushes straight down;
+  \item electric motors (Module 6).
+\end{itemize}
+
+\begin{workedexample}{Turning a nut}\label{ch3:we:spanner}
+A mechanic pushes with \qty{80}{N} on the end of a \qty{0.25}{m} spanner. Find the torque on the
+nut when the force is (a) at \ang{90} to the spanner, (b) at \ang{60} to the spanner and (c) along
+the spanner, towards the nut.
+\given{$F = \qty{80}{N}$, \ $r = \qty{0.25}{m}$; \ $\theta = \ang{90}$, \ang{60} and \ang{180}
+  (a push towards the nut points back along $r$)}
+\find{the torque $\tau$ in each case}
+\formula{$\tau = rF\sin\theta$ (calculator in degree mode)}
+\substitute{\eqlines{\text{(a) } \tau &= \qty{0.25}{m} \times \qty{80}{N} \times \sin\ang{90} = 0.25 \times 80 \times 1 = \qty{20}{N.m}\\
+  \text{(b) } \tau &= \qty{0.25}{m} \times \qty{80}{N} \times \sin\ang{60} = 0.25 \times 80 \times 0.866 = \qty{17.32}{N.m}\\
+  \text{(c) } \tau &= \qty{0.25}{m} \times \qty{80}{N} \times \sin\ang{180} = \qty{0}{N.m}}}
+\answer{(a) \final{$\tau = \qty{20}{N.m}$} \quad (b) \final{$\tau = \qty{17}{N.m}$} \quad
+  (c) \final{$\tau = \qty{0}{N.m}$}}
+\checkstep{with method (a) for part (b): $r_\perp = 0.25\sin\ang{60} = \qty{0.2165}{m}$, and
+  $0.2165 \times 80 = \qty{17.3}{N.m}$ \cmark. The torque is largest at \ang{90}.}
+\end{workedexample}
+
+\begin{workedexample}{Holding up a plant basket}\label{ch3:we:sign}
+\begin{sidebyside}[0.56]
+A \qty{4.0}{kg} plant basket hangs from the end of a light (almost massless) horizontal rod,
+\qty{1.5}{m} long. The rod is hinged to a wall. A cable joins the end of the rod to a point
+higher up the wall, at \ang{35} to the rod (\cref{ch3:fig:sign}). Find the tension in the cable.
+\nextside
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    \fill[ground] (-0.3,-1.9) rectangle (0,2.8);
+    \draw[hscink, line width=0.7pt] (0,-1.9) -- (0,2.8);
+    \draw[hscink, line width=0.8pt] (3.6,0) -- (0,2.52);
+    \draw[hscink, line width=2.4pt] (0,0) -- (3.6,0);
+    \draw[object] (0,0) circle (3pt);
+    \draw[hscink, <->, line width=0.5pt] (0,-0.28) -- (3.6,-0.28);
+    \node[diagramlabel, anchor=north, inner sep=2pt] at (1.5,-0.3) {$r = \qty{1.5}{m}$};
+    \node[diagramlabel, anchor=north west, inner sep=2pt, font=\footnotesize] at (0.05,-0.95) {hinge (pivot)};
+    \draw[hscink, line width=0.6pt] (3.6,0) -- (3.6,-0.42);
+    \draw[hscink, line width=0.6pt] (3.6,-0.42) -- (3.05,-0.6);
+    \draw[hscink, line width=0.6pt] (3.6,-0.42) -- (4.15,-0.6);
+    \draw[object] (2.9,-0.6) -- (4.3,-0.6) -- (4.02,-1.2) -- (3.18,-1.2) -- cycle;
+    \node[diagramlabel, font=\scriptsize] at (3.6,-0.9) {basket};
+    \draw[force] (3.6,-1.2) -- (3.6,-1.95) node[left, inner sep=3pt, text=hscforce] {$mg$};
+    \draw[force] (3.6,0) -- ++(145:1.3) node[above right, inner sep=1pt, text=hscforce] {$F_\mathrm{T}$};
+    \draw[hscink, line width=0.6pt] ($(3.6,0)+(145:0.75)$) arc (145:180:0.75);
+    \node[diagramlabel, font=\footnotesize] at ($(3.6,0)+(163:1.12)$) {\ang{35}};
+    \node[diagramlabel, anchor=west] at (0.1,2.55) {cable};
+  \end{tikzpicture}
+  \captionof{figure}{A plant basket held up by a hinged rod and a cable.}\label{ch3:fig:sign}
+\end{sidebyside}
+\given{$m = \qty{4.0}{kg}$, so $mg = 4.0 \times 9.8 = \qty{39.2}{N}$; \ $r = \qty{1.5}{m}$ (hinge to
+  the end); \ the weight acts at the end, at \ang{90} to the rod; \ the cable makes \ang{35} with
+  the rod, so the angle between $r$ and $F_\mathrm{T}$ is \ang{145}}
+\find{the tension $F_\mathrm{T}$ in the cable}
+\formula{balanced torques about the hinge: $\tau_\mathrm{cable} = \tau_\mathrm{weight}$, with
+  $\tau = rF\sin\theta$}
+\substitute{\eqlines{\tau_\mathrm{weight} &= \qty{1.5}{m} \times \qty{39.2}{N} \times \sin\ang{90}
+    = \qty{58.8}{N.m} \quad \text{(clockwise)}\\
+  \tau_\mathrm{cable} &= \qty{1.5}{m} \times F_\mathrm{T} \times \sin\ang{145}
+    \quad \text{(anticlockwise)}\\
+  &= 1.5 \times 0.5736 \times F_\mathrm{T} = 0.8604\,F_\mathrm{T} \quad \text{($\sin\ang{145} = \sin\ang{35}$)}\\
+  0.8604\,F_\mathrm{T} &= 58.8 \quad \text{(set the torques equal)}\\
+  F_\mathrm{T} &= 58.8 \div 0.8604 = \qty{68.34}{N} \quad \text{(divide both sides by 0.8604)}}}
+\answer{\final{$F_\mathrm{T} = \qty{68}{N}$} (2 significant figures)}
+\checkstep{the hinge force has no torque about the hinge, so we chose it. About the rod's end,
+  the weight and cable have no torque, so the hinge force has none either: it is horizontal.
+  So the vertical part of the tension holds up the whole weight:
+  $F_\mathrm{T}\sin\ang{35} = 68.34 \times 0.5736 = \qty{39.2}{N} = mg$ \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $\cos\theta$ when $\theta$ is between $r$ and $F$. \cmark\ Use $\sin\theta$.
+        Draw the diagram and mark $\theta$ first.
+  \item \xmark\ Measuring $r$ from the end of the object. \cmark\ Measure from the pivot.
+  \item \xmark\ ``A bigger force always gives more torque.'' \cmark\ A force through the pivot gives
+        zero torque, however big it is.
+  \item \xmark\ Calculator in radian mode. \cmark\ Use degree mode for angles in degrees.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why door handles are far from the hinges'' (2--3 marks). Name the hinge as the pivot.
+Quote $\tau = r_\perp F$. The door needs a certain torque, so a larger $r_\perp$ means a smaller
+force. Pushing at \ang{90} ($\sin\ang{90} = 1$) gives the most torque. In calculations, draw the
+pivot, $r$ and $\theta$. Substitute into $\tau = rF\sin\theta$ and give the unit \si{N.m}.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A \qty{120}{N} force acts on the end of a \qty{0.35}{m} spanner. Find the torque when the
+        force is (a) at \ang{90} and (b) at \ang{70} to the spanner.
+  \item A bicycle crank is \qty{0.17}{m} long. The rider pushes straight down on the pedal with
+        \qty{600}{N}. Find the torque when the crank is (a) horizontal, (b) \ang{45} below the
+        horizontal and (c) pointing straight down.
+  \item A \qty{30}{kg} child sits \qty{1.8}{m} from the pivot of a seesaw. Where must a \qty{45}{kg}
+        adult sit, on the other side, to balance it? Explain your reasoning.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch3:sec:experiments}
+\covers{M5.IQ2.04, M5.IQ2.05}
+
+The syllabus asks you to ``investigate'' both ideas in this chapter. Exams often ask you to
+design, improve or judge tests like these.
+
+\begin{experiment}{Investigating torque: $\tau = r_\perp F$}
+\aim{To test $\tau = rF\sin\theta$. We find how the force that balances a fixed load depends on
+  its distance from the pivot and on its angle. Then we see how an unbalanced torque changes the
+  rotation.}
+\apparatus{metre rule with a hole at the \qty{50}{cm} mark, pivot pin on a retort stand,
+  \qty{200}{g} mass on a thread loop, slotted masses (\qty{50}{g}), spring balance
+  (\qtyrange{0}{5}{N}), protractor (\cref{ch3:fig:torqueexp}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+      \fill[hscmuted!35] (-0.9,-2.45) rectangle (0.9,-2.25);
+      \draw[hscmuted, line width=2.2pt] (0,-2.25) -- (0,0);
+      \draw[object] (-4.5,-0.1) rectangle (4.5,0.1);
+      \foreach \x in {-4.5,-3.6,...,4.6} \draw[hscink, line width=0.4pt] (\x,0.1) -- (\x,-0.02);
+      \fill[hscink] (0,0) circle (2pt);
+      \draw[hscink, line width=0.6pt] (-2.7,-0.1) -- (-2.7,-0.7);
+      \draw[object] (-3.2,-0.7) rectangle (-2.2,-1.25);
+      \node[diagramlabel, font=\scriptsize] at (-2.7,-0.975) {\qty{200}{g}};
+      \draw[hscink, line width=0.6pt] (2.7,-0.1) -- (2.7,-0.4);
+      \draw[object] (2.55,-0.4) rectangle (2.85,-1.5);
+      \foreach \y in {-0.55,-0.7,...,-1.4} \draw[hscink, line width=0.3pt] (2.55,\y) -- (2.66,\y);
+      \draw[force] (2.7,-1.5) -- (2.7,-2.2) node[right, inner sep=3pt, text=hscforce] {pull down with $F$};
+      \draw[hscink, <->, line width=0.5pt] (-2.7,0.45) -- node[above, diagramlabel] {\qty{0.300}{m}} (0,0.45);
+      \draw[hscink, <->, line width=0.5pt] (0,0.45) -- node[above, diagramlabel] {$r$} (2.7,0.45);
+      \node[diagramlabel, anchor=south] at (0,1.15) {pivot at the \qty{50}{cm} mark};
+      \node[diagramlabel, anchor=east] at (-3.3,-0.975) {load};
+      \node[diagramlabel, anchor=west] at (2.95,-0.95) {spring balance};
+    \end{tikzpicture}
+    \caption{The metre rule balanced by a load and a spring balance.}\label{ch3:fig:torqueexp}
+  \end{figure}}
+\method{\begin{enumerate}[beginpenalty=10000]
+  \item Hang the rule on the pivot at its \qty{50}{cm} mark. Check that the empty rule balances
+        level. Then its \term{centre of mass} (the point where all its weight seems to act) is
+        at the pivot.
+        Hang the load \qty{0.300}{m} left of the pivot. Its torque is fixed:
+        $0.300 \times 0.200 \times 9.8 = \qty{0.588}{N.m}$.
+  \item Hook the spring balance $r = \qty{0.150}{m}$ right of the pivot. Pull straight down until
+        the rule is level. Record $F$. Repeat three times and average.
+  \item Repeat for $r$ from \qty{0.200}{m} to \qty{0.450}{m}. Then keep $r = \qty{0.400}{m}$ and
+        pull at \ang{90}, \ang{60}, \ang{45} and \ang{30} to the rule.
+  \item Rotation test: take the spring balance away. Hang \qty{150}{g} \qty{0.300}{m} right of the
+        pivot. The torques no longer balance, so the rule starts to turn. Repeat with \qty{100}{g}
+        and then \qty{50}{g}. Film each test to compare how fast the rule starts to turn.
+\end{enumerate}
+\textbf{Variables.} Independent (the one you change): $r$, then $\theta$. Dependent (the one you
+measure): $F$. Controlled (kept the same): the load, its distance (\qty{0.300}{m}), the pivot,
+and a level rule.}
+\results{Sample results (each $F$ is the mean of three readings):
+  \begin{sidebyside}[0.42]
+  \centering\small
+  \begin{tabular}{@{}cccc@{}}
+    \toprule
+    $r$ (\si{m}) & $1/r$ (\si{m^{-1}}) & $F$ (\si{N}) & $Fr$ (\si{N.m})\\
+    \midrule
+    0.150 & 6.67 & 3.95 & 0.593\\
+    0.200 & 5.00 & 2.90 & 0.580\\
+    0.250 & 4.00 & 2.35 & 0.588\\
+    0.300 & 3.33 & 1.95 & 0.585\\
+    0.350 & 2.86 & 1.70 & 0.595\\
+    0.400 & 2.50 & 1.45 & 0.580\\
+    0.450 & 2.22 & 1.30 & 0.585\\
+    \bottomrule
+  \end{tabular}
+\nextside
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.62\linewidth,
+        xmin=0, xmax=7.5, ymin=0, ymax=4.5,
+        xlabel={$1/r$ (\si{m^{-1}})}, ylabel={$F$ (\si{N})}]
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(6.667,3.95) (5.000,2.90) (4.000,2.35) (3.333,1.95) (2.857,1.70) (2.500,1.45) (2.222,1.30)};
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:7.2, samples=2] {0.5876*x};
+      \node[anchor=west, font=\footnotesize, text=hscink] at (axis cs:0.25,3.9)
+        {gradient $= \qty{0.588}{N.m}$};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{$F$ against $1/r$.}\label{ch3:fig:torquegraph}
+\end{sidebyside}
+  \textbf{Why plot $F$ against $1/r$?} The load's torque $\tau$ is fixed, and the balance must
+  give the same torque:
+  \begin{align*}
+    Fr &= \tau && \text{torques balance}\\
+    F &= \tau \times \frac{1}{r} && \text{divide both sides by } r
+  \end{align*}
+  This has the form $y = mx$, with $y = F$, $x = 1/r$ and gradient $m = \tau$. So the graph is a
+  straight line through the origin, and its gradient is the torque.
+
+  Gradient $=$ rise $\div$ run (toolkit in \cref{ch1:sec:model}). Use two points on the line,
+  $(0, 0)$ and $(6.67, 3.92)$: gradient $= (3.92 - 0) \div (6.67 - 0) = \qty{0.588}{N.m}$, the
+  same as the load's torque.
+
+  At $r = \qty{0.400}{m}$ the angles \ang{90}, \ang{60}, \ang{45}, \ang{30} needed 1.45, 1.70, 2.10,
+  \qty{2.95}{N}, so $F\sin\theta = 1.45$, 1.47, 1.48, \qty{1.48}{N}: the same within reading
+  error (the small error in reading the scale).
+
+  Rotation test: with \qty{150}{g}, \qty{100}{g} and \qty{50}{g} on the right, the net torque was
+  0.147, 0.294 and \qty{0.441}{N.m}. The rule turned faster each time.}
+\conclusion{$F \times r$ stays at about \qty{0.59}{N.m}, the load's torque. $F$ against $1/r$ is a
+  straight line through the origin (gradient \qty{0.588}{N.m}). At an angle only $F\sin\theta$
+  turns the rule. This supports $\tau = rF\sin\theta$. When the torques did not balance, the rule
+  started to turn, and a bigger net torque changed its rotation faster.}
+\significance{It explains door handles, spanners and levers, and motor torque (Module 6).}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity:} check that the empty rule balances level on the pivot, so its own
+        weight has no torque. Measure $r$ from the pivot. Keep the rule level. Change one
+        variable at a time.
+  \item \textbf{Reliability:} take three readings at each distance and average them. The points
+        lie close to one line.
+  \item \textbf{Accuracy:} zero the spring balance in the position you use it. Read it at eye
+        level. A force sensor is more accurate.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Work and energy in circular motion}
+\aim{To investigate how the work done on an object moving in a circle is related to its total
+  energy: (A) in a horizontal circle, where the tension is at \ang{90} to the motion; (B) in a
+  vertical swing, where gravity does work.}
+\apparatus{\textbf{Part A:} a \qty{0.025}{kg} rubber stopper on a string through a plastic tube,
+  a \qty{0.100}{kg} hanging mass, a paper clip (marker), a phone camera that films at 240 frames
+  per second, a metre rule. \textbf{Part B:} a \qty{0.0640}{kg} steel ball (diameter
+  \qty{25.0}{mm}) on a \qty{1.0}{m} string, a clamp stand, a \term{light gate} (a light beam; the
+  data logger times how long the ball blocks it) and data logger, a metre rule, vernier calipers
+  (\cref{ch3:fig:pendulum}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.75cm, y=0.75cm]
+      % ---- (a) Part A: stopper in a horizontal circle
+      \draw[displacement, dashed] (0,2.0) ellipse (2.1 and 0.5);
+      \draw[hscink, line width=0.7pt] (0,2.0) -- (2.1,2.0);
+      \node[diagramlabel, below, inner sep=2pt] at (1.05,2.0) {$r$};
+      \fill[object] (2.1,2.0) circle (4.5pt);
+      \node[diagramlabel, anchor=west, inner sep=8pt, font=\footnotesize] at (2.1,2.0) {stopper};
+      \draw[hscmuted, line width=3pt] (0,0.95) -- (0,2.0);
+      \node[diagramlabel, anchor=east, font=\footnotesize] at (-0.15,1.15) {tube};
+      \draw[hscink, line width=0.7pt] (0,0.95) -- (0,0.45);
+      \draw[hscink, line width=1.6pt] (-0.12,0.82) -- (0.12,0.82);
+      \node[diagramlabel, anchor=west, font=\footnotesize] at (0.15,0.82) {marker};
+      \draw[object] (-0.22,0.45) rectangle (0.22,-0.05);
+      \node[diagramlabel, anchor=west, font=\footnotesize] at (0.3,0.2) {hanging mass};
+      \draw[hscink, line width=0.6pt] (-2.4,-1.0) -- (2.6,-1.0);
+      \draw[object] (-1.9,-0.95) rectangle (-1.1,-0.8);
+      \draw[displacement] (-1.5,-0.75) -- (-1.5,-0.1);
+      \node[diagramlabel, anchor=north, font=\footnotesize] at (-0.6,-1.05) {phone (films upwards)};
+      \node[diagramlabel] at (0.1,-2.05) {\textbf{(a)} Part A};
+    \end{tikzpicture}\hspace{12mm}%
+    \begin{tikzpicture}[x=0.75cm, y=0.75cm]
+      % ---- (b) Part B: pendulum and light gate
+      \fill[ground] (-0.8,3.2) rectangle (0.8,3.42);
+      \draw[hscink, line width=0.7pt] (-0.8,3.2) -- (0.8,3.2);
+      \coordinate (O) at (0,3.2);
+      \coordinate (L) at (0,0.4);
+      \coordinate (S) at ($(O)+(-40:2.8)$);
+      \draw[guide] (O) -- (L);
+      \draw[hscink, line width=0.7pt] (O) -- (S);
+      \draw[displacement, dashed] (S) arc (-40:-88:2.8);
+      \draw[hscink!50, line width=0.8pt, dashed] (L) circle (4.5pt);
+      \fill[object] (S) circle (4.5pt);
+      \node[diagramlabel, anchor=south west, inner sep=4pt, font=\footnotesize] at (S) {released from rest};
+      \draw[hscmuted, line width=2.6pt] (-0.42,0.8) -- (-0.42,0.02) -- (0.42,0.02) -- (0.42,0.8);
+      \node[diagramlabel, anchor=south east, inner sep=2pt, font=\footnotesize] at (-0.45,0.8) {light gate};
+      \draw[hscink, line width=0.5pt] (-0.42,0.3) -- (-1.25,0.3);
+      \draw[object] (-3.35,0.02) rectangle (-1.25,0.63);
+      \node[diagramlabel, font=\scriptsize] at (-2.3,0.325) {data logger};
+      \draw[guide] ($(S)+(0.25,0)$) -- ($(S)+(1.0,0)$);
+      \draw[guide] (0.55,0.4) -- ($(S|-L)+(1.0,0)$);
+      \draw[hscink, <->, line width=0.5pt] ($(S)+(0.85,0)$) -- node[right, diagramlabel] {$h$} ($(S|-L)+(0.85,0)$);
+      \node[diagramlabel] at (0,-1.0) {\textbf{(b)} Part B};
+    \end{tikzpicture}
+    \caption{(a) Part A: the stopper moves in a horizontal circle; the hanging mass keeps the
+      tension the same. (b) Part B: the ball falls through height $h$.}\label{ch3:fig:pendulum}
+  \end{figure}}
+\method{\textbf{Part A (horizontal circle).}
+\begin{enumerate}
+  \item Thread the string through the tube. Tie the stopper to the top end and the hanging mass
+        to the bottom end. The hanging mass keeps the tension the same.
+  \item Hold the tube upright. Whirl the stopper in a horizontal circle of radius
+        \qty{0.50}{m} at a steady rate. Keep the paper-clip marker just below the tube, so $r$
+        stays the same.
+  \item Film the circle from directly below. First film a metre rule at the height of the circle,
+        for scale.
+  \item Play the video frame by frame. At 8 points round the circle, measure the distance the
+        stopper moves in 6 frames. 6 frames take $6 \div 240 = \qty{0.025}{s}$, so
+        $v = \text{distance} \div \qty{0.025}{s}$. Find $K = \tfrac{1}{2}mv^2$ at each point. Do
+        three runs.
+\end{enumerate}
+\textbf{Part B (vertical swing).}
+\begin{enumerate}[resume]
+  \item Release the ball from rest with its centre $h = \qty{0.050}{m}$ above its lowest point.
+        The light gate is at the lowest point. Speed at the bottom $=$ diameter $\div$ time the
+        beam is blocked. Change mm and ms to m and s first:
+        $v = \qty{0.0250}{m} \div \qty{0.0256}{s} = \qty{0.977}{m.s^{-1}}$.
+  \item Repeat three times, then for $h = 0.100$, 0.150 and \qty{0.200}{m}.
+\end{enumerate}}
+\results{\textbf{Part A} (sample results, one run; $m = \qty{0.025}{kg}$; distance moved in
+  6 frames):
+  \begin{center}\small
+  \begin{tabular}{@{}lcccccccc@{}}
+    \toprule
+    Point & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+    \midrule
+    Distance (\si{cm}) & 11.0 & 11.1 & 10.9 & 11.0 & 11.1 & 11.0 & 10.9 & 11.0\\
+    $v$ (\si{m.s^{-1}}) & 4.40 & 4.44 & 4.36 & 4.40 & 4.44 & 4.40 & 4.36 & 4.40\\
+    $K$ (\si{J}) & 0.242 & 0.246 & 0.238 & 0.242 & 0.246 & 0.242 & 0.238 & 0.242\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  The other two runs gave the same pattern. The height of the circle did not change.
+
+  \textbf{Part B} (sample results, means of three trials; $m = \qty{0.0640}{kg}$):
+  \begin{center}\small
+  \begin{tabular}{@{}cccccc@{}}
+    \toprule
+    $h$ (\si{m}) & time (\si{ms}, milliseconds) & $v$ (\si{m.s^{-1}}) & $K = \tfrac{1}{2}mv^2$ (\si{J})
+      & $mgh$ (\si{J}) & $K \div mgh$\\
+    \midrule
+    0.050 & 25.6 & 0.977 & 0.0305 & 0.0314 & 0.97\\
+    0.100 & 18.1 & 1.381 & 0.0610 & 0.0627 & 0.97\\
+    0.150 & 14.8 & 1.689 & 0.0913 & 0.0941 & 0.97\\
+    0.200 & 12.8 & 1.953 & 0.122 & 0.125 & 0.97\\
+    \bottomrule
+  \end{tabular}
+  \end{center}}
+\conclusion{\textbf{Part A:} $K$ stayed at \qty{0.24}{J} at all 8 points. The small changes (up to
+  2\,\%) go up and down at random: they come from reading the video to $\pm\qty{0.1}{cm}$. The height
+  did not change, so $U$ was constant. So $E = K + U$ was constant, and the net work on the stopper
+  was zero. The tension is at \ang{90} to the velocity, so it does no work. (Your hand does a
+  little work to replace what air resistance takes.)
+
+  \textbf{Part B:} $K$ at the bottom was 97\,\% of the $U$ lost, the same at every height. Air
+  resistance on this small, heavy ball takes less than 0.2\,\% in one swing. So the missing
+  3\,\% is a \term{systematic error} (an error that makes every reading wrong by the same
+  fraction). For example, the beam is not a thin line. If the gate counts it as blocked while any
+  part of the ball covers it, the ball moves about \qty{25.4}{mm} (not \qty{25.0}{mm}) while the
+  beam is blocked. Then every speed is 1.6\,\% too low and every $K$ is 3\,\% too low. Within this
+  error, gravity did all the work: the $K$ gained equals the $U$ lost.}
+\significance{Energy conservation explains pendulums, rollercoasters and satellites. The work done
+  by other forces (motors, friction) explains when the total energy changes.}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity:} A: keep the circle horizontal and $r$ constant (watch the marker), so
+        $U$ stays constant. B: release from rest. Measure $h$ to the ball's centre.
+  \item \textbf{Reliability:} A: three runs, 8 points in each. B: repeat each height three times
+        and check that the times agree.
+  \item \textbf{Accuracy:} use a light gate (not a stopwatch). Measure the diameter with vernier
+        calipers. Line up the beam with the centre of the ball (check with the ball hanging at
+        rest). Better still, push the ball slowly through the beam along a ruler. Note where the
+        gate turns on and off, and use this blocked length instead of the diameter.
+\end{itemize}}
+\end{experiment}
+
+% Added by the syllabus coverage audit (M5.IQ2.04 and M5.IQ2.05 say "investigate", but this
+% section gave no model-answer points for "describe an investigation" questions). No numbers.
+% Final audit: the last paragraph now covers both parts (horizontal circle: K constant; swing:
+% gravity does work, K gained = U lost), and summary line 2 says "uniform circular motion".
+\begin{examtip}
+``Describe an investigation to show how torque depends on the distance from the pivot''
+(3--4 marks). Make these points:
+\begin{enumerate}
+  \item Balance a metre rule on a pivot at its centre of mass, so its own weight has no torque.
+  \item Hang a fixed load at a fixed distance on one side. Its torque stays the same.
+  \item On the other side, pull down at \ang{90} to the rule with a spring balance. Record the
+        force $F$ that keeps the rule level. Do this at several distances $r$, three times each.
+  \item Plot $F$ against $1/r$. A straight line through the origin shows that $Fr$ is
+        constant, as $\tau = r_\perp F$ predicts.
+\end{enumerate}
+For the work--energy investigation, link each result to the direction of the force. In the
+horizontal circle, the tension is at \ang{90} to the velocity, so it does no work, and $K$ stays
+constant. In the swing, the tension still does no work, but gravity does: the $K$ gained equals
+the $U$ lost.
+\end{examtip}
+
+%% ==================================================================
+% Chapter summary (added by the whole-book consistency edit: "How to use this guide" says
+% that every chapter ends with a short summary). Every statement is taught above.
+\begin{summarybox}[unbreakable]{\Cref{ch3:chap} in five lines}
+\begin{itemize}
+  \item Use radians: one turn is $2\pi$ rad. $\omega = \frac{\Delta\theta}{t} = \frac{2\pi}{T}$ and
+        $v = \omega r$. Every point on a spinning object has the same $\omega$.
+  \item In uniform circular motion the net (centripetal) force is at \ang{90} to the motion, so
+        it does no work ($W = Fs\cos\ang{90} = 0$). So $K$ and the speed stay constant.
+  \item Only forces other than gravity change the total energy:
+        $W_\mathrm{other} = \Delta E = \Delta K + \Delta U$.
+  \item Vertical circle: use energy for the speed (top to bottom is a drop of $2r$). Then use
+        the forces at the top ($F_\mathrm{T} + mg = \frac{mv^2}{r}$) or the bottom
+        ($F_\mathrm{T} - mg = \frac{mv^2}{r}$).
+  \item Torque: $\tau = r_\perp F = rF\sin\theta$, with $r$ measured from the pivot. When the
+        torques balance, the rotation does not change.
+\end{itemize}
+\end{summarybox}

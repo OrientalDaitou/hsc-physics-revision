@@ -1,0 +1,1066 @@
+%% hscphys.sty
+%% Shared design system for the four "HSC Physics Revision Guide" books
+%% (NSW Physics Stage 6 Syllabus (2017), Year 12, Modules 5-8).
+%%
+%% Compile with XeLaTeX.  Use with:
+%%   \documentclass[11pt,a4paper,oneside,openany]{book}
+%%   \usepackage{hscphys}
+%%   \input{module_info}          % defines \modulenumber and \moduletitle
+%%
+%% The writers' manual is STYLE_GUIDE.md (same folder).
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hscphys}[2026/10/22 v1.0 HSC Physics revision guide design system]
+
+\@ifclassloaded{book}{}{%
+  \PackageWarningNoLine{hscphys}{hscphys is designed for the book class
+    (11pt,a4paper,oneside,openany)}}
+
+%% ===================================================================
+%% 1. Core packages
+%% ===================================================================
+\RequirePackage{etoolbox}
+\RequirePackage{xparse}
+\RequirePackage[a4paper,
+  top=27mm, bottom=27mm, left=30mm, right=30mm,
+  headheight=16pt, headsep=8mm, footskip=12mm,
+  marginparwidth=24mm, marginparsep=3mm]{geometry}
+\RequirePackage{amsmath}
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
+
+%% ===================================================================
+%% 2. Fonts
+%%    Body: Lato (TeX Live, friendly humanist sans).
+%%    Maths: Lete Sans Math (TeX Live; designed to match Lato).
+%%    Chinese (glossary only): Hiragino Sans GB -> PingFang SC -> Songti SC
+%%    -> FandolHei (always in TeX Live).
+%% ===================================================================
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Lato}[
+  Extension      = .ttf,
+  UprightFont    = *-Regular,
+  ItalicFont     = *-Italic,
+  BoldFont       = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+  FontFace       = {sb}{n}{*-Semibold},
+  FontFace       = {sb}{it}{*-SemiboldItalic},
+  FontFace       = {eb}{n}{*-Heavy},
+  FontFace       = {eb}{it}{*-HeavyItalic}]
+\setsansfont{Lato}[
+  Extension      = .ttf,
+  UprightFont    = *-Regular,
+  ItalicFont     = *-Italic,
+  BoldFont       = *-Bold,
+  BoldItalicFont = *-BoldItalic]
+\setmonofont{FiraMono}[
+  Extension      = .otf,
+  UprightFont    = *-Regular,
+  BoldFont       = *-Bold,
+  Scale          = MatchLowercase]
+\setmathfont{LeteSansMath.otf}
+\setmathfont{LeteSansMath-Bold.otf}[version=bold]
+
+\IfFontExistsTF{Hiragino Sans GB}{%
+  \newfontfamily\hsc@zhfont{Hiragino Sans GB}[BoldFont={Hiragino Sans GB W6}]}{%
+  \IfFontExistsTF{PingFang SC}{%
+    \newfontfamily\hsc@zhfont{PingFang SC}}{%
+    \IfFontExistsTF{Songti SC}{%
+      \newfontfamily\hsc@zhfont{Songti SC}}{%
+      \newfontfamily\hsc@zhfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]}}}
+%% \zh{...}: Chinese words.  ONLY for the Chinese column of the glossary.
+\newcommand\zh[1]{{\hsc@zhfont\XeTeXlinebreaklocale "zh"%
+  \XeTeXlinebreakskip=0pt plus 1pt\relax #1}}
+
+\newcommand\hsc@semibold{\fontseries{sb}\selectfont}
+\newcommand\hsc@heavy{\fontseries{eb}\selectfont}
+
+%% ===================================================================
+%% 3. Colours (fixed for all four books)
+%% ===================================================================
+\RequirePackage[table]{xcolor}
+% text and structure
+\definecolor{hscink}{HTML}{1E2430}        % body text
+\definecolor{hscbrand}{HTML}{1F3A60}      % headings, structure (deep navy)
+\definecolor{hscbrandmid}{HTML}{5B7BA6}   % section numbers
+\definecolor{hscmuted}{HTML}{5F6B78}      % header, captions, small print
+\definecolor{hscrule}{HTML}{C9D0D8}       % thin rules
+\definecolor{hsclink}{HTML}{1C5FA8}       % links (subtle blue)
+% box colours (meaning is fixed - see howtouse.tex)
+\definecolor{hscformula}{HTML}{1971C2}    % Formula card ........ blue
+\definecolor{hscexample}{HTML}{2B8A3E}    % Worked example ...... green
+\definecolor{hscmistake}{HTML}{E03131}    % Common mistakes ..... red
+\definecolor{hsctip}{HTML}{F59F00}        % HSC exam tip ........ amber
+\definecolor{hsctiptext}{HTML}{6B4200}    %   (dark text on amber)
+\definecolor{hsctool}{HTML}{56606B}       % Maths toolkit / Quick refresher .. grey
+\definecolor{hscbigidea}{HTML}{6741D9}    % The big idea ........ violet
+\definecolor{hsckw}{HTML}{0C7489}         % Key words ........... teal
+\definecolor{hscqc}{HTML}{C2255C}         % Quick check ......... raspberry
+\definecolor{hscexp}{HTML}{8F5A2E}        % Key experiment ...... copper brown
+% diagram colours (use in TikZ / pgfplots)
+\definecolor{hscforce}{HTML}{D6336C}      % forces
+\definecolor{hscvel}{HTML}{1971C2}        % velocity
+\definecolor{hscacc}{HTML}{E8590C}        % acceleration
+\definecolor{hscfield}{HTML}{6741D9}      % field lines
+\definecolor{hscray}{HTML}{F08C00}        % light rays
+% data series (validated colour-blind-safe set of three; add line styles too)
+\definecolor{hscseriesA}{HTML}{2A78D6}
+\definecolor{hscseriesB}{HTML}{EB6834}
+\definecolor{hscseriesC}{HTML}{1BAF7A}
+
+%% ===================================================================
+%% 4. Spacing, paragraphs, line breaking
+%% ===================================================================
+\RequirePackage{setspace}
+\setstretch{1.25}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt plus 2pt minus 1pt}
+\RequirePackage{ragged2e}
+\setlength{\RaggedRightRightskip}{0pt plus 1fil}
+\AtBeginDocument{\RaggedRight\color{hscink}}
+% no hyphenation in running text (easier for second-language readers)
+\hyphenpenalty=10000
+\exhyphenpenalty=50
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+\RequirePackage{needspace}
+\setlength{\emergencystretch}{1.5em}
+
+%% Lists
+\RequirePackage{enumitem}
+\setlist{topsep=3pt, partopsep=0pt, itemsep=2pt, parsep=1pt, leftmargin=1.6em}
+\setlist[itemize,1]{label={\textcolor{hscbrand}{\textbullet}}}
+\setlist[itemize,2]{label={\textcolor{hscmuted}{\textendash}}}
+\setlist[enumerate,1]{label={\textcolor{hscbrand}{\bfseries\arabic*.}}}
+\setlist[enumerate,2]{label={\textcolor{hscbrand}{(\alph*)}}}
+
+%% ===================================================================
+%% 5. Graphics, figures, tables
+%% ===================================================================
+\RequirePackage{graphicx}
+\graphicspath{{figures/}{../common/figures/}}
+\RequirePackage{float}
+\floatplacement{figure}{H}   % figures stay next to their text
+\floatplacement{table}{H}
+\RequirePackage{caption}
+\captionsetup{font={small,stretch=1.1,color=hscmuted},
+  labelfont={bf,color=hscbrand}, labelsep=colon,
+  justification=raggedright, singlelinecheck=true, skip=5pt}
+\captionsetup[table]{position=above}
+\RequirePackage{array}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash\hyphenpenalty=500}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash\hyphenpenalty=500}X}
+\newcommand\colhead[1]{\textcolor{hscbrand}{\bfseries #1}}
+\renewcommand\arraystretch{1.15}
+% tables use tighter line spacing (rows are opened up by \arraystretch instead)
+\newcommand\hsc@tablestretch{\setstretch{1.1}}
+\AtBeginEnvironment{tabular}{\hsc@tablestretch}
+\AtBeginEnvironment{tabularx}{\hsc@tablestretch}
+\AtBeginEnvironment{longtable}{\hsc@tablestretch}
+\setlength{\heavyrulewidth}{0.8pt}
+\setlength{\lightrulewidth}{0.4pt}
+\arrayrulecolor{hscmuted!70}
+
+%% ===================================================================
+%% 6. Units (siunitx, HSC style: "m s^-1", "3.00 x 10^8")
+%% ===================================================================
+\RequirePackage{siunitx}
+\sisetup{
+  per-mode            = power,
+  inter-unit-product  = \,,
+  exponent-product    = \times,
+  print-unity-mantissa = false,
+  group-minimum-digits = 5,
+  uncertainty-mode    = separate,
+  mode                = match,
+  reset-text-series   = false,
+  text-series-to-math = true,
+  reset-math-version  = false,
+  propagate-math-font = true,
+  range-phrase        = {~to~},
+  list-final-separator = {~and~}}
+\DeclareSIUnit\yr{yr}
+\DeclareSIUnit\lightyear{ly}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\amu{u}
+\DeclareSIUnit\rev{rev}
+
+%% ===================================================================
+%% 7. TikZ and pgfplots
+%% ===================================================================
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.markings,
+  decorations.pathmorphing, patterns, shapes.geometric, angles, quotes,
+  backgrounds, fit, intersections, shadings}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\tikzset{
+  >={Stealth[length=2.6mm, width=1.9mm]},
+  every picture/.append style={line cap=round, line join=round},
+  force/.style       ={->, line width=1.3pt, color=hscforce},
+  velocity/.style    ={->, line width=1.3pt, color=hscvel},
+  accel/.style       ={->, line width=1.3pt, color=hscacc},
+  displacement/.style={->, line width=0.9pt, color=hscmuted},
+  field/.style       ={line width=0.8pt, color=hscfield, midarrow},
+  ray/.style         ={line width=1pt, color=hscray, midarrow},
+  guide/.style       ={line width=0.5pt, dashed, color=hscmuted!80},
+  axisline/.style    ={->, line width=0.6pt, color=hscink},
+  object/.style      ={draw=hscink, fill=hscbrand!12, line width=0.8pt},
+  ground/.style      ={pattern=north east lines, pattern color=hscmuted!70, draw=none},
+  diagramlabel/.style={font=\small, text=hscink},
+  midarrow/.style    ={postaction={decorate}, decoration={markings,
+      mark=at position 0.55 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}}}},
+  concept/.style     ={rounded corners=2mm, draw=hscbrand!55, fill=hscbrand!7,
+      line width=0.7pt, align=center, inner sep=2mm, font=\small,
+      text width=#1}, concept/.default=32mm,
+  link/.style        ={->, line width=0.7pt, color=hscbrand!60},
+  linklabel/.style   ={font=\footnotesize, text=hscmuted, fill=white, inner sep=1pt},
+}
+\pgfplotscreateplotcyclelist{hsc}{%
+  {hscseriesA, line width=1pt, mark=*, mark size=1.6pt, solid},
+  {hscseriesB, line width=1pt, mark=square*, mark size=1.5pt, dashed},
+  {hscseriesC, line width=1pt, mark=triangle*, mark size=1.9pt, densely dotted}}
+\pgfplotsset{
+  hsc/.style={
+    width=0.78\linewidth, height=0.5\linewidth,
+    axis lines=left, axis line style={hscink!75, line width=0.6pt},
+    tick style={hscink!75}, major tick length=3pt, tick align=outside,
+    grid=major, grid style={hscrule!70, line width=0.3pt},
+    tick label style={font=\small}, label style={font=\small},
+    every axis plot/.append style={line width=1pt},
+    cycle list name=hsc,
+    legend style={draw=none, fill=white, fill opacity=0.85, text opacity=1,
+      font=\small, legend cell align=left},
+    scaled ticks=false, enlargelimits=false, clip=false},
+}
+
+%% ===================================================================
+%% 8. tcolorbox and icons
+%% ===================================================================
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{fontawesome5}
+
+%% ===================================================================
+%% 9. Headings, header/footer, contents
+%% ===================================================================
+\RequirePackage[explicit]{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage{fancyhdr}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+% ---- coloured horizontal rule (the colour marks sit right next to the rule,
+%      so a page break can never separate them from it)
+\newcommand\hsc@hrule[1]{\par{\color{hscrule}\hrule height #1\relax}}
+% ---- "known anchor" helper: links are only made when the target exists
+\newcommand\hsc@known[1]{\global\@namedef{hsc@k@#1}{}}
+\newcommand\hsc@markknown[1]{\begingroup\protected@edef\hsc@tmp{#1}%
+  \immediate\write\@auxout{\string\hsc@known{\hsc@tmp}}\endgroup}
+\newcommand\hsc@linkto[2]{\@ifundefined{hsc@k@#1}{#2}{\hyperlink{#1}{#2}}}
+
+% ---- chapter heading
+\newcommand\hsc@staricon{\faBookOpen}
+\newif\ifhsc@addtoc
+\newcommand\hsc@chapnumbox[1]{%
+  \tikz[baseline=(n.base)]\node[fill=hscbrand, rounded corners=3.5mm,
+    minimum width=19mm, minimum height=19mm, inner sep=0pt, text=white,
+    font=\fontsize{32}{32}\selectfont\hsc@heavy](n){#1};}
+\newcommand\hsc@chapterhead[1]{%
+  \hsc@markknown{chapter.\arabic{chapter}}%
+  \noindent
+  \begin{minipage}[t]{19mm}\vspace{0pt}\hsc@chapnumbox{\thechapter}\end{minipage}%
+  \hspace{6mm}%
+  \begin{minipage}[t]{\dimexpr\linewidth-25mm\relax}\vspace{0pt}%
+    \RaggedRight
+    \leavevmode{\small\hsc@semibold\color{hscmuted}\addfontfeatures{LetterSpace=10}%
+      CHAPTER \thechapter\par}%
+    \vspace{1pt}%
+    \leavevmode{\fontsize{24}{29}\selectfont\bfseries\color{hscbrand}#1\par}%
+  \end{minipage}%
+  \par\vspace{5mm}\hsc@hrule{0.6pt}}
+\newcommand\hsc@chapterheadstar[1]{%
+  \ifhsc@addtoc
+    \global\hsc@addtocfalse
+    \phantomsection\addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \noindent
+  \begin{minipage}[t]{19mm}\vspace{0pt}%
+    \hsc@chapnumbox{\fontsize{22}{22}\selectfont\hsc@staricon}\end{minipage}%
+  \hspace{6mm}%
+  \begin{minipage}[t]{\dimexpr\linewidth-25mm\relax}\vspace{0pt}%
+    \RaggedRight
+    \vspace{3.2mm}%
+    \leavevmode{\fontsize{24}{29}\selectfont\bfseries\color{hscbrand}#1\par}%
+  \end{minipage}%
+  \par\vspace{5mm}\hsc@hrule{0.6pt}%
+  \global\let\hsc@staricon\hsc@defaultstaricon}
+\let\hsc@defaultstaricon\hsc@staricon
+\titleformat{\chapter}[block]{\normalfont}{}{0pt}{\hsc@chapterhead{#1}}
+\titleformat{name=\chapter,numberless}[block]{\normalfont}{}{0pt}{\hsc@chapterheadstar{#1}}
+\titlespacing*{\chapter}{0pt}{-28pt}{3mm}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{hscbrand}}%
+  {\textcolor{hscbrandmid}{\thesection}}{0.65em}{#1}
+\titleformat{name=\section,numberless}{\normalfont\Large\bfseries\color{hscbrand}}{}{0pt}{#1}
+\titlespacing*{\section}{0pt}{20pt plus 4pt minus 2pt}{4pt plus 1pt}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{hscbrand}}{}{0pt}{#1}
+\titlespacing*{\subsection}{0pt}{14pt plus 3pt minus 2pt}{2pt}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\color{hscink}}{}{0pt}{#1}
+\titlespacing*{\subsubsection}{0pt}{10pt plus 2pt}{1pt}
+% keep a heading together with what follows it
+\pretocmd{\section}{\par\Needspace{9\baselineskip}}{}{}
+\pretocmd{\subsection}{\par\Needspace{7\baselineskip}}{}{}
+\pretocmd{\subsubsection}{\par\Needspace{5\baselineskip}}{}{}
+
+% ---- unnumbered chapter that still appears in the contents
+% \unnumberedchapter[<icon>]{<Title>}
+\NewDocumentCommand\unnumberedchapter{O{\faBookOpen} m}{%
+  \clearpage
+  \gdef\hsc@staricon{#1}%
+  \global\hsc@addtoctrue
+  \chapter*{#2}%
+  \markboth{#2}{#2}}
+
+% ---- running header / footer
+\newcommand\hsc@headfont{\footnotesize\color{hscmuted}}
+\newcommand\hsc@pagenum{{\small\hsc@semibold\color{hscbrand}\thepage}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\hsc@headfont Module~\modulenumber: \moduletitle}
+\fancyhead[R]{\hsc@headfont\nouppercase{\leftmark}}
+\fancyfoot[C]{\hsc@pagenum}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\headrule{{\color{hscrule}%
+  \hrule\@height\headrulewidth\@width\headwidth}\vskip-\headrulewidth}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\hsc@pagenum}%
+  \renewcommand\headrulewidth{0pt}}
+\renewcommand\chaptermark[1]{\markboth{Chapter \thechapter: #1}{}}
+\renewcommand\sectionmark[1]{}
+
+% ---- table of contents
+\renewcommand\contentsname{Contents}
+\newcommand\hsc@tocnum[1]{\tikz[baseline=(n.base)]\node[fill=hscbrand,
+  rounded corners=1.1mm, minimum width=1.6em, minimum height=1.6em, inner sep=0pt,
+  text=white, font=\small\bfseries](n){#1};}
+\titlecontents{chapter}[2.6em]
+  {\addvspace{9pt}\normalfont\bfseries\color{hscbrand}}
+  {\hspace*{-2.6em}\makebox[2.6em][l]{\hsc@tocnum{\thecontentslabel}}}{}{\hfill\contentspage}
+\titlecontents{section}[5.4em]
+  {\addvspace{0pt}\normalfont\color{hscink}}
+  {\contentslabel{2.8em}}{}%
+  {\titlerule*[0.75em]{\textcolor{hscrule}{.}}\contentspage}
+\let\hsc@origtoc\tableofcontents
+\renewcommand\tableofcontents{{\gdef\hsc@staricon{\faListUl}%
+  \hypersetup{linkcolor=hscink}\hsc@origtoc}}
+
+%% ===================================================================
+%% 10. Module information (normally set by module_info.tex)
+%% ===================================================================
+\providecommand\modulenumber{0}
+\providecommand\moduletitle{Module title}
+
+%% ===================================================================
+%% 11. Text helpers
+%% ===================================================================
+% \term{word}: bold first use of a technical term
+\newcommand\term[1]{{\bfseries\color{hscbrand}#1}}
+% tick and cross
+\newcommand\cmark{\textcolor{hscexample}{\faCheck}}
+\newcommand\xmark{\textcolor{hscmistake}{\faTimes}}
+% several lines of maths that start on the current line (use inside steps)
+\newcommand\eqlines[1]{$\begin{aligned}[t]#1\end{aligned}$}
+
+% syllabus coverage tag: \covers{M5.IQ2.01} or \covers{M5.IQ2.01, M5.IQ2.02}
+% Writes "<ID> <page> <chapter> <section>" lines to <jobname>.cov (no visible output).
+\newwrite\hsc@covfile
+\newif\ifhsc@covopen
+\newif\ifhsc@showcoverage
+\newcommand\hscshowcoverage{\hsc@showcoveragetrue}
+\def\hsc@nospace#1{\zap@space#1 \@empty}
+\newcommand\covers[1]{%
+  \ifhsc@covopen\else
+    \immediate\openout\hsc@covfile=\jobname.cov\relax
+    \global\hsc@covopentrue
+  \fi
+  \@for\hsc@cov:=#1\do{%
+    \edef\hsc@cov{\expandafter\hsc@nospace\expandafter{\hsc@cov}}%
+    \edef\hsc@tmp{\noexpand\write\noexpand\hsc@covfile{\hsc@cov\space
+      page=\noexpand\thepage\space chapter=\arabic{chapter}\space
+      section=\ifnum\value{section}>0 \thesection\else -\fi}}%
+    \hsc@tmp}%
+  \ifhsc@showcoverage\marginpar{\RaggedRight\tiny\color{hscmuted}#1}\fi
+  \ignorespaces}
+
+%% ===================================================================
+%% 12. Box system
+%% ===================================================================
+% ---- option parser: our own keys + any tcolorbox key
+\newif\ifhsc@nonumber
+\newif\ifhsc@onsheet
+\newif\ifhsc@combine
+\newif\ifhsc@infc
+\newif\ifhsc@divider
+\def\hsc@tcbopts{}
+\def\hsc@combinetext{}
+\pgfkeys{/hsc/opts/.is family}
+\pgfkeys{/hsc/opts/.cd,
+  nonumber/.code   = {\hsc@nonumbertrue},
+  onsheet/.code    = {\hsc@onsheettrue\hsc@combinefalse},
+  notonsheet/.code = {\hsc@onsheetfalse\hsc@combinefalse},
+  combine/.code    = {\hsc@onsheetfalse\hsc@combinetrue\def\hsc@combinetext{#1}},
+  .unknown/.code   = {%
+    \def\hsc@val{#1}%
+    \ifx\hsc@val\pgfkeysnovalue@text
+      \eappto\hsc@tcbopts{\pgfkeyscurrentname,}%
+    \else
+      \eappto\hsc@tcbopts{\pgfkeyscurrentname={\unexpanded{#1}},}%
+    \fi}}
+\newcommand\hsc@parseopts[1]{%
+  \hsc@nonumberfalse\hsc@onsheettrue\hsc@combinefalse\def\hsc@tcbopts{}%
+  \pgfkeys{/hsc/opts/.cd,#1}}
+
+% ---- keep space for the start of a box (but not straight after a heading)
+\newcommand\hsc@needspace[1]{\par\if@nobreak\else\Needspace{#1\baselineskip}\fi}
+
+% ---- what every box does at the start of its body
+\newcommand\hsc@boxsetup{\RaggedRight\setlength{\parskip}{5pt plus 1pt}%
+  \setlength{\parindent}{0pt}\hyphenpenalty=10000\relax}
+
+% ---- title bar text:  icon  LABEL  Name
+\newcommand\hsc@titlebar[3]{%
+  \mbox{#1}\hspace{0.6em}%
+  {\footnotesize\hsc@semibold\addfontfeatures{LetterSpace=9}\MakeUppercase{#2}}%
+  \if\relax\detokenize{#3}\relax\else\hspace{0.8em}{\bfseries #3}\fi}
+% public version, for hand-made boxes:  title={\hscboxtitle{\faFlask}{Label}{Name}}
+\newcommand\hscboxtitle{\hsc@titlebar}
+\newcommand\hsc@cont{\hspace{0.5em}{\footnotesize\mdseries\itshape(continued)}}
+
+\tcbset{
+  hsc base/.style={enhanced, breakable,
+    before skip=11pt plus 2pt, after skip=6pt plus 2pt,
+    left=4mm, right=4mm, top=2.4mm, bottom=2.6mm, boxsep=0pt,
+    lefttitle=4mm, righttitle=4mm, toptitle=1.5mm, bottomtitle=1.5mm,
+    fonttitle=\normalfont\bfseries, before upper=\hsc@boxsetup,
+    pad at break*=1.5mm},
+  hsc major/.style={hsc base, colframe=#1, colback=#1!4!white,
+    colbacktitle=#1, coltitle=white, boxrule=0.7pt, arc=2.5pt, titlerule=0pt},
+  hsc minor/.style={hsc base, sharp corners, boxrule=0pt, leftrule=3.2pt,
+    colframe=#1, colback=#1!5!white, colbacktitle=#1!13!white,
+    coltitle=#1!78!black, titlerule=0pt},
+}
+
+%% ---------------------------------------------------------------
+%% 12a. The big idea / Key words / Common mistakes / HSC exam tip /
+%%      Maths toolkit / Quick refresher
+%% ---------------------------------------------------------------
+\newtcolorbox{hsc@bigideabox}[1][]{hsc minor=hscbigidea, unbreakable,
+  title={\hsc@titlebar{\faLightbulb}{The big idea}{}},
+  title after break={\hsc@titlebar{\faLightbulb}{The big idea}{}\hsc@cont},
+  fontupper=\large, #1}
+\NewDocumentEnvironment{bigidea}{O{}}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@bigideabox\expandafter[\hsc@tcbopts]}{\endhsc@bigideabox}
+
+\newtcolorbox{hsc@kwbox}[1][]{hsc minor=hsckw, unbreakable,
+  title={\hsc@titlebar{\faKey}{Key words}{}},
+  title after break={\hsc@titlebar{\faKey}{Key words}{}\hsc@cont},
+  before upper={\hsc@boxsetup\setlength{\parskip}{3pt plus 1pt}}, #1}
+\NewDocumentEnvironment{keywords}{O{}}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@kwbox\expandafter[\hsc@tcbopts]}{\endhsc@kwbox}
+% \kw{Term}{plain meaning}
+\newcommand\kw[2]{\par\noindent\hangindent=1.2em\hangafter=1
+  {\bfseries\color{hsckw!80!black}#1}\enspace\textcolor{hsckw!60}{\textendash}\enspace #2\par}
+
+\newtcolorbox{hsc@mistakebox}[1][]{hsc minor=hscmistake, unbreakable,
+  title={\hsc@titlebar{\faExclamationTriangle}{Common mistakes}{}},
+  title after break={\hsc@titlebar{\faExclamationTriangle}{Common mistakes}{}\hsc@cont}, #1}
+\NewDocumentEnvironment{mistakes}{O{}}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@mistakebox\expandafter[\hsc@tcbopts]}{\endhsc@mistakebox}
+
+\newtcolorbox{hsc@tipbox}[1][]{hsc minor=hsctip, unbreakable, colback=hsctip!8!white,
+  colbacktitle=hsctip!26!white, coltitle=hsctiptext,
+  title={\hsc@titlebar{\faStar}{HSC exam tip}{}},
+  title after break={\hsc@titlebar{\faStar}{HSC exam tip}{}\hsc@cont}, #1}
+\NewDocumentEnvironment{examtip}{O{}}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@tipbox\expandafter[\hsc@tcbopts]}{\endhsc@tipbox}
+
+\newtcolorbox{hsc@toolbox}[2][]{hsc minor=hsctool, unbreakable, colback=hsctool!6!white,
+  colbacktitle=hsctool!14!white, coltitle=hsctool!85!black,
+  title={\hsc@titlebar{\faCalculator}{Maths toolkit}{#2}},
+  title after break={\hsc@titlebar{\faCalculator}{Maths toolkit}{#2}\hsc@cont}, #1}
+\NewDocumentEnvironment{toolkit}{O{} m}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@toolbox\expandafter[\hsc@tcbopts]{#2}}{\endhsc@toolbox}
+
+\newtcolorbox{hsc@refbox}[2][]{hsc minor=hsctool, unbreakable, colback=hsctool!6!white,
+  colbacktitle=hsctool!14!white, coltitle=hsctool!85!black,
+  title={\hsc@titlebar{\faHistory}{Quick refresher}{#2}},
+  title after break={\hsc@titlebar{\faHistory}{Quick refresher}{#2}\hsc@cont}, #1}
+\NewDocumentEnvironment{refresher}{O{} m}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@refbox\expandafter[\hsc@tcbopts]{#2}}{\endhsc@refbox}
+
+%% ---------------------------------------------------------------
+%% 12b. Formula card
+%% ---------------------------------------------------------------
+\newcommand\hsc@pill[3]{% bg, text colour, content
+  \tcbox[on line, enhanced, colback=#1, colframe=#1, boxrule=0pt, arc=5pt,
+    left=5pt, right=5pt, top=1.6pt, bottom=1.6pt, boxsep=0pt,
+    fontupper=\footnotesize\bfseries\color{#2}]{#3}}
+\newcommand\hscbadgeonsheet{\hsc@pill{hscformula!12}{hscformula!80!black}%
+  {\faCheckCircle\hspace{0.45em}On the formula sheet}}
+\newcommand\hscbadgenotonsheet{\hsc@pill{hscmistake}{white}%
+  {\faExclamationTriangle\hspace{0.45em}Not on the formula sheet – learn it or derive it}}
+\newcommand\hscbadgecombine[1]{%
+  \tcbox[enhanced, colback=hsctip!22!white, colframe=hsctip!22!white, boxrule=0pt,
+    arc=5pt, left=6pt, right=6pt, top=1.6pt, bottom=1.6pt, boxsep=0pt,
+    halign=center, nobeforeafter, tcbox width=auto limited,
+    fontupper=\footnotesize\bfseries\color{hsctiptext}]%
+  {\faLink\hspace{0.45em}Not printed in this form – combine #1 (on the sheet)}}
+\newcommand\hsc@sheetbadge{%
+  \ifhsc@combine\expandafter\hscbadgecombine\expandafter{\hsc@combinetext}%
+  \else\ifhsc@onsheet\hscbadgeonsheet\else\hscbadgenotonsheet\fi\fi}
+
+\newif\ifhsc@fchasformula
+\newtcolorbox{hsc@fcbox}[2][]{hsc major=hscformula,
+  title={\hsc@titlebar{\faIcon{square-root-alt}}{Formula card}{#2}},
+  title after break={\hsc@titlebar{\faIcon{square-root-alt}}{Formula card}{#2}\hsc@cont},
+  before upper={\hsc@boxsetup\hsc@infctrue\global\hsc@fchasformulafalse},
+  after upper={\ifhsc@fchasformula\else\PackageWarning{hscphys}{formulacard
+    `#2' has no \string\cardformula}\fi}, #1}
+\NewDocumentEnvironment{formulacard}{O{} m}{\hsc@parseopts{#1}\hsc@needspace{10}%
+  \expandafter\hsc@fcbegin\expandafter{\hsc@tcbopts}{#2}}{\endhsc@fcbox}
+\def\hsc@fcbegin#1#2{\hsc@fcbox[#1]{#2}}
+
+% the displayed formula (with the formula-sheet badge under it)
+\newcommand\cardformula[1]{%
+  \global\hsc@fchasformulatrue
+  \par\addvspace{1pt}%
+  \begin{tcolorbox}[enhanced, colback=white, colframe=hscformula!28, boxrule=0.6pt,
+      arc=2pt, top=2.4mm, bottom=1.8mm, left=2mm, right=2mm,
+      boxsep=0pt, before skip=0pt, after skip=3pt]
+    {\Large\centering$\displaystyle #1$\par}%
+    \vspace{4pt}{\centering\hsc@sheetbadge\par}
+  \end{tcolorbox}}
+
+% symbol table:  \begin{symbols} \sym{$v$}{speed}{\si{m.s^{-1}}} ... \end{symbols}
+\newenvironment{symbols}{%
+  \par\addvspace{2pt}\noindent
+  \arrayrulecolor{hscformula!25}\renewcommand\arraystretch{1.25}%
+  \begin{tabular}{@{}C{15mm}@{\hspace{3mm}}L{\dimexpr\linewidth-15mm-30mm-6mm\relax}%
+      @{\hspace{3mm}}L{30mm}@{}}
+  \textcolor{hscformula!80!black}{\footnotesize\bfseries Symbol} &
+  \textcolor{hscformula!80!black}{\footnotesize\bfseries Meaning} &
+  \textcolor{hscformula!80!black}{\footnotesize\bfseries SI unit}\\\hline}{%
+  \end{tabular}\par\addvspace{2pt}}
+\newcommand\sym[3]{#1 & #2 & #3\\\hline}
+
+% labelled lines inside a formula card
+\newcommand\hsc@field[4][hscformula!82!black]{%
+  \par\addvspace{2pt}%
+  \leavevmode{\color{#1}\bfseries #2\hspace{0.4em}#3:}\hspace{0.45em}#4\par}
+\newcommand\inwords[1]{\hsc@field{\faCommentDots}{In words}{#1}}
+\newcommand\whentouse[1]{\hsc@field{\faCheckCircle}{When to use}{#1}}
+\newcommand\whennottouse[1]{\hsc@field{\faTimesCircle}{When NOT to use}{#1}}
+\newcommand\rearranged[1]{\hsc@field{\faIcon{exchange-alt}}{Rearranged}{#1}}
+\newcommand\tensecond[1]{\hsc@field{\faIcon{stopwatch}}{10-second example}{#1}}
+\newcommand\trap[1]{\hsc@field[hscmistake]{\faExclamationTriangle}{Trap}{#1}}
+\newcommand\derive[1]{\hsc@field{\faPuzzlePiece}{Where it comes from}{#1}}
+
+%% ---------------------------------------------------------------
+%% 12c. Worked example
+%% ---------------------------------------------------------------
+\newcounter{hscwe}[chapter]
+\renewcommand\thehscwe{\thechapter.\arabic{hscwe}}
+\newtcolorbox{hsc@webox}[3][]{hsc major=hscexample,
+  title={\hsc@titlebar{\faIcon{pencil-alt}}{Worked example #2}{#3}},
+  title after break={\hsc@titlebar{\faIcon{pencil-alt}}{Worked example #2}{#3}\hsc@cont},
+  before upper={\hsc@boxsetup\hsc@infcfalse}, #1}
+\NewDocumentEnvironment{workedexample}{O{} m}{\hsc@parseopts{#1}\hsc@needspace{9}%
+  \global\hsc@dividerfalse
+  \ifhsc@nonumber\def\hsc@wenum{}\else\refstepcounter{hscwe}\edef\hsc@wenum{\thehscwe}\fi
+  \expandafter\hsc@webegin\expandafter{\hsc@tcbopts}{#2}}{\endhsc@webox}
+\def\hsc@webegin#1#2{\hsc@webox[#1]{\hsc@wenum}{#2}}
+
+\newcommand\hsc@steplabel[1]{\hsc@pill{hscexample!13}{hscexample!80!black}{#1}}
+\newcommand\hsc@answerlabel[1]{\hsc@pill{hscexample}{white}{#1}}
+\newcommand\hsc@solutiondivider{%
+  \ifhsc@divider\else\global\hsc@dividertrue
+    \par\addvspace{3pt}%
+    \noindent{\color{hscexample!50}\leaders\hbox to 5pt{\hss\rule[0.55ex]{3pt}{0.6pt}\hss}\hfill}%
+    \hspace{0.7em}{\footnotesize\hsc@semibold\color{hscexample!85!black}%
+      \addfontfeatures{LetterSpace=9}SOLUTION}\hspace{0.7em}%
+    {\color{hscexample!50}\leaders\hbox to 5pt{\hss\rule[0.55ex]{3pt}{0.6pt}\hss}\hfill}%
+    \par\addvspace{1pt}%
+  \fi}
+\newcommand\hsc@keepwithprev{}
+\newcommand\hsc@step[2]{% label box, content
+  \hsc@solutiondivider
+  \hsc@keepwithprev
+  \begin{list}{}{\setlength\leftmargin{26mm}\setlength\labelwidth{24mm}%
+      \setlength\labelsep{2mm}\setlength\itemindent{0pt}\setlength\listparindent{0pt}%
+      \setlength\topsep{1pt}\setlength\partopsep{0pt}\setlength\parsep{4pt}%
+      \setlength\itemsep{0pt}\renewcommand\makelabel[1]{##1\hfil}}%
+  \item[#1]#2%
+  \end{list}}
+\newcommand\given[1]{\hsc@step{\hsc@steplabel{Given}}{#1}}
+\newcommand\find[1]{\hsc@step{\hsc@steplabel{Find}}{#1}}
+\newcommand\hsc@stepformula[1]{\hsc@step{\hsc@steplabel{Formula}}{#1}}
+\newcommand\substitute[1]{\hsc@step{\hsc@steplabel{Substitute}}{#1}}
+% Answer and Check are never separated from the step before them by a page break
+\newcommand\hsc@nobreakhere{\par
+  \ifinner\ifdim\lastskip>\z@\unskip\fi\unpenalty\ifdim\lastskip>\z@\unskip\fi\fi
+  \nobreak\@beginparpenalty\@M}
+\newcommand\answer[1]{{\let\hsc@keepwithprev\hsc@nobreakhere
+  \hsc@step{\hsc@answerlabel{Answer}}{#1}}}
+\newcommand\checkstep[1]{{\let\hsc@keepwithprev\hsc@nobreakhere
+  \hsc@step{\hsc@steplabel{Check}}{#1}}}
+% \formula: a step inside a worked example; the big formula inside a formula card
+\newcommand\formula[1]{\ifhsc@infc\cardformula{#1}\else\hsc@stepformula{#1}\fi}
+% highlight the final value: \final{$F_\mathrm{c} = \qty{19}{N}$}
+\newcommand\final[1]{\tcbox[on line, enhanced, colback=hscexample!12, colframe=hscexample!55,
+  boxrule=0.5pt, arc=2pt, left=3pt, right=3pt, top=1pt, bottom=1pt, boxsep=0pt]{#1}}
+
+%% ---------------------------------------------------------------
+%% 12d. Key experiment
+%% ---------------------------------------------------------------
+\newtcolorbox{hsc@expbox}[2][]{hsc major=hscexp,
+  title={\hsc@titlebar{\faFlask}{Key experiment}{#2}},
+  title after break={\hsc@titlebar{\faFlask}{Key experiment}{#2}\hsc@cont}, #1}
+\NewDocumentEnvironment{experiment}{O{} m}{\hsc@parseopts{#1}\hsc@needspace{9}%
+  \expandafter\hsc@expbegin\expandafter{\hsc@tcbopts}{#2}}{\endhsc@expbox}
+\def\hsc@expbegin#1#2{\hsc@expbox[#1]{#2}}
+\newcommand\hsc@exphead[2]{\par\addvspace{6pt}%
+  \leavevmode{\color{hscexp!85!black}\bfseries\mbox{#1}\hspace{0.45em}#2}\par\nobreak\vspace{-2pt}}
+\newcommand\aim[1]{\hsc@exphead{\faBullseye}{Aim}#1\par}
+\newcommand\apparatus[1]{\hsc@exphead{\faToolbox}{Apparatus}#1\par}
+\newcommand\method[1]{\hsc@exphead{\faListOl}{Method}#1\par}
+\newcommand\results[1]{\hsc@exphead{\faChartLine}{Results}#1\par}
+\newcommand\conclusion[1]{\hsc@exphead{\faCheckCircle}{Conclusion}#1\par}
+\newcommand\significance[1]{\hsc@exphead{\faLightbulb}{Significance}#1\par}
+\newcommand\validity[1]{\hsc@exphead{\faBalanceScale}{Validity, reliability and accuracy}#1\par}
+
+%% ---------------------------------------------------------------
+%% 12e. Quick check (Q2.3 = chapter 2, question 3) and its answers
+%% ---------------------------------------------------------------
+\newcounter{qcq}[chapter]
+\renewcommand\theqcq{\thechapter.\arabic{qcq}}
+\newcommand\hsc@setqcount[2]{\global\@namedef{hsc@qcount@#1}{#2}}
+\newcommand\hsc@qclabel{%
+  \edef\hsc@id{\arabic{chapter}.\arabic{qcq}}%
+  \hsc@markknown{qc.\hsc@id}%
+  \immediate\write\@auxout{\string\hsc@setqcount{\arabic{chapter}}{\arabic{qcq}}}%
+  \hypertarget{qc.\hsc@id}{}%
+  \hsc@linkto{qcans.\hsc@id}{\textcolor{hscqc}{\bfseries Q\hsc@id}}}
+\newenvironment{hsc@qclist}{%
+  \list{}{\setlength\leftmargin{3.3em}\setlength\labelwidth{3em}%
+    \setlength\labelsep{0.3em}\setlength\itemsep{4pt}\setlength\parsep{3pt}%
+    \setlength\topsep{1pt}\setlength\partopsep{0pt}%
+    \renewcommand\makelabel[1]{##1\hfil}}%
+  \let\hsc@olditem\item
+  \def\item{\ifhmode\unskip\fi\refstepcounter{qcq}\hsc@olditem[\hsc@qclabel]}}%
+  {\endlist}
+\newtcolorbox{hsc@qcbox}[1][]{hsc minor=hscqc, unbreakable,
+  title={\hsc@titlebar{\faQuestionCircle}{Quick check}{}},
+  title after break={\hsc@titlebar{\faQuestionCircle}{Quick check}{}\hsc@cont},
+  #1}
+\NewDocumentEnvironment{quickcheck}{O{}}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@qcbox\expandafter[\hsc@tcbopts]%
+  \leavevmode{\small\color{hscmuted}Answers are at the back of the book.\par}%
+  \begin{hsc@qclist}}{\end{hsc@qclist}\endhsc@qcbox}
+
+% answers:  \begin{chapteranswers}{2}{Uniform circular motion} \item ... \end{chapteranswers}
+\newcounter{hscans}
+\newcommand\hsc@anslabel{%
+  \edef\hsc@id{\hsc@anschap.\arabic{hscans}}%
+  \hsc@markknown{qcans.\hsc@id}%
+  \hypertarget{qcans.\hsc@id}{}%
+  \hsc@linkto{qc.\hsc@id}{\textcolor{hscqc}{\bfseries Q\hsc@id}}}
+\newenvironment{hsc@anslist}{%
+  \list{}{\setlength\leftmargin{3.3em}\setlength\labelwidth{3em}%
+    \setlength\labelsep{0.3em}\setlength\itemsep{6pt}\setlength\parsep{4pt}%
+    \setlength\topsep{2pt}\setlength\partopsep{0pt}%
+    \renewcommand\makelabel[1]{##1\hfil}}%
+  \let\hsc@olditem\item
+  \def\item{\stepcounter{hscans}\hsc@olditem[\hsc@anslabel]}}%
+  {\endlist}
+\NewDocumentEnvironment{chapteranswers}{m m}{%
+  \def\hsc@anschap{#1}\setcounter{hscans}{0}%
+  \par\Needspace{8\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{Chapter #1: #2}%
+  \section*{\hsc@linkto{chapter.#1}{\textcolor{hscbrand}{Chapter #1}}: #2}%
+  \leavevmode{\small\color{hscmuted}Answers to the Quick check questions in Chapter #1.\par}%
+  \begin{hsc@anslist}}{%
+  \end{hsc@anslist}%
+  \@ifundefined{hsc@qcount@#1}{}{%
+    \ifnum\csname hsc@qcount@#1\endcsname=\value{hscans}\else
+      \PackageWarningNoLine{hscphys}{Chapter #1 has
+        \csname hsc@qcount@#1\endcsname\space Quick check questions
+        but \arabic{hscans} answer(s)}%
+    \fi}}
+
+%% ---------------------------------------------------------------
+%% 12f. Practice set
+%% ---------------------------------------------------------------
+\newcounter{hscpq}
+\newcounter{hscpa}
+\newcommand\hsc@setpqcount[1]{\gdef\hsc@pqcount{#1}}
+\newcommand\hsc@marks[1]{#1~\ifnum#1=1 mark\else marks\fi}
+\newcommand\hsc@chpill[1]{%
+  \if\relax\detokenize{#1}\relax\else
+    \hsc@linkto{chapter.#1}{\hsc@pill{hscbrand!9}{hscbrand!85}{Ch~#1}}%
+  \fi}
+% \begin{practiceq}{<marks>}{<chapter number>} question text \end{practiceq}
+\NewDocumentEnvironment{practiceq}{m m}{%
+  \par\addvspace{10pt}\Needspace{6\baselineskip}%
+  \refstepcounter{hscpq}%
+  \edef\hsc@id{\arabic{hscpq}}%
+  \hsc@markknown{pq.\hsc@id}%
+  \immediate\write\@auxout{\string\hsc@setpqcount{\hsc@id}}%
+  \hsc@hrule{0.5pt}\nobreak\vspace{5pt}%
+  \noindent\hypertarget{pq.\hsc@id}{}%
+  \hsc@linkto{pa.\hsc@id}{\textcolor{hscbrand}{\bfseries Question \hsc@id}}%
+  \hspace{0.7em}\hsc@chpill{#2}%
+  \hfill{\small\hsc@semibold\color{hscmuted}\hsc@marks{#1}}\par\nobreak
+  \vspace{1pt}}{\par}
+
+% multiple choice:  \choices{A text}{B text}{C text}{D text}
+% Layout is chosen automatically (4 across, 2 x 2, or one per line).
+% Force a layout with \choices[4]{..}..., \choices[2]{..}... or \choices[1]{..}...
+\newlength\hsc@chw
+\newlength\hsc@chmax
+\newlength\hsc@cellw
+\newcommand\hsc@choicelabel[1]{%
+  \tikz[baseline=(L.base)]\node[circle, draw=hscbrand!70, line width=0.6pt,
+    inner sep=0pt, minimum size=1.4em, font=\small\bfseries, text=hscbrand](L){#1};}
+\newcommand\hsc@labelw{2.1em}
+\newcommand\hsc@measure[1]{\settowidth\hsc@chw{#1}%
+  \ifdim\hsc@chw>\hsc@chmax\global\hsc@chmax=\hsc@chw\fi}
+\newcommand\hsc@choicecell[3]{% width, letter, text
+  \begin{minipage}[t]{#1}\RaggedRight\hangindent=\hsc@labelw\hangafter=1
+    \noindent\makebox[\hsc@labelw][l]{\hsc@choicelabel{#2}}#3\end{minipage}}
+\NewDocumentCommand\choices{O{0} m m m m}{%
+  \par\addvspace{2pt}%
+  \global\hsc@chmax=0pt
+  \hsc@measure{#2}\hsc@measure{#3}\hsc@measure{#4}\hsc@measure{#5}%
+  \ifnum#1=0
+    \setlength\hsc@cellw{\dimexpr(\linewidth-3em)/4-\hsc@labelw\relax}%
+    \ifdim\hsc@chmax<\hsc@cellw \def\hsc@cols{4}\else
+      \setlength\hsc@cellw{\dimexpr(\linewidth-1.5em)/2-\hsc@labelw\relax}%
+      \ifdim\hsc@chmax<\hsc@cellw \def\hsc@cols{2}\else\def\hsc@cols{1}\fi
+    \fi
+  \else\def\hsc@cols{#1}\fi
+  \ifnum\hsc@cols=4
+    \setlength\hsc@cellw{\dimexpr(\linewidth-3em)/4\relax}%
+    \noindent\hsc@choicecell{\hsc@cellw}{A}{#2}\hspace{1em}%
+    \hsc@choicecell{\hsc@cellw}{B}{#3}\hspace{1em}%
+    \hsc@choicecell{\hsc@cellw}{C}{#4}\hspace{1em}%
+    \hsc@choicecell{\hsc@cellw}{D}{#5}\par
+  \else\ifnum\hsc@cols=2
+    \setlength\hsc@cellw{\dimexpr(\linewidth-1.5em)/2\relax}%
+    \noindent\hsc@choicecell{\hsc@cellw}{A}{#2}\hspace{1.5em}%
+    \hsc@choicecell{\hsc@cellw}{B}{#3}\par\addvspace{3pt}%
+    \noindent\hsc@choicecell{\hsc@cellw}{C}{#4}\hspace{1.5em}%
+    \hsc@choicecell{\hsc@cellw}{D}{#5}\par
+  \else
+    \noindent\hsc@choicecell{\linewidth}{A}{#2}\par\addvspace{3pt}%
+    \noindent\hsc@choicecell{\linewidth}{B}{#3}\par\addvspace{3pt}%
+    \noindent\hsc@choicecell{\linewidth}{C}{#4}\par\addvspace{3pt}%
+    \noindent\hsc@choicecell{\linewidth}{D}{#5}\par
+  \fi\fi
+  \addvspace{2pt}}
+
+% ruled lines for a written answer (useful when the book is printed)
+\newcommand\answerlines[1]{\par\begingroup\setlength\parskip{0pt}%
+  \@tempcnta=#1\relax
+  \loop\ifnum\@tempcnta>0
+    \vspace{8mm}\noindent\textcolor{hscrule}{\rule{\linewidth}{0.4pt}}\par
+    \advance\@tempcnta\m@ne
+  \repeat\endgroup\par}
+
+% answers:
+%   \begin{practiceanswers}
+%     \begin{practiceans} ... \end{practiceans}     (one per question, in order)
+%   \end{practiceanswers}
+\NewDocumentEnvironment{practiceanswers}{O{Practice set answers}}{%
+  \setcounter{hscpa}{0}%
+  \par\Needspace{8\baselineskip}%
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  \section*{#1}}{%
+  \par
+  \@ifundefined{hsc@pqcount}{}{%
+    \ifnum\hsc@pqcount=\value{hscpa}\else
+      \PackageWarningNoLine{hscphys}{The practice set has \hsc@pqcount\space
+        questions but \arabic{hscpa} answer(s)}%
+    \fi}}
+\NewDocumentEnvironment{practiceans}{}{%
+  \par\addvspace{10pt}\Needspace{5\baselineskip}%
+  \refstepcounter{hscpa}\edef\hsc@id{\arabic{hscpa}}%
+  \hsc@markknown{pa.\hsc@id}%
+  \hsc@hrule{0.5pt}\nobreak\vspace{5pt}%
+  \noindent\hypertarget{pa.\hsc@id}{}%
+  \hsc@linkto{pq.\hsc@id}{\textcolor{hscbrand}{\bfseries Question \hsc@id}}%
+  \par\nobreak\vspace{1pt}}{\par}
+% multiple-choice key:  \correct{B}
+\newcommand\correct[1]{\par\noindent
+  \hsc@pill{hscexample}{white}{\faCheck\hspace{0.4em}Answer:~#1}\par}
+
+% marking criteria:  \begin{markingcriteria} \criterion{text}{2} ... \end{markingcriteria}
+\newtcolorbox{hsc@critbox}[1][]{enhanced, colback=white, colframe=hscbrand!30,
+  boxrule=0.6pt, arc=2pt, left=0pt, right=0pt, top=0pt, bottom=0pt, boxsep=0pt,
+  before skip=6pt, after skip=6pt,
+  title={\hsc@titlebar{\faClipboardCheck}{Marking criteria}{}},
+  colbacktitle=hscbrand!8, coltitle=hscbrand, fonttitle=\normalfont\bfseries,
+  lefttitle=3mm, toptitle=1.2mm, bottomtitle=1.2mm, titlerule=0pt, #1}
+\NewDocumentEnvironment{markingcriteria}{O{}}{%
+  \hsc@critbox[#1]%
+  \arrayrulecolor{hscbrand!18}\renewcommand\arraystretch{1.22}%
+  \begin{tabular}{@{\hspace{3mm}}L{\dimexpr\linewidth-23mm\relax}@{\hspace{2mm}}C{16mm}@{\hspace{2mm}}}
+  \textcolor{hscmuted}{\footnotesize\bfseries Criteria} &
+  \textcolor{hscmuted}{\footnotesize\bfseries Marks}\\\hline}{%
+  \end{tabular}\endhsc@critbox}
+\newcommand\criterion[2]{#1 & #2\\\hline}
+
+% model answer (full marks) for a written question
+\newtcolorbox{hsc@modelbox}[1][]{hsc minor=hscexample,
+  title={\hsc@titlebar{\faAward}{Model answer (full marks)}{}},
+  title after break={\hsc@titlebar{\faAward}{Model answer}{}\hsc@cont}, #1}
+\NewDocumentEnvironment{modelanswer}{O{}}{\hsc@parseopts{#1}\hsc@needspace{4}%
+  \expandafter\hsc@modelbox\expandafter[\hsc@tcbopts]}{\endhsc@modelbox}
+
+%% ---------------------------------------------------------------
+%% 12g. Chapter openers and other boxes
+%% ---------------------------------------------------------------
+% \inquiry{text of the inquiry question}
+\newcommand\inquiry[1]{%
+  \par\addvspace{2pt}%
+  \begin{tcolorbox}[enhanced, sharp corners, boxrule=0pt, leftrule=2.5pt,
+      colframe=hscbrand!55, colback=hscbrand!4!white, left=4mm, right=4mm,
+      top=2mm, bottom=2.2mm, boxsep=0pt, before skip=0pt, after skip=8pt]
+    \RaggedRight
+    \leavevmode{\footnotesize\hsc@semibold\color{hscbrand}\addfontfeatures{LetterSpace=9}%
+      \faSearch\hspace{0.6em}INQUIRY QUESTION\par}%
+    \vspace{2pt}\leavevmode{\itshape\color{hscink}#1\par}%
+  \end{tcolorbox}}
+
+% \begin{goals} \item ... \end{goals}
+\newtcolorbox{hsc@goalbox}[1][]{hsc minor=hscbrand, unbreakable,
+  title={\hsc@titlebar{\faBullseye}{Your goals for this chapter}{}}, #1}
+\NewDocumentEnvironment{goals}{O{By the end of this chapter you can:}}{%
+  \hsc@needspace{3}\hsc@goalbox
+  {\hsc@semibold #1\par}%
+  \begin{itemize}[label={\textcolor{hscbrand!70}{\faSquare[regular]}}, leftmargin=1.9em,
+    itemsep=1pt]}{\end{itemize}\endhsc@goalbox}
+
+% \begin{syllabus} \item <dot point in plain words> \end{syllabus}
+\newtcolorbox{hsc@sylbox}[1][]{hsc minor=hsctool, unbreakable, colback=hsctool!5!white,
+  colbacktitle=hsctool!12!white, coltitle=hsctool!85!black,
+  title={\hsc@titlebar{\faListUl}{Syllabus dot points}{}}, fontupper=\small, #1}
+\NewDocumentEnvironment{syllabus}{O{}}{\hsc@parseopts{#1}\hsc@needspace{3}%
+  \expandafter\hsc@sylbox\expandafter[\hsc@tcbopts]\begin{itemize}}%
+  {\end{itemize}\endhsc@sylbox}
+
+% \begin{summarybox}{Title} ... \end{summarybox}   (last-minute summary)
+\newtcolorbox{hsc@sumbox}[2][]{hsc minor=hscbrand,
+  title={\hsc@titlebar{\faClipboardList}{Summary}{#2}},
+  title after break={\hsc@titlebar{\faClipboardList}{Summary}{#2}\hsc@cont}, #1}
+\NewDocumentEnvironment{summarybox}{O{} m}{\hsc@parseopts{#1}\hsc@needspace{5}%
+  \expandafter\hsc@sumboxbegin\expandafter{\hsc@tcbopts}{#2}}{\endhsc@sumbox}
+\def\hsc@sumboxbegin#1#2{\hsc@sumbox[#1]{#2}}
+
+% side by side:  \begin{sidebyside}[0.55] left part \nextside right part \end{sidebyside}
+% (for SHORT content only - it cannot break across pages)
+\NewDocumentEnvironment{sidebyside}{O{0.5}}{%
+  \par\addvspace{4pt}\noindent
+  \edef\hsc@sbsfrac{\fpeval{1-(#1)}}%
+  \begin{minipage}[t]{\dimexpr#1\linewidth-2.5mm-0.5pt\relax}\vspace{0pt}\RaggedRight}{%
+  \end{minipage}\par\addvspace{4pt}}
+\newcommand\nextside{\end{minipage}\hfill
+  \begin{minipage}[t]{\dimexpr\hsc@sbsfrac\linewidth-2.5mm-0.5pt\relax}\vspace{0pt}\RaggedRight}
+
+%% ---------------------------------------------------------------
+%% 12h. Glossary table and formula summary table (break across pages)
+%% ---------------------------------------------------------------
+% \begin{glossarytable} \gterm{Term}{Meaning}{中文} ... \end{glossarytable}
+\newcommand\hsc@ghead{\colhead{Term} & \colhead{Meaning} & \colhead{Chinese}}
+\newenvironment{glossarytable}{%
+  \par\addvspace{2pt}%
+  \setlength\LTpre{2pt}\setlength\LTpost{4pt}%
+  \hsc@tablestretch\renewcommand\arraystretch{1.25}\arrayrulecolor{hscrule}%
+  \longtable{@{}L{36mm}@{\hspace{4mm}}L{\dimexpr\linewidth-36mm-28mm-8mm\relax}%
+    @{\hspace{4mm}}L{28mm}@{}}
+  \hsc@ghead\\\hline\endfirsthead
+  \hsc@ghead\\\hline\endhead}{%
+  \endlongtable}
+\newcommand\gterm[3]{\textbf{#1} & #2 & \zh{#3}\\\hline}
+
+% \begin{formulatable} \frow{$v = \dfrac{2\pi r}{T}$}{when to use}
+%                      \frow[notonsheet]{$v = \omega r$}{...} \end{formulatable}
+\newcommand\hsc@fhead{\colhead{Formula} & \colhead{What it means and when to use it} &
+  \colhead{On the sheet?}}
+\newenvironment{formulatable}{%
+  \par\addvspace{2pt}%
+  \setlength\LTpre{2pt}\setlength\LTpost{4pt}%
+  \hsc@tablestretch\renewcommand\arraystretch{1.3}\arrayrulecolor{hscrule}%
+  \longtable{@{}C{46mm}@{\hspace{4mm}}L{\dimexpr\linewidth-46mm-24mm-8mm\relax}%
+    @{\hspace{4mm}}C{24mm}@{}}
+  \hsc@fhead\\\hline\endfirsthead
+  \hsc@fhead\\\hline\endhead}{%
+  \endlongtable}
+\NewDocumentCommand\frow{O{} m m}{%
+  \hsc@parseopts{#1}%
+  \ifhsc@combine
+    \gdef\hsc@fmark{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink\ Combine}}%
+  \else\ifhsc@onsheet
+    \gdef\hsc@fmark{\textcolor{hscformula}{\footnotesize\bfseries\faCheck\ Yes}}%
+  \else
+    \gdef\hsc@fmark{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes\ Learn it}}%
+  \fi\fi
+  \rule[-2.1ex]{0pt}{5.6ex}#2 & #3 & \hsc@fmark\\\hline}
+
+%% ===================================================================
+%% 13. Cover page: \makecover  (uses \modulenumber and \moduletitle)
+%% ===================================================================
+\newcommand\hsc@setcoveraccent{%
+  \ifcase\modulenumber\relax
+    \colorlet{hsccover}{hscbrand}\or\colorlet{hsccover}{hscbrand}\or
+    \colorlet{hsccover}{hscbrand}\or\colorlet{hsccover}{hscbrand}\or
+    \colorlet{hsccover}{hscbrand}\or
+    \definecolor{hsccover}{HTML}{1864AB}\or   % 5 blue
+    \definecolor{hsccover}{HTML}{5F3DC4}\or   % 6 violet
+    \definecolor{hsccover}{HTML}{C2410C}\or   % 7 orange
+    \definecolor{hsccover}{HTML}{087F5B}\else % 8 green
+    \colorlet{hsccover}{hscbrand}\fi}
+% motifs: drawn in white inside the coloured band, origin = motif centre (mm)
+\newcommand\hsc@motif@five{% projectiles: same launch speed, different angles
+  \foreach \ang/\op in {30/0.45, 60/0.45, 75/0.35} {%
+    \draw[white, opacity=\op, line width=1pt, dash pattern=on 3pt off 3pt,
+      domain=0:{120*sin(2*\ang)}, samples=60, smooth]
+      plot ({\x-60}, {\x*tan(\ang) - \x*\x/(240*cos(\ang)^2) - 25});}
+  \draw[white, opacity=0.9, line width=1.6pt, domain=0:120, samples=60, smooth]
+    plot ({\x-60}, {\x - \x*\x/120 - 25});
+  \foreach \t in {0, 0.2, 0.4, 0.6, 0.8, 1.0} {%
+    \fill[white] ({120*\t-60}, {120*\t - 120*\t*\t - 25}) circle (1.6);}
+  \draw[white, opacity=0.9, line width=1.2pt, -{Stealth[length=3mm]}]
+    (-60,-25) -- (-42,-7);
+  \draw[white, opacity=0.6, line width=0.8pt] (-70,-25) -- (70,-25);}
+\newcommand\hsc@motif@six{% magnetic field lines around a bar magnet
+  \foreach \L in {16, 24, 34, 47, 63} {%
+    \draw[white, opacity=0.55, line width=0.9pt, domain=10:170, samples=80, smooth]
+      plot ({\L*sin(\x)^2*cos(\x)}, {\L*sin(\x)^3});
+    \draw[white, opacity=0.55, line width=0.9pt, domain=10:170, samples=80, smooth]
+      plot ({\L*sin(\x)^2*cos(\x)}, {-\L*sin(\x)^3});}
+  \fill[white, opacity=0.95, rounded corners=1pt] (-13,-3.5) rectangle (0,3.5);
+  \fill[white, opacity=0.6, rounded corners=1pt] (0,-3.5) rectangle (13,3.5);
+  \node[text=hsccover, font=\footnotesize\bfseries] at (-6.5,0) {S};
+  \node[text=hsccover, font=\footnotesize\bfseries] at (6.5,0) {N};}
+\newcommand\hsc@motif@seven{% an electromagnetic wave
+  \draw[white, opacity=0.6, line width=0.8pt, -{Stealth[length=3mm]}] (-70,0) -- (72,0);
+  \foreach \x in {-66,-62,...,64} {%
+    \draw[white, opacity=0.35, line width=0.6pt] (\x,0) -- (\x,{22*sin(9*(\x+70))});}
+  \draw[white, opacity=0.95, line width=1.6pt, domain=-70:66, samples=120, smooth]
+    plot (\x, {22*sin(9*(\x+70))});
+  \draw[white, opacity=0.6, line width=1.2pt, dash pattern=on 4pt off 2.5pt,
+    domain=-70:66, samples=120, smooth]
+    plot ({\x - 0.55*14*sin(9*(\x+70))}, {-0.45*14*sin(9*(\x+70))});}
+\newcommand\hsc@motif@eight{% Rutherford-Bohr style atom
+  \foreach \r in {0, 60, 120} {%
+    \draw[white, opacity=0.6, line width=1pt, rotate=\r] (0,0) ellipse (52 and 17);}
+  \foreach \r/\a in {0/30, 60/200, 120/110} {%
+    \fill[white, rotate=\r] ({52*cos(\a)}, {17*sin(\a)}) circle (2.2);}
+  \foreach \p/\q/\o in {0/0/0.95, 3.4/1.2/0.7, -3.2/1.6/0.95, 1.4/-3.2/0.7,
+      -1.9/-2.8/0.95, 0.4/3.6/0.7, 3.5/-1.8/0.95} {%
+    \fill[white, opacity=\o] (\p,\q) circle (2.6);}}
+
+% Cover texts: module_info.tex may redefine these (e.g. for the Essentials edition).
+\newcommand\hsccoversubtitle{HSC Physics Revision Guide — explained from zero}
+\newcommand\hsccoverchips{%
+  \hsc@coverchip{hscbigidea}{\faLightbulb}{Big ideas}\hspace{2mm}%
+  \hsc@coverchip{hscformula}{\faIcon{square-root-alt}}{Formula cards}\hspace{2mm}%
+  \hsc@coverchip{hscexample}{\faIcon{pencil-alt}}{Worked examples}\hspace{2mm}%
+  \hsc@coverchip{hsctiptext}{\faStar}{Exam tips}\\[2.5mm]%
+  \hsc@coverchip{hscexp}{\faFlask}{Key experiments}\hspace{2mm}%
+  \hsc@coverchip{hscqc}{\faQuestionCircle}{Practice with full answers}}
+\newcommand\hsccoverfooter{Simple English \textperiodcentered\ every step shown
+  \textperiodcentered\ one idea at a time}
+\newcommand\makecover{%
+  \begingroup
+  \thispagestyle{empty}%
+  \hsc@setcoveraccent
+  \begin{tikzpicture}[remember picture, overlay, x=1mm, y=1mm]
+    \coordinate (TL) at (current page.north west);
+    % coloured band
+    \shade[top color=hsccover!78!black, bottom color=hsccover]
+      (TL) rectangle ($(current page.north east)+(0,-178)$);
+    % motif
+    \begin{scope}[shift={($(TL)+(132,-128)$)}]
+      \begin{scope}
+        \clip (-78,-50) rectangle (78,50);
+        \ifcase\modulenumber\relax
+          \hsc@motif@five\or\hsc@motif@five\or\hsc@motif@five\or\hsc@motif@five\or
+          \hsc@motif@five\or\hsc@motif@five\or\hsc@motif@six\or\hsc@motif@seven\or
+          \hsc@motif@eight\else\hsc@motif@five\fi
+      \end{scope}
+    \end{scope}
+    % text on the band
+    \node[anchor=north west, inner sep=0pt, text=white, opacity=0.85,
+      font=\small\hsc@semibold\addfontfeatures{LetterSpace=14}]
+      at ($(TL)+(25,-26)$) {HSC PHYSICS \textperiodcentered\ YEAR 12};
+    \node[anchor=north west, inner sep=0pt, text=white, text width=160mm,
+      align=left, font=\fontsize{40}{46}\selectfont\hsc@heavy]
+      at ($(TL)+(25,-40)$) {Module~\modulenumber:\\[2pt]%
+        {\fontsize{36}{42}\selectfont\bfseries\moduletitle}};
+    % text under the band
+    \node[anchor=north west, inner sep=0pt, text=hscbrand, text width=160mm,
+      align=left, font=\fontsize{19}{25}\selectfont\bfseries]
+      at ($(TL)+(25,-192)$) {\hsccoversubtitle};
+    \node[anchor=north west, inner sep=0pt, text=hscmuted, text width=160mm,
+      align=left, font=\fontsize{12}{16}\selectfont]
+      at ($(TL)+(25,-214)$) {NSW Physics Stage 6 Syllabus (2017) \textperiodcentered\
+        for the 2026 HSC};
+    % what is inside
+    \node[anchor=north west, inner sep=0pt, text=hscmuted,
+      font=\footnotesize\hsc@semibold\addfontfeatures{LetterSpace=10}]
+      at ($(TL)+(25,-238)$) {INSIDE THIS GUIDE};
+    \node[anchor=north west, inner sep=0pt, text width=165mm, align=left]
+      at ($(TL)+(25,-245)$) {\hsccoverchips};
+    \draw[hscrule, line width=0.6pt] ($(TL)+(25,-272)$) -- ($(TL)+(185,-272)$);
+    \node[anchor=north west, inner sep=0pt, text=hscmuted, font=\footnotesize]
+      at ($(TL)+(25,-276)$) {\hsccoverfooter};
+  \end{tikzpicture}%
+  \null\clearpage
+  \endgroup}
+\newcommand\hsc@coverchip[3]{%
+  \tcbox[on line, enhanced, colback=#1!10, colframe=#1!10, boxrule=0pt, arc=6pt,
+    left=6pt, right=6pt, top=2.5pt, bottom=2.5pt, boxsep=0pt,
+    fontupper=\small\hsc@semibold\color{#1!85!black}]{#2\hspace{0.5em}#3}}
+
+%% ===================================================================
+%% 14. Links, PDF metadata, cross-references (load last)
+%% ===================================================================
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=hsclink, urlcolor=hsclink,
+  citecolor=hsclink, filecolor=hsclink, bookmarksnumbered=true,
+  bookmarksopen=true, bookmarksopenlevel=0, pdfdisplaydoctitle=true,
+  pdfstartview=FitH, unicode=true, pdfcreator={XeLaTeX + hscphys.sty}}
+\RequirePackage{bookmark}
+\AtBeginDocument{\hypersetup{
+  pdftitle={Module \modulenumber: \moduletitle\space - HSC Physics Revision Guide},
+  pdfsubject={HSC Physics revision, NSW Physics Stage 6 Syllabus (2017)}}}
+\RequirePackage[capitalise, noabbrev, nameinlink]{cleveref}
+\crefname{hscwe}{Worked example}{Worked examples}
+\crefname{qcq}{Question}{Questions}
+\crefformat{qcq}{#2Q#1#3}
+\crefname{hscpq}{Question}{Questions}
+\crefname{figure}{Figure}{Figures}
+\crefname{table}{Table}{Tables}
+\crefname{section}{Section}{Sections}
+\crefname{chapter}{Chapter}{Chapters}
+\crefname{equation}{Equation}{Equations}
+\creflabelformat{equation}{#2(#1)#3}
+
+\endinput

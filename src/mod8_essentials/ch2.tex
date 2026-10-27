@@ -1,0 +1,514 @@
+% ch2.tex -- Module 8 ESSENTIALS edition, Chapter 2: Structure of the Atom
+% (electrons, the nucleus and neutrons). Dot points M8.IQ2.01, M8.IQ2.02
+% (NSW Physics Stage 6 Syllabus 2017).
+% Knowledge points only: no worked examples, no questions, no answers, no exam tips.
+% Condensed from the final full chapter src/mod8/ch2.tex (same notation, same
+% facts). TikZ copied from it (captions shortened, a few labels moved to fit).
+% The five key experiments use the compact run-in experiment box of the other chapters
+% (Aim / What was done / Result / Conclusion and significance), condensed from the full
+% book's experiment boxes (validity and reliability lists left out). Each box is short and
+% [unbreakable], so no box splits across two pages.
+% The Millikan force diagram was moved under the microscope (boxed inset) and the
+% Geiger--Marsden figure set beside its text; the physics of both is unchanged.
+%
+% Chapter macro (prefix chTwo): \chTwoNuc{A}{Z}{X} nuclide symbol, the same as in the
+% full book's ch2.
+\newcommand\chTwoNuc[3]{\ensuremath{\mathord{%
+  \setbox0=\hbox{$\scriptstyle#1$}\setbox2=\hbox{$\scriptstyle#2$}%
+  \ifdim\wd0<\wd2 \setbox0=\hbox to\wd2{\hss\box0}\else\setbox2=\hbox to\wd0{\hss\box2}\fi
+  {}^{\box0}_{\box2}\mathrm{#3}}}}
+
+\chapter[Structure of the Atom]{Structure of the Atom: Electrons, the Nucleus and Neutrons}\label{ch2:chap}
+\covers{M8.IQ2.01, M8.IQ2.02}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item The electron: cathode rays, Thomson's $q/m$ (1897) and Millikan's charge $e$.
+  \item The nucleus: the Geiger--Marsden gold foil and Rutherford's nuclear model (1911).
+  \item The neutron: Chadwick's use of conservation laws (1932).
+  \item Each step changed the \term{model} of the atom: a simple picture that explains results.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{Discovering the electron: cathode rays and Thomson}\label{ch2:sec:electron}
+\covers{M8.IQ2.01}
+
+\begin{bigidea}
+Fields bend cathode rays, so they are negative particles. Thomson's $q/m$ showed that they
+are far lighter than atoms: electrons.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Cathode ray}{the invisible ray from the cathode ($-$) towards the anode ($+$) in a sealed
+    glass tube with almost no air.}
+  \kw{Charge-to-mass ratio ($q/m$)}{a particle's charge divided by its mass. Unit: \si{C.kg^{-1}}.}
+\end{keywords}
+
+\begin{itemize}
+  \item A \textbf{high voltage} (DC) pulls charged particles out of the cathode and speeds them up.
+        A \textbf{very low pressure} means few gas particles are in the way.
+  \item The glass glows where the rays hit: \term{fluorescence} (giving out light as soon as energy
+        hits it). The debate: waves (mostly in Germany) or particles (mostly in Britain).
+  \item \textbf{Fits both models:} fluorescence; the sharp shadow of a \textbf{Maltese cross}
+        (straight lines). \textbf{Waves:} the rays pass through thin metal foil (Hertz, 1892).
+  \item \textbf{Particles:} a \textbf{paddle wheel} in the beam rolls away from the cathode.
+        This was taken as evidence that the rays carry momentum. (Today we know the beam
+        mainly turns it by heating the blades.) The rays are far slower than light (Thomson, 1894).
+  \item \textbf{Negative particles:} a \textbf{magnet} bends the beam like negative charges. A
+        metal cup in the beam becomes negative (Perrin, 1895). \textbf{Charged plates} bend it
+        towards $+$ (Thomson, 1897). Hertz's plates (1883) did not bend it: gas left in his tube
+        became charged and cancelled the field.
+  \item \textbf{Decisive:} fields bend charged particles, but not EM (electromagnetic) waves such
+        as light (no charge). So cathode rays are streams of negatively charged particles.
+\end{itemize}
+
+\subsection*{Thomson's charge-to-mass experiment (1897)}
+Anodes with small holes (\term{collimators}) make a thin, straight beam. It passes through
+\term{crossed fields}: $E$ and $B$ at \ang{90} to each other and to the beam (\cref{ch2:fig:thomson}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, lab/.style={font=\footnotesize, align=center, inner sep=1pt}]
+    \draw[line width=0.9pt, hscink, fill=hscvel!5, rounded corners=6pt]
+      (3.0,0.42) -- (0,0.42) -- (0,-0.42) -- (3.0,-0.42) -- (3.0,-1.3)
+      -- (10.6,-1.3) -- (10.6,1.3) -- (3.0,1.3) -- cycle;
+    \draw[hscseriesC, line width=2.6pt] (10.6,-1.15) -- (10.6,1.15);
+    \fill[hscvel] (0.3,-0.28) rectangle (0.45,0.28);
+    \foreach \x in {1.5,2.3} {
+      \fill[hscmuted] (\x,0.07) rectangle (\x+0.12,0.38);
+      \fill[hscmuted] (\x,-0.38) rectangle (\x+0.12,-0.07); }
+    \draw[hscfield!55, dashed, line width=0.8pt] (6.2,0) circle (1.12);
+    \foreach \x in {5.4,6.2,7.0} \foreach \y in {-0.55,0.55}
+      \node[text=hscfield, font=\small] at (\x,\y) {$\times$};
+    \fill[hscforce] (4.9,0.95) rectangle (7.5,1.08);
+    \fill[hscvel] (4.9,-1.08) rectangle (7.5,-0.95);
+    \draw[hscvel, line width=1.1pt] (0.5,0) -- (10.55,0);
+    \draw[hscvel, line width=0.9pt, dashed] (4.9,0) .. controls (5.77,0) and (6.63,0.083) .. (7.5,0.25) -- (10.55,0.84);
+    \draw[hscvel, line width=0.9pt, dashed] (4.9,0) .. controls (5.77,0) and (6.63,-0.083) .. (7.5,-0.25) -- (10.55,-0.84);
+    \foreach \y in {-0.84,0,0.84} \fill[hscseriesC!80!black] (10.6,\y) circle (2.4pt);
+    \node[lab, anchor=west] at (10.75,0.84) {$E$ only};
+    \node[lab, anchor=west] at (10.75,0) {$E$ and $B$\\balanced};
+    \node[lab, anchor=west] at (10.75,-0.84) {$B$ only};
+    \node[lab, anchor=south] at (0.38,0.5) {cathode};
+    \draw[hscmuted, line width=0.4pt] (1.56,0.38) -- (1.8,0.75);
+    \draw[hscmuted, line width=0.4pt] (2.36,0.38) -- (2.1,0.75);
+    \node[lab, anchor=south] at (1.95,0.72) {anodes\\(collimators)};
+    \node[lab, anchor=south, text=hscforce] at (6.2,1.32) {$+$ plate};
+    \node[lab, anchor=north, text=hscvel] at (6.2,-1.32) {$-$ plate};
+    \draw[hscmuted, line width=0.4pt] (7.0,-0.75) -- (8.3,-1.55);
+    \node[lab, anchor=north west, text=hscfield] at (8.0,-1.5) {coils: $B$ into the page};
+    \node[lab, anchor=south] at (10.6,1.32) {fluorescent screen};
+    \draw[line width=0.6pt] (0.38,-0.28) -- (0.38,-1.1) -- (0.85,-1.1);
+    \draw[line width=0.6pt] (2.36,-0.38) -- (2.36,-1.1) -- (1.45,-1.1);
+    \draw[line width=0.6pt] (1.56,-0.38) -- (1.56,-1.1);
+    \draw[object] (0.85,-1.27) rectangle (1.45,-0.93);
+    \node[lab, anchor=north] at (1.15,-1.32) {high voltage};
+    \node[font=\small\bfseries, text=hscvel] at (0.7,-0.88) {$-$};
+    \node[font=\small\bfseries, text=hscforce] at (1.98,-0.88) {$+$};
+  \end{tikzpicture}
+  \caption{Thomson's apparatus: crossed fields, then $B$ alone.}\label{ch2:fig:thomson}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Directions:} the electric force is up, towards $+$. With $B$ into the page, the
+        right-hand rule pushes a \emph{positive} charge up, so electrons are pushed down.
+  \item \textbf{Step 1:} adjust the fields until the beam goes straight: $qE = qvB$, so $v = E/B$.
+        Only one speed goes straight: a \term{velocity selector}.
+  \item \textbf{Step 2:} switch off $E$. The magnetic force is at \ang{90} to $v$, so the beam
+        follows an arc of radius $r$: $qvB = mv^2/r$. (The weight is over $10^{14}$ times smaller
+        than $qE$: ignore it.)
+  \item \textbf{School e/m tube:} an \term{electron gun} (a hot cathode and an anode) speeds
+        electrons from rest through $V$
+        ($qV = \tfrac12 mv^2$). A uniform $B$ bends the beam into a full circle; a little gas glows
+        along it.
+\end{itemize}
+
+\textbf{Why it mattered:} $q/m$ was about 1800 times the hydrogen ion's: for the same size of
+charge, about $\tfrac{1}{1800}$ of a hydrogen atom's mass (a \term{subatomic particle}). It was the
+same for every metal and gas, so this \term{electron} is in all atoms. Atoms are neutral, so they
+must also hold positive charge.
+
+\begin{formulacard}[notonsheet]{Thomson's equations and the school e/m tube}
+  \cardformula{v = \frac{E}{B} \qquad\quad \frac{q}{m} = \frac{E}{B^2 r} \qquad\quad
+    \frac{q}{m} = \frac{2V}{B^2 r^2}}
+  \begin{symbols}
+    \sym{$v$}{speed of the particles that go straight}{\si{m.s^{-1}}}
+    \sym{$E$, $B$}{electric and magnetic field strengths}{\si{V.m^{-1}}, \si{T}}
+    \sym{$q/m$}{charge-to-mass ratio}{\si{C.kg^{-1}}}
+    \sym{$r$, $V$}{radius of the beam's path; voltage that speeds it up}{\si{m}, \si{V}}
+  \end{symbols}
+  \whentouse{crossed fields (first two); sped up from rest through $V$ (third).}
+  \derive{$qvB = qE$ gives $v = E/B$. $qvB = mv^2/r$ gives $q/m = v/(Br)$; put in $v = E/B$.
+    Tube: $qV = \tfrac12 mv^2$ and $v = (q/m)Br$; remove $v$.}
+  \trap{$E$ over $B$, not $B$ over $E$. $r$ in metres; if a scale shows the diameter, halve it.}
+\end{formulacard}
+
+%% ==================================================================
+\section{Millikan's oil drop experiment}\label{ch2:sec:millikan}
+\covers{M8.IQ2.01}
+
+\begin{bigidea}
+Every oil drop's charge was a whole number times \qty{1.6e-19}{C}. So charge comes in packets:
+the charge of one electron.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Quantised}{can only have certain separate values, with nothing in between.}
+  \kw{Elementary charge ($e$)}{the smallest charge found on its own, \qty{1.602e-19}{C}: the size
+    of an electron's charge.}
+\end{keywords}
+
+% Millikan figure set as a full-width figure (not side by side), so it fits under the key
+% words and the bullets below it run the full width
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, lab/.style={font=\footnotesize, align=center, inner sep=1pt}]
+    \draw[hscink, line width=0.6pt, fill=hscmuted!10] (1.6,2.25) rectangle (5.4,3.6);
+    \fill[hscforce!80] (0.55,3.05) circle (0.38);
+    \draw[hscink, line width=0.6pt, fill=hscmuted!25] (0.9,2.98) rectangle (1.6,3.12);
+    \foreach \p in {(2.1,3.0),(2.6,3.3),(3.0,2.75),(3.6,3.15),(4.2,2.85),(4.7,3.35),(3.3,2.5),(4.9,2.6)}
+      \fill[hscacc!80] \p circle (1.6pt);
+    \node[lab, anchor=south] at (0.55,3.45) {atomiser};
+    \node[lab, anchor=south] at (3.5,3.62) {oil drops};
+    \fill[hscforce] (1.4,2.08) rectangle (3.35,2.22);
+    \fill[hscforce] (3.65,2.08) rectangle (5.6,2.22);
+    \fill[hscvel] (1.4,0.58) rectangle (5.6,0.72);
+    \node[font=\small\bfseries, text=hscforce] at (1.25,2.42) {$+$};
+    \node[font=\small\bfseries, text=hscvel] at (1.25,0.42) {$-$};
+    \foreach \x in {1.75,2.35,4.6,5.1} \draw[field] (\x,2.03) -- (\x,0.77);
+    \node[lab, text=hscfield, anchor=east] at (5.06,0.95) {$E$};
+    \fill[hscacc] (3.5,1.25) circle (2.6pt);
+    \node[lab, anchor=south] at (3.5,1.45) {charged drop};
+    \draw[<->, hscink, line width=0.6pt] (5.42,0.72) -- (5.42,2.08) node[pos=0.45, right, inner sep=2pt] {$d$};
+    \draw[object] (6.15,1.98) rectangle (8.2,2.42);
+    \node[font=\footnotesize] at (7.175,2.2) {X-ray source};
+    \draw[hscseriesB, line width=0.9pt, -{Stealth[length=1.8mm]}] (6.13,2.1) -- (5.62,1.8);
+    \draw[hscink, line width=0.6pt, fill=hscacc!25] (-0.25,1.2) rectangle (0.25,1.5);
+    \node[lab, anchor=north] at (0.0,1.15) {light};
+    \draw[hscacc!70, line width=0.6pt, -{Stealth[length=1.6mm]}] (0.3,1.35) -- (1.3,1.35);
+    \draw[hscink, line width=0.6pt, fill=hscmuted!20] (6.4,1.22) rectangle (7.9,1.5);
+    \draw[hscink, line width=0.6pt, fill=hscmuted!35] (6.25,1.27) rectangle (6.4,1.45);
+    \node[lab, anchor=south] at (7.15,1.52) {microscope};
+    \draw[line width=0.6pt] (1.4,2.15) -- (1.0,2.15) -- (1.0,-0.2) -- (2.6,-0.2);
+    \draw[line width=0.6pt] (3.5,0.58) -- (3.5,0.0);
+    \draw[object] (2.6,-0.45) rectangle (4.4,0.0);
+    \node[font=\footnotesize] at (3.5,-0.23) {adjustable $V$};
+    % inset: forces on the still drop (moved under the microscope so the figure fits beside
+    % the text; boxed so it is not read as a second drop)
+    \draw[hscmuted, line width=0.4pt, rounded corners=2pt] (6.0,-0.9) rectangle (8.4,1.05);
+    \node[font=\scriptsize, text=hscmuted, anchor=north west, inner sep=2pt] at (6.0,1.05) {forces on the drop};
+    \begin{scope}[xshift=6.45cm, yshift=-0.1cm]
+      \draw[force] (0,0.1) -- (0,0.5) node[right, text=hscforce, inner sep=2pt] {$F_\mathrm{E} = qE$};
+      \draw[force] (0,-0.1) -- (0,-0.5) node[right, text=hscforce, inner sep=2pt] {$F_\mathrm{g} = mg$};
+      \fill[hscacc] (0,0) circle (3pt);
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Millikan's apparatus and the forces on a still drop. The field points down,
+    so it pushes a negative drop up.}\label{ch2:fig:millikan}
+\end{figure}
+
+\begin{itemize}
+  \item A drop feels its weight $F_\mathrm{g} = mg$ down and the electric force $qE$ up
+        (\cref{ch2:fig:millikan}). When it hangs still, $qE = mg$.
+  \item \textbf{Mass:} with the field off, the drop falls at its \term{terminal velocity}
+        (steady speed, when air resistance balances weight). Heavier drops fall faster.
+  \item Oil is used because water evaporates.
+  \item Drops gain or lose whole electrons, so the common step between charges is $e$ (the
+        smallest measured charge may be $2e$). Millikan measured drops, not one electron.
+  \item \textbf{Electron mass:} Millikan's $e$ divided by Thomson's $e/m_\mathrm{e}$ gives
+        $m_\mathrm{e} = \qty{9.11e-31}{kg}$, about $\tfrac{1}{1836}$ of a proton's mass.
+\end{itemize}
+
+\begin{formulacard}[notonsheet]{Millikan's balanced drop and quantised charge}
+  \cardformula{q = \frac{mgd}{V} \qquad\qquad q = ne}
+  \begin{symbols}
+    \sym{$q$, $m$}{charge (size) and mass of the drop}{\si{C}, \si{kg}}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+    \sym{$d$, $V$}{distance between the plates; voltage across them}{\si{m}, \si{V}}
+    \sym{$n$, $e$}{a whole number of electrons; elementary charge}{no unit, \si{C}}
+  \end{symbols}
+  \whentouse{a still drop between horizontal plates; $q = ne$ to count electrons.}
+  \derive{$qE = mg$ and $E = V/d$ (on the sheet). $q = ne$ is Millikan's result.}
+  \trap{not for a moving drop. $d$ in metres. Use the size of $e$ (the sheet prints $-e$).}
+\end{formulacard}
+
+%% ==================================================================
+\section{The nuclear atom: Geiger--Marsden and Rutherford}\label{ch2:sec:nucleus}
+\covers{M8.IQ2.02}
+
+\begin{bigidea}
+Most alphas went straight through gold foil, but a very few bounced back. So an atom is
+mostly empty space, with a tiny, dense, positive nucleus.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Plum pudding model}{Thomson's model (1904): spread-out positive charge with electrons
+    dotted through it. No nucleus.}
+  \kw{Alpha particle ($\alpha$)}{a helium nucleus: 2 protons and 2 neutrons, charge $+2e$.}
+\end{keywords}
+
+\Cref{ch2:fig:models} compares the plum pudding model with Rutherford's \term{nuclear model} (1911).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, lab/.style={font=\footnotesize, align=left, inner sep=1pt}]
+    \begin{scope}
+      \fill[hscforce!13] (0,0) circle (1.3);
+      \draw[hscforce!60, line width=0.8pt] (0,0) circle (1.3);
+      \foreach \p in {(-0.6,0.55),(0.15,0.8),(0.7,0.35),(-0.85,-0.2),(-0.1,0.05),(0.55,-0.5),(-0.35,-0.75)}
+        \node[text=hscforce, font=\small\bfseries] at \p {$+$};
+      \foreach \p in {(-0.25,0.5),(0.45,0.0),(-0.6,-0.5),(0.2,-0.85),(0.8,0.75),(-0.95,0.25),(0.15,-0.35)} {
+        \fill[hscvel] \p circle (3.2pt);
+        \node[text=white, font=\tiny] at \p {$-$}; }
+      \draw[hscmuted, line width=0.4pt] (0.98,0.52) -- (1.75,1.05);
+      \node[lab, anchor=west] at (1.75,1.05) {positive charge spread\\through the whole atom};
+      \draw[hscmuted, line width=0.4pt] (0.48,0.03) -- (1.75,-0.35);
+      \node[lab, anchor=west] at (1.75,-0.35) {electrons};
+      \node[font=\footnotesize, anchor=north] at (1.2,-1.4) {(a) Plum pudding model (Thomson, 1904)};
+    \end{scope}
+    \begin{scope}[xshift=8.2cm]
+      \draw[hscmuted, dashed, line width=0.6pt] (0,0) circle (1.3);
+      \fill[hscforce] (0,0) circle (1.6pt);
+      \foreach \p in {(-0.7,0.6),(0.55,0.9),(0.3,-0.95),(-0.95,-0.45),(0.95,-0.25),(-0.25,-0.8)} {
+        \fill[hscvel] \p circle (3.2pt);
+        \node[text=white, font=\tiny] at \p {$-$}; }
+      \draw[hscmuted, line width=0.4pt] (0.05,0.03) -- (1.75,0.95);
+      \node[lab, anchor=west] at (1.75,0.95) {tiny nucleus ($+$)};
+      \node[lab, anchor=west] at (1.75,0.2) {mostly empty space};
+      \draw[hscmuted, line width=0.4pt] (0.3,-0.95) -- (1.75,-0.55);
+      \node[lab, anchor=west] at (1.75,-0.55) {electrons around\\the nucleus};
+      \node[font=\footnotesize, anchor=north] at (1.2,-1.4) {(b) Nuclear model (Rutherford, 1911)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Two models of the atom. In (b) the nucleus is drawn far too big.}\label{ch2:fig:models}
+\end{figure}
+
+\begin{sidebyside}[0.6]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, lab/.style={font=\footnotesize, align=left, inner sep=1pt}]
+    \draw[hscmuted, dashed, line width=0.6pt] (0,0) circle (2.55);
+    \draw[hscseriesC, line width=2.2pt] (-168:2.05) arc (-168:168:2.05);
+    \fill[hscmuted!45] (-4.3,-0.5) rectangle (-3.5,0.5);
+    \fill[white] (-3.85,-0.07) rectangle (-3.5,0.07);
+    \fill[hscacc] (-3.95,0) circle (3pt);
+    \draw[hscacc, line width=1.1pt, -{Stealth[length=2mm]}] (-3.45,0) -- (-0.08,0);
+    \draw[draw=yellow!60!black, line width=2.4pt] (0,-0.55) -- (0,0.55);
+    \foreach \a in {-3,0,3} \draw[hscacc, line width=0.9pt, -{Stealth[length=1.8mm]}] (0,0) -- (\a:1.95);
+    \draw[hscacc, line width=0.9pt, -{Stealth[length=1.8mm]}] (0,0) -- (25:1.95);
+    \draw[hscacc, line width=0.9pt, -{Stealth[length=1.8mm]}] (0,0) -- (-30:1.95);
+    \draw[hscacc, line width=0.9pt, -{Stealth[length=1.8mm]}] (0,0) -- (140:1.95);
+    \begin{scope}[rotate=55]
+      \draw[hscink, line width=0.6pt, fill=hscmuted!20] (2.12,-0.14) rectangle (3.1,0.14);
+    \end{scope}
+    \node[lab, anchor=north, align=center] at (-3.9,-0.55) {alpha source\\in lead};
+    \draw[hscmuted, line width=0.4pt] (-0.04,-0.52) -- (-0.4,-0.74);
+    \node[lab, anchor=north] at (-0.6,-0.74) {thin gold foil};
+    \node[lab, anchor=west] at (2.7,0.15) {most:\\straight};
+    \node[lab, anchor=west] at (2.55,1.45) {some:\\small};
+    \draw[hscmuted, line width=0.4pt] (140:1.75) -- (-2.25,2.0);
+    \node[lab, anchor=south east] at (-2.2,1.95) {about 1 in 8000:\\more than \ang{90}};
+    \node[lab, anchor=south] at (1.6,2.75) {microscope (moves around)};
+    \draw[hscmuted, line width=0.4pt] (-45:2.05) -- (2.0,-2.3);
+    \node[lab, anchor=west] at (2.0,-2.3) {zinc sulfide\\screen};
+    \node[lab, anchor=north] at (-2.2,-2.45) {vacuum chamber};
+    \draw[hscmuted, line width=0.4pt] (-2.2,-2.45) -- (-130:2.55);
+  \end{tikzpicture}
+  \captionof{figure}{The Geiger--Marsden experiment (top view).}\label{ch2:fig:goldfoil}
+\nextside
+  \textbf{The test (1909):} Geiger and Marsden fired alphas at gold foil about 1000 atoms thick,
+  in a vacuum (\cref{ch2:fig:goldfoil}). A microscope counted flashes (\term{scintillations}) on
+  a zinc sulfide screen at each angle.
+
+  \textbf{The prediction} (plum pudding): spread-out charge pushes weakly, and electrons are about
+  7300 times lighter than an alpha. So all alphas should pass straight through.
+\end{sidebyside}
+
+\Cref{ch2:tab:goldfoil} shows what really happened.
+
+\begin{table}
+  \caption{The gold-foil results, and how Rutherford explained them (1911).}\label{ch2:tab:goldfoil}
+  \centering\small
+  \begin{tabular}{@{}L{50mm}L{94mm}@{}}
+    \toprule
+    \colhead{Observation} & \colhead{Rutherford's explanation}\\
+    \midrule
+    Most alphas went straight through. & The atom is mostly empty space.\\
+    Some were deflected by small angles. & They passed fairly close to a positive nucleus.\\
+    About 1 in 8000 were deflected by more than \ang{90}. & They headed almost straight at a
+      tiny nucleus with nearly all the mass, and were repelled back. Rare: the nucleus is tiny.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Rutherford's nuclear model (1911):} a tiny nucleus holds all the positive
+        charge and more than 99.9\% of the mass. It is about \num{10000} to \num{100000} times smaller
+        across than the atom. Electrons move around it, far away. The rest is empty space.
+  \item The alphas never touch the nucleus: the electric force repels them. By Coulomb's law
+        ($F = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}$), only tightly packed charge can turn
+        a fast alpha back.
+  \item \textbf{Strengths:} it explains all three results and why atoms are neutral. In 1913
+        counts at many angles, metals and foil thicknesses matched Coulomb's-law predictions.
+  \item \textbf{Limitations:} an orbiting electron accelerates, so classical physics says it should
+        radiate, lose energy and spiral in. It cannot explain line spectra. It does not say what
+        the nucleus is made of, or why nuclei have about twice the mass of their protons.
+  \item \textbf{Judgement:} strongly supported for the nucleus, but incomplete for the electrons.
+  \item \textbf{Why this set-up:} gold can be made very thin and has a large nuclear charge
+        ($+79e$). The vacuum stops air from scattering the alphas.
+\end{itemize}
+
+%% ==================================================================
+\section{Chadwick and the neutron}\label{ch2:sec:neutron}
+\covers{M8.IQ2.02}
+
+\begin{bigidea}
+Nuclei have about twice the mass of their protons. Chadwick (1932) used conservation of
+energy and momentum to show that the missing mass is neutrons.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Neutron ($\chTwoNuc{1}{0}{n}$)}{a neutral particle in the nucleus with about the mass of a
+    proton.}
+  \kw{Elastic collision}{a collision in which the total kinetic energy stays the same.}
+\end{keywords}
+
+\begin{itemize}
+  \item \textbf{Missing mass:} in 1919 Rutherford knocked hydrogen nuclei out of nitrogen with
+        alphas. In 1920 he named them \term{protons} (charge $+e$). Helium has 2 protons but
+        about 4 times hydrogen's mass. So he predicted a neutral particle (1920).
+  \item \textbf{1930:} alphas on beryllium gave a very penetrating radiation that fields did not bend
+        (no charge). Bothe and Becker thought it was gamma rays.
+  \item \textbf{1932:} the radiation knocks fast protons out of paraffin wax (Curie and Joliot).
+        Chadwick also used nitrogen targets (\cref{ch2:fig:chadwick}). An \term{ionisation chamber}
+        measured the recoils: a charged particle ionises its gas, making a tiny current.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      bx/.style={draw=hscink, line width=0.7pt, fill=hscmuted!12, rounded corners=2pt,
+        minimum width=18mm, minimum height=10mm, align=center, font=\footnotesize},
+      lab/.style={font=\footnotesize, align=center, inner sep=1pt}]
+    \node[bx] (po) at (1.1,0) {polonium\\(alpha source)};
+    \node[bx] (be) at (4.85,0) {beryllium};
+    \node[bx] (wax) at (8.75,0) {paraffin wax\\(lots of H)};
+    \node[bx] (det) at (13.1,0) {ionisation chamber\\(detector)};
+    \draw[hscacc, line width=1.1pt, -{Stealth[length=2mm]}] (po.east) -- (be.west)
+      node[midway, above=2.5pt, lab] {alpha\\particles};
+    \draw[hscmuted, line width=1.1pt, dashed, -{Stealth[length=2mm]}] (be.east) -- (wax.west)
+      node[midway, above=2.5pt, lab] {neutral\\radiation};
+    \draw[hscforce, line width=1.1pt, -{Stealth[length=2mm]}] (wax.east) -- (det.west)
+      node[midway, above=2.5pt, lab] {protons};
+    \begin{scope}[yshift=-1.75cm]
+      \node[lab, anchor=west] at (-0.05,0.35) {neutron hits a proton (same mass):};
+      \fill[hscmuted] (0.3,-0.25) circle (5pt); \node[lab, below=5.5pt] at (0.3,-0.25) {n};
+      \draw[velocity] (0.5,-0.25) -- (1.3,-0.25);
+      \fill[hscforce] (1.7,-0.25) circle (5pt); \node[lab, below=5.5pt] at (1.7,-0.25) {p};
+      \node[font=\small] at (2.45,-0.25) {$\Rightarrow$};
+      \fill[hscmuted] (3.2,-0.25) circle (5pt); \node[lab, below=5.5pt] at (3.2,-0.25) {stops};
+      \fill[hscforce] (4.1,-0.25) circle (5pt);
+      \draw[velocity] (4.3,-0.25) -- (5.1,-0.25);
+      \node[lab, anchor=north west] at (-0.05,-0.88) {the proton gets almost all the energy};
+    \end{scope}
+    \begin{scope}[xshift=7.2cm, yshift=-1.75cm]
+      \node[lab, anchor=west] at (-0.05,0.35) {neutron hits nitrogen (14 times the mass):};
+      \fill[hscmuted] (0.3,-0.25) circle (5pt); \node[lab, below=5.5pt] at (0.3,-0.25) {n};
+      \draw[velocity] (0.5,-0.25) -- (1.3,-0.25);
+      \fill[hscseriesA!70] (1.85,-0.25) circle (10pt); \node[font=\scriptsize, text=white] at (1.85,-0.25) {N};
+      \node[font=\small] at (2.7,-0.25) {$\Rightarrow$};
+      \draw[velocity] (3.75,-0.25) -- (3.05,-0.25);
+      \fill[hscmuted] (3.95,-0.25) circle (5pt); \node[lab, below=5.5pt] at (3.95,-0.25) {bounces back};
+      \fill[hscseriesA!70] (5.5,-0.25) circle (10pt); \node[font=\scriptsize, text=white] at (5.5,-0.25) {N};
+      \draw[velocity] (5.9,-0.25) -- (6.15,-0.25);
+      \node[lab, anchor=north west] at (-0.05,-0.88) {nitrogen gets only about a quarter of the energy};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Chadwick's experiment (top) and head-on elastic collisions (bottom).}\label{ch2:fig:chadwick}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Energy rules out gamma rays:} the fastest protons had about \qty{5.7}{MeV}. A
+        photon has no mass and little momentum for its energy, so it would need about
+        \qty{50}{MeV}. The beryllium reaction could give at most about \qty{14}{MeV}.
+  \item \textbf{Momentum and kinetic energy give the mass} (both on the sheet):
+        $\sum m\vec{v}_\mathrm{before} = \sum m\vec{v}_\mathrm{after}$ (no outside force) and
+        $\sum\frac{1}{2}mv^2_\mathrm{before} = \sum\frac{1}{2}mv^2_\mathrm{after}$ (elastic only).
+        They give a target's recoil speed from the particle's unknown mass $m$ and unknown
+        speed $u$. Chadwick used two targets: hydrogen (about 1 atomic mass unit, \qty{1}{u})
+        and nitrogen (about \qty{14}{u}). Dividing the two results cancels the unknown speed
+        $u$. Only the mass is left: $m \approx 1.15$ atomic mass units, about a proton's mass.
+  \item The reaction: $\chTwoNuc{4}{2}{He} + \chTwoNuc{9}{4}{Be} \rightarrow \chTwoNuc{12}{6}{C}
+        + \chTwoNuc{1}{0}{n}$. In $\chTwoNuc{A}{Z}{X}$, $A$ = protons + neutrons and $Z$ = protons;
+        the totals of $A$ and of $Z$ are the same on both sides. The neutron
+        has no charge and leaves no track: this is \term{indirect evidence} (from effects only).
+\end{itemize}
+
+
+%% ==================================================================
+\section{Key experiments}\label{ch2:sec:experiments}
+\covers{M8.IQ2.01, M8.IQ2.02}
+
+To \textbf{model} an experiment is to draw and label its set-up, or to use a simulation or an
+analogy. One analogy: marbles rolled under a board reveal the shape of a hidden object.
+
+\begin{experiment}[unbreakable]{Early cathode-ray experiments (1870s--1890s)}
+\textbf{Aim:} to find whether cathode rays are waves or particles. \textbf{What was done:}
+objects (a Maltese cross, a paddle wheel) were put in the beam. Charged plates or a magnet were
+brought near the tube. \textbf{Result:} sharp shadows; fields bent the beam like negative
+charges. \textbf{Conclusion and significance:} the rays travel in straight lines and carry
+negative charge: they are negative particles. This led to Thomson's work.
+\end{experiment}
+
+\begin{experiment}[unbreakable]{Thomson's charge-to-mass experiment (1897)}
+\textbf{Aim:} to measure $q/m$ for cathode-ray particles. \textbf{What was done:} $E$ and $B$
+were adjusted until the beam went straight ($v = E/B$). Then $E$ was switched off; the radius
+$r$ gave $q/m = E/(B^2 r)$. This was repeated with other metals and gases. \textbf{Result:}
+about \qty{e11}{C.kg^{-1}} (today \qty{1.759e11}{C.kg^{-1}}) for every metal and gas.
+\textbf{Conclusion and significance:} identical negative particles, far lighter than atoms, are
+in all matter: electrons. This first subatomic particle led to the plum pudding model.
+\end{experiment}
+
+\begin{experiment}[unbreakable]{Millikan's oil drop experiment (1909--1913)}
+\textbf{Aim:} to find whether charge comes in a smallest unit, and measure it. \textbf{What
+was done:} with the field off, a drop's falling speed gave its mass. Then $V$ was adjusted
+until the drop hung still: $q = mgd/V$. X-rays changed its charge; many drops were
+measured. \textbf{Result:} every charge was a whole number times \qty{1.592e-19}{C} (today
+\qty{1.602e-19}{C}). \textbf{Conclusion and significance:} charge is quantised; the smallest
+unit $e$ is the electron's charge. With Thomson's $q/m$, it gave the electron's mass.
+\end{experiment}
+
+\begin{experiment}[unbreakable]{The Geiger--Marsden experiment (1909)}
+\textbf{Aim:} to test the plum pudding model. \textbf{What was done:} a narrow beam of alphas
+hit thin gold foil in a vacuum. Flashes on a zinc sulfide screen were counted through a
+microscope at each angle. \textbf{Result:} most went straight through; some had small
+deflections; about 1 in 8000 turned by more than \ang{90}. \textbf{Conclusion and
+significance:} a tiny, dense, positive nucleus; the atom is mostly empty space. This was the
+discovery of the nucleus, the basis of Bohr's model and of nuclear physics.
+\end{experiment}
+
+\begin{experiment}[unbreakable]{Chadwick's discovery of the neutron (1932)}
+\textbf{Aim:} to identify the neutral radiation from beryllium hit by alphas. \textbf{What was
+done:} the radiation hit paraffin wax, then nitrogen. The recoil energies of the protons and
+nitrogen nuclei were measured. Conservation of energy and momentum were applied.
+\textbf{Result:} protons up to \qty{5.7}{MeV}; nitrogen nuclei recoiled slowly; no single
+gamma-ray energy fits both. \textbf{Conclusion and significance:} neutral particles with about
+the proton's mass: neutrons. This completed the picture of the atom and explained the missing
+mass. Neutrons were later used to split nuclei.
+\end{experiment}
+
+%% ==================================================================
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item Fields bend cathode rays but not light, so the rays are negative particles.
+  \item Thomson: $v = E/B$, then $q/m = E/(B^2 r)$ (e/m tube: $2V/(B^2 r^2)$), the same for all
+        metals and gases: electrons are in all atoms. Not on the sheet.
+  \item Millikan: a still drop has $qE = mg$, so $q = mgd/V$. Every charge is $q = ne$: quantised.
+  \item Gold foil: most alphas pass straight through (empty space); about 1 in 8000 turn by more
+        than \ang{90} (a tiny, dense, positive nucleus).
+  \item Rutherford's model is strong for the nucleus, but it cannot explain line spectra or why
+        orbiting electrons do not spiral in.
+  \item Chadwick: a gamma ray would need more energy than the reaction gives. Momentum and
+        kinetic energy, with two targets, give a neutral particle with a proton's mass.
+\end{itemize}
+\end{summarybox}

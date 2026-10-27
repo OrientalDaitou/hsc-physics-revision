@@ -1,0 +1,173 @@
+% formulasheet.tex -- Module 5: Formula sheet explained.
+% One row per formula on a formula card in ch1.tex ... ch5.tex, in card order, with the
+% card's own notation and badge (on the sheet / [notonsheet] / [combine=...]).
+% A compact longtable (same rules, colours and marks as the design system's formulatable)
+% keeps the whole list on about two pages.
+\unnumberedchapter[\faIcon{square-root-alt}]{Formula sheet explained}
+\phantomsection\label{fs:chap}
+
+% ---- helpers for this chapter only (prefix fs)
+\newcommand\fsYes{\textcolor{hscformula}{\footnotesize\bfseries\faCheck\ Yes}}
+\newcommand\fsNo{\textcolor{hscmistake}{\footnotesize\bfseries\faTimes\ Learn it}}
+\newcommand\fsComb{\textcolor{hsctiptext}{\footnotesize\bfseries\faLink\ Combine}}
+% \fsrow{mark}{formula}{when to use it}
+% (layout QA: strut depth 1.6ex, was 1.9ex, so the last row is not left alone on a new page;
+% the height above the baseline, 3.1ex, is unchanged so tall fractions keep their gap)
+\newcommand\fsrow[3]{\rule[-1.6ex]{0pt}{4.7ex}#2 & #3 & #1\\\hline}
+% \fsch{chapter label}{chapter title}: a heading row inside the table
+\newcommand\fsch[2]{\multicolumn{3}{@{}l@{}}{\rule[-1.2ex]{0pt}{5.2ex}\normalsize
+  \cref{#1}: {\bfseries\color{hscbrand}#2}}\\\hline}
+\newcommand\fshead{\colhead{Formula} & \colhead{When to use it} & \colhead{On the sheet?}}
+
+This chapter lists every formula in Module~\modulenumber, chapter by chapter, in the same
+order as the formula cards. Each row says when to use it. The last column is about the
+official HSC formula sheet. \fsYes: it is printed on the sheet, so you are given it.
+\fsNo: it is not on the sheet, so learn it or learn how to derive it (its formula card
+shows how). \fsComb: it is not printed in this form, but you can get it in one or two lines
+from formulas on the sheet.
+
+{\small
+\setlength\LTpre{4pt}\setlength\LTpost{6pt}
+\renewcommand\arraystretch{1.1}\arrayrulecolor{hscrule}
+\begin{longtable}{@{}C{50mm}@{\hspace{4mm}}L{\dimexpr\linewidth-50mm-25mm-8mm\relax}%
+    @{\hspace{4mm}}C{25mm}@{}}
+  \fshead\\\hline\endfirsthead
+  \fshead\\\hline\endhead
+  \fsch{ch1:chap}{Projectile Motion}
+  \fsrow{\fsNo}{$u_x = u\cos\theta$ \quad $u_y = u\sin\theta$}
+    {Split the launch velocity into two parts ($\theta$ from the horizontal).}
+  \fsrow{\fsYes}{$v = u + at$ \quad $v^2 = u^2 + 2as$\newline $s = ut + \dfrac{1}{2}at^2$}
+    {Constant acceleration. Vertically $a_y = \qty{-9.8}{m.s^{-2}}$; horizontally
+     $a_x = 0$, so $s_x = u_x t$.}
+  \fsrow{\fsNo}{$t = \sqrt{\dfrac{2h}{g}}$ \quad $R = u\sqrt{\dfrac{2h}{g}}$}
+    {A horizontal launch ($u_y = 0$) from a height $h$: a table, a ledge, a cliff.}
+  \fsrow{\fsNo}{$t_\mathrm{top} = \dfrac{u_y}{g}$ \quad $h_\mathrm{max} = \dfrac{u_y^2}{2g}$}
+    {Time to the top and greatest height above the launch point (any upward launch).}
+  \fsrow{\fsNo}{$t_\mathrm{flight} = \dfrac{2u_y}{g}$}
+    {Time of flight when launch and landing are at the same height.}
+  \fsrow{\fsNo}{$R = \dfrac{u^2\sin 2\theta}{g}$}
+    {Range on level ground, no air resistance. Largest at \ang{45}.}
+  \fsrow{\fsNo}{$v = \sqrt{v_x^2 + v_y^2}$ \quad $\tan\alpha = \dfrac{\lvert v_y\rvert}{v_x}$}
+    {Speed and direction at landing (or any moment) from $v_x$ and $v_y$.}
+  \fsrow{\fsComb}{$\dfrac{1}{2}mv_2^2 - \dfrac{1}{2}mv_1^2 = mg(h_1 - h_2)$}
+    {Speed at a known height, without the time. It gives no direction.}
+  \fsrow{\fsComb}{$s = ut$ \quad $v = u$}
+    {Uniform velocity ($a = 0$): the horizontal motion of a projectile, or a vehicle at a
+     steady speed in a straight line.}
+  \fsch{ch2:chap}{Circular Motion: Forces}
+  \fsrow{\fsYes}{$v = \dfrac{2\pi r}{T}$}{Speed of an object going round a circle at a
+    constant speed.}
+  \fsrow{\fsYes}{$a_\mathrm{c} = \dfrac{v^2}{r}$}{Acceleration towards the centre, for any
+    object moving in a circle.}
+  \fsrow{\fsYes}{$F_\mathrm{c} = \dfrac{mv^2}{r}$}{Net force towards the centre. Real forces
+    make it; never draw it as an extra arrow.}
+  \fsrow{\fsNo}{$\tan\theta = \dfrac{v^2}{rg}$}{Conical pendulum; banked road at its design
+    speed; inside a bowl ($\theta$ from the vertical).}
+  \fsrow{\fsNo}{$v_\mathrm{max} = \sqrt{\mu g r}$}{Fastest speed on a flat bend (friction is
+    the only sideways force).}
+  \fsrow{\fsNo}{$v_\mathrm{min} = \sqrt{\dfrac{gr}{\mu}}$}{Slowest safe speed in a rotor
+    (the wall's push is the centripetal force).}
+  \fsch{ch3:chap}{Circular Motion: Angles, Energy, Work and Torque}
+  \fsrow{\fsYes}{$\omega = \dfrac{\Delta\theta}{t}$}{Angular velocity of anything that spins.
+    $\Delta\theta$ in radians.}
+  \fsrow{\fsNo}{$\omega = \dfrac{2\pi}{T} = 2\pi f$}{Angular velocity from the period or the
+    frequency.}
+  \fsrow{\fsNo}{$v = \omega r$}{Speed of one point on a spinning object, at distance $r$
+    from the centre.}
+  \fsrow{\fsYes}{$W = F_\parallel s = Fs\cos\theta$}{Work done by a steady force. The
+    centripetal force is at \ang{90}, so it does no work.}
+  \fsrow{\fsNo}{$W_\mathrm{other} = \Delta E = \Delta K + \Delta U$}{Work by a motor, a push
+    or friction changes the total energy $E = K + U$.}
+  \fsrow{\fsComb}{$\tfrac{1}{2}mv_1^2 + mgh_1 = \tfrac{1}{2}mv_2^2 + mgh_2$}{Speeds at
+    different heights on a vertical circle (no friction).}
+  \fsrow{\fsNo}{top: $F_\mathrm{T} + mg = \dfrac{mv^2}{r}$\newline
+    bottom: $F_\mathrm{T} - mg = \dfrac{mv^2}{r}$}{Tension (or normal force) at the very top
+    or bottom of a vertical circle.}
+  \fsrow{\fsYes}{$\tau = r_\perp F = rF\sin\theta$}{Turning effect of a force about a
+    pivot. $\theta$ is between $r$ and $F$.}
+  \fsrow{\fsNo}{$\sum\tau_\mathrm{clockwise} = \sum\tau_\mathrm{anticlockwise}$}{An object
+    whose rotation does not change (seesaw, sign, metre rule).}
+  \fsch{ch4:chap}{Gravity, Orbits and Kepler's Laws}
+  \fsrow{\fsYes}{$F = \dfrac{GMm}{r^2}$}{Gravitational force between two masses; $r$ from
+    centre to centre.}
+  \fsrow{\fsNo}{$r = r_\mathrm{E} + h$}{Whenever a height above the surface is given. Do it
+    first.}
+  \fsrow{\fsNo}{$g = \dfrac{GM}{r^2}$}{Field strength at a planet's surface or above it; to
+    compare planets.}
+  \fsrow{\fsNo}{$v = \sqrt{\dfrac{GM}{r}}$}{Speed of any circular orbit.}
+  \fsrow{\fsYes}{$\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$}{Kepler's third law: $T$ from $r$,
+    $r$ from $T$, or the central mass $M$.}
+  \fsrow{\fsNo}{$r_\mathrm{p} v_\mathrm{p} = r_\mathrm{a} v_\mathrm{a}$}{Kepler's second law,
+    only at the closest and farthest points of one orbit.}
+  \fsrow{\fsComb}{$r = \sqrt[3]{\dfrac{GMT^2}{4\pi^2}}$ \quad $h = r - r_\mathrm{E}$}{How high
+    a satellite must be for a given period (for example geostationary).}
+  \fsch{ch5:chap}{Energy in Gravitational Fields}
+  \fsrow{\fsYes}{$U = -\dfrac{GMm}{r}$}{Potential energy at distance $r$ from the centre.
+    Zero at infinity, negative everywhere else.}
+  \fsrow{\fsNo}{$K = \dfrac{GMm}{2r}$ \quad $E = U + K = -\dfrac{GMm}{2r}$}{Kinetic and total
+    energy of a \emph{circular} orbit.}
+  \fsrow{\fsComb}{$E = K + U = \dfrac{1}{2}mv^2 - \dfrac{GMm}{r}$}{Any path with gravity
+    only. $E < 0$: bound; $E \ge 0$: it escapes.}
+  \fsrow{\fsNo}{$v_\mathrm{esc} = \sqrt{\dfrac{2GM}{r}}$}{Smallest launch speed for a
+    projectile (no engine) to escape from distance $r$.}
+  \fsrow{\fsNo}{$\Delta E = \dfrac{GMm}{2}\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$}
+    {Energy needed to move a satellite from one circular orbit to another.}
+  \multicolumn{3}{@{}l@{}}{\rule[-1.2ex]{0pt}{5.2ex}\normalsize
+    {\bfseries\color{hscbrand}Other formulas used in this module} (Year 11, or rearranged
+    forms from the cards)}\\\hline
+  \fsrow{\fsYes}{$\vec{F}_\mathrm{net} = m\vec{a}$}{Newton's second law: a net force causes an
+    acceleration in the same direction.}
+  \fsrow{\fsYes}{$K = \dfrac{1}{2}mv^2$}{Kinetic energy, the energy of motion.}
+  \fsrow{\fsYes}{$\Delta U = mg\Delta h$}{Potential energy change near a planet's surface
+    only (constant $g$).}
+  \fsrow{\fsYes}{$f = \dfrac{1}{T}$}{Turns each second from the period; or $T = \dfrac{1}{f}$.}
+  \fsrow{\fsNo}{$s = r\theta$}{Arc length: distance along a circle, $\theta$ in radians.}
+  \fsrow{\fsComb}{$a_\mathrm{c} = \dfrac{4\pi^2 r}{T^2}$}{Put $v = \dfrac{2\pi r}{T}$ into
+    $a_\mathrm{c} = \dfrac{v^2}{r}$.}
+  \fsrow{\fsComb}{$T = 2\pi\sqrt{\dfrac{r^3}{GM}}$}{Period of a circular orbit: Kepler's third
+    law rearranged.}
+  \fsrow{\fsComb}{$\dfrac{r_1^3}{T_1^2} = \dfrac{r_2^3}{T_2^2}$}{Two objects orbiting the
+    \emph{same} central body.}
+  \fsrow{\fsComb}{$\Delta U = GMm\left(\dfrac{1}{r_1} - \dfrac{1}{r_2}\right)$}{Change in
+    potential energy from $r_1$ to $r_2$: it is $U_2 - U_1$.}
+  \fsrow{\fsNo}{$W_\text{by gravity} = -\Delta U$}{When gravity does positive work, $U$ falls
+    by the same amount.}
+\end{longtable}}
+
+\section*{Data sheet values used in this module}
+The exam gives you the data sheet. The table below shows the values that Module~5 uses,
+exactly as printed.
+
+\begin{table}
+  \caption*{Data sheet values used in Module~5}
+  \centering
+  \begin{tabular}{@{}L{55mm}L{48mm}L{37mm}@{}}
+    \toprule
+    \colhead{Quantity (as on the sheet)} & \colhead{Value} & \colhead{Used in}\\
+    \midrule
+    Earth's gravitational acceleration & $g = \qty{9.8}{m.s^{-2}}$ & \cref{ch1:chap,ch2:chap,ch3:chap,ch4:chap,ch5:chap}\\
+    Universal gravitational constant & $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$ & \cref{ch4:chap,ch5:chap}\\
+    Mass of Earth & $M_\mathrm{E} = \qty{6.0e24}{kg}$ & \cref{ch4:chap,ch5:chap}\\
+    Radius of Earth & $r_\mathrm{E} = \qty{6.371e6}{m}$ & \cref{ch3:chap,ch4:chap,ch5:chap}\\
+    Speed of light & $c = \qty{3.00e8}{m.s^{-1}}$ & \cref{ch4:chap}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item The masses and radii of the Sun, the Moon and other planets are \emph{not} on the data
+        sheet. A question that needs them gives them to you.
+  \item $GM_\mathrm{E}/r_\mathrm{E}^2$ gives $g = \qty{9.86}{m.s^{-2}}$, because $M_\mathrm{E}$ is
+        rounded on the sheet. Use \qty{9.8}{m.s^{-2}} unless the question asks you to calculate $g$.
+\end{itemize}
+
+\begin{toolkit}{Change to SI units first}
+Every formula in this module needs SI units.
+\begin{itemize}
+  \item \si{km} to \si{m}: multiply by 1000. \si{g} to \si{kg}: divide by 1000.
+        \si{km.h^{-1}} to \si{m.s^{-1}}: divide by 3.6.
+  \item Minutes, hours or days to seconds: $\times 60$, $\times 3600$ or $\times \num{86400}$.
+  \item Revolutions per minute to \si{rad.s^{-1}}: multiply by $\dfrac{2\pi}{60}$. Degrees to
+        radians: multiply by $\dfrac{\pi}{180}$.
+\end{itemize}
+\end{toolkit}

@@ -1,0 +1,1451 @@
+% ch1.tex -- Module 5, Chapter 1: Projectile Motion
+% figure_coords.py and check_displayed.py, plus the editor pass
+% Convention in the whole chapter: origin at the launch point, up and forwards
+% positive, so a_x = 0 and a_y = -g = -9.8 m s^-2.
+\chapter{Projectile Motion}\label{ch1:chap}
+\covers{M5.IQ1.01, M5.IQ1.02, M5.IQ1.03, M5.IQ1.04}
+
+\inquiry{How can models that are used to explain projectile motion be used to
+analyse and make predictions?}
+
+\begin{goals}
+  \item split a projectile's motion into a horizontal part and a vertical part
+  \item derive and use the maximum height, time of flight, range and final velocity, for a
+        launch from the ground or from a height
+  \item explain the \ang{45} rule, use energy, and describe the effect of air resistance
+  \item use the uniform velocity and constant acceleration models to predict where and when
+        objects will be
+  \item plan and judge an investigation that tests the projectile model
+\end{goals}
+
+\begin{syllabus}
+  \item M5.IQ1.01: analyse projectile motion as a horizontal motion and a vertical motion, with
+        two assumptions: constant vertical acceleration and no air resistance
+  \item M5.IQ1.02: use the model to derive how the launch velocity, launch angle, maximum
+        height, time of flight, final velocity, launch height and range are related
+  \item M5.IQ1.03: carry out an investigation that collects primary data to validate these
+        relationships
+  \item M5.IQ1.04: use the equations of motion (uniform velocity and constant acceleration) to
+        solve problems and make predictions
+\end{syllabus}
+
+%% ==================================================================
+\section{The projectile model}\label{ch1:sec:model}
+\covers{M5.IQ1.01, M5.IQ1.02, M5.IQ1.04}
+
+\begin{bigidea}
+A thrown ball moves sideways and up-and-down at the same time. The two motions do not
+affect each other. Sideways the velocity stays the same, but up and down gravity changes it
+at a steady rate.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Projectile}{an object that moves through the air after it is thrown or launched, with no
+    engine pushing it.}
+  \kw{Model}{a simple description of real life that we can calculate with.}
+  \kw{Component}{the part of a vector (an arrow quantity) that points in one direction.}
+  \kw{Independent}{not affecting each other. (In an experiment, ``independent variable'' means
+    something different: see \cref{ch1:sec:experiments}.)}
+  \kw{Displacement ($s$)}{the change in position, with a direction. Unit: metre (m).}
+\end{keywords}
+
+Kick a football or throw a stone. Once it leaves you, the main force on it is gravity. In
+this chapter's model we ignore the push of the air. The ball is a \term{projectile}: an
+object that moves through the air after it is thrown or launched, with no engine pushing it.
+A rocket with its engine on is not a projectile.
+
+The ball's \term{trajectory} is the path it follows. The path is a \term{parabola}: a curve
+that is symmetrical about its highest point. It has this shape for a reason. The sideways
+distance grows steadily with time. But the drop caused by gravity grows with the time
+squared ($t^2$). A launch from a height uses only part of the curve.
+
+Real motion is complicated, so we use a \term{model}: a simple description of real life
+that we can calculate with. The projectile model makes two \term{assumptions} (things we
+accept as true to keep the maths simple):
+\begin{enumerate}
+  \item there is \textbf{zero air resistance} (\term{air resistance} is the push of the air
+        on a moving object);
+  \item the \textbf{acceleration due to gravity is constant}: $g = \qty{9.8}{m.s^{-2}}$
+        straight down, everywhere on the path.
+\end{enumerate}
+
+Gravity pulls straight down. So there is no horizontal force (we ignore air resistance).
+By Newton's second law, no net force (no overall force) in a direction means no acceleration
+in that direction. So the \textbf{horizontal} velocity stays the same for the whole flight.
+\textbf{Vertically}, gravity changes the velocity by \qty{9.8}{m.s^{-1}} every second. The two
+motions are \term{independent}: they do not affect each other. The only thing they share is
+the \emph{time} (\cref{ch1:fig:strobe}).
+
+\begin{sidebyside}[0.47]
+  \centering
+  % scale 6 cm per metre in both directions; B thrown at 1.5 m/s; positions every 0.1 s
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[ground] (-1.9,-5.08) rectangle (4.1,-4.88);
+    \draw[hscink, line width=0.6pt] (-1.9,-4.88) -- (4.1,-4.88);
+    \foreach \y/\t in {0/0, -0.294/0.1, -1.176/0.2, -2.646/0.3, -4.704/0.4} {
+      \draw[guide] (-1.4,\y) -- (3.95,\y);
+      \node[diagramlabel, anchor=east, font=\scriptsize, inner sep=1pt] at (-1.45,\y) {\t\,s};
+    }
+    \foreach \y in {0, -0.294, -1.176, -2.646, -4.704}
+      \fill[object] (-0.9,\y) circle (3pt);
+    \foreach \x/\y in {0/0, 0.9/-0.294, 1.8/-1.176, 2.7/-2.646, 3.6/-4.704}
+      \fill[object, fill=hscseriesB!35] (\x,\y) circle (3pt);
+    \draw[velocity] (0.15,0.3) -- (0.9,0.3) node[right, text=hscvel, inner sep=1pt] {$u$};
+    \node[diagramlabel, above, inner sep=2pt] at (-0.9,0.12) {\textbf{A}};
+    \node[diagramlabel, above, inner sep=2pt] at (0,0.12) {\textbf{B}};
+  \end{tikzpicture}
+  \captionof{figure}{A is dropped. B is thrown sideways at the same moment.
+    Positions every \qty{0.1}{s}.}\label{ch1:fig:strobe}
+\nextside
+  \begin{itemize}
+    \item At every time shown (every \qty{0.1}{s}), A and B are at the \textbf{same height}.
+          Moving sideways does not change how B falls.
+    \item B moves the \textbf{same distance sideways} in each \qty{0.1}{s}.
+    \item Both balls fall further in each \qty{0.1}{s}: they speed up downwards.
+    \item So A and B land \textbf{at the same time}.
+  \end{itemize}
+\end{sidebyside}
+
+To use this idea, we split the launch velocity into two parts. First, a reminder about
+vectors.
+
+\begin{refresher}{Vectors and scalars (Year 11)}
+A \term{vector} is a quantity with a size and a direction. Velocity, displacement,
+acceleration and force are vectors. We draw a vector as an arrow: the length shows the size,
+and the arrow shows the direction. A \term{scalar} has a size only. Speed, time, mass and
+energy are scalars. \term{Speed} is the size of the velocity. For example,
+\qty{5.0}{m.s^{-1}} is a speed. \qty{5.0}{m.s^{-1}} at \ang{53} below the horizontal is a
+velocity.
+\end{refresher}
+
+We split the launch velocity into a horizontal \term{component} and a vertical component. A
+component is the part of a vector that points in one direction.
+
+\begin{toolkit}{Splitting a vector with sin and cos}
+\begin{minipage}[t]{0.58\linewidth}\vspace{0pt}\RaggedRight
+Draw the velocity $u$ as the longest side of a right-angled triangle. This side is the
+\term{hypotenuse}. The angle $\theta$ is measured from the horizontal.
+\begin{itemize}
+  \item The side next to $\theta$ is $u\cos\theta$, because
+        $\cos\theta = \text{adjacent} \div \text{hypotenuse}$.
+  \item The side opposite $\theta$ is $u\sin\theta$, because
+        $\sin\theta = \text{opposite} \div \text{hypotenuse}$.
+  \item To get $u$ from its parts, use Pythagoras: $u = \sqrt{u_x^2 + u_y^2}$.
+  \item To get the angle, use inverse tan (the $\tan^{-1}$ key, often SHIFT then tan):
+        $\theta = \tan^{-1}(u_y/u_x)$.
+\end{itemize}
+Use \textbf{degree mode}: $\cos\ang{60}$ must give 0.5.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}\vspace{2mm}\centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[->, line width=0.9pt, hscvel!60] (0,0) -- (2.6,0)
+      node[midway, below, font=\small] {$u_x = u\cos\theta$};
+    \draw[->, line width=0.9pt, hscvel!60] (2.6,0) -- (2.6,1.5)
+      node[midway, right, font=\small] {$u_y = u\sin\theta$};
+    \draw[velocity] (0,0) -- (2.6,1.5) node[midway, above left, text=hscvel, inner sep=1pt] {$u$};
+    \draw[hscink, line width=0.5pt] (2.4,0) -- (2.4,0.2) -- (2.6,0.2);
+    \draw[hscink, line width=0.5pt] (0.75,0) arc (0:30:0.75);
+    \node[font=\small] at (14:1.0) {$\theta$};
+  \end{tikzpicture}
+\end{minipage}
+\end{toolkit}
+
+\begin{formulacard}[notonsheet]{Components of the launch velocity}
+  \cardformula{u_x = u\cos\theta \qquad u_y = u\sin\theta}
+  \begin{symbols}
+    \sym{$u$}{launch speed}{\si{m.s^{-1}}}
+    \sym{$\theta$}{launch angle, measured up from the horizontal (work in degrees)}{\si{\degree} (SI unit: rad)}
+    \sym{$u_x$, $u_y$}{horizontal and vertical parts of the launch velocity}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{the launch velocity splits into a sideways part and an upwards part.}
+  \whentouse{at the start of almost every projectile question with an angle.}
+  \whennottouse{the angle is from the vertical: then $u_x = u\sin\theta$, $u_y = u\cos\theta$.}
+  \rearranged{$u = \sqrt{u_x^2 + u_y^2}$ \qquad $\theta = \tan^{-1}\!\left(\dfrac{u_y}{u_x}\right)$}
+  \tensecond{\qty{20}{m.s^{-1}} at \ang{30}: $u_x = \qty{17.3}{m.s^{-1}}$,
+    $u_y = \qty{10.0}{m.s^{-1}}$.}
+  \derive{in the triangle $\cos\theta = \dfrac{u_x}{u}$ and $\sin\theta = \dfrac{u_y}{u}$.
+    Multiply both sides of each by $u$.}
+  \trap{radian mode gives $20\cos 30 = 3.09$, not 17.3. Each component is smaller than $u$.}
+\end{formulacard}
+
+To follow the motion in each direction, we use the equations of motion from Year 11.
+
+\begin{refresher}{The equations of motion (Year 11)}
+For straight-line motion with constant acceleration, three equations link $u$ (initial
+velocity), $v$ (final velocity), $a$ (acceleration), $t$ (time) and the \term{displacement}
+$s$ (the change in position, with a direction). For a projectile, use them once for each
+direction:\par
+\smallskip
+\begin{tabular}{@{}L{32mm}L{40mm}L{56mm}@{}}
+  \toprule
+  & \colhead{Horizontal ($x$)} & \colhead{Vertical ($y$)}\\
+  \midrule
+  Acceleration & $a_x = 0$ & $a_y = -g = \qty{-9.8}{m.s^{-2}}$\\
+  Velocity at time $t$ & $v_x = u_x$ (never changes) & $v_y = u_y + a_y t$\\
+  Displacement at time $t$ & $s_x = u_x t$ & $s_y = u_y t + \frac{1}{2}a_y t^2$\\
+  Equation with no $t$ & (not needed) & $v_y^2 = u_y^2 + 2a_y s_y$\\
+  \bottomrule
+\end{tabular}
+\end{refresher}
+
+The \term{origin} is the point we measure every position from ($x = 0$, $y = 0$). In this book
+the origin is the launch point, and \textbf{up and forwards are positive}. The size of
+gravity's acceleration is $g = \qty{9.8}{m.s^{-2}}$, a positive number. It points down, so
+$a_y = -g = \qty{-9.8}{m.s^{-2}}$ for the whole flight, including the top.
+\Cref{ch1:fig:graphs} shows the motion as graphs.
+
+\begin{toolkit}{Gradient of a straight-line graph}
+Gradient $= \dfrac{\text{rise}}{\text{run}} = \dfrac{\Delta y}{\Delta x}$. Use two points far
+apart on the line. For data, use the \term{line of best fit}: the straight line that passes as
+close as possible to all the points. The gradient's unit is the $y$ unit divided by the $x$
+unit. Example: in the $v_y$--$t$ graph of \cref{ch1:fig:graphs}, $v_y$ changes from
+\qty{12.0}{m.s^{-1}} at $t = 0$ to \qty{-12.0}{m.s^{-1}} at $t = \qty{2.449}{s}$. So the
+gradient is $\dfrac{-12.0 - 12.0}{2.449 - 0} = \qty{-9.80}{m.s^{-2}}$: the acceleration $a_y$.
+\end{toolkit}
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_motiongraphs.pdf}
+  \caption{Graphs against time for a ball launched on level ground with
+    $u_x = \qty{9.0}{m.s^{-1}}$ and $u_y = \qty{12.0}{m.s^{-1}}$. Top row: horizontal motion.
+    Bottom row: vertical motion.}\label{ch1:fig:graphs}
+\end{figure}
+
+Here are the three equations you will use in every question. To use them, you often need to
+rearrange them, and at the end you round the answer.
+
+\begin{toolkit}{Rearranging a formula, and rounding the answer}
+\textbf{Rearranging.} To find an unknown, get it alone on one side of the equals sign.
+Whatever you do to one side, do the same to the other side. Undo each operation with its
+opposite: $+$ with $-$, $\times$ with $\div$, a square with a square root. Example: find $t$
+from $v = u + at$. (1) Subtract $u$ from both sides: $v - u = at$. (2) Divide both sides by
+$a$: $t = \dfrac{v - u}{a}$. Remember: a negative divided by a negative is positive, so
+$(-1.25) \div (-4.9) = +0.255$.
+
+\smallskip
+\textbf{Rounding.} \term{Significant figures} are the digits that carry meaning: \num{1.25}
+has 3 and \num{4.2} has 2. Keep all the calculator digits until the end. Then round to the
+number of significant figures of the least precise value in the question. Do not count
+$g = 9.8$: it is a constant from the data sheet. HSC markers usually accept 2 or 3 significant
+figures.
+\end{toolkit}
+
+\begin{formulacard}{The equations of motion}
+  \cardformula{v = u + at \qquad s = ut + \frac{1}{2}at^2 \qquad v^2 = u^2 + 2as}
+  \begin{symbols}
+    \sym{$u$, $v$}{initial velocity, final velocity}{\si{m.s^{-1}}}
+    \sym{$a$}{acceleration (must be constant)}{\si{m.s^{-2}}}
+    \sym{$s$, $t$}{displacement (it has a sign); time}{\si{m}; \si{s}}
+  \end{symbols}
+  \inwords{each equation links four of the five quantities $u$, $v$, $a$, $s$, $t$.}
+  \whentouse{vertically with $a_y = \qty{-9.8}{m.s^{-2}}$; horizontally with $a_x = 0$,
+    which gives $s_x = u_x t$.}
+  \whennottouse{do not mix $x$ values and $y$ values in one equation. Do not use these
+    equations if the acceleration changes (for example, with large air resistance).}
+  \rearranged{$t = \dfrac{v - u}{a}$ \qquad $s = \dfrac{v^2 - u^2}{2a}$ \qquad from rest:
+    $t = \sqrt{\dfrac{2s}{a}}$}
+  \tensecond{$u_y = \qty{12}{m.s^{-1}}$ up; after \qty{0.50}{s},
+    $v_y = 12 + (-9.8)(0.50) = \qty{7.1}{m.s^{-1}}$ (still rising).}
+  \trap{with up positive, $a_y$ is always negative and $s_y$ is negative below the launch
+    point. Choose the sign of a square root from the direction of motion.}
+\end{formulacard}
+
+\subsection{The simplest case: a horizontal launch}
+A marble rolls off a table, or a skateboarder rolls off a ledge. At the edge the velocity is
+horizontal, so $u_y = 0$. The fall is then like a drop from rest: ball B in
+\cref{ch1:fig:strobe} falls exactly like ball A. So the time in the air depends only on the
+height, not on the speed.
+
+% book assembler: this card must not start at the foot of a page. (The consistency edit
+% replaced the assembler's \clearpage by a conditional \Needspace: after the syllabus box was
+% added, the \clearpage left a nearly empty page.)
+\Needspace{14\baselineskip}
+\begin{formulacard}[notonsheet]{Horizontal launch from a height}
+  \cardformula{t = \sqrt{\frac{2h}{g}} \qquad R = u\sqrt{\frac{2h}{g}}}
+  \begin{symbols}
+    \sym{$t$}{time of flight}{\si{s}}
+    \sym{$h$}{launch height above the landing point (positive)}{\si{m}}% layout QA: one line
+    \sym{$g$}{size of gravity's acceleration, \num{9.8}}{\si{m.s^{-2}}}
+    \sym{$u$}{horizontal launch speed}{\si{m.s^{-1}}}
+    \sym{$R$}{range, from the point under the launch point}{\si{m}}
+  \end{symbols}
+  \inwords{the fall time depends only on the height, not on the speed.}
+  \whentouse{the launch velocity is horizontal ($u_y = 0$), for example off a table, a ledge
+    or a cliff.}
+  \whennottouse{the launch is at an angle ($u_y \neq 0$): solve the quadratic in
+    \cref{ch1:sec:height} instead.}
+  \rearranged{$h = \tfrac{1}{2}g t^2$ \qquad $u = \dfrac{R}{t}$}
+  \tensecond{\qty{3.0}{m.s^{-1}} off a \qty{0.80}{m} table:
+    $t = \sqrt{2 \times 0.80/9.8} = \qty{0.404}{s}$, $R = 3.0 \times 0.404 = \qty{1.21}{m}$.}
+  \derive{start from the sheet equation for the vertical motion.
+    % layout QA: slightly tighter lines so the card's last line (Trap) stays on its page
+    \setlength{\jot}{1pt}%
+    \begin{align*}
+      -h &= 0 \times t + \tfrac{1}{2}(-g)t^2 && \text{$s = ut + \tfrac12at^2$ with $s_y = -h$,
+        $u_y = 0$, $a_y = -g$}\\
+      h &= \tfrac{1}{2}g t^2 && \text{multiply both sides by $-1$}\\
+      t^2 &= \frac{2h}{g} && \text{multiply both sides by 2, divide both sides by $g$}\\
+      t &= \sqrt{\frac{2h}{g}} && \text{square root (time is positive)}\\
+      R &= u_x t = u\sqrt{\frac{2h}{g}} && \text{horizontal: $s_x = u_x t$}
+    \end{align*}}
+  \trap{use $u_y = 0$, not $u_y = u$. Here $h$ is a positive height: do not put in $-h$,
+    because the minus sign is already used in the derivation.}
+\end{formulacard}
+
+\textbf{How the launch height changes the flight.} A higher launch point gives more time to
+fall, so the time of flight and the range both grow. Four times the height gives two times
+the time, because $\sqrt{4} = 2$. For example, a fall of \qty{1.25}{m} takes \qty{0.505}{s},
+and a fall of \qty{5.0}{m} takes \qty{1.01}{s}. At the same launch speed the range also
+doubles. The landing speed grows too: $v = \sqrt{u^2 + 2gh}$ (\cref{ch1:sec:energy}).
+
+\begin{workedexample}{A skateboarder rolls off a ledge}\label{ch1:we:ledge}
+A skateboarder rolls off a horizontal ledge \qty{1.25}{m} high at \qty{4.2}{m.s^{-1}}.
+How long is she in the air, and how far from the ledge does she land?
+\given{$u_x = \qty{4.2}{m.s^{-1}}$, $u_y = 0$ (horizontal launch), $s_y = \qty{-1.25}{m}$,
+  $a_y = \qty{-9.8}{m.s^{-2}}$}
+\find{the time $t$ (vertical motion), then $s_x$ (horizontal motion)}
+\formula{$s_y = u_y t + \frac{1}{2}a_y t^2$ \quad and \quad $s_x = u_x t$}
+\substitute{\eqlines{\qty{-1.25}{m} &= 0 + \tfrac{1}{2}(\qty{-9.8}{m.s^{-2}})\,t^2 \quad\text{(vertical; $u_y = 0$, so $u_y t = 0$)}\\
+  \qty{-1.25}{m} &= (\qty{-4.9}{m.s^{-2}})\,t^2 \quad\text{($\tfrac12 \times (-9.8) = -4.9$)}\\
+  t^2 &= \frac{\qty{-1.25}{m}}{\qty{-4.9}{m.s^{-2}}} = \qty{0.2551}{s^2} \quad\text{(divide both sides by $-4.9$)}\\
+  t &= \sqrt{\qty{0.2551}{s^2}} = \qty{0.5051}{s} \quad\text{(square root; time is positive)}\\
+  s_x &= \qty{4.2}{m.s^{-1}} \times \qty{0.5051}{s} = \qty{2.121}{m} \quad\text{(horizontal; the same $t$)}}}
+\answer{\final{$t = \qty{0.505}{s}$} (3 significant figures, like $h = \qty{1.25}{m}$) and
+  \final{$s_x = \qty{2.1}{m}$} (2 significant figures, like $u = \qty{4.2}{m.s^{-1}}$)}
+\checkstep{put $t$ back in: $\tfrac{1}{2} \times 9.8 \times 0.5051^2 = \qty{1.25}{m}$, the
+  ledge height \cmark. In about half a second at \qty{4.2}{m.s^{-1}} she moves about
+  \qty{2}{m} \cmark. The horizontal-launch card gives the same $t$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Where is the ball after 1.5 s?}\label{ch1:we:position}
+A ball is thrown from the ground at \qty{16}{m.s^{-1}} at \ang{40} above the horizontal.
+Find its position and its vertical velocity \qty{1.5}{s} later. Is it rising or falling?
+\given{$u = \qty{16}{m.s^{-1}}$, $\theta = \ang{40}$, $t = \qty{1.5}{s}$, $a_y = \qty{-9.8}{m.s^{-2}}$}
+\find{$s_x$, $s_y$ and $v_y$}
+\formula{$u_x = u\cos\theta$, $u_y = u\sin\theta$; \ $s_x = u_x t$; \
+  $s_y = u_y t + \frac{1}{2}a_y t^2$; \ $v_y = u_y + a_y t$}
+\substitute{\eqlines{u_x &= 16\cos\ang{40} = \qty{12.26}{m.s^{-1}} \quad\text{(split $u$ into parts; degree mode)}\\
+  u_y &= 16\sin\ang{40} = \qty{10.285}{m.s^{-1}} \quad\text{(keep the extra digits)}}\par
+  \eqlines{s_x &= \qty{12.26}{m.s^{-1}} \times \qty{1.5}{s} = \qty{18.39}{m} \quad\text{(horizontal: $s_x = u_x t$)}\\
+  s_y &= (\qty{10.285}{m.s^{-1}})(\qty{1.5}{s}) + \tfrac{1}{2}(\qty{-9.8}{m.s^{-2}})(\qty{2.25}{s^2})\\
+    &\qquad\text{(vertical; $1.5^2 = 2.25$)}\\
+    &= \qty{15.43}{m} - \qty{11.03}{m} = \qty{4.40}{m} \quad\text{($\tfrac12 \times (-9.8) \times 2.25 = -11.03$)}\\
+  v_y &= \qty{10.285}{m.s^{-1}} + (\qty{-9.8}{m.s^{-2}})(\qty{1.5}{s}) = \qty{-4.42}{m.s^{-1}}\\
+    &\qquad\text{(vertical velocity: $v = u + at$)}}}
+\answer{\final{\qty{18}{m} forwards, \qty{4.4}{m} up}; \final{$v_y = \qty{-4.4}{m.s^{-1}}$}:
+  the minus sign means it is \textbf{falling}.}
+\checkstep{the top comes at $t = 10.285/9.8 = \qty{1.05}{s}$, before \qty{1.5}{s}, so
+  falling makes sense \cmark. $s_y > 0$: still in the air \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The throw gives a forward force.'' \cmark\ After launch the only force in the
+        model is gravity (air resistance is ignored).
+  \item \xmark\ Using sin to find the horizontal part. \cmark\ When the angle is measured from
+        the horizontal, $u_x = u\cos\theta$.
+  \item \xmark\ Using $u_y = u$ for a horizontal launch. \cmark\ For a horizontal launch, $u_y = 0$.
+  \item \xmark\ Thinking a faster horizontal launch stays in the air longer. \cmark\ The fall
+        time depends only on the height.
+  \item \xmark\ Using $a_y = +\qty{9.8}{m.s^{-2}}$, or a positive $s_y$ for a fall. \cmark\ With
+        up positive, $a_y = \qty{-9.8}{m.s^{-2}}$, and $s_y$ is negative below the launch point.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Explain why the horizontal velocity stays constant'' (2 marks).
+        (1) The only force is gravity (air resistance is ignored), and gravity acts vertically.
+        So there is no horizontal force. (2) By Newton's second law
+        ($\vec{F}_\mathrm{net} = m\vec{a}$), no horizontal force means no horizontal
+        acceleration. So $v_x$ stays constant.
+  \item Graph questions (\cref{ch1:fig:graphs}): $s_x$--$t$ is a straight line through the
+        origin; $s_y$--$t$ is an upside-down parabola; $v_x$--$t$ is flat; $v_y$--$t$ is a
+        straight line with gradient \qty{-9.8}{m.s^{-2}}; $a_y$--$t$ is flat at
+        \qty{-9.8}{m.s^{-2}}.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Find $u_x$ and $u_y$ for (a) \qty{15}{m.s^{-1}} at \ang{60} above the horizontal;
+        (b) a dart thrown \emph{upwards} at \qty{8.0}{m.s^{-1}} at \ang{20} \emph{to the vertical}.
+  \item A stone is thrown horizontally at \qty{6.0}{m.s^{-1}} from a cliff \qty{20}{m}
+        above the water. Find its time in the air and how far from the cliff it lands.
+  \item Ball A is dropped. At the same moment ball B is thrown horizontally from the same
+        height. Which lands first? Explain.
+  \item A marble rolls horizontally off a table. The table is replaced by one 4 times as high,
+        and the marble leaves it at the same speed. What happens to (a) its time in the air and
+        (b) its range? Explain.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Height, time of flight, range and final velocity}\label{ch1:sec:height}
+\covers{M5.IQ1.02, M5.IQ1.04}
+
+\begin{bigidea}
+At the top of the path the vertical velocity is zero for an instant. This gives the
+maximum height and, on level ground, the time of flight. The range is the horizontal
+velocity multiplied by the time of flight.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Maximum height ($h_\mathrm{max}$)}{the greatest height above the launch point.}
+  \kw{Time of flight ($t_\mathrm{flight}$)}{the time from launch until landing.}
+  \kw{Range ($R$)}{the horizontal distance from the launch point to the landing point.}
+  \kw{Launch height ($h$)}{how far the launch point is above the landing point.}
+  \kw{Final velocity}{the velocity just before landing: a speed and a direction.}
+\end{keywords}
+
+\subsection{The top of the flight}
+In \cref{ch1:fig:path}, the horizontal arrow $v_x$ has the same length everywhere. The
+vertical arrow $v_y$ shrinks on the way up, is zero at the top, then grows downwards. At the
+top the ball still moves at $v_x$, and its acceleration is still \qty{9.8}{m.s^{-2}} down.
+On level ground the path is \term{symmetrical}: the way down mirrors the way up.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      comp/.style={->, line width=0.8pt, color=hscvel!55}]
+    \draw[hscink, line width=0.6pt] (-0.4,0) -- (9.4,0);
+    \draw[hscmuted!60, line width=1.1pt, domain=0:2.449, samples=80, variable=\t]
+      plot ({0.37*9*\t},{0.37*(12*\t-4.9*\t*\t)});
+    \draw[comp] (0,0) -- (1.08,0);
+    \draw[comp] (0,0) -- (0,1.44) node[left, font=\footnotesize, text=hscvel] {$u_y$};
+    \draw[velocity] (0,0) -- (1.08,1.44) node[above, text=hscvel, inner sep=1pt] {$u$};
+    \node[font=\footnotesize, text=hscvel, below] at (0.6,0) {$u_x$};
+    \draw[comp] (2.039,2.039) -- (3.119,2.039);
+    \draw[comp] (2.039,2.039) -- (2.039,2.759);
+    \draw[velocity] (2.039,2.039) -- (3.119,2.759);
+    \draw[velocity] (4.078,2.718) -- (5.158,2.718)
+      node[right, text=hscvel, inner sep=2pt, font=\footnotesize] {$v = v_x$, \ $v_y = 0$};
+    \draw[accel] (4.078,2.56) -- (4.078,1.80)
+      node[below, text=hscacc, font=\footnotesize, inner sep=1pt] {$a = g$ (down)};
+    \draw[comp] (6.117,2.039) -- (7.197,2.039);
+    \draw[comp] (6.117,2.039) -- (6.117,1.319);
+    \draw[velocity] (6.117,2.039) -- (7.197,1.319);
+    \draw[comp] (8.156,0) -- (9.236,0);
+    \draw[comp] (8.156,0) -- (8.156,-1.44) node[left, font=\footnotesize, text=hscvel] {$v_y$};
+    \draw[velocity] (8.156,0) -- (9.236,-1.44) node[right, text=hscvel, inner sep=1pt] {$v$};
+    \foreach \p in {(0,0),(2.039,2.039),(4.078,2.718),(6.117,2.039),(8.156,0)}
+      \fill[object] \p circle (3.2pt);
+    \draw[guide] (7.5,2.718) -- (10.05,2.718);
+    \draw[displacement, <->] (9.9,0) -- (9.9,2.718)
+      node[midway, right, text=hscink, font=\small] {$h_\mathrm{max}$};
+    \draw[<->, line width=0.6pt, hscink] (0,-1.7) -- (8.156,-1.7)
+      node[midway, fill=white, font=\small, inner sep=2pt] {range $R$};
+    \node[font=\footnotesize, text=hscmuted] at (2.0,-0.5) {time up $= t_\mathrm{top}$};
+    \node[font=\footnotesize, text=hscmuted] at (6.1,-0.5) {time down $= t_\mathrm{top}$};
+  \end{tikzpicture}
+  \caption{Velocity along a flight on level ground. Light arrows: $v_x$ and $v_y$. Dark
+    arrows: the full velocity, along the path. The acceleration is $g$ downwards at every
+    point; it is drawn only at the top.}\label{ch1:fig:path}
+\end{figure}
+
+These three results come straight from the equations of motion.
+
+\begin{formulacard}[notonsheet]{The top of the flight, and the time of flight}
+  \cardformula{t_\mathrm{top} = \frac{u_y}{g} \qquad h_\mathrm{max} = \frac{u_y^2}{2g}
+    \qquad t_\mathrm{flight} = \frac{2u_y}{g}}
+  \begin{symbols}
+    \sym{$t_\mathrm{top}$, $t_\mathrm{flight}$}{time to the top; time from launch to landing}{\si{s}}
+    \sym{$h_\mathrm{max}$}{greatest height above the launch point}{\si{m}}
+    \sym{$u_y$}{vertical part of the launch velocity, $u\sin\theta$}{\si{m.s^{-1}}}
+    \sym{$g$}{size of gravity's acceleration, \num{9.8}}{\si{m.s^{-2}}}
+  \end{symbols}
+  \inwords{all three depend only on $u_y$. Double $u_y$: the times double, and the height
+    becomes 4 times bigger.}
+  \whentouse{$t_\mathrm{top}$ and $h_\mathrm{max}$: any launch that goes upwards
+    ($u_y > 0$), from any height. $t_\mathrm{flight}$: launch and landing at the same height.}
+  \whennottouse{$t_\mathrm{flight} = 2u_y/g$ when the landing point is lower than the launch
+    point: solve the quadratic below instead. Do not use $h_\mathrm{max}$ as the height above
+    the ground after a launch from a height: add the launch height $h$ first.}
+  \rearranged{$u_y = g\,t_\mathrm{top} = \sqrt{2g\,h_\mathrm{max}} = \dfrac{g\,t_\mathrm{flight}}{2}$.
+    With $u_y = u\sin\theta$: \ $h_\mathrm{max} = \dfrac{u^2\sin^2\theta}{2g}$ \ and \
+    $t_\mathrm{flight} = \dfrac{2u\sin\theta}{g}$. ($\sin^2\theta$ means $(\sin\theta)^2$.)
+    For example, \qty{20}{m.s^{-1}} at \ang{30} gives $h_\mathrm{max} = \qty{5.10}{m}$ and
+    $t_\mathrm{flight} = \qty{2.04}{s}$.}
+  \tensecond{$u_y = \qty{14}{m.s^{-1}}$: $t_\mathrm{top} = \qty{1.43}{s}$,
+    $h_\mathrm{max} = \dfrac{14^2}{2 \times 9.8} = \qty{10.0}{m}$, $t_\mathrm{flight} = \qty{2.86}{s}$.}
+  \derive{put $a_y = -g$ into the equations on the formula sheet. At the top $v_y = 0$; at
+    landing $s_y = 0$.
+    \begin{align*}
+      0 &= u_y - g\,t_\mathrm{top} && \text{$v = u + at$ with $v_y = 0$, $a_y = -g$}\\
+      g\,t_\mathrm{top} &= u_y && \text{add $g\,t_\mathrm{top}$ to both sides}\\
+      t_\mathrm{top} &= \frac{u_y}{g} && \text{divide both sides by $g$}\\[4pt]
+      0 &= u_y^2 - 2g\,h_\mathrm{max} && \text{$v^2 = u^2 + 2as$ with $v_y = 0$, $s_y = h_\mathrm{max}$}\\
+      2g\,h_\mathrm{max} &= u_y^2 && \text{add $2g\,h_\mathrm{max}$ to both sides}\\
+      h_\mathrm{max} &= \frac{u_y^2}{2g} && \text{divide both sides by $2g$}\\[4pt]
+      0 &= u_y t - \tfrac{1}{2}g t^2 && \text{$s = ut + \tfrac12 at^2$ with $s_y = 0$}\\
+      0 &= t\left(u_y - \tfrac{1}{2}g t\right) && \text{take out the common factor $t$}\\
+      0 &= u_y - \tfrac{1}{2}g t && \text{$t = 0$ is the launch, so the bracket is zero}\\
+      \tfrac{1}{2}g t &= u_y && \text{add $\tfrac12 gt$ to both sides}\\
+      t_\mathrm{flight} &= \frac{2u_y}{g} = 2t_\mathrm{top} && \text{multiply both sides by $\tfrac{2}{g}$}
+    \end{align*}}
+  \trap{use $u_y$, not $u$. In these three formulas $g = 9.8$ (a positive number), because the
+    minus sign of the acceleration is already built in. Do not put in $-9.8$. Also,
+    $t_\mathrm{top}$ is only half of the flight.}
+\end{formulacard}
+
+\subsection{Range and the \texorpdfstring{\ang{45}}{45 degree} rule}
+Point a garden hose a little upwards and the water lands further away. Tilt it more and it
+goes further still. But point it almost straight up and the water lands close to you. So
+there is a best angle in between. A low launch moves forwards fast, but it lands quickly. A
+steep launch stays up for a long time, but it moves forwards slowly. The range needs both:
+horizontal speed and time in the air. \Cref{ch1:fig:angles} shows launches at one speed and
+five angles.
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_angles.pdf}
+  \caption{Launches at \qty{20}{m.s^{-1}} (level ground, no air resistance). Lines of the
+    same style land at the same point.}\label{ch1:fig:angles}
+\end{figure}
+
+Speeds in questions are sometimes given in \si{km.h^{-1}}. Every formula in this book needs
+\si{m.s^{-1}}.
+
+\begin{toolkit}{Changing units}
+$\qty{1}{km} = \qty{1000}{m}$ and $\qty{1}{h} = \qty{3600}{s}$. So
+$\qty{1}{km.h^{-1}} = \dfrac{\qty{1000}{m}}{\qty{3600}{s}} = \dfrac{1}{3.6}\,\si{m.s^{-1}}$.
+\begin{itemize}
+  \item \si{km.h^{-1}} to \si{m.s^{-1}}: divide by 3.6. Example: $54 \div 3.6 = \qty{15}{m.s^{-1}}$.
+  \item \si{mm} (millimetre) to \si{m}, and \si{ms} (millisecond) to \si{s}: divide by 1000.
+        Example: $\qty{16.0}{mm} = \qty{0.0160}{m}$.
+\end{itemize}
+\end{toolkit}
+
+\begin{toolkit}{The double-angle rule}
+For any angle, $2\sin\theta\cos\theta = \sin 2\theta$. Test with \ang{30}:
+$2 \times 0.5 \times 0.866 = 0.866 = \sin\ang{60}$ \cmark. The largest value of $\sin$ is 1, at
+\ang{90}. So $\sin 2\theta$ is largest when $2\theta = \ang{90}$, that is, when
+$\theta = \ang{45}$. On a calculator, type $\sin(2 \times 40)$, not $2\sin 40$.
+\end{toolkit}
+
+\begin{formulacard}[notonsheet]{Range on level ground}
+  \cardformula{R = \frac{u^2\sin 2\theta}{g}}
+  \begin{symbols}
+    \sym{$R$}{range: horizontal distance to the landing point}{\si{m}}
+    \sym{$u$}{launch speed}{\si{m.s^{-1}}}
+    \sym{$\theta$}{launch angle above the horizontal}{\si{\degree} (SI unit: rad)}
+  \end{symbols}
+  \inwords{double the speed and the range becomes 4 times bigger; for one speed, the range is
+    largest at \ang{45}.}
+  \whentouse{launch and landing at the same height, no air resistance.}
+  \whennottouse{launches from a height: find $t$ from $s_y$ first, then $R = u_x t$.}
+  \rearranged{$u = \sqrt{\dfrac{Rg}{\sin 2\theta}}$ \qquad $R_\mathrm{max} = \dfrac{u^2}{g}$
+    at \ang{45} \qquad $\theta = \tfrac{1}{2}\sin^{-1}\!\left(\dfrac{Rg}{u^2}\right)$, and also
+    $\ang{90} - \theta$ (two angles give the same range). Example: \qty{18}{m.s^{-1}} and
+    $R = \qty{30}{m}$ give \ang{32.6} or \ang{57.4}.}
+  \tensecond{\qty{10}{m.s^{-1}} at \ang{45}: $R = \dfrac{10^2 \times \sin\ang{90}}{9.8} = \qty{10.2}{m}$.}
+  \derive{range $=$ horizontal velocity $\times$ time of flight:
+    \begin{align*}
+      R &= u_x\,t_\mathrm{flight} = u\cos\theta \times \frac{2u\sin\theta}{g}
+        && \text{$s_x = u_x t$ at landing}\\
+        &= \frac{2u^2\sin\theta\cos\theta}{g} && \text{multiply: $u \times u = u^2$}\\
+        &= \frac{u^2\,(2\sin\theta\cos\theta)}{g} = \frac{u^2\sin 2\theta}{g}
+        && \text{the double-angle rule}
+    \end{align*}}
+  \trap{level ground only. Change \si{km.h^{-1}} to \si{m.s^{-1}} first (divide by 3.6).}
+\end{formulacard}
+
+\begin{itemize}
+  \item \textbf{\ang{45} gives the longest range}, because $\sin 2\theta = 1$ when
+        $2\theta = \ang{90}$. This is true \emph{only} on level ground with no air resistance.
+  \item \textbf{\term{Complementary angles}} (two angles that add to \ang{90}) give the same
+        range. Example: \ang{30} and \ang{60}. $\sin(2 \times \ang{30}) = \sin\ang{60} = 0.866$
+        and $\sin(2 \times \ang{60}) = \sin\ang{120} = 0.866$. The steeper one goes higher and
+        stays up longer.
+  \item \textbf{Double the speed} at the same angle (level ground): the range and the height
+        become 4 times bigger; the time of flight becomes 2 times bigger.
+\end{itemize}
+
+\subsection{Launching from a height}
+A ball thrown from a cliff lands below its launch point, so the flight is not symmetrical.
+Set up the question as in \cref{ch1:fig:cliff}. Then follow these steps:
+\begin{enumerate}
+  \item Put the origin at the launch point, with up positive. Then $s_y = -h$ at landing.
+  \item Find $u_x$ and $u_y$.
+  \item Solve $-h = u_y t + \frac{1}{2}a_y t^2$ for $t$. This is a \term{quadratic equation}:
+        an equation with a $t^2$ term, a $t$ term and a number.
+  \item Find the range: $R = u_x t$.
+\end{enumerate}
+For a horizontal launch, $u_y = 0$ and the equation is simpler: use the card ``Horizontal
+launch from a height'' in \cref{ch1:sec:model}.
+
+A higher launch point gives the projectile more time in the air, so a longer range. The
+maximum height \emph{above the launch point} does not change, because
+$h_\mathrm{max} = u_y^2/2g$ depends only on $u_y$.
+
+If the target is \emph{above} the launch point (for example, a basketball hoop), $s_y$ is
+positive. The quadratic then has two positive roots. The smaller one is on the way up; the
+larger one is on the way down. Choose the one the question describes.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      comp/.style={->, line width=0.8pt, color=hscvel!55}]
+    \fill[ground] (-1.4,-3.9) rectangle (0,0);
+    \fill[ground] (0,-4.1) rectangle (6.6,-3.9);
+    \draw[hscink, line width=0.6pt] (-1.4,0) -- (0,0) -- (0,-3.9) -- (6.6,-3.9);
+    \draw[axisline] (0,0) -- (0,1.05) node[above, diagramlabel] {$+y$ (up)};
+    \draw[axisline] (0,0) -- (1.45,0) node[right, diagramlabel] {$+x$};
+    \node[diagramlabel, above left, inner sep=2pt] at (0,0) {O};
+    \draw[hscmuted!60, line width=1.1pt, domain=0:2.3327, samples=70, variable=\t]
+      plot ({0.26*8.660*\t},{0.26*(5*\t-4.9*\t*\t)});
+    \draw[velocity] (0,0) -- (1.126,0.65) node[above, text=hscvel, inner sep=1pt] {$u$};
+    \draw[hscink, line width=0.5pt] (0.62,0) arc (0:30:0.62);
+    \node[font=\footnotesize] at (14:0.85) {$\theta$};
+    \draw[guide] (2.1,0) -- (6.3,0);
+    \draw[displacement, <->] (6.15,0) -- (6.15,-3.9);
+    \node[diagramlabel, align=left, anchor=west] at (6.25,-1.95) {$h$\\(so $s_y = -h$)};
+    \fill[object] (5.253,-3.9) circle (3.2pt);
+    \draw[<->, line width=0.6pt, hscink] (0,-4.45) -- (5.253,-4.45)
+      node[midway, below, font=\small] {range $R$ (from the foot of the cliff)};
+    \node[diagramlabel, anchor=west] at (8.0,-0.35) {final velocity:};
+    \draw[comp] (8.3,-0.9) -- (9.426,-0.9) node[midway, above, font=\footnotesize, text=hscvel] {$v_x$};
+    \draw[comp] (9.426,-0.9) -- (9.426,-3.222) node[midway, right, font=\footnotesize, text=hscvel] {$v_y$};
+    \draw[velocity] (8.3,-0.9) -- (9.426,-3.222) node[midway, left, text=hscvel] {$v$};
+    \draw[hscink, line width=0.5pt] (8.8,-0.9) arc (0:-64.1:0.5);
+    \node[font=\footnotesize] at (8.95,-1.35) {$\alpha$};
+  \end{tikzpicture}
+  \caption{A launch from a height. The origin O is the launch point, so the landing point
+    has $s_y = -h$. Right: the final velocity is made from $v_x$ and $v_y$.}
+    \label{ch1:fig:cliff}
+\end{figure}
+
+\begin{toolkit}{Solving a quadratic equation}
+Write the equation as $At^2 + Bt + C = 0$. (We use capital letters, because $a$ already
+means acceleration.) Then
+\[ t = \frac{-B \pm \sqrt{B^2 - 4AC}}{2A}. \]
+Example: $4.9t^2 - 3.0t - 2.0 = 0$ has $A = 4.9$, $B = -3.0$, $C = -2.0$. First,
+$B^2 - 4AC = (-3.0)^2 - 4(4.9)(-2.0) = 9.0 + 39.2 = 48.2$, and $-B = +3.0$. So
+\[ t = \frac{3.0 \pm \sqrt{48.2}}{9.8} = \frac{3.0 \pm 6.943}{9.8}
+   = \qty{1.01}{s} \ \text{or}\ {\qty{-0.402}{s}}. \]
+A \term{root} is a solution of the equation. Keep the \textbf{positive} root. The negative
+one is a time before the launch.
+\end{toolkit}
+
+\subsection{Final velocity}
+The \term{final velocity} is the velocity just before landing. Think of catching a ball thrown
+to you from far away. It arrives moving forwards and downwards at the same time. Its final
+velocity combines both parts, like the arrow on the right of \cref{ch1:fig:cliff}. The
+horizontal part is still $v_x = u_x$. The vertical part comes from $v_y = u_y + a_y t$ or
+$v_y^2 = u_y^2 + 2a_y s_y$.
+
+\begin{formulacard}[notonsheet]{Speed and direction from components}
+  \cardformula{v = \sqrt{v_x^2 + v_y^2} \qquad \tan\alpha = \frac{\lvert v_y\rvert}{v_x}}
+  \begin{symbols}
+    \sym{$v$}{speed (size of the velocity)}{\si{m.s^{-1}}}
+    \sym{$v_x$, $v_y$}{horizontal ($= u_x$) and vertical velocity at that moment}{\si{m.s^{-1}}}
+    \sym{$\lvert v_y\rvert$}{the size of $v_y$ without its sign, e.g. $\lvert -4.0\rvert = 4.0$}{\si{m.s^{-1}}}
+    \sym{$\alpha$}{angle of the velocity below (or above) the horizontal}{\si{\degree} (SI unit: rad)}
+  \end{symbols}
+  \inwords{Pythagoras gives the speed; inverse tan gives the direction.}
+  \whentouse{at landing, or at any moment, once you know $v_x$ and $v_y$.}
+  \whennottouse{do not put $u_y$ in place of $v_y$. The vertical velocity changes during the
+    flight, so find $v_y$ at that moment first.}
+  \rearranged{$\alpha = \tan^{-1}\!\left(\dfrac{\lvert v_y\rvert}{v_x}\right)$ \qquad $v_x = v\cos\alpha$}
+  \tensecond{$v_x = \qty{3.0}{m.s^{-1}}$, $v_y = \qty{-4.0}{m.s^{-1}}$: $v = \qty{5.0}{m.s^{-1}}$
+    at $\tan^{-1}(4.0/3.0) = \ang{53}$ below the horizontal.}
+  \derive{$v_x$ and $v_y$ are the short sides of a right-angled triangle; $v$ is the long side
+    (\cref{ch1:fig:cliff}). Use Pythagoras, then $\tan = \text{opposite} \div \text{adjacent}$.}
+  \trap{a velocity needs a direction: write ``\ang{53} below the horizontal''.}
+\end{formulacard}
+
+On \textbf{level ground} the final speed equals the launch speed. The final angle equals the
+launch angle, but below the horizontal. Why: at landing $s_y = 0$, so
+$v_y^2 = u_y^2 + 2a_y \times 0 = u_y^2$. So $v_y = -u_y$: the same size, but moving down. And
+$v_x = u_x$ never changes. So the velocity triangle at landing is the launch triangle flipped
+upside down.
+
+\textbf{From a height}, the best angle for range is \emph{less} than \ang{45}. Even a low throw
+gets extra time in the air from the drop. So it pays to put more of the speed into the
+horizontal part, $u_x$. For the shot put in \cref{ch1:we:shotput} (below), the best angle is
+about \ang{42}.
+
+\begin{workedexample}{A soccer kick}\label{ch1:we:soccer}
+A soccer ball is kicked from level ground at \qty{21}{m.s^{-1}} at \ang{32} above the
+horizontal. Find its maximum height, its time of flight and its range.
+\given{$u = \qty{21}{m.s^{-1}}$, $\theta = \ang{32}$, level ground, $g = \qty{9.8}{m.s^{-2}}$}
+\find{$h_\mathrm{max}$, $t_\mathrm{flight}$ and $R$}
+\formula{$h_\mathrm{max} = \dfrac{u_y^2}{2g}$; \ $t_\mathrm{flight} = \dfrac{2u_y}{g}$; \
+  $R = u_x\,t_\mathrm{flight}$}
+\substitute{\eqlines{u_x &= 21\cos\ang{32} = \qty{17.81}{m.s^{-1}} \quad\text{(split $u$ into parts)}\\
+  u_y &= 21\sin\ang{32} = \qty{11.13}{m.s^{-1}}}\par
+  \eqlines{h_\mathrm{max} &= \frac{(\qty{11.13}{m.s^{-1}})^2}{2 \times \qty{9.8}{m.s^{-2}}} \quad\text{(top card)}\\
+    &= \frac{\qty{123.9}{m^2.s^{-2}}}{\qty{19.6}{m.s^{-2}}} = \qty{6.32}{m}
+    \quad\text{(square $u_y$, then divide by $2g$)}\\
+  t_\mathrm{flight} &= \frac{2 \times \qty{11.13}{m.s^{-1}}}{\qty{9.8}{m.s^{-2}}} = \qty{2.271}{s}
+    \quad\text{(level ground)}\\
+  R &= \qty{17.81}{m.s^{-1}} \times \qty{2.271}{s} = \qty{40.45}{m}
+    \quad\text{($R = u_x \times t_\mathrm{flight}$)}}}
+\answer{\final{$h_\mathrm{max} = \qty{6.3}{m}$}, \final{$t_\mathrm{flight} = \qty{2.3}{s}$},
+  \final{$R = \qty{40}{m}$} (2 significant figures, like the data: 40.45 rounds to 40, and
+  here the 0 counts)}
+\checkstep{the range card gives $\dfrac{21^2 \sin\ang{64}}{9.8} = \qty{40.4}{m}$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Does the ball clear the wall?}\label{ch1:we:wall}
+A ball is kicked from the ground at \qty{79.2}{km.h^{-1}} at \ang{30} above the horizontal. A
+wall \qty{4.0}{m} high is \qty{30.0}{m} away. Does the ball go over the wall?
+\given{$u = \qty{79.2}{km.h^{-1}} = 79.2 \div 3.6 = \qty{22.0}{m.s^{-1}}$, $\theta = \ang{30}$,
+  $s_x = \qty{30.0}{m}$ at the wall, $a_y = \qty{-9.8}{m.s^{-2}}$}
+\find{the height $s_y$ when $s_x = \qty{30.0}{m}$; compare it with \qty{4.0}{m}}
+\formula{$s_x = u_x t$; \ $s_y = u_y t + \frac{1}{2}a_y t^2$}
+\substitute{\eqlines{u_x &= 22.0\cos\ang{30} = \qty{19.05}{m.s^{-1}} \quad\text{(split $u$ into parts)}\\
+  u_y &= 22.0\sin\ang{30} = \qty{11.00}{m.s^{-1}}\\
+  t &= \frac{s_x}{u_x} = \frac{\qty{30.0}{m}}{\qty{19.05}{m.s^{-1}}} = \qty{1.5746}{s}
+    \quad\text{(time to reach the wall)}}\par
+  \eqlines{s_y &= (\qty{11.00}{m.s^{-1}})(\qty{1.5746}{s}) + \tfrac{1}{2}(\qty{-9.8}{m.s^{-2}})(\qty{1.5746}{s})^2\\
+    &\qquad\text{(vertical: the height at that time)}\\
+    &= \qty{17.32}{m} - \qty{12.15}{m} = \qty{5.17}{m} \quad\text{($4.9 \times 1.5746^2 = 12.15$)}}}
+\answer{\final{$s_y = \qty{5.2}{m}$}, which is more than \qty{4.0}{m}: \textbf{yes}, the ball
+  goes over the wall, by about \qty{1.2}{m}.}
+\checkstep{$t_\mathrm{flight} = 2 \times 11.00/9.8 = \qty{2.24}{s}$. This is more than
+  \qty{1.57}{s}, so the ball is still in the air at the wall \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{A shot put released above the ground}\label{ch1:we:shotput}
+A shot put leaves the hand \qty{1.90}{m} above the ground at \qty{12.0}{m.s^{-1}} at
+\ang{41.0} above the horizontal. Find (a) the time of flight, (b) the range and (c) the
+velocity just before it lands.
+\given{$u = \qty{12.0}{m.s^{-1}}$, $\theta = \ang{41.0}$, $s_y = \qty{-1.90}{m}$ (origin at
+  the hand, up positive), $a_y = \qty{-9.8}{m.s^{-2}}$}
+\find{$t$; \ $R = u_x t$; \ the speed $v$ and the angle $\alpha$}
+\formula{$s_y = u_y t + \frac{1}{2}a_y t^2$; \ $v_y^2 = u_y^2 + 2a_y s_y$; \
+  $v = \sqrt{v_x^2 + v_y^2}$; \ $\tan\alpha = \dfrac{\lvert v_y\rvert}{v_x}$}
+\substitute{\eqlines{u_x &= 12.0\cos\ang{41.0} = \qty{9.057}{m.s^{-1}} \quad\text{(split $u$ into parts)}\\
+  u_y &= 12.0\sin\ang{41.0} = \qty{7.873}{m.s^{-1}}}\par
+  \textbf{(a)} Vertical motion, $s_y = u_yt + \tfrac12 a_yt^2$:\par
+  \eqlines{\qty{-1.90}{m} &= (\qty{7.873}{m.s^{-1}})\,t + \tfrac{1}{2}(\qty{-9.8}{m.s^{-2}})\,t^2\\
+  -1.90 &= 7.873\,t - 4.9\,t^2 \quad\text{($\tfrac12 \times (-9.8) = -4.9$)}\\
+  0 &= 7.873\,t - 4.9\,t^2 + 1.90 \quad\text{(add 1.90 to both sides)}\\
+  0 &= 4.9\,t^2 - 7.873\,t - 1.90 \quad\text{(multiply every term by $-1$)}}\par
+  Quadratic formula with $A = 4.9$, $B = -7.873$, $C = -1.90$:\par
+  \eqlines{B^2 - 4AC &= (-7.873)^2 - 4(4.9)(-1.90)\\
+    &= 61.98 + 37.24 = 99.22 \quad\text{(minus $\times$ minus $=$ plus)}\\
+  t &= \frac{-B \pm \sqrt{99.22}}{2A} = \frac{7.873 \pm 9.961}{9.8} \quad\text{($-B = +7.873$)}\\
+  t &= \frac{17.834}{9.8} = \qty{1.820}{s} \quad\text{or}\quad \frac{-2.088}{9.8} = \qty{-0.213}{s}}\par
+  Keep the positive root: $t = \qty{1.820}{s}$.\par
+  \textbf{(b)} Horizontal motion:
+  $R = u_x t = \qty{9.057}{m.s^{-1}} \times \qty{1.820}{s} = \qty{16.48}{m}$.\par
+  \textbf{(c)} Vertical velocity from $v^2 = u^2 + 2as$, then Pythagoras and inverse tan:\par
+  \eqlines{v_y^2 &= (\qty{7.873}{m.s^{-1}})^2 + 2(\qty{-9.8}{m.s^{-2}})(\qty{-1.90}{m})\\
+    &= \qty{61.98}{m^2.s^{-2}} + \qty{37.24}{m^2.s^{-2}} = \qty{99.22}{m^2.s^{-2}}\\
+  v_y &= -\sqrt{\qty{99.22}{m^2.s^{-2}}} = \qty{-9.961}{m.s^{-1}} \quad\text{(negative: it moves down)}\\
+  v &= \sqrt{(\qty{9.057}{m.s^{-1}})^2 + (\qty{9.961}{m.s^{-1}})^2} = \qty{13.46}{m.s^{-1}}\\
+  \alpha &= \tan^{-1}(9.961 \div 9.057) = \ang{47.7} \quad\text{(opposite $\div$ adjacent)}}}
+\answer{(a) \final{\qty{1.82}{s}} \quad (b) \final{\qty{16.5}{m}}\\
+  (c) \final{\qty{13.5}{m.s^{-1}} at \ang{47.7} below the horizontal} \ (3 significant
+  figures, like the data 12.0, 41.0 and 1.90)}
+\checkstep{the level-ground card would give only \qty{1.61}{s}; the shot falls an extra
+  \qty{1.90}{m}, so it stays up longer and lands faster than \qty{12.0}{m.s^{-1}} \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``At the top, the velocity and the acceleration are zero.'' \cmark\ Only
+        $v_y = 0$. The acceleration is still \qty{9.8}{m.s^{-2}} down.
+  \item \xmark\ Using $t_\mathrm{flight} = 2u_y/g$ or $R = u^2\sin 2\theta/g$ for a launch from a
+        height. \cmark\ Solve the quadratic with $s_y = -h$, and keep the positive root.
+  \item \xmark\ ``A higher angle always goes further.'' \cmark\ On level ground, the range gets
+        smaller for angles above \ang{45}.
+  \item \xmark\ Using the maximum height to decide whether a ball clears a wall. \cmark\ Find
+        the time at the wall from $s_x = u_x t$, then $s_y$ at that time.
+  \item \xmark\ Giving only the speed for a ``final velocity''. \cmark\ Also give the direction,
+        e.g. ``\ang{48} below the horizontal''.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Show that the range on level ground is greatest at \ang{45}'' (3 marks).
+        (1) Get $t_\mathrm{flight}$ from $s_y = 0$. (2) Use $R = u_x t_\mathrm{flight}$ and the
+        double-angle rule to get $R = u^2\sin 2\theta/g$. (3) $\sin 2\theta$ is at most 1, at
+        $2\theta = \ang{90}$. State the conditions: level ground, no air resistance.
+  \item Final velocity (3 marks): give $v_x$, then $v_y$ with its sign, then $v$ \emph{and}
+        its direction.
+  \item ``Does it clear the wall?'': find $s_y$ at the wall's distance. Finish with a clear
+        yes or no.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A ball is launched from level ground at \qty{25}{m.s^{-1}} at \ang{50}. Find its
+        maximum height, its time of flight and its speed at the top.
+  \item A ball is kicked from level ground at \qty{64.8}{km.h^{-1}}. Find its range at
+        \ang{45}, \ang{30} and \ang{60}.
+  \item Water leaves a hose nozzle at \ang{40} above the horizontal. It lands \qty{6.5}{m}
+        away, at the same height as the nozzle. Find the speed of the water leaving the hose.
+  \item A stone is thrown at \qty{12}{m.s^{-1}} at \ang{25} above the horizontal from the top
+        of an \qty{18}{m} cliff. Find its time in the air, how far from the foot of the cliff
+        it lands, and its velocity just before it hits the sea.
+  \item A rugby ball is kicked from the ground at \qty{20}{m.s^{-1}} at \ang{35}. The
+        crossbar is \qty{3.0}{m} high and \qty{30}{m} away. Does the ball go over it?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Energy and air resistance}\label{ch1:sec:energy}
+\covers{M5.IQ1.01, M5.IQ1.02}
+
+\begin{bigidea}
+With no air resistance, kinetic plus potential energy stays the same during the flight.
+This gives the speed at any height without the time or the angle. Real air takes energy
+away, so real projectiles go lower and shorter than the model predicts.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Kinetic energy ($K$)}{energy an object has because it moves.}
+  \kw{Gravitational potential energy ($U$)}{energy stored because of height.}
+  \kw{Conservation of energy}{the total energy stays the same.}
+  \kw{Drag}{another word for air resistance.}
+\end{keywords}
+
+\begin{refresher}{Energy (Year 11)}
+\term{Kinetic energy} is the energy of motion: $K = \frac{1}{2}mv^2$. \term{Gravitational
+potential energy} is the energy of height. Rising by $\Delta h$ adds $\Delta U = mg\Delta h$;
+falling by $\Delta h$ takes the same amount away. When gravity is the only force that acts
+(no air resistance), $K + U$ stays the same. This is \term{conservation of energy}.
+\end{refresher}
+
+\begin{sidebyside}[0.44]
+  \centering
+  % launch at 60 deg on level ground: K_top / K_launch = cos^2(60) = 0.25
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscink, line width=0.6pt] (-0.3,0) -- (4.5,0);
+    \fill[hscseriesA!75] (0,0) rectangle (0.8,2.4);
+    \fill[hscseriesA!75] (1.8,0) rectangle (2.6,0.6);
+    \fill[hscseriesB!70] (1.8,0.6) rectangle (2.6,2.4);
+    \fill[hscseriesA!75] (3.6,0) rectangle (4.4,2.4);
+    \node[font=\footnotesize, text=white] at (0.4,1.2) {$K$};
+    \node[font=\footnotesize, text=white] at (2.2,0.3) {$K$};
+    \node[font=\footnotesize, text=white] at (2.2,1.5) {$U$};
+    \node[font=\footnotesize, text=white] at (4.0,1.2) {$K$};
+    \node[font=\scriptsize, text=hscink] at (0.4,2.62) {\qty{100}{\percent}};
+    \node[font=\scriptsize, text=hscink, anchor=east] at (1.75,0.3) {\qty{25}{\percent}};
+    \node[font=\scriptsize, text=hscink, anchor=east] at (1.75,1.5) {\qty{75}{\percent}};
+    \node[font=\scriptsize, text=hscink] at (4.0,2.62) {\qty{100}{\percent}};
+    \node[font=\footnotesize, text=hscink, below] at (0.4,-0.05) {launch};
+    \node[font=\footnotesize, text=hscink, below] at (2.2,-0.05) {top};
+    \node[font=\footnotesize, text=hscink, below] at (4.0,-0.05) {landing};
+  \end{tikzpicture}
+  \captionof{figure}{Energy of a ball launched at \ang{60} on level ground, as a percentage of
+    the total. Blue: $K$. Orange: $U$.}\label{ch1:fig:energybars}
+\nextside
+  On the way up, kinetic energy turns into potential energy. On the way down, it turns back
+  into kinetic energy.\par\smallskip
+  At the top of an angled flight, $K$ is smallest but \emph{not} zero. The ball still moves
+  sideways at $v_x$, so $K_\mathrm{top} = \frac{1}{2}mu_x^2$. In \cref{ch1:fig:energybars},
+  $K$ at the top is \qty{25}{\percent} of the total, because $\cos^2\ang{60} = 0.25$.
+\end{sidebyside}
+
+Energy has no direction, so it gives only the \emph{speed}. For the angle, use $v_x = u_x$
+and $\cos\alpha = v_x/v$ (adjacent $\div$ hypotenuse in the velocity triangle of
+\cref{ch1:fig:cliff}).
+
+\begin{formulacard}[combine={$K = \frac{1}{2}mv^2$ and $\Delta U = mg\Delta h$}]{Energy conservation for a projectile}
+  \cardformula{\frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2 = mg(h_1 - h_2)}
+  \begin{symbols}
+    \sym{$m$}{mass of the projectile}{\si{kg}}
+    \sym{$v_1$, $v_2$}{speed at point 1 and at point 2}{\si{m.s^{-1}}}
+    \sym{$h_1$, $h_2$}{height at point 1 and at point 2, above any level you choose as zero.
+      Only $h_1 - h_2$ (the $\Delta h$ in $\Delta U = mg\Delta h$) matters}{\si{m}}
+  \end{symbols}
+  \inwords{the kinetic energy gained equals the potential energy lost.}
+  \whentouse{you need the speed at a known height. You do not need the time or the angle to
+    find the speed.}
+  \whennottouse{you need the direction, or air resistance matters.}
+  \rearranged{$v_2 = \sqrt{v_1^2 + 2g(h_1 - h_2)}$ \qquad landing $h$ below the launch:
+    $v = \sqrt{u^2 + 2gh}$}
+  \tensecond{thrown at \qty{6.0}{m.s^{-1}}, lands \qty{5.0}{m} lower:
+    $v = \sqrt{6.0^2 + 2 \times 9.8 \times 5.0} = \qty{11.6}{m.s^{-1}}$.}
+  \derive{the kinetic energy gained is $\frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2$ (from
+    $K = \frac12mv^2$). The potential energy lost is $mg(h_1 - h_2)$ (from
+    $\Delta U = mg\Delta h$). With no air resistance these are equal.
+    \begin{align*}
+      v_2^2 - v_1^2 &= 2g(h_1 - h_2) && \text{divide every term by $\tfrac12 m$: the mass cancels}\\
+      v_2^2 &= v_1^2 + 2g(h_1 - h_2) && \text{add $v_1^2$ to both sides}
+    \end{align*}}
+  \trap{$h_1 - h_2$ is positive when the ball ends lower, and negative when it ends higher.
+    Energy gives only the speed: for the direction you still need $v_x = u_x$ and
+    $\cos\alpha = v_x/v$.}
+\end{formulacard}
+
+\begin{workedexample}{A stone from a bridge}\label{ch1:we:bridge}
+A stone is thrown from a bridge \qty{32}{m} above a river at \qty{14}{m.s^{-1}}, in an
+unknown direction. Find its speed as it reaches the water. Ignore air resistance.
+\given{$v_1 = \qty{14}{m.s^{-1}}$; it falls $h_1 - h_2 = \qty{32}{m}$; $g = \qty{9.8}{m.s^{-2}}$}
+\find{the speed $v_2$ at the water}
+\formula{$\frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2 = mg(h_1 - h_2)$, so
+  $v_2 = \sqrt{v_1^2 + 2g(h_1 - h_2)}$}
+\substitute{\eqlines{v_2 &= \sqrt{(\qty{14}{m.s^{-1}})^2 + 2 \times \qty{9.8}{m.s^{-2}} \times \qty{32}{m}}
+    \quad\text{(mass cancelled)}\\
+  &= \sqrt{\qty{196}{m^2.s^{-2}} + \qty{627.2}{m^2.s^{-2}}} \quad\text{($14^2 = 196$; \ $2 \times 9.8 \times 32 = 627.2$)}\\
+  &= \sqrt{\qty{823.2}{m^2.s^{-2}}} = \qty{28.69}{m.s^{-1}} \quad\text{(add, then square root)}}}
+\answer{\final{$v_2 = \qty{29}{m.s^{-1}}$} (2 significant figures), whatever the angle.}
+\checkstep{dropped from rest it would reach $\sqrt{627.2} = \qty{25}{m.s^{-1}}$; thrown, it
+  should be faster \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Speed and direction at a height}\label{ch1:we:energyangle}
+A ball is launched from the ground at \qty{15}{m.s^{-1}} at \ang{60} above the horizontal.
+Find its speed and the angle of its velocity when it is \qty{6.0}{m} above the ground.
+\given{$u = v_1 = \qty{15}{m.s^{-1}}$, $\theta = \ang{60}$, $h_1 = 0$, $h_2 = \qty{6.0}{m}$}
+\find{the speed $v_2$ and the angle $\alpha$ to the horizontal}
+\formula{$v_2^2 = v_1^2 + 2g(h_1 - h_2)$; \ $v_x = u\cos\theta$; \ $\cos\alpha = \dfrac{v_x}{v_2}$}
+\substitute{\eqlines{v_2^2 &= (\qty{15}{m.s^{-1}})^2 + 2 \times \qty{9.8}{m.s^{-2}} \times (0 - \qty{6.0}{m})\\
+    &\qquad\text{($h_1 - h_2 = 0 - 6.0 = \qty{-6.0}{m}$, because it rises)}\\
+  &= \qty{225}{m^2.s^{-2}} - \qty{117.6}{m^2.s^{-2}} = \qty{107.4}{m^2.s^{-2}}\\
+    &\qquad\text{($15^2 = 225$; \ $2 \times 9.8 \times 6.0 = 117.6$)}\\
+  v_2 &= \sqrt{\qty{107.4}{m^2.s^{-2}}} = \qty{10.36}{m.s^{-1}} \quad\text{(square root)}\\
+  v_x &= \qty{15}{m.s^{-1}} \times \cos\ang{60} = \qty{7.50}{m.s^{-1}} \quad\text{($v_x = u_x$ never changes)}\\
+  \alpha &= \cos^{-1}(7.50 \div 10.36) = \ang{43.6} \quad\text{(adjacent $\div$ hypotenuse)}}}
+\answer{\final{\qty{10}{m.s^{-1}} at \ang{44} to the horizontal} (2 significant figures, like
+  the data; in 10 the 0 counts). It passes \qty{6.0}{m} twice: \ang{44} \emph{above} the
+  horizontal going up, \ang{44} \emph{below} it coming down.}
+\checkstep{it does reach \qty{6.0}{m}: $h_\mathrm{max} = (15\sin\ang{60})^2/19.6 = \qty{8.6}{m}$
+  \cmark. Energy alone cannot tell up from down.}
+\end{workedexample}
+
+\subsection{Air resistance: where the model fails}
+In real life \term{drag} (air resistance) acts on every projectile. It points opposite to the
+velocity and grows quickly with speed. \Cref{ch1:fig:drag} compares the two paths.
+\begin{itemize}
+  \item The horizontal velocity gets smaller during the flight, so the \textbf{range is shorter}.
+  \item On the way up drag adds to gravity, so the \textbf{maximum height is lower}.
+  \item The path is \textbf{not symmetrical}: the way down is steeper and takes longer.
+  \item The ball \textbf{lands slower and steeper}, and the best angle is \textbf{below \ang{45}}.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_drag.pdf}
+  \caption{\qty{30}{m.s^{-1}} at \ang{45}. With drag (computer model) the range is reduced from
+    about \qty{92}{m} to \qty{69}{m}, and the maximum height from \qty{23}{m} to
+    \qty{19}{m}.}\label{ch1:fig:drag}
+\end{figure}
+
+The model works well for small, dense objects at low speeds over short distances. (\term{Dense}
+means heavy for its size.) Examples are a steel ball, a shot put and a stone. At the same
+speed, a steel ball and a paper ball of the same size feel about the same drag. But the steel
+ball is much heavier, so drag hardly changes its motion.
+
+The model works badly for light or large objects, such as a feather or a ball of paper. It
+also works badly for fast objects, such as a golf ball after a drive.
+
+Over very long distances, gravity gets weaker with height and the Earth curves away. This
+leads to orbits (\cref{ch4:chap}). In Module 6, a charged particle between charged plates
+follows the same kind of parabola.
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Kinetic energy is zero at the top.'' \cmark\ Only for a throw straight up.
+        For an angled throw, $K_\mathrm{top} = \frac{1}{2}mu_x^2$, which is not zero.
+  \item \xmark\ Using energy to find a direction. \cmark\ Energy gives only the speed. Find the
+        angle with $\cos\alpha = v_x/v$.
+  \item \xmark\ ``Air resistance makes gravity weaker.'' \cmark\ Gravity is unchanged; drag is
+        an extra force.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain how air resistance affects the trajectory'' or ``Evaluate the projectile model''
+(3--5 marks). Full marks need:
+\begin{itemize}
+  \item the force and its direction: drag, opposite to the velocity, bigger at higher speed;
+  \item a link from drag to each effect: shorter range, lower height, steeper and longer
+        fall (a sketch of both paths helps);
+  \item for ``evaluate'', a judgement: good for dense, slow objects over short distances;
+        poor for light or fast ones.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A ball is thrown at \qty{9.0}{m.s^{-1}}, in an unknown direction, from a balcony
+        \qty{1.5}{m} above the ground. Find its speed as it hits the ground.
+  \item A ball is launched at \ang{40} above the horizontal. What fraction of its launch
+        kinetic energy does it still have at the top? Explain.
+  \item Describe three ways air resistance changes the trajectory of a tennis ball.
+\end{quickcheck}
+
+%% ==================================================================
+% Section added by the syllabus coverage audit (M5.IQ1.04 was thin: the uniform-velocity
+% model was never named, and there was no one-dimensional or two-object prediction).
+\section{Predicting motion: uniform velocity and constant acceleration}\label{ch1:sec:predict}
+\covers{M5.IQ1.04}
+
+\begin{bigidea}
+Two simple models describe motion in a straight line: uniform velocity and constant
+acceleration. A projectile uses both at once. Write one equation for each object and each
+direction, with the same time $t$, and you can predict where and when things will be.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Uniform velocity}{a velocity that does not change: the same speed in the same direction.
+    The acceleration is zero.}
+  \kw{Constant acceleration}{an acceleration that does not change, so the velocity changes by
+    the same amount every second.}
+  \kw{Free fall}{motion when gravity is the only force acting.}
+  \kw{Prediction}{a result you calculate from a model before you measure it.}
+\end{keywords}
+
+A model is useful when it makes \term{predictions}: results we calculate before we measure
+them. Then we can test the model. This section shows how to choose a model for each part of a
+motion. It also shows how to join the parts to predict where and when objects meet.
+
+\textbf{Model 1: uniform velocity.} An object has \term{uniform velocity} when its velocity
+does not change: the same speed in the same direction. This happens when the net force on it is
+zero (Newton's first law). The object moves equal distances in equal times. Examples: a car on
+cruise control on a straight, flat road; a puck sliding on smooth ice; the \emph{horizontal}
+motion of a projectile. Its displacement--time graph is a straight line. The gradient of this
+line is the velocity.
+
+\textbf{Model 2: constant acceleration.} When the net force stays the same, the acceleration
+stays the same ($\vec{F}_\mathrm{net} = m\vec{a}$). This is \term{constant acceleration}: the
+velocity changes by the same amount every second. Examples: a stone in \term{free fall}
+(gravity is the only force on it), a car braking steadily, and the \emph{vertical} motion of a
+projectile. Use the three equations of motion (\cref{ch1:sec:model}). The velocity--time graph
+is a straight line, and its gradient is the acceleration.
+
+\textbf{Which model?} Ask one question for each direction: is there a net force this way?
+\begin{itemize}
+  \item No net force: use \textbf{uniform velocity}.
+  \item A net force that stays the same: use \textbf{constant acceleration}.
+  \item A force that changes (for example, large air resistance): neither model is exact.
+\end{itemize}
+
+\begin{formulacard}[combine={$s = ut + \frac{1}{2}at^2$ and $v = u + at$, with $a = 0$}]{Uniform velocity}
+  \cardformula{s = ut \qquad v = u}
+  \begin{symbols}
+    \sym{$s$}{displacement in the direction of motion}{\si{m}}
+    \sym{$u$}{the velocity, which does not change}{\si{m.s^{-1}}}
+    \sym{$t$}{time}{\si{s}}
+    \sym{$v$}{velocity at time $t$ (the same as $u$)}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{with no acceleration, the displacement grows by the same amount every second.}
+  \whentouse{there is no net force in that direction: the horizontal motion of a projectile
+    ($s_x = u_x t$), or a vehicle moving at a steady speed in a straight line.}
+  \whennottouse{the speed or the direction changes, for example the vertical motion of a
+    projectile or a car that brakes. Use the three constant-acceleration equations instead.}
+  \rearranged{$u = \dfrac{s}{t}$ \qquad $t = \dfrac{s}{u}$ \qquad starting at position $x_0$:
+    \ $x = x_0 + ut$}
+  \tensecond{a cart moving at \qty{0.60}{m.s^{-1}} for \qty{0.40}{s} moves
+    $0.60 \times 0.40 = \qty{0.24}{m}$.}
+  \derive{put $a = 0$ into two equations on the formula sheet.
+    \begin{align*}
+      s &= ut + \tfrac{1}{2}(0)t^2 = ut && \text{$s = ut + \tfrac12 at^2$ with $a = 0$}\\
+      v &= u + (0)t = u && \text{$v = u + at$ with $a = 0$}
+    \end{align*}}
+  \trap{do not use $s = ut$ for a falling object, because there $a \neq 0$. Change
+    \si{km.h^{-1}} to \si{m.s^{-1}} first.}
+\end{formulacard}
+
+\textbf{Throwing straight up.} A ball thrown straight up is a projectile with $u_x = 0$. Only
+the vertical model is needed: constant acceleration, with $a_y = \qty{-9.8}{m.s^{-2}}$. The
+model makes three predictions that you can test.
+\begin{itemize}
+  \item The time up equals the time down.
+  \item The ball comes back to the launch point at its launch speed, but moving down.
+  \item Below the top, the ball passes each height twice: once going up and once coming down.
+        So the equation for the time has two positive answers.
+\end{itemize}
+
+Graphs are models too. The next toolkit shows how to read a displacement from a
+velocity--time graph.
+
+\begin{toolkit}{Area under a velocity--time graph}
+On a velocity--time graph, the gradient is the acceleration. The \textbf{area} between the line
+and the time axis is the \textbf{displacement}. Area above the axis is positive, and area below
+the axis is negative. For uniform velocity the area is a rectangle: $s = ut$. For a velocity
+that falls steadily to zero, the area is a triangle: $\tfrac12 \times \text{base} \times
+\text{height}$. Example: in the $v_y$--$t$ graph of \cref{ch1:fig:graphs}, $v_y$ falls from
+\qty{12.0}{m.s^{-1}} to zero in \qty{1.2245}{s}. The area of this triangle is
+$\tfrac12 \times \qty{1.2245}{s} \times \qty{12.0}{m.s^{-1}} = \qty{7.35}{m}$. This is the
+maximum height. (Check: $h_\mathrm{max} = 12.0^2 \div 19.6 = \qty{7.35}{m}$ \cmark.) On the way
+down, the triangle below the axis has the same area, so at landing the vertical displacement
+is zero.
+\end{toolkit}
+
+\textbf{Objects launched from moving vehicles.} An object let go from a moving vehicle keeps the
+vehicle's velocity at that moment. This is \term{inertia}: the tendency of an object to keep its
+velocity. In \cref{ch1:fig:cart}, a cart moves at a uniform velocity of \qty{2.0}{m.s^{-1}}. A
+ball is tossed straight up from it (as seen from the cart) at \qty{4.9}{m.s^{-1}}.
+\begin{itemize}
+  \item Seen from the cart, the ball goes straight up and straight down.
+  \item Seen from the ground, the ball also moves forwards at \qty{2.0}{m.s^{-1}}. Uniform
+        velocity sideways plus constant acceleration downwards gives a parabola.
+  \item The ball lands back in the cart after \qty{1.0}{s}. By then both have moved
+        \qty{2.0}{m}. (This needs no air resistance, and a cart that keeps a uniform velocity.)
+\end{itemize}
+In the same way, a parcel dropped from a plane that flies at a uniform velocity stays directly
+below the plane until it lands.
+
+\begin{figure}
+  \centering
+  % 2.4 cm per metre in both directions. Ball: x = 2.0t, y = 4.9t - 4.9t^2 (relative to the
+  % top of the cart), positions every 0.25 s (numbers.py). Faint carts: t = 0.25, 0.50, 0.75 s.
+  \begin{tikzpicture}[x=2.4cm, y=2.4cm]
+    \fill[ground] (-0.45,-0.44) rectangle (2.55,-0.38);
+    \draw[hscink, line width=0.6pt] (-0.45,-0.38) -- (2.55,-0.38);
+    \foreach \x/\op in {0.5/0.25, 1.0/0.25, 1.5/0.25, 0/1, 2.0/1} {
+      \draw[object, opacity=\op] (\x-0.2,-0.3) rectangle (\x+0.2,-0.02);
+      \fill[hscink, opacity=\op] (\x-0.12,-0.32) circle (0.055);
+      \fill[hscink, opacity=\op] (\x+0.12,-0.32) circle (0.055);
+    }
+    \draw[hscmuted!60, line width=1pt, domain=0:1, samples=60, variable=\t]
+      plot ({2.0*\t},{4.9*\t-4.9*\t*\t});
+    \foreach \x/\y in {0.5/0.9188, 1.0/1.225, 1.5/0.9188} \draw[guide] (\x,\y) -- (\x,-0.02);
+    \foreach \x/\y/\lab in {0/0/0, 0.5/0.9188/0.25, 1.0/1.225/0.50, 1.5/0.9188/0.75, 2.0/0/1.00} {
+      \fill[object, fill=hscseriesB!60] (\x,\y) circle (3pt);
+      \node[diagramlabel, font=\scriptsize, anchor=south west, inner sep=2pt] at (\x,\y) {\lab\,s};
+    }
+    \draw[velocity] (-0.08,0.02) -- (-0.08,0.5) node[left, text=hscvel, font=\footnotesize,
+      align=right, inner sep=5pt] {\qty{4.9}{m.s^{-1}} up\\(seen from the cart)};
+    \draw[velocity] (-0.2,-0.6) -- (0.4,-0.6) node[right, text=hscvel, font=\footnotesize,
+      inner sep=2pt] {cart: \qty{2.0}{m.s^{-1}}, uniform velocity};
+    \draw[<->, line width=0.5pt, hscink] (0,-0.82) -- (2.0,-0.82)
+      node[midway, below, font=\footnotesize] {\qty{2.0}{m} in \qty{1.0}{s}};
+  \end{tikzpicture}
+  \caption{A ball tossed straight up from a cart that moves at a uniform velocity. Positions
+    every \qty{0.25}{s}; the faint carts show where the cart is at those times. The ball is
+    always directly above the cart, and it lands back in it.}\label{ch1:fig:cart}
+\end{figure}
+
+\Needspace{6\baselineskip}
+\textbf{How to make a prediction.} Follow these six steps.
+\begin{enumerate}
+  \item Draw a sketch. Choose an origin and a positive direction, and mark them.
+  \item For each object and each direction, choose the model: uniform velocity or constant
+        acceleration.
+  \item Write a position equation for each one. Use one clock: the same $t$, counted from the
+        same moment.
+  \item Use the condition in the question (for example, ``they are at the same place'') to get
+        one equation in $t$. Solve it.
+  \item Put $t$ back in to find the place. Check that $t$ is positive and that the object is
+        still in the air.
+  \item State the assumptions: no air resistance, and a constant $g$.
+\end{enumerate}
+
+\begin{workedexample}{A juggler's ball}\label{ch1:we:juggler}
+A juggler throws a ball straight up from her hand at \qty{7.0}{m.s^{-1}}. (a) How long is it
+until the ball is back at her hand? (b) At what times is the ball \qty{2.0}{m} above her hand?
+(c) What is its velocity at each of those times?
+\given{$u_y = \qty{7.0}{m.s^{-1}}$ (up), $a_y = \qty{-9.8}{m.s^{-2}}$; origin at the hand, up
+  positive}
+\find{(a) $t$ when $s_y = 0$ \quad (b) $t$ when $s_y = \qty{2.0}{m}$ \quad (c) $v_y$ at those
+  times}
+\formula{(a) $t_\mathrm{flight} = \dfrac{2u_y}{g}$ \quad (b) $s_y = u_y t + \frac{1}{2}a_y t^2$
+  \quad (c) $v_y = u_y + a_y t$}
+\substitute{\textbf{(a)} Launch and landing at the same height (the hand):\par
+  \eqlines{t &= \frac{2 \times \qty{7.0}{m.s^{-1}}}{\qty{9.8}{m.s^{-2}}} = \qty{1.429}{s}}\par
+  \textbf{(b)} Vertical motion, constant acceleration:\par
+  \eqlines{\qty{2.0}{m} &= (\qty{7.0}{m.s^{-1}})\,t + \tfrac{1}{2}(\qty{-9.8}{m.s^{-2}})\,t^2\\
+  2.0 &= 7.0\,t - 4.9\,t^2 \quad\text{($\tfrac12 \times (-9.8) = -4.9$)}\\
+  0 &= 7.0\,t - 4.9\,t^2 - 2.0 \quad\text{(subtract 2.0 from both sides)}\\
+  0 &= 4.9\,t^2 - 7.0\,t + 2.0 \quad\text{(multiply every term by $-1$)}}\par
+  Quadratic formula with $A = 4.9$, $B = -7.0$, $C = 2.0$:\par
+  \eqlines{B^2 - 4AC &= (-7.0)^2 - 4(4.9)(2.0) = 49.0 - 39.2 = 9.80\\
+  t &= \frac{-B \pm \sqrt{9.80}}{2A} = \frac{7.0 \pm 3.130}{9.8} \quad\text{($-B = +7.0$)}\\
+  t &= \frac{3.870}{9.8} = \qty{0.3949}{s} \quad\text{or}\quad \frac{10.130}{9.8} = \qty{1.0337}{s}}\par
+  Both roots are positive: the first is on the way up, the second on the way down.\par
+  \textbf{(c)} Velocity from $v = u + at$ at each time:\par
+  \eqlines{v_y &= \qty{7.0}{m.s^{-1}} + (\qty{-9.8}{m.s^{-2}})(\qty{0.3949}{s}) = +\qty{3.13}{m.s^{-1}}\\
+  v_y &= \qty{7.0}{m.s^{-1}} + (\qty{-9.8}{m.s^{-2}})(\qty{1.0337}{s}) = \qty{-3.13}{m.s^{-1}}}}
+\answer{(a) \final{\qty{1.4}{s}} \quad (b) \final{\qty{0.39}{s} and \qty{1.0}{s}} \quad
+  (c) \final{\qty{3.1}{m.s^{-1}} up}, then \final{\qty{3.1}{m.s^{-1}} down}
+  (2 significant figures, like the data)}
+\checkstep{the top is at $h_\mathrm{max} = 7.0^2 \div 19.6 = \qty{2.5}{m}$. This is above
+  \qty{2.0}{m}, so two times make sense \cmark. The two times add up to
+  $0.3949 + 1.0337 = \qty{1.429}{s}$, the whole flight: the motion is symmetrical \cmark.
+  Energy gives the same speed: $\sqrt{7.0^2 - 2 \times 9.8 \times 2.0} = \qty{3.13}{m.s^{-1}}$
+  \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Landing in a moving cart}\label{ch1:we:cart}
+A toy cart rolls across the floor, away from a bench, at a uniform velocity of
+\qty{0.60}{m.s^{-1}}. A marble rolls horizontally off the edge of the bench, towards the cart.
+At that moment the middle of the cart is \qty{0.50}{m} (horizontally) from the edge of the
+bench. The top of the cart is \qty{0.80}{m} below the top of the bench. Find the launch speed
+the marble needs to land in the middle of the cart.
+\given{marble: $u_y = 0$, $s_y = \qty{-0.80}{m}$ (down to the top of the cart),
+  $a_y = \qty{-9.8}{m.s^{-2}}$; \ cart: starts at $x_0 = \qty{0.50}{m}$ and moves away at
+  \qty{0.60}{m.s^{-1}}. Positions $x$ are measured from the edge of the bench, forwards positive.}
+\find{the marble's launch speed $u$}
+\formula{marble, vertical (constant acceleration): $s_y = u_y t + \frac{1}{2}a_y t^2$; \
+  marble, horizontal (uniform velocity): $x = ut$; \ cart (uniform velocity): $x = x_0 + 0.60\,t$}
+\substitute{\textbf{Marble, vertical} (constant acceleration, $u_y = 0$): the time in the
+  air.\par
+  \eqlines{\qty{-0.80}{m} &= 0 + \tfrac{1}{2}(\qty{-9.8}{m.s^{-2}})\,t^2 = (\qty{-4.9}{m.s^{-2}})\,t^2\\
+  t^2 &= \frac{\qty{-0.80}{m}}{\qty{-4.9}{m.s^{-2}}} = \qty{0.1633}{s^2}
+    \quad\text{(divide both sides by $-4.9$)}\\
+  t &= \sqrt{\qty{0.1633}{s^2}} = \qty{0.4041}{s} \quad\text{(square root)}}\par
+  \textbf{Cart} (uniform velocity): where it is at this time.\par
+  \eqlines{x_\mathrm{cart} &= \qty{0.50}{m} + (\qty{0.60}{m.s^{-1}})(\qty{0.4041}{s}) = \qty{0.7424}{m}}\par
+  \textbf{Marble, horizontal} (uniform velocity): it must reach the same place at the same
+  time, so $x = ut = x_\mathrm{cart}$.\par
+  \eqlines{u &= \frac{x_\mathrm{cart}}{t} = \frac{\qty{0.7424}{m}}{\qty{0.4041}{s}} = \qty{1.837}{m.s^{-1}}}}
+\answer{\final{$u = \qty{1.8}{m.s^{-1}}$} (2 significant figures)}
+\checkstep{if the cart stood still at \qty{0.50}{m}, the marble would need only
+  $0.50 \div 0.4041 = \qty{1.24}{m.s^{-1}}$. The cart moves away, so a faster launch makes sense
+  \cmark. Same place at the same time: $1.837 \times 0.4041 = \qty{0.742}{m}$ \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $s = ut$ for a falling object. \cmark\ $s = ut$ needs $a = 0$. Vertically,
+        use $s = ut + \frac{1}{2}at^2$.
+  \item \xmark\ Starting two clocks at different moments. \cmark\ Use one $t$ for every object,
+        counted from the same moment.
+  \item \xmark\ ``A parcel dropped from a moving plane falls straight down, or falls behind.''
+        \cmark\ It keeps the plane's horizontal velocity, so it stays under the plane (with no
+        air resistance).
+  \item \xmark\ Throwing away a positive root. \cmark\ Below the top, a ball passes each height
+        twice. Pick the time the question asks for.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``A ball is thrown straight up from a train that moves at a constant velocity. Describe
+        its path as seen from the train and from the ground'' (3 marks). (1) Horizontally there
+        is no force, so the ball keeps the train's velocity (uniform velocity). (2) From the
+        train, it goes straight up and down and lands back in the hand. (3) From the ground,
+        uniform velocity sideways plus constant acceleration downwards gives a parabola.
+  \item In two-object calculations, write the model for each object, for example
+        ``cart: $x = 0.50 + 0.60t$''. The marker can then follow your method. State your
+        assumptions.
+  \item Graph questions: the gradient of a velocity--time graph is the acceleration, and the
+        area under it is the displacement.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A ball is thrown straight up at \qty{9.0}{m.s^{-1}}. Find (a) the time to reach the top,
+        (b) the maximum height and (c) its velocity \qty{1.5}{s} after the throw.
+  \item A cyclist rides at a uniform velocity of \qty{6.0}{m.s^{-1}}. She tosses a ball straight
+        up (as she sees it) at \qty{3.5}{m.s^{-1}} and catches it at the same height. (a) How
+        long is the ball in the air? (b) How far does she ride in that time? (c) Does the ball
+        come down in front of her, behind her or in her hand? Explain.
+  \item The velocity--time graph of a ball thrown straight up is a straight line. It goes from
+        $+\qty{14.7}{m.s^{-1}}$ at $t = 0$ to $-\qty{14.7}{m.s^{-1}}$ at $t = \qty{3.0}{s}$. (a) Find
+        the gradient, and say what it means. (b) Use areas to find the maximum height and the
+        displacement at $t = \qty{3.0}{s}$.
+  \item A marble leaves a bench horizontally at \qty{2.0}{m.s^{-1}}, \qty{1.25}{m} above the
+        floor. A toy cart rolls \emph{towards} the bench at a uniform velocity of
+        \qty{0.50}{m.s^{-1}}. Ignore the cart's height. How far from the bench must the cart be
+        when the marble leaves, so that the marble lands in it?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiment: testing the projectile model}\label{ch1:sec:experiments}
+\covers{M5.IQ1.03}
+
+\begin{keywords}
+  \kw{Independent variable}{the one thing you change on purpose (here the launch speed $u$).}
+  \kw{Dependent variable}{the thing you measure to see the effect (here the range $R$).}
+  \kw{Controlled variables}{the things you keep the same, so the test is fair.}
+  \kw{Random error}{an error that changes from trial to trial, sometimes too big and sometimes
+    too small. Repeats and a mean reduce it.}
+  \kw{Systematic error}{an error in the same direction every time. Repeats do not remove it.}
+\end{keywords}
+
+The syllabus asks you to collect \term{primary data}: data you measure yourself. You use it to
+\term{validate} the relationships in this chapter. This means you test whether the predictions
+match real measurements. For a horizontal launch from height $h$, the model predicts
+\begin{equation}
+  t = \sqrt{\frac{2h}{g}} \qquad\text{and}\qquad R = u\sqrt{\frac{2h}{g}}
+  \label{ch1:eq:benchrange}
+\end{equation}
+(Not on the formula sheet: see the card ``Horizontal launch from a height'' in
+\cref{ch1:sec:model}.) So a graph of $R$ against $u$ should be a straight line through the
+origin. Its gradient should be $\sqrt{2h/g}$ (see the gradient toolkit in \cref{ch1:sec:model}).
+
+\begin{experiment}{Range of a ball launched horizontally}
+\aim{To test whether the projectile model predicts the range of a ball launched horizontally
+  from a bench, for different launch speeds.}
+\apparatus{steel ball (diameter about \qty{16}{mm}); vernier calipers (to measure the ball's
+  diameter); curved ramp with a horizontal end; light gate and timer (a \term{light gate} times
+  how long an object blocks a light beam); plumb line (a weighted string that hangs straight
+  down); metre rule; spirit level (a tool with a bubble that shows when something is level);
+  carbon paper on white paper (the ball leaves a dark dot where it lands); safety glasses
+  (\cref{ch1:fig:apparatus}).
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+      \fill[ground] (-4.6,-0.22) rectangle (4.8,0);
+      \draw[hscink, line width=0.6pt] (-4.6,0) -- (4.8,0);
+      \fill[hscmuted!22] (-4.4,0) rectangle (-0.12,3.0);
+      \draw[hscmuted, line width=0.6pt] (-4.4,0) rectangle (-0.12,3.0);
+      \fill[hscmuted!40] (-3.8,3.0) -- (-3.8,5.0) .. controls (-2.8,3.2) and (-1.8,3.18)
+        .. (0,3.18) -- (0,3.0) -- cycle;
+      \draw[hscink, line width=1.2pt] (-3.8,5.0) .. controls (-2.8,3.2) and (-1.8,3.18) .. (0,3.18);
+      \fill[object] (-3.22,4.42) circle (3.4pt);
+      \fill[object] (0,3.31) circle (3.4pt);
+      \draw[hscink, line width=1pt] (-0.62,3.18) -- (-0.62,3.85) -- (-0.22,3.85) -- (-0.22,3.18);
+      \draw[hscforce, line width=0.6pt, dashed] (-0.62,3.5) -- (-0.22,3.5);
+      \draw[guide, line width=0.8pt] (0,3.31) .. controls (1.3,3.31) and (2.4,2.0) .. (2.9,0.13);
+      \fill[object] (2.9,0.13) circle (3.4pt);
+      \draw[hscink, line width=0.4pt] (0.06,3.12) -- (0.06,0.3);
+      \fill[hscink] (0.06,0.3) -- (-0.02,0.42) -- (0.14,0.42) -- cycle;
+      \fill[hscink!85] (2.3,0) rectangle (3.6,0.07);
+      \draw[guide] (0.2,3.18) -- (4.5,3.18);
+      \draw[displacement, <->] (4.3,0) -- (4.3,3.18) node[midway, right, text=hscink, font=\small] {$h$};
+      \draw[<->, line width=0.6pt, hscink] (0.06,-0.55) -- (2.9,-0.55)
+        node[midway, below, font=\small] {$R$};
+      \node[diagramlabel, font=\footnotesize, anchor=south west] at (-3.7,5.0) {ball released here};
+      \node[diagramlabel, font=\footnotesize] at (-2.3,1.5) {bench};
+      \node[diagramlabel, font=\footnotesize, anchor=south] (lg) at (0.3,4.35) {light gate (measures $u$)};
+      \draw[hscmuted, line width=0.4pt] (lg.south) -- (-0.42,3.88);
+      \node[diagramlabel, font=\footnotesize, anchor=west, align=left] (pl) at (0.3,1.0) {plumb\\line};
+      \draw[hscmuted, line width=0.4pt] (pl.west) -- (0.1,1.0);
+      \node[diagramlabel, font=\footnotesize, anchor=north west] (cp) at (3.15,-0.3) {carbon paper};
+      \draw[hscmuted, line width=0.4pt] (cp.north west) -- (3.3,0.05);
+    \end{tikzpicture}
+  \caption{Side view. The plumb line marks the floor point below the launch
+    point.}\label{ch1:fig:apparatus}
+  \end{figure}}
+\method{\textbf{Variables:} independent: the launch speed $u$; dependent: the range $R$;
+  controlled: $h$, the ball, the ramp and the landing surface.
+  \begin{enumerate}
+  \item Clamp the ramp so its end is horizontal (check with the spirit level). Measure $h$ from
+        the bottom of the ball at the end of the ramp to the floor. Mark the floor point under
+        the plumb line.
+  \item Measure the ball's diameter with the vernier calipers. Set the light-gate beam at the
+        height of the ball's centre, as close to the end of the ramp as possible.
+  \item Release the ball from a marked point on the ramp. The light gate times how long the
+        ball blocks its beam ($\Delta t$). Then $u = \text{diameter} \div \Delta t$. Example:
+        $\Delta t = \qty{13.4}{ms} = \qty{0.0134}{s}$ gives
+        $u = 0.0160 \div 0.0134 = \qty{1.19}{m.s^{-1}}$.
+  \item Measure $R$ from the floor mark to the centre of the dot on the carbon paper.
+  \item Do 5 trials from the same release point and find the mean $R$. Then do the same for
+        4 more release points (5 speeds in total).
+  \item Safety: wear safety glasses. Put a box behind the landing point to catch the ball
+        after it bounces, so no one slips on it.
+\end{enumerate}}
+\results{typical results for $h = \qty{0.900}{m}$ (\cref{ch1:fig:results}). The model predicts
+  $\sqrt{2 \times 0.900/9.8} = \qty{0.429}{s}$, so $R_\mathrm{predicted} = 0.429\,u$. The
+  gradient's unit is $\si{m} \div \si{m.s^{-1}} = \si{s}$: it is the fall time.
+  \par\smallskip
+  \begin{minipage}[c]{0.46\linewidth}\centering\small
+  \begin{tabular}{@{}cccc@{}}
+    \toprule
+    $u$ & mean $R$ & spread & predicted $R$\\
+    (\si{m.s^{-1}}) & (\si{m}) & (\si{m}) & (\si{m})\\
+    \midrule
+    1.19 & 0.498 & 0.015 & 0.510\\
+    1.51 & 0.631 & 0.019 & 0.647\\
+    1.80 & 0.752 & 0.015 & 0.771\\
+    2.08 & 0.876 & 0.007 & 0.891\\
+    2.42 & 1.016 & 0.015 & 1.037\\
+    \bottomrule
+  \end{tabular}\par\smallskip
+  {\footnotesize spread = largest $-$ smallest of the 5 trials}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.52\linewidth}\centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.55\linewidth,
+        xmin=0, xmax=2.7, ymin=0, ymax=1.2,
+        xlabel={$u$ (\si{m.s^{-1}})}, ylabel={$R$ (\si{m})},
+        xtick={0,0.5,...,2.5}, ytick={0,0.2,...,1.2},
+        xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1},
+        yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:2.6, samples=2] {0.4286*x};
+      \addplot[hscseriesA, line width=1pt, domain=0:2.6, samples=2] {0.4227*x - 0.0062};
+      \addplot[hscseriesA, only marks, mark=*, mark size=1.8pt]
+        coordinates {(1.19,0.498) (1.51,0.631) (1.80,0.752) (2.08,0.876) (2.42,1.016)};
+      \node[anchor=east, font=\footnotesize, text=hscink, align=right] at (axis cs:1.6,0.98)
+        {model:\\ gradient \qty{0.429}{s}};
+      \draw[hscmuted, line width=0.4pt] (axis cs:1.62,0.95) -- (axis cs:2.05,0.89);
+      \node[anchor=west, font=\footnotesize, text=hscink, align=left] at (axis cs:1.45,0.28)
+        {best fit:\\ gradient \qty{0.423}{s}};
+      \draw[hscmuted, line width=0.4pt] (axis cs:1.55,0.40) -- (axis cs:1.35,0.56);
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{$R$ against $u$ (typical results).}\label{ch1:fig:results}
+  \end{minipage}}
+\conclusion{the points lie on a straight line very close to the origin. So $R \propto u$: $R$
+  is \term{proportional} to $u$ (double $u$ and $R$ doubles), as \cref{ch1:eq:benchrange}
+  predicts.\par
+  The gradient, \qty{0.423}{s}, differs from the predicted \qty{0.429}{s} by
+  $(0.429 - 0.423) \div 0.429 \times \qty{100}{\percent} = \qty{1.4}{\percent}$.\par
+  To find $g$, square both sides of gradient $= \sqrt{2h/g}$: gradient$^2 = 2h/g$. Then
+  multiply both sides by $g$ and divide both sides by gradient$^2$:
+  \[ g = \frac{2h}{\text{gradient}^2} = \frac{2 \times 0.900}{0.423^2} = \frac{1.800}{0.1789}
+     = \qty{10.06}{m.s^{-2}} \]
+  This differs from \qty{9.8}{m.s^{-2}} by
+  $(10.06 - 9.8) \div 9.8 \times \qty{100}{\percent} = \qty{2.7}{\percent}$ (about
+  \qty{3}{\percent}).\par
+  The data support (validate) the model for a dense ball at low speed. The small, steady
+  shortfall is a systematic error in the measurements, not a failure of the model.}
+\significance{the fall time is the same for every speed, so $R$ grows in step with $u$: the
+  horizontal and vertical motions are independent.}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity} (does it test what it claims?): change only $u$; keep the ball, $h$
+        and the floor the same. The ramp end is horizontal, so $u_y = 0$, as the model
+        assumes. Use a dense ball, so air resistance is small, as the model assumes. Measure
+        $u$ directly with the light gate. Do not calculate it from the ramp height with
+        energy: a rolling ball also spins, so some of the energy goes into spinning. The real
+        $u$ is then smaller than that calculation gives.
+  \item \textbf{Reliability} (do repeats agree?): 5 trials per speed, small spread
+        (\qty{0.019}{m} or less), then the mean.
+  \item \textbf{Accuracy} (how close to the true value?): every $R$ is about \qty{2}{\percent}
+        below the prediction. An error in the same direction every time is a systematic
+        error. Air resistance is too small to cause it: for this steel ball it shortens $R$ by
+        only about \qty{0.1}{\percent}. Likely causes: (1) The light-gate beam misses the centre
+        of the ball. The ball then blocks the beam for less than its full diameter, so $u$
+        comes out too big. A beam \qty{1.5}{mm} off centre makes $u$ about \qty{2}{\percent}
+        too big. (2) $h$ is measured too big. (3) The end of the ramp tilts slightly down.
+\end{itemize}}
+\end{experiment}
+
+Other ways to validate the model:
+\begin{enumerate}
+  \item \textbf{Range against launch angle.} Fire a ball from a spring launcher onto a landing
+        surface at the same height as the launch point. Keep the spring setting the same, so
+        $u$ stays the same. Change $\theta$ from \ang{10} to \ang{80} in \ang{10} steps, with 5
+        trials each. Plot $R$ against $\sin 2\theta$. The model predicts a straight line
+        through the origin with gradient $u^2/g$. The largest $R$ should be at \ang{45}, and
+        \ang{30} and \ang{60} should give equal ranges. The launch and landing heights must
+        match: if the ball lands below the launch point, the best angle is less than \ang{45}.
+  \item \textbf{Range against launch height.} Use the bench set-up with one release point (one
+        $u$) and 4 different bench heights. Plot $R$ against $\sqrt{h}$. The model predicts a
+        straight line through the origin.
+  \item \textbf{Video analysis.} Film a thrown ball and study the video frame by frame. The
+        $v_y$--$t$ graph should be a straight line with gradient \qty{-9.8}{m.s^{-2}}, and the
+        $v_x$--$t$ graph should be flat.
+\end{enumerate}
+
+\begin{examtip}
+\textbf{Validity}: one variable changed, the others controlled, the model's assumptions met.
+\textbf{Reliability}: repeated trials agree (repeat at least 3 times). \textbf{Accuracy}: close
+to the accepted value (give a percentage difference). Never write only ``human error''. Name
+the error, and say how your improvement reduces it.
+\end{examtip}
+
+\begin{quickcheck}
+  \item In the spring-launcher investigation (range against launch angle), name the
+        independent variable, the dependent variable and two controlled variables.
+  \item A student finds $u$ from the release height using $\frac{1}{2}mv^2 = mg\Delta h$
+        instead of a light gate. Explain why this makes the experiment less valid.
+  \item Every measured range was about \qty{2}{\percent} below the prediction. Is this a random
+        error or a systematic error? Suggest one cause.
+\end{quickcheck}
+
+%% ==================================================================
+% Chapter summary (added by the whole-book consistency edit: "How to use this guide" says
+% that every chapter ends with a short summary). Every statement is taught above.
+\begin{summarybox}[unbreakable]{\Cref{ch1:chap} in five lines}
+\begin{itemize}
+  \item Split the launch velocity: $u_x = u\cos\theta$ and $u_y = u\sin\theta$. The horizontal
+        and vertical motions share only the time $t$.
+  \item Horizontally there is no force: uniform velocity, $s_x = u_x t$. Vertically
+        $a_y = \qty{-9.8}{m.s^{-2}}$ all the time: use the three equations of motion.
+  \item At the top only $v_y = 0$. On level ground, $h_\mathrm{max} = \frac{u_y^2}{2g}$,
+        $t_\mathrm{flight} = \frac{2u_y}{g}$ and $R = \frac{u^2\sin 2\theta}{g}$, which is largest
+        at \ang{45}.
+  \item From a height, solve $-h = u_y t - \tfrac{1}{2}gt^2$ for $t$ and keep the positive
+        root. A final velocity needs a size \emph{and} a direction.
+  \item Air resistance makes the range shorter and the path lower and steeper. The model works
+        best for dense, slow objects over short distances.
+\end{itemize}
+\end{summarybox}

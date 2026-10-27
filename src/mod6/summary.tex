@@ -1,0 +1,114 @@
+% summary.tex -- Module 6: Last-minute summary (the night before the exam), 1-2 pages.
+% Ideas, formulas and traps are taken from the big ideas, formula cards, Common mistakes
+% (mu0/2pi = 2e-7; old ampere 2e-7 N/m).
+\unnumberedchapter[\faClipboardList]{Last-minute summary}
+
+Read this the night before the exam: one box for each chapter. Formulas after
+\textcolor{hscmistake}{\bfseries Learn} are \emph{not} on the formula sheet in that form.
+
+% run-in heading inside a summary box, and the "on / not on the sheet" labels
+\newcommand\sumhead[1]{\par{\bfseries\color{hscbrand}#1}\enspace}
+\newcommand\sumLearn{{\bfseries\color{hscmistake}Learn:}}
+\newcommand\sumSheet{{\bfseries\color{hscformula}Sheet:}}
+
+\begin{summarybox}[fontupper=\small]{\Cref{ch1:chap}: Charged Particles in Fields}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item Between parallel plates, $F = qE$ is constant, so $a = qE/m$ is constant. A negative
+        charge is pushed \emph{against} the field.
+  \item The field does work $W = qV$, which becomes kinetic energy. Same $V$, same energy,
+        whatever the gap.
+  \item Between the plates: a parabola, like a projectile, with $a = qE/m$ in place of $g$.
+        Entering at an angle? Split $u$ into $u\cos\theta$ and $u\sin\theta$ first. After
+        the plates: a straight line.
+  \item A magnetic field pushes only on a \emph{moving} charge, at \ang{90} to $v$ and $B$.
+        It does no work, so the speed stays the same: a circle, with $qvB = mv^2/r$. The
+        period does not depend on the speed.
+  \item Compare: an electric field can change the speed; a magnetic field changes only the
+        direction.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $E = \frac{V}{d}$, \ $\vec{F} = q\vec{E}$, \ $W = qV$, \
+$W = qEd$, \ $F = qv_\perp B = qvB\sin\theta$. \ \sumLearn\ $qE = mg$; \
+$\frac{1}{2}mv^2 = qV$; \ $y = \frac{qEL^2}{2mu^2}$; \ $r = \frac{mv}{qB}$; \
+$T = \frac{2\pi m}{qB}$.
+\sumhead{Traps} In $E = \frac{V}{d}$, $d$ is the whole gap; in $W = qEd$, it is the
+distance moved. Change mm, cm and kV to SI. $\theta$ is the angle between $v$ and $B$.
+Electron: reverse the palm rule. After half a circle the particle is $2r$ away. eV $\times$ \num{1.602e-19} $=$ J.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small]{\Cref{ch2:chap}: The Motor Effect}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item A current makes a field: circles around a straight wire (grip rule). A solenoid is
+        like a bar magnet, with a uniform field inside.
+  \item A current in an \emph{external} field feels $F = lIB\sin\theta$: largest at \ang{90}
+        to $B$, zero when parallel. Palm rule: fingers $B$, thumb conventional $I$, palm $F$.
+  \item Parallel wires: same direction attract; opposite directions repel. The forces are
+        equal and opposite (Newton's third law), even if the currents differ.
+  \item Old SI ampere: \qty{1}{A} in each of two long parallel wires \qty{1}{m} apart gives
+        \qty{2e-7}{N} on each metre.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $B = \frac{\mu_0 I}{2\pi r}$, \ $B = \frac{\mu_0 NI}{L}$, \
+$F = lI_\perp B = lIB\sin\theta$, \ $\frac{F}{l} = \frac{\mu_0}{2\pi}\frac{I_1 I_2}{r}$.
+\sumhead{Traps} Reverse an electron flow before using the palm rule. $\theta$ is between the
+wire and $B$. $F/l$ is per metre: multiply by $l$. $B \propto 1/r$, not $1/r^2$. Change cm
+to m and mA to A.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small]{\Cref{ch3:chap}: Electromagnetic Induction}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item Flux $\Phi = BA\cos\theta$, with $\theta$ from the \emph{normal}. Change $B$, $A$ or
+        $\theta$ and the flux changes.
+  \item Faraday: an emf only \emph{while} the flux changes. Faster change or more turns, more
+        emf. A steady flux gives none, however big.
+  \item Lenz: the induced current opposes the \emph{change} in flux. Otherwise energy would
+        come from nothing (conservation of energy).
+  \item A magnet through a coil: two pulses of opposite sign. Moving metal: eddy currents
+        oppose the motion. Two coils: only a \emph{changing} primary current induces an emf.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $\Phi = B_\parallel A = BA\cos\theta$, \
+$\varepsilon = -N\frac{\Delta\Phi}{\Delta t}$. \ \sumLearn\ $\varepsilon = lvB$; \
+$I = \frac{\varepsilon}{R}$; \ $\Delta\Phi = \Phi_\mathrm{final} - \Phi_\mathrm{initial}$.
+\sumhead{Traps} Angle given to the plane? Use $\theta = \ang{90} - \text{angle}$. \si{cm^2}
+to \si{m^2}: $\times 10^{-4}$. Reversing $B$: $\lvert\Delta\Phi\rvert = 2BA$. Say ``clockwise, viewed from
+above''.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small]{\Cref{ch4:chap}: Transformers and Power Transmission}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item AC in the primary makes a changing flux in the core, which induces an emf in the
+        secondary. Steady DC gives no output.
+  \item Step-up: voltage up, current down. Power out is never more than power in.
+  \item Losses and fixes: flux leakage (closed core); $I^2R$ heating (thick copper); eddy
+        currents (laminated core); hysteresis (soft iron). Big transformers: about
+        \qty{99}{\percent} efficient.
+  \item Transmission: $I = P/V$ and $P_\mathrm{loss} = I^2R$. High voltage, small current,
+        tiny loss. Step down near homes for safety.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $\frac{V_\mathrm{p}}{V_\mathrm{s}} =
+\frac{N_\mathrm{p}}{N_\mathrm{s}}$, \ $V_\mathrm{p} I_\mathrm{p} = V_\mathrm{s} I_\mathrm{s}$,
+\ $P = VI$, \ $P = \frac{\Delta E}{\Delta t}$. \ \sumLearn\ $\frac{I_\mathrm{s}}{I_\mathrm{p}}
+= \frac{N_\mathrm{p}}{N_\mathrm{s}}$; \ $\eta = \frac{P_\mathrm{out}}{P_\mathrm{in}} \times
+100\%$; \ $P_\mathrm{loss} = I^2R$.
+\sumhead{Traps} The current ratio is upside down. Take $V$ and $I$ from the same coil. Never
+use $V^2/R$ with the line voltage. $\eta$ as a decimal.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small]{\Cref{ch5:chap}: Motors, Generators and Braking}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item Torque is largest when the plane of the coil is parallel to $B$. The split-ring
+        commutator reverses the current every half turn, so the coil keeps turning one way.
+  \item Back emf opposes the supply. At switch-on it is zero, so $I = V/R$ is large. Faster:
+        more back emf, less current. A jammed motor can burn out. More load: \emph{more}
+        current.
+  \item Generators: slip rings give AC; a split ring gives DC. The emf is largest when the
+        plane is parallel to $B$. Faster turning: higher peak \emph{and} frequency.
+  \item Induction motor: a rotating field induces currents in the rotor, which follows a
+        little slower (slip). Magnetic brake: eddy currents oppose the motion; no force at
+        zero speed.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $\tau = nIA_\perp B = nIAB\sin\theta$, \
+$\tau = r_\perp F$, \ $\varepsilon = -N\frac{\Delta\Phi}{\Delta t}$. \ \sumLearn\
+$I = \frac{V - \varepsilon_\mathrm{back}}{R}$; \ $Q = \frac{1}{2}mu^2 - \frac{1}{2}mv^2$.
+\sumhead{Traps} $\theta$ is from the normal: plane at \ang{30} to $B$ means $\theta = \ang{60}$.
+The current reverses when the plane is \emph{perpendicular} to $B$. Back emf is zero at
+switch-on.
+\end{summarybox}

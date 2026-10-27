@@ -1,0 +1,460 @@
+% practice.tex -- Module 5 (Advanced Mechanics): Practice set.
+% 24 new HSC-style questions: Section I 8 multiple choice, Section II 10 short answer,
+% Section III 6 extended response. 74 marks. Ordered from easy to HSC-hard.
+% Answers: practice_answers.tex (one practiceans per practiceq, same order).
+% All questions are new (new contexts and numbers); none is copied from a booklet,
+% homework or mock paper. Q23 uses published TRAPPIST-1 orbital data (semi-major axes and
+% periods, Agol et al. 2021), rounded to 3 significant figures.
+% \Needspace before each multiple-choice question keeps its stem and options together
+% (conditional, layout-independent; no \clearpage or \pagebreak). Q13 and Q16 (side-by-side
+% diagrams) and the Section III heading also have one, so no header is left alone at a page foot.
+% Local helpers (prefix "prac"), defined below: \pracmarks, \pracblank.
+% Figures and tables here use \caption* (no number): this chapter is unnumbered, so a
+% numbered caption would continue the numbering of Chapter 5.
+\providecommand\pracmarks[1]{\hfill\mbox{\textcolor{hscmuted}{\small(#1)}}}
+% \pracblank: an empty cell for the student to fill in (a short grey line).
+\providecommand\pracblank{\textcolor{hscmuted}{\rule[-2pt]{2.6em}{0.4pt}}}
+
+\unnumberedchapter[\faDumbbell]{Practice set}
+
+These 24 questions are written in the style of the HSC exam. They test all five chapters of
+this book. They start easy and get harder.
+\begin{itemize}
+  \item \textbf{Section I:} 8 multiple-choice questions, 1 mark each. Choose A, B, C or D.
+  \item \textbf{Section II:} 10 short-answer questions, 3 or 4 marks each.
+  \item \textbf{Section III:} 6 extended-response questions, 4 to 7 marks each.
+\end{itemize}
+The total is 74 marks. Allow about 2 hours and 15 minutes. (In the HSC exam you have about
+1.8 minutes for each mark.)
+
+\textbf{For every question:}
+\begin{itemize}
+  \item Use the formula sheet and these data-sheet values: $g = \qty{9.8}{m.s^{-2}}$,
+        $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$, $M_\mathrm{E} = \qty{6.0e24}{kg}$,
+        $r_\mathrm{E} = \qty{6.371e6}{m}$.
+  \item Ignore air resistance, unless the question tells you otherwise.
+  \item Show your working. Give each answer with a unit and sensible significant figures.
+\end{itemize}
+
+The marks for each part of a question are shown on the right, like this: \textcolor{hscmuted}{\small(2 marks)}.
+The tag next to each question number (for example \textcolor{hscbrand}{Ch~2}) shows which chapter
+the question tests. If you get a question wrong, revise that chapter. Full worked answers and
+marking criteria are at the back of the book. Click a question number to jump to its answer.
+
+% =====================================================================
+\section*{Section I: Multiple choice}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:top}
+A ball is thrown at an angle above the horizontal. At the highest point of its path, which
+statement is correct?
+\choices[1]{Its velocity is zero, and its acceleration is zero.}
+  {Its velocity is zero, and its acceleration is \qty{9.8}{m.s^{-2}} downwards.}
+  {Its velocity is horizontal, and its acceleration is zero.}
+  {Its velocity is horizontal, and its acceleration is \qty{9.8}{m.s^{-2}} downwards.}
+\end{practiceq}
+
+\Needspace{18\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:vygraph}
+A ball is launched from level ground at an angle above the horizontal. It lands at the same
+height. Up is positive. Which graph shows the vertical velocity $v_y$ of the ball against
+time $t$, from launch until it lands?
+\choices[2]{%
+  \begin{tikzpicture}[x=1cm, y=0.5cm, baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (2.8,0) node[right, font=\small] {$t$};
+    \draw[axisline] (0,-1.6) -- (0,1.7) node[above, font=\small] {$v_y$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt] (0,1.2) -- (2.4,-1.2);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[x=1cm, y=0.5cm, baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (2.8,0) node[right, font=\small] {$t$};
+    \draw[axisline] (0,-1.6) -- (0,1.7) node[above, font=\small] {$v_y$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt] (0,1.2) -- (1.2,0) -- (2.4,1.2);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[x=1cm, y=0.5cm, baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (2.8,0) node[right, font=\small] {$t$};
+    \draw[axisline] (0,-1.6) -- (0,1.7) node[above, font=\small] {$v_y$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt] (0,1.2) -- (2.4,1.2);
+  \end{tikzpicture}}
+  {%
+  \begin{tikzpicture}[x=1cm, y=0.5cm, baseline=(current bounding box.north)]
+    \draw[axisline] (0,0) -- (2.8,0) node[right, font=\small] {$t$};
+    \draw[axisline] (0,-1.6) -- (0,1.7) node[above, font=\small] {$v_y$};
+    \node[left, font=\footnotesize, text=hscmuted] at (0,0) {0};
+    \draw[hscseriesA, line width=1.3pt, domain=0:2.4, samples=41, smooth]
+      plot (\x, {4*1.3*(\x/2.4)*(1-\x/2.4)});
+  \end{tikzpicture}}
+\end{practiceq}
+
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:ratio}
+A car goes around a flat bend at a constant speed. Friction provides its centripetal force,
+$F$. A second car has the same mass. It goes around a bend with \emph{half} the radius, at
+\emph{twice} the speed. What centripetal force does the second car need?
+\choices{$2F$}{$4F$}{$8F$}{$16F$}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:banked}
+A car goes around a banked curve at exactly its design speed, so it needs no sideways
+friction. Which force provides the centripetal force on the car?
+\choices[2]{the weight of the car}{the friction force between the tyres and the road}
+  {the vertical component of the normal force}{the horizontal component of the normal force}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:merry}
+A merry-go-round (a round playground ride that spins) turns at a steady rate. Child P sits
+\qty{1.0}{m} from the centre. Child Q
+sits \qty{2.0}{m} from the centre. Which statement is correct?
+\choices[1]{P and Q have the same speed.}{Q has twice the angular velocity of P.}
+  {Q has twice the centripetal acceleration of P.}
+  {Q has four times the centripetal acceleration of P.}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:door}
+A door is hinged on one side. Four people push on it, one at a time. Each angle is measured
+between the force and the door. Which push gives the largest torque about the hinge?
+\choices[1]{\qty{30}{N}, \qty{0.90}{m} from the hinge, at \ang{90} to the door}
+  {\qty{50}{N}, \qty{0.60}{m} from the hinge, at \ang{90} to the door}
+  {\qty{80}{N}, \qty{0.90}{m} from the hinge, at \ang{20} to the door}
+  {\qty{100}{N}, \qty{0.25}{m} from the hinge, at \ang{90} to the door}
+\end{practiceq}
+
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{4}\label{pq:planetg}
+A planet has 4 times the mass of the Earth and 2 times the radius of the Earth. At the
+Earth's surface, $g = \qty{9.8}{N.kg^{-1}}$. What is the gravitational field strength at the
+surface of the planet?
+\choices{\qty{2.45}{N.kg^{-1}}}{\qty{9.8}{N.kg^{-1}}}{\qty{19.6}{N.kg^{-1}}}{\qty{39.2}{N.kg^{-1}}}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{5}\label{pq:higher}
+A satellite moves from one circular orbit around the Earth to a \emph{higher} circular orbit.
+How do its kinetic energy $K$, its gravitational potential energy $U$ and its total energy
+$E$ change?
+\choices[1]{$K$ decreases, $U$ increases and $E$ increases.}
+  {$K$ decreases, $U$ increases and $E$ stays the same.}
+  {$K$ increases, $U$ decreases and $E$ decreases.}
+  {$K$ stays the same, $U$ increases and $E$ increases.}
+\end{practiceq}
+
+% =====================================================================
+\section*{Section II: Short answer}
+
+\begin{practiceq}{3}{1}\label{pq:drone}
+A delivery drone flies horizontally at a steady \qty{7.5}{m.s^{-1}}, \qty{20}{m} above flat
+ground. It releases a small first-aid kit.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the time the kit takes to reach the ground. \pracmarks{1 mark}
+  \item Calculate the horizontal distance the kit travels before it lands. \pracmarks{1 mark}
+  \item The drone keeps flying at the same velocity. Where is the drone when the kit lands?
+        Explain your answer. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{3}{2}\label{pq:centrifuge}
+Pilots train in a centrifuge: a seat on the end of a long arm that spins in a horizontal
+circle. The radius of the circle is \qty{8.0}{m}. A \qty{72}{kg} pilot has a centripetal
+acceleration of $6.0g$, that is $6.0 \times \qty{9.8}{m.s^{-2}}$.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the speed of the pilot. \pracmarks{1 mark}
+  \item Calculate the period of the motion. \pracmarks{1 mark}
+  \item Calculate the size of the centripetal force on the pilot. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+% layout QA: keep this short 3-part question on one page
+\Needspace{13\baselineskip}
+\begin{practiceq}{3}{3}\label{pq:turbine}
+The tip of each blade of a wind turbine is \qty{45.0}{m} from the axis. The blades turn at a
+steady 16.0 revolutions per minute (rpm).
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the angular velocity of the blades in \si{rad.s^{-1}}. \pracmarks{1 mark}
+  \item Calculate the speed of a blade tip in \si{km.h^{-1}}. \pracmarks{1 mark}
+  \item Point M is halfway along a blade. Compare the angular velocity and the speed of M with
+        those of the tip. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{3}{4}\label{pq:period}
+A weather satellite moves in a circular orbit around the Earth. Its period is
+\qty{100.0}{min}. Calculate its altitude (its height above the Earth's surface) in
+kilometres.
+\end{practiceq}
+
+\Needspace{14\baselineskip}
+\begin{practiceq}{3}{3}\label{pq:forearm}
+\begin{sidebyside}[0.40]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % upper arm (vertical) and forearm (horizontal); elbow = pivot at (0,0)
+    \fill[hscmuted!25, draw=hscink, line width=0.6pt, rounded corners=2pt]
+      (-0.22,0.18) rectangle (0.22,2.4);
+    \fill[hscmuted!25, draw=hscink, line width=0.6pt, rounded corners=2pt]
+      (-0.15,-0.18) rectangle (4.25,0.18);
+    \fill[hscink] (0,0) circle (2pt);
+    \node[diagramlabel, below, inner sep=4pt, font=\footnotesize] at (0,-0.18) {elbow (pivot)};
+    % biceps force at 0.040 m (drawn at 0.4 cm for clarity, not to scale)
+    \draw[force] (0.45,0.18) -- (0.45,1.75) node[above right, inner sep=1pt, text=hscforce]
+      {$F_\mathrm{b}$};
+    % forearm weight at 0.16 m
+    \draw[force] (1.84,0) -- (1.84,-1.0) node[below, inner sep=2pt, text=hscforce, font=\small]
+      {forearm};
+    % dumbbell at 0.34 m
+    \fill[hscink!80] (3.85,-0.42) rectangle (3.95,0.42);
+    \fill[hscink!80] (3.7,-0.3) rectangle (4.1,0.3);
+    \draw[force] (3.9,-0.42) -- (3.9,-1.4) node[below, inner sep=2pt, text=hscforce, font=\small]
+      {dumbbell};
+  \end{tikzpicture}
+  \captionof*{figure}{An arm holding a dumbbell. The elbow is the pivot.}
+\nextside
+A student holds a \qty{6.0}{kg} dumbbell in her hand. Her forearm is horizontal and does not
+move (see the diagram).
+\begin{itemize}
+  \item The dumbbell is \qty{0.34}{m} from the elbow.
+  \item The forearm and hand have a mass of \qty{1.8}{kg}. Their weight acts
+        \qty{0.16}{m} from the elbow.
+  \item The biceps muscle pulls straight up on the forearm, \qty{0.040}{m} from the elbow.
+\end{itemize}
+Calculate the force $F_\mathrm{b}$ that the biceps muscle exerts.
+\end{sidebyside}
+\end{practiceq}
+
+\begin{practiceq}{4}{1}\label{pq:golf}
+A golf ball is hit from level ground at \qty{126}{km.h^{-1}}, at \ang{24} above the
+horizontal.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the maximum height of the ball. \pracmarks{2 marks}
+  \item Calculate the range of the ball. \pracmarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{3}{5}\label{pq:mercury}
+Mercury has a mass of \qty{3.30e23}{kg} and a radius of \qty{2.44e6}{m}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the escape velocity from the surface of Mercury. \pracmarks{2 marks}
+  \item A spacecraft is in a circular orbit just above Mercury's surface. Show that it must
+        increase its speed by a factor of $\sqrt{2}$ to escape. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{16\baselineskip}
+\begin{practiceq}{4}{2}\label{pq:swingride}
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=0.5cm, y=0.5cm]
+    % scale: 1 m = 0.5 cm. d = 4.0 m, L = 5.0 m at 40 deg to the vertical
+    \fill[ground] (-1.6,-0.3) rectangle (9.4,0);
+    \draw[hscink, line width=0.6pt] (-1.6,0) -- (9.4,0);
+    \draw[guide] (0,-0.3) -- (0,8.6) node[above, diagramlabel, font=\footnotesize] {axis};
+    \fill[hscmuted!35, draw=hscink, line width=0.6pt] (-0.25,0) rectangle (0.25,7.6);
+    \draw[hscink, line width=1.6pt] (0,7.6) -- (4.0,7.6);
+    \fill[hscink] (4.0,7.6) circle (2pt);
+    \draw[hscink, line width=0.8pt] (4.0,7.6) -- (7.214,3.770);
+    \draw[guide] (4.0,7.6) -- (4.0,3.0);
+    \draw[hscink, line width=0.6pt] (4.0,6.0) arc (-90:-50:1.6);
+    \node[diagramlabel, font=\small] at (4.55,5.35) {$\theta$};
+    \draw[object] (6.85,3.25) rectangle (7.6,3.77);
+    \draw[displacement, <->] (0,8.3) -- (4.0,8.3) node[midway, above, text=hscink, font=\small] {$d$};
+    \node[diagramlabel, font=\small, anchor=south west] at (5.75,5.9) {$L$};
+    \draw[hscink, <->, line width=0.6pt] (0,2.4) -- (7.214,2.4)
+      node[midway, below, font=\small] {$r$};
+    \draw[guide] (7.214,3.2) -- (7.214,2.2);
+  \end{tikzpicture}
+  \captionof*{figure}{A swing ride (side view, to scale).}
+\nextside
+In a swing ride, each chair hangs from a chain fixed to the end of a horizontal arm
+(see the diagram). The arm turns around a vertical axis. The arm length is
+$d = \qty{4.0}{m}$ and the chain length is $L = \qty{5.0}{m}$. When the ride turns at a
+steady rate, each chain makes an angle $\theta = \ang{40}$ with the vertical. Treat each rider
+and chair as one small object.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate $r$, the radius of the circle in which a rider moves. \pracmarks{1 mark}
+  \item Calculate the speed of a rider. \pracmarks{2 marks}
+  \item Calculate the period of the ride. \pracmarks{1 mark}
+\end{enumerate}
+\end{sidebyside}
+\end{practiceq}
+
+\begin{practiceq}{4}{3}\label{pq:vertical}
+A student swings a \qty{0.20}{kg} ball on a light string in a vertical circle of radius
+\qty{0.80}{m}. At the top of the circle the ball moves at \qty{3.5}{m.s^{-1}}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the tension in the string at the top of the circle. \pracmarks{2 marks}
+  \item Use energy to calculate the speed of the ball at the bottom of the circle. Assume
+        that only gravity does work on the ball. \pracmarks{1 mark}
+  \item Calculate the tension in the string at the bottom of the circle. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{4}{5}\label{pq:raise}
+A \qty{900}{kg} satellite is in a circular orbit \qty{350}{km} above the Earth's surface.
+Its engine moves it to a new circular orbit with a period of \qty{4.00}{h}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the radius of the new orbit. \pracmarks{1 mark}
+  \item Calculate the smallest energy needed to move the satellite to the new orbit.
+        \pracmarks{2 marks}
+  \item Calculate the change in the satellite's kinetic energy. State what this means for its
+        speed. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+% =====================================================================
+\Needspace{14\baselineskip}
+\section*{Section III: Extended response}
+
+\begin{practiceq}{4}{3}\label{pq:workenergy}
+A small ball is tied to a string. In situation A, it moves in a horizontal circle on a
+smooth (frictionless) table. In situation B, it moves in a vertical circle. In both
+situations, the other end of the string is tied to a fixed point at the centre of the circle,
+and there is no air resistance.
+
+Using the ideas of work and energy, explain why the speed of the ball stays constant in
+situation A but changes in situation B.
+\end{practiceq}
+
+\begin{practiceq}{4}{4}\label{pq:leogeo}
+Compare low Earth orbits and geostationary orbits. In your answer, refer to their altitude
+and period, and link one use of each orbit to a property of that orbit.
+\end{practiceq}
+
+\begin{practiceq}{5}{2}\label{pq:stopper}
+A student wants to show that the centripetal force on an object is proportional to the
+square of its speed ($F_\mathrm{c} \propto v^2$). She ties a rubber stopper to a string. The
+string passes through a short plastic tube held in her hand. A hanging mass $M$ on the other
+end of the string gives the tension, $F_\mathrm{c} = Mg$. This is her method.
+\begin{enumerate}
+  \item Measure the mass of the stopper.
+  \item Hang a \qty{100}{g} mass on the string. Whirl the stopper above your head.
+  \item Use a stopwatch to time \emph{one} revolution of the stopper.
+  \item Change the hanging mass to \qtylist{150;200;250;300}{g}. Time one revolution for each.
+  \item After all the trials, measure the string from the top of the tube to the stopper. Use
+        this length as the radius for every trial.
+\end{enumerate}
+Evaluate the validity and reliability of this method. Recommend improvements.
+\end{practiceq}
+
+% layout QA: start this question on a fresh page if it does not fit, so its text, table and
+% grid stay together (it is about 44 lines tall)
+\Needspace{44\baselineskip}
+\begin{practiceq}{6}{1}\label{pq:launcher}
+A student fixes a spring launcher on the floor. It fires a small ball at the same speed $u$
+every time. The ball leaves the launcher at floor level. She changes the launch angle
+$\theta$ and measures the range $R$ on the level floor. Each range in the table is the mean
+of five trials.
+\begin{table}
+  \caption*{Range of the ball for each launch angle.}
+  \centering
+  \begin{tabular}{@{}lcccccc@{}}
+    \toprule
+    Launch angle $\theta$ & \ang{10} & \ang{15} & \ang{20} & \ang{25} & \ang{30} & \ang{45}\\
+    \midrule
+    $\sin 2\theta$ & \pracblank & \pracblank & \pracblank & \pracblank & \pracblank & \pracblank\\
+    \midrule
+    Mean range $R$ (\si{m}) & 0.660 & 0.958 & 1.236 & 1.482 & 1.661 & 1.918\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+The model predicts $R = \dfrac{u^2\sin 2\theta}{g}$.
+\begin{enumerate}[label=(\alph*)]
+  \item Complete the table: calculate $\sin 2\theta$ for each angle (3 decimal places).
+        \pracmarks{1 mark}
+  \item On the grid below, plot $R$ against $\sin 2\theta$. Draw a line of best fit.
+        \pracmarks{2 marks}
+  \item Use the gradient of your line to calculate the launch speed $u$. \pracmarks{2 marks}
+  \item The maker of the launcher says that $u = \qty{4.40}{m.s^{-1}}$. Suggest a reason for
+        the difference between this value and your answer to (c). \pracmarks{1 mark}
+\end{enumerate}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.86\linewidth, height=0.6\linewidth,
+        xmin=0, xmax=1.1, ymin=0, ymax=2.2,
+        xlabel={$\sin 2\theta$}, ylabel={$R$ (\si{m})},
+        xtick={0,0.2,...,1.0}, ytick={0,0.4,...,2.0},
+        minor x tick num=3, minor y tick num=3,
+        grid=both, minor grid style={hscrule!45, line width=0.2pt},
+        xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1},
+        yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \addplot[draw=none] coordinates {(0,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Grid for part (b).}
+\end{figure}
+\end{practiceq}
+
+% layout QA: keep the question text with its table and graph (about 39 lines tall)
+\Needspace{39\baselineskip}
+\begin{practiceq}{6}{4}\label{pq:trappist}
+The star TRAPPIST-1 has seven known planets. Their orbits are almost circular.
+The table gives data for five of them. The graph shows $r^3$ against $T^2$ for these five
+planets.
+\begin{table}
+  \caption*{Orbits of five planets of TRAPPIST-1 ($r$ = orbital radius, $T$ = period).}
+  \centering
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Planet & $r$ (\si{m}) & $T$ (\si{s}) & $r^3$ ($\times 10^{29}$ \si{m^3}) & $T^2$ ($\times 10^{12}$ \si{s^2})\\
+    \midrule
+    b & \num{1.73e9} & \num{1.31e5} & 0.0518 & 0.0172\\
+    d & \num{3.33e9} & \num{3.50e5} & 0.369  & 0.123\\
+    e & \num{4.38e9} & \num{5.27e5} & 0.840  & 0.278\\
+    f & \num{5.76e9} & \num{7.96e5} & 1.91   & 0.634\\
+    h & \num{9.26e9} & \num{1.62e6} & 7.94   & 2.62\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.78\linewidth, height=0.46\linewidth,
+        xmin=0, xmax=3.0, ymin=0, ymax=9,
+        xlabel={$T^2$ ($\times 10^{12}$ \si{s^2})}, ylabel={$r^3$ ($\times 10^{29}$ \si{m^3})},
+        xtick={0,0.5,...,3.0}, ytick={0,1,...,9},
+        minor x tick num=4, minor y tick num=1,
+        grid=both, minor grid style={hscrule!45, line width=0.2pt},
+        xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \addplot[hscseriesB, line width=1pt, domain=0:2.9, samples=2, mark=none] {3.025*x};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(0.0172,0.0518) (0.1225,0.3693) (0.2777,0.8403) (0.6336,1.911) (2.624,7.940)};
+      \node[anchor=west, font=\small, text=hscink] at (axis cs:2.62,7.94) {\,h};
+      \node[anchor=south east, font=\small, text=hscink] at (axis cs:0.6336,1.911) {f\,};
+      \node[anchor=west, font=\small, text=hscseriesB] at (axis cs:1.55,3.3) {line of best fit};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{$r^3$ against $T^2$ for five planets of TRAPPIST-1.}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+  \item Start from Newton's law of universal gravitation. Show that
+        $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$ for a planet in a circular orbit around a star
+        of mass $M$. \pracmarks{2 marks}
+  \item Use the gradient of the line to calculate the mass of TRAPPIST-1.
+        \pracmarks{3 marks}
+  \item Planet g orbits TRAPPIST-1 at $r = \qty{7.01e9}{m}$. Predict its period in days.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+% layout QA: keep all three parts of this question together (about 17 lines tall)
+\Needspace{17\baselineskip}
+\begin{practiceq}{7}{5}\label{pq:ellipse}
+A \qty{400}{kg} satellite moves around the Earth in an elliptical orbit. At perigee (its
+closest point) it is $r_\mathrm{p} = \qty{6.90e6}{m}$ from the Earth's centre, and its speed is
+$v_\mathrm{p} = \qty{9.63e3}{m.s^{-1}}$. At apogee (its farthest point) it is
+$r_\mathrm{a} = \qty{2.76e7}{m}$ from the Earth's centre.
+\begin{enumerate}[label=(\alph*)]
+  \item Use Kepler's second law to calculate the speed of the satellite at apogee.
+        \pracmarks{1 mark}
+  \item Calculate the total mechanical energy of the satellite at perigee and at apogee.
+        Comment on your answers. \pracmarks{3 marks}
+  \item Using forces and energy, explain why the satellite slows down as it moves from
+        perigee to apogee. \pracmarks{3 marks}
+\end{enumerate}
+\end{practiceq}

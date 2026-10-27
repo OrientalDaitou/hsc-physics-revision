@@ -1,0 +1,1139 @@
+% ch2.tex -- Module 5, Chapter 2: Circular Motion: Forces and Real Situations
+% Vertical circles (forces at the top and bottom, energy) are taught in full in ch3.
+\chapter[Circular Motion: Forces]{Circular Motion: Forces and Real Situations}\label{ch2:chap}
+\covers{M5.IQ2.01, M5.IQ2.02, M5.IQ2.03}
+
+\inquiry{Why do objects move in circles?}
+
+\begin{goals}
+  \item explain why an object moving in a circle at a constant speed is accelerating
+  \item solve problems with $v$, $a_\mathrm{c}$ and $F_\mathrm{c}$, and name the real force
+        that provides $F_\mathrm{c}$
+  \item plan and evaluate an investigation of $F_\mathrm{c}$, $m$, $v$ and $r$
+\end{goals}
+
+\begin{syllabus}
+  \item M5.IQ2.01: investigate how centripetal force, mass, speed and radius are related
+  \item M5.IQ2.02: analyse the forces on objects in uniform circular motion
+  \item M5.IQ2.03: solve problems with $a_\mathrm{c} = v^2/r$, $v = 2\pi r/T$,
+        $F_\mathrm{c} = mv^2/r$ and $\omega = \Delta\theta/t$
+\end{syllabus}
+
+%% ==================================================================
+\section{Uniform circular motion and centripetal force}\label{ch2:sec:ucm}
+\covers{M5.IQ2.01, M5.IQ2.02, M5.IQ2.03}
+
+\begin{bigidea}
+An object moving in a circle at a constant speed is accelerating, because its direction
+keeps changing. The acceleration points to the centre. A net force towards the centre,
+the centripetal force, causes it.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Uniform circular motion}{moving around a circle at a constant speed.}
+  \kw{Period ($T$)}{the time for one full turn. Unit: second (s).}
+  \kw{Tangent}{a line that touches the circle at one point, at \ang{90} to the radius.}
+  \kw{Centripetal acceleration ($a_\mathrm{c}$)}{the acceleration towards the centre of the circle.}
+  \kw{Centripetal force ($F_\mathrm{c}$)}{the net force towards the centre of the circle.}
+\end{keywords}
+
+A car drives around a roundabout at a steady \qty{30}{km.h^{-1}}. The speedometer does not
+change, but the direction keeps changing. This is \term{uniform circular motion}: motion
+around a circle at a constant speed. ``Uniform'' means ``not changing''.
+
+\begin{refresher}{Velocity, acceleration and Newton's laws}
+Velocity is speed \emph{and} direction. It is a \term{vector}: a quantity with a size and a
+direction. If the speed or the direction changes, the velocity changes. A change in velocity
+is an acceleration. The \term{net force} is the total of all the forces on an object, added
+with their directions. First law: with no net force, an object stays still or moves in a
+straight line at a constant speed. Second law: $\vec{F}_\mathrm{net} = m\vec{a}$ (on the
+sheet), so the net force and the acceleration point the same way. The \term{weight} of an
+object is the pull of gravity on it: weight $= mg$, with $g = \qty{9.8}{m.s^{-2}}$ (data
+sheet). A \term{free-body diagram} is a simple drawing of one object, with one arrow for each
+force on it.
+\end{refresher}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \draw[hscmuted!55, line width=0.8pt] (0,0) circle (1.4);
+      \fill[hscink] (0,0) circle (1.5pt);
+      \node[diagramlabel, below, inner sep=3pt] at (0,0) {centre};
+      \draw[->, hscmuted, line width=0.6pt] (212:1.75) arc (212:255:1.75);
+      \node[diagramlabel, text=hscmuted, anchor=north east] at (232:1.85) {motion};
+      \draw[guide] (35:1.4) -- ++(125:2.4);
+      \node[diagramlabel, text=hscmuted, anchor=south, align=center] at ($(35:1.4)+(125:2.35)+(0.35,0.05)$)
+        {path if the\\ string breaks};
+      \foreach \a in {35, 155, 275} {
+        \coordinate (P) at (\a:1.4);
+        \draw[velocity] (P) -- ++(\a+90:1.0);
+        \draw[accel] (P) -- ($(P)!0.5!(0,0)$);
+        \fill[object] (P) circle (4pt);
+      }
+      \node[diagramlabel, text=hscvel, anchor=west] at ($(35:1.4)+(125:0.9)+(0.08,0)$) {$v$};
+      \node[diagramlabel, text=hscacc, anchor=north west, inner sep=1pt] at ($(35:0.85)+(0.05,-0.02)$) {$a_\mathrm{c}$};
+      \node[diagramlabel, text=hscvel] at ($(155:1.4)+(245:1.2)$) {$v$};
+      \node[diagramlabel, text=hscacc, anchor=south, inner sep=2pt] at ($(155:0.85)+(0.05,0.05)$) {$a_\mathrm{c}$};
+      \node[diagramlabel, text=hscvel, anchor=west] at ($(275:1.4)+(5:1.05)$) {$v$};
+      \node[diagramlabel, text=hscacc, anchor=west, inner sep=2pt] at ($(275:0.95)+(0.02,-0.1)$) {$a_\mathrm{c}$};
+      \node[font=\small\bfseries, text=hscink] at (-1.8,1.8) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=6.4cm, yshift=-0.8cm]
+      \coordinate (O) at (0,0);
+      \coordinate (A) at (110:1.8);
+      \coordinate (B) at (160:1.8);
+      \draw[velocity] (O) -- (A) node[pos=0.55, right, inner sep=2pt, text=hscvel] {$v_1$ (earlier)};
+      \draw[velocity] (O) -- (B) node[pos=0.45, below left, inner sep=2pt, text=hscvel] {$v_2$ (later)};
+      \draw[accel] (A) -- (B) node[pos=0.5, above left, inner sep=1pt, text=hscacc] {$\Delta v$};
+      \fill[hscink] (O) circle (1.3pt);
+      \node[font=\small\bfseries, text=hscink] at (-2.1,2.5) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) Top view of a ball whirled on a string (the string is not drawn). The
+    velocity $v$ is along the tangent. The acceleration $a_\mathrm{c}$ points to the centre.
+    (b) The velocities at two nearby points, a moment apart, drawn tail to tail. The change
+    $\Delta v$ points towards the centre of the circle.}
+  \label{ch2:fig:ucm}
+\end{figure}
+
+Look at \cref{ch2:fig:ucm}a. At every moment, the velocity lies along a \term{tangent}. A
+tangent is a line that touches the circle at one point. It is at \ang{90} to the radius.
+
+The velocity arrow keeps turning. In \cref{ch2:fig:ucm}b, $v_1$ is the velocity at one
+moment and $v_2$ is the velocity a short time later. Both arrows have the same length (the
+same speed), but they point in different directions.
+
+The change in velocity is $\Delta v = v_2 - v_1$ ($\Delta$ means ``change in''). To find it,
+draw the two arrows tail to tail. Then $\Delta v$ is the arrow from the tip of $v_1$ to the
+tip of $v_2$, because $v_1 + \Delta v = v_2$. It points towards the centre of the circle.
+
+Acceleration is the change in velocity divided by the time taken. So the acceleration also
+points to the centre. It is the \term{centripetal acceleration} ($a_\mathrm{c}$): the
+acceleration towards the centre. ``Centripetal'' means ``centre-seeking''.
+
+In one full turn, the object goes once around the circle. The distance once around a circle
+is its \term{circumference}, $2\pi r$. The time for one full turn is the \term{period} ($T$).
+Speed is distance divided by time, so $v = \dfrac{2\pi r}{T}$.
+
+\begin{toolkit}{Units and powers of ten}
+\si{km.h^{-1}} to \si{m.s^{-1}}: divide by 3.6 (\qty{72}{km.h^{-1}} $= \qty{20}{m.s^{-1}}$).
+Diameter to radius: halve it. \si{cm} to \si{m}: divide by 100. \si{g} to \si{kg}: divide by
+1000. \term{Frequency} ($f$) is the number of full turns each second. Its unit is the hertz
+(\si{Hz}): \qty{1}{Hz} is one turn per second. Revolutions per minute (rpm) to $f$: divide
+by 60. Then $T = \dfrac{1}{f}$ (from $f = \dfrac{1}{T}$ on the sheet). Example:
+\qty{1200}{rpm} gives $f = 1200 \div 60 = \qty{20}{Hz}$, so $T = \dfrac{1}{20} = \qty{0.050}{s}$.
+
+Answers are often written in \term{scientific notation}: a number from 1 to 10, times a power
+of ten. Examples: $2.9 \times 10^2 = 2.9 \times 100 = 290$, and
+$1.3 \times 10^4 = 1.3 \times 10\,000 = 13\,000$. This form also shows the significant
+figures: $2.9 \times 10^2$ has 2.
+\end{toolkit}
+
+\begin{formulacard}{Speed in a circle}
+  \cardformula{v = \frac{2\pi r}{T}}
+  \begin{symbols}
+    \sym{$v$}{speed of the object (along the tangent)}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+    \sym{$T$}{period: the time for one full turn}{\si{s}}
+  \end{symbols}
+  \inwords{speed = distance for one lap ($2\pi r$) divided by the time for one lap ($T$).}
+  \whentouse{an object goes around a circle at a constant speed.}
+  \whennottouse{the speed changes during the turn (it then gives only the average speed).}
+  \rearranged{$T = \dfrac{2\pi r}{v}$ \qquad $r = \dfrac{vT}{2\pi}$ \qquad
+    with $f = \dfrac{1}{T}$: \ $v = 2\pi r f$}
+  \tensecond{$r = \qty{3.0}{m}$, $T = \qty{6.0}{s}$, so
+    $v = \dfrac{2\pi \times 3.0}{6.0} = \qty{3.1}{m.s^{-1}}$.}
+  \trap{here $T$ is the period (not tension). Use the radius, not the diameter, and the
+    time for \emph{one} turn in seconds.}
+\end{formulacard}
+
+How big is $a_\mathrm{c}$? A faster object changes its velocity in two ways at once.
+(1) It goes round sooner, so its velocity arrow turns more quickly. (2) Its arrow is longer,
+so each bit of turning is a bigger change. Double the speed, and each effect doubles.
+Together, $a_\mathrm{c}$ becomes $2 \times 2 = 4$ times bigger. So $a_\mathrm{c}$ grows with
+$v^2$. A tighter circle (smaller $r$) also turns the arrow more quickly, so $a_\mathrm{c}$ is
+bigger.
+
+\begin{formulacard}{Centripetal acceleration}
+  \cardformula{a_\mathrm{c} = \frac{v^2}{r}}
+  \begin{symbols}
+    \sym{$a_\mathrm{c}$}{centripetal acceleration, towards the centre}{\si{m.s^{-2}}}
+    \sym{$v$}{speed of the object}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+  \end{symbols}
+  \inwords{the acceleration towards the centre grows with the square of the speed and is
+    bigger for a tighter circle.}
+  \whentouse{any object moving in a circle (at that moment).}
+  \whennottouse{to find how fast the speed changes: $a_\mathrm{c}$ changes only the direction.}
+  \rearranged{$v = \sqrt{a_\mathrm{c}\, r}$ \qquad $r = \dfrac{v^2}{a_\mathrm{c}}$.
+    With $v = \dfrac{2\pi r}{T}$: \
+    $a_\mathrm{c} = \dfrac{(2\pi r/T)^2}{r} = \dfrac{4\pi^2 r^2}{T^2\, r} = \dfrac{4\pi^2 r}{T^2}$
+    (not printed in this form: combine the two sheet formulas $v = \dfrac{2\pi r}{T}$ and
+    $a_\mathrm{c} = \dfrac{v^2}{r}$)}
+  \tensecond{$v = \qty{4.0}{m.s^{-1}}$, $r = \qty{2.0}{m}$, so
+    $a_\mathrm{c} = \dfrac{4.0^2}{2.0} = \qty{8.0}{m.s^{-2}}$.}
+  \trap{constant speed does \emph{not} mean zero acceleration. $a_\mathrm{c}$ points to
+    the centre, never outwards.}
+\end{formulacard}
+
+The sheet also lists $\omega = \dfrac{\Delta\theta}{t}$. \term{Angular velocity} ($\omega$)
+is the angle turned each second. Here angles are measured in \term{radians} (rad), another
+unit for angles. One full turn is $2\pi$ rad, the same as \ang{360}. In one period the angle
+turned is $2\pi$ rad. Put $\Delta\theta = 2\pi$ and $t = T$ into the sheet formula:
+$\omega = \dfrac{2\pi}{T}$ (not on the sheet). Unit: \si{rad.s^{-1}}. \Cref{ch3:sec:omega}
+explains $\omega$ in full.
+
+By Newton's second law, an acceleration towards the centre needs a net force towards the
+centre: $F_\mathrm{net} = ma_\mathrm{c} = \dfrac{mv^2}{r}$. This net force is the
+\term{centripetal force} ($F_\mathrm{c}$). Centripetal force is not a new kind of force. It
+is a job that real forces do: the job of pulling the object towards the centre.
+
+Always ask: which real force does the job? \Cref{ch2:tab:jobs} gives the answers. Do not
+worry about the new names in it yet: \cref{ch2:sec:situations} explains each situation with
+a diagram.
+
+\begin{table}
+  \caption{Which real force provides the centripetal force?}\label{ch2:tab:jobs}
+  \centering
+  \begin{tabular}{@{}L{78mm}L{62mm}@{}}
+    \toprule
+    \colhead{Situation} & \colhead{Real force towards the centre}\\
+    \midrule
+    Ball on a string on a smooth (frictionless) table & tension (the pull of the string)\\
+    Conical pendulum (a ball on a string going round in a horizontal circle);
+      swing-ride chairs & horizontal part of the tension\\
+    Playground swing, at its lowest point & tension minus weight ($F_\mathrm{T} - mg$)\\
+    Car on a banked track (a road tilted up at the outside of the bend), at its design
+      speed; marble in a bowl & horizontal part of the normal force (the push of a
+      surface)\\
+    Car on a flat bend & sideways friction from the road on the tyres\\
+    Rider in a rotor ride (a spinning drum) & normal force from the wall\\
+    Moon or satellite in orbit (\cref{ch4:chap}) & gravity\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{formulacard}{Centripetal force}
+  \cardformula{F_\mathrm{c} = \frac{mv^2}{r}}
+  \begin{symbols}
+    \sym{$F_\mathrm{c}$}{centripetal force: the net force towards the centre}{\si{N}}
+    \sym{$m$}{mass of the object}{\si{kg}}
+    \sym{$v$}{speed of the object}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the circle}{\si{m}}
+  \end{symbols}
+  \inwords{the inward net force needed grows with the mass and with the square of the
+    speed, and is bigger for a tighter circle.}
+  \whentouse{any object moving in a circle ($F_\mathrm{net} = ma$ with $a_\mathrm{c} = \dfrac{v^2}{r}$).}
+  \whennottouse{as an extra arrow on a free-body diagram, or for forces along the motion.}
+  \rearranged{$v = \sqrt{\dfrac{F_\mathrm{c}\, r}{m}}$ \qquad $r = \dfrac{mv^2}{F_\mathrm{c}}$
+    \qquad $m = \dfrac{F_\mathrm{c}\, r}{v^2}$}
+  \tensecond{$m = \qty{0.50}{kg}$, $v = \qty{6.0}{m.s^{-1}}$, $r = \qty{3.0}{m}$, so
+    $F_\mathrm{c} = \dfrac{0.50 \times 6.0^2}{3.0} = \qty{6.0}{N}$.}
+  \trap{$F_\mathrm{c}$ is the \emph{net} force, made by real forces. Never label an arrow
+    ``centripetal force''. Mass must be in \si{kg}, not \si{g}.}
+\end{formulacard}
+
+When a car turns left, you feel pushed to the right. But no force pushes you outwards.
+Because of \term{inertia} (the tendency to keep moving in a straight line), your body tries
+to keep going straight. The seat (by friction), the seatbelt and, if you slide across, the
+door push you \emph{inwards}. So you turn with the car.
+
+Some people call the outward feeling a ``centrifugal force'' (``centrifugal'' means
+``centre-fleeing''). It is not a real force. Do not use it in this course.
+
+If a whirling ball's string breaks, the inward force is gone. By Newton's first law, the
+ball then moves in a straight line along the tangent. It does not fly straight outwards
+(\cref{ch2:fig:ucm}a).
+
+\begin{toolkit}{Proportional reasoning: ``what if \ldots?''}
+The sign $\propto$ means ``is proportional to''. $F_\mathrm{c} \propto m$ means: double $m$
+and $F_\mathrm{c}$ doubles; triple $m$ and $F_\mathrm{c}$ triples.
+In $F_\mathrm{c} = \dfrac{mv^2}{r}$, change one quantity and keep the others the same.
+Mass $\times 2$ gives $F_\mathrm{c} \times 2$ ($F_\mathrm{c} \propto m$). Speed $\times 2$ gives
+$F_\mathrm{c} \times 2^2 = \times 4$ ($F_\mathrm{c} \propto v^2$). Radius $\div 2$ at the same
+speed gives $F_\mathrm{c} \times 2$ ($F_\mathrm{c} \propto \dfrac{1}{r}$). You test these
+relationships in the investigation (\cref{ch2:sec:exp}).
+\end{toolkit}
+
+\begin{workedexample}{A cyclist on a circular track}\label{ch2:we:cyclist}
+A cyclist rides around a flat (not tilted) circular track of radius \qty{32}{m} at a
+constant speed. Each lap
+takes \qty{18}{s}. The cyclist and bike have a total mass of \qty{75}{kg}. Calculate (a) the
+speed, (b) the centripetal acceleration and (c) the net force on the cyclist and bike.
+\given{$r = \qty{32}{m}$, \ $T = \qty{18}{s}$ (one lap = one period), \ $m = \qty{75}{kg}$}
+\find{(a) $v$ \quad (b) $a_\mathrm{c}$ \quad (c) $F_\mathrm{c}$}
+\formula{$v = \dfrac{2\pi r}{T}$, \quad $a_\mathrm{c} = \dfrac{v^2}{r}$, \quad
+  $F_\mathrm{c} = ma_\mathrm{c}$}
+\substitute{\eqlines{v &= \frac{2\pi \times \qty{32}{m}}{\qty{18}{s}} = \qty{11.17}{m.s^{-1}}
+    &&\text{(keep the extra digits)}\\
+  a_\mathrm{c} &= \frac{(\qty{11.17}{m.s^{-1}})^2}{\qty{32}{m}} = \qty{3.899}{m.s^{-2}}\\
+  F_\mathrm{c} &= \qty{75}{kg} \times \qty{3.899}{m.s^{-2}} = \qty{292}{N}}}
+\answer{(a) \final{$v = \qty{11}{m.s^{-1}}$} \ (b) \final{$a_\mathrm{c} = \qty{3.9}{m.s^{-2}}$}
+  \ (c) \final{$F_\mathrm{c} = \qty{2.9e2}{N}$} towards the centre}
+\checkstep{\qty{11}{m.s^{-1}} is about \qty{40}{km.h^{-1}}, a fast cyclist. The
+  \qty{290}{N} comes from sideways friction on the tyres (\cref{ch2:sec:situations}).}
+\end{workedexample}
+
+\begin{workedexample}{A puck on an air table}\label{ch2:we:puck}
+A \qty{0.40}{kg} puck on a frictionless air table is tied to a fixed peg by a string. It
+moves in a circle of radius \qty{0.75}{m} at \qty{2.5}{m.s^{-1}}. The string breaks if the
+tension is more than \qty{5.0}{N}. (a) Find the tension. (b) The string is shortened to
+\qty{0.375}{m} at the same speed. Does it break? (c) Describe the path after it breaks.
+\given{$m = \qty{0.40}{kg}$, \ $r = \qty{0.75}{m}$, \ $v = \qty{2.5}{m.s^{-1}}$, \
+  breaking tension \qty{5.0}{N}. The tension is the only horizontal force.}
+\find{(a) $F_\mathrm{T}$ \quad (b) the new tension \quad (c) the path}
+\formula{$F_\mathrm{T} = F_\mathrm{c} = \dfrac{mv^2}{r}$}
+\substitute{\eqlines{\text{(a)}\quad F_\mathrm{T} &= \frac{\qty{0.40}{kg} \times (\qty{2.5}{m.s^{-1}})^2}{\qty{0.75}{m}}
+    = \qty{3.33}{N}\\
+  \text{(b)}\quad F_\mathrm{T} &= \frac{\qty{0.40}{kg} \times (\qty{2.5}{m.s^{-1}})^2}{\qty{0.375}{m}}
+    = \qty{6.67}{N}\\
+  &\text{(radius halved, so force doubled)}}}
+\answer{(a) \final{$F_\mathrm{T} = \qty{3.3}{N}$} \ (b) \final{Yes: $\qty{6.7}{N} > \qty{5.0}{N}$}
+  \ (c) a straight line along the tangent at \qty{2.5}{m.s^{-1}}.}
+\checkstep{(b) fits the ``what if'' rule: $r \div 2$ gives $F_\mathrm{c} \times 2$.
+  (c) With no friction there is no net force, so the speed stays the same.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Constant speed, so no acceleration.'' \cmark\ The direction changes: it accelerates.
+  \item \xmark\ Drawing an ``$F_\mathrm{c}$'' or ``centrifugal'' arrow. \cmark\ Draw only real forces.
+  \item \xmark\ ``If the string breaks, it flies straight out.'' \cmark\ It moves along the tangent.
+  \item \xmark\ ``Double the speed, double the force.'' \cmark\ $v$ is squared: 4 times.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why an object moving in a circle at a constant speed is accelerating''
+(2--3 marks). Full marks need three linked points:
+\begin{enumerate}
+  \item Velocity is a vector: it has a size and a direction.
+  \item The direction keeps changing, so the velocity changes. That is an acceleration.
+  \item The acceleration points to the centre. Its size is $\dfrac{v^2}{r}$.
+\end{enumerate}
+``Identify the force that provides the centripetal force'': name the \emph{real} force (for
+example ``friction from the road on the tyres'') and say it acts towards the centre. The
+answers ``centripetal force'' or ``centrifugal force'' earn no marks.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A Ferris wheel of radius \qty{20}{m} turns once every \qty{80}{s}. Find the speed
+        of a passenger and the wheel's angular velocity $\omega = \dfrac{2\pi}{T}$.
+  \item A car drives around a roundabout at a constant \qty{25}{km.h^{-1}}. Is it
+        accelerating? Explain, and give the direction.
+  \item A washing machine drum of diameter \qty{48}{cm} spins at \qty{1200}{rpm}. Find the
+        period, the speed of a sock on the wall and its centripetal acceleration. Compare
+        the acceleration with $g = \qty{9.8}{m.s^{-2}}$.
+  \item A car needs \qty{3.0}{kN} of friction to take a bend at \qty{50}{km.h^{-1}}. How
+        much does it need (a) at \qty{100}{km.h^{-1}} on the same bend; (b) at
+        \qty{50}{km.h^{-1}} on a bend with half the radius?
+  \item Name the real force that provides the centripetal force: (a) the Moon orbiting
+        the Earth; (b) clothes in a spinning drum; (c) a car on a flat roundabout.
+\end{quickcheck}
+
+%% ==================================================================
+\section{What provides the centripetal force? Real situations}\label{ch2:sec:situations}
+\covers{M5.IQ2.02, M5.IQ2.03}
+
+\begin{bigidea}
+In every situation, find the real forces and split them into a part towards the centre
+and a vertical part. The part towards the centre adds up to $mv^2/r$. Strings pull along
+their length, surfaces push at \ang{90} to themselves, and friction acts along a surface.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Tension ($F_\mathrm{T}$)}{the pull of a string, rope or chain, along its length.}
+  \kw{Normal force ($F_\mathrm{N}$)}{the push of a surface on an object, at \ang{90} to the surface.}
+  \kw{Component}{the part of a force that acts in one chosen direction.}
+  \kw{Conical pendulum}{a mass hanging on a string from a fixed point and moving in a
+    horizontal circle below it; the string sweeps out a cone.}
+  \kw{Banked track}{a curved road that is tilted, higher on the outside of the bend.}
+  \kw{Static friction ($F_\mathrm{f}$)}{friction that stops sliding; it grows as needed, up
+    to a maximum.}
+  \kw{Rotor}{a ride: a spinning drum whose riders stay on the wall when the floor drops.}
+\end{keywords}
+
+\textbf{A method for every circular-motion force problem.}
+\begin{enumerate}
+  \item Find the circle: where is its centre, and what is $r$?
+  \item Draw a free-body diagram: one arrow for each real force (weight, tension, normal
+        force, friction). Do not draw an $F_\mathrm{c}$ arrow.
+  \item Split each force into a part towards the centre and a vertical part.
+  \item Write two equations. Towards the centre: total $= \dfrac{mv^2}{r}$. Vertically (for a
+        horizontal circle): total $= 0$. Then solve.
+\end{enumerate}
+
+\begin{toolkit}{Splitting a force into components}
+\begin{sidebyside}[0.72]
+A force $F$ makes an angle $\theta$ with the \emph{vertical}. Its vertical part is
+$F\cos\theta$: this side is next to the angle, so use $\cos$. Its horizontal part is
+$F\sin\theta$: this side is opposite the angle, so use $\sin$. Check: at $\theta = \ang{0}$
+the force is vertical, and $F\cos 0^\circ = F$ \cmark. If $\theta$ is measured from the
+\emph{horizontal}, swap $\sin$ and $\cos$. Since $\dfrac{\sin\theta}{\cos\theta} = \tan\theta$,
+dividing the parts gives $\dfrac{F\sin\theta}{F\cos\theta} = \tan\theta$. To find an angle
+from its tan, use the $\tan^{-1}$ key, with the calculator in degree mode.
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[guide] (0,0) -- (0,1.6);
+    \draw[guide] (0,1.6) -- (1.12,1.6);
+    \draw[force] (0,0) -- (1.12,1.6) node[pos=0.5, right, text=hscforce] {$F$};
+    \draw[hscink, line width=0.5pt] (0,0.55) arc (90:55:0.55);
+    \node[diagramlabel] at (0.18,0.8) {$\theta$};
+    \node[diagramlabel, anchor=east] at (0,0.9) {$F\cos\theta$};
+    \node[diagramlabel, anchor=south] at (0.56,1.6) {$F\sin\theta$};
+  \end{tikzpicture}
+\end{sidebyside}
+\end{toolkit}
+
+\subsection*{Strings: conical pendulums and swings}
+Hang a ball on a string and push it so that it goes round in a horizontal circle. The
+string sweeps out a cone: this is a \term{conical pendulum}. A ceiling light swinging in a
+circle moves like this. Only two real forces act on the ball (\cref{ch2:fig:conical}): the
+\term{tension} $F_\mathrm{T}$ (the string's pull) and the weight $mg$.
+
+The string hangs from a fixed point, the \term{pivot}. The string has length $L$ and makes an
+angle $\theta$ with the vertical. The centre of the circle is directly \emph{below} the
+pivot, not at it. In \cref{ch2:fig:conical}a, the string is the long side (the hypotenuse) of
+a right-angled triangle, and $r$ is the side opposite $\theta$. Opposite $=$ hypotenuse
+$\times \sin\theta$, so $r = L\sin\theta$.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \fill[ground] (-1.5,0) rectangle (2.4,0.22);
+      \draw[hscink, line width=0.8pt] (-1.5,0) -- (2.4,0);
+      \coordinate (piv) at (0,0);
+      \coordinate (B) at (1.548,-2.212);
+      \coordinate (C) at (0,-2.212);
+      \draw[guide] (piv) -- (0,-2.7);
+      \draw[hscmuted, dashed, line width=0.7pt] (C) ellipse (1.548 and 0.36);
+      \draw[hscink, line width=1pt] (piv) -- (B) node[pos=0.5, right, diagramlabel] {$L$};
+      \draw[hscink, line width=0.5pt] (0,-0.7) arc (270:305:0.7);
+      \node[diagramlabel] at (0.19,-0.92) {$\theta$};
+      \draw[displacement, <->] (C) -- (B) node[pos=0.5, below, diagramlabel, inner sep=2pt] {$r$};
+      \fill[hscink] (C) circle (1.5pt);
+      \draw[hscmuted, line width=0.4pt] (C) -- (-1.75,-2.75);
+      \node[diagramlabel, anchor=north east, align=right, inner sep=1pt] at (-1.75,-2.75) {centre of\\the circle};
+      \fill[object] (B) circle (5pt);
+      \fill[hscink] (piv) circle (1.5pt);
+      \node[diagramlabel, anchor=east] at (-0.12,-0.25) {pivot};
+      \node[font=\small\bfseries, text=hscink] at (-1.3,-0.75) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=7.4cm, yshift=-1.7cm]
+      \coordinate (O) at (0,0);
+      \draw[guide] (O) -- (0,1.5);
+      \draw[guide] (0,1.5) -- (-1.05,1.5);
+      \draw[force] (O) -- (-1.05,1.5) node[pos=0.62, below left, inner sep=1pt, text=hscforce] {$F_\mathrm{T}$};
+      \draw[force] (O) -- (0,-1.5) node[pos=0.8, right, text=hscforce] {$mg$};
+      \draw[hscink, line width=0.5pt] (0,0.55) arc (90:125:0.55);
+      \node[diagramlabel] at (-0.15,0.8) {$\theta$};
+      \node[diagramlabel, anchor=west] at (0.05,1.05) {$F_\mathrm{T}\cos\theta$};
+      \node[diagramlabel, anchor=south] at (-0.53,1.53) {$F_\mathrm{T}\sin\theta$};
+      \draw[displacement] (-1.4,-0.6) -- (-2.5,-0.6);
+      \node[diagramlabel, anchor=north, text=hscmuted] at (-1.95,-0.65) {to the centre};
+      \fill[object] (O) circle (5pt);
+      \node[font=\small\bfseries, text=hscink] at (-2.5,1.8) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A conical pendulum. (a) Side view: the centre of the circle is directly below
+    the pivot. (b) Free-body diagram: only tension and weight act. Dashed lines are the
+    components of the tension.}
+  \label{ch2:fig:conical}
+\end{figure}
+
+Split the tension into \term{components} (parts in chosen directions), with $\theta$ from the
+vertical (see the Maths toolkit above). The weight has no horizontal part. So the horizontal
+part of the tension is the whole net force towards the centre:
+$F_\mathrm{T}\sin\theta = \dfrac{mv^2}{r}$. The ball does not move up or down, so the vertical
+forces balance (up $=$ down): $F_\mathrm{T}\cos\theta = mg$.
+
+The chairs of a swing ride hang in the same way. But their chains hang from a spinning
+frame, not from the axis. So for a swing-ride chair, $r = d + L\sin\theta$, where $d$ is the
+distance from the axis to the top of the chain.
+
+A \term{vertical circle} is an upright circle, like the path of a playground swing. The
+speed changes as the object goes up and down. So this is \emph{not} uniform circular motion.
+But at any one point, the net force towards the centre is still $\dfrac{mv^2}{r}$.
+
+At the lowest point of a swing, the centre of the circle is \emph{above} the child. Take
+``towards the centre'' (up) as positive. The tension points up, to the centre: $+F_\mathrm{T}$.
+The weight points down, away from the centre: $-mg$. So $F_\mathrm{T} - mg = \dfrac{mv^2}{r}$.
+The chains pull harder than your weight, so you feel heavier.
+
+At the top of a vertical circle on a string, both forces point down, towards the centre:
+$F_\mathrm{T} + mg = \dfrac{mv^2}{r}$. These two equations are not on the formula sheet. Each
+one comes from ``net force towards the centre $= \dfrac{mv^2}{r}$'' at that point.
+\Cref{ch3:sec:work} covers vertical circles in full.
+
+\begin{workedexample}{A child on a swing}\label{ch2:we:swing}
+A \qty{25}{kg} child sits on a swing with chains \qty{2.0}{m} long. At the lowest point the
+child moves at \qty{3.0}{m.s^{-1}}. Find the total tension in the chains at that point.
+\given{$m = \qty{25}{kg}$, \ $v = \qty{3.0}{m.s^{-1}}$, \ $r = \qty{2.0}{m}$ (treat the child
+  as a point at the end of the chains)}
+\find{the total tension $F_\mathrm{T}$ at the lowest point}
+\formula{towards the centre (up): $F_\mathrm{T} - mg = \dfrac{mv^2}{r}$. Add $mg$ to both
+  sides: $F_\mathrm{T} = mg + \dfrac{mv^2}{r}$}
+\substitute{\eqlines{mg &= \qty{25}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{245}{N}\\
+  \frac{mv^2}{r} &= \frac{\qty{25}{kg} \times (\qty{3.0}{m.s^{-1}})^2}{\qty{2.0}{m}} = \qty{112.5}{N}\\
+  F_\mathrm{T} &= \qty{245}{N} + \qty{112.5}{N} = \qty{357.5}{N}}}
+\answer{\final{$F_\mathrm{T} = \qty{3.6e2}{N}$}, upwards (2 significant figures)}
+\checkstep{$F_\mathrm{T}$ is bigger than the weight: $\dfrac{357.5}{245} = 1.46$, so the child
+  feels about 1.5 times as heavy \cmark. If the swing were still ($v = 0$), $F_\mathrm{T}$
+  would equal $mg$ \cmark.}
+\end{workedexample}
+
+\subsection*{Tilted surfaces: bowls and banked tracks}
+Roll a marble around the inside of a bowl. No string holds it. The wall pushes on it
+instead. This push is the \term{normal force} $F_\mathrm{N}$: the push of a surface, always at
+\ang{90} to the surface. On the sloping wall of the bowl, $F_\mathrm{N}$ tilts inwards,
+towards the centre of the circle (\cref{ch2:fig:bank}a).
+
+In a round bowl, $F_\mathrm{N}$ lies along the line from the marble to the bowl's centre C.
+So the angle $\theta$ marked at C is the same as the angle of $F_\mathrm{N}$ from the
+vertical. The radius $r$ of the marble's circle is its horizontal distance from the centre
+line. It is not the radius of the bowl.
+
+A \term{banked track} (a bend that is higher on the outside) works in the same way for a car
+(\cref{ch2:fig:bank}b).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \coordinate (C) at (0,0);
+      \draw[hscink, line width=1.6pt] (180:1.8) arc (180:360:1.8);
+      \draw[guide] (0,0.3) -- (0,-2.0);
+      \coordinate (M) at (1.379,-1.157);
+      \draw[guide] (C) -- (M);
+      \draw[hscink, line width=0.5pt] (0,-0.45) arc (270:320:0.45);
+      \node[diagramlabel] at (290:0.66) {$\theta$};
+      \draw[displacement, <->] (0,-1.157) -- (M) node[pos=0.4, below, diagramlabel] {$r$};
+      % F_N along M -> C (140 deg); length 1.15, so its vertical part 1.15 sin140 = 0.74 = mg arrow
+      \draw[force] (M) -- ++(140:1.15) node[pos=0.75, above right, inner sep=1pt, text=hscforce] {$F_\mathrm{N}$};
+      \draw[force] (M) -- ++(0,-0.74) node[pos=0.85, right, text=hscforce] {$mg$};
+      \fill[object] (M) circle (4.5pt);
+      \fill[hscink] (C) circle (1.5pt);
+      \node[diagramlabel, anchor=south east] at (C) {C};
+      \node[font=\small\bfseries, text=hscink] at (-1.9,0.5) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=5.4cm, yshift=-1.8cm]
+      \fill[ground] (0,0) -- (4.2,1.529) -- (4.2,1.2) -- (0,-0.33) -- cycle;
+      \draw[hscink, line width=1pt] (0,0) -- (4.2,1.529);
+      \draw[guide] (0,0) -- (3.0,0);
+      \draw[hscink, line width=0.5pt] (1.0,0) arc (0:20:1.0);
+      \node[diagramlabel] at (1.25,0.17) {$\theta$};
+      \coordinate (P) at (2.632,0.958);
+      \begin{scope}[rotate around={20:(P)}]
+        \draw[object, rounded corners=1.5pt] ($(P)+(-0.55,0.12)$) rectangle ($(P)+(0.55,0.62)$);
+        \fill[hscink] ($(P)+(-0.33,0.11)$) circle (0.11);
+        \fill[hscink] ($(P)+(0.33,0.11)$) circle (0.11);
+      \end{scope}
+      \coordinate (G) at ($(P)+(110:0.37)$);
+      \draw[guide] (G) -- ++(0,1.6);
+      \draw[guide] ($(G)+(0,1.6)$) -- ++(-0.582,0);
+      \draw[force] (G) -- ++(110:1.7) node[pos=0.95, left, inner sep=2pt, text=hscforce] {$F_\mathrm{N}$};
+      \draw[force] (G) -- ++(0,-1.6) node[pos=0.9, right, text=hscforce] {$mg$};
+      \draw[hscink, line width=0.5pt] ($(G)+(0,0.7)$) arc (90:110:0.7);
+      \node[diagramlabel] at ($(G)+(-0.1,0.92)$) {$\theta$};
+      \draw[displacement] (1.3,1.3) -- (0.1,1.3);
+      \node[diagramlabel, anchor=south, text=hscmuted, align=center] at (0.7,1.35) {to the centre\\of the bend};
+      \node[font=\small\bfseries, text=hscink] at (-0.1,2.85) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) A marble circling inside a round bowl (cross-section): $F_\mathrm{N}$ points to
+    the bowl's centre C. (b) A car on a banked track, seen from behind: $F_\mathrm{N}$ is at
+    \ang{90} to the road. In both, $\theta$ is the angle of $F_\mathrm{N}$ from the vertical.}
+  \label{ch2:fig:bank}
+\end{figure}
+
+The maths is the same as for the string, with $F_\mathrm{N}$ in place of $F_\mathrm{T}$.
+Towards the centre: $F_\mathrm{N}\sin\theta = \dfrac{mv^2}{r}$. Vertically:
+$F_\mathrm{N}\cos\theta = mg$.
+
+On a road, $\theta$ is also the \term{bank angle}: the road's tilt from the horizontal. Why?
+$F_\mathrm{N}$ is at \ang{90} to the road, and the vertical is at \ang{90} to the horizontal.
+Tilt the road by $\theta$, and $F_\mathrm{N}$ tilts by the same $\theta$ from the vertical
+(both angles are marked in \cref{ch2:fig:bank}b).
+
+Divide both sides of $F_\mathrm{N}\cos\theta = mg$ by $\cos\theta$:
+$F_\mathrm{N} = \dfrac{mg}{\cos\theta}$. Here $\cos\theta$ is less than 1, so $F_\mathrm{N}$ is
+\emph{bigger} than the weight.
+
+At one speed, the \term{design speed}, no friction is needed. If the car goes faster, it
+tends to slide up the slope, so friction acts \emph{down} the slope. If the car goes slower,
+it tends to slide down, so friction acts \emph{up} the slope. Banking means less friction is
+needed, so turns in wet weather are safer. \Cref{ch2:fig:bankfriction} shows the three cases.
+
+\begin{figure}
+  \centering
+  % Added by the coverage audit (M5.IQ2.02: banked track at other speeds had no diagram).
+  % Bank angle 20 deg; road (0,0)--(2.8,1.019); car at P = (1.4,0.510);
+  \begin{tikzpicture}[x=1.2cm, y=1.2cm]
+    \foreach \dx in {0, 4.0, 8.0} {
+      \begin{scope}[xshift=\dx*1.2cm]
+        \fill[ground] (0,0) -- (2.8,1.019) -- (2.8,0.70) -- (0,-0.319) -- cycle;
+        \draw[hscink, line width=1pt] (0,0) -- (2.8,1.019);
+        \draw[guide] (0,0) -- (0.9,0);
+        \draw[hscink, line width=0.5pt] (0.5,0) arc (0:20:0.5);
+        \node[diagramlabel, font=\footnotesize] at (0.66,0.1) {$\theta$};
+        \begin{scope}[rotate around={20:(1.4,0.510)}]
+          \draw[object, rounded corners=1.5pt] (0.98,0.60) rectangle (1.82,0.98);
+          \fill[hscink] (1.15,0.60) circle (0.085);
+          \fill[hscink] (1.65,0.60) circle (0.085);
+        \end{scope}
+        \draw[force] (1.314,0.744) -- ++(0,-1.0) node[pos=0.9, right, text=hscforce, inner sep=2pt] {$mg$};
+        \draw[force] (1.314,0.744) -- ++(110:1.064) node[pos=1, left, text=hscforce] {$F_\mathrm{N}$};
+        \fill[hscink] (1.314,0.744) circle (1.3pt);
+      \end{scope}
+    }
+    % friction: (a) up the slope, (c) down the slope
+    \draw[force] (1.314,0.744) -- ++(20:0.75) node[pos=1, above, text=hscforce] {$F_\mathrm{f}$};
+    \draw[force] (9.314,0.744) -- ++(200:0.75) node[pos=1, above left, text=hscforce, inner sep=1pt] {$F_\mathrm{f}$};
+    \node[diagramlabel, font=\footnotesize, align=center, anchor=north] at (1.4,-0.5)
+      {\textbf{(a) slower}\\friction up the slope};
+    \node[diagramlabel, font=\footnotesize, align=center, anchor=north] at (5.4,-0.5)
+      {\textbf{(b) at the design speed}\\no friction needed};
+    \node[diagramlabel, font=\footnotesize, align=center, anchor=north] at (9.4,-0.5)
+      {\textbf{(c) faster}\\friction down the slope};
+  \end{tikzpicture}
+  \caption{Forces on a car on a banked track, seen from behind. The centre of the bend is to the
+    left. (a) Slower than the design speed. (b) At the design speed. (c) Faster than the design
+    speed. Arrows are not to scale.}\label{ch2:fig:bankfriction}
+\end{figure}
+
+\begin{formulacard}[notonsheet]{Tilted string or surface}
+  \cardformula{\tan\theta = \frac{v^2}{rg}}
+  \begin{symbols}
+    \sym{$\theta$}{angle of the string (or of $F_\mathrm{N}$) from the vertical; for a road,
+      the bank angle}{\si{\degree} (calculator in DEG mode)}
+    \sym{$v$}{speed (for a banked road: the design speed)}{\si{m.s^{-1}}}
+    \sym{$r$}{radius of the horizontal circle}{\si{m}}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+  \end{symbols}
+  \inwords{a faster speed or a tighter circle needs a bigger lean (a steeper bank).}
+  \whentouse{a conical pendulum; a banked road at its design speed; an object circling
+    inside a bowl or cone without friction.}
+  \whennottouse{a banked road at other speeds (friction also acts), or a flat road.}
+  \rearranged{$v = \sqrt{rg\tan\theta}$ \quad $F_\mathrm{T}$ or $F_\mathrm{N} = \dfrac{mg}{\cos\theta}$
+    \quad conical pendulum: $r = L\sin\theta$; \ swing-ride chair: $r = d + L\sin\theta$
+    ($d$ = axis to top of chain)}
+  \tensecond{a bend of $r = \qty{50}{m}$ banked at \ang{20}:
+    $v = \sqrt{50 \times 9.8 \times \tan 20^\circ} = \qty{13.4}{m.s^{-1}}$
+    ($13.4 \times 3.6 = \qty{48}{km.h^{-1}}$).}
+  \derive{use the two component equations from the free-body diagram ($F$ is $F_\mathrm{T}$
+    or $F_\mathrm{N}$).
+    \begin{align*}
+      F\sin\theta &= \frac{mv^2}{r} && \text{horizontal: net force towards the centre}\\
+      F\cos\theta &= mg && \text{vertical: forces balance}\\
+      \frac{F\sin\theta}{F\cos\theta} &= \frac{mv^2/r}{mg} && \text{divide the first line by the second}\\
+      \tan\theta &= \frac{v^2}{rg} && \text{$F$ cancels ($\sin\theta \div \cos\theta = \tan\theta$); $m$ cancels}
+    \end{align*}}
+  \trap{for a string, $r$ is not the string length: $r = L\sin\theta$. On a slope, do not
+    split forces along the slope (Year 11 habit): the acceleration is horizontal. If a
+    question gives a wall's angle from the \emph{vertical} (for example a cone with walls at
+    \ang{20} to the vertical), $F_\mathrm{N}$ is at \ang{20} from the \emph{horizontal}, so here
+    $\theta = \ang{90} - \ang{20} = \ang{70}$. Mark the angle on your diagram first.}
+\end{formulacard}
+
+\begin{workedexample}{A conical pendulum}\label{ch2:we:conical}
+A \qty{0.30}{kg} ball hangs from a \qty{0.90}{m} string and moves in a horizontal circle.
+The string makes \ang{35} with the vertical. Find (a) the tension, (b) the radius of the
+circle, (c) the speed of the ball and (d) the period.
+\given{$m = \qty{0.30}{kg}$, \ $L = \qty{0.90}{m}$, \ $\theta = \ang{35}$ from the vertical}
+\find{$F_\mathrm{T}$, \ $r$, \ $v$ and $T$}
+\formula{$F_\mathrm{T}\cos\theta = mg$, \ $r = L\sin\theta$, \ $\tan\theta = \dfrac{v^2}{rg}$,
+  \ $v = \dfrac{2\pi r}{T}$}
+\substitute{\eqlines{F_\mathrm{T} &= \frac{mg}{\cos\theta}
+    \quad\text{(divide both sides of $F_\mathrm{T}\cos\theta = mg$ by $\cos\theta$)}\\
+  &= \frac{\qty{0.30}{kg} \times \qty{9.8}{m.s^{-2}}}{\cos 35^\circ}
+    = \frac{\qty{2.94}{N}}{0.8192} = \qty{3.589}{N}\\
+  r &= L\sin\theta = \qty{0.90}{m} \times 0.5736 = \qty{0.5162}{m}}\par
+  % layout QA: two aligned blocks, so the step can break across the page (it left a third of
+  % page empty); the phantom keeps the = signs of both blocks in line
+  \eqlines{\hphantom{F_\mathrm{T}}\llap{$v^2$} &= rg\tan\theta
+    \quad\text{(multiply both sides of $\tan\theta = \tfrac{v^2}{rg}$ by $rg$)}\\
+  v &= \sqrt{\qty{0.5162}{m} \times \qty{9.8}{m.s^{-2}} \times 0.7002} = \qty{1.882}{m.s^{-1}}
+    \quad\text{(square root)}\\
+  T &= \frac{2\pi r}{v}
+    \quad\text{(rearrange $v = \tfrac{2\pi r}{T}$: multiply by $T$, divide by $v$)}\\
+  &= \frac{2\pi \times \qty{0.5162}{m}}{\qty{1.882}{m.s^{-1}}} = \qty{1.723}{s}}}
+\answer{(a) \final{$F_\mathrm{T} = \qty{3.6}{N}$} \ (b) \final{$r = \qty{0.52}{m}$}
+  \ (c) \final{$v = \qty{1.9}{m.s^{-1}}$} \ (d) \final{$T = \qty{1.7}{s}$}}
+\checkstep{$F_\mathrm{T}$ is bigger than the weight (\qty{2.94}{N}), because the string must
+  also pull inwards. $r$ is shorter than $L$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Banking a test-track bend}\label{ch2:we:bankroad}
+Engineers want cars to take a test-track bend of radius \qty{120}{m} at \qty{72}{km.h^{-1}}
+with no friction needed. (a) Find the bank angle. (b) Find the normal force on a
+\qty{1300}{kg} car at this speed.
+\given{$r = \qty{120}{m}$, \ $v = 72 \div 3.6 = \qty{20}{m.s^{-1}}$, \ $m = \qty{1300}{kg}$}
+\find{(a) $\theta$ \quad (b) $F_\mathrm{N}$}
+\formula{$\tan\theta = \dfrac{v^2}{rg}$ \quad and \quad $F_\mathrm{N} = \dfrac{mg}{\cos\theta}$}
+\substitute{\eqlines{\tan\theta &= \frac{(\qty{20}{m.s^{-1}})^2}{\qty{120}{m} \times \qty{9.8}{m.s^{-2}}}
+    = \frac{400}{1176} = 0.3401\\
+  \theta &= \tan^{-1}(0.3401) = 18.79^\circ \quad\text{(inverse tan; keep the extra digits)}\\
+  F_\mathrm{N} &= \frac{\qty{1300}{kg} \times \qty{9.8}{m.s^{-2}}}{\cos 18.79^\circ}
+    = \frac{\qty{12740}{N}}{0.9467} = \qty{1.346e4}{N}}}
+\answer{(a) \final{$\theta = \ang{19}$} \quad (b) \final{$F_\mathrm{N} = \qty{1.3e4}{N}$},
+  at \ang{90} to the road}
+\checkstep{$F_\mathrm{N} = \qty{1.35e4}{N}$ is about 6\,\% bigger than the weight,
+  $mg = \qty{1.27e4}{N}$, because $\dfrac{1}{\cos 18.79^\circ} = 1.06$ \cmark.
+  $\tan\theta$ has no unit: \si{m^2.s^{-2}} over \si{m^2.s^{-2}} \cmark.}
+\end{workedexample}
+
+\subsection*{Friction: flat bends and the rotor ride}
+
+\begin{refresher}{Friction}
+\term{Static friction} stops surfaces sliding over each other. It is only as big as it needs
+to be, up to a maximum: $F_\mathrm{f} \le \mu F_\mathrm{N}$ ($\le$ means ``less than or equal
+to''). The \term{coefficient of friction} ($\mu$) is a number with no unit that says how
+grippy two surfaces are. It is about 0.8 for tyres on a dry road and about 0.1 on ice. On a
+flat road $F_\mathrm{N} = mg$, so the largest friction is $\mu mg$. The formula sheet does not
+print $F_\mathrm{f} \le \mu F_\mathrm{N}$ (Year 11), so learn it. Questions give the value of
+$\mu$.
+\end{refresher}
+
+\begin{sidebyside}[0.50]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \begin{scope}
+      \fill[hscmuted!12] (15:1.7) arc (15:115:1.7) -- (115:2.4) arc (115:15:2.4) -- cycle;
+      \draw[hscmuted, line width=0.7pt] (15:1.7) arc (15:115:1.7);
+      \draw[hscmuted, line width=0.7pt] (15:2.4) arc (15:115:2.4);
+      \fill[hscink] (0,0) circle (1.5pt);
+      \node[diagramlabel, anchor=north] at (0,-0.05) {centre};
+      \coordinate (Q) at (62:2.05);
+      \draw[guide] (0,0) -- (Q);
+      \draw[velocity] (Q) -- ++(152:1.0) node[above, text=hscvel] {$v$};
+      \draw[force] (Q) -- ($(Q)!0.45!(0,0)$) node[pos=0.65, right, text=hscforce] {$F_\mathrm{f}$};
+      \draw[object, rotate around={152:(Q)}] ($(Q)+(-0.27,-0.15)$) rectangle ($(Q)+(0.27,0.15)$);
+      \node[font=\small\bfseries, text=hscink] at (-1.5,2.3) {(a)};
+    \end{scope}
+    \begin{scope}[xshift=3.7cm, yshift=1.0cm]
+      \coordinate (O) at (0,0);
+      \draw[force] (O) -- (0,1.1) node[above, text=hscforce] {$F_\mathrm{N}$};
+      \draw[force] (O) -- (0,-1.1) node[below, text=hscforce] {$mg$};
+      \draw[force] (O) -- (-1.0,0) node[left, text=hscforce] {$F_\mathrm{f}$};
+      \fill[object] (O) circle (5pt);
+      \node[font=\small\bfseries, text=hscink] at (-0.9,1.3) {(b)};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{A car on a flat bend. (a) Top view. (b) Free-body diagram, seen from
+    behind (centre to the left).}\label{ch2:fig:flatbend}
+\nextside
+  When you steer, the tyres push sideways on the road, outwards. Newton's third law says: if
+  A pushes on B, then B pushes back on A with an equal force in the opposite direction. So
+  the road pushes the tyres sideways, \emph{inwards}, towards the centre
+  (\cref{ch2:fig:flatbend}).
+  The tyres grip, so this is static friction. Vertically $F_\mathrm{N} = mg$. Towards the
+  centre, $F_\mathrm{f} = \dfrac{mv^2}{r}$. The bend \emph{requires} $\dfrac{mv^2}{r}$, but the
+  road can give at most $\mu mg$. If more is required, the car skids towards the outside.
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet]{Fastest speed on a flat bend}
+  \cardformula{v_\mathrm{max} = \sqrt{\mu g r}}
+  \begin{symbols}
+    \sym{$v_\mathrm{max}$}{fastest speed without skidding}{\si{m.s^{-1}}}
+    \sym{$\mu$}{coefficient of friction (tyres on road)}{no unit}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+    \sym{$r$}{radius of the bend}{\si{m}}
+  \end{symbols}
+  \inwords{grippier tyres or a wider bend allow a higher speed. The mass makes no difference.}
+  \whentouse{a flat bend where friction is the only sideways force.}
+  \whennottouse{on a banked road, or when the friction force is given (use
+    $F_\mathrm{f} = \dfrac{mv^2}{r}$).}
+  \rearranged{$\mu_\mathrm{min} = \dfrac{v^2}{rg}$ \qquad $r_\mathrm{min} = \dfrac{v^2}{\mu g}$}
+  \tensecond{$\mu = 0.50$, $r = \qty{20}{m}$:
+    $v_\mathrm{max} = \sqrt{0.50 \times 9.8 \times 20} = \qty{9.9}{m.s^{-1}}$ (\qty{36}{km.h^{-1}}).}
+  \derive{friction is the centripetal force, and it has a maximum.
+    \begin{align*}
+      \frac{mv^2}{r} &\le \mu F_\mathrm{N} = \mu mg && \text{friction needed $\le$ largest friction}\\
+      \frac{mv_\mathrm{max}^2}{r} &= \mu mg && \text{at the fastest speed, friction is at its limit}\\
+      \frac{v_\mathrm{max}^2}{r} &= \mu g && \text{divide both sides by $m$}\\
+      v_\mathrm{max}^2 &= \mu g r && \text{multiply both sides by $r$}\\
+      v_\mathrm{max} &= \sqrt{\mu g r} && \text{take the square root}
+    \end{align*}}
+  \trap{friction is not always $\mu F_\mathrm{N}$: that is the \emph{largest} value. The
+    actual friction is whatever is needed, up to that limit.}
+\end{formulacard}
+
+\begin{workedexample}{Can the car make the bend?}\label{ch2:we:car}
+A \qty{1400}{kg} car drives onto a flat bend of radius \qty{40}{m} at \qty{60}{km.h^{-1}}.
+For its tyres, $\mu = 0.80$ on a dry road and $\mu = 0.35$ on a wet road. (a) Find the
+friction needed. (b) Can the car take the bend on the dry road? On the wet road?
+(c) Find the fastest safe speed on the wet road, in \si{km.h^{-1}}.
+\given{$m = \qty{1400}{kg}$, \ $r = \qty{40}{m}$, \ $v = 60 \div 3.6 = \qty{16.667}{m.s^{-1}}$,
+  \ $\mu_\mathrm{dry} = 0.80$, \ $\mu_\mathrm{wet} = 0.35$}
+\find{the friction needed; the largest friction on each road; $v_\mathrm{max}$ (wet)}
+\formula{needed: $F_\mathrm{f} = \dfrac{mv^2}{r}$; \ largest: $\mu mg$; \
+  $v_\mathrm{max} = \sqrt{\mu g r}$}
+\substitute{\eqlines{\text{needed} &= \frac{\qty{1400}{kg} \times (\qty{16.667}{m.s^{-1}})^2}{\qty{40}{m}}
+    = \qty{9.72e3}{N}\\
+  \text{largest (dry)} &= 0.80 \times \qty{1400}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{1.10e4}{N}\\
+  \text{largest (wet)} &= 0.35 \times \qty{1400}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{4.80e3}{N}\\
+  v_\mathrm{max} &= \sqrt{0.35 \times \qty{9.8}{m.s^{-2}} \times \qty{40}{m}} = \qty{11.71}{m.s^{-1}}\\
+  &= 11.71 \times 3.6 = \qty{42.2}{km.h^{-1}}}}
+\answer{(a) \final{$\qty{9.7e3}{N}$} \ (b) dry: yes ($\qty{1.10e4}{N} > \qty{9.7e3}{N}$);
+  wet: no ($\qty{4.8e3}{N} < \qty{9.7e3}{N}$), it skids outwards \ (c) \final{$\qty{42}{km.h^{-1}}$}}
+\checkstep{the wet-road limit is below \qty{60}{km.h^{-1}}, which agrees with (b) \cmark.}
+\end{workedexample}
+
+% layout QA: split 0.31 (was 0.36): the text column was much taller than the figure
+\begin{sidebyside}[0.31]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscink, line width=1.2pt] (-1.4,-0.2) -- (-1.4,2.6);
+    \draw[hscink, line width=1.2pt] (1.4,-0.2) -- (1.4,2.6);
+    \draw[hscmuted, line width=0.7pt] (0,2.6) ellipse (1.4 and 0.25);
+    \draw[guide] (0,-0.7) -- (0,3.15);
+    \node[diagramlabel, anchor=south] at (0,3.15) {axis};
+    \draw[->, hscmuted, line width=0.7pt] (-0.5,3.0) arc (200:340:0.55 and 0.18);
+    \fill[ground] (-1.3,-0.75) rectangle (1.3,-0.6);
+    \draw[hscink, line width=0.7pt] (-1.3,-0.6) -- (1.3,-0.6);
+    \node[diagramlabel, anchor=north, text=hscmuted] at (0,-0.8) {floor has dropped};
+    \fill[hscbrand!45] (1.15,0.4) rectangle (1.36,1.6);
+    \fill[hscbrand!45] (1.255,1.77) circle (0.15);
+    \node[diagramlabel, anchor=west] at (1.45,1.75) {rider};
+    \node[diagramlabel, anchor=west] at (1.45,2.4) {wall};
+    \draw[displacement, <->] (0,0.6) -- (-1.4,0.6) node[pos=0.5, above, diagramlabel] {$r$};
+    \coordinate (R) at (1.255,1.05);
+    \draw[force] (R) -- (0.1,1.05) node[pos=0.55, above, text=hscforce] {$F_\mathrm{N}$};
+    \draw[force] (R) -- (1.255,2.25) node[pos=0.95, left, text=hscforce] {$F_\mathrm{f}$};
+    \draw[force] (R) -- (1.255,-0.15) node[pos=0.9, left, text=hscforce] {$mg$};
+    \fill[hscink] (R) circle (1.8pt);
+  \end{tikzpicture}
+  \captionof{figure}{A rotor ride, cut open: the forces on a rider.}\label{ch2:fig:rotor}
+\nextside
+  In a \term{rotor} ride, a drum spins and the floor drops away, but the riders stay stuck
+  to the wall (\cref{ch2:fig:rotor}).
+  \begin{itemize}
+    \item The wall's normal force is horizontal, towards the axis. It is the centripetal
+          force: $F_\mathrm{N} = \dfrac{mv^2}{r}$.
+    \item Static friction acts up the wall and balances the weight: $F_\mathrm{f} = mg$.
+    \item Riders stay up only if the friction needed ($mg$) is not more than the largest
+          friction ($\mu F_\mathrm{N}$). This sets a slowest safe speed (see the card
+          below). Mass does not matter.
+    \item Faster than this, $F_\mathrm{N}$ and the friction \emph{limit} grow, but the actual
+          friction stays equal to $mg$.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet]{Slowest safe speed in a rotor}
+  \cardformula{v_\mathrm{min} = \sqrt{\frac{gr}{\mu}}}
+  \begin{symbols}
+    \sym{$v_\mathrm{min}$}{slowest speed at which riders do not slide down}{\si{m.s^{-1}}}
+    \sym{$g$}{gravitational acceleration, \qty{9.8}{m.s^{-2}}}{\si{m.s^{-2}}}
+    \sym{$r$}{radius of the drum}{\si{m}}
+    \sym{$\mu$}{coefficient of friction (rider on the wall)}{no unit}
+  \end{symbols}
+  \inwords{a bigger drum or a less grippy wall needs a faster spin. The mass makes no
+    difference.}
+  \whentouse{a spinning drum (rotor) with the floor taken away, riders pressed on the wall.}
+  \whennottouse{a flat bend: there friction is the inward force (use
+    $v_\mathrm{max} = \sqrt{\mu g r}$).}
+  \rearranged{$\mu_\mathrm{min} = \dfrac{gr}{v^2}$ \qquad longest period
+    $T_\mathrm{max} = \dfrac{2\pi r}{v_\mathrm{min}}$}
+  \tensecond{$r = \qty{2.0}{m}$, $\mu = 0.50$:
+    $v_\mathrm{min} = \sqrt{\dfrac{9.8 \times 2.0}{0.50}} = \qty{6.3}{m.s^{-1}}$.}
+  \derive{the wall's push is the centripetal force; friction holds the rider up.
+    \begin{align*}
+      F_\mathrm{N} &= \frac{mv^2}{r} && \text{horizontal: the wall's push is the net force to the axis}\\
+      F_\mathrm{f} &= mg && \text{vertical: the rider does not slide, so the forces balance}\\
+      mg &\le \mu F_\mathrm{N} = \mu\frac{mv^2}{r} && \text{friction needed $\le$ largest friction}\\
+      mg &= \mu\frac{mv_\mathrm{min}^2}{r} && \text{at the slowest speed, friction is at its limit}\\
+      g &= \mu\frac{v_\mathrm{min}^2}{r} && \text{divide both sides by $m$}\\
+      gr &= \mu v_\mathrm{min}^2 && \text{multiply both sides by $r$}\\
+      v_\mathrm{min}^2 &= \frac{gr}{\mu} && \text{divide both sides by $\mu$}\\
+      v_\mathrm{min} &= \sqrt{\frac{gr}{\mu}} && \text{take the square root}
+    \end{align*}}
+  \trap{in a rotor $F_\mathrm{N} = \dfrac{mv^2}{r}$, not $mg$. Here $\mu$ is \emph{under} the
+    line; in $v_\mathrm{max} = \sqrt{\mu g r}$ it is on top.}
+\end{formulacard}
+
+\begin{workedexample}{A rotor ride}\label{ch2:we:rotor}
+A rotor drum has a radius of \qty{2.5}{m}. The coefficient of friction between a rider and
+the wall is 0.50. The rider's mass is \qty{60}{kg}. (a) Find the slowest speed at which the
+rider does not slide down. (b) Find the slowest rotation rate, in revolutions per minute
+(rpm). (c) At this speed, find the normal force and the friction force on the rider.
+\given{$r = \qty{2.5}{m}$, \ $\mu = 0.50$, \ $m = \qty{60}{kg}$}
+\find{(a) $v_\mathrm{min}$ \quad (b) turns per minute \quad (c) $F_\mathrm{N}$ and $F_\mathrm{f}$}
+\formula{$v_\mathrm{min} = \sqrt{\dfrac{gr}{\mu}}$, \quad $T = \dfrac{2\pi r}{v}$, \quad
+  $F_\mathrm{N} = \dfrac{mv^2}{r}$, \quad $F_\mathrm{f} = mg$}
+\substitute{\eqlines{v_\mathrm{min} &= \sqrt{\frac{\qty{9.8}{m.s^{-2}} \times \qty{2.5}{m}}{0.50}}
+    = \sqrt{\qty{49.0}{m^2.s^{-2}}} = \qty{7.00}{m.s^{-1}}\\
+  T_\mathrm{max} &= \frac{2\pi \times \qty{2.5}{m}}{\qty{7.00}{m.s^{-1}}} = \qty{2.244}{s}
+    \quad\text{(the longest period)}\\
+  \text{rpm} &= \frac{\qty{60}{s}}{\qty{2.244}{s}} = 26.7 \quad\text{(turns in one minute)}\\
+  F_\mathrm{N} &= \frac{\qty{60}{kg} \times (\qty{7.00}{m.s^{-1}})^2}{\qty{2.5}{m}} = \qty{1176}{N}\\
+  F_\mathrm{f} &= mg = \qty{60}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{588}{N}}}
+\answer{(a) \final{$v_\mathrm{min} = \qty{7.0}{m.s^{-1}}$} \ (b) \final{about 27 rpm}
+  \ (c) \final{$F_\mathrm{N} = \qty{1.2e3}{N}$} to the axis;
+  \final{$F_\mathrm{f} = \qty{5.9e2}{N}$} up the wall}
+\checkstep{$\mu F_\mathrm{N} = 0.50 \times \qty{1176}{N} = \qty{588}{N} = mg$: the friction is
+  exactly at its limit \cmark. The mass is not needed in (a) or (b) \cmark.}
+\end{workedexample}
+
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using the string length $L$ as the radius. \cmark\ $r = L\sin\theta$ (centre
+        below the pivot).
+  \item \xmark\ $F_\mathrm{T} = mg$, or $F_\mathrm{N} = mg$ on a bank. \cmark\ Only the vertical
+        \emph{component} equals $mg$.
+  \item \xmark\ Drawing $F_\mathrm{N}$ straight up on a banked road. \cmark\ It is at \ang{90}
+        to the road. Mark $\theta$ on the diagram before using $\sin$ or $\cos$.
+  \item \xmark\ Using $\mu F_\mathrm{N}$ as the actual friction. \cmark\ It is only the largest
+        possible friction. In a rotor, $F_\mathrm{f} = mg$.
+  \item \xmark\ ``Friction on a turning car points backwards or outwards.'' \cmark\ The
+        sideways friction points to the centre of the bend.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Show that $\tan\theta = \dfrac{v^2}{rg}$ for a banked track'' (3 marks, one per step):
+\begin{enumerate}
+  \item A free-body diagram with only $F_\mathrm{N}$ (at \ang{90} to the road) and $mg$.
+  \item The two equations: $F_\mathrm{N}\sin\theta = \dfrac{mv^2}{r}$ and
+        $F_\mathrm{N}\cos\theta = mg$.
+  \item Divide them to get $\tan\theta = \dfrac{v^2}{rg}$.
+\end{enumerate}
+``Explain why a car may skid on a wet bend'' (3 marks):
+\begin{enumerate}
+  \item Friction from the road provides the centripetal force.
+  \item A wet road has a smaller $\mu$, so the largest friction, $\mu mg$, is smaller.
+  \item If $\dfrac{mv^2}{r} > \mu mg$, the car cannot follow the curve and slides outwards.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A \qty{0.50}{kg} mass on a string moves in a horizontal circle of radius
+        \qty{0.40}{m} at \qty{1.4}{m.s^{-1}} (a conical pendulum). Find the angle of the
+        string to the vertical and the tension.
+  \item A bend of a cycling track has radius \qty{28}{m} and is banked at \ang{43}. Find
+        its design speed in \si{km.h^{-1}}.
+  \item A \qty{30}{kg} child on a swing passes the lowest point at \qty{4.0}{m.s^{-1}}. The
+        chains are \qty{2.5}{m} long. Find the total tension in the chains there.
+  \item A flat bend has radius \qty{65}{m}. Find the fastest safe speed in \si{km.h^{-1}}
+        when $\mu = 0.75$ (dry) and when $\mu = 0.10$ (ice). Does the car's mass matter?
+  \item A rotor of radius \qty{2.0}{m} turns once every \qty{1.8}{s}. (a) Find the smallest
+        coefficient of friction that stops riders sliding down. (b) The rotor then slowly
+        spins down. For a rider still stuck to the wall, what happens to the normal force
+        and to the friction force?
+\end{quickcheck}
+
+%% ==================================================================
+% consistency edit: keep the heading with the toolkit below (conditional, no forced break)
+\Needspace{14\baselineskip}
+\section{Key experiments}\label{ch2:sec:exp}
+\covers{M5.IQ2.01}
+
+\begin{toolkit}{Straight-line graphs and the gradient}
+The \term{origin} is the point (0, 0) of a graph. If $y = kx$, a graph of $y$ against $x$ is a
+straight line through the origin, and its gradient (slope) is $k$. A \term{line of best fit}
+is the straight line that passes as close as possible to all the points, with about as many
+points above it as below. Write $F_\mathrm{c} = \left(\dfrac{m}{r}\right) v^2$: a graph of
+$F_\mathrm{c}$ against $v^2$ should be a straight line with gradient $\dfrac{m}{r}$. Find the
+gradient from two points far apart \emph{on the line of best fit} (not two data points):
+gradient $= \dfrac{\text{rise}}{\text{run}}$.
+\end{toolkit}
+
+\begin{experiment}{Investigating $F_\mathrm{c} = mv^2/r$ with a whirling stopper}
+\aim{To investigate how the centripetal force on an object in uniform circular motion
+  depends on its speed (Part A), its radius (Part B) and its mass (Part C).}
+\apparatus{rubber stopper, strong nylon string, smooth tube (a pen barrel with taped
+  ends), slotted masses and hanger, paper clip, metre rule, stopwatch, balance, safety
+  glasses.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscmuted, dashed, line width=0.7pt] (0,0.5) ellipse (3.2 and 0.34);
+    \draw[object] (-0.12,-0.75) rectangle (0.12,0.66);
+    \draw[hscink, line width=0.8pt] (0,0.66) -- (3.2,0.5);
+    \draw[displacement, <->] (0.05,0.98) -- (3.2,0.82) node[pos=0.5, above, diagramlabel] {$L$};
+    \fill[hscink] (3.2,0.5) ellipse (0.16 and 0.13);
+    \node[diagramlabel, anchor=west] at (3.42,0.5) {stopper, mass $m$};
+    \draw[force] (3.05,0.51) -- (2.1,0.56) node[pos=0.5, below, inner sep=1pt, fill=hscexp!4!white, text=hscforce] {$F_\mathrm{T}$};
+    \draw[hscink, line width=0.8pt] (0,-0.75) -- (0,-1.35);
+    \draw[hscink, fill=hscmuted!40, line width=0.6pt] (-0.12,-0.98) rectangle (0.12,-0.88);
+    \node[diagramlabel, anchor=west] at (0.25,-0.93) {paper clip (keeps $L$ fixed)};
+    \node[diagramlabel, anchor=west] at (0.25,-0.42) {tube, held in the hand};
+    \draw[object] (-0.33,-1.8) rectangle (0.33,-1.35);
+    \node[diagramlabel] at (0,-1.575) {$M$};
+    \draw[force] (0,-1.8) -- (0,-2.3) node[right, text=hscforce] {$Mg$};
+    \node[diagramlabel, anchor=west] at (0.45,-1.575) {hanging mass};
+  \end{tikzpicture}
+    \caption{Apparatus for the whirling-stopper investigation (side view).}\label{ch2:fig:apparatus}
+  \end{figure}}
+\method{\textbf{Part A: force and speed.}
+\begin{enumerate}
+  \item Measure the stopper's mass $m$. Set up as in \cref{ch2:fig:apparatus}, with
+        $L = \qty{0.75}{m}$ from the top of the tube to the centre of the stopper.
+  \item Whirl the stopper in a horizontal circle. Keep the clip just below the tube, so $L$
+        stays the same.
+  \item Time 20 turns, three times, and average. Period $T = \text{time} \div 20$.
+  \item Repeat for hanging masses $M$ from \qtyrange{0.100}{0.300}{kg}, in steps of
+        \qty{0.050}{kg}.
+\end{enumerate}
+\textbf{Variables in Part A.} The \term{independent variable} (the one you change) is the
+hanging mass $M$: it sets the force. The \term{dependent variable} (the one you measure) is the
+time for 20 turns: it gives $T$, then $v$. The \term{controlled variables} (kept the same) are
+the stopper mass $m$, the length $L$, a horizontal circle and the number of turns timed.
+
+The hanging mass stays still, so the tension equals its weight: $F_\mathrm{T} = Mg$. The
+tension provides the centripetal force, so we use $F_\mathrm{c} = Mg$. (The small sag of the
+string is dealt with under Validity.) The speed is $v = \dfrac{2\pi L}{T}$.
+
+\textbf{Part B: force and radius.} Keep $M$ (so $F_\mathrm{c}$) and $m$ fixed. Set
+$L = 0.40$, 0.55, 0.70, 0.85 and \qty{1.00}{m}, and time 20 turns for each. Plot $v^2$
+against $r$ (here $r = L$).
+
+\textbf{Part C: force and mass.} Keep $M$ and $L$ fixed. Use 1, 2, 3 and then 4 identical
+stoppers, and time 20 turns for each. Plot $v^2$ against $\dfrac{1}{m}$.}
+\results{Part A sample results (made-up but realistic), $m = \qty{0.020}{kg}$,
+  $L = \qty{0.75}{m}$. Each time is the mean of three trials, which agreed within
+  \qty{0.4}{s}.
+  \begin{sidebyside}[0.50]
+    \centering\small
+    \begin{tabular}{@{}cccc@{}}
+      \toprule
+      $F_\mathrm{c} = Mg$ & time for & $T$ & $v^2$\\
+      (\si{N}) & 20 turns (\si{s}) & (\si{s}) & (\si{m^2.s^{-2}})\\
+      \midrule
+      0.98 & 15.70 & 0.7850 & 36.0\\
+      1.47 & 12.63 & 0.6315 & 55.7\\
+      1.96 & 11.10 & 0.5550 & 72.1\\
+      2.45 & 9.80  & 0.4900 & 92.5\\
+      2.94 & 9.07  & 0.4535 & 108.0\\
+      \bottomrule
+    \end{tabular}
+    \captionof{table}{Part A sample results ($M$ from \qtyrange{0.100}{0.300}{kg}).}\label{ch2:tab:results}
+  \nextside
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=\linewidth, height=0.72\linewidth,
+          xmin=0, xmax=120, ymin=0, ymax=3.4,
+          xlabel={$v^2$ (\si{m^2.s^{-2}})}, ylabel={$F_\mathrm{c}$ (\si{N})},
+          xtick={0,40,...,120}, ytick={0,1,...,3}]
+        \addplot[hscseriesB, dashed, line width=1pt, domain=0:120, samples=2] {0.02692*x};
+        \draw[hscmuted, densely dotted, line width=0.7pt] (axis cs:0,0) -- (axis cs:110,0)
+          -- (axis cs:110,2.96);
+        \node[anchor=south, font=\footnotesize, text=hscmuted] at (axis cs:66,0.04) {run $= 110$};
+        \node[anchor=east, font=\footnotesize, text=hscmuted] at (axis cs:109,1.3) {rise $= 2.96$};
+        \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+          coordinates {(36.0,0.98) (55.7,1.47) (72.1,1.96) (92.5,2.45) (108.0,2.94)};
+        \node[anchor=north west, font=\footnotesize, text=hscink, align=left] at (axis cs:4,3.35)
+          {best-fit line:\\ gradient $= \dfrac{2.96}{110}$};
+      \end{axis}
+    \end{tikzpicture}
+    \captionof{figure}{$F_\mathrm{c}$ against $v^2$ (Part A).}\label{ch2:fig:graph}
+  \end{sidebyside}}
+\conclusion{Part A: the graph is a straight line through the origin, so
+  $F_\mathrm{c} \propto v^2$ when $m$ and $r$ stay the same. Two points on the best-fit line
+  are (0, 0) and (110, 2.96). Gradient $= \dfrac{\text{rise}}{\text{run}}
+  = \dfrac{2.96 - 0}{110 - 0} = \qty{0.0269}{kg.m^{-1}}$. Unit:
+  $\si{N} \div \si{m^2.s^{-2}} = \si{kg.m.s^{-2}} \div \si{m^2.s^{-2}} = \si{kg.m^{-1}}$. This is
+  within 1\,\% of $\dfrac{m}{r} = \dfrac{0.020}{0.75} = \qty{0.0267}{kg.m^{-1}}$, so it supports
+  $F_\mathrm{c} = \dfrac{mv^2}{r}$.
+
+  Part B (expected): the theory gives $v^2 = \dfrac{F_\mathrm{c}}{m}\, r$, so $v^2$ against $r$
+  should be a straight line through the origin, with gradient $\dfrac{F_\mathrm{c}}{m}$. If it
+  is, $F_\mathrm{c} = \dfrac{mv^2}{r}$ holds when $r$ changes. So at a fixed speed, a bigger
+  radius needs a smaller force: $F_\mathrm{c} \propto \dfrac{1}{r}$.
+
+  Part C (expected): the theory gives $v^2 = F_\mathrm{c}\, r \times \dfrac{1}{m}$, so $v^2$ against
+  $\dfrac{1}{m}$ should be a straight line through the origin, with gradient $F_\mathrm{c}\, r$.
+  So at a fixed speed, $F_\mathrm{c} \propto m$.
+
+  Other graphs you may be given: $F_\mathrm{c}$ against $\dfrac{1}{T^2}$ (gradient
+  $4\pi^2 mr$), or $T^2$ against $r$ at a fixed force (gradient
+  $\dfrac{4\pi^2 m}{F_\mathrm{c}}$). A graph of $F_\mathrm{c}$ against $v$ is a curve, not a
+  straight line.}
+\significance{It confirms $F_\mathrm{c} = \dfrac{mv^2}{r}$ with a force you can measure (a
+  hanging weight). Engineers use the same model to set safe speeds on bends, to design
+  banked tracks and rides, and to predict satellite orbits (\cref{ch4:chap}).}
+\validity{\begin{itemize}[beginpenalty=10000]
+  \item \textbf{Validity} (does it test what it claims?):
+        \begin{itemize}
+          \item Change one variable at a time.
+          \item Keep $L$ fixed with the clip, and keep the circle horizontal.
+          \item The hanging mass must stay still, or the tension is not $Mg$.
+          \item A smooth tube reduces friction on the string.
+          \item The string sags by a small angle $\phi$ below the horizontal. Then the true
+                radius is $L\cos\phi$, the true speed is $\dfrac{2\pi L\cos\phi}{T}$, and the
+                inward pull is the horizontal part of the tension, $F_\mathrm{T}\cos\phi$. Put
+                these into $F_\mathrm{c} = \dfrac{mv^2}{r}$:
+                \[ F_\mathrm{T}\cos\phi = \frac{m(2\pi L\cos\phi)^2}{T^2 \times L\cos\phi}
+                   = \frac{4\pi^2 mL\cos\phi}{T^2}. \]
+                Divide both sides by $\cos\phi$: $F_\mathrm{T} = \dfrac{4\pi^2 mL}{T^2}$. Using
+                $L$ for $r$ and $v = \dfrac{2\pi L}{T}$ gives the same result, so the sag
+                cancels out.
+        \end{itemize}
+  \item \textbf{Reliability} (do repeats agree?): three trials per mass, averaged; five or
+        more masses; a line of best fit.
+  \item \textbf{Accuracy} (how close to the true value?): reaction time is about
+        \qty{0.2}{s}. That is 44\,\% of one short period (\qty{0.45}{s}), but only 2\,\% of
+        20 periods (about \qty{9}{s}). So time 20 turns, or film with a phone. Measure $L$ to
+        the centre of the stopper.
+  \item \textbf{In the exam,} ``human error'' earns nothing: name the error, say how it
+        affects the result, and give a specific fix. Safety: glasses, tight knots, clear space.
+\end{itemize}}
+\end{experiment}
+
+% Added by the syllabus coverage audit (M5.IQ2.01 is a required investigation, but this section
+% had no exam tip and no Quick check, and Parts B and C had no data to analyse).
+\begin{examtip}
+Three kinds of question are common for this investigation.
+\begin{itemize}
+  \item ``Outline a procedure'' (3--4 marks). Say what you change and how: the hanging mass
+        $M$ sets $F_\mathrm{c} = Mg$. Say what you measure and how: time 20 turns, then find
+        $T$ and $v = 2\pi r/T$. Say what you keep the same: $m$, and $r$ (with the
+        paper clip). Repeat each trial, and plot a graph.
+  \item ``Explain how the results support $F_\mathrm{c} = mv^2/r$'' (2--3 marks).
+        Choose the graph that should be straight: $F_\mathrm{c}$ against $v^2$, $v^2$ against
+        $r$, or $v^2$ against $1/m$. Say that it is a straight line through the
+        origin. Then compare its gradient with the predicted value, as a percentage
+        difference.
+  \item ``Evaluate the method'' (4--5 marks). For each problem, name it, give its effect on
+        the result, and give a specific fix (see ``Validity, reliability and accuracy'' in the
+        experiment above, and \cref{pq:stopper}).
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Part B: a student keeps $M = \qty{0.150}{kg}$ and uses a \qty{0.025}{kg} stopper. Her
+        graph of $v^2$ against $r$ is a straight line through the origin, with gradient
+        \qty{57.5}{m.s^{-2}}. (a) What does a straight line through the origin show? (b) Use
+        the gradient to find $F_\mathrm{c}$. Compare it with $Mg$ as a percentage difference.
+        (c) Use the line to predict the time for 20 turns when $r = \qty{0.80}{m}$.
+  \item Part C: a student keeps $M$ and $L$ fixed. She uses 1, 2, 3 and then 4 identical
+        stoppers. (a) Name the independent variable, the dependent variable and two
+        controlled variables. (b) Which graph should be a straight line through the origin?
+        What should its gradient be? (c) With one stopper the period is \qty{0.60}{s}.
+        Predict the period with two stoppers.
+  \item Use \cref{ch2:tab:results}. When $F_\mathrm{c}$ doubles from \qty{0.98}{N} to
+        \qty{1.96}{N}, by what factor does $v$ change? Explain why a graph of $F_\mathrm{c}$
+        against $v$ is a curve, but a graph of $F_\mathrm{c}$ against $v^2$ is a straight
+        line.
+\end{quickcheck}
+
+%% ==================================================================
+% Chapter summary (added by the whole-book consistency edit: "How to use this guide" says
+% that every chapter ends with a short summary). Every statement is taught above.
+\begin{summarybox}[unbreakable]{\Cref{ch2:chap} in five lines}
+\begin{itemize}
+  \item An object moving in a circle at a constant speed is accelerating, because its
+        direction changes. The acceleration $a_\mathrm{c} = \frac{v^2}{r}$ points to the centre.
+  \item The net force towards the centre is $F_\mathrm{c} = \frac{mv^2}{r}$. It is not a new force:
+        always name the real force (tension, friction, a normal force or gravity).
+  \item Method: draw only real forces. Split them into a part towards the centre (total
+        $\frac{mv^2}{r}$) and a vertical part (total zero for a horizontal circle).
+  \item Conical pendulum, or banked road at its design speed: $\tan\theta = \frac{v^2}{rg}$. Flat bend:
+        $v_\mathrm{max} = \sqrt{\mu g r}$. Rotor: $v_\mathrm{min} = \sqrt{\frac{gr}{\mu}}$.
+  \item Whirling stopper: $F_\mathrm{c} = Mg$, and a graph of $F_\mathrm{c}$ against $v^2$ is a
+        straight line through the origin, with gradient $\frac{m}{r}$.
+\end{itemize}
+\end{summarybox}

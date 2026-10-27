@@ -1,0 +1,191 @@
+% frontmatter.tex -- Module 5 (Advanced Mechanics): cover, How to use this guide,
+% Contents, Module overview.
+% \inquiry boxes in ch1.tex, ch2.tex and ch4.tex.
+% "Formulas at a glance" = one row per formula card in ch1.tex ... ch5.tex, same
+% notation and the same badge (on the sheet / not on the sheet / combine).
+\makecover
+\IfFileExists{../common/howtouse.tex}{\input{../common/howtouse}}{}
+\tableofcontents
+
+\unnumberedchapter[\faMap]{Module overview}
+
+% ---- helpers for the overview only (prefix ov)
+% sheet marks: on the sheet / learn it / combine (same colours and icons as \frow)
+\newcommand\ovYes{\textcolor{hscformula}{\faCheck}}
+\newcommand\ovNo{\textcolor{hscmistake}{\faTimes}}
+\newcommand\ovComb{\textcolor{hsctiptext}{\faLink}}
+% one row of the formula grid:  \ovrow{mark}{formula}{what it is for}
+\newcommand\ovrow[3]{#1 & #2 & {\footnotesize #3}\\\hline}
+% chapter heading row of the formula grid
+\newcommand\ovch[2]{\multicolumn{3}{@{}l@{}}{\rule{0pt}{3.4ex}\cref{#1}:
+  {\bfseries\color{hscbrand}#2}}\\\hline}
+\newenvironment{ovgrid}{%
+  \small\renewcommand\arraystretch{1.32}\arrayrulecolor{hscrule}%
+  \begin{tabular}[t]{@{}C{4.5mm}@{\hspace{1.5mm}}L{37mm}@{\hspace{1.5mm}}L{\dimexpr\linewidth-44.5mm\relax}@{}}}%
+  {\end{tabular}}
+
+\section*{What this module is about}
+
+Module~5 is about things that move along curved paths: a thrown ball, a car on a bend, a
+spinning wheel, a satellite and a planet. In Year~11 you studied motion in a straight line.
+Now the direction of motion keeps changing. Newton's laws, energy and one new law (Newton's
+law of gravitation: every mass pulls every other mass) explain all of it.
+
+\section*{The inquiry questions}
+
+The syllabus asks three inquiry questions (big questions). \Cref{ov:tab:iq} shows which
+chapters answer each one.
+
+\begin{table}
+  \caption{The inquiry questions of Module~5 and the chapters that answer them.}
+  \label{ov:tab:iq}
+  \centering
+  \small
+  \begin{tabular}{@{}L{10mm}L{97mm}L{33mm}@{}}
+    \toprule
+    & \colhead{Inquiry question (from the syllabus)} & \colhead{Answered in}\\
+    \midrule
+    \textbf{IQ1} & \emph{How can models that are used to explain projectile motion be used
+      to analyse and make predictions?} & \cref{ch1:chap}\\
+    \textbf{IQ2} & \emph{Why do objects move in circles?} & \cref{ch2:chap,ch3:chap}\\
+    \textbf{IQ3} & \emph{How does the force of gravity determine the motion of planets and
+      satellites?} & \cref{ch4:chap,ch5:chap}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{How the parts fit together}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \node[concept=80mm, fill=hsctool!8, draw=hsctool!60] (y11) at (0,0)
+      {\textbf{Year 11 tools:} Newton's laws, vectors, energy};
+    \node[concept=38mm] (c1) at (-4.9,-1.6)
+      {\textbf{Ch 1 Projectiles}\\ split into $x$ and $y$};
+    \node[concept=38mm] (c2) at (0,-1.6)
+      {\textbf{Ch 2 Circles: forces}\\ net force to the centre};
+    \node[concept=38mm] (c3) at (4.9,-1.6)
+      {\textbf{Ch 3 Circles: angles, energy, torque}};
+    \node[concept=44mm] (c4) at (-3.0,-3.75)
+      {\textbf{Ch 4 Gravity and orbits}\\ gravity gives \mbox{$F_\mathrm{c}$}; Kepler's laws};
+    \node[concept=46mm] (c5) at (3.0,-3.75)
+      {\textbf{Ch 5 Energy in gravity fields}\\ negative \mbox{$U$}; escape; new orbits};
+    \draw[link] (y11.south west) -- node[linklabel, above left=0pt] {forces in $x$ and $y$} (c1.north);
+    \draw[link] (y11.south) -- node[linklabel] {\mbox{$F_\mathrm{net} = ma$}} (c2.north);
+    \draw[link] (y11.south east) -- node[linklabel, above right=0pt] {work and energy} (c3.north);
+    \draw[link] (c2.east) -- (c3.west);
+    \draw[link] (c1.south) -- node[linklabel, left=5pt] {throw faster}
+      ($(c4.north)+(-1.3,0)$);
+    \draw[link] (c2.south) -- ($(c4.north)+(1.3,0)$);
+    \draw[link] (c3.south) -- node[linklabel, right=5pt] {\mbox{$K + U$}}
+      ($(c5.north)+(1.3,0)$);
+    \draw[link] (c4.east) -- node[linklabel, above] {energy} (c5.west);
+  \end{tikzpicture}
+  \caption{How the ideas in this module are linked. Each arrow means ``this idea is used in
+    the next one'' (``Ch'' means chapter).}\label{ov:fig:map}
+\end{figure}
+
+\section*{All the formulas at a glance}
+
+Every formula card in this book. \ovYes\ = on the HSC formula sheet; \ovNo\ = not on the
+sheet: learn it or derive it; \ovComb\ = join two formulas from the sheet.
+\hyperref[fs:chap]{\emph{Formula sheet explained}} (page~\pageref{fs:chap}) says when to use
+each one.
+
+\par\smallskip\noindent
+\begin{minipage}[t]{0.488\linewidth}
+\begin{ovgrid}
+  \ovch{ch1:chap}{Projectiles}
+  \ovrow{\ovNo}{$u_x = u\cos\theta$\newline $u_y = u\sin\theta$}{split the launch velocity}
+  \ovrow{\ovYes}{$v = u + at$\newline $s = ut + \frac{1}{2}at^2$\newline $v^2 = u^2 + 2as$}
+    {constant acceleration, in each direction}
+  \ovrow{\ovNo}{$t = \sqrt{\frac{2h}{g}}$, \ $R = u\sqrt{\frac{2h}{g}}$}{horizontal launch from a height}
+  \ovrow{\ovNo}{$t_\mathrm{top} = \frac{u_y}{g}$, \ $h_\mathrm{max} = \frac{u_y^2}{2g}$\newline
+    $t_\mathrm{flight} = \frac{2u_y}{g}$}{top of the flight; time of flight (level ground)}
+  \ovrow{\ovNo}{$R = \frac{u^2\sin 2\theta}{g}$}{range on level ground}
+  \ovrow{\ovNo}{$v = \sqrt{v_x^2 + v_y^2}$\newline $\tan\alpha = \frac{\lvert v_y\rvert}{v_x}$}
+    {speed and direction}
+  \ovrow{\ovComb}{$\frac{1}{2}mv_2^2 - \frac{1}{2}mv_1^2$\newline $= mg(h_1 - h_2)$}
+    {speed at a known height}
+  \ovrow{\ovComb}{$s = ut$, \ $v = u$}{uniform velocity ($a = 0$)}
+  \ovch{ch2:chap}{Circles: forces}
+  \ovrow{\ovYes}{$v = \frac{2\pi r}{T}$}{speed in a circle}
+  \ovrow{\ovYes}{$a_\mathrm{c} = \frac{v^2}{r}$}{acceleration to the centre}
+  \ovrow{\ovYes}{$F_\mathrm{c} = \frac{mv^2}{r}$}{net force to the centre}
+  \ovrow{\ovNo}{$\tan\theta = \frac{v^2}{rg}$}{conical pendulum; banked road}
+  \ovrow{\ovNo}{$v_\mathrm{max} = \sqrt{\mu g r}$}{fastest speed on a flat bend}
+  \ovrow{\ovNo}{$v_\mathrm{min} = \sqrt{\frac{gr}{\mu}}$}{slowest safe speed in a rotor}
+  \ovch{ch3:chap}{Circles: angles, energy, torque}
+  \ovrow{\ovYes}{$\omega = \frac{\Delta\theta}{t}$}{angular velocity}
+  \ovrow{\ovNo}{$\omega = \frac{2\pi}{T} = 2\pi f$}{$\omega$ from the period or frequency}
+  \ovrow{\ovNo}{$v = \omega r$}{speed of a point on a spinning object}
+\end{ovgrid}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.488\linewidth}
+\begin{ovgrid}
+  \ovch{ch3:chap}{(continued)}
+  \ovrow{\ovYes}{$W = F_\parallel s = Fs\cos\theta$}{work done by a force}
+  \ovrow{\ovNo}{$W_\mathrm{other} = \Delta E = \Delta K + \Delta U$}{other forces change the total energy}
+  \ovrow{\ovComb}{$\tfrac{1}{2}mv_1^2 + mgh_1$\newline $= \tfrac{1}{2}mv_2^2 + mgh_2$}
+    {speeds on a vertical circle}
+  \ovrow{\ovNo}{top: $F_\mathrm{T} + mg = \frac{mv^2}{r}$\newline
+    bottom: $F_\mathrm{T} - mg = \frac{mv^2}{r}$}{forces at the top and bottom}
+  \ovrow{\ovYes}{$\tau = r_\perp F = rF\sin\theta$}{torque}
+  \ovrow{\ovNo}{$\sum\tau_\mathrm{clockwise}$\newline $= \sum\tau_\mathrm{anticlockwise}$}
+    {balanced torques}
+  \ovch{ch4:chap}{Gravity and orbits}
+  \ovrow{\ovYes}{$F = \frac{GMm}{r^2}$}{gravitational force}
+  \ovrow{\ovNo}{$r = r_\mathrm{E} + h$}{distance from the centre}
+  \ovrow{\ovNo}{$g = \frac{GM}{r^2}$}{field strength}
+  \ovrow{\ovNo}{$v = \sqrt{\frac{GM}{r}}$}{speed in a circular orbit}
+  \ovrow{\ovYes}{$\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$}{Kepler's third law}
+  \ovrow{\ovNo}{$r_\mathrm{p}v_\mathrm{p} = r_\mathrm{a}v_\mathrm{a}$}{Kepler's second law}
+  \ovrow{\ovComb}{$r = \sqrt[3]{\frac{GMT^2}{4\pi^2}}$, \ $h = r - r_\mathrm{E}$}
+    {orbit radius and altitude from $T$}
+  \ovch{ch5:chap}{Energy in gravitational fields}
+  \ovrow{\ovYes}{$U = -\frac{GMm}{r}$}{potential energy (zero at infinity)}
+  \ovrow{\ovNo}{$K = \frac{GMm}{2r}$\newline $E = U + K = -\frac{GMm}{2r}$}
+    {energy in a circular orbit}
+  \ovrow{\ovComb}{$E = K + U$\newline $= \frac{1}{2}mv^2 - \frac{GMm}{r}$}
+    {total energy anywhere on a path}
+  \ovrow{\ovNo}{$v_\mathrm{esc} = \sqrt{\frac{2GM}{r}}$}{escape velocity}
+  \ovrow{\ovNo}{$\Delta E = \frac{GMm}{2}\left(\frac{1}{r_1} - \frac{1}{r_2}\right)$}
+    {energy to change orbit}
+\end{ovgrid}
+\end{minipage}
+\par\medskip
+
+\section*{Key experiments}
+
+The syllabus asks you to carry out or study these investigations. Each has a Key
+experiment box: aim, method, results, conclusion, and validity, reliability and accuracy.
+
+\begin{table}
+  \caption{The key experiments of Module~5. ``Required'' marks the two practical
+    investigations that the syllabus names.}\label{ov:tab:experiments}
+  \centering
+  \small
+  \begin{tabular}{@{}L{48mm}L{54mm}L{17mm}L{17mm}@{}}
+    \toprule
+    \colhead{Experiment} & \colhead{What it shows} & \colhead{Dot point} & \colhead{Where}\\
+    \midrule
+    Range of a ball launched horizontally (\textbf{required})
+      & $R$ grows in step with $u$, as $R = u\sqrt{2h/g}$ predicts & M5.IQ1.03 & \cref{ch1:sec:experiments}\\
+    Whirling a stopper on a string (\textbf{required})
+      & how $F_\mathrm{c}$ depends on speed, radius and mass & M5.IQ2.01 & \cref{ch2:sec:exp}\\
+    Torque on a metre rule
+      & $\tau = rF\sin\theta$; an unbalanced torque changes the rotation & M5.IQ2.05 & \cref{ch3:sec:experiments}\\
+    Work and energy in circular motion
+      & $F_\mathrm{c}$ does no work; $K + U$ in a swing & M5.IQ2.04 & \cref{ch3:sec:experiments}\\
+    What affects $g$? (secondary data)
+      & surface $g$ is proportional to $M/r^2$ & M5.IQ3.01 & \cref{ch4:sec:experiments}\\
+    Kepler's third law and Jupiter's moons
+      & $r^3/T^2$ is the same for each moon; Jupiter's mass & M5.IQ3.04 & \cref{ch4:sec:experiments}\\
+    Orbits in a simulation
+      & the satellite's mass does not matter; bigger orbits are slower & M5.IQ3.02 & \cref{ch4:sec:experiments}\\
+    Launch speed and escape (simulation)
+      & fall back, orbit or escape; testing $v_\mathrm{esc} = \sqrt{2GM/r}$ & M5.IQ3.05 & \cref{ch5:sec:experiment}\\
+    \bottomrule
+  \end{tabular}
+\end{table}

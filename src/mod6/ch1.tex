@@ -1,0 +1,1399 @@
+% ch1.tex -- Module 6, Chapter 1: Charged particles in electric and magnetic fields
+% Syllabus: NSW Physics Stage 6 (2017), Module 6, Inquiry Question 1.
+% Coverage-audit additions (WE ch1:we:angled, WE ch1:we:twocircles):
+\chapter{Charged Particles in Electric and Magnetic Fields}\label{ch1:chap}
+\covers{M6.IQ1.01, M6.IQ1.02, M6.IQ1.03, M6.IQ1.04}
+
+\inquiry{What happens to stationary and moving charged particles when they
+interact with an electric or magnetic field?}
+
+\begin{goals}
+  \item find the field, force, work and speed for a charge between plates
+  \item work out the curved path of a charge between plates (like a projectile)
+  \item find the size and direction of the magnetic force, and the radius of the circle
+  \item compare motion in electric, magnetic and gravitational fields
+\end{goals}
+
+
+%% ==================================================================
+\section{Charges in a uniform electric field}\label{ch1:sec:efield}
+\covers{M6.IQ1.01}
+
+\begin{bigidea}
+Two charged parallel plates make a uniform electric field. A charge between
+them feels a constant force, so it has a constant acceleration. The field does
+work $W = qV$ on the charge, and this becomes kinetic energy.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Electric field strength ($E$)}{the force on each coulomb of charge (the
+    coulomb, \si{C}, is the unit of charge). Unit: \si{V.m^{-1}}, which is the
+    same as \si{N.C^{-1}}.}
+  \kw{Uniform field}{a field with the same strength and direction everywhere.}
+  \kw{Electron volt (eV)}{a tiny unit of energy. It is the energy one electron
+    (or one proton) gains when it moves through a voltage of \qty{1}{V}.
+    $\qty{1}{eV} = \qty{1.602e-19}{J}$.}
+\end{keywords}
+
+An \term{electric field} is a region where a charge feels a force. Its direction
+is the direction of the force on a \emph{positive} charge. \term{Field lines}
+are arrows that show this direction. They start on positive charges and end on
+negative charges.
+
+\begin{refresher}{Charge and voltage (Year 11)}
+Like charges repel; unlike charges attract. A proton has charge $+e$ and an
+electron $-e$. Here $e = \qty{1.602e-19}{C}$ is the \term{elementary charge}
+(the smallest free charge). \term{Potential difference} ($V$) is the energy
+change per coulomb: $V = \frac{\Delta U}{q}$, where $\Delta U$ is the change in
+electric potential energy. In a cell symbol, the long line is $+$.
+The data sheet prints $q_\mathrm{e} = \qty{-1.602e-19}{C}$. In $F = qE$,
+$W = qV$ and $F = qvB\sin\theta$, put in the size, \qty{1.602e-19}{C}, and
+find the direction from the sign separately.
+\end{refresher}
+
+Join two flat metal plates to a battery (\cref{ch1:fig:plates}). Between the
+plates the field lines are straight, parallel and evenly spaced. So the field is
+\term{uniform}: it is the same at every point between the plates. Near the ends
+the lines bulge out a little (the \term{edge effect}). Calculations ignore it.
+When you draw the field, make the middle lines straight and evenly spaced, and
+curve the end lines slightly outwards.
+
+\textbf{Why it matters.} Old TV tubes and X-ray machines use a high voltage
+to speed up electrons. Particle accelerators do the same for
+protons. A bigger voltage gives a stronger push. Plates that are closer together
+put the same voltage across a smaller gap, so the push is also stronger. The
+formula card below says exactly this.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=0.72cm]
+    \draw[field] (0.18,2.0) .. controls (-0.15,1.45) and (-0.15,0.55) .. (0.18,0);
+    \draw[field] (5.82,2.0) .. controls (6.15,1.45) and (6.15,0.55) .. (5.82,0);
+    \foreach \x in {0.75,1.5,...,5.25} \draw[field] (\x,2.0) -- (\x,0);
+    \fill[hscink!75] (0,2.0) rectangle (6,2.17);
+    \fill[hscink!75] (0,-0.17) rectangle (6,0);
+    \foreach \x in {0.375,1.125,...,5.7} {
+      \node[font=\small\bfseries] at (\x,2.45) {$+$};
+      \node[font=\small\bfseries] at (\x,-0.45) {$-$};
+    }
+    \draw[line width=0.8pt] (6,2.08) -- (7.2,2.08) -- (7.2,1.15);
+    \draw[line width=0.8pt] (6.9,1.15) -- (7.5,1.15);
+    \draw[line width=2.2pt] (7.05,0.9) -- (7.35,0.9);
+    \draw[line width=0.8pt] (7.2,0.9) -- (7.2,-0.08) -- (6,-0.08);
+    \node[diagramlabel, right] at (7.5,1.03) {battery, $V$};
+    \draw[<->, line width=0.6pt, hscmuted] (-1.0,0) -- (-1.0,2.0)
+      node[midway, left, text=hscink, font=\small] {$d$};
+    \node[font=\small, text=hscfield, fill=white, inner sep=1.5pt] at (3.375,1.0) {$E$};
+    \draw[force] (1.875,1.55) -- (1.875,0.55);
+    \fill[object] (1.875,1.55) circle (4.5pt);
+    \node[font=\scriptsize\bfseries] at (1.875,1.55) {$+$};
+    \node[diagramlabel, text=hscforce, right, fill=white, inner sep=1pt] at (1.9,0.75) {$F$};
+    \draw[force] (4.875,0.45) -- (4.875,1.45);
+    \fill[object] (4.875,0.45) circle (4.5pt);
+    \node[font=\scriptsize\bfseries] at (4.875,0.45) {$-$};
+    \node[diagramlabel, text=hscforce, right, fill=white, inner sep=1pt] at (4.9,1.25) {$F$};
+  \end{tikzpicture}
+  \caption{The uniform field points from the $+$ plate to the $-$ plate. A
+    positive charge is pushed along the field; an electron is pushed the other
+    way.}\label{ch1:fig:plates}
+\end{figure}
+
+\begin{toolkit}{Powers of ten, prefixes and rearranging}
+Write small numbers in scientific notation: $\num{0.00025} = \num{2.5e-4}$
+(calculator: \texttt{2.5 EXP -4}). Change prefixes to SI units \emph{before} you
+substitute: \qty{1}{mm} $= \qty{e-3}{m}$, \ \qty{1}{cm} $= \qty{e-2}{m}$, \
+\qty{1}{kV} $= \qty{e3}{V}$, \ \qty{1}{mT} $= \qty{e-3}{T}$, \
+\qty{1}{\micro\coulomb} $= \qty{e-6}{C}$.
+To rearrange, do the same thing to both sides. Example: make $v$ the subject of
+$qV = \frac{1}{2}mv^2$. Multiply by 2 ($2qV = mv^2$), divide by $m$
+($v^2 = \frac{2qV}{m}$), then take the square root: $v = \sqrt{\frac{2qV}{m}}$.
+\end{toolkit}
+
+\begin{formulacard}{Electric field between parallel plates}
+  \cardformula{E = \frac{V}{d}}
+  \begin{symbols}
+    \sym{$E$}{electric field strength between the plates}{\si{V.m^{-1}}}
+    \sym{$V$}{potential difference (voltage) between the plates}{\si{V}}
+    \sym{$d$}{distance between the plates}{\si{m}}
+  \end{symbols}
+  \inwords{the field is the voltage divided by the gap. More volts, or a
+    smaller gap, gives a stronger field.}
+  \whentouse{the uniform field between two parallel plates.}
+  \whennottouse{the field around a single point charge (it is not uniform).}
+  \rearranged{$V = Ed$ \qquad $d = \dfrac{V}{E}$}
+  \tensecond{$V = \qty{9.0}{V}$, $d = \qty{3.0}{mm} = \qty{0.0030}{m}$:
+    $E = \dfrac{9.0}{0.0030} = \qty{3.0e3}{V.m^{-1}}$.}
+  \trap{$d$ is the whole gap, in metres, not the distance from the charge to
+    one plate.}
+\end{formulacard}
+
+A charge $q$ in the field feels a force $\vec{F} = q\vec{E}$. A positive charge
+is pushed along the field, towards the negative plate. A negative charge (an
+electron) is pushed against the field, towards the positive plate. The field is
+uniform, so the force is the same everywhere between the plates.
+
+\begin{formulacard}{Force on a charge in an electric field}
+  \cardformula{\vec{F} = q\vec{E}}
+  \begin{symbols}
+    \sym{$\vec{F}$}{electric force on the charge}{\si{N}}
+    \sym{$q$}{charge}{\si{C}}
+    \sym{$\vec{E}$}{electric field strength}{\si{N.C^{-1}}}
+  \end{symbols}
+  \inwords{force = charge $\times$ field. The arrows mean that direction matters.}
+  \whentouse{any charge in any electric field.}
+  \whennottouse{a force from a magnetic field.}
+  \rearranged{$E = \dfrac{F}{q}$. \ With $\vec{F}_\mathrm{net} = m\vec{a}$ (on
+    the sheet): $a = \dfrac{qE}{m}$. Then put in $E = \dfrac{V}{d}$:
+    $a = \dfrac{qV}{md}$.}
+  \tensecond{$q = 2e = \qty{3.204e-19}{C}$, $E = \qty{1.0e3}{N.C^{-1}}$:
+    $F = \qty{3.2e-16}{N}$.}
+  \trap{for a \emph{negative} charge the force points \emph{against} the field.
+    For $a$, use the right mass ($m_\mathrm{e}$ or $m_\mathrm{p}$).}
+\end{formulacard}
+
+The two units of $E$ are equal:
+$\qty{1}{V.m^{-1}} = \qty{1}{J.C^{-1}.m^{-1}} = \qty{1}{N.m.C^{-1}.m^{-1}} = \qty{1}{N.C^{-1}}$
+(a volt is a joule per coulomb, and a joule is a newton metre).
+
+The force is constant, so the \term{acceleration} (how fast the velocity
+changes) is constant too: $a = \dfrac{qE}{m}$. A bigger
+\term{charge-to-mass ratio} $\dfrac{q}{m}$ (charge divided by mass) gives a
+bigger acceleration. In a field of only \qty{100}{V.m^{-1}}, the electric force
+on an electron is about \num{2e12} times its weight. So we ignore gravity for
+electrons, protons and \term{ions} (atoms with extra or missing electrons).
+
+\textbf{When gravity does matter.} A heavier object, such as an oil drop or a
+speck of dust, is different. Its weight $mg$ can be as big as the electric
+force $qE$, so you must include gravity. If the object hangs still, the net
+force is zero: the electric force up balances the weight down, $qE = mg$.
+
+\textbf{Charge comes in lumps.} Every charge is a whole number of elementary
+charges: $q = ne$. Here $n$ is the number of extra (or missing) electrons. You
+can never have 2.5 electrons. Millikan's oil-drop experiment showed this
+(Module 8).
+
+\begin{formulacard}[notonsheet]{A charge held still between plates}
+  \cardformula{qE = mg \qquad\quad q = ne}
+  \begin{symbols}
+    \sym{$q$}{size of the charge on the object}{\si{C}}
+    \sym{$E$}{field strength between the plates, $E = \frac{V}{d}$}{\si{V.m^{-1}}}
+    \sym{$m$, $g$}{mass of the object; \qty{9.8}{m.s^{-2}}}{\si{kg}, \si{m.s^{-2}}}
+    \sym{$n$}{number of extra or missing electrons (a whole number)}{no unit}
+    \sym{$e$}{elementary charge, \qty{1.602e-19}{C}}{\si{C}}
+  \end{symbols}
+  \inwords{when an object floats still, the electric force up equals its
+    weight down.}
+  \whentouse{a small charged object (oil drop, dust, plastic sphere) held
+    still between horizontal plates. It also works if the object moves at a
+    steady velocity and air resistance can be ignored.}
+  \whennottouse{electrons, protons or ions: their weight is far too small to
+    matter.}
+  \rearranged{$q = \dfrac{mg}{E} = \dfrac{mgd}{V}$ \qquad $V = \dfrac{mgd}{q}$
+    \qquad $n = \dfrac{q}{e}$}
+  \tensecond{$m = \qty{3.27e-15}{kg}$, $E = \qty{4.0e4}{V.m^{-1}}$:
+    $q = \dfrac{\num{3.27e-15} \times 9.8}{\num{4.0e4}} = \qty{8.01e-19}{C}$,
+    so $n = \dfrac{\num{8.01e-19}}{\num{1.602e-19}} = 5.0$.}
+  \derive{the object is still, so $\vec{F}_\mathrm{net} = m\vec{a} = 0$ (on the
+    sheet). The upward force $qE$ must equal the downward weight $mg$. Each
+    extra electron carries a charge of size $e$, so $n$ of them carry $ne$.}
+  \trap{use the mass of the drop, not the mass of an electron. If $n$ is not
+    close to a whole number, check your units (mm to m, kV to V).}
+\end{formulacard}
+
+\textbf{Work and energy.} As the field pushes the charge across the gap, it does
+\term{work} (it transfers energy). It is like a ball rolling downhill: the
+charge loses \term{electric potential energy} (energy stored because of its
+position) and gains kinetic energy.
+\begin{align}
+  W &= Fd = qEd && \text{work = force $\times$ distance, with $F = qE$}\notag\\
+    &= q\left(\frac{V}{d}\right)d = qV && \text{use $E = \tfrac{V}{d}$; the $d$'s cancel}\label{ch1:eq:WqV}
+\end{align}
+So the work does not depend on the gap $d$. Closer plates give a stronger
+field but a shorter push. The two effects cancel.
+To move a charge the \emph{other} way, an outside force must do the work $qV$.
+
+\begin{formulacard}{Work done on a charge by the field}
+  \cardformula{W = qV \qquad\quad W = qEd}
+  \begin{symbols}
+    \sym{$W$}{work done on the charge by the field}{\si{J}}
+    \sym{$q$}{size of the charge}{\si{C}}
+    \sym{$V$}{potential difference the charge moves through}{\si{V}}
+    \sym{$E$, $d$}{field strength; distance the charge actually moves along
+      the field (equal to the plate gap only if it crosses the whole gap)}{\si{V.m^{-1}}, \si{m}}
+  \end{symbols}
+  \inwords{each coulomb gains $V$ joules as it moves through a voltage $V$.}
+  \whentouse{$W = qV$ in any field; $W = qEd$ in a uniform field only.}
+  \whennottouse{$W = qEd$ when the field is not uniform, for example near a
+    point charge (use $W = qV$ there). Note: if the charge moves at right
+    angles to the field, no work is done ($W = 0$).}
+  \rearranged{$V = \dfrac{W}{q}$ \qquad $E = \dfrac{W}{qd}$}
+  \tensecond{an electron through \qty{200}{V}:
+    $W = \num{1.602e-19} \times 200 = \qty{3.2e-17}{J} = \qty{200}{eV}$.}
+  \trap{in $W = qEd$, $d$ is the distance moved along the field. In
+    $E = \frac{V}{d}$, $d$ is always the whole gap. Example: an electron
+    released midway between plates with \qty{3000}{V} across them moves through
+    only \qty{1500}{V}. It gains $W = \num{1.602e-19} \times 1500 = \qty{2.4e-16}{J}$
+    by the time it reaches the positive plate. To change eV to J, multiply by
+    \num{1.602e-19}.}
+\end{formulacard}
+
+\textbf{Energy in electron volts.} Energy in eV $=$ (charge in units of $e$)
+$\times$ (voltage in V). An electron (charge $e$) through \qty{200}{V} gains
+\qty{200}{eV}. An alpha particle (charge $+2e$) through \qty{100}{V} gains
+$2 \times 100 = \qty{200}{eV}$. To change J to eV, divide by \num{1.602e-19}.
+
+\begin{sidebyside}[0.45]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=0.9cm]
+    \fill[hscink!75] (0,-0.9) rectangle (0.14,0.9);
+    \fill[hscink!75] (2.8,0.2) rectangle (2.94,0.9);
+    \fill[hscink!75] (2.8,-0.9) rectangle (2.94,-0.2);
+    \node[diagramlabel, above] at (0.07,0.9) {$-$ plate};
+    \node[diagramlabel, above] at (2.87,0.9) {$+$ plate};
+    \foreach \y in {-0.65,0.65} \draw[field] (2.8,\y) -- (0.14,\y);
+    \foreach \x in {0.32,0.44,0.78,1.36,2.16} \fill[hscvel] (\x,0) circle (1.6pt);
+    \draw[velocity] (3.05,0) -- (4.1,0) node[right, text=hscvel] {$v$};
+    \node[diagramlabel, font=\footnotesize, anchor=north west] at (0.2,-0.12) {start: $v = 0$};
+    \draw[line width=0.8pt] (0.07,-0.9) -- (0.07,-1.4) -- (1.3,-1.4);
+    \draw[line width=2.2pt] (1.3,-1.55) -- (1.3,-1.25);
+    \draw[line width=0.8pt] (1.5,-1.7) -- (1.5,-1.1);
+    \draw[line width=0.8pt] (1.5,-1.4) -- (2.87,-1.4) -- (2.87,-0.9);
+    \node[diagramlabel, right] at (1.55,-1.7) {$V$};
+    \node[diagramlabel, font=\footnotesize, above right] at (2.94,0.2) {hole};
+  \end{tikzpicture}
+  \captionof{figure}{An electron gun. The dots show the electron at equal time
+    steps: it speeds up.}\label{ch1:fig:gun}
+\nextside
+  An \term{electron gun} (\cref{ch1:fig:gun}) uses this idea. A heated metal
+  \term{cathode} (the negative plate) gives off electrons. They start almost at
+  rest. The field does work $qV$ on each electron. All of this work becomes
+  kinetic energy:
+  \[ qV = \tfrac{1}{2}mv^2 \]
+  The positive plate has a small hole. The electrons fly out through it as a
+  narrow stream, called a \term{beam}. After the hole there is no field, so the
+  beam moves at a steady speed.
+\end{sidebyside}
+
+\begin{toolkit}{Gradient from a graph}
+$\text{gradient} = \dfrac{\text{rise}}{\text{run}} = \dfrac{y_2 - y_1}{x_2 - x_1}$,
+using two points far apart \emph{on the line of best fit}. A straight line
+through the origin means $y \propto x$: $y$ is directly proportional to $x$ (if
+$x$ doubles, $y$ doubles).
+\end{toolkit}
+
+\begin{formulacard}[combine={$W = qV$ and $K = \frac{1}{2}mv^2$}]{Speed gained from rest}
+  \cardformula{\frac{1}{2}mv^2 = qV \quad\text{so}\quad v = \sqrt{\frac{2qV}{m}}}
+  \begin{symbols}
+    \sym{$v$}{final speed (starting from rest)}{\si{m.s^{-1}}}
+    \sym{$m$, $q$}{mass; size of the charge}{\si{kg}, \si{C}}
+    \sym{$V$}{accelerating voltage}{\si{V}}
+  \end{symbols}
+  \inwords{the work done by the field becomes kinetic energy.}
+  \whentouse{a charge starts at rest and is sped up through a voltage $V$.}
+  \whennottouse{the charge is already moving at the start. Then use
+    $qV = \frac{1}{2}mv^2 - \frac{1}{2}mu^2$, where $u$ is the starting speed.
+    The formula also assumes $v$ is much less than $c$ (an electron through
+    \qty{2.5}{kV} already reaches about $0.1c$; see Module 7).}
+  \rearranged{$V = \dfrac{mv^2}{2q}$ \qquad $v^2 = \dfrac{2q}{m}\,V$ (a graph of
+    $v^2$ against $V$ is a straight line with gradient $\dfrac{2q}{m}$)}
+  \tensecond{an electron through \qty{100}{V}:
+    $v = \sqrt{\dfrac{2 \times \num{1.602e-19} \times 100}{\num{9.109e-31}}}
+    = \qty{5.9e6}{m.s^{-1}}$.}
+  \derive{work done = gain in kinetic energy, so $qV = \frac{1}{2}mv^2 - 0$.
+    Then rearrange (see the maths toolkit).}
+  \trap{do not forget the 2 and the square root. Change kV or mV to V first.}
+\end{formulacard}
+
+\begin{workedexample}{Field, force and acceleration}\label{ch1:we:accel}
+Two horizontal plates are \qty{3.0}{cm} apart, with the top plate positive and
+\qty{2.4}{kV} across them. An electron is released from rest \qty{1.0}{cm} above
+the lower plate. Find (a) the field, (b) the force on the electron and (c) its
+acceleration. (d) Show that gravity can be ignored.
+\given{$V = \qty{2.4}{kV} = \num{2.4e3}\,\si{V} = \qty{2400}{V}$, \
+  $d = \qty{3.0}{cm} = \num{3.0e-2}\,\si{m} = \qty{0.030}{m}$, \
+  $q = \qty{1.602e-19}{C}$, \ $m_\mathrm{e} = \qty{9.109e-31}{kg}$,
+  \ $g = \qty{9.8}{m.s^{-2}}$ (data sheet). (The \qty{1.0}{cm} is not needed:
+  the field is uniform.)}
+\find{$E$, $F$, $a$, and $a$ compared with $g$}
+\formula{$E = \dfrac{V}{d}$, \quad $F = qE$, \quad $a = \dfrac{F}{m}$}
+\substitute{\eqlines{E &= \frac{\qty{2400}{V}}{\qty{0.030}{m}} = \qty{8.0e4}{V.m^{-1}}\\
+  F &= \qty{1.602e-19}{C} \times \qty{8.0e4}{V.m^{-1}} = \qty{1.282e-14}{N}\\
+  a &= \frac{\qty{1.282e-14}{N}}{\qty{9.109e-31}{kg}} = \qty{1.407e16}{m.s^{-2}}\\
+  \frac{a}{g} &= \frac{\qty{1.407e16}{m.s^{-2}}}{\qty{9.8}{m.s^{-2}}} = \num{1.4e15}}}
+\answer{(a)~\final{$E = \qty{8.0e4}{V.m^{-1}}$} \ (b)~\final{$F = \qty{1.3e-14}{N}$ upwards}
+  \ (c)~\final{$a = \qty{1.4e16}{m.s^{-2}}$ upwards} (towards the $+$ plate).
+  (d)~$a \approx \num{1.4e15}\,g$, so gravity can be ignored.}
+\checkstep{$E$ points down ($+$ to $-$); the electron is negative, so it is
+  pushed up~\cmark. Size: $\dfrac{qE}{m} \approx
+  \dfrac{(\num{1.6e-19})(\num{8e4})}{\num{9e-31}} \approx \qty{1.4e16}{m.s^{-2}}$
+  \cmark. It is huge because the electron's mass is tiny.}
+\end{workedexample}
+
+\begin{workedexample}{Speeding up a proton}\label{ch1:we:gap}
+A proton starts at rest at the positive plate. The plates are \qty{1.5}{cm}
+apart and the field is \qty{4.0e4}{V.m^{-1}}. Find (a) the work done on the
+proton, in J and in eV, and (b) its speed when it reaches the negative plate.
+\given{$E = \qty{4.0e4}{V.m^{-1}}$, \ $d = \qty{0.015}{m}$, \
+  $q = \qty{1.602e-19}{C}$, \ $m_\mathrm{p} = \qty{1.673e-27}{kg}$}
+\find{(a) $W$ \quad (b) $v$}
+\formula{$V = Ed$, \quad $W = qV$, \quad $\frac{1}{2}mv^2 = W$, so $v = \sqrt{\dfrac{2W}{m}}$}
+\substitute{\eqlines{V &= \qty{4.0e4}{V.m^{-1}} \times \qty{0.015}{m} = \qty{600}{V}\\
+  W &= \qty{1.602e-19}{C} \times \qty{600}{V} = \qty{9.612e-17}{J}\\
+  W &= \frac{\qty{9.612e-17}{J}}{\qty{1.602e-19}{J.eV^{-1}}} = \qty{600}{eV}
+  \quad \text{(change J to eV)}\\
+  v &= \sqrt{\frac{2 \times \qty{9.612e-17}{J}}{\qty{1.673e-27}{kg}}}
+  = \qty{3.390e5}{m.s^{-1}}}}
+\answer{(a) \final{$W = \qty{9.6e-17}{J} = \qty{600}{eV}$} (a charge $e$ through
+  \qty{600}{V}) \ (b)~\final{$v =\qty{3.4e5}{m.s^{-1}}$} towards the negative plate.}
+\checkstep{$K = \frac{1}{2} \times \num{1.673e-27} \times (\num{3.390e5})^2
+  = \qty{9.6e-17}{J} = W$ \cmark}
+\end{workedexample}
+
+\begin{workedexample}{Holding a charged sphere still}\label{ch1:we:float}
+A tiny plastic sphere has a positive charge and a mass of
+\qty{1.63e-15}{kg}. It hangs still between two horizontal plates. The plates
+are \qty{10}{mm} apart, with \qty{500}{V} across them. (a) Which plate is
+positive? (b) Find the charge on the sphere and the number of missing electrons.
+\given{$m = \qty{1.63e-15}{kg}$, \ $d = \qty{10}{mm} = \qty{0.010}{m}$, \
+  $V = \qty{500}{V}$, \ $g = \qty{9.8}{m.s^{-2}}$, \ $e = \qty{1.602e-19}{C}$}
+\find{(a) which plate is positive \quad (b) $q$ and $n$}
+\formula{$E = \dfrac{V}{d}$, \quad $qE = mg$ so $q = \dfrac{mg}{E}$, \quad
+  $n = \dfrac{q}{e}$}
+\substitute{\eqlines{E &= \frac{\qty{500}{V}}{\qty{0.010}{m}} = \qty{5.0e4}{V.m^{-1}}
+  \quad \text{(the field)}\\
+  mg &= \qty{1.63e-15}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{1.597e-14}{N}
+  \quad \text{(the weight)}\\
+  q &= \frac{\qty{1.597e-14}{N}}{\qty{5.0e4}{V.m^{-1}}} = \qty{3.195e-19}{C}
+  \quad \text{(from $qE = mg$)}\\
+  n &= \frac{\qty{3.195e-19}{C}}{\qty{1.602e-19}{C}} = 1.99 \approx 2}}
+\answer{(a) The weight acts down, so the electric force must act up. The sphere
+  is positive, so the field must point up: the \textbf{bottom plate is
+  positive}. (b) \final{$q = \qty{3.2e-19}{C}$}, which is \final{2 missing
+  electrons}.}
+\checkstep{$n$ is a whole number, as it must be. (1.99 is not exactly 2 only
+  because $m$ and $g$ are rounded.) \cmark}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ $d$ or $V$ left in cm, mm or kV. \cmark\ Change to m and V first.
+  \item \xmark\ ``The electron moves along the field lines.'' \cmark\ It is
+        pushed \emph{against} them.
+  \item \xmark\ ``Plates further apart give more energy.'' \cmark\ Same $V$,
+        same $W = qV$: the gap does not matter.
+  \item \xmark\ Forgetting the square root, or using $m_\mathrm{e}$ for a proton.
+        \cmark\ Use $m_\mathrm{p}$ for a proton.
+  \item \xmark\ Using the whole gap in $W = qEd$ for a charge that crosses only
+        part of it. \cmark\ $d$ is the distance it actually moves.
+  \item \xmark\ Ignoring gravity for an oil drop. \cmark\ For a drop held still,
+        $qE = mg$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Describe the motion of a charge released from rest between plates''
+(2 marks). Say that $F = qE$ is constant, so $a = \dfrac{qE}{m}$ is constant.
+The charge moves in a straight line towards the oppositely charged plate. Its
+speed increases by the same amount every second (constant acceleration).
+``Calculate the speed'' (3 marks): one mark each for $qV = \frac{1}{2}mv^2$, a
+correct substitution, and the answer with a unit. A graph of $v^2$ against $V$
+is a straight line with gradient $\dfrac{2q}{m}$ (\cref{ch1:sec:experiments}).
+``Find the charge on a drop held still'' (3 marks): write $qE = mg$ with
+$E = \dfrac{V}{d}$, then check that $n = \dfrac{q}{e}$ is a whole number.
+\end{examtip}
+
+\begin{quickcheck}
+  \item An alpha particle (charge $+2e$) is accelerated through \qty{2.0}{kV}.
+        Find the work done on it in joules and in electron volts.
+  \item An electron gun gives electrons a speed of \qty{3.0e6}{m.s^{-1}} from
+        rest. Find the accelerating voltage.
+  \item A negatively charged oil drop of mass \qty{2.4e-15}{kg} is held still
+        between horizontal plates \qty{6.0}{mm} apart, with \qty{294}{V} across
+        them. (a) Which plate is positive? (b) Find the charge on the drop and
+        the number of extra electrons.
+  \item A student says: ``With the same voltage, plates further apart make the
+        electrons come out faster, because they are pushed for longer.'' Is the
+        student right? Explain.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Curved paths in an electric field}\label{ch1:sec:paths}
+\covers{M6.IQ1.02}
+
+\begin{bigidea}
+A charge that enters the gap moving parallel to the plates follows a parabola,
+like a ball thrown horizontally. Its velocity component along the plates stays
+the same. Across the plates it has a constant acceleration, so that component
+grows steadily.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Trajectory}{the path a moving object follows.}
+  \kw{Deflection}{how far the particle is pushed across the plates, away from
+    its straight-line path.}
+\end{keywords}
+
+\begin{refresher}{Projectile motion (Module 5)}
+A ball thrown horizontally (ignoring air resistance) has a constant horizontal
+velocity (no force that way) and a constant downward acceleration $g$. Use
+$s = ut + \frac{1}{2}at^2$ and $v = u + at$ separately in each direction.
+\end{refresher}
+
+An electron that enters between the plates, moving parallel to them, behaves
+like that ball (\cref{ch1:fig:parabola}). Along the plates there is no force, so
+that part of its velocity is constant. Across the plates the constant force
+$qE$ gives a constant acceleration $a = \dfrac{qE}{m}$. So the \emph{trajectory}
+(path) is a \term{parabola} (the curve of a thrown ball), bending towards the
+positive plate. After the plates there is no force, so the path is a straight
+line.
+
+\textbf{Why a parabola?} Measure $x$ along the plates and $y$ across them, from
+the point where the charge enters. Along the plates the velocity is constant,
+so $x = ut$ and $t = \dfrac{x}{u}$. Across the plates $u_y = 0$, so
+$y = \frac{1}{2}at^2$.
+\begin{align*}
+  y &= \tfrac{1}{2}a\left(\frac{x}{u}\right)^2 && \text{put $t = \tfrac{x}{u}$ into $y = \tfrac{1}{2}at^2$}\\
+    &= \left(\frac{qE}{2mu^2}\right)x^2 && \text{use $a = \tfrac{qE}{m}$ and square the bracket}
+\end{align*}
+The bracket is a constant, so $y \propto x^2$. That is the equation of a
+parabola. A ball thrown horizontally gives $y = \left(\dfrac{g}{2u^2}\right)x^2$:
+the same shape, with $g$ in place of $\dfrac{qE}{m}$.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1.0cm, y=1.0cm]
+    \foreach \x in {0.6,1.4,...,5.4} \draw[line width=0.8pt, hscfield!45,
+      postaction={decorate}, decoration={markings, mark=at position 0.78 with
+      {\arrow{Stealth[length=2.2mm, width=1.7mm]}}}] (\x,1.5) -- (\x,-1.5);
+    \draw[line width=0.4pt, hscmuted] (0,1.5) -- (-2.15,1.5);
+    \draw[line width=0.4pt, hscmuted] (0,-1.5) -- (-2.15,-1.5);
+    \draw[<->, line width=0.6pt, hscmuted] (-2.0,-1.5) -- (-2.0,1.5)
+      node[pos=0.25, left, text=hscink, font=\small] {$d$};
+    \fill[hscink!75] (0,1.5) rectangle (6,1.66);
+    \fill[hscink!75] (0,-1.66) rectangle (6,-1.5);
+    \node[diagramlabel, above] at (3,1.66) {positive plate};
+    \node[diagramlabel, below] at (1.6,-1.66) {negative plate};
+    \draw[guide] (0,0) -- (8.3,0);
+    \draw[hscink, line width=1pt, domain=0:6, samples=40] plot (\x, {1.1*\x*\x/36});
+    \draw[hscink, line width=1pt, dashed] (7.8,1.76) -- (8.6,2.053);
+    \fill[object] (-0.15,0) circle (4.5pt);
+    \node[font=\scriptsize\bfseries] at (-0.15,0) {$-$};
+    \draw[velocity] (-1.5,0) -- (-0.4,0) node[pos=0.4, above, text=hscvel] {$u$};
+    \draw[force] (3,0.275) -- (3,1.05) node[left, text=hscforce] {$F$};
+    \fill[hscink] (3,0.275) circle (1.8pt);
+    \draw[velocity, hscvel!60] (6,1.1) -- (7.8,1.1) node[below, text=hscvel] {$v_x = u$};
+    \draw[velocity, hscvel!60] (7.8,1.1) -- (7.8,1.76) node[pos=0.5, right, text=hscvel] {$v_y$};
+    \draw[velocity] (6,1.1) -- (7.8,1.76) node[pos=0.55, above, text=hscvel] {$v$};
+    \draw[hscmuted] (6.7,1.1) arc (0:20:0.7) node[pos=0.5, right, font=\footnotesize, text=hscink] {$\theta$};
+    \draw[<->, line width=0.6pt, hscmuted] (5.8,0) -- (5.8,1.06) node[midway, left, text=hscink, font=\small] {$y$};
+    \draw[<->, line width=0.6pt, hscmuted] (0,-2.55) -- (6,-2.55) node[midway, fill=white, text=hscink, font=\small] {$L$};
+    \node[font=\small, text=hscfield, fill=white, inner sep=1pt] at (1.0,-0.8) {$E$};
+  \end{tikzpicture}
+  \caption{An electron enters at speed $u$, curves towards the positive plate in
+    a parabola, then leaves in a straight line. Drawn to scale for
+    \cref{ch1:we:deflect}.}\label{ch1:fig:parabola}
+\end{figure}
+
+The syllabus asks you to compare this path with a projectile. \Cref{ch1:tab:Eg} does this.
+
+\begin{table}
+  \caption{A charge in a uniform electric field compared with a projectile.}\label{ch1:tab:Eg}
+  \centering\small
+  \begin{tabular}{@{}L{24mm}L{62mm}L{54mm}@{}}
+    \toprule
+    & \colhead{Charge between plates} & \colhead{Ball thrown near Earth
+      (no air resistance)}\\
+    \midrule
+    \multicolumn{3}{@{}l}{\textit{Similarities}}\\
+    Path, force & parabola; constant force in one direction & parabola; constant force in one direction\\
+    Maths & $s = ut + \frac{1}{2}at^2$, $v = u + at$ in each direction & the same equations\\
+    \midrule
+    \multicolumn{3}{@{}l}{\textit{Differences}}\\
+    Acceleration & $a = \frac{qE}{m}$: depends on charge and mass &
+      $g = \qty{9.8}{m.s^{-2}}$ for every mass\\
+    Direction & either way: depends on the sign of $q$ & always down\\
+    Size of $a$ & huge for electrons; the path lasts nanoseconds & small; the path lasts seconds\\
+    Acts on & charged particles only & every mass\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{toolkit}{Components, Pythagoras and $\tan^{-1}$}
+A velocity $v$ at angle $\theta$ to the $x$-axis has components
+$v_x = v\cos\theta$ and $v_y = v\sin\theta$. Back the other way:
+$v = \sqrt{v_x^2 + v_y^2}$ and $\theta = \tan^{-1}\!\left(\dfrac{v_y}{v_x}\right)$.
+Set the calculator to \textbf{degrees}.
+\end{toolkit}
+
+Treat the two directions separately, in four steps:
+\begin{enumerate}
+  \item Find the acceleration across the plates: $a = \dfrac{qE}{m}$.
+  \item Find the time from the direction with \emph{no} force: $t = \dfrac{L}{u}$.
+  \item Find the deflection with $s = ut + \frac{1}{2}at^2$.
+  \item Find $v_y = u_y + at$. Then combine it with $v_x$.
+\end{enumerate}
+
+\begin{formulacard}[combine={$s = ut + \frac{1}{2}at^2$, $\vec{F} = q\vec{E}$ and $\vec{F}_\mathrm{net} = m\vec{a}$}]%
+  {Deflection between parallel plates}
+  \cardformula{t = \frac{L}{u} \qquad y = \frac{1}{2}at^2 = \frac{qEL^2}{2mu^2}}
+  \begin{symbols}
+    \sym{$t$, $L$}{time between the plates; length of the plates}{\si{s}, \si{m}}
+    \sym{$u$}{entry speed, parallel to the plates}{\si{m.s^{-1}}}
+    \sym{$y$}{deflection across the plates, at the end of the plates}{\si{m}}
+    \sym{$a$}{acceleration across the plates, $a = \frac{qE}{m}$}{\si{m.s^{-2}}}
+    \sym{$q$, $m$}{size of the charge; mass}{\si{C}, \si{kg}}
+    \sym{$E$}{field strength between the plates}{\si{V.m^{-1}}}
+  \end{symbols}
+  \inwords{the time comes from the steady motion along the plates; the
+    deflection comes from the steady acceleration across them.}
+  \whentouse{the charge enters moving parallel to the plates.}
+  \whennottouse{the charge enters at an angle to the plates. Then split $u$
+    into two parts, $u_x$ and $u_y$. Keep $u_y$ in $s = ut + \frac{1}{2}at^2$.}
+  \rearranged{$a = \dfrac{2y}{t^2}$ \qquad $E = \dfrac{2mu^2y}{qL^2}$}
+  \tensecond{$a = \qty{1.0e14}{m.s^{-2}}$, $t = \qty{2.0e-8}{s}$:
+    $y = \frac{1}{2} \times \num{1.0e14} \times (\num{2.0e-8})^2 = \qty{0.020}{m}$.}
+  \derive{\begin{align*}
+      y &= u_y t + \tfrac{1}{2}at^2 && \text{$s = ut + \frac{1}{2}at^2$ across the plates}\\
+      y &= 0 + \tfrac{1}{2}at^2 && \text{it enters parallel to the plates, so $u_y = 0$}\\
+      y &= \tfrac{1}{2}\left(\frac{qE}{m}\right)\left(\frac{L}{u}\right)^2
+        && \text{put in $a = \frac{qE}{m}$ and $t = \frac{L}{u}$}\\
+      y &= \tfrac{1}{2}\times\frac{qE}{m}\times\frac{L^2}{u^2} && \text{square the bracket}\\
+      y &= \frac{qEL^2}{2mu^2} && \text{multiply the fractions}
+    \end{align*}}
+  \trap{$L$ is the plate \emph{length}, not the gap $d$. A faster particle
+    spends less time inside, so it is deflected less.}
+\end{formulacard}
+
+\begin{workedexample}{How far is the beam deflected?}\label{ch1:we:deflect}
+An electron enters midway between two horizontal plates at
+\qty{2.4e7}{m.s^{-1}}, parallel to them. The plates are \qty{6.0}{cm} long and
+\qty{3.0}{cm} apart, with \qty{600}{V} across them; the top plate is positive.
+Find (a) the time between the plates and (b) the deflection as it leaves.
+(c) Does it hit a plate?
+\given{$u = \qty{2.4e7}{m.s^{-1}}$, \ $L = \qty{0.060}{m}$, \
+  $d = \qty{0.030}{m}$, \ $V = \qty{600}{V}$, \ $u_y = 0$, \
+  $q = \qty{1.602e-19}{C}$, \ $m_\mathrm{e} = \qty{9.109e-31}{kg}$ (data sheet)}
+\find{(a) $t$ \quad (b) $y$ \quad (c) does it hit a plate?}
+\formula{$E = \dfrac{V}{d}$, \quad $a = \dfrac{qE}{m} = \dfrac{qV}{md}$, \quad
+  $t = \dfrac{L}{u}$, \quad $y = \frac{1}{2}at^2$}
+\substitute{\eqlines{E &= \frac{\qty{600}{V}}{\qty{0.030}{m}} = \qty{2.0e4}{V.m^{-1}}\\
+  a &= \frac{\qty{1.602e-19}{C} \times \qty{600}{V}}{\qty{9.109e-31}{kg} \times \qty{0.030}{m}}
+  = \qty{3.517e15}{m.s^{-2}} \text{ (up)}\\
+  t &= \frac{\qty{0.060}{m}}{\qty{2.4e7}{m.s^{-1}}} = \qty{2.5e-9}{s}\\
+  y &= \tfrac{1}{2} \times \qty{3.517e15}{m.s^{-2}} \times (\qty{2.5e-9}{s})^2
+  = \qty{1.099e-2}{m}}}
+\answer{(a) \final{$t = \qty{2.5e-9}{s}$} \quad (b) \final{$y = \qty{1.1}{cm}$}
+  upwards. (c) It started \qty{1.5}{cm} from the top plate, so it does
+  \emph{not} hit the plate.}
+\checkstep{$y = \dfrac{qEL^2}{2mu^2} = \dfrac{\num{1.602e-19} \times \num{2.0e4}
+  \times 0.060^2}{2 \times \num{9.109e-31} \times (\num{2.4e7})^2} = \qty{1.1}{cm}$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Leaving the plates}\label{ch1:we:exit}
+For the electron in \cref{ch1:we:deflect}, find its velocity (size and
+direction) as it leaves the plates.
+\given{$v_x = u = \qty{2.4e7}{m.s^{-1}}$ (constant), \ $u_y = 0$, \
+  $a = \qty{3.517e15}{m.s^{-2}}$, \ $t = \qty{2.5e-9}{s}$}
+\find{the size $v$ and the angle $\theta$ above the horizontal}
+\formula{$v_y = u_y + at$, \quad $v = \sqrt{v_x^2 + v_y^2}$, \quad
+  $\theta = \tan^{-1}\!\left(\dfrac{v_y}{v_x}\right)$}
+\substitute{\eqlines{v_y &= 0 + \qty{3.517e15}{m.s^{-2}} \times \qty{2.5e-9}{s}
+  = \qty{8.794e6}{m.s^{-1}}\\
+  v &= \sqrt{(\qty{2.4e7}{m.s^{-1}})^2 + (\qty{8.794e6}{m.s^{-1}})^2} = \qty{2.556e7}{m.s^{-1}}\\
+  \theta &= \tan^{-1}\!\left(\frac{\num{8.794e6}}{\num{2.4e7}}\right) = \ang{20.1}}}
+\answer{\final{$v = \qty{2.6e7}{m.s^{-1}}$ at \ang{20} above the horizontal}
+  (towards the positive plate). After the plates it keeps this velocity.}
+\checkstep{$v$ is a little bigger than $u$, because the field did work on the
+  electron~\cmark. The arrow in \cref{ch1:fig:parabola} is at about \ang{20}.}
+\end{workedexample}
+
+% Coverage audit (M6.IQ1.02): a charge launched at an angle, solved exactly like a
+\begin{workedexample}{Launched at an angle}\label{ch1:we:angled}
+\begin{sidebyside}[0.50]
+Two horizontal plates are \qty{2.0}{cm} apart, with \qty{200}{V} across them. The
+top plate is positive. A proton comes up through a small hole in the lower plate
+at \qty{2.0e5}{m.s^{-1}}, at \ang{30} above the plate (\cref{ch1:fig:angled}).
+Ignore gravity. Find (a)~its acceleration and (b)~its greatest height above the
+lower plate. Find (c)~the time until it lands on the lower plate and (d)~how far
+from the hole it lands. Does it reach the top plate?
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1.15cm, y=1.15cm]
+    \foreach \x in {0.7,2.0,3.3} \draw[field] (\x,2.0) -- (\x,0.85);
+    \node[font=\small, text=hscfield, fill=white, inner sep=1pt] at (2.65,1.4) {$E$};
+    \fill[hscink!75] (-0.45,2.0) rectangle (4.2,2.13);
+    \fill[hscink!75] (-0.45,-0.13) rectangle (-0.09,0);
+    \fill[hscink!75] (0.09,-0.13) rectangle (4.2,0);
+    \node[diagramlabel, above] at (1.9,2.13) {$+$ plate};
+    \node[diagramlabel, below] at (2.9,-0.13) {$-$ plate};
+    \node[diagramlabel, font=\footnotesize, below] at (-0.25,-0.13) {hole};
+    \draw[hscink, line width=1pt, domain=0:3.618, samples=50]
+      plot (\x, {0.5774*\x - 0.1596*\x*\x});
+    \draw[velocity] (0,0) -- (30:1.05) node[above, text=hscvel] {$u$};
+    \draw[hscmuted] (0.6,0) arc (0:30:0.6);
+    \node[font=\footnotesize] at (15:0.92) {\ang{30}};
+    \draw[<->, hscmuted, line width=0.6pt] (1.809,0.03) -- (1.809,0.5);
+    \node[text=hscink, font=\small, inner sep=1pt] at (2.05,0.22) {$h$};
+    \draw[<->, hscmuted, line width=0.6pt] (0,-0.75) -- (3.618,-0.75)
+      node[midway, fill=white, text=hscink, font=\small, inner sep=1pt] {$R$};
+    \draw[<->, hscmuted, line width=0.6pt] (4.45,0) -- (4.45,2.0)
+      node[midway, right, text=hscink, font=\small] {$d$};
+  \end{tikzpicture}
+  \captionof{figure}{The proton follows a parabola back to the lower plate, like a
+    ball thrown at \ang{30}. Drawn to scale.}\label{ch1:fig:angled}
+\end{sidebyside}
+\given{$u = \qty{2.0e5}{m.s^{-1}}$ at \ang{30}, \ $V = \qty{200}{V}$, \
+  $d = \qty{2.0}{cm} = \qty{0.020}{m}$, \ $q = \qty{1.602e-19}{C}$, \
+  $m_\mathrm{p} = \qty{1.673e-27}{kg}$. The field points down (from $+$ to $-$),
+  so the force on the proton is down. Take up as positive. In (b) and (c), $a$ is
+  the size of the acceleration.}
+\find{(a) $a$ \quad (b) the greatest height $h$ \quad (c) the time $t$ \quad
+  (d) the range $R$}
+\formula{$E = \dfrac{V}{d}$ and $a = \dfrac{qE}{m}$; \ $u_x = u\cos\theta$, \
+  $u_y = u\sin\theta$; \ across the plates $v^2 = u^2 + 2as$ and
+  $s = ut + \frac{1}{2}at^2$; \ along the plates $R = u_x t$}
+\substitute{(a) The field, then the acceleration (downwards):\par
+  \eqlines{E &= \frac{\qty{200}{V}}{\qty{0.020}{m}} = \qty{1.0e4}{V.m^{-1}}\\
+  a &= \frac{\qty{1.602e-19}{C} \times \qty{1.0e4}{V.m^{-1}}}{\qty{1.673e-27}{kg}}
+    = \qty{9.576e11}{m.s^{-2}}}\par
+  Split the velocity into its two parts:\par
+  \eqlines{u_x &= \qty{2.0e5}{m.s^{-1}} \times \cos\ang{30} = \qty{1.732e5}{m.s^{-1}}\\
+  u_y &= \qty{2.0e5}{m.s^{-1}} \times \sin\ang{30} = \qty{1.0e5}{m.s^{-1}}}\par
+  (b) At the highest point $v_y = 0$. Use $v^2 = u^2 + 2as$ across the plates.
+  Up is positive and the acceleration is down, so put in $-a$. Then make $h$ the
+  subject:\par
+  \eqlines{0 &= (\qty{1.0e5}{m.s^{-1}})^2 - 2 \times \qty{9.576e11}{m.s^{-2}} \times h\\
+  h &= \frac{(\qty{1.0e5}{m.s^{-1}})^2}{2 \times \qty{9.576e11}{m.s^{-2}}}
+    = \qty{5.22e-3}{m}}\par
+  (c) It lands when its displacement across the plates is zero. Put $s = 0$ and
+  the acceleration $-a$ into $s = ut + \frac{1}{2}at^2$: \
+  $0 = u_y t - \frac{1}{2}at^2$.\par
+  Divide both sides by $t$: \ $0 = u_y - \frac{1}{2}at$. \ Then make $t$ the
+  subject:\par
+  \eqlines{t &= \frac{2u_y}{a}
+  = \frac{2 \times \qty{1.0e5}{m.s^{-1}}}{\qty{9.576e11}{m.s^{-2}}}
+  = \qty{2.089e-7}{s}}\par
+  (d) Along the plates there is no force, so $u_x$ stays the same:\par
+  \eqlines{R &= \qty{1.732e5}{m.s^{-1}} \times \qty{2.089e-7}{s}
+    = \qty{3.62e-2}{m}}}
+\answer{(a)~\final{$a = \qty{9.6e11}{m.s^{-2}}$ downwards} \quad
+  (b)~\final{$h = \qty{5.2}{mm}$}. This is less than the \qty{20}{mm} gap, so it
+  does \emph{not} reach the top plate. \quad (c)~\final{$t = \qty{2.1e-7}{s}$} \quad
+  (d)~\final{$R = \qty{3.6}{cm}$} from the hole.}
+\checkstep{energy: at the top only $u_x$ is left, so the proton has lost
+  $\frac{1}{2}mu_y^2 = \frac{1}{2} \times \num{1.673e-27} \times (\num{1.0e5})^2
+  = \qty{8.37e-18}{J}$ of kinetic energy. The work done against the field is
+  $qEh = \num{1.602e-19} \times \num{1.0e4} \times \num{5.22e-3} = \qty{8.36e-18}{J}$:
+  the same, apart from rounding \cmark. Every step is the same as for a ball thrown at \ang{30} (Module 5), with
+  $a = \dfrac{qE}{m}$ in place of $g$.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $g$ between the plates. \cmark\ Use $a = \dfrac{qE}{m}$.
+  \item \xmark\ Putting the whole entry speed into the equations across the plates
+        when the charge enters at an angle. \cmark\ Split it first:
+        $u_x = u\cos\theta$, $u_y = u\sin\theta$ (\cref{ch1:we:angled}).
+  \item \xmark\ Using the gap $d$ for the distance along the plates.
+        \cmark\ The time uses the plate length $L$.
+  \item \xmark\ Giving only the speed when ``velocity'' is asked. \cmark\ Give
+        the size and the angle.
+  \item \xmark\ Drawing a curve after the plates. \cmark\ No field, no force:
+        a straight line.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Compare the path of a charge in a uniform electric field with a projectile''
+(3 marks). Give a similarity \emph{and} a difference, each with a reason.
+\emph{Both} paths are parabolas, because both have a constant force in one
+direction and none at right angles to it. The electric acceleration
+$\dfrac{qE}{m}$ depends on charge and mass, \emph{whereas} $g$ is the same for
+every mass.
+A charge that enters at an angle is a projectile launched at an angle: split the
+velocity, then use $a = \dfrac{qE}{m}$ in place of $g$ (\cref{ch1:we:angled}).
+\end{examtip}
+
+\begin{quickcheck}
+  \item A proton enters the plates of \cref{ch1:we:deflect} at the same speed.
+        Which way is it deflected, and how far?
+  \item Give two similarities and two differences between an electron moving
+        between charged plates and a ball thrown horizontally.
+  \item The entry speed of the electron in \cref{ch1:we:deflect} is doubled.
+        Find the new deflection. (Hint: what happens to the time?)
+  \item A positive particle (charge $q$, mass $m$) is launched from the lower
+        plate at speed $u$, at angle $\theta$ above the plate. The plates are $d$
+        apart with voltage $V$, and the electric force on the particle is
+        downwards. Ignore gravity. Assume it does not reach the upper plate.
+        Show that it lands back on the lower plate after a time
+        $t = \dfrac{2mdu\sin\theta}{qV}$. (Hint: take up as positive. Then
+        $u_y = u\sin\theta$ and $a = -\dfrac{qV}{md}$. The particle lands when
+        its vertical displacement is zero.)
+\end{quickcheck}
+
+%% ==================================================================
+\section{Charges in a uniform magnetic field}\label{ch1:sec:bfield}
+\covers{M6.IQ1.03, M6.IQ1.04}
+
+\begin{bigidea}
+A magnetic field pushes only on a \emph{moving} charge, at right angles to both
+the velocity and the field. The push changes the direction of motion but never
+the speed. A charge moving at \ang{90} to a uniform field (with no other force)
+therefore moves in a circle at a constant speed.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Magnetic field ($B$)}{a region where a magnet or a moving charge feels a
+    magnetic force. Unit: tesla (T).}
+  \kw{Perpendicular}{at right angles (\ang{90}).}
+  \kw{Helix}{a spiral shape, like a stretched spring.}
+\end{keywords}
+
+\begin{refresher}{Dots and crosses (Year 11)}
+Think of an arrow. Its tip coming towards you looks like a dot; its tail going
+away looks like a cross. \quad $\bullet\;\bullet\;\bullet$ = field out of the
+page \qquad $\times\;\times\;\times$ = field into the page.
+A single arrow (for example a force) coming out of the page is often drawn as
+$\odot$ (a dot in a circle).
+\end{refresher}
+
+A \term{magnetic field} ($B$) is measured in \term{tesla} (T), the SI unit of
+magnetic field strength. A fridge magnet is about \qty{0.005}{T} (\qty{5}{mT}).
+The field does nothing to a charge at rest. It pushes only on a moving charge.
+Only the part of the velocity that is \term{perpendicular} (at \ang{90}) to the
+field counts (\cref{ch1:fig:components}).
+
+\begin{sidebyside}[0.46]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[field] (-0.3,-0.75) -- (3.6,-0.75) node[right, text=hscfield] {$B$};
+    \coordinate (O) at (0,0);
+    \draw[velocity] (O) -- (35:2.8) node[above, text=hscvel] {$v$};
+    \draw[guide, ->] (O) -- ({2.8*cos(35)},0) node[below, text=hscink, font=\small, xshift=-6pt] {$v_\parallel = v\cos\theta$};
+    \draw[guide, ->] ({2.8*cos(35)},0) -- (35:2.8) node[midway, right, text=hscink, font=\small] {$v_\perp = v\sin\theta$};
+    \draw[hscmuted] (0.8,0) arc (0:35:0.8) node[pos=0.5, right, font=\small, text=hscink] {$\theta$};
+    \fill[object] (O) circle (4.5pt);
+    \node[font=\scriptsize\bfseries] at (O) {$+$};
+  \end{tikzpicture}
+  \captionof{figure}{$\theta$ is the angle between $v$ and $B$. $v_\perp$ is
+    the part of the velocity across the field; $v_\parallel$ is the part along
+    the field. Only $v_\perp$ causes a force.}\label{ch1:fig:components}
+\nextside
+  \begin{itemize}
+    \item $\theta = \ang{90}$: $\sin\theta = 1$, the largest force.
+    \item $\theta = \ang{0}$ or \ang{180} (along the field): no force.
+    \item At rest ($v = 0$): no force.
+    \item The force is perpendicular to \emph{both} $v$ and $B$.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}{Magnetic force on a moving charge}
+  \cardformula{F = qv_\perp B = qvB\sin\theta}
+  \begin{symbols}
+    \sym{$F$}{magnetic force on the charge}{\si{N}}
+    \sym{$q$, $v$}{size of the charge; speed}{\si{C}, \si{m.s^{-1}}}
+    \sym{$v_\perp$}{part of the velocity perpendicular to $B$}{\si{m.s^{-1}}}
+    \sym{$B$, $\theta$}{field strength; angle between $v$ and $B$}{\si{T}, \si{\degree}}
+  \end{symbols}
+  \inwords{a faster charge, a bigger charge or a stronger field gives a bigger
+    sideways push.}
+  \whentouse{a charge moving through a magnetic field.}
+  \whennottouse{a charge at rest, or a force from an electric field ($F = qE$).}
+  \rearranged{$B = \dfrac{F}{qv\sin\theta}$ \qquad $v = \dfrac{F}{qB\sin\theta}$}
+  \tensecond{$q = e$, $v = \qty{1.0e6}{m.s^{-1}}$, $B = \qty{0.50}{T}$,
+    $\theta = \ang{90}$: $F = \qty{8.0e-14}{N}$.}
+  \trap{$\theta$ is measured from the \emph{field}, and the formula uses
+    $\sin\theta$. For a negative charge, reverse the hand-rule direction.}
+\end{formulacard}
+
+\textbf{Which way is the force?} Use the \term{right-hand palm rule}
+(\cref{ch1:fig:hand}). Hold your \emph{right} hand flat. Point your fingers along
+$B$ and your thumb along the velocity of a \emph{positive} charge. Your palm
+faces the way of the force (the way you would push). For a negative charge,
+reverse the answer.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \x/\h in {0.05/0.95, 0.47/1.22, 0.89/1.38, 1.31/1.2}
+      \draw[line width=0.8pt, fill=hscbrand!7, rounded corners=5pt] (\x,1.35) rectangle ++(0.4,\h);
+    \draw[line width=0.8pt, fill=hscbrand!7, rounded corners=5pt] (1.4,0.38) rectangle (2.75,0.82);
+    \draw[line width=0.8pt, fill=hscbrand!7, rounded corners=7pt] (0,0) rectangle (1.75,1.7);
+    \draw[line width=0.8pt] (0.25,0) -- (0.25,-0.4);
+    \draw[line width=0.8pt] (1.5,0) -- (1.5,-0.4);
+    \draw[->, line width=1.3pt, hscfield] (-0.5,0.6) -- (-0.5,2.7) node[above, font=\small] {$B$};
+    \node[diagramlabel, left, align=right] at (-0.65,1.7) {fingers:\\ field};
+    \draw[velocity] (2.9,0.6) -- (3.9,0.6) node[right, text=hscvel] {$v$};
+    \node[diagramlabel, align=left, anchor=north west] at (2.85,0.35) {thumb: velocity\\ of a $+$ charge};
+    \draw[hscforce, line width=1.1pt] (0.87,0.8) circle (0.2);
+    \fill[hscforce] (0.87,0.8) circle (0.06);
+    \node[diagramlabel, text=hscforce, align=center, below] at (0.87,-0.45) {palm faces you:\\ $F$ out of the page};
+    \begin{scope}[xshift=6.6cm]
+      \foreach \x/\y in {1.15/2.45, 1.95/2.45, 0.1/1.4, 1.15/1.4, 1.95/1.4,
+          1.15/0.35, 1.95/0.35}
+        \node[text=hscfield!45, font=\small] at (\x,\y) {$\times$};
+      \node[diagramlabel, text=hscfield, above] at (1.05,2.75) {$B$ into the page};
+      \draw[velocity] (0.6,1.9) -- (1.65,1.9) node[right, text=hscvel] {$v$};
+      \draw[force] (0.6,1.9) -- (0.6,2.65) node[left, text=hscforce] {$F$};
+      \fill[object] (0.6,1.9) circle (4.5pt);
+      \node[font=\scriptsize\bfseries] at (0.6,1.9) {$+$};
+      \draw[velocity] (0.6,0.9) -- (1.65,0.9) node[right, text=hscvel] {$v$};
+      \draw[force] (0.6,0.9) -- (0.6,0.15) node[left, text=hscforce] {$F$};
+      \fill[object] (0.6,0.9) circle (4.5pt);
+      \node[font=\scriptsize\bfseries] at (0.6,0.9) {$-$};
+      \node[diagramlabel, right, align=left] at (2.3,1.9) {$+$ charge:\\ force up};
+      \node[diagramlabel, right, align=left] at (2.3,0.9) {electron:\\ force down};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Left: the right-hand palm rule. Right: the rule used with a field
+    into the page. The force on an electron is opposite to the force on a
+    positive charge.}\label{ch1:fig:hand}
+\end{figure}
+
+\begin{refresher}{Uniform circular motion (Module 5)}
+Motion in a circle of radius $r$ at speed $v$ needs a net force towards the
+centre, $F_\mathrm{c} = \dfrac{mv^2}{r}$. The period $T$ (time for one turn)
+obeys $v = \dfrac{2\pi r}{T}$. Work is $W = Fs\cos\theta$ (on the sheet), where
+$s$ is the distance moved and $\theta$ is the angle between the force and the
+motion.
+\end{refresher}
+
+The force gives an acceleration $a = \dfrac{F}{m}$ in the same direction. So
+the acceleration is perpendicular to the field. Now follow the argument for the
+path, one step at a time.
+\begin{enumerate}
+  \item The force is always at \ang{90} to the velocity. With $\theta = \ang{90}$,
+        $W = Fs\cos\ang{90} = 0$: no work is done.
+  \item No work means no change in kinetic energy. So the speed stays
+        constant, and $F = qvB$ keeps the same size.
+  \item A force of constant size, always at \ang{90} to the velocity, keeps
+        turning the particle towards one point. That point is the centre of a
+        circle.
+\end{enumerate}
+The magnetic force is the \term{centripetal force} (the net force towards the
+centre). The particle is in \term{uniform circular motion}: a circle at a
+constant speed (\cref{ch1:fig:circles}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % ---- row 1: (a) positive charge, (b) electron; B into the page
+    \foreach \cx/\sgn/\chg/\lab in {0/1/+/{(a) positive charge:\\ anticlockwise},
+                               4.6/-1/-/{(b) electron:\\ clockwise}} {
+      \begin{scope}[xshift=\cx cm]
+        \foreach \x/\y in {0.5/0.5, -0.5/0.5, 0.5/-0.5, -0.5/-0.5,
+            1.6/1.6, -1.6/1.6, 1.75/-0.95, -1.75/-0.95}
+          \node[text=hscfield!40, font=\small] at (\x,\y) {$\times$};
+        \draw[hscink!55, line width=0.8pt] (0,0) circle (1.2);
+        \fill[hscink] (0,0) circle (1.3pt);
+        \foreach \a in {0,90,180,270} {
+          \coordinate (P) at (\a:1.2);
+          \draw[velocity] (P) -- ++({\a+\sgn*90}:0.75);
+          \draw[force] (P) -- ($(P)!0.5!(0,0)$);
+          \fill[object] (P) circle (4.2pt);
+          \node[font=\scriptsize\bfseries] at (P) {$\chg$};
+        }
+        \node[diagramlabel, text=hscvel] at (1.5,{\sgn*0.55}) {$v$};
+        \node[diagramlabel, text=hscforce] at (0.82,{-\sgn*0.24}) {$F$};
+        \node[diagramlabel, align=center] at (0,-2.05) {\lab};
+      \end{scope}
+    }
+    \node[diagramlabel, text=hscfield] at (2.3,2.15) {$B$ into the page};
+    % ---- row 2: (c) half a circle, (d) helix
+    \begin{scope}[xshift=-0.5cm, yshift=-4.5cm]
+      \foreach \x/\y in {-2.4/0.4, -2.4/1.3, 0.6/0.55, 0.6/1.35,
+          -1.5/0.3, -1.0/1.35}
+        \node[text=hscfield!40, font=\small] at (\x,\y) {$\times$};
+      \draw[line width=0.7pt, hscmuted] (-2.75,0) -- (0.95,0)
+        node[right, text=hscmuted, font=\small, align=left] {edge of\\ field};
+      \draw[hscink, line width=1pt] (0,-1.0) -- (0,0);
+      \draw[hscink, line width=1pt] (0,0) arc (0:180:1.0);
+      \draw[hscink, line width=1pt, ->] (-2.0,0) -- (-2.0,-1.0);
+      \draw[velocity] (0,-1.0) -- (0,-0.15) node[pos=0.35, right, text=hscvel] {$v$};
+      \fill[object] (0,-1.0) circle (4.2pt);
+      \node[font=\scriptsize\bfseries] at (0,-1.0) {$+$};
+      \coordinate (Q) at ($(-1.0,0)+(45:1.0)$);
+      \draw[force] (Q) -- ($(Q)!0.55!(-1.0,0)$);
+      \node[diagramlabel, text=hscforce] at ($(Q)+(-0.6,-0.12)$) {$F$};
+      \fill[hscink] (-1.0,0) circle (1.3pt);
+      \draw[<->, line width=0.6pt, hscmuted] (-2.0,-1.45) -- (0,-1.45)
+        node[midway, fill=white, text=hscink, font=\small, inner sep=1pt] {$2r$};
+      \node[diagramlabel, align=center] at (-1.0,-2.15) {(c) half a circle,\\ then out $2r$ away};
+    \end{scope}
+    \begin{scope}[xshift=3.8cm, yshift=-4.5cm]
+      \draw[field] (0,-1.15) -- (3.6,-1.15) node[right, text=hscfield] {$B$};
+      \draw[hscink, line width=0.9pt, domain=0:1440, samples=200, smooth]
+        plot ({0.25 + \x/480 + 0.3*sin(\x)}, {0.8*cos(\x)});
+      \node[diagramlabel, align=center] at (1.8,-2.15) {(d) $v$ at an angle\\ to $B$: a helix};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Paths in a uniform magnetic field. In (a) and (b) the velocity (blue)
+    is along the circle and the force (red) points to the centre.}\label{ch1:fig:circles}
+\end{figure}
+
+\begin{formulacard}[notonsheet]{Radius and period in a magnetic field}
+  \cardformula{r = \frac{mv}{qB} \qquad\quad T = \frac{2\pi m}{qB}}
+  \begin{symbols}
+    \sym{$r$, $T$}{radius of the circle; period (time for one turn)}{\si{m}, \si{s}}
+    \sym{$m$, $q$}{mass; size of the charge}{\si{kg}, \si{C}}
+    \sym{$v$, $B$}{speed (perpendicular to $B$); field strength}{\si{m.s^{-1}}, \si{T}}
+  \end{symbols}
+  \inwords{heavier or faster means a wider circle; more charge or a stronger
+    field means a tighter one. The period does not depend on the speed.}
+  \whentouse{a charge moving at \ang{90} to a uniform magnetic field, with no
+    other force.}
+  \whennottouse{$v$ is not perpendicular to $B$ (use $v_\perp$; the path is a
+    helix), or an electric field also acts.}
+  \rearranged{$B = \dfrac{mv}{qr}$ \qquad $v = \dfrac{qBr}{m}$ \qquad
+    half a turn takes $\dfrac{T}{2} = \dfrac{\pi m}{qB}$}
+  \tensecond{a proton at \qty{1.0e6}{m.s^{-1}} in \qty{0.10}{T}:
+    $r = \dfrac{\num{1.673e-27} \times \num{1.0e6}}{\num{1.602e-19} \times 0.10}
+    = \qty{0.10}{m}$, \ $T = \qty{6.6e-7}{s}$.}
+  \derive{the magnetic force is the centripetal force.
+    \begin{align*}
+      qvB &= \frac{mv^2}{r} && \text{magnetic force = centripetal force (both on the sheet)}\\
+      qB &= \frac{mv}{r} && \text{divide both sides by $v$}\\
+      qBr &= mv && \text{multiply both sides by $r$}\\
+      r &= \frac{mv}{qB} && \text{divide both sides by $qB$}\\
+      T &= \frac{2\pi r}{v} && \text{from $v = \tfrac{2\pi r}{T}$: multiply both sides by $T$, divide by $v$}\\
+      T &= \frac{2\pi}{v}\times\frac{mv}{qB} = \frac{2\pi m}{qB} && \text{put in $r$; the $v$'s cancel}
+    \end{align*}}
+  \trap{neither formula is on the sheet. Write $qvB = \dfrac{mv^2}{r}$ first in
+    every answer: it earns a mark.}
+\end{formulacard}
+
+If the field region is large (deeper than $r$), a particle that crosses its
+edge at \ang{90} goes round half a circle. It leaves through the same edge,
+moving the opposite way, $2r$ from where it entered (\cref{ch1:fig:circles}(c)).
+A \term{mass spectrometer} is a machine that sorts ions by mass. Heavier ions
+make bigger half circles, so they land further away. If $v$ is at another angle
+to $B$, split it into two parts. The part $v_\perp$ makes a circle. The part
+$v_\parallel$ feels no force and carries the particle along the field. Together
+they make a \term{helix} (\cref{ch1:fig:circles}(d)).
+
+\begin{workedexample}{An electron at an angle}\label{ch1:we:angle}
+A uniform \qty{0.050}{T} field points to the right, in the plane of the page. An
+electron moves at \qty{4.0e6}{m.s^{-1}}, also in the plane of the page, at
+\ang{30} above the field direction. Find the size and direction of the force on
+it, and its acceleration.
+\given{$q = \qty{1.602e-19}{C}$, \ $v = \qty{4.0e6}{m.s^{-1}}$, \
+  $B = \qty{0.050}{T}$, \ $\theta = \ang{30}$, \ $m_\mathrm{e} = \qty{9.109e-31}{kg}$}
+\find{$F$ and its direction; the acceleration $a$}
+\formula{$F = qvB\sin\theta$ \quad then \quad $a = \dfrac{F}{m}$}
+\substitute{\eqlines{F &= \qty{1.602e-19}{C} \times \qty{4.0e6}{m.s^{-1}}
+  \times \qty{0.050}{T} \times \sin\ang{30}\\
+  &= \qty{1.602e-14}{N}\\
+  a &= \frac{\qty{1.602e-14}{N}}{\qty{9.109e-31}{kg}} = \qty{1.759e16}{m.s^{-2}}}}
+\answer{\final{$F = \qty{1.6e-14}{N}$} and \final{$a = \qty{1.8e16}{m.s^{-2}}$},
+  both \textbf{out of the page}. Direction: for a positive charge, point your
+  fingers right (along $B$) and your thumb up, along $v_\perp$ (only $v_\perp$
+  matters). Your palm faces into the page. The electron is negative, so
+  reverse it: out of the page.}
+\checkstep{$F$ is half of the largest possible force,
+  $qvB = \qty{3.2e-14}{N}$, because $\sin\ang{30} = 0.5$ \cmark. The force is
+  perpendicular to both $v$ and $B$ \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Accelerate, then bend}\label{ch1:we:spectro}
+A proton is accelerated from rest through \qty{1.5}{kV}. It then enters a
+uniform \qty{0.12}{T} field (into the page) at \ang{90} to the edge of the field
+region. The field region is large. Find: (a) its speed; (b) the radius of its
+path; (c) how far from the entry point it leaves the field; (d) the time it
+spends in the field.
+\given{$q = \qty{1.602e-19}{C}$, \ $m_\mathrm{p} = \qty{1.673e-27}{kg}$, \
+  $V = \qty{1.5}{kV} = \qty{1500}{V}$, \ $B = \qty{0.12}{T}$}
+\find{(a) $v$ \ (b) $r$ \ (c) $2r$ \ (d) the time for half a turn}
+\formula{$v = \sqrt{\dfrac{2qV}{m}}$, \quad $r = \dfrac{mv}{qB}$ (from
+  $qvB = \dfrac{mv^2}{r}$), \quad $t = \dfrac{T}{2} = \dfrac{\pi m}{qB}$}
+\substitute{\eqlines{v &= \sqrt{\frac{2 \times \qty{1.602e-19}{C} \times
+  \qty{1500}{V}}{\qty{1.673e-27}{kg}}} = \qty{5.360e5}{m.s^{-1}}\\
+  r &= \frac{\qty{1.673e-27}{kg} \times \qty{5.360e5}{m.s^{-1}}}{\qty{1.602e-19}{C}
+  \times \qty{0.12}{T}}\\
+  &= \qty{4.664e-2}{m} = \qty{4.664}{cm}\\
+  2r &= 2 \times \qty{4.664e-2}{m} = \qty{9.329e-2}{m} = \qty{9.329}{cm}\\
+  t &= \frac{\pi \times \qty{1.673e-27}{kg}}{\qty{1.602e-19}{C} \times \qty{0.12}{T}}
+  = \qty{2.734e-7}{s}}}
+\answer{(a)~\final{$v = \qty{5.4e5}{m.s^{-1}}$} \ (b)~\final{$r = \qty{4.7}{cm}$}
+  \ (c)~\final{\qty{9.3}{cm}} from the entry point \ (d)~\final{$t = \qty{2.7e-7}{s}$}}
+\checkstep{half the circumference $\div$ speed:
+  $\dfrac{\pi \times 0.04664}{\num{5.360e5}} = \qty{2.7e-7}{s}$ \cmark. It leaves
+  at the same speed: the magnetic force does no work.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $\cos\theta$. \cmark\ $\theta$ is between $v$ and $B$; use $\sin\theta$.
+  \item \xmark\ Using the angle drawn in the page when $B$ points into or out of
+        the page. \cmark~Then $v$ is at \ang{90} to $B$, so $\sin\theta = 1$.
+  \item \xmark\ Using the palm rule on an electron as if it were positive.
+        \cmark\ Find the force for a positive charge, then reverse it.
+  \item \xmark\ ``The velocity is constant.'' \cmark\ The \emph{speed} is
+        constant; the direction keeps changing.
+  \item \xmark\ ``A magnetic field can speed a charge up.'' \cmark\ It does no
+        work, so a magnetic field alone never changes the speed. An electric
+        field can.
+  \item \xmark\ Giving $r$ when asked where the particle leaves. \cmark\ After
+        half a circle it is $2r$ away.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain why a charge moving at \ang{90} to a uniform magnetic field undergoes
+uniform circular motion'' (2--3 marks). Markers look for three links.
+(1) $qvB$ acts on a \emph{moving} charge, \emph{perpendicular} to its velocity.
+(2) So it does \emph{no work}, and the speed is \emph{constant}. (3) So the
+force has a constant size and acts as a \emph{centripetal} force. For
+``calculate $r$'', write $qvB = \dfrac{mv^2}{r}$ first.
+\end{examtip}
+
+\begin{quickcheck}
+  \item An electron moves towards the top of the page. The field points out of
+        the page. Which way is the force on the electron?
+  \item A proton moves in the plane of the page at \qty{5.0e5}{m.s^{-1}}, at
+        \ang{35} above the horizontal. A \qty{0.40}{T} field points into the
+        page. Find the force (size and direction).
+  \item (a) What field makes a proton at \qty{2.0e6}{m.s^{-1}} move in a circle
+        of radius \qty{0.50}{m}? (b) If its speed doubles, what happens to $r$ and $T$?
+  \item An electron enters a uniform magnetic field at \ang{40} to the field
+        lines. Describe its path and explain why.
+\end{quickcheck}
+
+\subsection{Comparing electric, magnetic and gravitational fields}
+\covers{M6.IQ1.04}
+
+In gravity and in an electric field the force keeps a fixed direction. So a
+particle that enters at an angle to the field follows a parabola
+(\cref{ch1:fig:parabola}). In a magnetic field the force turns with the
+velocity. So a particle moving at \ang{90} to the field follows a circle
+(\cref{ch1:fig:circles}). \Cref{ch1:tab:EB} sets out the differences.
+
+\begin{table}
+  \caption{A charge in a uniform electric field compared with a charge in a
+    uniform magnetic field.}\label{ch1:tab:EB}
+  \centering\small
+  \begin{tabular}{@{}L{34mm}L{52mm}L{54mm}@{}}
+    \toprule
+    & \colhead{Uniform electric field} & \colhead{Uniform magnetic field}\\
+    \midrule
+    Charge at rest & feels a force $qE$ & feels no force\\
+    Does the force depend on speed? & no: $F = qE$ at any speed & yes:
+      $F = qvB\sin\theta$; zero at rest\\
+    Direction of force & along the field ($+$) or against it ($-$) &
+      perpendicular to both $v$ and $B$\\
+    Negative charge & force reversed (towards the $+$ plate) & force reversed
+      (it turns the other way)\\
+    Moving along the field & speeds up or slows down in a line & no force:
+      constant velocity\\
+    Entering at \ang{90} & parabola & circle (or an arc)\\
+    Acceleration & constant size and direction & constant size; direction keeps
+      turning (centripetal)\\
+    Work and energy & field does work $qV$; speed changes & no work;
+      speed constant\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The magnetic case is also one more example of uniform circular motion
+(\cref{ch1:tab:ucm}). In every example the centripetal force is perpendicular
+to the velocity. So it does no work, and the speed stays constant.
+
+\begin{table}
+  \caption{Charges in magnetic fields compared with other uniform circular
+    motion.}\label{ch1:tab:ucm}
+  \centering\small
+  \begin{tabular}{@{}L{34mm}L{36mm}L{70mm}@{}}
+    \toprule
+    \colhead{Example} & \colhead{Force to the centre} & \colhead{How it compares}\\
+    \midrule
+    Ball on a string & tension & radius fixed by the string\\
+    Car on a flat bend & friction & radius fixed by the road\\
+    Satellite in orbit & gravity, $\frac{GMm}{r^2}$ & force depends on distance;
+      a bigger orbit is slower and takes longer\\
+    Charge in a magnetic field & magnetic force, $qvB$ & force exists only because
+      the charge moves; $r \propto v$; the period $\frac{2\pi m}{qB}$ does not
+      depend on speed (this is why a cyclotron, a circular particle
+      accelerator, works)\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{Crossed fields.} An electric field and a magnetic field can also act in
+the same place, at right angles (\term{crossed fields}). On a moving charge the
+two forces can point in opposite directions. When $qE = qvB$ they cancel, and
+the charge goes straight through. Divide both sides by $qB$: this happens only
+for the speed $v = \dfrac{E}{B}$ (not on the formula sheet). So the device is a
+\term{velocity selector}: crossed fields that let only one speed pass straight
+through. Thomson used balanced crossed fields (1897) to find the speed of
+cathode-ray electrons, and then their charge-to-mass ratio (Module~8).
+
+% Coverage audit (M6.IQ1.04, second sub-point): a worked comparison with other
+\begin{toolkit}{Comparing two cases with a ratio}
+Write the formula for each case, then divide one by the other. Anything that stays
+the same cancels. Example: a ball on a string, with the same $m$ and $r$, has
+$\dfrac{F_2}{F_1} = \dfrac{mv_2^2/r}{mv_1^2/r} = \left(\dfrac{v_2}{v_1}\right)^2$.
+So twice the speed needs $2^2 = 4$ times the tension. To undo a square, take the
+square root of both sides.
+\end{toolkit}
+
+\begin{workedexample}{Two kinds of circle}\label{ch1:we:twocircles}
+A proton moves at \ang{90} to a uniform \qty{0.25}{T} magnetic field at
+\qty{1.5e6}{m.s^{-1}}. (a)~Find the radius and the period of its circle.
+(b)~Its speed is doubled. Find the new radius and period. (c)~A satellite moves
+from orbit A to orbit B, with twice the radius, around the same planet. By what
+factor does its period change? (d)~Use (a)--(c) to compare the two motions.
+\given{$m_\mathrm{p} = \qty{1.673e-27}{kg}$, \ $q = \qty{1.602e-19}{C}$, \
+  $B = \qty{0.25}{T}$, \ $v_1 = \qty{1.5e6}{m.s^{-1}}$, \
+  $v_2 = 2v_1 = \qty{3.0e6}{m.s^{-1}}$; \ satellite: $r_\mathrm{B} = 2r_\mathrm{A}$,
+  same planet}
+\find{$r$ and $T$ for the proton at each speed; $\dfrac{T_\mathrm{B}}{T_\mathrm{A}}$
+  for the satellite}
+\formula{proton: $r = \dfrac{mv}{qB}$ and $T = \dfrac{2\pi m}{qB}$ (not on the
+  sheet; they come from $qvB = \dfrac{mv^2}{r}$); \ satellite:
+  $\dfrac{r^3}{T^2} = \dfrac{GM}{4\pi^2}$ (on the sheet)}
+\substitute{\eqlines{r_1 &= \frac{\qty{1.673e-27}{kg} \times \qty{1.5e6}{m.s^{-1}}}
+    {\qty{1.602e-19}{C} \times \qty{0.25}{T}} = \qty{6.27e-2}{m} && \text{(a) radius}\\
+  T &= \frac{2\pi \times \qty{1.673e-27}{kg}}{\qty{1.602e-19}{C} \times \qty{0.25}{T}}
+    = \qty{2.62e-7}{s} && \text{period}\\
+  r_2 &= \frac{\qty{1.673e-27}{kg} \times \qty{3.0e6}{m.s^{-1}}}
+    {\qty{1.602e-19}{C} \times \qty{0.25}{T}} = \qty{0.125}{m} && \text{(b) twice $r_1$}}\par
+  (b) The period formula has no $v$ in it, so $T$ is still \qty{2.62e-7}{s}.\par
+  (c) It is the same planet, so $\dfrac{GM}{4\pi^2}$, and therefore
+  $\dfrac{r^3}{T^2}$, is the same for both orbits: \
+  $\dfrac{r_\mathrm{A}^3}{T_\mathrm{A}^2} = \dfrac{r_\mathrm{B}^3}{T_\mathrm{B}^2}$.\par
+  Rearrange, then put in $r_\mathrm{B} = 2r_\mathrm{A}$: \
+  $\dfrac{T_\mathrm{B}^2}{T_\mathrm{A}^2} = \dfrac{r_\mathrm{B}^3}{r_\mathrm{A}^3}
+  = 2^3 = 8$.\par
+  Take the square root: \ $\dfrac{T_\mathrm{B}}{T_\mathrm{A}} = \sqrt{8} = 2.83$.}
+\answer{(a)~\final{$r = \qty{6.3}{cm}$, $T = \qty{2.6e-7}{s}$} \quad
+  (b)~\final{$r = \qty{13}{cm}$, $T = \qty{2.6e-7}{s}$}: the radius doubles, the
+  period does not change. \quad (c)~\final{2.8 times longer}.\par
+  (d) \textbf{Similarity:} both are uniform circular motion. The force to the
+  centre ($qvB$, or gravity) is at \ang{90} to the velocity. So it does no work, and
+  the speed stays constant. \textbf{Difference 1:} the proton's period does not
+  depend on its speed or radius, \emph{whereas} the satellite's period grows with
+  its radius. \textbf{Difference 2:} the proton's bigger circle goes with a
+  \emph{higher} speed ($r \propto v$), \emph{whereas} the satellite in the bigger
+  orbit is \emph{slower}. From $v = \dfrac{2\pi r}{T}$:
+  $\dfrac{v_\mathrm{B}}{v_\mathrm{A}} = \dfrac{r_\mathrm{B}}{r_\mathrm{A}} \div
+  \dfrac{T_\mathrm{B}}{T_\mathrm{A}} = \dfrac{2}{2.83} = 0.71$.}
+\checkstep{the proton's period from $T = \dfrac{2\pi r}{v}$ at each speed:\par
+  \eqlines{\frac{2\pi r_1}{v_1} &= \frac{2\pi \times \num{0.0627}}{\num{1.5e6}}
+  = \qty{2.6e-7}{s}\\
+  \frac{2\pi r_2}{v_2} &= \frac{2\pi \times \num{0.125}}{\num{3.0e6}}
+  = \qty{2.6e-7}{s}}\par
+  The same \cmark. Twice the distance at twice the speed takes the same time.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``A faster proton takes longer to go round its bigger circle.''
+        \cmark\ It also moves faster: $T = \dfrac{2\pi m}{qB}$ has no $v$ in it.
+  \item \xmark\ ``Like a satellite, a charge in a bigger circle moves more
+        slowly.'' \cmark\ For a charge, $r \propto v$: a bigger circle means a
+        faster charge.
+  \item \xmark\ ``A uniform electric field can also make a charge go in a
+        circle.'' \cmark\ Its force has a fixed direction, so the path is a
+        parabola.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Compare the motion of a charge in a uniform electric field and in a uniform
+magnetic field'' (3--4 marks). Give at least one similarity and two
+differences. Use ``both \ldots'' and ``whereas \ldots''. Mention the path
+(parabola or circle), whether the speed changes, and whether the field does
+work.
+``Compare it with other uniform circular motion'' (2--3 marks): give the
+similarity (force at \ang{90} to $v$, no work, constant speed). Then give one or
+two differences: what supplies the force, and how $r$ and $T$ depend on the speed
+(\cref{ch1:we:twocircles}).
+\end{examtip}
+
+\begin{quickcheck}
+  \item An electron and a proton move at the same speed at \ang{90} to the same
+        field. Compare their paths. Which field, electric or magnetic, could
+        change their kinetic energy?
+  \item A satellite orbits the Earth, and a proton moves in a circle in a
+        uniform magnetic field. Give one similarity and two differences
+        between the two motions.
+  \item A proton moves at \qty{2.0e5}{m.s^{-1}}. (a) Find the force on it in a
+        uniform electric field of \qty{1.0e4}{V.m^{-1}}, and in a uniform
+        \qty{0.050}{T} magnetic field at \ang{90} to its velocity. (b) The
+        proton stops. Which of the two forces is still there?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch1:sec:experiments}
+\covers{M6.IQ1.01, M6.IQ1.02}
+
+The syllabus asks you to \emph{investigate} and \emph{model} the paths of
+charges in electric fields, usually with a simulation. (The fine beam tube, for
+magnetic fields, is in Module 8 with Thomson's experiment.) In each
+investigation, three words matter. \term{Validity}: does it test what it claims
+to test? \term{Reliability}: do repeated results agree? \term{Accuracy}: how
+close is the result to the true value?
+
+\begin{experiment}{Modelling the paths of charges between plates}
+\aim{To find how the deflection of a charge between parallel plates depends on
+  the plate voltage, and to test whether its path is a parabola, like a
+  projectile.}
+\apparatus{a computer simulation of a charged particle between parallel plates
+  (voltage, gap, entry speed and particle can be set) and a spreadsheet.
+  \Cref{ch1:fig:parabola} shows the set-up: $V$, $d$, $L$ and $u$ are set, and
+  $y$ is read at the end of the plates. With a real deflection tube, the kV
+  supply can give a dangerous shock and the glass tube can implode: teacher
+  demonstration only.}
+\method{\begin{enumerate}
+  \item Choose an electron entering midway between plates \qty{8.0}{cm} long
+    and \qty{4.0}{cm} apart, at \qty{2.0e7}{m.s^{-1}}.
+  \item Record the deflection $y$ at the end of the plates for 50, 100, 150,
+    200 and \qty{250}{V}. Change nothing else.
+  \item Repeat with half the entry speed, then with a proton.
+  \item At \qty{200}{V}, record $y$ at $x = 2.0$, 4.0, 6.0 and \qty{8.0}{cm}
+    along the plates.
+\end{enumerate}}
+\results{\begin{sidebyside}[0.30]
+  \centering\small
+  \begin{tabular}{@{}cc@{}}
+    \toprule
+    $V$ (\si{V}) & $y$ (\si{mm})\\
+    \midrule
+    50 & 1.8\\ 100 & 3.5\\ 150 & 5.3\\ 200 & 7.0\\ 250 & 8.8\\
+    \bottomrule
+  \end{tabular}
+\nextside
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.42\linewidth,
+        xmin=0, xmax=280, ymin=0, ymax=10,
+        xlabel={plate voltage $V$ (\si{V})}, ylabel={$y$ (\si{mm})},
+        xtick={0,50,...,250}, ytick={0,2,...,10}]
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(50,1.8) (100,3.5) (150,5.3) (200,7.0) (250,8.8)};
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:270, samples=2] {0.03516*x};
+      \node[anchor=west, font=\small, text=hscink] at (axis cs:110,2.2)
+        {gradient \qty{0.035}{mm.V^{-1}}};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Deflection against voltage.}\label{ch1:fig:exp1}
+\end{sidebyside}
+  Half the speed gave four times the deflection (\qty{7.0}{mm} at \qty{50}{V});
+  from \qty{150}{V} up, the slow electron hit the plate. The proton went the
+  other way (towards the negative plate). Its deflection was about 1840 times
+  smaller: only \qty{0.0048}{mm} at \qty{250}{V}, because
+  $m_\mathrm{p} \approx 1840\,m_\mathrm{e}$.
+
+  \smallskip
+  \begin{center}\small
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    At \qty{200}{V}: \ $x$ (\si{cm}) & 2.0 & 4.0 & 6.0 & 8.0\\
+    $y$ (\si{mm}) & 0.44 & 1.76 & 3.96 & 7.03\\
+    $\dfrac{y}{x^2}$ (\si{mm.cm^{-2}}) & 0.110 & 0.110 & 0.110 & 0.110\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  Doubling $x$ gives four times the deflection: $y/x^2$ is the same every time.}
+\conclusion{the $y$--$V$ graph (\cref{ch1:fig:exp1}) is a straight line through
+  the origin, so $y \propto V$. Gradient from the line:
+  $\dfrac{\qty{8.8}{mm} - 0}{\qty{250}{V} - 0} = \qty{0.035}{mm.V^{-1}}$.
+  Theory: $y = \dfrac{qEL^2}{2mu^2}$ with $E = \dfrac{V}{d}$ gives a gradient
+  \[ \begin{aligned}
+     \frac{qL^2}{2mdu^2} &= \frac{\num{1.602e-19} \times 0.080^2}{2 \times
+       \num{9.109e-31} \times 0.040 \times (\num{2.0e7})^2}\\
+     &= \qty{3.5e-5}{m.V^{-1}} = \qty{0.035}{mm.V^{-1}}.
+  \end{aligned} \]
+  They agree. Along the plates, $y/x^2$ is constant, so $y \propto x^2$ (a graph
+  of $y$ against $x^2$ is a straight line through the origin). Theory, with
+  $E = \dfrac{\qty{200}{V}}{\qty{0.040}{m}} = \qty{5.0e3}{V.m^{-1}}$:
+  \[ \frac{qE}{2mu^2} = \frac{\num{1.602e-19} \times \num{5.0e3}}{2 \times
+     \num{9.109e-31} \times (\num{2.0e7})^2} = \qty{1.10}{m^{-1}}
+     = \qty{0.110}{mm.cm^{-2}}. \]
+  So the path is a parabola, like a projectile, because the force is constant.}
+\significance{the same physics steered the electron beam in cathode-ray
+  oscilloscopes (instruments that draw a voltage graph on a screen), and steers charged ink drops in continuous inkjet printers.
+  (Old CRT televisions bent the beam with magnetic coils instead: the magnetic
+  version of the same idea, \cref{ch1:sec:bfield}.)}
+\validity{\begin{itemize}
+  \item \textbf{Validity} (does it test what it claims?): change only $V$
+        (control the speed, plates and particle). The model assumes a uniform
+        field and no gravity: state this.
+  \item \textbf{Reliability} (do repeated results agree?): a simulation repeats
+        exactly, so test the pattern with other settings. With a real tube,
+        repeat readings and average.
+  \item \textbf{Accuracy} (how close is the result to the true value?): compare
+        the gradient with the theory value. With a real tube, read the grid at
+        eye level. This avoids \term{parallax error} (a reading that changes
+        when you look from the side).
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Speed gained from an accelerating voltage}
+\aim{To test $qV = \frac{1}{2}mv^2$: how does the speed gained from rest depend
+  on the voltage?}
+\apparatus{the simulation, set up as an electron gun (\cref{ch1:fig:gun}).}
+\method{\begin{enumerate}
+  \item Gap \qty{4.0}{cm}: record the exit speed $v$ for $V$ = 20, 40, 60, 80, \qty{100}{V}.
+  \item Double the gap to \qty{8.0}{cm} and repeat. Then plot $v^2$ against $V$.
+\end{enumerate}}
+\results{\begin{sidebyside}[0.45]
+  \centering\small
+  \begin{tabular}{@{}ccc@{}}
+    \toprule
+    $V$ (\si{V}) & $v$ (\qty{e6}{m.s^{-1}}) & $v^2$ (\qty{e13}{m^2.s^{-2}})\\
+    \midrule
+    20 & 2.65 & 0.703\\ 40 & 3.75 & 1.41\\ 60 & 4.59 & 2.11\\
+    80 & 5.30 & 2.81\\ 100 & 5.93 & 3.52\\
+    \bottomrule
+  \end{tabular}
+\nextside
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=\linewidth, height=0.50\linewidth,
+        xmin=0, xmax=110, ymin=0, ymax=4,
+        xlabel={$V$ (\si{V})}, ylabel={$v^2$ (\qty{e13}{m^2.s^{-2}})},
+        xtick={0,20,...,100}, ytick={0,1,...,4}]
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+        coordinates {(20,0.703) (40,1.41) (60,2.11) (80,2.81) (100,3.52)};
+      \addplot[hscseriesB, dashed, line width=1pt, domain=0:105, samples=2] {0.03517*x};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Speed squared against voltage.}\label{ch1:fig:exp2}
+\end{sidebyside}
+  With the gap doubled, every speed was the same as before.}
+\conclusion{the $v^2$--$V$ graph (\cref{ch1:fig:exp2}) is a straight line through
+  the origin, so $v^2 \propto V$. Gradient:
+  $\dfrac{\num{3.52e13} - 0}{100 - 0} = \qty{3.5e11}{m^2.s^{-2}.V^{-1}}$
+  (\si{m^2.s^{-2}.V^{-1}} is the same as \si{C.kg^{-1}}). Theory
+  ($v^2 = \frac{2q}{m}V$): $\dfrac{2e}{m_\mathrm{e}} = \dfrac{2 \times
+  \num{1.602e-19}}{\num{9.109e-31}} = \qty{3.52e11}{C.kg^{-1}}$. They agree. The
+  gap did not change $v$, because $W = qV$ does not depend on $d$.}
+\significance{electron guns, X-ray tubes and accelerators set particle energy
+  by choosing the voltage.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} change only $V$; test the gap on its own.
+  \item \textbf{Reliability:} a simulation gives the same result each time, so
+        test the pattern with a proton too: the line should stay straight.
+  \item \textbf{Accuracy:} compare the gradient with $\dfrac{2e}{m_\mathrm{e}}$.
+        Above about \qty{100}{kV}, $v$ nears $c$ and the line bends (Module 7).
+\end{itemize}}
+\end{experiment}
+
+%% ==================================================================
+\begin{summarybox}{\Cref{ch1:chap} in five lines}
+\begin{itemize}
+  \item Between parallel plates, $E = \dfrac{V}{d}$ and $F = qE$ are constant, so
+        $a = \dfrac{qE}{m}$ is constant. The field does work $W = qV$, which becomes
+        kinetic energy.
+  \item A charge between the plates moves like a projectile, with $\dfrac{qE}{m}$ in
+        place of $g$: its path is a parabola. If it enters at an angle, split $u$ into
+        $u\cos\theta$ and $u\sin\theta$ first.
+  \item A magnetic field pushes only on a moving charge: $F = qvB\sin\theta$, at
+        \ang{90} to both $v$ and $B$ (palm rule; reverse it for a negative charge).
+  \item At \ang{90} to a uniform $B$ the charge moves in a circle:
+        $qvB = \dfrac{mv^2}{r}$ gives $r = \dfrac{mv}{qB}$ (not on the sheet). Its period
+        does not depend on its speed.
+  \item An electric field can change a charge's speed. A magnetic field does no work,
+        so it changes only the direction.
+\end{itemize}
+\end{summarybox}

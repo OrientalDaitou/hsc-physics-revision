@@ -1,0 +1,984 @@
+% answers.tex -- answers and worked solutions for booklet.tex (Module 7 MC booklet), same
+% layout (quiz.sty). One practiceans per quizq, in the same order (72).
+% Every number: checks/m7-mc-booklet/numbers.py
+% Build: TEXINPUTS=.: xelatex answers.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{quiz}
+\hypersetup{pdftitle={Multiple Choice Booklet - Module 7 - The Nature of Light - Answers}}
+% links between the two PDF files are not possible, so question headings are plain text here
+\renewcommand\hyperlink[2]{#2}
+\newcommand\anstopic[1]{\par\Needspace{8\baselineskip}\vspace{4mm}%
+  \begin{center}{\headfont\bfseries\fontsize{14}{18}\selectfont #1\par}\end{center}\vspace{2pt}}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Multiple Choice Booklet - Module 7 - The Nature of Light: Answers}
+
+\begin{center}
+  \renewcommand\arraystretch{1.45}
+  \begin{tabular}{|l|*{12}{>{\centering\arraybackslash}p{7mm}|}}
+    \hline
+    \textbf{Q} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\ \hline
+    \textbf{Ans} & A & D & C & D & C & B & B & D & C & A & A & A\\ \hline\hline
+    \textbf{Q} & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24\\ \hline
+    \textbf{Ans} & D & B & B & B & C & A & B & B & C & C & B & C\\ \hline\hline
+    \textbf{Q} & 25 & 26 & 27 & 28 & 29 & 30 & 31 & 32 & 33 & 34 & 35 & 36\\ \hline
+    \textbf{Ans} & C & D & A & C & A & D & B & D & A & D & A & B\\ \hline\hline
+    \textbf{Q} & 37 & 38 & 39 & 40 & 41 & 42 & 43 & 44 & 45 & 46 & 47 & 48\\ \hline
+    \textbf{Ans} & A & C & A & B & B & C & D & B & C & A & B & C\\ \hline\hline
+    \textbf{Q} & 49 & 50 & 51 & 52 & 53 & 54 & 55 & 56 & 57 & 58 & 59 & 60\\ \hline
+    \textbf{Ans} & D & D & D & C & A & D & A & D & C & C & B & A\\ \hline\hline
+    \textbf{Q} & 61 & 62 & 63 & 64 & 65 & 66 & 67 & 68 & 69 & 70 & 71 & 72\\ \hline
+    \textbf{Ans} & B & D & C & B & D & A & C & D & B & A & C & D\\ \hline
+  \end{tabular}
+\end{center}
+Topic 1: Questions 1--18. \quad Topic 2: Questions 19--36. \quad Topic 3: Questions 37--54. \quad
+Topic 4: Questions 55--72.
+
+Useful relationships: $c = f\lambda$, \ $\lambda_\mathrm{max} = \dfrac{b}{T}$, \ $d\sin\theta = m\lambda$,
+\ $I = I_\mathrm{max}\cos^2\theta$, \ $E = hf$, \ $K_\mathrm{max} = hf - \phi$, \ $p = \dfrac{h}{\lambda}$,
+\ $t = \gamma t_0$, \ $L = \dfrac{L_0}{\gamma}$, \ $p = \gamma m v$, \ $E = mc^2$, where
+$\gamma = \dfrac{1}{\sqrt{1 - v^2/c^2}}$.
+
+\begin{practiceanswers}
+
+% =====================================================================
+\anstopic{Topic 1 - Electromagnetic Spectrum}
+
+% ---- Q1
+\begin{practiceans}
+  \correct{A}
+  Maxwell's equations predicted waves of changing electric and magnetic fields. Their speed came out
+  as $\dfrac{1}{\sqrt{\mu_0\varepsilon_0}}$, using two constants measured in experiments on magnetism
+  ($\mu_0$) and electricity ($\varepsilon_0$). The answer matched the measured speed of light, so he
+  concluded that light is an electromagnetic wave.
+  \begin{itemize}
+    \item \xmark\ B: Fizeau's value was used to \emph{compare} with the prediction, not to make it.
+    \item \xmark\ C and D: neither was used in Maxwell's calculation; these effects later led to the
+          quantum model.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q2
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  An EM wave is a transverse wave: $\vec{E}$ and $\vec{B}$ oscillate in phase, at \ang{90} to each other
+  and at \ang{90} to the direction of travel.
+  \begin{itemize}
+    \item \xmark\ A: the fields are perpendicular, not parallel.
+    \item \xmark\ B: EM waves need no medium; they travel through a vacuum.
+    \item \xmark\ C: all EM waves travel at $c$ in a vacuum.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q3
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  An accelerating charge produces EM waves. An oscillating charge is always accelerating, so it makes
+  changing electric and magnetic fields that travel outwards as a wave.
+  \begin{itemize}
+    \item \xmark\ A: a charge at rest makes only a steady electric field.
+    \item \xmark\ B and D: a charge moving at a constant velocity, or a steady current, does not
+          radiate. Only accelerating charges produce EM waves.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q4
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $\mu_0\varepsilon_0 = (4\pi\times10^{-7})(\num{8.854e-12}) = \num{1.113e-17}$, so
+  $\dfrac{1}{\sqrt{\mu_0\varepsilon_0}} = \dfrac{1}{\num{3.336e-9}} = \num{3.0e8}$ (in \si{m.s^{-1}}:
+  the speed of light).
+  \begin{itemize}
+    \item \xmark\ A: this is $\mu_0\varepsilon_0$. \quad \xmark\ B: this is $\sqrt{\mu_0\varepsilon_0}$.
+    \item \xmark\ C: this is $\dfrac{1}{\mu_0\varepsilon_0} = c^2$ (forgot the square root).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q5
+\Needspace{12\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  One gap to the next tooth is $\frac{1}{720}$ of a turn, so half of it is $\frac{1}{1440}$ of a turn.
+  At 12.6 turns per second:
+  \[ t = \frac{1}{1440 \times 12.6} = \qty{5.51e-5}{s}, \qquad
+     c = \frac{2d}{t} = \frac{2 \times 8633}{\num{5.51e-5}} = \qty{3.1e8}{m.s^{-1}} \]
+  \begin{itemize}
+    \item \xmark\ A: forgot the 720 teeth (used the time for half a whole turn).
+    \item \xmark\ B: used only one way ($d$, not $2d$). \quad \xmark\ D: counted the distance twice
+          ($4d$).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q6
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  A hot, low-pressure gas (hydrogen discharge tube) gives emission lines. A hot solid (filament) gives
+  a continuous spectrum. Sunlight is a continuous spectrum with dark absorption lines, made by cooler
+  gas in the Sun's outer layers.
+  \begin{itemize}
+    \item \xmark\ A, C and D: each has at least one source matched with the wrong type of spectrum.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q7
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  The hot, dense interior emits a continuous spectrum. Atoms in the cooler outer layers absorb photons
+  whose energies match their energy-level gaps, removing those wavelengths, so dark lines appear.
+  \begin{itemize}
+    \item \xmark\ A: the core is very hot; the lines come from absorption, not from missing emission.
+    \item \xmark\ C: Earth's atmosphere does add some lines, but the star's own lines are made in the
+          star.
+    \item \xmark\ D: gravity does not slow light down in this way.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q8
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  An element is present if \emph{all} of its lines appear in the star's spectrum. All the lines of X
+  and all the lines of Z line up with dark lines in the star. None of the lines of Y do. So X and Z are
+  present.
+  \begin{itemize}
+    \item \xmark\ A: the star also has two lines that match Z.
+    \item \xmark\ B and C: no line of Y matches a line in the star.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q9
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Wien's law: $T = \dfrac{b}{\lambda_\mathrm{max}} = \dfrac{\num{2.898e-3}}{\num{290e-9}} = \qty{1.0e4}{K}$.
+  \begin{itemize}
+    \item \xmark\ A: this is $b \times \lambda_\mathrm{max}$.
+    \item \xmark\ B: did not change nanometres into metres.
+    \item \xmark\ D: wrong power of ten.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q10
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $\lambda_\mathrm{max} = \dfrac{b}{T}$: a shorter peak wavelength means a higher temperature. Star A
+  peaks at the shorter wavelength (\qty{450}{nm}, in the blue part of the spectrum), so it is hotter
+  and looks more blue. Star B peaks in the red, so it looks more red.
+  \begin{itemize}
+    \item \xmark\ B, C and D: each has at least one part the wrong way round.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q11
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  All the lines are shifted to longer wavelengths (red shift), so the star is moving away from Earth
+  (Doppler effect).
+  \begin{itemize}
+    \item \xmark\ B: moving towards Earth would give a blue shift (shorter wavelengths).
+    \item \xmark\ C: temperature changes the peak of the continuous spectrum, not the positions of the
+          lines.
+    \item \xmark\ D: the same lines are seen, so the elements are the same; they are just shifted.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q12
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  One side of a rotating star moves towards us and the other side moves away. The light from each part
+  is Doppler-shifted by a different amount, so each line is spread over a range of wavelengths.
+  \begin{itemize}
+    \item \xmark\ B: rotation does not change the temperature.
+    \item \xmark\ C: rotation does not make the gas denser.
+    \item \xmark\ D: a shift of the whole spectrum comes from the motion of the whole star.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q13
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  In a dense gas the atoms collide often, which broadens the lines. Narrow lines mean low-density gas
+  in the outer layers. Giant stars have very low-density outer layers, so star P is likely a giant.
+  \begin{itemize}
+    \item \xmark\ A: motion away shifts the lines; it does not make them narrower.
+    \item \xmark\ B: the stars have the same temperature.
+    \item \xmark\ C: fewer elements would mean fewer lines, not narrower lines.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q14
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  The pulse goes there and back, so the one-way time is $\frac{2.56}{2} = \qty{1.28}{s}$:
+  $d = c \times 1.28 = (\num{3.00e8})(1.28) = \qty{3.84e8}{m}$.
+  \begin{itemize}
+    \item \xmark\ A: this is $\frac{c}{t}$. \quad \xmark\ C: forgot to halve the time (this is the
+          round-trip distance).
+    \item \xmark\ D: doubled instead of halved.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q15
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  In order of increasing frequency (decreasing wavelength): radio, microwaves, infrared, visible,
+  ultraviolet, X-rays, gamma rays.
+  \begin{itemize}
+    \item \xmark\ A: this is the order of \emph{decreasing} frequency.
+    \item \xmark\ C and D: ultraviolet and visible light, or microwaves and visible light, are in the
+          wrong order.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q16
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $\lambda = \dfrac{c}{f} = \dfrac{\num{3.00e8}}{\num{98.5e6}} = \qty{3.05}{m}$.
+  \begin{itemize}
+    \item \xmark\ A: this is $\frac{f}{c}$ (upside down). \quad \xmark\ C: did not change MHz into Hz.
+    \item \xmark\ D: this is $c \times f$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q17
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Hertz made radio waves with a spark gap and detected them with a receiver loop. He measured their
+  speed (equal to $c$) and showed they reflect, refract, interfere and can be polarised, just like
+  light. This confirmed Maxwell's prediction.
+  \begin{itemize}
+    \item \xmark\ A: the photon idea came from Einstein (Hertz did notice the photoelectric effect, but
+          could not explain it).
+    \item \xmark\ B: the charge on the electron was measured by Millikan.
+    \item \xmark\ D: the speed of light does not depend on the observer's motion.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q18
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Each element has its own set of energy levels. Photons are emitted or absorbed only when electrons
+  move between these levels, so each element has its own pattern of lines, like a fingerprint.
+  \begin{itemize}
+    \item \xmark\ B: gases (not solids) give line spectra; hot solids give continuous spectra.
+    \item \xmark\ C: there is no such simple rule.
+    \item \xmark\ D: different elements produce lines at different wavelengths.
+  \end{itemize}
+\end{practiceans}
+
+% =====================================================================
+\anstopic{Topic 2 - Light: Wave Model}
+
+% ---- Q19
+\begin{practiceans}
+  \correct{B}
+  The narrower the slit compared with the wavelength, the more the light spreads out. So the central
+  bright band becomes wider.
+  \begin{itemize}
+    \item \xmark\ A and C: diffraction increases as the slit gets narrower.
+    \item \xmark\ D: light still passes through and diffracts.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q20
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  For small angles, the fringe spacing is
+  $\Delta y = \dfrac{\lambda L}{d} = \dfrac{(\num{600e-9})(2.0)}{\num{0.30e-3}} = \qty{4.0e-3}{m} = \qty{4.0}{mm}$.
+  \begin{itemize}
+    \item \xmark\ A: half the spacing (centre to the first dark fringe).
+    \item \xmark\ C: this is the distance from the centre to the second bright fringe.
+    \item \xmark\ D: wrong power of ten (millimetres changed into metres wrongly).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q21
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $d = \dfrac{1}{600 \times 10^{3}} = \qty{1.67e-6}{m}$. \quad
+  $\sin\theta = \dfrac{\lambda}{d} = \dfrac{\num{550e-9}}{\num{1.67e-6}} = 0.33$, so $\theta = \ang{19}$.
+  \begin{itemize}
+    \item \xmark\ A: this is the value of $\sin\theta$, not the angle.
+    \item \xmark\ B: used half the correct value of $\frac{\lambda}{d}$.
+    \item \xmark\ D: this is the second-order angle.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q22
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $\sin\theta$ cannot be more than 1, so $m \le \dfrac{d}{\lambda} = \dfrac{\num{1.67e-6}}{\num{550e-9}} = 3.03$.
+  The highest whole-number order is 3.
+  \begin{itemize}
+    \item \xmark\ A and B: orders 2 and 3 also exist ($\sin\theta = 0.66$ and $0.99$).
+    \item \xmark\ D: order 4 would need $\sin\theta = 1.32$, which is impossible.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q23
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $\Delta y = \dfrac{\lambda L}{d}$. Red light has a longer wavelength than green light, so the fringes
+  are further apart.
+  \begin{itemize}
+    \item \xmark\ A: this would happen for a shorter wavelength (for example blue).
+    \item \xmark\ C: the spacing depends on $\lambda$. \quad \xmark\ D: red light still interferes.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q24
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  With one slit, there is no second source to interfere with, so the closely spaced two-slit fringes
+  disappear. Only the single-slit diffraction pattern is left: a broad, bright central band with weak
+  bands on each side.
+  \begin{itemize}
+    \item \xmark\ A: light still passes through the open slit.
+    \item \xmark\ B: the two-slit fringes need light from both slits.
+    \item \xmark\ D: the fringe spacing depends on the slit separation, which no longer exists.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q25
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Dark fringes are where the path difference is $(m + \frac{1}{2})\lambda$: $\frac{1}{2}\lambda$ for the
+  first, $\frac{3}{2}\lambda$ for the second.
+  \begin{itemize}
+    \item \xmark\ A: this is the first dark fringe.
+    \item \xmark\ B and D: whole numbers of wavelengths give bright fringes.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q26
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Huygens' wave model predicted that light slows down in a denser medium such as water. Newton's
+  particle model needed the particles to speed up in water to explain refraction. Foucault measured a
+  lower speed in water, so this supported the wave model.
+  \begin{itemize}
+    \item \xmark\ A and B: Newton's model predicted that light \emph{speeds up} in water.
+    \item \xmark\ C: the wave model predicted a lower speed.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q27
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Newton said the particles of light are attracted by the denser medium. This increases the part of
+  their velocity perpendicular to the surface, so they bend towards the normal and travel faster in
+  glass.
+  \begin{itemize}
+    \item \xmark\ B: in Newton's model the particles speed up in glass and bend towards the normal.
+    \item \xmark\ C: this is the wave (Huygens) explanation.
+    \item \xmark\ D: Newton's particles did not interfere.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q28
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  The first filter halves unpolarised light: $\frac{I_0}{2}$. Malus' law for the second filter:
+  $I = \dfrac{I_0}{2}\cos^2 60^\circ = \dfrac{I_0}{2} \times \dfrac{1}{4} = \dfrac{I_0}{8}$.
+  \begin{itemize}
+    \item \xmark\ A: the intensity after the first filter only.
+    \item \xmark\ B: forgot that the first filter halves the intensity.
+    \item \xmark\ D: used $\sin^2 60^\circ$ instead of $\cos^2 60^\circ$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q29
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $\dfrac{I}{I_\mathrm{max}} = \cos^2\theta = 0.75$, so $\cos\theta = 0.866$ and $\theta = \ang{30}$.
+  \begin{itemize}
+    \item \xmark\ B: $\cos^2 45^\circ = 0.50$ (50\%). \quad \xmark\ C: $\cos^2 60^\circ = 0.25$ (25\%).
+    \item \xmark\ D: $\cos^2 75^\circ = 0.067$ (about 7\%).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q30
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Only transverse waves can be polarised, because their oscillations can be in different directions
+  at \ang{90} to the direction of travel. Sound is longitudinal, so it cannot be polarised.
+  \begin{itemize}
+    \item \xmark\ A and C: these are true, but polarisation does not show them.
+    \item \xmark\ B: polarisation is evidence for the wave model.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q31
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  After filter 1: $\frac{I_0}{2}$. After filter 2 (at \ang{45}): $\frac{I_0}{2}\cos^2 45^\circ = \frac{I_0}{4}$.
+  After filter 3 (another \ang{45}): $\frac{I_0}{4}\cos^2 45^\circ = \frac{I_0}{8}$.
+  \begin{itemize}
+    \item \xmark\ A: the middle filter turns the plane of polarisation, so some light gets through.
+    \item \xmark\ C: used only one of the two $\cos^2 45^\circ$ factors.
+    \item \xmark\ D: this is the intensity after the first filter only.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q32
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $I = I_\mathrm{max}\cos^2\theta$: maximum at \ang{0}, zero at \ang{90}, maximum again at \ang{180},
+  with a smooth curved shape.
+  \begin{itemize}
+    \item \xmark\ A: the intensity is not a straight line, and it rises again after \ang{90}.
+    \item \xmark\ B: this is $|\cos\theta|$ (it has a sharp point at \ang{90}).
+    \item \xmark\ C: this is $\sin^2\theta$ (it starts at zero).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q33
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  The maxima are still where $d\sin\theta = m\lambda$, so they are at the same angles. With many slits,
+  the waves cancel almost everywhere else, so the maxima are much sharper, and more light gets through,
+  so they are brighter.
+  \begin{itemize}
+    \item \xmark\ B: the same $d$ gives the same angles.
+    \item \xmark\ C: more slits make the maxima narrower and brighter.
+    \item \xmark\ D: higher orders still appear.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q34
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  At the centre ($m = 0$), every wavelength is at $\theta = 0$, so the colours add up to white. In each
+  spectrum, $\sin\theta = \frac{m\lambda}{d}$: violet (shortest $\lambda$) is closest to the centre and red is
+  furthest.
+  \begin{itemize}
+    \item \xmark\ A and B: the central maximum is white. \quad \xmark\ C: the angle depends on
+          $\lambda$, so the colours separate.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q35
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Diffraction is large when the wavelength is similar to (or larger than) the size of the gap or
+  obstacle. Radio wavelengths are metres to hundreds of metres, so they bend around buildings. Light wavelengths are
+  less than a millionth of a metre, so light hardly bends and the shadow is sharp.
+  \begin{itemize}
+    \item \xmark\ B: all EM waves travel at $c$.
+    \item \xmark\ C: light does diffract, but only by a tiny amount around large objects.
+    \item \xmark\ D: radio waves have \emph{lower} frequencies than light.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q36
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $\sin\theta = \dfrac{\lambda}{d} = \dfrac{\num{650e-9}}{\num{1.6e-6}} = 0.41$, so $\theta = \ang{24}$.
+  \begin{itemize}
+    \item \xmark\ A: this is the value of $\sin\theta$, not the angle.
+    \item \xmark\ C: this is the second-order angle. \quad \xmark\ D: used $\cos^{-1}$ instead of $\sin^{-1}$.
+  \end{itemize}
+\end{practiceans}
+
+% =====================================================================
+\anstopic{Topic 3 - Light: Quantum Model}
+
+% ---- Q37
+\begin{practiceans}
+  \correct{A}
+  A hotter object emits more at every wavelength, so its whole curve is higher, and its peak is at a
+  shorter wavelength ($\lambda_\mathrm{max} = \frac{b}{T}$). Only graph A shows both.
+  \begin{itemize}
+    \item \xmark\ B: the hotter curve peaks at a longer wavelength.
+    \item \xmark\ C: the cooler curve is higher. \quad \xmark\ D: both curves peak at the same wavelength.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q38
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Classical physics (with energy shared equally among all possible waves) predicted that the intensity
+  should keep rising as the wavelength gets shorter, giving infinite energy in the ultraviolet. Real
+  black-body curves have a peak and fall to zero at short wavelengths. Planck solved this by
+  quantising energy.
+  \begin{itemize}
+    \item \xmark\ A, B and D: none of these is what the name refers to.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q39
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $\lambda_\mathrm{max} = \dfrac{b}{T} = \dfrac{\num{2.898e-3}}{1100} = \qty{2.6e-6}{m}$ (infrared, with
+  a little visible red light).
+  \begin{itemize}
+    \item \xmark\ B: wrong power of ten (Wien's constant in mm\,K). \quad \xmark\ C: this is $b \times T$.
+    \item \xmark\ D: this is $\frac{T}{b}$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q40
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $E = \dfrac{hc}{\lambda} = \dfrac{(\num{6.626e-34})(\num{3.00e8})}{\num{450e-9}} = \qty{4.4e-19}{J}$.
+  \begin{itemize}
+    \item \xmark\ A: this is $\frac{h}{\lambda}$ (the photon's momentum).
+    \item \xmark\ C: wrong power of ten (nanometres changed into metres wrongly).
+    \item \xmark\ D: this is the energy in electronvolts (\qty{2.8}{eV}), not joules.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q41
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  Photon energy: $E = \dfrac{hc}{\lambda} = \dfrac{(\num{6.626e-34})(\num{3.00e8})}{\num{250e-9}}
+  = \qty{7.95e-19}{J} = \qty{4.96}{eV}$. \quad $K_\mathrm{max} = E - \phi = 4.96 - 2.3 = \qty{2.7}{eV}$.
+  \begin{itemize}
+    \item \xmark\ A: this is the work function. \quad \xmark\ C: this is the photon energy.
+    \item \xmark\ D: added the work function instead of subtracting it.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q42
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $\phi = 4.3 \times \num{1.602e-19} = \qty{6.89e-19}{J}$. \quad
+  $f_0 = \dfrac{\phi}{h} = \dfrac{\num{6.89e-19}}{\num{6.626e-34}} = \qty{1.0e15}{Hz}$.
+  \begin{itemize}
+    \item \xmark\ A: this is the work function in joules. \quad \xmark\ B: this is the threshold
+          \emph{wavelength} (in m).
+    \item \xmark\ D: forgot to change eV into J.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q43
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $K_\mathrm{max} = hf - \phi$. The gradient is $h$ for every metal, so the two lines are parallel. Each
+  metal has a different work function, so the lines cut the $f$ axis at different threshold frequencies,
+  and there is no kinetic energy below the threshold.
+  \begin{itemize}
+    \item \xmark\ A and B: the gradients are different.
+    \item \xmark\ C: no electrons are emitted at low frequencies, so the lines cannot start above zero
+          at $f = 0$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q44
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  Brighter light of the same frequency means more photons per second, each with the same energy $hf$.
+  More photons release more electrons per second, but each electron still gets the same energy, so
+  $K_\mathrm{max} = hf - \phi$ does not change.
+  \begin{itemize}
+    \item \xmark\ A and C: $K_\mathrm{max}$ depends on frequency, not intensity.
+    \item \xmark\ D: more photons means more electrons.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q45
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Each electron absorbs one photon. A red photon has less energy ($hf$) than the work function, so it
+  cannot free an electron, no matter how many photons arrive. A violet photon has more energy than the
+  work function.
+  \begin{itemize}
+    \item \xmark\ A: the bright red light has plenty of total energy, but it comes in photons that are
+          each too small.
+    \item \xmark\ B: this is not the reason. \quad \xmark\ D: waiting longer does not help; there is
+          no build-up of energy.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q46
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  $E = hf = (\num{6.626e-34})(\num{7.5e14}) = \qty{4.97e-19}{J} = \qty{3.1}{eV}$. \quad
+  $K_\mathrm{max} = 3.1 - 2.0 = \qty{1.1}{eV}$. The stopping voltage gives $eV_0 = K_\mathrm{max}$, so
+  $V_0 = \qty{1.1}{V}$.
+  \begin{itemize}
+    \item \xmark\ B: this is the work function. \quad \xmark\ C: this is the photon energy.
+    \item \xmark\ D: added the work function instead of subtracting it.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q47
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $p = \dfrac{h}{\lambda} = \dfrac{\num{6.626e-34}}{\num{500e-9}} = \qty{1.3e-27}{kg.m.s^{-1}}$.
+  \begin{itemize}
+    \item \xmark\ A: this is $h \times \lambda$. \quad \xmark\ C: this is the photon's energy (in J).
+    \item \xmark\ D: this is the frequency (in Hz).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q48
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Einstein said light is made of photons, each of energy $E = hf$. One photon gives all its energy to one
+  electron. If $hf > \phi$, the electron escapes with $K_\mathrm{max} = hf - \phi$.
+  \begin{itemize}
+    \item \xmark\ A: this is the wave-model idea that failed.
+    \item \xmark\ B and D: emission and $K_\mathrm{max}$ depend on frequency, not brightness.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q49
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  In the wave model, energy is spread over the wave, so with dim light an electron would need time to
+  build up enough energy. Electrons are actually emitted straight away, because a single photon gives
+  all its energy at once.
+  \begin{itemize}
+    \item \xmark\ A: the wave model also predicts more electrons for brighter light.
+    \item \xmark\ B and C: these do not contradict the wave model.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q50
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Both curves reach zero at the same stopping voltage $-V_0$, so the electrons have the same
+  $K_\mathrm{max}$, meaning the frequency is the same. X has a larger maximum (saturation) current, so
+  more electrons are released per second: X has a greater intensity.
+  \begin{itemize}
+    \item \xmark\ A and C: a higher frequency would need a larger stopping voltage.
+    \item \xmark\ B: the same intensity would give the same saturation current.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q51
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Planck assumed that energy is quantised: the oscillators can only have energies $nhf$
+  ($n = 1, 2, 3, \dots$). This made his formula match the measured black-body curves.
+  \begin{itemize}
+    \item \xmark\ A: this is Einstein's second postulate of special relativity.
+    \item \xmark\ B: this is Bohr's model of the atom. \quad \xmark\ C: this is the classical wave idea.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q52
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Energy of one photon: $E = \dfrac{hc}{\lambda} = \dfrac{(\num{6.626e-34})(\num{3.00e8})}{\num{650e-9}}
+  = \qty{3.06e-19}{J}$. \quad Number per second $= \dfrac{P}{E} = \dfrac{\num{5.0e-3}}{\num{3.06e-19}}
+  = \num{1.6e16}$.
+  \begin{itemize}
+    \item \xmark\ A: this is the energy of one photon.
+    \item \xmark\ B: used $\qty{5.0e-6}{W}$ instead of \qty{5.0e-3}{W}.
+    \item \xmark\ D: used \qty{5.0}{W} (forgot the milli).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q53
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Work function: $\phi = \dfrac{hc}{\lambda_0} = \dfrac{(\num{6.626e-34})(\num{3.00e8})}{\num{500e-9}}
+  = \qty{3.98e-19}{J} = \qty{2.5}{eV}$. \quad $K_\mathrm{max} = 3.5 - 2.5 = \qty{1.0}{eV}$.
+  \begin{itemize}
+    \item \xmark\ B: this is the work function. \quad \xmark\ C: this is the photon energy.
+    \item \xmark\ D: added instead of subtracting.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q54
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $K_\mathrm{max} = hf - \phi$ has the form $y = mx + c$, so the gradient is $h$. The line cuts the $f$
+  axis where $K_\mathrm{max} = 0$, which is the threshold frequency $f_0$. (The work function is the size
+  of the intercept on the $K_\mathrm{max}$ axis, if the line is extended back.)
+  \begin{itemize}
+    \item \xmark\ A and C: the gradient is $h$, not $\phi$.
+    \item \xmark\ B: the $f$-axis intercept is the threshold frequency, not the work function.
+  \end{itemize}
+\end{practiceans}
+
+% =====================================================================
+\anstopic{Topic 4 - Light and Special Relativity}
+
+% ---- Q55
+\begin{practiceans}
+  \correct{A}
+  Einstein's two postulates: (1) the laws of physics are the same in all inertial frames of reference;
+  (2) the speed of light in a vacuum is the same for all observers in inertial frames.
+  \begin{itemize}
+    \item \xmark\ B and C: these are \emph{results} of special relativity, not postulates.
+    \item \xmark\ D: special relativity removed the need for a medium (the aether).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q56
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  Michelson and Morley expected the interference pattern to shift as their apparatus turned, because of
+  Earth's motion through the aether. They found no shift (a null result), so no aether wind was
+  detected.
+  \begin{itemize}
+    \item \xmark\ A and C: no difference in speed was detected.
+    \item \xmark\ B: the experiment used the interference of light waves, and said nothing about
+          particles.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q57
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  The proper time is \qty{2.0}{s} (measured on the ship). $\gamma = \dfrac{1}{\sqrt{1 - 0.80^2}}
+  = \dfrac{1}{0.60} = 1.67$, so $t = \gamma t_0 = 1.67 \times 2.0 = \qty{3.3}{s}$.
+  \begin{itemize}
+    \item \xmark\ A: divided by $\gamma$ instead of multiplying. \quad \xmark\ B: ignored time dilation.
+    \item \xmark\ D: multiplied by $\gamma^2$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q58
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $\gamma = \dfrac{1}{\sqrt{1 - 0.995^2}} = 10.0$. In Earth's frame the lifetime is
+  $\gamma t_0 = 10.0 \times \qty{2.2}{\micro s} = \qty{22}{\micro s}$, so
+  $d = vt = (0.995 \times \num{3.00e8})(\num{22e-6}) = \qty{6.6e3}{m} = \qty{6.6}{km}$.
+  \begin{itemize}
+    \item \xmark\ A: divided by $\gamma$ instead of multiplying. \quad \xmark\ B: ignored time dilation.
+    \item \xmark\ D: applied $\gamma$ twice.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q59
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $\gamma = \dfrac{1}{\sqrt{1 - 0.60^2}} = \dfrac{1}{0.80} = 1.25$, so
+  $L = \dfrac{L_0}{\gamma} = \dfrac{120}{1.25} = \qty{96}{m}$.
+  \begin{itemize}
+    \item \xmark\ A: multiplied by $0.60$ (the speed) instead of $0.80$. \quad \xmark\ C: this is the
+          proper length.
+    \item \xmark\ D: multiplied by $\gamma$ instead of dividing.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q60
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Proper time is measured by the observer for whom both events happen at the same place. The heartbeats
+  happen at the same place in the astronaut's frame, so she measures the proper time. The Earth observer
+  measures a longer (dilated) time.
+  \begin{itemize}
+    \item \xmark\ B: in the Earth frame the heartbeats happen at different places. Also, neither frame is
+          ``really'' at rest.
+    \item \xmark\ C: the two observers measure different times. \quad \xmark\ D: the astronaut does.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q61
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  $\gamma = \dfrac{1}{\sqrt{1 - 0.90^2}} = 2.29$. \quad
+  $p = \gamma m v = 2.29 \times (\num{9.109e-31}) \times (0.90 \times \num{3.00e8}) = \qty{5.6e-22}{kg.m.s^{-1}}$.
+  \begin{itemize}
+    \item \xmark\ A: this is the classical momentum $mv$ (no $\gamma$).
+    \item \xmark\ C: multiplied by $\gamma^2$. \quad \xmark\ D: this is the speed $v$ (no mass).
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q62
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  $p = \gamma m v$. At low speeds $\gamma \approx 1$, so $p \approx mv$ (a straight line from the origin).
+  As $v$ approaches $c$, $\gamma$ increases without limit, so the momentum rises steeply and has no
+  maximum value. The speed never reaches $c$.
+  \begin{itemize}
+    \item \xmark\ A: this is classical momentum, and it goes past $c$.
+    \item \xmark\ B: the momentum does not level off. \quad \xmark\ C: this shape goes past $c$ and
+          is not linear at low speeds.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q63
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  $E = mc^2 = (\num{3.0e-29})(\num{3.00e8})^2 = \qty{2.7e-12}{J}$.
+  \begin{itemize}
+    \item \xmark\ A: divided by $c^2$. \quad \xmark\ B: multiplied by $c$ instead of $c^2$.
+    \item \xmark\ D: multiplied by $c^3$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q64
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  In one second the Sun radiates \qty{3.8e26}{J}. $m = \dfrac{E}{c^2} = \dfrac{\num{3.8e26}}{(\num{3.00e8})^2}
+  = \qty{4.2e9}{kg}$ (about 4 million tonnes every second).
+  \begin{itemize}
+    \item \xmark\ A: this is $\frac{c^2}{E}$ (upside down). \quad \xmark\ C: divided by $c$ instead of
+          $c^2$.
+    \item \xmark\ D: multiplied by $c^2$ instead of dividing.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q65
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  The satellites move fast relative to Earth, so by special relativity their clocks run slow (time
+  dilation, about \qty{7}{\micro s} per day). GPS systems must correct for this, or position errors would
+  build up quickly. (General relativity also makes them run fast because of weaker gravity, but the
+  question asks about special relativity only.)
+  \begin{itemize}
+    \item \xmark\ A: the difference is small but important. \quad \xmark\ B: moving clocks run slow,
+          not fast.
+    \item \xmark\ C: the clocks never stop.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q66
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  The flown clocks ended up different from the ground clocks by tiny amounts (nanoseconds), and the
+  differences agreed with the predictions of special and general relativity. This was direct evidence
+  of time dilation.
+  \begin{itemize}
+    \item \xmark\ B: the clocks did not stay in step.
+    \item \xmark\ C: the eastward and westward flights gave different results (one lost time, the other
+          gained time).
+    \item \xmark\ D: the experiment measured time, and the speed of light is the same for all observers.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q67
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  The passenger moves towards the light from the front strike and away from the light from the back
+  strike, so the light from the front reaches them first. Light travels at $c$ in their frame too and
+  they are halfway between the ends, so they conclude that the front strike happened first.
+  Simultaneity is relative.
+  \begin{itemize}
+    \item \xmark\ A: events that are simultaneous in one frame are not simultaneous in another frame
+          moving relative to it.
+    \item \xmark\ B: the back strike is seen second. \quad \xmark\ D: the passenger sees both.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q68
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  By the first postulate, the laws of physics are the same in all inertial frames, so no experiment
+  inside a closed laboratory moving at constant velocity can tell that it is moving.
+  \begin{itemize}
+    \item \xmark\ A: the pendulum behaves normally in its own frame.
+    \item \xmark\ B: the speed of light is $c$ in every direction in every inertial frame.
+    \item \xmark\ C: the scientist sees their own clocks run normally.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q69
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  By the second postulate, the speed of light is the same for all observers, whatever the motion of the
+  source. Light speeds do not add like ordinary speeds.
+  \begin{itemize}
+    \item \xmark\ A: subtracted the speeds. \quad \xmark\ C: added the speeds (Galilean addition).
+    \item \xmark\ D: this has no physical basis.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q70
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Length contraction happens only along the direction of motion. The length in that direction is
+  divided by $\gamma$ ($\gamma = 2.3$ at $0.90c$); the height and width do not change.
+  \begin{itemize}
+    \item \xmark\ B: perpendicular lengths are not contracted. \quad \xmark\ C: moving objects are
+          shorter, not longer.
+    \item \xmark\ D: at $0.90c$ the contraction is large.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q71
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  Half the rate means $\gamma = 2$. $\sqrt{1 - \frac{v^2}{c^2}} = \frac{1}{2}$, so $\frac{v^2}{c^2} = \frac{3}{4}$
+  and $v = 0.87c$.
+  \begin{itemize}
+    \item \xmark\ A: at $0.50c$, $\gamma = 1.15$. \quad \xmark\ B: at $0.71c$, $\gamma = 1.42$.
+    \item \xmark\ D: at $0.97c$, $\gamma = 4.1$.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q72
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  As the energy increases, $\gamma$ increases. The speed approaches $c$ but never reaches it, because
+  that would need infinite energy. The energy ($\gamma mc^2$) and momentum ($\gamma mv$) can keep
+  increasing without limit.
+  \begin{itemize}
+    \item \xmark\ A and C: nothing with mass can reach or go past $c$.
+    \item \xmark\ B: the momentum keeps increasing as $\gamma$ increases.
+  \end{itemize}
+\end{practiceans}
+
+\end{practiceanswers}
+\end{document}

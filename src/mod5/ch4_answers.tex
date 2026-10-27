@@ -1,0 +1,104 @@
+% ch4_answers.tex -- answers to the Quick check questions of Module 5, Chapter 4.
+\begin{chapteranswers}{4}{Gravity, Orbits and Kepler's Laws}
+  % ---- Section 4.1
+  \item $F \propto \dfrac{Mm}{r^2}$. Doubling one mass multiplies $F$ by 2. Tripling $r$ divides
+        $F$ by $3^2 = 9$. New force $= F \times \dfrac{2}{9}$.
+        Answer: \final{$\dfrac{2F}{9}$} (about $0.22F$).
+  \item (a) By Newton's third law the ball pulls the Earth with a force of the same size in the
+        opposite direction: \final{\qty{4.9}{N} upwards} (towards the ball).
+        (b) The Earth's acceleration is
+        $a = \dfrac{F}{m} = \dfrac{\qty{4.9}{N}}{\qty{6.0e24}{kg}} = \qty{8.2e-25}{m.s^{-2}}$.
+        The Earth's mass is so huge that this acceleration is far too small to notice.
+  \item $g = \dfrac{GM}{r^2} = \dfrac{\num{6.67e-11} \times \num{7.35e22}}{(\num{1.74e6})^2}
+        = \dfrac{\num{4.902e12}}{\num{3.028e12}} = \qty{1.619}{N.kg^{-1}}$.
+        Answer: \final{$g = \qty{1.62}{N.kg^{-1}}$} (about one sixth of the Earth's value).
+  \item $g \propto \dfrac{1}{r^2}$. For $g$ to be $\dfrac19$ of the surface value, $r^2$ must be
+        9 times bigger, so $r$ must be $\sqrt 9 = 3$ times bigger: $r = 3r_\mathrm{E}$.
+        The altitude is $h = r - r_\mathrm{E} = 3r_\mathrm{E} - r_\mathrm{E} = 2r_\mathrm{E}
+        = 2 \times \qty{6.371e6}{m} = \qty{1.274e7}{m}$.
+        Answer: \final{$h = \qty{1.27e7}{m}$} (about \qty{12700}{km}).
+  \item At the zero point the two fields have the same size and opposite directions. Let $x$ be
+        the distance from the Earth's centre. Then the distance from the Moon's centre is $d - x$,
+        with $d = \qty{3.84e8}{m}$.
+        \begin{align*}
+          \frac{GM_\mathrm{E}}{x^2} &= \frac{GM_\mathrm{M}}{(d-x)^2} && \text{the fields have the same size}\\
+          \frac{M_\mathrm{E}}{x^2} &= \frac{M_\mathrm{M}}{(d-x)^2} && \text{cancel $G$}\\
+          \frac{(d-x)^2}{x^2} &= \frac{M_\mathrm{M}}{M_\mathrm{E}} && \text{multiply by $(d-x)^2$; divide by $M_\mathrm{E}$}\\
+          \frac{(d-x)^2}{x^2} &= \frac{\num{7.35e22}}{\num{6.0e24}} = 0.01225 && \text{substitute}\\
+          \frac{d-x}{x} &= \sqrt{0.01225} = 0.1107 && \text{square root of both sides}\\
+          \frac{d}{x} - 1 &= 0.1107 && \text{split the fraction: $\frac{d-x}{x} = \frac{d}{x} - 1$}\\
+          \frac{d}{x} &= 1.1107 && \text{add 1 to both sides}\\
+          x &= \frac{\qty{3.84e8}{m}}{1.1107} = \qty{3.457e8}{m} && \text{rearrange for $x$}
+        \end{align*}
+        Answer: \final{$x = \qty{3.46e8}{m}$} from the Earth's centre (90\,\% of the way to the
+        Moon). Check: both fields are \qty{3.35e-3}{N.kg^{-1}} there.
+  % ---- Section 4.2
+  \item $r = r_\mathrm{E} + h = \qty{6.371e6}{m} + \qty{2.000e6}{m} = \qty{8.371e6}{m}$.
+        $v = \sqrt{\dfrac{GM}{r}} = \sqrt{\dfrac{\qty{4.002e14}{m^3.s^{-2}}}{\qty{8.371e6}{m}}}
+        = \sqrt{\qty{4.781e7}{m^2.s^{-2}}} = \qty{6.914e3}{m.s^{-1}}$.
+        Answer: \final{$v = \qty{6.91e3}{m.s^{-1}}$}.
+  \item Speed: $v = \sqrt{\dfrac{GM}{r}}$, so $v \propto \dfrac{1}{\sqrt r}$. With $r$ 4 times
+        bigger, $v$ is divided by $\sqrt 4 = 2$: \final{$v_\mathrm{B} = \tfrac12 v_\mathrm{A}$}.
+        Period: $T^2 \propto r^3$, so $T \propto r^{3/2}$. With $r$ 4 times bigger, $T$ is
+        multiplied by $4^{3/2} = \sqrt{64} = 8$: \final{$T_\mathrm{B} = 8\,T_\mathrm{A}$}.
+        (Check: B goes 4 times as far at half the speed, so it takes $4 \times 2 = 8$ times as long.)
+  \item Use $T = 2\pi\sqrt{\dfrac{r^3}{GM}}$ with the Earth's $GM$.
+        \begin{align*}
+          T &= 2\pi\sqrt{\frac{(\qty{3.84e8}{m})^3}{\qty{4.002e14}{m^3.s^{-2}}}}
+            = 2\pi\sqrt{\frac{\qty{5.662e25}{m^3}}{\qty{4.002e14}{m^3.s^{-2}}}}\\
+          &= 2\pi \times \qty{3.761e5}{s} = \qty{2.363e6}{s}
+        \end{align*}
+        In days: $\num{2.363e6} \div \num{86400} = 27.4$. Answer: \final{$T = 27.4$ days}
+        (the measured value is 27.3 days).
+  \item Gravity still acts on the astronaut: $g = \qty{8.7}{m.s^{-2}}$ at that height. The
+        astronaut and the ISS are both in free fall around the Earth, with the same acceleration
+        ($g$ towards the Earth's centre). Because they fall together, the floor does not push on
+        the astronaut: the normal force is zero. We feel our weight through this push, so the
+        astronaut feels weightless (apparent weightlessness).
+  % ---- Section 4.3
+  \item Perigee and apogee are the closest and farthest points, so
+        $r_\mathrm{p} v_\mathrm{p} = r_\mathrm{a} v_\mathrm{a}$ can be used.
+        $v_\mathrm{a} = \dfrac{r_\mathrm{p} v_\mathrm{p}}{r_\mathrm{a}}
+        = \dfrac{\qty{7.0e6}{m} \times \qty{8.73e3}{m.s^{-1}}}{\qty{1.4e7}{m}} = \qty{4.37e3}{m.s^{-1}}$.
+        Answer: \final{$v_\mathrm{a} = \qty{4.4e3}{m.s^{-1}}$} (twice as far, so half as fast).
+  \item Same central body (the Sun), so $\dfrac{r_1^3}{T_1^2} = \dfrac{r_2^3}{T_2^2}$, which
+        gives $T_2^2 = T_1^2 \left(\dfrac{r_2}{r_1}\right)^3$ (as in \cref{ch4:we:cometT}).
+        Measure distances in units of the Earth's orbit radius (AU). Earth: $r_1 = 1$,
+        $T_1 = \qty{1}{\yr}$. Ceres: $r_2 = 2.77$ in the same units.
+        $T_2^2 = (\qty{1}{\yr})^2 \times 2.77^3 = \qty{21.25}{\yr^2}$, so
+        $T_2 = \sqrt{\qty{21.25}{\yr^2}} = \qty{4.610}{\yr}$.
+        Answer: \final{$T = \qty{4.61}{\yr}$}.
+  \item In a circular orbit, gravity always points to the centre, at \ang{90} to the velocity.
+        A force at \ang{90} to the motion does no work ($W = Fs\cos 90^\circ = 0$), so the
+        kinetic energy and the speed stay constant. In an elliptical orbit, gravity is not at
+        \ang{90} to the velocity (except at perihelion and aphelion). When the planet moves
+        closer, part of gravity acts along the motion and does positive work, so it speeds up.
+        When it moves away, part of gravity acts against the motion, so it slows down.
+  \item Only gravity acts on the comet, so its total energy $K + U$ stays constant. Its
+        potential energy $U = -\dfrac{GMm}{r}$ is highest (least negative) when $r$ is largest,
+        at aphelion. Total energy is constant, so the kinetic energy $K$ is smallest there.
+        Smallest kinetic energy means smallest speed, so the comet moves most slowly at aphelion.
+  % ---- Section 4.4
+  \item (1) The period is one day (\qty{24}{h}, strictly 23\,h\,56\,min). (2) The orbit is a
+        circle in the plane of the equator. (3) The satellite moves from west to east, the same
+        direction as the Earth spins.
+  \item Change the period to seconds, find $r$ with Kepler's third law, then subtract $r_\mathrm{E}$.
+        \begin{align*}
+          T &= 14.1 \times \qty{3600}{s} = \qty{5.076e4}{s} && \text{hours to seconds}\\
+          r^3 &= \frac{GMT^2}{4\pi^2} && \text{Kepler's third law}\\
+          &= \frac{\qty{4.002e14}{m^3.s^{-2}} \times (\qty{5.076e4}{s})^2}{39.48}\\
+          &= \frac{\qty{1.031e24}{m^3}}{39.48} = \qty{2.612e22}{m^3}\\
+          r &= \sqrt[3]{\qty{2.612e22}{m^3}} = \qty{2.967e7}{m} && \text{cube root}\\
+          h &= r - r_\mathrm{E} = \qty{2.967e7}{m} - \qty{0.6371e7}{m} && \text{same power of ten}\\
+          &= \qty{2.330e7}{m}
+        \end{align*}
+        Answer: \final{$h = \qty{2.33e7}{m}$} (about \qty{23300}{km}).
+  \item No. Its period matches the Earth's spin, so it is geosynchronous. But the orbit is not in
+        the plane of the equator. Seen from the ground, the satellite moves north and south of the
+        equator each day, so it does not stay above one point. A geostationary orbit must be
+        above the equator.
+  \item A low Earth orbit is only a few hundred kilometres up, while a geostationary orbit is
+        about \qty{36000}{km} up, nearly 100 times further away. A camera sees much finer detail
+        from close up, so small objects such as buildings can be picked out. The satellite moves
+        over many places each day, and a polar orbit lets it photograph the whole Earth.
+\end{chapteranswers}

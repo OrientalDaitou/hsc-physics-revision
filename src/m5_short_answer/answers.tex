@@ -1,0 +1,523 @@
+% answers.tex -- marking criteria and sample answers for questions.tex (Module 5 short answer).
+% NESA marking-guideline style: a criteria table for each part, then a sample answer.
+% Every number: checks/m5-short-answer/numbers.py
+% Build: TEXINPUTS=.: xelatex answers.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{quiz}
+\hypersetup{pdftitle={Short Answer Questions - Module 5 - Advanced Mechanics - Marking guidelines}}
+% links between the two PDF files are not possible, so question headings are plain text here
+\renewcommand\hyperlink[2]{#2}
+\newcommand\anstopic[1]{\par\Needspace{8\baselineskip}\vspace{4mm}%
+  \begin{center}{\headfont\bfseries\fontsize{14}{18}\selectfont #1\par}\end{center}\vspace{2pt}}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Short Answer Questions - Module 5 - Advanced Mechanics:\\
+  Marking Guidelines and Sample Answers}
+
+Data used: $g = \qty{9.8}{m.s^{-2}}$, $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$,
+$M_\mathrm{E} = \qty{6.0e24}{kg}$, $r_\mathrm{E} = \qty{6.371e6}{m}$. In calculations, a correct
+answer from a correct method with an earlier error carried forward still earns the later marks.
+
+% =====================================================================
+\anstopic{Topic 1 - Projectile Motion}
+
+% ---- Q1
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the maximum height}{2}
+  \critrow{Calculates the vertical component of the initial velocity OR uses a correct equation for
+    the maximum height}{1}
+\end{crit}
+\sample
+$u_y = 28\sin 35^\circ = \qty{16.1}{m.s^{-1}}$. At the maximum height $v_y = 0$:
+\[ v_y^2 = u_y^2 + 2as \quad\Rightarrow\quad 0 = 16.06^2 - 2(9.8)s \quad\Rightarrow\quad s = \qty{13.2}{m} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the range}{2}
+  \critrow{Calculates the time of flight OR the horizontal component of the velocity}{1}
+\end{crit}
+\sample
+Time of flight $t = \dfrac{2u_y}{g} = \dfrac{2 \times 16.06}{9.8} = \qty{3.28}{s}$.
+$u_x = 28\cos 35^\circ = \qty{22.94}{m.s^{-1}}$. Range $= u_x t = 22.94 \times 3.278 = \qty{75.2}{m}$.
+
+% ---- Q2
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the time}{2}
+  \critrow{Uses a correct equation with an initial vertical velocity of zero}{1}
+\end{crit}
+\sample
+Vertically $u_y = 0$: $s = \frac{1}{2}gt^2 \Rightarrow 30 = \frac{1}{2}(9.8)t^2 \Rightarrow
+t = \sqrt{\dfrac{60}{9.8}} = \qty{2.47}{s}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the magnitude AND direction of the final velocity}{3}
+  \critrow{Correctly calculates the magnitude OR calculates $v_y$ and the direction}{2}
+  \critrow{Calculates the final vertical velocity}{1}
+\end{crit}
+\sample
+$v_y = gt = 9.8 \times 2.47 = \qty{24.2}{m.s^{-1}}$ downwards, and $v_x = \qty{15}{m.s^{-1}}$.
+\[ v = \sqrt{15^2 + 24.2^2} = \qty{28.5}{m.s^{-1}} \qquad
+   \theta = \tan^{-1}\!\left(\frac{24.2}{15}\right) = 58^\circ \text{ below the horizontal} \]
+
+% ---- Q3
+\ansq
+\begin{crit}
+  \critrow{Explains the horizontal motion (no force, constant velocity) AND the vertical motion
+    (constant force, constant acceleration) using Newton's laws, AND links them to the parabolic
+    shape}{3}
+  \critrow{Explains the horizontal and vertical motions using Newton's laws}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+Ignoring air resistance, the only force on the projectile is its weight, which is vertical and
+constant.
+\begin{itemize}
+  \item Horizontally there is no force, so by Newton's first law the horizontal velocity is constant:
+        $x = u_x t$.
+  \item Vertically there is a constant force, so by Newton's second law there is a constant
+        acceleration $g$ downwards: $y = u_y t - \frac{1}{2}gt^2$.
+\end{itemize}
+Substituting $t = \dfrac{x}{u_x}$ gives $y = \dfrac{u_y}{u_x}x - \dfrac{g}{2u_x^2}x^2$. This is a
+quadratic in $x$, so the path is a parabola.
+
+% ---- Q4
+\ansq
+\begin{crit}
+  \critrow{$v_x$: horizontal straight line at a constant positive value ($u\cos\theta$, or $u_x$) from 0
+    to $T$}{1}
+  \critrow{$v_y$: straight line with a constant negative gradient}{1}
+  \critrow{$v_y$ starts at $+u\sin\theta$ and ends at $-u\sin\theta$ (or $+u_y$ and $-u_y$)}{1}
+  \critrow{$v_y$ crosses zero at $\frac{T}{2}$ OR the gradient is labelled $-g$ ($\qty{-9.8}{m.s^{-2}}$)}{1}
+\end{crit}
+\sample
+\begin{center}
+  \begin{tikzpicture}
+    \draw[axisline] (0,0) -- (5.2,0) node[right] {$t$};
+    \draw[axisline] (0,-2.2) -- (0,2.4) node[above] {$v_x$};
+    \node[left, font=\small] at (0,0) {0};
+    \draw (4.4,0.08) -- (4.4,-0.08) node[below, font=\small] {$T$};
+    \draw[line width=1.2pt] (0,1.2) -- (4.4,1.2) node[above left, font=\small] {constant $= u\cos\theta$};
+    \node[left, font=\small] at (0,1.2) {$u\cos\theta$};
+  \end{tikzpicture}\hspace{14mm}%
+  \begin{tikzpicture}
+    \draw[axisline] (0,0) -- (5.2,0) node[right] {$t$};
+    \draw[axisline] (0,-2.2) -- (0,2.4) node[above] {$v_y$};
+    \node[left, font=\small] at (0,0) {0};
+    \draw (4.4,0.08) -- (4.4,-0.08) node[below, font=\small] {$T$};
+    \draw[line width=1.2pt] (0,1.7) -- (4.4,-1.7);
+    \node[left, font=\small] at (0,1.7) {$u\sin\theta$}; \node[left, font=\small] at (0,-1.7) {$-u\sin\theta$};
+    \draw[guide] (0,-1.7) -- (4.4,-1.7);
+    \node[above right, font=\small] at (2.2,0) {$\frac{T}{2}$};
+    \node[right, font=\small] at (2.6,0.9) {gradient $= -g$};
+  \end{tikzpicture}
+\end{center}
+
+% ---- Q5
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Plots all five points correctly AND draws an appropriate straight line of best fit}{3}
+  \critrow{Plots at least four points correctly AND draws a line of best fit}{2}
+  \critrow{Plots some points correctly}{1}
+\end{crit}
+\sample
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=110mm, height=75mm, axis lines=left, xmin=0, xmax=3.5, ymin=0, ymax=1.6,
+        xtick={0,0.5,...,3.5}, ytick={0,0.2,...,1.6}, grid=major, major grid style={black!25},
+        tick label style={font=\small}, label style={font=\small},
+        xticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1},
+        yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1},
+        xlabel={Launch speed $u$ (\si{m.s^{-1}})}, ylabel={Range $R$ (\si{m})},
+        scaled ticks=false, enlargelimits=false]
+      \addplot[only marks, mark=x, mark size=3pt, thick] coordinates {(1.0,0.43) (1.5,0.63) (2.0,0.87) (2.5,1.06) (3.0,1.29)};
+      \addplot[line width=0.8pt, domain=0:3.4] {0.43*x};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+\anspart{b}
+\begin{crit}
+  \critrow{Calculates the gradient, relates it to the time of flight AND calculates a value for $g$
+    consistent with the gradient}{3}
+  \critrow{Calculates the gradient AND relates it to the time of flight (or to $g$)}{2}
+  \critrow{Calculates the gradient OR states a correct relationship between $R$, $u$ and $g$}{1}
+\end{crit}
+\sample
+Gradient $= \dfrac{1.29 - 0}{3.0 - 0} \approx \qty{0.43}{s}$ (accept 0.42 to 0.44).
+\[ R = ut \text{ and } h = \tfrac{1}{2}gt^2 \;\Rightarrow\; R = u\sqrt{\frac{2h}{g}}, \text{ so the
+   gradient} = t = \sqrt{\frac{2h}{g}} \]
+\[ g = \frac{2h}{(\text{gradient})^2} = \frac{2 \times 0.90}{0.43^2} = \qty{9.7}{m.s^{-2}} \]
+(Any value from about 9.3 to \qty{10.2}{m.s^{-2}} that matches the student's own gradient is
+accepted.)
+\anspart{c}
+\begin{crit}
+  \critrow{Explains a valid improvement AND how it makes the results more accurate}{2}
+  \critrow{Identifies a valid improvement}{1}
+\end{crit}
+\sample
+Put carbon paper on the floor where the ball lands, so the landing point is marked exactly. The range
+can then be measured precisely from the mark, instead of estimating where the ball hit. This reduces
+the error in each value of $R$, so the results are closer to the true values. (Other valid answers:
+record the landing with a video camera; place the light gate right at the edge of the bench so $u$ is
+the true launch speed; use a dense, small ball to reduce air resistance.)
+
+% ---- Q6
+\ansq
+\begin{crit}
+  \critrow{Correctly calculates the horizontal distance}{4}
+  \critrow{Correctly calculates the time of flight}{3}
+  \critrow{Sets up a correct vertical equation with correct signs}{2}
+  \critrow{Resolves the initial velocity into components}{1}
+\end{crit}
+\sample
+$u_x = 12\cos 40^\circ = \qty{9.19}{m.s^{-1}}$ and $u_y = 12\sin 40^\circ = \qty{7.71}{m.s^{-1}}$.
+Take up as positive, so $s_y = \qty{-25}{m}$ and $a = \qty{-9.8}{m.s^{-2}}$:
+\[ -25 = 7.71t - 4.9t^2 \;\Rightarrow\; 4.9t^2 - 7.71t - 25 = 0 \;\Rightarrow\;
+   t = \frac{7.71 + \sqrt{7.71^2 + 4(4.9)(25)}}{2(4.9)} = \qty{3.18}{s} \]
+Horizontal distance $= u_x t = 9.19 \times 3.18 = \qty{29.2}{m}$.
+
+% =====================================================================
+\anstopic{Topic 2 - Circular Motion}
+
+% ---- Q7
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Identifies friction between the tyres and the road (acting towards the centre)}{1}
+\end{crit}
+\sample
+The sideways friction force between the tyres and the road, acting towards the centre of the bend.
+\anspart{b}
+\begin{crit}
+  \critrow{Relates a higher speed to a larger required centripetal force AND links this to the
+    maximum friction force}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+The centripetal force needed is $F = \dfrac{mv^2}{r}$, so it increases with $v^2$. Friction has a
+maximum value. At a higher speed the force needed can be larger than the maximum friction, so the
+car cannot follow the curve: it skids outwards, along a straighter path.
+
+% ---- Q8
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly draws and labels the weight AND the normal force, AND shows the net force
+    horizontally towards the centre}{2}
+  \critrow{Correctly draws the two forces OR shows the correct direction of the net force}{1}
+\end{crit}
+\sample
+\begin{center}
+  \begin{tikzpicture}[scale=1.3]
+    \draw[line width=0.6pt] (-0.5,0) -- (5.6,0);
+    \draw[line width=0.8pt] (0,0) -- (5.2,{5.2*tan(18)});
+    \draw (0.9,0) arc (0:18:0.9); \node[font=\small] at (1.15,0.17) {$\theta$};
+    \begin{scope}[shift={({3.3*cos(18)},{3.3*sin(18)})}, rotate=18]
+      \draw[fill=black!8, rounded corners=2pt] (-0.7,0.12) rectangle (0.7,0.8);
+    \end{scope}
+    \coordinate (C) at ({3.3*cos(18)-0.46*sin(18)},{3.3*sin(18)+0.46*cos(18)});
+    \draw[force] (C) -- ++({-1.5*sin(18)},{1.5*cos(18)}) node[above, font=\small] {Normal force $N$};
+    \draw[force] (C) -- ++(0,-1.4) node[below, font=\small] {Weight $mg$};
+    \draw[->, line width=1.4pt, dash pattern=on 4pt off 2pt] (C) -- ++({-1.4*tan(18)},0) node[left, font=\small, align=center] {Net force\\(to the centre)};
+  \end{tikzpicture}
+\end{center}
+\anspart{b}
+\begin{crit}
+  \critrow{Writes correct vertical and horizontal equations AND combines them to obtain the
+    relationship}{3}
+  \critrow{Writes correct vertical AND horizontal equations}{2}
+  \critrow{Writes one correct equation OR resolves the normal force}{1}
+\end{crit}
+\sample
+The car does not accelerate vertically, so the vertical forces balance: $N\cos\theta = mg$.
+The horizontal component of $N$ is the centripetal force: $N\sin\theta = \dfrac{mv^2}{r}$.
+Dividing the second equation by the first:
+\[ \frac{N\sin\theta}{N\cos\theta} = \frac{mv^2/r}{mg} \quad\Rightarrow\quad \tan\theta = \frac{v^2}{rg} \]
+\anspart{c}
+\begin{crit}
+  \critrow{Correctly calculates the design speed}{2}
+  \critrow{Correct substitution into the relationship}{1}
+\end{crit}
+\sample
+$v = \sqrt{rg\tan\theta} = \sqrt{80 \times 9.8 \times \tan 15^\circ} = \qty{14.5}{m.s^{-1}}$
+(about \qty{52}{km.h^{-1}}).
+
+% ---- Q9
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the tension}{2}
+  \critrow{Uses $T\cos\theta = mg$}{1}
+\end{crit}
+\sample
+Vertically: $T\cos 30^\circ = mg$, so $T = \dfrac{0.25 \times 9.8}{\cos 30^\circ} = \qty{2.83}{N}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the speed}{2}
+  \critrow{Calculates the radius OR uses $T\sin\theta = \frac{mv^2}{r}$}{1}
+\end{crit}
+\sample
+$r = 0.80\sin 30^\circ = \qty{0.40}{m}$. Horizontally: $T\sin 30^\circ = \dfrac{mv^2}{r}$, so
+\[ v = \sqrt{\frac{rT\sin 30^\circ}{m}} = \sqrt{\frac{0.40 \times 2.83 \times 0.5}{0.25}} = \qty{1.50}{m.s^{-1}} \]
+(or $v = \sqrt{rg\tan 30^\circ}$, which gives the same answer).
+
+% ---- Q10
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the minimum speed}{2}
+  \critrow{States that at the minimum speed the tension is zero, so $mg = \frac{mv^2}{r}$}{1}
+\end{crit}
+\sample
+At the minimum speed the tension at the top is zero, so the weight alone gives the centripetal
+force: $mg = \dfrac{mv^2}{r}$, so $v = \sqrt{gr} = \sqrt{9.8 \times 0.60} = \qty{2.4}{m.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the tension}{2}
+  \critrow{Uses $T - mg = \frac{mv^2}{r}$ (or calculates $\frac{mv^2}{r}$)}{1}
+\end{crit}
+\sample
+At the bottom, tension acts up (to the centre) and weight acts down:
+$T - mg = \dfrac{mv^2}{r}$, so
+$T = 0.20 \times 9.8 + \dfrac{0.20 \times 6.0^2}{0.60} = 1.96 + 12.0 = \qty{14.0}{N}$.
+
+% ---- Q11
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the torque}{2}
+  \critrow{Uses $\tau = rF\sin\theta$}{1}
+\end{crit}
+\sample
+$\tau = rF\sin\theta = 0.35 \times 150 \times \sin 70^\circ = \qty{49}{N.m}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the force (applied at \ang{90})}{1}
+\end{crit}
+\sample
+The force is smallest when it is at \ang{90} to the handle: $F = \dfrac{\tau}{r} = \dfrac{65}{0.35}
+= \qty{186}{N}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Relates torque to the distance from the pivot AND explains that the same force now gives
+    a larger torque}{2}
+  \critrow{States that a longer lever arm increases the torque}{1}
+\end{crit}
+\sample
+Torque $\tau = rF\sin\theta$. The pipe increases $r$, the distance from the nut to where the force is
+applied. So the same force gives a larger torque, and a smaller force is enough to reach the
+\qty{65}{N.m} needed. For example, \qty{150}{N} at \ang{90} gives \qty{65}{N.m} when
+$r = \frac{65}{150} = \qty{0.43}{m}$.
+
+% ---- Q12
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Uses $F = \frac{mv^2}{r}$ to show that $F \propto v^2$ (with $m$ and $r$ constant) AND
+    explains that this gives a straight line through the origin}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+$F = \dfrac{mv^2}{r}$. With $m$ and $r$ constant, $F \propto v^2$. So a graph of $F$ against $v^2$ is
+a straight line through the origin, and its gradient can be used to find a quantity. A graph of $F$
+against $v$ would be a curve (a parabola), which is hard to analyse.
+\anspart{b}
+\begin{crit}
+  \critrow{Calculates the gradient, relates it to $\frac{m}{r}$ AND correctly calculates the mass}{3}
+  \critrow{Calculates the gradient AND relates it to $\frac{m}{r}$}{2}
+  \critrow{Calculates the gradient OR states that the gradient equals $\frac{m}{r}$}{1}
+\end{crit}
+\sample
+Gradient $= \dfrac{3.0 - 0}{60 - 0} = 0.050$ (units: $\si{N}$ per $\si{m^2.s^{-2}}$, which is
+\si{kg.m^{-1}}). Since $F = \dfrac{m}{r}v^2$, the gradient is $\dfrac{m}{r}$:
+\[ m = \text{gradient} \times r = 0.050 \times 0.60 = \qty{0.030}{kg} \;(\qty{30}{g}) \]
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that the timing error (such as reaction time) is spread over 10 revolutions, so
+    the percentage error in the period, and hence in $v$, is smaller}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+Starting and stopping the stopwatch has an error of about \qty{0.2}{s} (reaction time). This error is
+about the same whether 1 or 10 revolutions are timed. Dividing the time for 10 revolutions by 10
+makes the error in one period 10 times smaller, so the percentage error in $T$, and in
+$v = \frac{2\pi r}{T}$, is much smaller.
+
+% ---- Q13
+\ansq
+\begin{crit}
+  \critrow{Explains that the net force is perpendicular to the velocity, so it does no work (or has
+    no component along the velocity), so the speed and kinetic energy do not change}{3}
+  \critrow{Gives two of these points}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+In uniform circular motion the net (centripetal) force always points to the centre, at \ang{90} to the
+velocity. Work done is $W = Fs\cos\theta$, and with $\theta = 90^\circ$, $W = 0$. Since no work is
+done on the object, its kinetic energy does not change (work--energy theorem). The force only changes
+the \emph{direction} of the velocity, not the speed.
+
+% =====================================================================
+\anstopic{Topic 3 - Motion in Gravitational Fields}
+
+% ---- Q14
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the gravitational field strength}{2}
+  \critrow{Correct substitution into $g = \frac{GM}{r^2}$}{1}
+\end{crit}
+\sample
+$g = \dfrac{GM}{r^2} = \dfrac{(\num{6.67e-11})(\num{6.42e23})}{(\num{3.39e6})^2} = \qty{3.73}{N.kg^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the weight}{1}
+\end{crit}
+\sample
+$W = mg = 70 \times 3.73 = \qty{261}{N}$.
+
+% ---- Q15
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{States that gravity provides the centripetal force, substitutes $v = \frac{2\pi r}{T}$
+    AND rearranges correctly}{3}
+  \critrow{Equates gravitational and centripetal force AND substitutes for $v$}{2}
+  \critrow{Gives one correct step}{1}
+\end{crit}
+\sample
+Gravity provides the centripetal force: $\dfrac{GMm}{r^2} = \dfrac{mv^2}{r}$. For one orbit,
+$v = \dfrac{2\pi r}{T}$, so
+\[ \frac{GMm}{r^2} = \frac{m}{r}\cdot\frac{4\pi^2 r^2}{T^2} = \frac{4\pi^2 mr}{T^2}
+   \quad\Rightarrow\quad GM\,T^2 = 4\pi^2 r^3 \quad\Rightarrow\quad \frac{r^3}{T^2} = \frac{GM}{4\pi^2} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the orbital radius}{2}
+  \critrow{Converts the period to seconds AND substitutes correctly}{1}
+\end{crit}
+\sample
+$T = 24.0 \times 3600 = \qty{86400}{s}$.
+\[ r = \sqrt[3]{\frac{GMT^2}{4\pi^2}} = \sqrt[3]{\frac{(\num{6.67e-11})(\num{6.0e24})(86\,400)^2}{4\pi^2}}
+   = \qty{4.23e7}{m} \]
+
+% ---- Q16
+\ansq
+\begin{crit}
+  \critrow{Compares altitude, speed AND period, with correct relationships between them, AND gives
+    a correct use of each type of satellite}{4}
+  \critrow{Compares most of these features correctly AND gives a use}{3}
+  \critrow{Describes some features of each orbit}{2}
+  \critrow{Gives one relevant feature or use}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item \textbf{Altitude:} LEO satellites orbit about 200 to \qty{2000}{km} above the surface. GEO
+        satellites orbit about \qty{36000}{km} above the equator.
+  \item \textbf{Speed:} $v = \sqrt{\frac{GM}{r}}$, so the lower LEO satellites move faster (about
+        \qty{7.8}{km.s^{-1}}) than GEO satellites (about \qty{3.1}{km.s^{-1}}).
+  \item \textbf{Period:} $T^2 \propto r^3$, so LEO periods are short (about 90 minutes), while the
+        GEO period is 24 hours, the same as Earth's rotation, in the same direction. A GEO satellite
+        stays above the same point on the equator; a LEO satellite moves quickly across the sky.
+  \item \textbf{Uses:} LEO satellites are close to Earth, so they are used for detailed imaging and
+        remote sensing, and for the ISS. GEO satellites stay above one place, so they are used for
+        communications (fixed dishes) and for weather monitoring of one region.
+\end{itemize}
+Similarity: in both orbits gravity provides the centripetal force, and the speed and period depend
+only on the orbital radius.
+
+% ---- Q17
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the change in gravitational potential energy (including the
+    sign or stating it is an increase)}{2}
+  \critrow{Uses $U = -\frac{GMm}{r}$ for both orbits}{1}
+\end{crit}
+\sample
+\[ \Delta U = \left(-\frac{GMm}{r_2}\right) - \left(-\frac{GMm}{r_1}\right)
+   = GMm\left(\frac{1}{r_1} - \frac{1}{r_2}\right) \]
+\[ \Delta U = (\num{6.67e-11})(\num{6.0e24})(500)\left(\frac{1}{\num{7.0e6}} - \frac{1}{\num{1.4e7}}\right) \]
+$\Delta U = \qty[retain-explicit-plus]{+1.43e10}{J}$ (an increase).
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the change in kinetic energy (including the sign or stating it is a
+    decrease)}{2}
+  \critrow{Uses $K = \frac{GMm}{2r}$ (or calculates the orbital speeds)}{1}
+\end{crit}
+\sample
+In a circular orbit $K = \dfrac{GMm}{2r}$, so
+\[ \Delta K = \frac{GMm}{2}\left(\frac{1}{r_2} - \frac{1}{r_1}\right) = \qty{-7.15e9}{J} \text{ (a decrease)} \]
+\anspart{c}
+\begin{crit}
+  \critrow{Correctly determines the minimum energy}{1}
+\end{crit}
+\sample
+Energy supplied $= \Delta U + \Delta K = \num{1.43e10} - \num{7.15e9} = \qty{7.15e9}{J}$.
+
+% ---- Q18
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{States the escape condition (reaches infinity with zero kinetic energy, so the total
+    energy is zero), applies conservation of energy AND derives the expression}{3}
+  \critrow{Writes a correct energy-conservation equation}{2}
+  \critrow{Gives one relevant point (for example, $U = -\frac{GMm}{r}$)}{1}
+\end{crit}
+\sample
+To just escape, the object reaches a very large distance (infinity), where $U = 0$, with zero speed,
+so $K = 0$. Its total energy there is zero. Energy is conserved, so the total energy at the surface
+must also be zero:
+\[ \frac{1}{2}mv_\mathrm{esc}^2 - \frac{GMm}{r} = 0 \quad\Rightarrow\quad v_\mathrm{esc}^2 = \frac{2GM}{r}
+   \quad\Rightarrow\quad v_\mathrm{esc} = \sqrt{\frac{2GM}{r}} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the escape velocity}{1}
+\end{crit}
+\sample
+$v_\mathrm{esc} = \sqrt{\dfrac{2(\num{6.67e-11})(\num{6.42e23})}{\num{3.39e6}}} = \qty{5.0e3}{m.s^{-1}}$.
+
+% ---- Q19
+\ansq
+\begin{crit}
+  \critrow{States that the total energy is conserved, explains that $U$ is lowest (most negative)
+    when closest, AND concludes that $K$, and so the speed, is greatest there}{3}
+  \critrow{Gives two of these points}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+Only gravity acts on the comet, so its total energy $K + U$ stays the same. Its potential energy is
+$U = -\dfrac{GMm}{r}$. When the comet is closest to the Sun, $r$ is smallest, so $U$ is the most
+negative (lowest). For the total to stay the same, $K$ must be greatest there. So the comet's speed is
+greatest when it is closest to the Sun. (This agrees with Kepler's second law.)
+
+% ---- Q20
+\ansq
+\begin{crit}
+  \critrow{Makes a clear judgement, supported by a correct calculation of $g$ at the ISS AND a
+    correct explanation of apparent weightlessness (free fall, gravity provides the centripetal
+    force, no normal force)}{5}
+  \critrow{Gives a correct calculation AND a correct explanation, but the judgement is unclear or
+    there is a minor error}{4}
+  \critrow{Gives a correct calculation and some explanation, OR a good explanation without a
+    calculation}{3}
+  \critrow{Gives a correct calculation OR some relevant explanation}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+At the ISS, $r = \num{6.371e6} + \num{4.2e5} = \qty{6.791e6}{m}$, so
+\[ g = \frac{GM}{r^2} = \frac{(\num{6.67e-11})(\num{6.0e24})}{(\num{6.791e6})^2} = \qty{8.7}{N.kg^{-1}} \]
+This is about 89\% of the value at Earth's surface, so there is plenty of gravity at the ISS.
+
+The astronauts float because they and the ISS are in free fall together. Gravity provides the
+centripetal force that keeps them in orbit, and they all accelerate towards Earth at the same rate
+($g$). The floor does not need to push on the astronauts, so there is no normal force and they feel
+weightless (apparent weightlessness). Their horizontal speed (about \qty{7.7}{km.s^{-1}}) means they
+keep falling around Earth instead of into it.
+
+Judgement: the student's observation (the astronauts float) is correct, but the explanation is
+wrong. Gravity is not zero in space; the floating is caused by free fall.
+
+\end{document}

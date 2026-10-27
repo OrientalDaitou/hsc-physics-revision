@@ -1,0 +1,107 @@
+% summary.tex -- Module 5: Last-minute summary (the night before the exam), 1-2 pages.
+% Ideas, formulas and traps are taken from the big ideas, formula cards, Common mistakes
+% (g at 420 km = 8.68; GEO r = 4.23e7 m, altitude 35 900 km; v_esc = 1.12e4 m/s).
+% Final audit: Chapter 3 line 2 now says "Uniform circular motion" (in a vertical circle the speed changes).
+\unnumberedchapter[\faClipboardList]{Last-minute summary}
+
+Read this the night before the exam. Each box gives the must-know ideas, the formulas and the
+traps of one chapter. Formulas after \textcolor{hscmistake}{\bfseries Learn} are \emph{not} on
+the formula sheet.
+
+% run-in heading inside a summary box, and the "on / not on the sheet" labels
+\newcommand\sumhead[1]{\par{\bfseries\color{hscbrand}#1}\enspace}
+\newcommand\sumLearn{{\bfseries\color{hscmistake}Learn:}}
+\newcommand\sumSheet{{\bfseries\color{hscformula}Sheet:}}
+
+\begin{summarybox}[fontupper=\small, unbreakable]{\Cref{ch1:chap}: Projectile Motion}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item No horizontal force, so $v_x = u\cos\theta$ never changes. Vertically
+        $a_y = \qty{-9.8}{m.s^{-2}}$ all the time, even at the top (where only $v_y = 0$).
+  \item The two motions share only the time: uniform velocity sideways ($s_x = u_x t$),
+        constant acceleration vertically. The fall time depends only on the height.
+  \item Level ground: \ang{45} gives the longest range; \ang{30} and \ang{60} give the same
+        range. Air resistance: shorter, lower, steeper fall, best angle below \ang{45}.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $v = u + at$, \ $s = ut + \frac{1}{2}at^2$, \ $v^2 = u^2 + 2as$.
+\ \sumLearn\ $u_x = u\cos\theta$, $u_y = u\sin\theta$; \ horizontal launch:
+$t = \sqrt{\frac{2h}{g}}$; \ $t_\mathrm{top} = \frac{u_y}{g}$; \
+$h_\mathrm{max} = \frac{u_y^2}{2g}$; \ level ground only: $t_\mathrm{flight} = \frac{2u_y}{g}$,
+$R = \frac{u^2\sin 2\theta}{g}$.
+\sumhead{Traps} Degree mode; $\cos$ for $u_x$; \si{km.h^{-1}} $\div\,3.6$. From a height,
+solve $-h = u_y t - \frac{1}{2}gt^2$ (positive root). A final velocity needs a direction.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small, unbreakable]{\Cref{ch2:chap}: Circular Motion: Forces}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item Constant speed in a circle is still an acceleration: the direction changes.
+        $a_\mathrm{c}$ and $F_\mathrm{c}$ point to the centre. If the force stops, the object
+        moves off along the tangent.
+  \item $F_\mathrm{c}$ is the \emph{net} force, made by a real force: tension, friction, a
+        normal force or gravity. Always name the real force.
+  \item Bank at the design speed: $F_\mathrm{N}\cos\theta = mg$, $F_\mathrm{N}\sin\theta =
+        \frac{mv^2}{r}$. Flat bend: friction $\le \mu mg$. Rotor: $F_\mathrm{N} = \frac{mv^2}{r}$,
+        friction $= mg$.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $v = \frac{2\pi r}{T}$, \ $a_\mathrm{c} = \frac{v^2}{r}$, \
+$F_\mathrm{c} = \frac{mv^2}{r}$. \ \sumLearn\ $\tan\theta = \frac{v^2}{rg}$; \
+$v_\mathrm{max} = \sqrt{\mu g r}$; \ $v_\mathrm{min} = \sqrt{\frac{gr}{\mu}}$.
+\sumhead{Traps} Double $v$ gives 4 times $F_\mathrm{c}$. Radius, not diameter; mass in kg.
+Conical pendulum: $r = L\sin\theta$. On a bank $F_\mathrm{N} \ne mg$. No ``centrifugal''
+arrow. $\mu F_\mathrm{N}$ is only the \emph{largest} friction.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small, unbreakable]{\Cref{ch3:chap}: Circular Motion: Angles, Energy, Work and Torque}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item Every point on a spinning object has the same $\omega$, $T$ and $f$; $v = \omega r$
+        grows with $r$.
+  \item Uniform circular motion: $F_\mathrm{c}$ is at \ang{90} to the motion, so it does no
+        work and the speed stays constant. Only other forces (a motor, friction) change $E = K + U$.
+  \item Vertical circle: energy first (top to bottom is a drop of $2r$), then forces: top
+        $F_\mathrm{T} + mg = \frac{mv^2}{r}$, bottom $F_\mathrm{T} - mg = \frac{mv^2}{r}$.
+  \item More torque: a bigger force, further from the pivot, at \ang{90}. Balanced torques:
+        the rotation does not change.
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $\omega = \frac{\Delta\theta}{t}$, \ $W = F_\parallel s = Fs\cos\theta$, \
+$\tau = r_\perp F = rF\sin\theta$. \ \sumLearn\ $\omega = \frac{2\pi}{T} = 2\pi f$; \
+$v = \omega r$; \ $\sum\tau_\mathrm{clockwise} = \sum\tau_\mathrm{anticlockwise}$.
+\sumhead{Traps} Radians for $\omega$ (rpm $\times\,2\pi/60$). In $\tau = rF\sin\theta$,
+$\theta$ is between $r$ and $F$, and $r$ is from the pivot. Unit of torque: \si{N.m}.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small, unbreakable]{\Cref{ch4:chap}: Gravity, Orbits and Kepler's Laws}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item Double $r$ and $F$ becomes 4 times smaller. Both bodies feel equal forces. At
+        \qty{420}{km}, $g \approx \qty{8.7}{m.s^{-2}}$: astronauts float because they are in
+        free fall, not because $g = 0$.
+  \item Gravity provides $F_\mathrm{c}$: $\frac{GMm}{r^2} = \frac{mv^2}{r}$, so
+        $v = \sqrt{\frac{GM}{r}}$. The satellite's mass cancels. Higher orbits are slower.
+  \item Kepler: (1) ellipses, Sun at one focus; (2) equal areas in equal times, so fastest at
+        perihelion; (3) $\frac{r^3}{T^2}$ is the same around one central body.
+  \item LEO: \qtyrange{200}{2000}{km} up, about \qty{90}{min}. GEO: about \qty{36000}{km}
+        up, one day, above the equator, west to east (TV, communications).
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $F = \frac{GMm}{r^2}$, \ $\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$.
+\ \sumLearn\ $r = r_\mathrm{E} + h$; \ $g = \frac{GM}{r^2}$; \ $v = \sqrt{\frac{GM}{r}}$; \
+$r_\mathrm{p}v_\mathrm{p} = r_\mathrm{a}v_\mathrm{a}$.
+\sumhead{Traps} $r$ from the \emph{centre}, in metres. $T$ in seconds. Cube root for $r$.
+$M$ is the mass of the central body.
+\end{summarybox}
+
+\begin{summarybox}[fontupper=\small, unbreakable]{\Cref{ch5:chap}: Energy in Gravitational Fields}
+\begin{itemize}[itemsep=0pt, topsep=0pt]
+  \item $U = 0$ at infinity, so $U$ is negative everywhere else and rises towards 0 as $r$
+        grows.
+  \item Circular orbit: $K = \frac{GMm}{2r}$, $E = -\frac{GMm}{2r}$. A lower orbit has more
+        $K$ but less (more negative) $E$.
+  \item Escape: $K + U = 0$, so $v_\mathrm{esc} = \sqrt{\frac{2GM}{r}}$ (\qty{11.2}{km.s^{-1}}
+        from the Earth's surface), whatever the mass. A rocket with working engines can
+        escape more slowly.
+  \item To go higher, add $\Delta E$ (two forward burns: a Hohmann transfer). $E$ and $U$
+        rise, $K$ falls: it ends up slower. Drag does the opposite (orbital decay).
+\end{itemize}
+\sumhead{Formulas} \sumSheet\ $U = -\frac{GMm}{r}$. \ \sumLearn\ $K = \frac{GMm}{2r}$; \
+$E = U + K = -\frac{GMm}{2r}$; \ $v_\mathrm{esc} = \sqrt{\frac{2GM}{r}}$; \
+$\Delta E = \frac{GMm}{2}\left(\frac{1}{r_1} - \frac{1}{r_2}\right)$.
+\sumhead{Traps} Keep the minus signs. $mg\Delta h$ only near the surface. $E$ is not $U$.
+$v_\mathrm{esc}$ has a 2 inside the root. Use $\Delta E$, not $\Delta U$, to change orbit.
+\end{summarybox}

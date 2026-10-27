@@ -1,0 +1,93 @@
+% =====================================================================
+% main.tex -- HSC Physics ESSENTIALS, Module 5: Advanced Mechanics.
+% Condensed, knowledge-only companion to the full Revision Guide
+% (src/mod5/main.tex). Same document class and design system.
+%
+% Build with:
+%     ./build.sh mod5_essentials
+%
+% Book order (Essentials editions):
+%   cover - How to use these Essentials - Contents
+%   chapters ch1.tex ... ch5.tex
+%   All formulas at a glance                                      (formulas.tex)
+%   Key experiments at a glance                                   (experiments.tex)
+%   Glossary                                                      (glossary.tex)
+% No questions, no answers, no practice set, no "Answering HSC questions" part.
+% A missing part file is skipped, so a half-finished book still compiles.
+% =====================================================================
+\documentclass[11pt,a4paper,oneside,openany]{book}
+\makeatletter\def\input@path{{./}{../common/}}\makeatother
+\usepackage{hscphys}
+\IfFileExists{./module_info.tex}{\input{./module_info}}{}
+% PDF title of this edition (hscphys.sty sets the full guide's title; this runs after it)
+\AtBeginDocument{\hypersetup{
+  pdftitle={Module \modulenumber: \moduletitle\space - HSC Physics Essentials}}}
+
+\begin{document}
+
+%% ---------------------------------------------------------------- front
+\makecover
+
+\unnumberedchapter[\faInfoCircle]{How to use these Essentials}
+
+This is the short, knowledge-only companion to the full \textbf{HSC Physics Revision Guide}
+for Module~\modulenumber\ (\moduletitle). It covers every syllabus dot point of the NSW Physics
+Stage~6 Syllabus (2017) as knowledge points only: key ideas, key words, facts, formulas and key
+experiments. There are no questions here. The worked examples, Quick checks and the practice
+set with full answers are in the full guide.
+
+\section*{What the coloured boxes mean}
+
+{\renewcommand\arraystretch{1.25}\arrayrulecolor{hscrule}
+\begin{tabular}{@{}L{44mm}@{\hspace{4mm}}L{\dimexpr\linewidth-48mm\relax}@{}}
+  \textcolor{hscbigidea}{\faLightbulb}\enspace\textbf{The big idea} (violet)
+    & The main point of a topic in 1--3 sentences. Read it first.\\\hline
+  \textcolor{hsckw}{\faKey}\enspace\textbf{Key words} (teal)
+    & The most important terms, each with a one-line meaning. A new word is also printed in
+      \term{bold} the first time it appears.\\\hline
+  \textcolor{hscformula}{\faIcon{square-root-alt}}\enspace\textbf{Formula card} (blue)
+    & The formula (exactly as on the official sheet, when it is printed there), each symbol
+      with its SI unit, when to use it, where it comes from and a common trap.\\\hline
+  \textcolor{hscexp}{\faFlask}\enspace\textbf{Key experiment} (brown)
+    & Aim, what was done, the result, the conclusion and why it matters.\\\hline
+  \textcolor{hscbrand}{\faClipboardList}\enspace\textbf{Summary} (navy)
+    & ``In this chapter'' at the start of a chapter; ``Remember'' at the end: the facts to
+      know by heart.\\\hline
+\end{tabular}}
+
+\smallskip
+\noindent The badge under a formula tells you about the official formula sheet:
+\begin{itemize}
+  \item \hscbadgeonsheet\ \ it is printed on the sheet, so you are given it in the exam;
+  \item \hscbadgenotonsheet\ \ learn it, or learn how to derive it;
+  \item \hscbadgecombine{two formulas}\ \ join them.
+\end{itemize}
+
+\section*{How to study with these Essentials}
+
+\begin{enumerate}
+  \item Read \textbf{one chapter a day}: the big idea and the key words first, then the facts,
+        the diagrams and the formula cards. Practise each chapter with the full guide.
+  \item Use the tables at the back to see the whole module on a few pages: \emph{All formulas
+        at a glance}, \emph{Key experiments at a glance} and the \emph{Glossary} (with Chinese).
+  \item \textbf{The night before the exam} (Thursday 5 November 2026), re-read the
+        ``Remember'' box at the end of each chapter.
+\end{enumerate}
+
+% Contents: smaller gaps between the entries than between text paragraphs, so that the
+% contents of this short book fit on one page (local to this group; the style is unchanged).
+{\setlength\parskip{0pt plus 1pt}\setstretch{1.15}\tableofcontents}
+
+%% ---------------------------------------------------------------- chapters
+\IfFileExists{./ch1.tex}{\setcounter{chapter}{0}\input{./ch1}}{}% Projectile Motion
+\IfFileExists{./ch2.tex}{\setcounter{chapter}{1}\input{./ch2}}{}% Circular Motion: Forces and Real Situations
+\IfFileExists{./ch3.tex}{\setcounter{chapter}{2}\input{./ch3}}{}% Circular Motion: Angles, Energy, Work and Torque
+\IfFileExists{./ch4.tex}{\setcounter{chapter}{3}\input{./ch4}}{}% Gravity, Orbits and Kepler's Laws
+\IfFileExists{./ch5.tex}{\setcounter{chapter}{4}\input{./ch5}}{}% Energy in Gravitational Fields
+
+%% ---------------------------------------------------------------- back
+\IfFileExists{./formulas.tex}{\input{./formulas}}{}
+\IfFileExists{./experiments.tex}{\input{./experiments}}{}
+\IfFileExists{./glossary.tex}{\input{./glossary}}{}
+
+\end{document}

@@ -1,0 +1,552 @@
+% answers.tex -- marking criteria and sample answers for questions.tex (Module 5 short answer, Set 2).
+% NESA marking-guideline style: a criteria table for each part, then a sample answer.
+% Every number: checks/m5-short-answer-2/numbers.py
+% Build: TEXINPUTS=.: xelatex answers.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{quiz}
+\hypersetup{pdftitle={Short Answer Questions Set 2 - Module 5 - Advanced Mechanics - Marking guidelines}}
+% links between the two PDF files are not possible, so question headings are plain text here
+\renewcommand\hyperlink[2]{#2}
+\newcommand\anstopic[1]{\par\Needspace{8\baselineskip}\vspace{4mm}%
+  \begin{center}{\headfont\bfseries\fontsize{14}{18}\selectfont #1\par}\end{center}\vspace{2pt}}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Short Answer Questions (Set 2) - Module 5 - Advanced Mechanics:\\
+  Marking Guidelines and Sample Answers}
+
+Data used: $g = \qty{9.8}{m.s^{-2}}$, $G = \qty{6.67e-11}{N.m^2.kg^{-2}}$,
+$M_\mathrm{E} = \qty{6.0e24}{kg}$, $r_\mathrm{E} = \qty{6.371e6}{m}$. In calculations, a correct
+answer from a correct method with an earlier error carried forward still earns the later marks.
+
+% =====================================================================
+\anstopic{Topic 1 - Projectile Motion}
+
+% ---- Q1
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the maximum height above the floor (including the \qty{2.0}{m})}{2}
+  \critrow{Calculates the vertical component of the velocity OR the rise above the release point}{1}
+\end{crit}
+\sample
+$u_y = 8.5\sin 52^\circ = \qty{6.70}{m.s^{-1}}$. At the top $v_y = 0$, so the rise is
+$s = \dfrac{u_y^2}{2g} = \dfrac{6.70^2}{2 \times 9.8} = \qty{2.29}{m}$.
+Maximum height $= 2.0 + 2.29 = \qty{4.3}{m}$ above the floor.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the speed}{1}
+\end{crit}
+\sample
+At the top only the horizontal velocity is left: $v = 8.5\cos 52^\circ = \qty{5.2}{m.s^{-1}}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that gravity still acts, so the acceleration is $g$ downwards (only the vertical
+    velocity is zero)}{1}
+\end{crit}
+\sample
+Gravity still acts on the ball at the top, so its acceleration is still \qty{9.8}{m.s^{-2}} downwards.
+Only the vertical \emph{velocity} is zero at that instant.
+
+% ---- Q2
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Derives the time of flight AND uses $R = u_x t$ AND simplifies to $\frac{u^2\sin 2\theta}{g}$}{3}
+  \critrow{Derives the time of flight AND writes $R = u\cos\theta \times t$}{2}
+  \critrow{Resolves the velocity into components OR finds the time of flight}{1}
+\end{crit}
+\sample
+$u_x = u\cos\theta$ and $u_y = u\sin\theta$. The projectile lands when the vertical displacement is
+zero:
+\[ 0 = (u\sin\theta)t - \tfrac{1}{2}gt^2 \quad\Rightarrow\quad t = \frac{2u\sin\theta}{g} \]
+\[ R = u_x t = u\cos\theta \times \frac{2u\sin\theta}{g} = \frac{u^2(2\sin\theta\cos\theta)}{g}
+     = \frac{u^2\sin 2\theta}{g} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Shows that $\sin 2\theta$ is the same for both angles AND links this to equal ranges (or
+    explains the trade-off between $u_x$ and time)}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+For \ang{30}: $\sin 60^\circ = 0.866$. For \ang{60}: $\sin 120^\circ = 0.866$. With the same $u$ and
+$g$, the range equation gives the same $R$. Physically, the \ang{30} launch has a larger horizontal
+velocity but a shorter time of flight; the \ang{60} launch has a smaller horizontal velocity but a
+longer time of flight. (Any pair of angles that add to \ang{90} gives the same range.)
+
+% ---- Q3
+\ansq
+\begin{crit}
+  \critrow{Describes at least three correct differences, with reference to air resistance opposing
+    the motion}{3}
+  \critrow{Describes two correct differences}{2}
+  \critrow{Describes one correct difference}{1}
+\end{crit}
+\sample
+Air resistance acts opposite to the velocity, so it slows the projectile down.
+\begin{itemize}
+  \item The horizontal velocity is no longer constant: it decreases during the flight.
+  \item The maximum height is lower, and the range is shorter.
+  \item The path is no longer a symmetrical parabola: the projectile comes down more steeply than it
+        went up, and takes longer to come down than to go up.
+\end{itemize}
+
+% ---- Q4
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the horizontal distance}{3}
+  \critrow{Correctly calculates the time of fall}{2}
+  \critrow{Uses a correct vertical equation with an initial vertical velocity of zero}{1}
+\end{crit}
+\sample
+The package starts with zero vertical velocity: $500 = \frac{1}{2}(9.8)t^2$, so
+$t = \sqrt{\dfrac{1000}{9.8}} = \qty{10.1}{s}$. It keeps the plane's horizontal velocity, so the
+horizontal distance $= 70 \times 10.1 = \qty{707}{m}$ (about \qty{7.1e2}{m}).
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly describes the path for BOTH observers, with a reason}{2}
+  \critrow{Correctly describes the path for one observer}{1}
+\end{crit}
+\sample
+The package and the plane have the same horizontal velocity (\qty{70}{m.s^{-1}}). So the pilot sees
+the package fall in a straight line vertically downwards, staying directly below the plane. The
+person on the ground sees the package move forwards at a constant \qty{70}{m.s^{-1}} while it speeds
+up downwards, so its path is a parabola.
+
+% ---- Q5
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the predicted range}{1}
+\end{crit}
+\sample
+$R = \dfrac{5.0^2 \times \sin 90^\circ}{9.8} = \qty{2.55}{m}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Identifies \ang{45} AND explains that $\sin 2\theta$ has its maximum value of 1 when
+    $2\theta = 90^\circ$}{2}
+  \critrow{Identifies \ang{45}}{1}
+\end{crit}
+\sample
+\ang{45}. The range is $R = \dfrac{u^2\sin 2\theta}{g}$. With $u$ and $g$ fixed, $R$ is largest when
+$\sin 2\theta$ is largest. Its maximum value is 1, when $2\theta = 90^\circ$, so $\theta = 45^\circ$.
+The measured data also show the largest range at \ang{45}.
+\anspart{c}
+\begin{crit}
+  \critrow{Correctly estimates the launch speed AND explains why a lower speed reduces every range}{2}
+  \critrow{Estimates the launch speed OR explains the effect of a lower speed}{1}
+\end{crit}
+\sample
+At \ang{45}, $\sin 2\theta = 1$, so $R = \dfrac{u^2}{g}$ and $u = \sqrt{Rg} = \sqrt{2.44 \times 9.8} =
+\qty{4.9}{m.s^{-1}}$. The range is proportional to $u^2$ at every angle, so a launch speed lower than
+\qty{5.0}{m.s^{-1}} makes every range smaller than predicted. This is a systematic error: it affects all
+the results in the same direction.
+
+% ---- Q6
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the height}{3}
+  \critrow{Calculates the time to reach the wall AND uses a correct vertical equation}{2}
+  \critrow{Resolves the velocity into components OR calculates the time}{1}
+\end{crit}
+\sample
+$u_x = 20\cos 60^\circ = \qty{10.0}{m.s^{-1}}$ and $u_y = 20\sin 60^\circ = \qty{17.3}{m.s^{-1}}$.
+Time to reach the wall: $t = \dfrac{24}{10.0} = \qty{2.4}{s}$.
+\[ s_y = u_y t - \tfrac{1}{2}gt^2 = 17.32 \times 2.4 - 4.9 \times 2.4^2 = 41.57 - 28.22 = \qty{13.3}{m} \]
+\anspart{b}
+\begin{crit}
+  \critrow{States downwards, with a supporting calculation or reason}{1}
+\end{crit}
+\sample
+Downwards. $v_y = u_y - gt = 17.32 - 9.8 \times 2.4 = \qty{-6.2}{m.s^{-1}}$. The vertical velocity is
+negative, so the ball is already moving down (it reached its highest point at $t = \frac{17.32}{9.8} =
+\qty{1.77}{s}$).
+
+% =====================================================================
+\anstopic{Topic 2 - Circular Motion}
+
+% ---- Q7
+\ansq
+\begin{crit}
+  \critrow{Explains that the passenger tends to keep moving in a straight line (inertia), that the car
+    turns towards the centre, AND that the door/seat pushes the passenger inwards (there is no
+    outward force)}{3}
+  \critrow{Gives two of these points}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+There is no outward force on the passenger. Because of inertia (Newton's first law), the passenger
+tends to keep moving in a straight line. The car turns towards the centre of the curve, so the door
+moves into the passenger's path and pushes on them. This inward push (a normal force, with friction
+from the seat) provides the centripetal force that makes the passenger turn with the car. The
+passenger feels this push from the door, and it feels as if they are being thrown outwards.
+
+% ---- Q8
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the normal force}{2}
+  \critrow{Writes $mg - N = \frac{mv^2}{r}$ (net force downwards, towards the centre)}{1}
+\end{crit}
+\sample
+At the top, the centre of the circle is below the car, so the net force is downwards:
+$mg - N = \dfrac{mv^2}{r}$.
+\[ N = 1500 \times 9.8 - \frac{1500 \times 15^2}{40} = 14\,700 - 8440 = \qty{6.3e3}{N} \text{ (upwards)} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the maximum speed}{2}
+  \critrow{States that contact is lost when $N = 0$, so $mg = \frac{mv^2}{r}$}{1}
+\end{crit}
+\sample
+The car loses contact when the normal force becomes zero. Then the weight alone gives the
+centripetal force: $mg = \dfrac{mv^2}{r}$, so $v = \sqrt{gr} = \sqrt{9.8 \times 40} = \qty{19.8}{m.s^{-1}}$.
+
+% ---- Q9
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the torque}{1}
+\end{crit}
+\sample
+$\tau = rF = 1.5 \times (30 \times 9.8) = \qty{441}{N.m}$ (the weight is at \ang{90} to the seesaw).
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the distance}{2}
+  \critrow{Equates the two torques}{1}
+\end{crit}
+\sample
+For balance, the two torques about the pivot are equal and opposite:
+$45 \times 9.8 \times r = 441$, so $r = \qty{1.0}{m}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that the torque of the \qty{45}{kg} child increases with distance, so the torques are
+    unbalanced and there is a net torque, which causes rotation}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+Torque $= rF$. The weight of the \qty{45}{kg} child stays the same, but $r$ increases, so this child's
+torque becomes larger than \qty{441}{N.m}. The torques no longer balance, so there is a net torque
+about the pivot. A net torque causes the seesaw to rotate: the \qty{45}{kg} child's side goes down.
+
+% ---- Q10
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the angular velocity}{1}
+\end{crit}
+\sample
+$f = \dfrac{1200}{60} = \qty{20}{Hz}$, so $\omega = 2\pi f = \qty{126}{rad.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the centripetal acceleration}{2}
+  \critrow{Uses $a = \omega^2 r$ or $a = \frac{v^2}{r}$ with a correct value}{1}
+\end{crit}
+\sample
+$a = \omega^2 r = 125.7^2 \times 0.25 = \qty{3.95e3}{m.s^{-2}}$ (about 400 times $g$; \num{3.9e3} or
+\num{4.0e3} accepted).
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that the wall provides the centripetal force for the clothes but not for the water,
+    so the water moves off in a straight line through the holes}{1}
+\end{crit}
+\sample
+The drum wall pushes the clothes towards the centre, so the clothes move in a circle. Where there is
+a hole, nothing pushes the water inwards, so it keeps moving in a straight line (along the tangent),
+out through the holes and away from the clothes.
+
+% ---- Q11
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the speed}{1}
+\end{crit}
+\sample
+$v = \dfrac{2\pi r}{T} = \dfrac{2\pi \times 0.80}{0.40} = \qty{12.6}{m.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the tension}{2}
+  \critrow{Uses $F = \frac{mv^2}{r}$}{1}
+\end{crit}
+\sample
+$F_\mathrm{T} = \dfrac{mv^2}{r} = \dfrac{0.50 \times 12.566^2}{0.80} = \qty{98.7}{N}$ (about \qty{99}{N}).
+\anspart{c}
+\begin{crit}
+  \critrow{Correctly calculates the shortest period}{2}
+  \critrow{Uses $F = \frac{4\pi^2 mr}{T^2}$ with $F = \qty{150}{N}$ (or finds the maximum speed)}{1}
+\end{crit}
+\sample
+$F = \dfrac{4\pi^2 mr}{T^2}$, so $T = 2\pi\sqrt{\dfrac{mr}{F}} = 2\pi\sqrt{\dfrac{0.50 \times 0.80}{150}}
+= \qty{0.32}{s}$. (Or: $v_\mathrm{max} = \sqrt{\frac{Fr}{m}} = \qty{15.5}{m.s^{-1}}$, then
+$T = \frac{2\pi r}{v} = \qty{0.32}{s}$.)
+\anspart{d}
+\begin{crit}
+  \critrow{States that the tension doubles, with a reason ($F = \frac{4\pi^2 mr}{T^2}$, so $F \propto r$
+    when $T$ is constant)}{1}
+\end{crit}
+\sample
+The tension doubles. $F = \dfrac{4\pi^2 mr}{T^2}$, so with the same mass and period, $F \propto r$.
+(Doubling $r$ also doubles the speed, and $\frac{mv^2}{r}$ doubles.) The new tension would be about
+\qty{197}{N}, more than \qty{150}{N}, so the string would break.
+
+% ---- Q12
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates all five values of $\frac{1}{r}$}{1}
+\end{crit}
+\sample
+$\frac{1}{r}$ (\si{m^{-1}}): 2.5, 2.0, 1.67, 1.25, 1.0.
+\anspart{b}
+\begin{crit}
+  \critrow{Plots all five points correctly AND draws an appropriate straight line of best fit}{3}
+  \critrow{Plots at least four points correctly AND draws a line of best fit}{2}
+  \critrow{Plots some points correctly}{1}
+\end{crit}
+\sample
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[width=105mm, height=72mm, axis lines=left, xmin=0, xmax=3.0, ymin=0, ymax=1.4,
+        xtick={0,0.5,...,3.0}, ytick={0,0.2,...,1.4}, grid=major, major grid style={black!25},
+        tick label style={font=\small}, label style={font=\small},
+        xticklabel style={/pgf/number format/fixed, /pgf/number format/fixed zerofill, /pgf/number format/precision=1},
+        yticklabel style={/pgf/number format/fixed, /pgf/number format/fixed zerofill, /pgf/number format/precision=1},
+        xlabel={$\frac{1}{r}$ (\si{m^{-1}})}, ylabel={Force $F$ (\si{N})},
+        scaled ticks=false, enlargelimits=false]
+      \addplot[only marks, mark=x, mark size=3pt, thick] coordinates {(2.5,1.14) (2.0,0.89) (1.667,0.76) (1.25,0.55) (1.0,0.46)};
+      \addplot[line width=0.8pt, domain=0:2.9] {0.45*x};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+\anspart{c}
+\begin{crit}
+  \critrow{Calculates the gradient, uses gradient $= mv^2$ to find the mass AND compares it with
+    \qty{0.050}{kg}}{2}
+  \critrow{Calculates the gradient OR states that the gradient equals $mv^2$}{1}
+\end{crit}
+\sample
+Gradient $= \dfrac{1.13 - 0}{2.5 - 0} \approx \qty{0.45}{N.m}$ (accept 0.44 to 0.47). Since
+$F = mv^2 \times \dfrac{1}{r}$, the gradient is $mv^2$:
+$m = \dfrac{0.45}{3.0^2} = \qty{0.050}{kg}$. This agrees closely with the known mass of
+\qty{0.050}{kg}, which supports $F = \frac{mv^2}{r}$.
+
+% ---- Q13
+\ansq
+\begin{crit}
+  \critrow{Compares velocity, acceleration AND net force for both motions, giving similarities and
+    differences}{4}
+  \critrow{Compares most of these quantities correctly}{3}
+  \critrow{Describes some features of each motion}{2}
+  \critrow{Gives one relevant point}{1}
+\end{crit}
+\sample
+\begin{itemize}
+  \item \textbf{Velocity:} in both, the direction of the velocity changes. In uniform circular motion
+        the speed is constant; in projectile motion the speed changes (the horizontal component is
+        constant but the vertical component changes).
+  \item \textbf{Acceleration:} both accelerate. In circular motion the acceleration ($\frac{v^2}{r}$)
+        is constant in size but always points to the centre, so its direction changes. A projectile's
+        acceleration is $g$ downwards: constant in size and direction.
+  \item \textbf{Net force:} in circular motion the net force points to the centre, at \ang{90} to the
+        velocity, so it does no work. For a projectile the net force is its weight (constant), which
+        is not always at \ang{90} to the velocity, so it does work and changes the speed.
+\end{itemize}
+
+% =====================================================================
+\anstopic{Topic 3 - Motion in Gravitational Fields}
+
+% ---- Q14
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the force}{2}
+  \critrow{Correct substitution into $F = \frac{GMm}{r^2}$}{1}
+\end{crit}
+\sample
+\[ F = \frac{GMm}{r^2} = \frac{(\num{6.67e-11})(\num{6.0e24})(\num{7.35e22})}{(\num{3.84e8})^2} = \qty{2.0e20}{N} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the orbital period in days}{2}
+  \critrow{Uses $\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$ (or calculates the orbital speed)}{1}
+\end{crit}
+\sample
+\[ T = 2\pi\sqrt{\frac{r^3}{GM}} = 2\pi\sqrt{\frac{(\num{3.84e8})^3}{(\num{6.67e-11})(\num{6.0e24})}}
+     = \qty{2.36e6}{s} = 27.4 \text{ days} \]
+(or $v = \sqrt{\frac{GM}{r}} = \qty{1.02e3}{m.s^{-1}}$, then $T = \frac{2\pi r}{v}$.)
+
+% ---- Q15
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the altitude}{2}
+  \critrow{Calculates the distance from Earth's centre}{1}
+\end{crit}
+\sample
+$r = \sqrt{\dfrac{GM}{g}} = \sqrt{\dfrac{(\num{6.67e-11})(\num{6.0e24})}{4.9}} = \qty{9.04e6}{m}$.
+Altitude $= \num{9.04e6} - \num{6.371e6} = \qty{2.7e6}{m}$. (Using $r = \sqrt{2}\,r_\mathrm{E}$, since
+$g$ halves when $r^2$ doubles, gives \qty{2.6e6}{m}; also accepted.)
+\anspart{b}
+\begin{crit}
+  \critrow{Draws a decreasing curve with an inverse-square shape AND shows correct values (about 9.8,
+    2.5 and \qty{0.6}{N.kg^{-1}})}{2}
+  \critrow{Draws a decreasing curve OR shows correct values}{1}
+\end{crit}
+\sample
+\begin{center}
+  \begin{tikzpicture}
+    \draw[axisline] (0,0) -- (8.2,0) node[right] {$r$};
+    \draw[axisline] (0,0) -- (0,5.6) node[above] {$g$ (\si{N.kg^{-1}})};
+    \foreach \k/\l in {1/r_\mathrm{E}, 2/2r_\mathrm{E}, 3/3r_\mathrm{E}, 4/4r_\mathrm{E}}
+      {\draw (\k*1.9,0.08) -- (\k*1.9,-0.08) node[below, font=\small] {$\l$};}
+    \foreach \y/\l in {1/2, 2/4, 3/6, 4/8, 5/10}
+      {\draw (0.08,\y*1.0) -- (-0.08,\y*1.0) node[left, font=\small] {\l};}
+    \draw[line width=1.1pt, domain=1:4, samples=60, smooth] plot ({1.9*\x}, {4.9/(\x*\x)});
+    \fill (1.9,4.9) circle (2pt) node[above right, font=\small] {9.8};
+    \fill (3.8,1.225) circle (2pt) node[above right, font=\small] {2.45};
+    \fill (7.6,0.306) circle (2pt) node[above, font=\small] {0.61};
+  \end{tikzpicture}
+\end{center}
+
+% ---- Q16
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Calculates $\frac{r^3}{T^2}$ (or $\frac{T^2}{r^3}$) for at least three moons, or uses a ratio
+    method for the whole data set, AND states that it is (nearly) constant, as Kepler's third law
+    predicts}{2}
+  \critrow{Calculates $\frac{r^3}{T^2}$ for one or two moons OR states Kepler's third law}{1}
+\end{crit}
+\sample
+Kepler's third law says $\frac{r^3}{T^2}$ is the same for all moons of one planet.
+Io: $\dfrac{(\num{4.22e8})^3}{(\num{1.53e5})^2} = \qty{3.21e15}{m^3.s^{-2}}$. Europa: \num{3.21e15}.
+Ganymede: \num{3.21e15}. Callisto: \num{3.20e15}. The four values agree to within about 0.2\%, so
+the data are consistent with the law.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the mass of Jupiter}{2}
+  \critrow{Uses $\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$ with a correct value}{1}
+\end{crit}
+\sample
+$M = \dfrac{4\pi^2}{G} \times \dfrac{r^3}{T^2} = \dfrac{4\pi^2 \times \num{3.21e15}}{\num{6.67e-11}}
+= \qty{1.90e27}{kg}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that the moon's mass cancels, so $\frac{r^3}{T^2}$ depends only on the mass of
+    Jupiter}{1}
+\end{crit}
+\sample
+The gravitational force and the centripetal force are both proportional to the moon's mass, so it
+cancels: $\frac{r^3}{T^2} = \frac{GM}{4\pi^2}$ depends only on Jupiter's mass $M$.
+
+% ---- Q17
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the orbital speed}{2}
+  \critrow{Calculates the orbital radius OR uses $v = \sqrt{\frac{GM}{r}}$}{1}
+\end{crit}
+\sample
+$r = \num{6.371e6} + \num{6.0e5} = \qty{6.971e6}{m}$.
+$v = \sqrt{\dfrac{GM}{r}} = \sqrt{\dfrac{(\num{6.67e-11})(\num{6.0e24})}{\num{6.971e6}}} = \qty{7.58e3}{m.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the total energy (negative)}{2}
+  \critrow{Uses $E = -\frac{GMm}{2r}$ OR calculates $K$ and $U$}{1}
+\end{crit}
+\sample
+\[ E = -\frac{GMm}{2r} = -\frac{(\num{6.67e-11})(\num{6.0e24})(1200)}{2 \times \num{6.971e6}} = \qty{-3.44e10}{J} \]
+(or $K = \frac{1}{2}mv^2 = \qty{3.44e10}{J}$ and $U = -\frac{GMm}{r} = \qty{-6.89e10}{J}$, so
+$E = K + U = \qty{-3.44e10}{J}$).
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that $U$ is negative (zero at infinity) and larger in size than $K$, so the satellite
+    is bound to Earth}{1}
+\end{crit}
+\sample
+$U$ is zero at infinity and negative everywhere else. In orbit $|U| = 2K$, so $E = K + U$ is
+negative. This means the satellite is bound to Earth: energy must be added to it before it can
+escape.
+
+% ---- Q18
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the speed at aphelion}{2}
+  \critrow{Writes $r_\mathrm{p}v_\mathrm{p} = r_\mathrm{a}v_\mathrm{a}$ with correct values}{1}
+\end{crit}
+\sample
+$r_\mathrm{p}v_\mathrm{p} = r_\mathrm{a}v_\mathrm{a}$, so
+$v_\mathrm{a} = \dfrac{(\num{1.0e11})(30)}{\num{1.5e11}} = \qty{20}{km.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Explains that the total energy is constant AND that $U$ increases (becomes less negative)
+    as $r$ increases, so $K$ and the speed decrease}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+Only gravity acts, so the total energy $K + U$ stays constant. As the planet moves away from the
+star, $r$ increases, so $U = -\frac{GMm}{r}$ becomes less negative (increases): the planet does work
+against gravity. For the total to stay the same, $K$ must decrease, so the planet slows down.
+
+% ---- Q19
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the escape velocity}{1}
+\end{crit}
+\sample
+$v_\mathrm{esc} = \sqrt{\dfrac{2GM}{r}} = \sqrt{\dfrac{2(\num{6.67e-11})(\num{6.0e24})}{\num{6.371e6}}} =
+\qty{1.12e4}{m.s^{-1}}$.
+\anspart{b}
+\begin{crit}
+  \critrow{Shows (with the energy equation) that both $K$ and $U$ are proportional to the rocket's mass,
+    so the mass cancels}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+To escape, $\frac{1}{2}mv^2 - \frac{GMm}{r} \ge 0$. Both the kinetic energy and the potential energy are
+proportional to the rocket's mass $m$, so $m$ cancels: $v_\mathrm{esc} = \sqrt{\frac{2GM}{r}}$. A
+heavier rocket needs more \emph{energy} to escape, but the same \emph{speed}.
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that the satellite only needs the speed for a circular orbit
+    ($\sqrt{\frac{GM}{r}}$, which is $\frac{1}{\sqrt{2}}$ of the escape velocity) because it stays bound
+    to Earth and does not travel to infinity}{1}
+\end{crit}
+\sample
+Escape velocity is the speed needed to travel to infinity and never come back. A satellite in orbit
+stays bound to Earth (its total energy is negative). It only needs the speed at which gravity
+provides exactly the centripetal force, $v = \sqrt{\frac{GM}{r}}$, which is $\frac{1}{\sqrt{2}}$ of the
+escape velocity at the same distance.
+
+% ---- Q20
+\ansq
+\anspart{a}
+\begin{crit}
+  \critrow{Correctly calculates the orbital radius}{3}
+  \critrow{Substitutes correctly into $r^3 = \frac{GMT^2}{4\pi^2}$ with $T$ in seconds}{2}
+  \critrow{Converts the period to seconds OR states the correct relationship}{1}
+\end{crit}
+\sample
+$T = 24.6 \times 3600 = \qty{88560}{s}$.
+\[ r = \sqrt[3]{\frac{GMT^2}{4\pi^2}} = \sqrt[3]{\frac{(\num{6.67e-11})(\num{6.42e23})(88\,560)^2}{4\pi^2}}
+   = \qty{2.04e7}{m} \]
+\anspart{b}
+\begin{crit}
+  \critrow{Correctly calculates the altitude}{1}
+\end{crit}
+\sample
+Altitude $= \num{2.04e7} - \num{3.39e6} = \qty{1.70e7}{m}$.
+\anspart{c}
+\begin{crit}
+  \critrow{Explains that the satellite must turn with Mars (same period and direction) AND that only an
+    equatorial orbit keeps it above one point}{2}
+  \critrow{Provides some relevant information}{1}
+\end{crit}
+\sample
+To stay above one point, the satellite must go around once in the same time as Mars rotates, and in
+the same direction, so it keeps pace with the surface. Every orbit is centred on the centre of Mars.
+An orbit tilted to the equator would carry the satellite north and south of the equator during each
+orbit, so only an orbit directly above the equator keeps it above the same point.
+
+\end{document}

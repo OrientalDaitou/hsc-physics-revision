@@ -1,0 +1,1241 @@
+% ch2.tex -- Module 6, Chapter 2: The Motor Effect
+% Syllabus: NSW Physics Stage 6 (2017), Module 6, IQ2 (M6.IQ2.01-03); Year 11 field refresher.
+% Directions checked with vectors: +x right, +y up the page, +z out of the page;
+% force on a wire = I l x B; field of a wire = right-hand grip rule.
+% Source error fixed here: 7c p3 draws the S-face loop with an anticlockwise current
+% (it must be clockwise), see Figure ch2:fig:fields(c).
+\tikzset{
+  chTwocurrent/.style={->, line width=1.4pt, color=hscink},
+  chTwowire/.style={line width=2.2pt, color=hscink!70},
+  chTwoloop/.style={line width=1.1pt, color=hscink, midarrow},
+  chTwowireout/.pic={\draw[line width=0.9pt, fill=white] (0,0) circle (0.2);
+    \fill (0,0) circle (0.06);},
+  chTwowirein/.pic={\draw[line width=0.9pt, fill=white] (0,0) circle (0.2);
+    \draw[line width=0.9pt] (-0.13,-0.13) -- (0.13,0.13) (-0.13,0.13) -- (0.13,-0.13);},
+  chTwofout/.pic={\fill[hscfield] (0,0) circle (0.055);},
+  chTwofin/.pic={\draw[hscfield, line width=0.75pt] (-0.085,-0.085) -- (0.085,0.085)
+    (-0.085,0.085) -- (0.085,-0.085);},
+  chTwoFout/.pic={\draw[hscforce, line width=1.1pt, fill=white] (0,0) circle (0.2);
+    \fill[hscforce] (0,0) circle (0.06);},
+  chTwoarc/.style={line width=0.8pt, color=hscfield, postaction={decorate},
+    decoration={markings, mark=at position 0.15 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}}}},
+  chTwoFin/.pic={\draw[hscforce, line width=1.1pt, fill=white] (0,0) circle (0.2);
+    \draw[hscforce, line width=1.1pt] (-0.13,-0.13) -- (0.13,0.13) (-0.13,0.13) -- (0.13,-0.13);},
+}
+
+\chapter{The Motor Effect}\label{ch2:chap}
+\covers{M6.IQ2.01, M6.IQ2.02, M6.IQ2.03}
+
+\inquiry{Under what circumstances is a force produced on a current-carrying conductor in a
+magnetic field?}
+
+\begin{goals}
+  \item describe the field of a straight wire, a loop and a solenoid, and use
+        $B = \mu_0 I/(2\pi r)$ and $B = \mu_0 NI/L$
+  \item use $F = lI_\perp B = lIB\sin\theta$ and the right-hand palm rule, and state when the
+        force is largest and when it is zero
+  \item explain why parallel wires attract or repel, and use $F/l = (\mu_0/2\pi)(I_1 I_2/r)$
+  \item link the SI definition of the ampere to Newton's third law
+  \item describe and evaluate the two key investigations
+\end{goals}
+
+%% ==================================================================
+\section{Magnetic fields made by currents (Year 11 refresher)}\label{ch2:sec:fields}
+
+\begin{bigidea}
+Every electric current makes a magnetic field around it. Around a straight wire the field lines
+are circles. A loop or a solenoid makes a field like a bar magnet's, with an N end and an S end.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Magnetic field ($B$)}{a region where a magnet or a moving charge feels a force.}
+  \kw{Conventional current}{the way positive charge would flow (out of the $+$ terminal,
+    round the circuit, back to the $-$ terminal).}
+  \kw{Right-hand grip rule}{thumb along the current; curled fingers show the field.}
+  \kw{Solenoid}{a long coil of wire with many turns.}
+  \kw{Uniform field}{the same strength and direction everywhere.}
+\end{keywords}
+
+\begin{refresher}{Field lines and the dot--cross code}
+\term{Field lines} show the way a compass needle's N end would point. Closer lines mean a stronger
+field. On a page, a dot ($\bullet$) means out of the page (an arrow tip coming at you). A cross
+($\times$) means into the page (an arrow tail going away).
+\end{refresher}
+
+A current makes its own \term{magnetic field}: a region where a magnet or a moving charge feels a
+force. Hans Ørsted found this in 1820, when a current made a compass needle swing. Field strength
+$B$ is measured in \term{tesla} (T).
+
+Every hand rule uses the \term{conventional current}: the way positive charge would flow. It
+leaves the $+$ terminal of the battery, goes round the circuit, and comes back to the $-$
+terminal. In a metal wire, electrons really move, and they flow the opposite way.
+
+\textbf{Straight wire.} The field lines are circles around the wire (\cref{ch2:fig:fields}(a)
+and (b)). The circles get further apart as you move away from the wire. This shows that the field
+is weaker there.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \tikzset{chTwolab/.style={diagramlabel, font=\footnotesize, align=center}}
+    % (a) straight wire, end-on
+    \begin{scope}
+      \foreach \r in {0.35,0.75,1.35} {\draw[field] (\r,0) arc (0:360:\r);}
+      \pic at (0,0) {chTwowireout};
+      \node[diagramlabel, text=hscfield] at (1.25,1.2) {$B$};
+      \node[chTwolab] at (0,-1.75) {(a) wire, end-on:\\ $I$ out of the page};
+    \end{scope}
+    % (b) straight wire, side view
+    \begin{scope}[xshift=3.2cm]
+      \draw[chTwowire] (0,-1.3) -- (0,1.3);
+      \draw[chTwocurrent] (0,-0.55) -- (0,0.55);
+      \node[diagramlabel] at (0,1.52) {$I$};
+      \foreach \y in {-1.1,-0.55,0,0.55,1.1} {\pic at (-0.32,\y) {chTwofout}; \pic at (0.32,\y) {chTwofin};}
+      \foreach \y in {-0.85,-0.28,0.28,0.85} {\pic at (-0.7,\y) {chTwofout}; \pic at (0.7,\y) {chTwofin};}
+      \foreach \y in {-0.6,0.6} {\pic at (-1.08,\y) {chTwofout}; \pic at (1.08,\y) {chTwofin};}
+      \node[chTwolab] at (0,-1.75) {(b) wire, side view:\\ $I$ up the page};
+    \end{scope}
+    % (c) loops, face-on: anticlockwise = N face, clockwise = S face
+    \begin{scope}[xshift=6.35cm]
+      \draw[chTwoloop] (-0.15,0.1) ++(270:0.58) arc (270:630:0.58);
+      \node[diagramlabel, font=\footnotesize, anchor=south] at (-0.15,0.84) {$I$};
+      \foreach \p in {(-0.15,0.1),(-0.38,0.1),(0.08,0.1),(-0.15,0.33),(-0.15,-0.13)} {\pic at \p {chTwofout};}
+      \node[diagramlabel, font=\footnotesize\bfseries, text=hscforce] at (-0.15,-0.78) {N face};
+      \begin{scope}[xshift=1.45cm]
+        \draw[chTwoloop] (-0.15,0.1) ++(270:0.58) arc (270:-90:0.58);
+        \node[diagramlabel, font=\footnotesize, anchor=south] at (-0.15,0.84) {$I$};
+        \foreach \p in {(-0.15,0.1),(-0.38,0.1),(0.08,0.1),(-0.15,0.33),(-0.15,-0.13)} {\pic at \p {chTwofin};}
+        \node[diagramlabel, font=\footnotesize\bfseries, text=hscvel] at (-0.15,-0.78) {S face};
+      \end{scope}
+      \node[chTwolab] at (0.58,-1.75) {(c) loops, face-on:\\ N face and S face};
+    \end{scope}
+    % (d) solenoid cut along its axis
+    \begin{scope}[xshift=10.95cm]
+      \fill[hscbrand!6] (-1.5,-0.42) rectangle (1.5,0.42);
+      \foreach \x in {-1.25,-0.75,...,1.3} {\pic at (\x,0.42) {chTwowireout}; \pic at (\x,-0.42) {chTwowirein};}
+      \foreach \s in {1,-1} {
+        \draw[hscfield, line width=0.8pt, postaction={decorate},
+          decoration={markings, mark=at position 0.16 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}},
+          mark=at position 0.64 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}}}]
+          (-1.6,0.17*\s) -- (1.6,0.17*\s) .. controls (2.5,0.25*\s) and (2.45,1.3*\s) .. (0,1.3*\s)
+          .. controls (-2.45,1.3*\s) and (-2.5,0.25*\s) .. cycle;
+      }
+      \node[font=\small\bfseries, text=hscforce] at (1.78,0) {N};
+      \node[font=\small\bfseries, text=hscvel] at (-1.78,0) {S};
+      \node[chTwolab] at (0,-1.75) {(d) solenoid, cut in half:\\ $I$ out on top, in below};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Fields made by currents. (a), (b) A long straight wire: the field lines are circles
+    round the wire. The field is weaker further away (circles further apart in (a), fewer dots and
+    crosses in (b)). (c) A loop acts like a flat magnet. The arrow on each loop shows the current.
+    (d) A solenoid cut in half along its length. Inside, the field is uniform and goes from S to N.
+    Outside, it looks like a bar magnet's field.}\label{ch2:fig:fields}
+\end{figure}
+
+To find the direction of the field, use the \term{right-hand grip rule} (\cref{ch2:fig:grip}).
+It links the way the current flows to the way the field lines go round the wire.
+
+\begin{sidebyside}[0.40]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \tikzset{hand/.style={draw=hscink, line width=0.8pt, fill=hscbrand!7}}
+    % back half of a field line (behind the wire), then the wire
+    \draw[hscfield, line width=0.9pt, postaction={decorate}, decoration={markings,
+      mark=at position 0.3 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}}}]
+      (0.95,-1.05) arc (0:180:0.95 and 0.3);
+    \draw[chTwowire] (0,-1.7) -- (0,1.75);
+    % front half of the field line, with its arrows (away from the wire)
+    \draw[hscfield, line width=0.9pt, postaction={decorate}, decoration={markings,
+      mark=at position 0.3 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}},
+      mark=at position 0.75 with {\arrow{Stealth[length=2.2mm, width=1.7mm]}}}]
+      (-0.95,-1.05) arc (180:360:0.95 and 0.3);
+    % fist (curled fingers) and thumb
+    \draw[hand, rounded corners=8pt] (-0.6,-0.55) rectangle (0.6,0.5);
+    \foreach \y in {-0.29,-0.03,0.23} {\draw[hscink, line width=0.6pt] (-0.6,\y) .. controls (0,\y-0.1) .. (0.6,\y);}
+    \draw[hand, rounded corners=5pt] (-0.17,0.32) rectangle (0.17,1.25);
+    \draw[chTwocurrent] (0,1.3) -- (0,1.95) node[above, inner sep=2pt] {$I$};
+    \node[diagramlabel, anchor=east, align=right] at (-0.3,0.9) {right\\ hand};
+    \node[diagramlabel, align=left, anchor=west] at (0.32,0.95) {thumb:\\ current $I$};
+    \node[diagramlabel, align=left, anchor=west, text=hscfield] at (1.0,-1.05) {curled fingers:\\ field $B$};
+  \end{tikzpicture}
+  \captionof{figure}{The right-hand grip rule.}\label{ch2:fig:grip}
+\nextside
+  \begin{enumerate}
+    \item Hold the wire in your right hand.
+    \item Point your \textbf{thumb} along the conventional current $I$.
+    \item Your curled \textbf{fingers} show the way the field lines go round the wire.
+  \end{enumerate}
+  Check with \cref{ch2:fig:fields}(a). The current comes out of the page, so the field lines go
+  anticlockwise.
+\end{sidebyside}
+
+\begin{toolkit}{Prefixes, rearranging and the sign $\propto$}
+\textbf{Prefixes:} change to SI units first.\\
+c $= 10^{-2}$: $\qty{3.0}{cm} = \qty{0.030}{m}$.\\
+m $= 10^{-3}$: $\qty{45}{mT} = \qty{0.045}{T}$; \ $\qty{600}{mA} = \qty{0.600}{A}$; \
+$\qty{5.0}{mm} = \qty{5.0e-3}{m}$.\\
+\textmu\ $= 10^{-6}$: $\qty{82}{\micro T} = \qty{8.2e-5}{T}$.\\
+Grams to kilograms: divide by 1000, so $\qty{0.35}{g} = \qty{3.5e-4}{kg}$.\\
+\textbf{Rearranging:} do the same to both sides. Start with $B = \mu_0 I/(2\pi r)$. Multiply both
+sides by $r$: $Br = \mu_0 I/(2\pi)$. Then divide both sides by $B$: $r = \mu_0 I/(2\pi B)$.\\
+\textbf{The sign $\propto$} means ``is proportional to''. $B \propto 1/r$: double $r$, and $B$ halves.
+\end{toolkit}
+
+\textbf{Current loop.} Bend a wire into a circle to make a \term{current loop}: one turn of wire.
+Every part of the loop makes the field point the same way through the middle. So a loop acts like
+a flat magnet with an N face and an S face (\cref{ch2:fig:fields}(c)). Curl your right fingers the
+way the current goes round. Your thumb points out of the N face. Seen face-on, an anticlockwise
+current gives an N face, and a clockwise current gives an S face.
+
+\textbf{Solenoid.} A \term{solenoid} is a long coil: many loops side by side. Their fields add up.
+Inside, the field is strong and \term{uniform}: the same strength and direction everywhere
+(\cref{ch2:fig:fields}(d)). Outside, it looks like a bar magnet's field. To find the N end, use the
+same right-hand rule as for a loop. Curl your right fingers the way the current goes round the
+turns. Your thumb points to the N end.
+
+The formulas below use $\mu_0$ (say ``mew-nought''), the \term{magnetic permeability constant}.
+It is a fixed number of nature: $\mu_0 = 4\pi \times 10^{-7}$ \si{N.A^{-2}}. It sets how strong
+a field a current makes in empty space. You will find it on the data sheet.
+
+\begin{formulacard}{Field of a long straight wire}
+  \cardformula{B = \frac{\mu_0 I}{2\pi r}}
+  \begin{symbols}
+    \sym{$B$}{magnetic field strength at distance $r$}{\si{T}}
+    \sym{$\mu_0$}{magnetic permeability constant, $4\pi \times 10^{-7}$}{\si{N.A^{-2}}}
+    \sym{$I$}{current in the wire}{\si{A}}
+    \sym{$r$}{shortest distance from the centre of the wire}{\si{m}}
+  \end{symbols}
+  \inwords{a bigger current gives a stronger field. Double the distance and the field halves.}
+  \whentouse{near a long, straight wire, away from its ends.}
+  \whennottouse{for a coil, or to find the direction (use the grip rule).}
+  \rearranged{$I = \dfrac{2\pi r B}{\mu_0}$ \qquad $r = \dfrac{\mu_0 I}{2\pi B}$ \qquad
+    shortcut: $\dfrac{\mu_0}{2\pi} = \qty{2e-7}{N.A^{-2}}$}
+  \tensecond{$I = \qty{5.0}{A}$, $r = \qty{0.10}{m}$:
+    $B = \dfrac{2 \times 10^{-7} \times 5.0}{0.10} = \qty{1.0e-5}{T}$.}
+  \trap{$B \propto \dfrac{1}{r}$, not $\dfrac{1}{r^2}$. Measure $r$ in metres, from the centre of the wire.}
+\end{formulacard}
+
+\begin{formulacard}{Field inside a solenoid}
+  \cardformula{B = \frac{\mu_0 NI}{L}}
+  \begin{symbols}
+    \sym{$B$}{magnetic field strength inside the solenoid}{\si{T}}
+    \sym{$\mu_0$}{magnetic permeability constant, $4\pi \times 10^{-7}$}{\si{N.A^{-2}}}
+    \sym{$N$}{number of turns}{no unit}
+    \sym{$I$}{current}{\si{A}}
+    \sym{$L$}{length of the solenoid}{\si{m}}
+  \end{symbols}
+  \inwords{more turns, more current or a shorter coil gives a stronger field inside.}
+  \whentouse{inside a long solenoid with an air core. The field there is uniform.}
+  \whennottouse{outside the solenoid; for one straight wire; or for a coil with an iron core (the
+    field is then much stronger than the formula gives).}
+  \rearranged{$N = \dfrac{BL}{\mu_0 I}$ \qquad $I = \dfrac{BL}{\mu_0 N}$ \qquad $L = \dfrac{\mu_0 NI}{B}$}
+  \tensecond{$N = 200$, $I = \qty{2.0}{A}$, $L = \qty{0.10}{m}$:
+    $B = \dfrac{4\pi \times 10^{-7} \times 200 \times 2.0}{0.10} = \qty{5.0e-3}{T}$.}
+  \trap{capital $L$ is the length of the coil, not the length of wire used to wind it. Put $L$ in
+    metres.}
+\end{formulacard}
+
+\begin{workedexample}{Field beside a long wire}\label{ch2:we:wirefield}
+A long straight wire lies in the page and carries \qty{12}{A} up the page. Point P is
+\qty{3.0}{cm} to the right of the wire. Find the size and direction of the field at P.
+\given{$I = \qty{12}{A}$, \ $r = \qty{3.0}{cm} = \qty{0.030}{m}$}
+\find{the size and direction of $B$ at P}
+\formula{$B = \dfrac{\mu_0 I}{2\pi r}$, with $\dfrac{\mu_0}{2\pi} = \qty{2e-7}{N.A^{-2}}$; then
+  the right-hand grip rule}
+\substitute{\eqlines{B &= \frac{2 \times 10^{-7}\,\unit{N.A^{-2}} \times \qty{12}{A}}{\qty{0.030}{m}}
+  = \qty{8.0e-5}{T}}
+
+  Direction: right thumb up the page. On the right of the wire, the curled fingers go into the
+  page (\cref{ch2:fig:fields}(b)).}
+\answer{\final{$B = \qty{8.0e-5}{T}$ into the page}}
+\checkstep{units: $\unit{N.A^{-2}} \times \unit{A} \div \unit{m} = \unit{N.A^{-1}.m^{-1}}$, and
+  $\qty{1}{T} = \qty{1}{N.A^{-1}.m^{-1}}$ (you will see why in \cref{ch2:sec:motor}) \cmark. The
+  field is close to the size of Earth's field (about \qty{5e-5}{T}).}
+\end{workedexample}
+
+\begin{workedexample}{The field inside a solenoid}\label{ch2:we:solenoid}
+A solenoid \qty{20}{cm} long has 400 turns and carries \qty{1.5}{A}. You look at its right-hand
+end. From there, the current goes anticlockwise round the turns. Find the size of the field
+inside, and say which end is N.
+\given{$N = 400$, \ $I = \qty{1.5}{A}$, \ $L = \qty{20}{cm} = \qty{0.20}{m}$. Seen from the
+  right-hand end, the current is anticlockwise.}
+\find{the size of $B$ inside; which end is N}
+\formula{$B = \dfrac{\mu_0 NI}{L}$; then the right-hand rule for a coil}
+\substitute{\eqlines{B &= \frac{4\pi \times 10^{-7}\,\unit{N.A^{-2}} \times 400 \times
+  \qty{1.5}{A}}{\qty{0.20}{m}} = \qty{3.77e-3}{T}}
+
+  Direction: curl your right fingers anticlockwise, the way you see the current from the
+  right-hand end. Your thumb points towards you, out of that end. So the right-hand end is N.
+  Inside, the field goes from S to N, so it points to the right.}
+\answer{\final{$B = \qty{3.8e-3}{T}$}, pointing to the right inside; the right-hand end is N.}
+\checkstep{units: $\unit{N.A^{-2}} \times \unit{A} \div \unit{m} = \unit{N.A^{-1}.m^{-1}} =
+  \unit{T}$ \cmark. Seen from an end, an anticlockwise current always means N
+  (\cref{ch2:fig:fields}(c)) \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{Adding the fields of two wires}\label{ch2:we:twofields}
+\begin{sidebyside}[0.50]
+Two long straight wires lie side by side, \qty{10.0}{cm} apart (\cref{ch2:fig:twofields}). Wire P (on the left)
+carries \qty{6.0}{A} out of the page. Wire Q (on the right) carries \qty{4.0}{A} into the page.
+Find the field at M, halfway between them.
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % small field lines round each wire: anticlockwise round P, clockwise round Q
+    \draw[field] (0,0) ++(180:0.55) arc (180:540:0.55);
+    \draw[field] (4,0) ++(0:0.55) arc (0:-360:0.55);
+    \pic at (0,0) {chTwowireout}; \pic at (4,0) {chTwowirein};
+    \node[diagramlabel, anchor=south] at (0,0.62) {P: \qty{6.0}{A}, out};
+    \node[diagramlabel, anchor=south] at (4,0.62) {Q: \qty{4.0}{A}, in};
+    % point M and the two fields there
+    \fill (2,0) circle (1.6pt);
+    \node[diagramlabel, anchor=north] at (2,-0.08) {M};
+    \draw[->, line width=1.2pt, hscfield] (1.82,0.12) -- (1.82,1.32)
+      node[left, inner sep=2pt] {$B_\mathrm{P}$};
+    \draw[->, line width=1.2pt, hscfield] (2.18,0.12) -- (2.18,0.92)
+      node[right, inner sep=2pt] {$B_\mathrm{Q}$};
+    % distances
+    \draw[<->, hscmuted, line width=0.5pt] (0,-0.85) -- (4,-0.85);
+    \node[diagramlabel, fill=white, inner sep=1pt] at (2,-0.85) {\qty{10.0}{cm}};
+  \end{tikzpicture}
+  \captionof{figure}{End-on view. Both fields point up at M.}\label{ch2:fig:twofields}
+\end{sidebyside}
+\given{$I_\mathrm{P} = \qty{6.0}{A}$, \ $I_\mathrm{Q} = \qty{4.0}{A}$, \ M is
+  $r = \qty{5.0}{cm} = \qty{0.050}{m}$ from each wire}
+\find{the size and direction of the total field at M}
+\formula{$B = \dfrac{\mu_0 I}{2\pi r}$ for each wire. Add the fields if they point the same way;
+  subtract if they point opposite ways.}
+\substitute{\eqlines{B_\mathrm{P} &= \frac{2 \times 10^{-7}\,\unit{N.A^{-2}} \times \qty{6.0}{A}}{\qty{0.050}{m}}
+  = \qty{2.4e-5}{T}\\
+  B_\mathrm{Q} &= \frac{2 \times 10^{-7}\,\unit{N.A^{-2}} \times \qty{4.0}{A}}{\qty{0.050}{m}}
+  = \qty{1.6e-5}{T}}
+
+  Directions (grip rule, see \cref{ch2:fig:twofields}): P's current is out of the page, so its
+  field lines go anticlockwise round P. On the right-hand side of an anticlockwise circle, the
+  line points up. M is on the right of P, so at M, $B_\mathrm{P}$ points up.
+
+  Q's current is into the page, so its field lines go clockwise round Q. On the left-hand side of
+  a clockwise circle, the line also points up. M is on the left of Q, so at M, $B_\mathrm{Q}$
+  points up too.
+
+  Both fields point up, so add them:
+  $B = \qty{2.4e-5}{T} + \qty{1.6e-5}{T} = \qty{4.0e-5}{T}$.}
+\answer{\final{$B = \qty{4.0e-5}{T}$ towards the top of the page}}
+\checkstep{between opposite currents the two fields add. If both currents went the same way, the
+  fields would subtract, giving only \qty{8.0e-6}{T}.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ $B \propto \dfrac{1}{r^2}$. \cmark\ For a wire, $B \propto \dfrac{1}{r}$: double
+        the distance and the field halves.
+  \item \xmark\ Thumb along the electron flow. \cmark\ Thumb along the conventional current.
+  \item \xmark\ Inside a solenoid the field goes from N to S. \cmark\ Inside it goes from S to N;
+        outside it goes from N to S.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Draw the field of this solenoid'' (3 marks). One mark each for:
+\begin{enumerate}
+  \item arrows the right way (inside from S to N, outside from N to S);
+  \item closed loops that are straight and evenly spaced inside;
+  \item N and S at the correct ends.
+\end{enumerate}
+``Find the field at P'' (two or more wires):
+\begin{enumerate}
+  \item find the direction of each wire's field at P (grip rule);
+  \item add the fields that point the same way; subtract the fields that point opposite ways.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A long straight wire carries \qty{8.0}{A}. Calculate the field \qty{4.0}{cm} from it.
+  \item The field \qty{2.0}{cm} from a long wire is \qty{6.0e-5}{T}. Find the field
+        \qty{6.0}{cm} from the wire.
+  \item A solenoid \qty{25}{cm} long has 500 turns and carries \qty{1.2}{A}. Calculate the field
+        inside it.
+  \item You look at one end of a solenoid. The current goes clockwise round the turns. Is this
+        end N or S?
+\end{quickcheck}
+
+%% ==================================================================
+\section{The motor effect: force on a wire}\label{ch2:sec:motor}
+\covers{M6.IQ2.01}
+
+\begin{bigidea}
+A wire carrying a current in an external magnetic field feels a force. The force is largest when
+the wire is at \ang{90} to the field. There is no force when the wire is parallel to the field.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Motor effect}{the force on a current-carrying wire in an external magnetic field.}
+  \kw{External field}{a field from something else (such as a magnet), not from the wire.}
+  \kw{Perpendicular}{at \ang{90} to something.}
+  \kw{Parallel}{side by side and pointing the same way (or exactly the opposite way), like train
+    rails. The angle between them is \ang{0} (or \ang{180}).}
+  \kw{Right-hand palm rule}{fingers along $B$, thumb along $I$: the palm pushes along $F$.}
+\end{keywords}
+
+Motors, loudspeakers and electric toothbrushes all use the \term{motor effect}. A wire carrying a
+current in an \term{external magnetic field} feels a force. ``External'' means the field comes
+from something else, such as a magnet.
+
+Why? A current is a stream of moving charges. A moving charge in a magnetic field feels a force,
+$F = qv_\perp B$ (\cref{ch1:chap}). The charges cannot leave the wire, so the whole wire is pushed.
+
+The force grows with the length of wire in the field, the current and the field strength. Only the
+part of the current that is \term{perpendicular} (at \ang{90}) to the field lines counts
+(\cref{ch2:fig:cases}). If the wire is \term{parallel} to the field (it points along the field
+lines, at \ang{0} or \ang{180}), there is no force.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \dx in {0, 4.7, 9.4} {
+      \begin{scope}[xshift=\dx cm]
+        \foreach \y in {-1.0,-0.33,0.33,1.0} {\draw[field, hscfield!70] (-1.7,\y) -- (1.7,\y);}
+        \node[diagramlabel, text=hscfield] at (1.9,1.0) {$B$};
+      \end{scope}
+    }
+    % (a) perpendicular
+    \draw[chTwowire] (0,-1.3) -- (0,1.3);
+    \draw[chTwocurrent] (0,-0.25) -- (0,0.7) node[left, inner sep=3pt] {$I$};
+    \pic at (0.55,-0.67) {chTwoFin};
+    \node[diagramlabel, text=hscforce, anchor=west] at (0.78,-0.67) {$F$};
+    \node[diagramlabel, align=center] at (0,-2.15) {(a) $\theta = \ang{90}$:\\ largest force, $F = lIB$};
+    % (b) parallel
+    \begin{scope}[xshift=4.7cm]
+      \draw[chTwowire] (-1.4,0) -- (1.4,0);
+      \draw[chTwocurrent] (-0.6,0) -- (0.5,0) node[above, inner sep=3pt] {$I$};
+      \node[diagramlabel, align=center] at (0,-2.15) {(b) $\theta = \ang{0}$:\\ no force};
+    \end{scope}
+    % (c) at an angle
+    \begin{scope}[xshift=9.4cm]
+      \coordinate (A) at (-0.95,-0.8); \coordinate (B) at (0.95,0.8);
+      \draw[chTwowire] ($(A)!-0.12!(B)$) -- ($(A)!1.12!(B)$);
+      \draw[chTwocurrent] (A) -- (B) node[pos=0.62, below right, inner sep=1pt, fill=white] {$I$};
+      \draw[->, line width=1pt, hscacc] (A) -- (0.95,-0.8) node[pos=0.5, below=9pt, inner sep=1pt, text=hscacc] {$I_\parallel = I\cos\theta$};
+      \draw[->, line width=1pt, hscacc] (0.95,-0.8) -- (B) node[pos=0.45, right, inner sep=2pt, text=hscacc, fill=white] {$I_\perp = I\sin\theta$};
+      \draw[hscink, line width=0.6pt] ($(A)+(0.55,0)$) arc (0:40.1:0.55);
+      \node[diagramlabel, fill=white, inner sep=1pt] at ($(A)+(0.78,0.26)$) {$\theta$};
+      \node[diagramlabel, align=center] at (0,-2.15) {(c) angle $\theta$: only $I_\perp$\\ counts, $F = lIB\sin\theta$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A wire in a uniform field that points to the right. In (a) the force is into the page.}\label{ch2:fig:cases}
+\end{figure}
+
+\begin{toolkit}{Splitting a vector with sin and cos}
+\textbf{sin and cos.} Take a right-angled triangle and one of its other angles, $\theta$. The
+longest side is the \emph{hypotenuse}. Then $\sin\theta = \text{opposite} \div
+\text{hypotenuse}$ and $\cos\theta = \text{adjacent} \div \text{hypotenuse}$.\\
+\textbf{Splitting a current.} Draw the current $I$ as the hypotenuse (\cref{ch2:fig:cases}(c)).
+The side along the field is next to $\theta$: $I_\parallel = I\cos\theta$. The side across the
+field is opposite $\theta$: $I_\perp = I\sin\theta$.\\
+\textbf{Which angle?} $\theta$ is the angle between the wire and the field lines. Sometimes the
+angle you are given is measured from a line at \ang{90} to the field. Then
+$\theta = \ang{90} - (\text{given angle})$.\\
+\textbf{Values to know:} $\sin\ang{0} = 0$, $\sin\ang{30} = 0.5$, $\sin\ang{90} = 1$. Set your
+calculator to degrees (D or DEG on the screen).
+\end{toolkit}
+
+\begin{sidebyside}[0.44]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.93\linewidth, height=0.56\linewidth,
+        xmin=0, xmax=180, ymin=0, ymax=1.15, xtick={0,45,90,135,180},
+        ytick={0,0.5,1}, xlabel={$\theta$ (degrees)}, ylabel={$F \div F_\mathrm{max}$}]
+      \addplot[hscseriesA, line width=1.2pt, domain=0:180, samples=91, mark=none] {sin(x)};
+      \addplot[hscseriesA, only marks, mark=*, mark size=2pt] coordinates {(0,0) (90,1) (180,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{The force follows $\sin\theta$. $F_\mathrm{max} = lIB$ is the largest force,
+    at $\theta = \ang{90}$.}\label{ch2:fig:sine}
+\nextside
+  \Cref{ch2:fig:sine} shows how the force changes with the angle.
+  \begin{itemize}
+    \item \textbf{Largest force:} wire at \ang{90} to the field ($\sin\ang{90} = 1$): $F = lIB$.
+    \item \textbf{No force:} the wire is parallel to the field ($\theta = \ang{0}$ or \ang{180}).
+          There is also no force when there is no current, or when the wire is outside the field.
+    \item \textbf{Special case:} if $B$ points into or out of the page, any wire lying in the page
+          is at \ang{90} to it. So use $\sin\theta = 1$, whatever angle the wire makes on the page.
+  \end{itemize}
+\end{sidebyside}
+
+\textbf{Direction of the force.} The force is at \ang{90} to both the current and the field.
+
+\begin{sidebyside}[0.36]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \coordinate (O) at (0,0);
+    \coordinate (X) at (1.6,0); \coordinate (Y) at (0,1.6); \coordinate (Z) at (-0.85,-0.7);
+    % the corner of a box
+    \draw[guide] (X) -- ++(0,1.6) -- (Y);
+    \draw[guide] (X) -- ++(-0.85,-0.7) -- (Z);
+    \draw[guide] (Y) -- ++(-0.85,-0.7) -- (Z);
+    % right-angle marks
+    \draw[hscink, line width=0.5pt] (0.25,0) -- (0.25,0.25) -- (0,0.25);
+    \draw[hscink, line width=0.5pt] (0.25,0) -- (0.117,-0.11) -- (-0.133,-0.11);
+    \draw[hscink, line width=0.5pt] (0,0.25) -- (-0.133,0.14) -- (-0.133,-0.11);
+    % the three directions
+    \draw[chTwocurrent] (O) -- (X) node[right, inner sep=2pt] {$I$};
+    \draw[->, line width=1.3pt, hscfield] (O) -- (Y) node[above, inner sep=2pt] {$B$};
+    \draw[force] (O) -- (Z) node[below left, inner sep=1pt, text=hscforce] {$F$};
+  \end{tikzpicture}
+  \captionof{figure}{$F$ is at \ang{90} to both $I$ and $B$.}\label{ch2:fig:axes}
+\nextside
+  Picture the corner of a box (\cref{ch2:fig:axes}). $I$, $B$ and $F$ lie along its three edges,
+  so each one is at \ang{90} to the other two. In the picture, $I$ points to the right and $B$
+  points up the page. So $F$ comes out of the page, towards you.
+\end{sidebyside}
+
+To find which way $F$ points, use the \term{right-hand palm rule} (\cref{ch2:fig:palm}). It is the
+same rule as for a moving positive charge in \cref{ch1:chap}. The thumb goes along the
+conventional current, not the electron flow.
+
+\begin{sidebyside}[0.50]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \tikzset{hand/.style={draw=hscink, line width=0.8pt, fill=hscbrand!7}}
+    % thumb, fingers, wrist, then palm on top
+    \draw[hand, rounded corners=6pt] (1.45,0.32) rectangle (2.95,0.82);
+    \draw[hand, rounded corners=5pt] (0.05,1.6) rectangle (0.43,2.8);
+    \draw[hand, rounded corners=5pt] (0.47,1.6) rectangle (0.86,3.2);
+    \draw[hand, rounded corners=5pt] (0.90,1.6) rectangle (1.29,3.35);
+    \draw[hand, rounded corners=5pt] (1.33,1.6) rectangle (1.72,3.12);
+    \draw[hand] (0.3,-0.75) rectangle (1.45,0.2);
+    \draw[hand, rounded corners=9pt] (0,0) rectangle (1.77,1.9);
+    \pic at (0.88,0.95) {chTwoFout};
+    % arrows and labels
+    \draw[->, line width=1.3pt, hscfield] (-0.45,1.4) -- (-0.45,3.3);
+    \node[diagramlabel, text=hscfield, align=right, anchor=east] at (-0.55,2.4) {fingers:\\ field $B$};
+    \draw[chTwocurrent] (3.1,0.57) -- (4.1,0.57);
+    \node[diagramlabel, align=center, anchor=north] at (3.6,0.4) {thumb:\\ current $I$};
+    \node[diagramlabel, text=hscforce, align=left, anchor=west] at (2.0,1.75) {palm pushes:\\ force $F$ out\\ of the page};
+    \draw[hscforce, line width=0.5pt] (1.97,1.6) -- (1.1,1.05);
+  \end{tikzpicture}
+  \captionof{figure}{The right-hand palm rule (palm facing you).}\label{ch2:fig:palm}
+\nextside
+  \begin{enumerate}
+    \item Hold your right hand flat.
+    \item \textbf{Fingers} along the field $B$ (N to S).
+    \item \textbf{Thumb} along the conventional current $I$. Electron flow? Point the thumb the
+          opposite way.
+    \item The \textbf{palm} faces the way the force $F$ pushes.
+  \end{enumerate}
+  Reverse the current \emph{or} the field, and the force reverses. Reverse both, and it stays the same.
+\end{sidebyside}
+
+\begin{formulacard}{Force on a current-carrying wire}
+  \cardformula{F = lI_\perp B = lIB\sin\theta}
+  \begin{symbols}
+    \sym{$F$}{size of the force on the wire}{\si{N}}
+    \sym{$l$}{length of wire inside the field}{\si{m}}
+    \sym{$I$}{current in the wire; $I_\perp = I\sin\theta$ is the part at \ang{90} to $B$}{\si{A}}
+    \sym{$B$}{magnetic field strength of the external field}{\si{T} ($= \si{N.A^{-1}.m^{-1}}$)}
+    \sym{$\theta$}{angle between the wire (the current) and the field}{degree (\si{\degree})}
+  \end{symbols}
+  \inwords{a longer wire, a bigger current or a stronger field gives a bigger force.}
+  \whentouse{a straight wire with a current in a uniform external magnetic field.}
+  \whennottouse{to find the direction (use the palm rule); for a curved wire or a non-uniform field
+    (split it into short straight pieces); or for one moving charge ($F = qv_\perp B$).}
+  \rearranged{$B = \dfrac{F}{lI\sin\theta}$ \qquad $I = \dfrac{F}{lB\sin\theta}$ \qquad
+    $l = \dfrac{F}{IB\sin\theta}$ \qquad $\sin\theta = \dfrac{F}{lIB}$}
+  \tensecond{$l = \qty{0.20}{m}$, $I = \qty{3.0}{A}$, $B = \qty{0.50}{T}$, $\theta = \ang{30}$:
+    $F = 0.20 \times 3.0 \times 0.50 \times \sin\ang{30} = \qty{0.15}{N}$.}
+  \trap{$\theta$ is the angle between the wire and the field lines. Sometimes the given angle is
+    measured from a line at \ang{90} to the field (for example from the horizontal when $B$ is
+    vertical). Then use $\theta = \ang{90} - (\text{given angle})$. Change cm to m and mA to A.}
+\end{formulacard}
+
+\begin{workedexample}{A wire in a field into the page}\label{ch2:we:basic}
+A straight wire \qty{8.0}{cm} long lies in the page and carries \qty{2.5}{A} to the right. A
+uniform field of \qty{45}{mT} points into the page. Find the size and direction of the force.
+\given{$l = \qty{8.0}{cm} = \qty{0.080}{m}$, \ $I = \qty{2.5}{A}$, \ $B = \qty{45}{mT} = \qty{0.045}{T}$.
+  The wire is in the page and $B$ is into the page, so $\theta = \ang{90}$.}
+\find{the size and direction of the force $F$}
+\formula{$F = lIB\sin\theta$, then the right-hand palm rule}
+\substitute{$F = \qty{0.080}{m} \times \qty{2.5}{A} \times \qty{0.045}{T} \times \sin\ang{90}
+  = \qty{9.0e-3}{N}$}
+\answer{\final{$F = \qty{9.0e-3}{N}$ up the page}. (Hold the page upright in front of you. Point
+  your fingers into the page, away from you, and your thumb to the right. Your palm faces up the
+  page.)}
+\checkstep{units: $\unit{m} \times \unit{A} \times \unit{N.A^{-1}.m^{-1}} = \unit{N}$ \cmark.
+  $\theta = \ang{90}$, so this is the largest force this wire can feel. \qty{9.0e-3}{N} is about
+  the weight of a \qty{0.9}{g} mass ($0.0090 \div 9.8 \approx \qty{9.2e-4}{kg}$). This is a
+  small push, as expected for \qty{8}{cm} of wire carrying \qty{2.5}{A}.}
+\end{workedexample}
+
+\begin{workedexample}{The angle is measured from the horizontal}\label{ch2:we:angle}
+\begin{sidebyside}[0.54]
+A wire \qty{0.30}{m} long carries \qty{3.2}{A} in a uniform field of \qty{0.12}{T}. The field
+points up the page. The wire makes \ang{25} with the horizontal, and the current flows to the
+right and slightly up (\cref{ch2:fig:weangle}). Find the size and direction of the force on the
+wire.
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \x in {0.45,1.45,2.45} {\draw[field] (\x,-0.45) -- (\x,2.0);}
+    \node[diagramlabel, text=hscfield, anchor=south] at (1.45,2.05) {$B$};
+    \draw[guide] (-0.3,0) -- (3.2,0);
+    \draw[chTwowire] (0,0) -- (25:3.1);
+    \draw[chTwocurrent] (25:1.75) -- (25:2.6);
+    \node[diagramlabel, fill=white, inner sep=1pt] at ($(25:2.2)+(-0.1,0.32)$) {$I$};
+    \draw[hscink, line width=0.6pt] (0.8,0) arc (0:25:0.8);
+    \node[diagramlabel, fill=white, inner sep=1pt] at (11:1.22) {\ang{25}};
+  \end{tikzpicture}
+  \captionof{figure}{The wire makes \ang{25} with the dashed horizontal line.}\label{ch2:fig:weangle}
+\end{sidebyside}
+\given{$l = \qty{0.30}{m}$, \ $I = \qty{3.2}{A}$, \ $B = \qty{0.12}{T}$. The \ang{25} is measured
+  from the dashed horizontal line. The field points up the page, so this line is at \ang{90} to
+  the field. The wire is \ang{25} away from that line. So the angle between the wire and $B$ is
+  $\theta = \ang{90} - \ang{25} = \ang{65}$.}
+\find{the size and direction of the force $F$}
+\formula{$F = lIB\sin\theta$, then the right-hand palm rule}
+\substitute{$F = \qty{0.30}{m} \times \qty{3.2}{A} \times \qty{0.12}{T} \times \sin\ang{65}
+  = \qty{0.1152}{N} \times 0.906 = \qty{0.104}{N}$}
+\answer{\final{$F = \qty{0.10}{N}$ out of the page} (fingers up the page, thumb to the right and
+  slightly up: the palm faces out of the page)}
+\checkstep{it is less than the largest possible force, $lIB = \qty{0.115}{N}$ \cmark. Using
+  $\sin\ang{25}$ by mistake gives \qty{0.049}{N}.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Putting the given angle straight into $\sin\theta$ when it is measured from a line
+        at \ang{90} to the field. \cmark\ $\theta$ is between the wire and the field: use
+        $\ang{90} - (\text{given angle})$.
+  \item \xmark\ Thumb along the electron flow. \cmark\ Thumb along the conventional current.
+  \item \xmark\ Force along the field. \cmark\ The force is at \ang{90} to both $B$ and $I$.
+  \item \xmark\ Putting $l$ in cm or $I$ in mA. \cmark\ Change to m and A first.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+\begin{itemize}
+  \item ``Define the motor effect'' (1 mark): the answer must say \emph{external magnetic field}.
+  \item ``Explain why there is no force'' (2 marks): (1) the current is parallel to the field, so
+        $\theta = \ang{0}$; (2) $F = lIB\sin\theta$ and $\sin\ang{0} = 0$, so $F = 0$.
+  \item ``Which way is the force (or the field)?'' (1 mark): the question often gives the electron
+        flow. Reverse it first. Then use the palm rule. To find $B$, put your thumb along $I$ and
+        your palm along $F$, and read your fingers.
+  \item A force answer needs the size \emph{and} the direction (``into the page'', ``to the
+        left'', never just ``sideways'').
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Which angle between wire and field gives (a) the largest force, (b) no force?
+  \item A \qty{12}{cm} wire carries \qty{4.0}{A} at \ang{90} to a \qty{0.30}{T} field. Find the
+        force on it.\label{ch2:qc:wire}
+  \item The wire in \cref{ch2:qc:wire} is turned to \ang{30} to the field. Find the new force.
+  \item A field points to the left. The electrons in a wire flow out of the page. Which way is
+        the force on the wire?
+  \item A \qty{5.0}{cm} wire carrying \qty{2.0}{A} at \ang{90} to a field feels \qty{4.0e-3}{N}.
+        Find the field strength.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Forces between parallel wires}\label{ch2:sec:wires}
+\covers{M6.IQ2.03}
+
+\begin{bigidea}
+Each of two parallel wires sits in the field of the other, so each feels a motor-effect force.
+Same-direction currents attract; opposite currents repel. The two forces are always equal and
+opposite, and they were used to define the ampere.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Attract / repel}{pull together / push apart.}
+  \kw{Force per unit length ($F/l$)}{the force on each metre of wire. Unit: \si{N.m^{-1}}.}
+  \kw{Permeability constant ($\mu_0$)}{links a current to the field it makes in a vacuum.}
+  \kw{Newton's third law}{A pushes on B, so B pushes on A: same size, opposite way.}
+  \kw{Ampere (A)}{the unit of current. \qty{1}{A} means one coulomb (C) of charge passes a point
+    every second.}
+\end{keywords}
+
+Cables that carry big currents side by side push or pull on each other. Jump-start leads twitch
+when the car starts. In power stations, the thick metal bars that carry the current must be
+bolted down firmly.
+
+Wire 1 makes a magnetic field. Wire 2 is a current in that field, so it feels a motor-effect
+force. The same is true the other way round. Find the direction in three steps
+(\cref{ch2:fig:parallel}):
+\begin{enumerate}
+  \item grip rule: find the field of wire 1 at wire 2;
+  \item palm rule: find the force on wire 2;
+  \item Newton's third law: the force on wire 1 is the same size, in the opposite direction.
+\end{enumerate}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \dx in {0, 7.2} {
+      \begin{scope}[xshift=\dx cm]
+        \draw[guide] (-0.55,0) -- (3.55,0);
+        \draw[chTwoarc] (-24:3) arc (-24:24:3);
+        \draw[->, line width=1.2pt, hscfield] (3,0.2) -- (3,1.0) node[right, inner sep=2pt] {$B_1$};
+      \end{scope}
+    }
+    % (a) same direction
+    \draw[chTwoarc] (156:3) ++(3,0) arc (156:204:3);
+    \draw[->, line width=1.2pt, hscfield] (0,-0.2) -- (0,-1.0) node[left, inner sep=2pt] {$B_2$};
+    \pic at (0,0) {chTwowireout}; \pic at (3,0) {chTwowireout};
+    \draw[force] (0.25,0) -- (1.2,0) node[midway, above, inner sep=2pt, text=hscforce] {$F$};
+    \draw[force] (2.75,0) -- (1.8,0) node[midway, above, inner sep=2pt, text=hscforce] {$F$};
+    \node[diagramlabel, align=right, anchor=east] at (-0.3,0.4) {wire 1\\ \qty{2.0}{A}};
+    \node[diagramlabel, align=left, anchor=west] at (3.3,-0.4) {wire 2\\ \qty{6.0}{A}};
+    \node[diagramlabel] at (1.5,-1.75) {(a) same direction: \textbf{attract}};
+    % (b) opposite directions
+    \begin{scope}[xshift=7.2cm]
+      \draw[chTwoarc] (204:3) ++(3,0) arc (204:156:3);
+      \draw[->, line width=1.2pt, hscfield] (0,0.2) -- (0,1.0) node[left, inner sep=2pt] {$B_2$};
+      \pic at (0,0) {chTwowireout}; \pic at (3,0) {chTwowirein};
+      \draw[force] (-0.25,0) -- (-1.25,0) node[above, inner sep=2pt, text=hscforce] {$F$};
+      \draw[force] (3.25,0) -- (4.25,0) node[above, inner sep=2pt, text=hscforce] {$F$};
+      \node[diagramlabel, anchor=north east] at (-0.2,-0.25) {wire 1};
+      \node[diagramlabel, anchor=north west] at (3.2,-0.25) {wire 2};
+      \node[diagramlabel] at (1.5,-1.75) {(b) opposite directions: \textbf{repel}};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Two wires seen end-on. $B_1$ is the field made by wire 1, at wire 2. $B_2$ is the field
+    made by wire 2, at wire 1. Each curved line is part of the circular field line round the other
+    wire. In (a) the currents differ, but the two forces are the same size.}\label{ch2:fig:parallel}
+\end{figure}
+
+In \cref{ch2:fig:parallel}(a) both currents come out of the page. Wire 1's field lines go
+anticlockwise, so at wire 2 the field points up. Palm rule on wire 2: thumb out of the page,
+fingers up, palm facing left, towards wire 1. The wires attract.
+
+So currents in the same direction (\textbf{like currents}) attract. This is the opposite of
+electric charges, where like charges repel.
+
+You can also picture it with the fields. Between two same-direction currents, the two fields
+point opposite ways, so they partly cancel. The field there is weak. The wires move towards this
+weaker region. (This picture is only a memory aid. Always find the direction with the grip rule
+and the palm rule.)
+
+\textbf{How big is the force?} Wire 2 sits in wire 1's field, $B_1 = \mu_0 I_1/(2\pi r)$. A bigger
+$I_1$ makes a stronger field. A bigger $I_2$ means more current for that field to push. A bigger
+gap $r$ makes the field weaker. So the force grows with $I_1$ and $I_2$, and gets smaller as $r$
+grows.
+
+\begin{formulacard}{Force between two parallel wires}
+  \cardformula{\frac{F}{l} = \frac{\mu_0}{2\pi}\frac{I_1 I_2}{r}}
+  \begin{symbols}
+    \sym{$F$}{force on \emph{each} wire}{\si{N}}
+    \sym{$l$}{length over which the wires run side by side}{\si{m}}
+    \sym{$\mu_0$}{magnetic permeability constant; $\mu_0/2\pi = 2 \times 10^{-7}$}{\si{N.A^{-2}}}
+    \sym{$I_1$, $I_2$}{the currents in the two wires}{\si{A}}
+    \sym{$r$}{distance between the wires (centre to centre)}{\si{m}}
+  \end{symbols}
+  \inwords{the force on each metre grows with both currents and falls as the wires move apart.}
+  \whentouse{two long, straight, parallel wires (much longer than the gap $r$).}
+  \whennottouse{to decide attract or repel (use the rules), or for wires that are not parallel.}
+  \rearranged{$F = \dfrac{\mu_0 I_1 I_2\, l}{2\pi r}$ \qquad $r = \dfrac{\mu_0 I_1 I_2\, l}{2\pi F}$
+    \qquad $I_2 = \dfrac{2\pi r F}{\mu_0 I_1 l}$}
+  \tensecond{$I_1 = \qty{3.0}{A}$, $I_2 = \qty{4.0}{A}$, $r = \qty{0.020}{m}$:
+    $\dfrac{F}{l} = \dfrac{2 \times 10^{-7} \times 3.0 \times 4.0}{0.020} = \qty{1.2e-4}{N.m^{-1}}$.}
+  \derive{(HSC questions ask for this) wire 1 makes a field $B_1 = \dfrac{\mu_0 I_1}{2\pi r}$ at
+    wire 2. $B_1$'s field lines are circles round wire 1. Wire 2 runs straight, parallel to
+    wire 1, so it is at \ang{90} to these circles. So $\sin\theta = 1$.
+    \begin{align*}
+      F &= l I_2 B_1 && \text{motor effect on wire 2, with $\sin\theta = 1$}\\
+        &= l I_2 \frac{\mu_0 I_1}{2\pi r} && \text{replace $B_1$}\\
+        &= \frac{\mu_0}{2\pi}\frac{I_1 I_2\, l}{r} && \text{put the constants $\mu_0$ and $2\pi$ together}\\
+      \frac{F}{l} &= \frac{\mu_0}{2\pi}\frac{I_1 I_2}{r} && \text{divide both sides by $l$}
+    \end{align*}}
+  \trap{the formula gives $F/l$ in \si{N.m^{-1}}. Multiply by $l$ to get the force. It is $r$, not $r^2$.}
+\end{formulacard}
+
+\textbf{Newton's third law for wires.} \term{Newton's third law} says that if A pushes on B, then B
+pushes on A equally hard in the opposite direction. The formula uses the product
+$I_1 \times I_2$. Swap the two wires, and the product stays the same ($2.0 \times 6.0 =
+6.0 \times 2.0$). So both wires feel the \emph{same size} of force, even when the currents
+differ. In
+\cref{ch2:fig:parallel}(a) the \qty{6.0}{A} wire does \emph{not} pull harder than the \qty{2.0}{A}
+wire. The two forces are an \term{action--reaction pair}: two equal and opposite forces that two
+objects put on each other.
+
+\textbf{The SI ampere.} The \term{SI} is the International System of Units: the set of units that
+scientists everywhere agree to use. From 1948 to 2019, the official definition of the
+\term{ampere} (the SI unit of current) used this force. Learn the definition in parts:
+\begin{itemize}
+  \item Take two wires. They are straight and parallel.
+  \item They are infinitely long and very thin (\emph{negligible circular cross-section}).
+  \item They are \qty{1}{m} apart in a vacuum (empty space, with no air).
+  \item The same steady current flows in each wire.
+\end{itemize}
+If the force between the wires is exactly $2 \times 10^{-7}$ N on each metre of length, that
+current is \qty{1}{A}.
+
+\textbf{Exam wording (learn it):} \emph{one ampere is the constant current that, flowing in each
+of two straight, parallel wires of infinite length and negligible circular cross-section, placed
+\qty{1}{m} apart in a vacuum, produces \textbf{between} these wires a force of
+$2 \times 10^{-7}$ newton per metre of length.}
+
+Check with the formula: $\dfrac{F}{l} = 2 \times 10^{-7} \times \dfrac{1 \times 1}{1} =
+\qty{2e-7}{N.m^{-1}}$ \cmark.
+
+Once the ampere was defined, the coulomb was defined from it. One coulomb is the charge carried
+past a point by a current of \qty{1}{A} in \qty{1}{s}.
+
+\textbf{The link to Newton's third law.} The definition names one force \emph{between} the wires.
+It does not say which wire. This works because of Newton's third law. Each wire pulls (or pushes)
+on the other with a force of the same size, in the opposite direction. So one value,
+\qty{2e-7}{N} per metre, is true for both wires and can define the unit. (Since 2019 the SI fixes the size of the
+electron's charge instead. The force rule still holds, and HSC questions use the wire definition.)
+
+\begin{workedexample}{Jump-start leads}\label{ch2:we:leads}
+Two jump-start leads carry current to and from a car battery. For \qty{0.80}{m} they lie straight
+and side by side, \qty{1.5}{cm} apart (centre to centre). Each carries \qty{120}{A}, in opposite
+directions. Find the force on each lead. Do they attract or repel?
+\given{$I_1 = I_2 = \qty{120}{A}$, \ $r = \qty{1.5}{cm} = \qty{0.015}{m}$, \ $l = \qty{0.80}{m}$,
+  \ currents opposite}
+\find{the force $F$ on each lead; attract or repel}
+\formula{$\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$, \ then $F = \dfrac{F}{l} \times l$}
+\substitute{\eqlines{\frac{F}{l} &= 2 \times 10^{-7}\,\unit{N.A^{-2}} \times
+  \frac{\qty{120}{A} \times \qty{120}{A}}{\qty{0.015}{m}} = \qty{0.192}{N.m^{-1}}\\
+  F &= \qty{0.192}{N.m^{-1}} \times \qty{0.80}{m} = \qty{0.154}{N}}}
+\answer{\final{$F = \qty{0.15}{N}$ on each lead}; opposite currents, so the leads \textbf{repel}}
+\checkstep{units: $\unit{N.A^{-2}} \times \unit{A^2} \div \unit{m} \times \unit{m} = \unit{N}$
+  \cmark. \qty{0.15}{N} is about the weight of a \qty{15}{g} mass ($0.15 \div 9.8 \approx
+  \qty{0.015}{kg}$): enough to make loose leads twitch.}
+\end{workedexample}
+
+\begin{workedexample}{Two tracks on a circuit board}\label{ch2:we:overlap}
+\begin{sidebyside}[0.56]
+On a circuit board, current flows along thin, straight copper strips called tracks. Track X is
+\qty{15.0}{cm} long and carries \qty{600}{mA} up the page. Track Y is \qty{6.0}{cm} long and
+carries \qty{1.5}{A} down the page. Y is parallel to X and \qty{2.0}{mm} to its right. Y is level
+with the middle part of X (\cref{ch2:fig:tracks}). (a) Find the force on Y. (b) Find the force
+on X.
+\nextside
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[guide] (-0.35,0.9) -- (2.1,0.9);
+    \draw[guide] (-0.35,2.1) -- (2.1,2.1);
+    \draw[chTwowire] (0,0) -- (0,3.0);
+    \draw[chTwocurrent] (0,0.15) -- (0,0.8);
+    \node[diagramlabel, anchor=east] at (-0.12,0.45) {\qty{600}{mA}};
+    \node[diagramlabel, anchor=south] at (0,3.05) {X (\qty{15.0}{cm})};
+    \draw[chTwowire] (1.0,0.9) -- (1.0,2.1);
+    \draw[chTwocurrent] (1.0,1.95) -- (1.0,1.05);
+    \node[diagramlabel, anchor=north] at (1.0,0.84) {\qty{1.5}{A}};
+    \node[diagramlabel, anchor=south] at (1.0,2.15) {Y};
+    \draw[<->, hscmuted, line width=0.5pt] (2.0,0.9) -- (2.0,2.1);
+    \node[diagramlabel, anchor=west, align=left] at (2.05,1.5) {$l = \qty{6.0}{cm}$\\ (side by side)};
+    \draw[<->, hscmuted, line width=0.5pt] (0.06,1.65) -- (0.94,1.65);
+    \node[diagramlabel, anchor=south] at (0.5,1.65) {$r$};
+  \end{tikzpicture}
+  \captionof{figure}{Only \qty{6.0}{cm} of the two tracks is side by side. The gap
+    $r = \qty{2.0}{mm}$ is not to scale.}\label{ch2:fig:tracks}
+\end{sidebyside}
+\given{$I_\mathrm{X} = \qty{600}{mA} = \qty{0.600}{A}$, \ $I_\mathrm{Y} = \qty{1.5}{A}$, \
+  $r = \qty{2.0}{mm} = \qty{2.0e-3}{m}$. The tracks are side by side only along Y, so
+  $l = \qty{6.0}{cm} = \qty{0.060}{m}$.}
+\find{the size and direction of the force on each track}
+\formula{$F = \dfrac{\mu_0}{2\pi}\dfrac{I_\mathrm{X} I_\mathrm{Y}\, l}{r}$ \ (the sheet formula
+  multiplied by $l$)}
+\substitute{$F = 2 \times 10^{-7}\,\unit{N.A^{-2}} \times
+  \dfrac{\qty{0.600}{A} \times \qty{1.5}{A} \times \qty{0.060}{m}}{\qty{2.0e-3}{m}} = \qty{5.4e-6}{N}$}
+\answer{(a) \final{$\qty{5.4e-6}{N}$ to the right} (opposite currents repel, so Y is pushed away
+  from X). (b) \final{$\qty{5.4e-6}{N}$ to the left}: the same size (Newton's third law), even
+  though Y's current is bigger.}
+\checkstep{using \qty{15.0}{cm} would give \qty{1.4e-5}{N}, which is wrong: only \qty{6.0}{cm} of
+  X lies beside Y. The tracks are long compared with the gap ($\qty{6.0}{cm} \div \qty{2.0}{mm} =
+  30$), so the formula works \cmark. Small currents give a tiny force \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Like currents repel.'' \cmark\ Same-direction currents \emph{attract}.
+  \item \xmark\ Giving $F/l$ as the force. \cmark\ Multiply by $l$, the length where the wires are
+        side by side.
+  \item \xmark\ ``The bigger current feels the bigger force.'' \cmark\ Both forces are the same size.
+  \item \xmark\ Using $r^2$, or $r$ in cm. \cmark\ $r$ in metres, centre to centre.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}[breakable]
+\begin{itemize}
+  \item \textbf{Explain why the wires attract} (3 marks): (1) the field of wire 1 at wire 2, with
+        its direction (grip rule); (2) the motor-effect force on wire 2, with its direction (palm
+        rule: towards wire 1); (3) Newton's third law: wire 1 feels an equal and opposite force,
+        so the wires attract.
+  \item \textbf{Derive} $F/l$ (2 marks): (1) write $B_1 = \dfrac{\mu_0 I_1}{2\pi r}$ and
+        $F = lI_2B_1$; (2) substitute and divide both sides by $l$. Keep the currents as two
+        separate symbols, $I_1$ and $I_2$ (not $I^2$).
+  \item \textbf{Define the ampere} (2 marks): a constant current of \qty{1}{A} in each of two
+        straight, parallel, infinitely long wires of negligible cross-section, \qty{1}{m} apart
+        in a vacuum, gives
+        a force between them of $2 \times 10^{-7}$ N per metre of length.
+  \item \textbf{Ampere and Newton's third law} (3 marks): (1) the definition names one force
+        \emph{between} the wires; (2) by Newton's third law, each wire pushes or pulls on the other
+        with an equal and opposite force, even if the currents differ (the product
+        $I_1 \times I_2$ is the same for both wires); (3) so the same $2 \times 10^{-7}$ N per
+        metre acts on each wire, and the definition does not depend on which wire you measure.
+  \item \textbf{Define $\mu_0$} (1--2 marks): the magnetic permeability constant,
+        $4\pi \times 10^{-7}$ \si{N.A^{-2}}. It links a current to the magnetic field it makes in
+        a vacuum.
+\end{itemize}
+\end{examtip}
+
+\begin{quickcheck}
+  \item Two parallel wires carry currents in the same direction. Do they attract or repel?
+        Explain using the motor effect.
+  \item Two long parallel wires \qty{2.0}{cm} apart each carry \qty{5.0}{A}. Find $F/l$.\label{ch2:qc:pair}
+  \item In \cref{ch2:qc:pair} the gap halves and one current doubles. By what factor does $F/l$ change?
+  \item Wire A carries \qty{1.0}{A} and wire B carries \qty{4.0}{A}. A student says ``B pulls on A
+        four times harder than A pulls on B.'' Explain why the student is wrong.
+  \item State the (pre-2019) SI definition of the ampere. How does it depend on Newton's third law?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch2:sec:experiments}
+\covers{M6.IQ2.01, M6.IQ2.02}
+
+\begin{keywords}
+  \kw{Electronic balance}{a digital scale; here it measures a tiny force.}
+  \kw{Tare}{set the balance to read zero.}
+  \kw{Validity}{does the experiment test what it claims to test?}
+  \kw{Reliability}{do repeated readings agree?}
+  \kw{Accuracy}{how close is the result to the true value?}
+\end{keywords}
+
+Both investigations use an \term{electronic balance} (a digital scale) to measure a tiny force.
+To \term{tare} the balance means to set it to read zero.
+
+\begin{refresher}{Weight and a balance reading}
+A mass $m$ has weight $F = mg$. This is $F_\mathrm{net} = ma$ with $a = g$. It is not printed on
+the formula sheet, so learn it.\\
+A balance really measures the force on its pan. It divides this force by $g$ and shows the result
+as a mass. $\Delta$ (the Greek letter delta) means ``change in''. So an extra force $F$ changes
+the reading by $\Delta m = F/g$. Turned round, $F = \Delta m\, g$, with $\Delta m$ in kg.
+\end{refresher}
+
+\begin{toolkit}{Gradient of a straight-line graph}
+Draw the \term{line of best fit}: the straight line that passes as close as possible to all the
+points. Pick two points \emph{on the line}, far apart. Then
+gradient $= \text{rise} \div \text{run} = (y_2 - y_1) \div (x_2 - x_1)$. Its unit is the $y$ unit
+$\div$ the $x$ unit. If theory says $y = kx$, the gradient is $k$.
+\end{toolkit}
+
+\begin{experiment}{The force on a wire (current balance)}
+\aim{To find how the force on a wire depends on the current, and when it is largest or zero.}
+\apparatus{U-shaped magnet, electronic balance (reads to \qty{0.01}{g}), stiff straight wire,
+  clamp stand, low-voltage DC supply (DC = direct current: it always flows the same way), ammeter
+  (measures the current), \term{rheostat} (a variable resistor that sets the current), switch
+  (\cref{ch2:fig:currentbalance}).
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % balance
+    \draw[object, rounded corners=3pt] (0,0) rectangle (5.6,0.7);
+    \draw[hscink, fill=white, line width=0.6pt] (0.25,0.15) rectangle (1.55,0.55);
+    \node[font=\scriptsize] at (0.9,0.35) {\num{0.00} g};
+    \draw[object] (1.4,0.7) rectangle (4.4,0.85);
+    \node[diagramlabel, anchor=west] at (2.0,0.35) {electronic balance};
+    % magnet
+    \draw[draw=hscink, fill=hscmuted!25, line width=0.8pt] (1.7,0.85) -- (4.1,0.85) -- (4.1,2.6)
+      -- (3.6,2.6) -- (3.6,1.25) -- (2.2,1.25) -- (2.2,2.6) -- (1.7,2.6) -- cycle;
+    \draw[draw=hscink, fill=hscforce!20, line width=0.8pt] (2.2,1.5) rectangle (2.52,2.4);
+    \draw[draw=hscink, fill=hscvel!20, line width=0.8pt] (3.28,1.5) rectangle (3.6,2.4);
+    \node[font=\small\bfseries] at (2.36,1.95) {N};
+    \node[font=\small\bfseries] at (3.44,1.95) {S};
+    \foreach \y in {1.63,2.27} {\draw[field] (2.54,\y) -- (3.26,\y);}
+    \pic at (2.9,1.95) {chTwowireout};
+    % clamp stand holding the wire
+    \draw[object] (-1.4,0) rectangle (-0.4,0.15);
+    \draw[line width=2pt, hscmuted] (-0.9,0.15) -- (-0.9,3.2);
+    \draw[line width=2pt, hscmuted] (-0.9,3.0) -- (2.9,3.0) -- (2.9,2.15);
+    \node[diagramlabel, anchor=south west, align=left] at (-0.8,3.03) {the clamp holds the wire;\\
+      the wire does not touch the magnet};
+    % forces
+    \draw[force] (3.1,2.2) -- (3.1,2.85) node[right, inner sep=2pt, text=hscforce] {$F$ on wire};
+    \draw[force] (4.35,1.9) -- (4.35,1.2) node[right, inner sep=2pt, text=hscforce] {$F$ on magnet};
+    % circuit: one series loop; the two leads go to the ends of the wire
+    \begin{scope}[xshift=7.0cm, yshift=0.45cm]
+      \draw[line width=0.8pt] (2.4,0.65) -- (2.4,2.4) -- (0,2.4) -- (0,0) -- (2.4,0) -- (2.4,0.15);
+      \draw[line width=0.8pt] (2.4,0.15) -- (2.9,0.15) (2.4,0.65) -- (2.9,0.65);
+      \fill (2.9,0.15) circle (1.3pt); \fill (2.9,0.65) circle (1.3pt);
+      \node[diagramlabel, anchor=west, align=left] at (3.0,0.4) {to the two\\ ends of the wire};
+      \node[draw, fill=white, rounded corners=2pt, font=\small] at (1.2,2.4) {DC supply};
+      \node[draw, circle, fill=white, inner sep=1.5pt, font=\small] at (0,1.2) {A};
+      \node[draw, fill=white, minimum width=3mm, minimum height=7mm, inner sep=0pt] (R) at (2.4,1.5) {};
+      \draw[->, line width=0.6pt] ($(R)+(-0.3,-0.45)$) -- ($(R)+(0.3,0.45)$);
+      \node[diagramlabel, anchor=west] at (2.7,1.5) {rheostat};
+      \fill[white] (0.85,-0.1) rectangle (1.55,0.1);
+      \draw[line width=0.8pt] (0.85,0) -- (1.5,0.3);
+      \fill (0.85,0) circle (1.2pt); \fill (1.55,0) circle (1.2pt);
+      \node[diagramlabel, anchor=north] at (1.2,-0.1) {switch};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{A current balance (front view; the wire is seen end-on, current out of the page). The
+    supply, ammeter, rheostat, switch and wire form one series loop.}\label{ch2:fig:currentbalance}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Clamp the wire through the gap at \ang{90} to the field. The wire must not touch the
+        magnet. Connect it \emph{in series} (in one single loop) with the ammeter, rheostat,
+        switch and supply. Tare the balance.
+  \item Set $I = \qty{1.0}{A}$, record the change in reading $\Delta m$, and switch off. Repeat
+        for 2.0, 3.0, 4.0 and \qty{5.0}{A}, three times each.
+  \item Reverse the current. The reading now falls, because the force on the wire reverses. Then
+        turn the magnet round (swap N and S): the force reverses again. Reverse both the current
+        and the magnet: the force is the same as at first.
+  \item To test the angle, use a short wire (\qty{3.0}{cm} long) that sits wholly inside the
+        field. Its leads come straight down into the gap, so any force on them is sideways and
+        does not change the reading. Keep $I = \qty{5.0}{A}$. Turn the magnet on the balance to
+        change the angle $\theta$ between the wire and the field. Record $\Delta m$ at
+        $\theta = \ang{0}$, \ang{30}, \ang{60} and \ang{90}.
+\end{enumerate}
+Why does the reading rise? The wire is pushed up (palm rule: fingers from N to S, thumb out of
+the page, palm faces up). By Newton's third law, the magnet is pushed down with an equal force.
+So the reading rises, and $F = \Delta m\, g$.
+
+Quick qualitative demo: hang a loose strip of aluminium foil through the gap and connect its ends
+to a low-voltage supply. The strip jumps when you switch on. Reverse the current or the magnet,
+and it jumps the other way.}
+\results{\begin{sidebyside}[0.34]
+    \centering\small
+    \begin{tabular}{@{}ccc@{}}
+      \toprule
+      $I$ (\si{A}) & $\Delta m$ (\si{g}) & $F$ ($10^{-3}$ \si{N})\\
+      \midrule
+      1.0 & 0.42 & 4.1\\
+      2.0 & 0.88 & 8.6\\
+      3.0 & 1.29 & 12.6\\
+      4.0 & 1.75 & 17.2\\
+      5.0 & 2.16 & 21.2\\
+      \bottomrule
+    \end{tabular}
+  \nextside
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=\linewidth, height=0.40\linewidth,
+          xmin=0, xmax=5.5, ymin=0, ymax=24, xtick={0,1,...,5}, ytick={0,5,...,20},
+          xlabel={$I$ (\si{A})}, ylabel={$F$ ($10^{-3}$ \si{N})}]
+        \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+          coordinates {(1,4.1) (2,8.6) (3,12.6) (4,17.2) (5,21.2)};
+        \addplot[hscseriesB, dashed, line width=1pt, domain=0:5.4, samples=2, mark=none] {4.25*x};
+      \end{axis}
+    \end{tikzpicture}
+    \captionof{figure}{Force against current, with the line of best fit (dashed).}\label{ch2:fig:fvsi}
+  \end{sidebyside}
+  These are sample class results, with $l = \qty{0.050}{m}$ of wire in the field. The heading
+  ``$F$ ($10^{-3}$ N)'' means the numbers are in units of $10^{-3}$ N: 4.1 means
+  $\qty{4.1e-3}{N}$. Example (row 1): $\Delta m = \qty{0.42}{g} = \qty{4.2e-4}{kg}$, so
+  $F = \qty{4.2e-4}{kg} \times \qty{9.8}{m.s^{-2}} = \qty{4.1e-3}{N}$.
+
+  Angle test (short wire, $I = \qty{5.0}{A}$):
+  \begin{center}\small
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    $\theta$ & \ang{0} & \ang{30} & \ang{60} & \ang{90}\\
+    \midrule
+    $\Delta m$ (\si{g}) & 0.00 & 0.66 & 1.12 & 1.29\\
+    $\Delta m \div \qty{1.29}{g}$ & 0 & 0.51 & 0.87 & 1.00\\
+    $\sin\theta$ & 0 & 0.50 & 0.87 & 1.00\\
+    \bottomrule
+  \end{tabular}
+  \end{center}}
+\conclusion{The points (\cref{ch2:fig:fvsi}) lie close to a straight line through the origin
+  (0, 0), so $F \propto I$.
+  Theory: $F = (lB)\,I$, so the gradient is $lB$. Read two points far apart on the line of best
+  fit: (0, 0) and (\qty{5.0}{A}, \qty{21.25e-3}{N}). The gradient is
+  $\qty{21.25e-3}{N} \div \qty{5.0}{A} = \qty{4.25e-3}{N.A^{-1}}$. So
+  $B = \text{gradient} \div l = \qty{4.25e-3}{N.A^{-1}} \div \qty{0.050}{m} = \qty{0.085}{T}$.
+
+  In the angle test, $\Delta m \div \qty{1.29}{g}$ matches $\sin\theta$. The force is largest at
+  \ang{90} and zero when the wire is parallel to $B$. Reversing the current or the magnet reversed
+  the force. All this agrees with $F = lIB\sin\theta$ and the palm rule.}
+\significance{This is the motor effect behind every electric motor, loudspeaker and analogue
+  meter. It also gives a way to measure $B$: $B = \text{gradient} \div l$.}
+\validity{\begin{itemize}
+  \item \textbf{Validity} (does it test what it claims?): change only $I$; keep $l$, $B$ and the
+        angle fixed. Keep the wire in the middle of the gap, where the field is uniform. Keep the
+        leads to the wire outside the gap. They carry the same current and would feel a force
+        too.
+  \item \textbf{Reliability} (do repeats agree?): repeat each reading three times and average.
+  \item \textbf{Accuracy} (how close to the true value?): read $I$ from the ammeter, not from the
+        supply dial. Switch on only briefly. A hot wire has more resistance, so the current drops
+        while you read the balance.
+  \item \textbf{Safety:} low voltage only; the wire gets hot; strong magnets pinch fingers.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Two parallel wires (required investigation)}
+\aim{To show that parallel currents attract or repel, and to test $F/l = (\mu_0/2\pi)(I_1 I_2/r)$.}
+\apparatus{two straight brass rods (\qty{0.50}{m}), electronic balance (reads to \qty{0.001}{g}),
+  insulating blocks (they do not conduct), retort stand with an insulated clamp, flexible lead (a
+  bendy wire), low-voltage high-current DC supply, ammeter, rheostat, switch, vernier calipers
+  (they measure small gaps precisely) (\cref{ch2:fig:parallelrig}).
+  \begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % balance and blocks
+    \draw[object, rounded corners=3pt] (0,0) rectangle (7,0.6);
+    \draw[hscink, fill=white, line width=0.6pt] (0.3,0.12) rectangle (1.7,0.48);
+    \node[font=\scriptsize] at (1.0,0.3) {\num{0.000} g};
+    \node[diagramlabel, anchor=west] at (2.3,0.3) {electronic balance};
+    \draw[object] (0.6,0.6) rectangle (6.4,0.72);
+    \draw[draw=hscink, fill=hscmuted!30] (1.0,0.72) rectangle (1.4,1.18);
+    \draw[draw=hscink, fill=hscmuted!30] (5.6,0.72) rectangle (6.0,1.18);
+    % rods
+    \draw[line width=3pt, hscmuted!80!black] (0.4,1.25) -- (6.6,1.25);
+    \draw[line width=3pt, hscmuted!80!black] (0.4,2.05) -- (6.6,2.05);
+    \draw[line width=0.8pt] (6.6,2.05) .. controls (7.2,2.05) and (7.2,1.25) .. (6.6,1.25);
+    \node[diagramlabel, anchor=west, align=left] at (7.15,1.65) {flexible\\ link};
+    % clamp from above
+    \draw[line width=2pt, hscmuted] (3.5,3.1) -- (3.5,2.12);
+    \draw[line width=2pt, hscmuted] (3.5,3.1) -- (8.9,3.1) -- (8.9,0.15);
+    \draw[object] (8.4,0) rectangle (9.4,0.15);
+    \node[diagramlabel, anchor=south] at (6.2,3.12) {retort stand, insulated clamp};
+    % currents
+    \draw[chTwocurrent] (1.9,2.3) -- (3.0,2.3) node[right, inner sep=2pt] {$I$};
+    \draw[chTwocurrent] (4.9,1.0) -- (3.8,1.0) node[left, inner sep=2pt] {$I$};
+    % dimensions
+    \draw[<->, hscmuted, line width=0.5pt] (0.4,2.62) -- (6.6,2.62);
+    \node[diagramlabel, fill=white, inner sep=1pt] at (5.1,2.62) {$l = \qty{0.50}{m}$};
+    \draw[<->, hscmuted, line width=0.5pt] (4.3,1.33) -- (4.3,1.97);
+    \node[diagramlabel, anchor=west] at (4.35,1.65) {$r$};
+    \draw[force] (2.6,1.15) -- (2.6,0.78);
+    \node[diagramlabel, text=hscforce, anchor=west] at (2.65,0.93) {$F$};
+    % circuit (left side): supply on top, ammeter and rheostat on the left, switch below
+    \draw[line width=0.8pt] (0.4,2.05) -- (-0.6,2.05) -- (-0.6,3.4) -- (-2.6,3.4) -- (-2.6,0.6)
+      -- (-0.6,0.6) -- (-0.6,1.25) -- (0.4,1.25);
+    \node[draw, fill=white, rounded corners=2pt, font=\small] at (-1.6,3.4) {DC supply};
+    \node[draw, circle, fill=white, inner sep=1.5pt, font=\small] at (-2.6,2.65) {A};
+    \node[draw, fill=white, minimum width=3mm, minimum height=7mm, inner sep=0pt] (R2) at (-2.6,1.5) {};
+    \draw[->, line width=0.6pt] ($(R2)+(-0.3,-0.45)$) -- ($(R2)+(0.3,0.45)$);
+    \node[diagramlabel, anchor=east] at (-2.95,1.5) {rheostat};
+    \fill[white] (-1.95,0.5) rectangle (-1.25,0.7);
+    \draw[line width=0.8pt] (-1.95,0.6) -- (-1.3,0.9);
+    \fill (-1.95,0.6) circle (1.2pt); \fill (-1.25,0.6) circle (1.2pt);
+    \node[diagramlabel, anchor=north] at (-1.6,0.5) {switch};
+  \end{tikzpicture}
+  \caption{Two rods in series carry opposite currents (gap not to scale).}\label{ch2:fig:parallelrig}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Rest the lower rod on the insulating blocks on the balance. Clamp the upper rod directly
+        above it and parallel to it. Measure the gap between the rod surfaces at both ends with
+        the vernier calipers. Add one rod diameter to get $r$, the distance between the centres
+        ($r = \qty{5.0}{mm}$).
+  \item Join the rods at one end with the flexible link. The current goes along the top rod and
+        back along the lower rod, so the two currents are opposite. Tare the balance.
+  \item Set $I = \qty{4.0}{A}$, read $\Delta m$ quickly, and switch off. Repeat for 6.0, 8.0, 10.0
+        and \qty{12.0}{A}, three times each. The same current goes through both rods, so
+        $I_1 = I_2 = I$ and $I_1 I_2 = I^2$. Find $F = \Delta m\, g$ and plot $F$ against $I^2$.
+  \item To test $F \propto 1/r$, keep $I$ fixed and change $r$ with spacers (small insulating
+        blocks of known thickness).
+  \item To see attraction, remove the flexible link. Join the two left ends to one supply
+        terminal and the two right ends to the other. Now both rods carry current the same way
+        (each carries about half of the supply current). The reading falls below zero: the lower
+        rod is pulled up, towards the upper rod.
+\end{enumerate}
+Simple school demo: hang two long strips of aluminium foil side by side, about \qty{1}{cm} apart.
+Pass a current along both strips the same way: they pull together. Connect them so the current
+goes down one and up the other: they push apart.}
+\results{\begin{sidebyside}[0.43]
+    \centering\small
+    \begin{tabular}{@{}cccc@{}}
+      \toprule
+      $I$ (\si{A}) & $I^2$ (\si{A^2}) & $\Delta m$ (\si{g}) & $F$ ($10^{-3}$ \si{N})\\
+      \midrule
+      4.0 & 16 & 0.032 & 0.31\\
+      6.0 & 36 & 0.071 & 0.70\\
+      8.0 & 64 & 0.127 & 1.24\\
+      10.0 & 100 & 0.197 & 1.93\\
+      12.0 & 144 & 0.285 & 2.79\\
+      \bottomrule
+    \end{tabular}
+  \nextside
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.97\linewidth, height=0.44\linewidth,
+          xmin=0, xmax=160, ymin=0, ymax=3.2, xtick={0,40,...,160}, ytick={0,1,...,3},
+          xlabel={$I^2$ (\si{A^2})}, ylabel={$F$ ($10^{-3}$ \si{N})}]
+        \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+          coordinates {(16,0.3136) (36,0.6958) (64,1.2446) (100,1.9306) (144,2.793)};
+        \addplot[hscseriesB, dashed, line width=1pt, domain=0:155, samples=2, mark=none] {0.019376*x};
+      \end{axis}
+    \end{tikzpicture}
+    \captionof{figure}{Force against current squared.}\label{ch2:fig:fvsi2}
+  \end{sidebyside}
+  Sample class results ($l = \qty{0.50}{m}$, $r = \qty{5.0e-3}{m}$, opposite currents). The
+  reading rose: the lower rod was pushed down.}
+\conclusion{The points (\cref{ch2:fig:fvsi2}) lie close to a straight line through the
+  origin (0, 0), so $F \propto I^2$. Here $I_1 = I_2 = I$, so this agrees with $F \propto I_1 I_2$. Opposite
+  currents repelled. Theory: $F = \left(\dfrac{\mu_0 l}{2\pi r}\right) I^2$, so the gradient is
+  $\dfrac{\mu_0 l}{2\pi r}$. Using (0, 0) and (\qty{144}{A^2}, \qty{2.79e-3}{N}) on the line, the
+  gradient is $\qty{2.79e-3}{N} \div \qty{144}{A^2} = \qty{1.94e-5}{N.A^{-2}}$. Rearrange to find
+  $\mu_0$:
+  \begin{align*}
+    \text{gradient} &= \frac{\mu_0 l}{2\pi r} && \text{from the theory}\\
+    2\pi r \times \text{gradient} &= \mu_0 l && \text{multiply both sides by $2\pi r$}\\
+    \mu_0 &= \frac{2\pi r \times \text{gradient}}{l} && \text{divide both sides by $l$}
+  \end{align*}
+  \[ \mu_0 = \frac{2\pi \times \qty{5.0e-3}{m} \times \qty{1.94e-5}{N.A^{-2}}}{\qty{0.50}{m}}
+  = \qty{1.22e-6}{N.A^{-2}}. \]
+  This is about \qty{3}{\percent} below $4\pi \times 10^{-7} = \qty{1.26e-6}{N.A^{-2}}$. The value
+  is a little low because the rods are not infinitely long: their ends make the force about
+  \qty{1}{\percent} smaller. The rest of the difference is within the uncertainty in $r$ (about
+  \qty{4}{\percent}). So the results support the formula.}
+\significance{Ampère discovered this force in 1820. It defined the ampere from 1948 to 2019.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} the formula needs long, straight, parallel wires: use rods much longer
+        than the gap ($l/r = 100$). Keep supply leads away, and use a light, flexible link.
+  \item \textbf{Reliability:} repeat each current three times and average the readings.
+  \item \textbf{Accuracy:} $r$ is small, so its error matters most (\qty{0.2}{mm} in \qty{5.0}{mm}
+        is \qty{4}{\percent}): use vernier calipers and measure at both ends. Use short bursts, as
+        hot rods bend.
+  \item \textbf{Safety:} large currents make the rods hot (burns, fire): low voltage, short bursts.
+\end{itemize}}
+\end{experiment}
+
+\begin{examtip}[breakable]
+``Describe an investigation of the force on a current-carrying wire'' (3--4 marks). One mark for
+each:
+\begin{enumerate}
+  \item a labelled diagram (magnet on a balance, wire clamped at \ang{90} to $B$, ammeter,
+        rheostat);
+  \item change $I$, and keep $l$, $B$ and $\theta$ the same;
+  \item find $F = \Delta m\, g$ and plot $F$ against $I$: a straight line through the origin with
+        gradient $lB$;
+  \item turn the wire parallel to $B$: there is no force. Reverse $I$ or $B$: the force reverses.
+\end{enumerate}
+``Describe an investigation of the force between two parallel wires'' (about 4 marks). One mark
+for each:
+\begin{enumerate}
+  \item a labelled diagram (supply, ammeter, rheostat, both wires or two hanging foil strips, the
+        gap $r$);
+  \item what you change, what you measure and what you keep the same;
+  \item how you get $F$ ($F = \Delta m\, g$) and what you plot ($F$ against $I_1 I_2$);
+  \item what you see (same direction: attract; opposite directions: repel).
+\end{enumerate}
+A ``hazard'' question wants the hazard \emph{and} a precaution.
+\end{examtip}
+
+\begin{quickcheck}
+  \item A current balance reading rises by \qty{0.35}{g}. Find the force.
+  \item In the parallel-rods experiment, $l = \qty{0.50}{m}$, $r = \qty{5.0}{mm}$ and the current
+        is \qty{10.0}{A}. The rods are in series. Find the change in the balance reading,
+        $\Delta m$, in grams.\label{ch2:qc:rods}
+  \item Explain why $F$ against $I^2$ is a straight line. State its gradient.
+  \item The rods are now connected so that both carry \qty{10.0}{A} in the same direction. Explain
+        the new reading.
+\end{quickcheck}
+
+%% ==================================================================
+\begin{summarybox}{\Cref{ch2:chap} in five lines}
+\begin{itemize}
+  \item A current makes a magnetic field: circles round a wire, $B = \dfrac{\mu_0 I}{2\pi r}$.
+  \item A wire in an external field feels $F = lIB\sin\theta$: largest at \ang{90}, zero when
+        parallel.
+  \item Direction: right-hand palm rule (fingers $B$, thumb conventional $I$, palm $F$).
+  \item Parallel wires: same direction attract, opposite directions repel;
+        $\dfrac{F}{l} = \dfrac{\mu_0}{2\pi}\dfrac{I_1 I_2}{r}$.
+  \item The forces are equal and opposite (Newton's third law), so one force value could define
+        the ampere.
+\end{itemize}
+\end{summarybox}

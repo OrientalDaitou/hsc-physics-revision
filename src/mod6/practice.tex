@@ -1,0 +1,730 @@
+% practice.tex -- Module 6 (Electromagnetism): Practice set.
+% 24 new HSC-style questions: Section I 8 multiple choice, Section II 10 short answer,
+% Section III 6 extended response. 82 marks. Ordered from easy to HSC-hard.
+%   Q24(a) 2 -> 3 marks, so that each calculation step earns a mark; total 80 -> 82.)
+% Chapter tags: ch1 Q1, Q8, Q9, Q18, Q24; ch2 Q2, Q4, Q10, Q12, Q22;
+%   ch3 Q6, Q7, Q13, Q17, Q21; ch4 Q3, Q11, Q16, Q19; ch5 Q5, Q14, Q15, Q20, Q23.
+% All questions are new (new contexts and numbers). None is copied from a booklet, the
+% homework (HW Electromagnetism 1-5), the mock papers (B1, B2), the 2025 HSC paper, or a
+% worked example or Quick check of Chapters 1-5 of this book.
+% Directions were checked with vectors (F = q v x B, F = I l x B): +x right, +y up the
+% page, +z out of the page.
+% \Needspace before each multiple-choice question keeps its stem and options together, and
+% before each question that opens with a diagram keeps its header with the diagram
+% (conditional, layout-independent; no \clearpage or \pagebreak).
+% Local helpers (prefix "prac"), defined below: \pracmarks, \pracblank, TikZ styles
+% pracdot, praccross, pracWire, pracN, pracS. (New macros for the practice set only.)
+% Figures and tables here use \caption* (no number): this chapter is unnumbered, so a
+% numbered caption would continue the numbering of Chapter 5.
+% \pracmarks{...}: marks at the right end of the last line of an item; if they do not
+% fit, they move to the right end of a new line (TeXbook trick, ends the paragraph).
+\providecommand\pracmarks[1]{{\unskip\nobreak\hfil\penalty50\hskip1em\hbox{}\nobreak
+  \hfill\mbox{\textcolor{hscmuted}{\small(#1)}}\parfillskip=0pt\finalhyphendemerits=0\par}}
+% \pracblank: an empty cell for the student to fill in (a short grey line).
+\providecommand\pracblank{\textcolor{hscmuted}{\rule[-2pt]{2.6em}{0.4pt}}}
+\tikzset{
+  pracdot/.pic={\fill[hscfield!65] (0,0) circle (1.5pt);},
+  praccross/.pic={\draw[hscfield!65, line width=0.7pt] (-0.075,-0.075) -- (0.075,0.075)
+    (-0.075,0.075) -- (0.075,-0.075);},
+  pracWire/.style={hscink, line width=1.4pt},
+  pracN/.style={fill=hscforce!15, draw=hscink, line width=0.5pt},
+  pracS/.style={fill=hscvel!15, draw=hscink, line width=0.5pt},
+}
+
+\unnumberedchapter[\faDumbbell]{Practice set}
+
+These 24 questions are written in the style of the HSC exam. They test all five chapters of
+this book. They start easy and get harder.
+\begin{itemize}
+  \item \textbf{Section I:} 8 multiple-choice questions, 1 mark each. Choose A, B, C or D.
+  \item \textbf{Section II:} 10 short-answer questions, 3 or 4 marks each.
+  \item \textbf{Section III:} 6 extended-response questions, 5 to 8 marks each.
+\end{itemize}
+The total is 82 marks. Allow about 2 hours and 30 minutes. (In the HSC exam you have about
+1.8 minutes for each mark.)
+
+\textbf{For every question:}
+\begin{itemize}
+  \item Use the formula sheet and these data-sheet values: size of the charge on an electron
+        or a proton $e = \qty{1.602e-19}{C}$, $m_\mathrm{e} = \qty{9.109e-31}{kg}$,
+        $m_\mathrm{p} = \qty{1.673e-27}{kg}$, $\mu_0 = 4\pi \times \qty{e-7}{N.A^{-2}}$,
+        $g = \qty{9.8}{m.s^{-2}}$.
+  \item Ignore gravity for electrons, protons and ions. Ignore air resistance.
+  \item Show your working. Give each answer with a unit and sensible significant figures.
+        For a force, a field or a current, also give its direction when the question asks.
+\end{itemize}
+
+The marks for each part of a question are shown on the right, like this:
+\textcolor{hscmuted}{\small(2 marks)}. The tag next to each question number (for example
+\textcolor{hscbrand}{Ch~2}) shows which chapter the question tests. If you get a question
+wrong, revise that chapter. Full worked answers and marking criteria are at the back of the
+book. Click a question number to jump to its answer.
+
+% =====================================================================
+\Needspace{14\baselineskip}
+\section*{Section I: Multiple choice}
+
+\Needspace{10\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:platepath}
+An electron enters the uniform electric field between two parallel charged plates. When it
+enters, it moves parallel to the plates. Which statement about its motion between the plates
+is correct?
+\choices[1]{Its velocity does not change, because the field is uniform.}
+  {Its path is a parabola, like the path of a ball thrown horizontally.}
+  {Its path is an arc of a circle, because the force is always at \ang{90} to its velocity.}
+  {Its velocity along the plates increases, because the field does work on it.}
+\end{practiceq}
+
+\Needspace{12\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:wiredir}
+\begin{sidebyside}[0.30]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \foreach \x in {-1.0,-0.5,0.5,1.0}
+      \foreach \y in {-1.0,-0.5,0,0.5,1.0}
+        \pic at (\x,\y) {pracdot};
+    \draw[hscink, line width=1.5pt, midarrow] (0,1.35) -- (0,-1.35);
+    \node[font=\small] at (-0.24,0.25) {$I$};
+    \node[diagramlabel, text=hscfield, above] at (0,1.4) {$B$ out of the page};
+  \end{tikzpicture}
+\nextside
+A long, straight wire lies in the plane of the page. It carries a current $I$ down the page.
+A uniform magnetic field points out of the page (see the diagram). Which way is the magnetic
+force on the wire?
+\choices[2]{to the left}{to the right}{up the page}{into the page}
+\end{sidebyside}
+\end{practiceq}
+
+\Needspace{8\baselineskip}
+\begin{practiceq}{1}{4}\label{pq:current}
+An ideal transformer has 120 turns on its primary coil and 2400 turns on its secondary coil.
+The current in the secondary coil is \qty{0.25}{A}. What is the current in the primary
+coil?
+\choices{\qty{0.0125}{A}}{\qty{0.25}{A}}{\qty{5.0}{A}}{\qty{100}{A}}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{2}\label{pq:newton3}
+Two long, straight, parallel wires, P and Q, carry currents in opposite directions. The
+current in P is 3 times the current in Q. The magnetic force on Q has size $F$. Which
+statement is correct?
+\choices[1]{The wires attract, and the force on P has size $F$.}
+  {The wires repel, and the force on P has size $F$.}
+  {The wires repel, and the force on P has size $3F$.}
+  {The wires repel, and the force on P has size $F/3$.}
+\end{practiceq}
+
+\Needspace{11\baselineskip}
+\begin{practiceq}{1}{5}\label{pq:induction}
+Which statement about a simple AC induction motor is correct?
+\choices[1]{Brushes and a split-ring commutator carry the current into the rotor.}
+  {The rotor turns at exactly the same speed as the rotating magnetic field.}
+  {The rotor turns a little more slowly than the rotating magnetic field.}
+  {The rotor must contain a permanent magnet.}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:fluxratio}
+A flat circular loop of radius $r$ is at right angles to a uniform magnetic field. The
+magnetic flux through it is $\Phi$. It is replaced by a loop of radius $2r$ in the same
+field. The new loop is turned. Its normal (the line at \ang{90} to the plane of the loop)
+now makes an angle of \ang{60} with the field. What is the flux through the new loop?
+\choices{$\Phi$}{$2\Phi$}{$2\sqrt{3}\,\Phi$}{$4\Phi$}
+\end{practiceq}
+
+\Needspace{15\baselineskip}
+\begin{practiceq}{1}{3}\label{pq:ring}
+\begin{sidebyside}[0.33]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[ground] (-1.45,-0.22) rectangle (1.0,0);
+    \draw[hscink, line width=0.6pt] (-1.45,0) -- (1.0,0);
+    % iron rod
+    \filldraw[fill=hscmuted!30, draw=hscink, line width=0.5pt] (-0.15,0) rectangle (0.15,2.75);
+    % solenoid turns
+    \foreach \y in {0.2,0.4,...,1.61}
+      \draw[hscseriesB!85!black, line width=1pt] (0,\y) ellipse (0.48 and 0.085);
+    % aluminium ring
+    \draw[hscmuted!75!black, line width=2.4pt] (0,2.2) ellipse (0.34 and 0.075);
+    \node[diagramlabel, font=\footnotesize, anchor=west, align=left] at (0.36,2.25)
+      {aluminium\\ring};
+    \node[diagramlabel, font=\footnotesize, anchor=south] at (0,2.78) {iron rod};
+    \node[diagramlabel, font=\footnotesize, anchor=west] at (0.5,0.9) {solenoid};
+    % circuit: battery and switch on the left
+    \draw[hscink, line width=0.6pt] (-0.48,1.6) -- (-1.15,1.6) -- (-1.15,1.42);
+    \fill[hscink] (-1.15,1.42) circle (1.2pt);
+    \draw[hscink, line width=0.8pt] (-1.15,1.42) -- (-1.15,1.12);
+    \fill[hscink] (-1.15,1.12) circle (1.2pt);
+    \node[diagramlabel, font=\scriptsize, anchor=east] at (-1.2,1.27) {switch};
+    \draw[hscink, line width=0.6pt] (-1.15,1.12) -- (-1.15,0.86);
+    \draw[hscink, line width=1.1pt] (-1.36,0.86) -- (-0.94,0.86);
+    \draw[hscink, line width=2pt] (-1.24,0.74) -- (-1.06,0.74);
+    \draw[hscink, line width=0.6pt] (-1.15,0.74) -- (-1.15,0.2) -- (-0.48,0.2);
+  \end{tikzpicture}
+\nextside
+A light aluminium ring sits on top of a vertical solenoid. An iron rod passes through the
+solenoid and the ring (see the diagram). The switch is closed. Viewed from above, the
+current in the solenoid then flows anticlockwise. Just after the switch is closed, which way
+does the induced current flow in the ring (viewed from above), and what happens to the
+ring?
+\end{sidebyside}
+\choices[2]{clockwise; the ring is pushed up}
+  {clockwise; the ring is pulled down}
+  {anticlockwise; the ring is pushed up}
+  {anticlockwise; the ring is pulled down}
+\end{practiceq}
+
+\Needspace{9\baselineskip}
+\begin{practiceq}{1}{1}\label{pq:alpha}
+A proton and an alpha particle each start from rest. Each is accelerated through the same
+voltage $V$. Each then enters the same uniform magnetic field at \ang{90} to the field. An
+alpha particle has 4 times the mass and 2 times the charge of a proton. The radius of the
+alpha particle's path is $r_\alpha$. The radius of the proton's path is $r_\mathrm{p}$. What is
+the value of $r_\alpha / r_\mathrm{p}$?
+\choices{$\dfrac{1}{2}$}{$1$}{$\sqrt{2}$}{$2$}
+\end{practiceq}
+
+% =====================================================================
+\section*{Section II: Short answer}
+
+\begin{practiceq}{3}{1}\label{pq:gun}
+In an electron gun, electrons leave a hot wire with almost no speed. A voltage of
+\qty{2.5}{kV} accelerates them across a gap of \qty{1.0}{cm}. Treat the field in the gap as
+uniform.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the electric field strength in the gap. \pracmarks{1 mark}
+  \item Calculate the kinetic energy that each electron gains, in joules. \pracmarks{1 mark}
+  \item Calculate the speed of an electron as it leaves the gap. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{3}{2}\label{pq:busbars}
+In a factory switchboard, straight copper bars carry large currents to the machines. (These
+bars are called busbars.) Two busbars run side by side for \qty{1.2}{m}. They are parallel
+and \qty{4.0}{cm} apart (centre to centre). Each bar carries a current of \qty{500}{A}. The
+two currents flow in opposite directions.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the size of the magnetic force on each bar. State whether the bars attract
+        or repel each other. \pracmarks{2 marks}
+  \item Before 2019, the SI definition of the ampere was based on this kind of force. Two
+        long, straight, parallel wires are \qty{1}{m} apart in a vacuum. Each carries a
+        current of \qty{1}{A}. State the size of the force on each metre of each wire.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{3}{4}\label{pq:neon}
+A neon sign needs \qty{7.2}{kV} AC. A transformer steps up a \qty{240}{V} AC supply. Its
+primary coil has 300 turns.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the number of turns on the secondary coil. \pracmarks{1 mark}
+  \item The current in the secondary coil is \qty{20}{mA}. Assume the transformer is ideal.
+        Calculate the current in the primary coil. \pracmarks{1 mark}
+  \item In fact, the current in the primary coil is \qty{0.75}{A}. The secondary coil still
+        gives \qty{7.2}{kV} and \qty{20}{mA}. Calculate the efficiency of the transformer.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{4}{2}\label{pq:rod}
+\begin{sidebyside}[0.40]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[ground] (-1.75,2.45) rectangle (1.75,2.65);
+    \draw[hscink, line width=0.6pt] (-1.75,2.45) -- (1.75,2.45);
+    \draw[hscink, line width=0.6pt] (-1.3,2.45) -- (-1.3,0);
+    \draw[hscink, line width=0.6pt] (1.3,2.45) -- (1.3,0);
+    \draw[guide] (-1.75,-0.6) rectangle (1.75,0.75);
+    \foreach \x in {-1.5,-0.9,-0.3,0.3,0.9,1.5}
+      \foreach \y in {-0.35,0.45}
+        \pic at (\x,\y) {praccross};
+    \draw[hscink!80, line width=3pt] (-1.5,0) -- (1.5,0);
+    \node[diagramlabel, font=\footnotesize, anchor=north] at (0,-0.62) {copper rod, \qty{0.20}{m}};
+    \node[diagramlabel, font=\footnotesize, anchor=west, align=left] at (1.35,1.75)
+      {light\\flexible\\wires};
+    \node[diagramlabel, font=\footnotesize, text=hscfield, align=center] at (0,1.3)
+      {field region:\\$B$ into the page};
+  \end{tikzpicture}
+\nextside
+A copper rod hangs from two light, flexible wires (see the diagram). The rod is horizontal.
+It is \qty{0.20}{m} long and has a mass of \qty{8.0}{g}. The rod is in a uniform
+\qty{0.050}{T} magnetic field. The field is horizontal, into the page, at \ang{90} to the
+rod. A current is passed through the rod. It makes the tension in the two wires zero.
+\end{sidebyside}
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the current in the rod. \pracmarks{2 marks}
+  \item State whether the current flows to the left or to the right. Justify your answer.
+        \pracmarks{1 mark}
+  \item The rod is now turned in the horizontal plane until it makes an angle of \ang{30}
+        with the field. (The rod and the field are both still horizontal.) Calculate the
+        current now needed to make the tension in the wires zero. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{4}{3}\label{pq:flip}
+A flat circular coil has 75 turns and a diameter of \qty{4.0}{cm}. It sits between the poles
+of a large magnet, where the field is uniform and \qty{0.35}{T}. The plane of the coil is at
+right angles to the field. In \qty{0.060}{s}, the coil is flipped over (turned through
+\ang{180}), so that its plane is again at right angles to the field.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the magnetic flux through one turn of the coil before it is flipped.
+        \pracmarks{1 mark}
+  \item Calculate the size of the average emf induced in the coil while it is flipped.
+        \pracmarks{2 marks}
+  \item Apart from turning the coil, state two other ways to change the flux through it.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{4}{5}\label{pq:torque}
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[pracN] (-2.35,-1.35) rectangle (-2.05,1.35);
+    \node[font=\small\bfseries] at (-2.2,1.6) {N};
+    \draw[pracS] (2.05,-1.35) rectangle (2.35,1.35);
+    \node[font=\small\bfseries] at (2.2,1.6) {S};
+    \foreach \y in {-1.1,1.1}
+      \draw[field, hscfield!55] (-2.05,\y) -- (2.05,\y);
+    \draw[field, hscfield!55] (-2.05,0) -- (-1.35,0);
+    \draw[field, hscfield!55] (1.35,0) -- (2.05,0);
+    \draw[guide] (-1.3,0) -- (1.3,0);
+    \draw[hscink, line width=2pt] (200:1.2) -- (20:1.2);
+    \fill[hscink] (0,0) circle (2pt);
+    \draw[hscink, line width=0.6pt] (0.9,0) arc (0:20:0.9);
+    \node[font=\footnotesize] at (10:1.6) {\ang{20}};
+    \node[diagramlabel, font=\footnotesize, anchor=south] at (20:1.25) {coil};
+    \node[diagramlabel, font=\footnotesize, anchor=north] at (0,-1.45) {axle (end-on)};
+  \end{tikzpicture}
+\nextside
+The coil of a small DC motor is a rectangle, \qty{3.0}{cm} by \qty{5.0}{cm}. It has 120
+turns and carries a current of \qty{0.75}{A}. It sits in a uniform \qty{0.18}{T} field
+between two flat magnets. The diagram shows the coil end-on, at one moment as it turns.
+\end{sidebyside}
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the maximum torque on the coil. \pracmarks{1 mark}
+  \item Calculate the torque at the moment shown, when the plane of the coil makes an angle
+        of \ang{20} with the magnetic field. \pracmarks{2 marks}
+  \item Explain why the motor needs a split-ring commutator to keep turning in one direction.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{3}{5}\label{pq:zipline}
+A zipline is a ride in which a trolley carries a rider along a long cable. Together the
+trolley and the rider have a mass of \qty{90}{kg}. The last part of the line is flat. There,
+an aluminium fin (a thin, flat plate) on the trolley passes between rows of strong permanent
+magnets. This
+magnetic (eddy-current) brake slows the trolley from \qty{15}{m.s^{-1}} to
+\qty{3.0}{m.s^{-1}}.
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the energy that the brake changes into heat. Ignore friction and air
+        resistance. \pracmarks{1 mark}
+  \item The brake slows the trolley quickly at first, then more and more gently. Explain why
+        the braking force becomes smaller as the trolley slows down. \pracmarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{4}{4}\label{pq:hydro}
+A hydroelectric power station sends out \qty{18}{MW} of electrical power to a town. The
+transmission lines have a total resistance of \qty{4.2}{\ohm}.
+\begin{enumerate}[label=(\alph*)]
+  \item The power is sent at \qty{66}{kV}. Calculate the current in the lines and the power
+        lost in them. \pracmarks{2 marks}
+  \item The voltage is now stepped up to \qty{330}{kV} before transmission. Calculate the new
+        power lost in the lines. \pracmarks{1 mark}
+  \item Use your answers to explain why electricity is transmitted at high voltage.
+        \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\begin{practiceq}{4}{3}\label{pq:fluxgraph}
+Coil S has 30 turns. It is wound around the middle of a long solenoid P. The current in P
+is changed. This changes the magnetic flux through each turn of S, as shown in the graph.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.80\linewidth, height=0.34\linewidth,
+        xmin=0, xmax=100, ymin=-1.6, ymax=1.6, xlabel={$t$ (\si{ms})},
+        ylabel={$\Phi$ (\si{mWb})}, xtick={0,10,...,100}, ytick={-1.2,-0.6,0,0.6,1.2},
+        yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:100,0);
+      \addplot[hscseriesA, line width=1.3pt, mark=none]
+        coordinates {(0,0) (40,1.2) (60,1.2) (80,-1.2) (100,-1.2)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Flux through each turn of coil S.}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the size of the average emf induced in S between $t = 0$ and
+        $t = \qty{40}{ms}$. \pracmarks{1 mark}
+  \item A student says: ``At $t = \qty{70}{ms}$ the flux through S is zero, so the emf in S
+        is zero.'' Explain why the student is wrong. \pracmarks{1 mark}
+  \item On the grid below, sketch the emf induced in S from $t = 0$ to $t = \qty{100}{ms}$.
+        Take the emf between $t = 0$ and $t = \qty{40}{ms}$ as negative. Show the values.
+        \pracmarks{2 marks}
+\end{enumerate}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.80\linewidth, height=0.36\linewidth,
+        xmin=0, xmax=100, ymin=-4, ymax=4, xlabel={$t$ (\si{ms})},
+        ylabel={$\varepsilon$ (\si{V})}, xtick={0,10,...,100}, ytick={-4,-3,...,4},
+        minor y tick num=1, grid=both, minor grid style={hscrule!45, line width=0.2pt}]
+      \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:100,0);
+      \addplot[draw=none] coordinates {(0,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Grid for part (c).}
+\end{figure}
+\end{practiceq}
+
+\Needspace{14\baselineskip}
+\begin{practiceq}{4}{1}\label{pq:spectro}
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    % to scale: radii 2.494 and 2.909 units = 3.118 cm and 3.636 cm (1 unit = 1.25 cm)
+    \foreach \x in {-0.2,0.4,...,6.2}
+      \foreach \y in {0.4,1.0,...,3.4}
+        \pic at (\x,\y) {pracdot};
+    \fill[ground] (-0.6,-0.22) rectangle (-0.12,0);
+    \fill[ground] (0.12,-0.22) rectangle (6.4,0);
+    \draw[hscink, line width=0.8pt] (-0.6,0) -- (-0.12,0);
+    \draw[hscink, line width=1.6pt] (0.12,0) -- (6.4,0);
+    \draw[velocity] (0,-1.0) -- (0,-0.1);
+    \node[diagramlabel, font=\footnotesize, anchor=north] at (0,-1.0) {ions enter};
+    \draw[hscseriesA, line width=1pt, midarrow] (0,0) arc (180:0:2.494);
+    \draw[hscseriesB, line width=1pt, dashed] (0,0) arc (180:0:2.909);
+    \fill[hscink] (4.989,0) circle (2pt) node[below=3pt, font=\small] {P};
+    \fill[hscink] (5.818,0) circle (2pt) node[below=3pt, font=\small] {Q};
+    \node[diagramlabel, font=\footnotesize, anchor=north] at (3.0,-0.3) {detector plate};
+    \node[diagramlabel, font=\footnotesize, text=hscfield, anchor=south] at (3.0,3.6)
+      {$B$ out of the page};
+  \end{tikzpicture}
+\nextside
+In a mass spectrometer, lithium ions with a charge of $+e$ all move at
+\qty{2.0e5}{m.s^{-1}}. They enter a uniform \qty{0.40}{T} magnetic field at \ang{90} to the
+field. Each ion moves in a semicircle and hits a detector plate at P or Q (see the diagram,
+drawn to scale). A lithium-6 ion has a mass of \qty{9.99e-27}{kg}. A lithium-7 ion has a
+mass of \qty{1.165e-26}{kg}.
+\end{sidebyside}
+\begin{enumerate}[label=(\alph*)]
+  \item Show that the radius of the path of an ion is $r = \dfrac{mv}{qB}$.
+        \pracmarks{2 marks}
+  \item Calculate the distance PQ. \pracmarks{2 marks}
+\end{enumerate}
+\end{practiceq}
+
+% =====================================================================
+\Needspace{17\baselineskip}
+\section*{Section III: Extended response}
+
+\begin{practiceq}{5}{4}\label{pq:evaluate}
+A student tests a step-down transformer that is used to charge a power tool. The turns ratio
+is $N_\mathrm{p} : N_\mathrm{s} = 12 : 1$. The table shows her results.
+\begin{table}
+  \caption*{Measurements on the transformer while it charges the tool.}
+  \centering
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \colhead{Voltage (\si{V})} & \colhead{Current (\si{A})}\\
+    \midrule
+    Primary coil & 240 & 0.275\\
+    Secondary coil & 18.6 & 3.20\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+The student claims: ``This transformer behaves like an ideal transformer.''
+
+Evaluate the student's claim. In your answer, use the data. Refer to the causes of energy
+loss in real transformers and to the ways that designers reduce them.
+\end{practiceq}
+
+\Needspace{16\baselineskip}
+\begin{practiceq}{6}{5}\label{pq:generator}
+The diagram shows a simple generator. A coil turns between two magnets. Each end of the coil
+is joined to a slip ring. Brushes connect the slip rings to a lamp. The coil turns at a
+steady 25 turns each second. The peak emf is \qty{4.0}{V}.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x={(1cm,0cm)}, y={(0cm,1cm)}, z={(0.42cm,0.30cm)}, scale=0.85]
+    \def\mz{2.8}
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!28] (-2.6,-1,0) -- (-2.6,-1,\mz) -- (-2.6,1,\mz) -- (-2.6,1,0) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!14] (-3.7,1,0) -- (-2.6,1,0) -- (-2.6,1,\mz) -- (-3.7,1,\mz) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscforce!22] (-3.7,-1,0) -- (-2.6,-1,0) -- (-2.6,1,0) -- (-3.7,1,0) -- cycle;
+    \node[font=\bfseries] at (-3.15,0,0) {N};
+    \draw[field] (-2.6,0.62,1.4) -- (2.6,0.62,1.4);
+    \draw[field] (-2.6,-0.4,2.6) -- (2.6,-0.4,2.6);
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!14] (2.6,1,0) -- (3.7,1,0) -- (3.7,1,\mz) -- (2.6,1,\mz) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!28] (3.7,-1,0) -- (3.7,-1,\mz) -- (3.7,1,\mz) -- (3.7,1,0) -- cycle;
+    \filldraw[draw=hscink, line width=0.5pt, fill=hscvel!22] (2.6,-1,0) -- (3.7,-1,0) -- (3.7,1,0) -- (2.6,1,0) -- cycle;
+    \node[font=\bfseries] at (3.15,0,0) {S};
+    \draw[hscmuted, line width=0.9pt, dashed] (0,0,-2.4) -- (0,0,3.4);
+    \draw[hscink, line width=1.6pt] (0,0,3.4) -- (0,0.75,3.4) -- (0,0.75,3.9);
+    \draw[->, hscmuted, line width=0.8pt] ([shift={(0,0,3.4)}]150:0.55) arc (150:30:0.55);
+    \node[diagramlabel, anchor=west] at (0.5,1.0,3.6) {handle};
+    \draw[pracWire] (1.4,0,0.3) -- (1.4,0,2.3) -- (-1.4,0,2.3) -- (-1.4,0,0.3) -- (-0.12,0,0.3) -- (-0.12,0,-0.4);
+    \draw[pracWire] (1.4,0,0.3) -- (0.12,0,0.3) -- (0.12,0,-1.95);
+    \draw[hscseriesA, line width=2.6pt] (0,0,-2.0) circle (0.27);
+    \draw[hscseriesB, line width=2.6pt] (0,0,-0.45) circle (0.27);
+    \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.07,-0.33,-0.45) rectangle (0.07,-0.62,-0.45);
+    \filldraw[fill=hscmuted!55, draw=hscink, line width=0.4pt] (-0.07,-0.33,-2.0) rectangle (0.07,-0.62,-2.0);
+    \draw[hscink, line width=0.8pt] (0,-0.62,-0.45) -- (0,-1.0,-0.45) -- (1.6,-1.0,-0.45) -- (1.6,-2.05,-0.45) -- (1.6,-2.05,-1.2) -- (0.39,-2.05,-1.2);
+    \draw[hscink, line width=0.8pt] (0,-0.62,-2.0) -- (0,-2.05,-2.0) -- (-0.09,-2.05,-1.2);
+    \begin{scope}[shift={(0.15,-2.05,-1.2)}]
+      \filldraw[fill=hsctip!25, draw=hscink, line width=0.7pt] (0,0) circle (0.24);
+      \draw[hscink, line width=0.6pt] (-0.17,-0.17) -- (0.17,0.17) (-0.17,0.17) -- (0.17,-0.17);
+    \end{scope}
+    \node[diagramlabel, anchor=north west] at (-0.05,-2.35,-1.2) {lamp};
+    \node[diagramlabel, anchor=north east, align=right, inner sep=1pt] at (-1.2,-0.8,0) {slip\\ring};
+    \draw[hscmuted, line width=0.4pt] (-0.27,0,-2.0) -- (-1.18,-0.85,0);
+    \node[diagramlabel, anchor=west, inner sep=1pt] at (0.62,-0.42,0) {slip ring};
+    \draw[hscmuted, line width=0.4pt] (0.27,0,-0.45) -- (0.6,-0.38,0);
+    \draw[hscmuted, line width=0.4pt] (0.07,-0.5,-0.45) -- (2.75,-1.25,-0.45) node[anchor=west, diagramlabel, inner sep=1pt] {brushes};
+    \draw[hscmuted, line width=0.4pt] (-0.4,0,2.3) -- ++(-0.2,1.05) node[anchor=south, diagramlabel, inner sep=1pt] {coil};
+  \end{tikzpicture}
+  \caption*{A simple generator with slip rings.}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+  \item On the grid below, sketch the output emf for two full turns of the coil. Start when
+        the plane of the coil is at right angles to the magnetic field. \pracmarks{2 marks}
+  \item Describe how the output would change if:
+        (i) the slip rings were replaced by a split-ring commutator;
+        (ii) the coil had twice as many turns, and turned at the same speed.
+        \pracmarks{2 marks}
+  \item The handle is harder to turn when the lamp is connected than when the circuit is
+        open. Explain why, using Lenz's law and the law of conservation of energy.
+        \pracmarks{2 marks}
+\end{enumerate}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.80\linewidth, height=0.36\linewidth,
+        xmin=0, xmax=0.08, ymin=-5, ymax=5, xlabel={$t$ (\si{s})},
+        ylabel={$\varepsilon$ (\si{V})}, xtick={0,0.01,...,0.081}, ytick={-5,-4,...,5},
+        xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=2},
+        grid=both]
+      \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:0.08,0);
+      \addplot[draw=none] coordinates {(0,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Grid for part (a).}
+\end{figure}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{7}{3}\label{pq:coilpull}
+A square coil has 25 turns, sides of \qty{10}{cm} and a total resistance of \qty{0.40}{\ohm}.
+It is pulled to the right at a steady \qty{2.0}{m.s^{-1}} through a region of uniform
+magnetic field. The field is \qty{0.40}{T}, into the page. The region is \qty{30}{cm} wide
+(see the diagram). The plane of the coil stays at \ang{90} to the field. At $t = 0$ the
+right-hand side of the coil reaches the edge of the field.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1.15cm, y=1.15cm]
+    \draw[hscfield, dashed, line width=0.6pt] (1,-0.5) rectangle (4,1.5);
+    \foreach \x in {1.25,1.75,...,3.75}
+      \foreach \y in {-0.25,0.25,...,1.25}
+        \pic at (\x,\y) {praccross};
+    \draw[pracWire] (0,0) rectangle (1,1);
+    \node[diagramlabel, font=\footnotesize, anchor=east] at (-0.1,0.78) {coil (25 turns)};
+    \draw[velocity] (-0.8,0.3) -- (-0.1,0.3);
+    \node[anchor=east, text=hscvel, font=\footnotesize] at (-0.85,0.3)
+      {$v = \qty{2.0}{m.s^{-1}}$};
+    \draw[hscmuted, <->, line width=0.5pt] (0,-0.25) -- (1,-0.25)
+      node[midway, below, font=\footnotesize, text=hscink] {\qty{10}{cm}};
+    \draw[hscmuted, <->, line width=0.5pt] (1,1.75) -- (4,1.75)
+      node[midway, above, font=\footnotesize, text=hscink] {\qty{30}{cm}};
+    \node[diagramlabel, font=\footnotesize, text=hscfield, anchor=west] at (4.1,0.5)
+      {$B = \qty{0.40}{T}$, into the page};
+  \end{tikzpicture}
+  \caption*{The coil at $t = 0$ (seen from the front).}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the size of the emf induced in the coil while it enters the field.
+        \pracmarks{2 marks}
+  \item On the grid below, sketch the emf in the coil from $t = 0$ to $t = \qty{0.25}{s}$.
+        Take the emf while the coil enters the field as positive. \pracmarks{2 marks}
+  \item Calculate the force needed to keep the coil moving at a steady speed while it enters
+        the field. Explain, using Lenz's law and energy, why this force is needed.
+        \pracmarks{3 marks}
+\end{enumerate}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.80\linewidth, height=0.30\linewidth,
+        xmin=0, xmax=0.25, ymin=-3, ymax=3, xlabel={$t$ (\si{s})},
+        ylabel={$\varepsilon$ (\si{V})}, xtick={0,0.05,...,0.251}, ytick={-3,-2,...,3},
+        xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=2},
+        minor x tick num=1, minor y tick num=1, grid=both,
+        minor grid style={hscrule!45, line width=0.2pt}]
+      \draw[hscink!70, line width=0.6pt] (axis cs:0,0) -- (axis cs:0.25,0);
+      \addplot[draw=none] coordinates {(0,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Grid for part (b).}
+\end{figure}
+\end{practiceq}
+
+\Needspace{18\baselineskip}
+\begin{practiceq}{6}{2}\label{pq:rods}
+A student investigates the force between two parallel conductors. Two straight aluminium rods
+are each \qty{0.60}{m} long. The lower rod lies on insulating blocks on an electronic
+balance. The upper rod is clamped directly above it. The rods are joined in series, so the
+same current flows in both, in opposite directions. The current is kept at \qty{8.0}{A}.
+The student changes $r$, the distance between the centres of the rods. To do this, she
+uses thin insulating spacers (small blocks of known thickness). With no current, the
+balance is set to zero. The balance then shows the extra reading $\Delta m$ caused by the
+magnetic force.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % balance
+    \draw[object] (0.9,-1.15) rectangle (5.1,-0.35);
+    \draw[hscink, line width=0.6pt, fill=white] (2.3,-0.95) rectangle (3.7,-0.55);
+    \node[font=\scriptsize] at (3.0,-0.75) {$\Delta m$ (g)};
+    \draw[hscink, line width=0.8pt, fill=hscmuted!25] (0.3,-0.35) rectangle (5.7,-0.22);
+    \fill[hscmuted!60] (1.0,-0.22) rectangle (1.3,0.07);
+    \fill[hscmuted!60] (4.7,-0.22) rectangle (5.0,0.07);
+    \node[diagramlabel, font=\footnotesize, anchor=north] at (3.0,-1.2) {electronic balance};
+    % rods (separation exaggerated); lower rod centre y = 0.12, upper rod centre y = 1.12
+    \draw[hscink!75, line width=3pt] (0,0.12) -- (6,0.12);
+    \draw[hscink!75, line width=3pt] (0,1.12) -- (6,1.12);
+    \draw[->, hscink, line width=1pt] (2.3,1.42) -- (3.7,1.42) node[right, font=\small] {$I$};
+    \draw[<-, hscink, line width=1pt] (2.3,0.4) -- (3.7,0.4) node[right, font=\small] {$I$};
+    % clamps for the upper rod
+    \draw[hscink, line width=0.8pt] (0.6,1.12) -- (0.6,2.0);
+    \draw[hscink, line width=0.8pt] (5.4,1.12) -- (5.4,2.0);
+    \fill[ground] (0.2,2.0) rectangle (5.8,2.18);
+    \draw[hscink, line width=0.6pt] (0.2,2.0) -- (5.8,2.0);
+    % series link at the right ends
+    \draw[hscink, line width=0.7pt] (6,1.12) .. controls (6.7,1.12) and (6.7,0.12) .. (6,0.12);
+    % supply at the left
+    \draw[hscink, line width=0.7pt] (0,1.12) -- (-0.8,1.12) -- (-0.8,1.5);
+    \draw[hscink, line width=0.7pt] (0,0.12) -- (-1.6,0.12) -- (-1.6,1.5);
+    \draw[object] (-2.3,1.5) rectangle (-0.1,2.3);
+    \node[font=\scriptsize, align=center] at (-1.2,1.9) {DC supply\\and ammeter};
+    % separation between the centres
+    \draw[hscmuted, <->, line width=0.5pt] (7.0,0.12) -- (7.0,1.12);
+    \node[font=\footnotesize, anchor=west] at (7.05,0.62) {$r$};
+  \end{tikzpicture}
+  \caption*{The set-up (not to scale).}
+\end{figure}
+\begin{table}
+  \caption*{Results ($I = \qty{8.0}{A}$ in each rod).}
+  \centering
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    Distance $r$ (\si{mm}) & 3.0 & 4.0 & 5.0 & 6.0 & 8.0\\
+    \midrule
+    $\dfrac{1}{r}$ (\si{m^{-1}}) & \pracblank & \pracblank & \pracblank & \pracblank
+      & \pracblank\\
+    \midrule
+    Balance reading $\Delta m$ (\si{g}) & 0.256 & 0.193 & 0.153 & 0.129 & 0.096\\
+    \midrule
+    Force $F$ ($\times 10^{-3}$ \si{N}) & \pracblank & \pracblank & \pracblank & \pracblank
+      & \pracblank\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{enumerate}[label=(\alph*)]
+  \item Complete the table. \pracmarks{1 mark}
+  \item On the grid for part (b), plot $F$ against $\dfrac{1}{r}$. Draw a line of best fit.
+        \pracmarks{2 marks}
+  \item Use the gradient of your line to calculate a value for $\mu_0$. \pracmarks{2 marks}
+  \item The formula for the force between two wires is for very long, straight wires.
+        Explain why the rods must be much longer than the distance between them for the
+        formula to apply. \pracmarks{1 mark}
+\end{enumerate}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.84\linewidth, height=0.56\linewidth,
+        xmin=0, xmax=350, ymin=0, ymax=3.0,
+        xlabel={$\dfrac{1}{r}$ (\si{m^{-1}})}, ylabel={$F$ ($\times 10^{-3}$ \si{N})},
+        xtick={0,50,...,350}, ytick={0,0.5,...,3.0},
+        minor x tick num=1, minor y tick num=4,
+        grid=both, minor grid style={hscrule!45, line width=0.2pt},
+        yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \addplot[draw=none] coordinates {(0,0)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Grid for part (b).}
+\end{figure}
+\end{practiceq}
+
+\Needspace{15\baselineskip}
+\begin{practiceq}{6}{5}\label{pq:motorgraph}
+A small DC motor is connected to a \qty{6.0}{V} DC supply. It is switched on at $t = 0$. The
+graph shows the current in the motor. At $t = \qty{2.0}{s}$ a load is attached to the
+motor's axle. (A load is something that the motor must turn, so the motor must now do work.)
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=0.84\linewidth, height=0.46\linewidth,
+        xmin=0, xmax=3.0, ymin=0, ymax=4.4, xlabel={$t$ (\si{s})},
+        ylabel={$I$ (\si{A})}, xtick={0,0.5,...,3.0}, ytick={0,1,...,4},
+        minor y tick num=4, grid=both, minor grid style={hscrule!45, line width=0.2pt},
+        xticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1},
+        yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+      \addplot[hscseriesA, line width=1.3pt, mark=none, domain=0:2, samples=161]
+        {0.40 + 3.60*exp(-x/0.25)};
+      \addplot[hscseriesA, line width=1.3pt, mark=none, domain=2:3, samples=81]
+        {1.00 - 0.598792*exp(-(x-2)/0.15)};
+      \draw[->, hscmuted, line width=0.7pt] (axis cs:1.75,2.3) -- (axis cs:1.98,0.55);
+      \node[anchor=south, font=\footnotesize, text=hscmuted, fill=white, inner sep=1.5pt]
+        at (axis cs:1.75,2.3) {load attached};
+    \end{axis}
+  \end{tikzpicture}
+  \caption*{Current in the motor from the moment it is switched on.}
+\end{figure}
+\begin{enumerate}[label=(\alph*)]
+  \item Use the graph to calculate the resistance of the motor's coil. \pracmarks{1 mark}
+  \item Calculate the back emf when the motor runs at a steady speed with no load (from
+        $t = \qty{1.5}{s}$ to $t = \qty{2.0}{s}$). \pracmarks{1 mark}
+  \item Explain the shape of the graph from $t = 0$ to $t = \qty{2.0}{s}$.
+        \pracmarks{3 marks}
+  \item Explain why the current increases after the load is attached. \pracmarks{1 mark}
+\end{enumerate}
+\end{practiceq}
+
+\Needspace{13\baselineskip}
+\begin{practiceq}{8}{1}\label{pq:crossed}
+\begin{sidebyside}[0.46]
+  \centering
+  \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+    \fill[hscforce!20, draw=hscink, line width=0.6pt] (0,1.0) rectangle (5.0,1.15);
+    \fill[hscvel!20, draw=hscink, line width=0.6pt] (0,-1.15) rectangle (5.0,-1.0);
+    \foreach \x in {0.5,1.5,...,4.5} {
+      \node[font=\small\bfseries, text=hscforce] at (\x,1.38) {$+$};
+      \node[font=\small\bfseries, text=hscvel] at (\x,-1.38) {$-$};
+    }
+    \draw[guide] (-1.3,0) -- (5.0,0);
+    \fill[object] (-1.2,0) circle (4pt);
+    \node[font=\scriptsize\bfseries] at (-1.2,0) {$-$};
+    \draw[velocity] (-0.95,0) -- (-0.1,0) node[above, text=hscvel, font=\small] {$v$};
+    \draw[hscmuted, <->, line width=0.5pt] (0,-1.85) -- (5.0,-1.85)
+      node[midway, below, font=\footnotesize, text=hscink] {$L = \qty{5.0}{cm}$};
+    \draw[hscmuted, <->, line width=0.5pt] (5.4,-1.0) -- (5.4,1.0)
+      node[midway, right, font=\footnotesize, text=hscink, align=left] {$d =$\\\qty{2.0}{cm}};
+  \end{tikzpicture}
+\nextside
+Two horizontal metal plates are \qty{5.0}{cm} long and \qty{2.0}{cm} apart. The voltage
+between them is \qty{120}{V}. The top plate is positive. An electron enters the space
+between the plates, halfway between them. It moves parallel to the plates at
+\qty{3.0e7}{m.s^{-1}}.
+\end{sidebyside}
+\begin{enumerate}[label=(\alph*)]
+  \item Calculate the vertical deflection of the electron when it leaves the plates. State
+        its direction. \pracmarks{3 marks}
+  \item A uniform magnetic field is now added in the space between the plates. The electron
+        now goes straight through, without any deflection. Calculate the size of the
+        magnetic field, and state its direction. \pracmarks{2 marks}
+  \item The voltage is now switched off, but the magnetic field stays. Calculate the radius
+        of the electron's path. Compare the motion of the electron in this magnetic field
+        with its motion in the electric field alone (part (a)). \pracmarks{3 marks}
+\end{enumerate}
+\end{practiceq}

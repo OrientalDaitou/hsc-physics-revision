@@ -1,0 +1,251 @@
+% frontmatter.tex -- Module 8 (From the Universe to the Atom): cover, How to use this guide,
+% Contents, Module overview.
+% \inquiry boxes of ch1.tex ... ch5.tex.
+% "Formulas at a glance" = the formula cards of ch1.tex ... ch5.tex, same notation and the
+% same badge (on the sheet / not on the sheet / combine). The de Broglie card appears in
+% ch3 and ch5; it is listed once here (ch3) and twice in formulasheet.tex.
+% Experiment list: the Key experiment boxes of ch1.tex ... ch5.tex.
+%
+% Local layout fixes (common/ is shared, so they are made here, inside groups):
+%  - cover: break the title after "Universe" (the automatic break left "Atom" alone on
+%    the last line); \moduletitle is changed for the cover only.
+%  - contents: three-digit page numbers were 2 pt wider than the page-number box
+%    (titletoc \@pnumwidth = 1.55em), so they stuck out into the margin. The box is made
+%    1.9em wide; the correction 0.65em keeps the text margin at 2.55em (= \@tocrmarg).
+\begingroup
+  \def\moduletitle{From the Universe\\to the Atom}%
+  \makecover
+\endgroup
+\IfFileExists{../common/howtouse.tex}{\input{../common/howtouse}}{}
+\begingroup
+  \contentsmargin[0.65em]{1.9em}%
+  \tableofcontents
+\endgroup
+
+\unnumberedchapter[\faMap]{Module overview}
+
+% ---- helpers for the overview only (prefix ov)
+% sheet marks: on the sheet / learn it / combine (same colours and icons as \frow)
+\newcommand\ovYes{\textcolor{hscformula}{\faCheck}}
+\newcommand\ovNo{\textcolor{hscmistake}{\faTimes}}
+\newcommand\ovComb{\textcolor{hsctiptext}{\faLink}}
+% one row of the formula grid:  \ovrow{mark}{formula}{what it is for}
+\newcommand\ovrow[3]{#1 & #2 & {\footnotesize #3}\\\hline}
+% chapter heading row of the formula grid
+\newcommand\ovch[2]{\multicolumn{3}{@{}l@{}}{\rule{0pt}{3.4ex}\cref{#1}:
+  {\bfseries\color{hscbrand}#2}}\\\hline}
+\newenvironment{ovgrid}{%
+  \small\renewcommand\arraystretch{1.4}\arrayrulecolor{hscrule}%
+  \begin{tabular}[t]{@{}C{4.5mm}@{\hspace{1.5mm}}L{40mm}@{\hspace{1.5mm}}L{\dimexpr\linewidth-47.5mm\relax}@{}}}%
+  {\end{tabular}}
+
+\section*{What this module is about}
+
+Module~8 asks two big questions. Where did the elements come from? And what is an atom made
+of? It starts with the whole Universe: the Big Bang, the light from galaxies, and the stars
+that build new elements. Then it zooms in: the electron, the nucleus, quantum ideas,
+radioactivity, fission and fusion, and last the quarks inside the proton.
+
+Much of this module is about \emph{evidence}. For each experiment, know what was done, what
+was seen, and what it showed.
+
+\section*{The inquiry questions}
+
+The syllabus asks five inquiry questions (big questions). Each chapter answers one of them
+(\cref{ov:tab:iq}).
+
+\begin{table}
+  \caption{The five inquiry questions of Module~8 and where this book answers them.}
+  \label{ov:tab:iq}
+  \centering
+  \small
+  \begin{tabular}{@{}L{62mm}L{17mm}L{60mm}@{}}
+    \toprule
+    \colhead{Inquiry question} & \colhead{Chapter} & \colhead{What the chapter answers}\\
+    \midrule
+    \textbf{IQ1}: \emph{What evidence is there for the origins of the elements?}
+      & \cref{ch1:chap}
+      & The Big Bang, Hubble's law, spectra, the HR diagram, fusion in stars.\\
+    \midrule
+    \textbf{IQ2}: \emph{How is it known that atoms are made up of protons, neutrons and
+      electrons?}
+      & \cref{ch2:chap}
+      & Thomson's electron, Millikan's charge, Rutherford's nucleus, Chadwick's neutron.\\
+    \midrule
+    \textbf{IQ3}: \emph{How is it known that classical physics cannot explain the
+      properties of the atom?}
+      & \cref{ch3:chap}
+      & Bohr's energy levels, hydrogen's spectrum, matter waves, Schr\"odinger.\\
+    \midrule
+    \textbf{IQ4}: \emph{How can the energy of the atomic nucleus be harnessed?}
+      & \cref{ch4:chap}
+      & Radioactive decay, half-life, binding energy, fission and fusion.\\
+    \midrule
+    \textbf{IQ5}: \emph{How is it known that human understanding of matter is still
+      incomplete?}
+      & \cref{ch5:chap}
+      & Quarks, the Standard Model, particle accelerators, open questions.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{How the parts fit together}
+
+In \cref{ov:fig:map}, each arrow means ``this idea is used in the next one''.
+
+\begin{figure}
+  \centering
+  % layout: top row Ch 2 -> Ch 3 -> Ch 1; bottom row Ch 5 <- Ch 4, each arrow on its own
+  % (no crossings); boxes 33 mm wide, gaps 2.2 cm for the labels; total width 14.3 cm.
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      ch/.style={concept=29mm, minimum height=19mm}]
+    \node[concept=70mm, fill=hsctool!8, draw=hsctool!60] (tools) at (-2.75,0)
+      {\textbf{From Modules 6 and 7:} forces on charges in fields; photons
+       (\mbox{$E = hf$}); \mbox{$E = mc^2$}};
+    \node[ch] (c2) at (-5.5,-2.35) {\textbf{Ch 2}\\ Structure of the atom: electron,
+      nucleus, neutron};
+    \node[ch] (c3) at (0,-2.35) {\textbf{Ch 3}\\ Quantum atom: energy levels, matter
+      waves};
+    \node[ch] (c1) at (5.5,-2.35) {\textbf{Ch 1}\\ Origins of the elements: Big Bang and
+      stars};
+    \node[ch] (c5) at (-5.5,-5.15) {\textbf{Ch 5}\\ Deep inside the atom: quarks,
+      accelerators};
+    \node[ch] (c4) at (0,-5.15) {\textbf{Ch 4}\\ The nucleus: decay, fission and fusion};
+    \draw[link] (tools.south -| c2.north) -- node[linklabel, right=2pt] {fields bend beams}
+      (c2.north);
+    \draw[link] (tools.south -| c3.north) -- node[linklabel, right=2pt] {photons} (c3.north);
+    \draw[link] (c2.east) -- node[linklabel, above=2pt, align=center]
+      {Rutherford's\\atom fails} (c3.west);
+    \draw[link] (c3.east) -- node[linklabel, above=2pt, align=center]
+      {levels explain\\star spectra} (c1.west);
+    \draw[link] ($(c2.south)+(-0.4,0)$) -- node[linklabel, right=2pt]
+      {inside $\mathrm{p}$ and $\mathrm{n}$?} ($(c5.north)+(-0.4,0)$);
+    \draw[link] ($(c2.south east)+(-0.1,0)$) -- node[linklabel, pos=0.55, right=3pt]
+      {the nucleus} ($(c4.north west)+(0.2,0)$);
+    \draw[link] (c4.west) -- node[linklabel, below=3pt] {beta decay} (c5.east);
+    \draw[link] ($(c4.north east)+(-0.2,0)$) -- node[linklabel, pos=0.5, below right=1pt]
+      {fusion powers stars} ($(c1.south west)+(0.3,0)$);
+  \end{tikzpicture}
+  \caption{How the ideas in this module are linked (``Ch'' means chapter).}\label{ov:fig:map}
+\end{figure}
+
+\section*{Key experiments}
+
+Each of these experiments has a Key experiment box in its chapter
+(\cref{ov:tab:experiments}). Learn what was done, what was seen and what it showed.
+
+\begin{table}
+  \caption{Key experiments. A date means a historical experiment.}\label{ov:tab:experiments}
+  \centering
+  \small
+  \begin{tabular}{@{}L{64mm}L{56mm}L{18mm}@{}}
+    \toprule
+    \colhead{Experiment} & \colhead{What it shows} & \colhead{Where}\\
+    \midrule
+    Hubble's law from galaxy data & redshift grows with distance & \cref{ch1:sec:experiments}\\
+    Three kinds of spectra (practical) & hot solids: all colours; gases: lines
+      & \cref{ch1:sec:experiments}\\
+    Plotting an HR diagram from star data & main sequence, giants, white dwarfs
+      & \cref{ch1:sec:experiments}\\
+    \midrule
+    Cathode-ray experiments (1870s--1890s) & negative particles, bent by fields
+      & \cref{ch2:sec:experiments}\\
+    Thomson's charge-to-mass ratio (1897) & electrons: far lighter than atoms
+      & \cref{ch2:sec:experiments}\\
+    Millikan's oil drops (1909--1913) & charge is quantised, in steps of $e$
+      & \cref{ch2:sec:experiments}\\
+    Geiger--Marsden gold foil (1909) & a tiny, dense, positive nucleus
+      & \cref{ch2:sec:experiments}\\
+    Chadwick's neutron (1932) & neutral, with about a proton's mass
+      & \cref{ch2:sec:experiments}\\
+    \midrule
+    Balmer series of hydrogen (practical) & the lines fit the Rydberg equation
+      & \cref{ch3:sec:experiments}\\
+    Davisson and Germer (1927) & electrons diffract, with $\lambda = \frac{h}{mv}$
+      & \cref{ch3:sec:experiments}\\
+    G.\,P. Thomson's electron rings (1927) & electrons diffract through thin foil
+      & \cref{ch3:sec:experiments}\\
+    \midrule
+    Half-life with dice (practical) & random decay, steady half-life
+      & \cref{ch4:sec:experiments}\\
+    Penetrating power of $\alpha$, $\beta$, $\gamma$ (practical)
+      & $\alpha$ stopped by paper, $\beta$ by aluminium & \cref{ch4:sec:experiments}\\
+    \midrule
+    Deep inelastic scattering, SLAC (1967--73) & protons contain point-like quarks
+      & \cref{ch5:sec:experiments}\\
+    Higgs boson at the LHC (2012) & completes the Standard Model
+      & \cref{ch5:sec:experiments}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The text also explains Rutherford's first transmutation (1919) and the discovery of fission
+(1938) in \cref{ch4:chap}, and Anderson's positron (1932) in \cref{ch5:chap}.
+
+\section*{All the formulas at a glance}
+
+Every formula card in this book. \ovYes\ = on the official HSC formula sheet.
+\ovNo\ = not on the sheet: learn it or derive it. \ovComb\ = not printed in this form:
+join two items from the sheet. \hyperref[fs:chap]{\emph{Formula sheet explained}}
+(page~\pageref{fs:chap}) says when to use each one.
+
+\par\smallskip\noindent
+\begin{minipage}[t]{0.488\linewidth}
+\begin{ovgrid}
+  \ovch{ch1:chap}{Origins of the elements}
+  \ovrow{\ovYes}{$E = mc^2$}{mass and energy; pairs}
+  \ovrow{\ovNo}{$z = \frac{\Delta\lambda}{\lambda_0} \approx \frac{v}{c}$}{redshift of a galaxy}
+  \ovrow{\ovNo}{$v = H_0 d$, \ $t \approx \frac{1}{H_0}$}{Hubble's law; age of the Universe}
+  \ovrow{\ovYes}{$\lambda_\mathrm{max} = \frac{b}{T}$}{temperature of a star}
+  \ovrow{\ovNo}{$\frac{L_A}{L_B} = 100^{\frac{M_B - M_A}{5}}$}{luminosities from magnitudes}
+  \ovrow{\ovComb}{$E = \Delta m\,c^2$\newline $E\,(\mathrm{MeV}) = \Delta m\,(\mathrm{u})
+    \times 931.5$}{energy from fusion in stars}
+  \ovch{ch2:chap}{Structure of the atom}
+  \ovrow{\ovNo}{$v = \frac{E}{B}$}{velocity selector}
+  \ovrow{\ovNo}{$\frac{q}{m} = \frac{E}{B^2 r}$}{Thomson's $q/m$}
+  \ovrow{\ovNo}{$\frac{q}{m} = \frac{2V}{B^2 r^2}$}{school e/m tube}
+  \ovrow{\ovNo}{$q = \frac{mgd}{V}$}{Millikan's oil drop}
+  \ovrow{\ovNo}{$q = ne$}{charge is quantised}
+  \ovrow{\ovYes}{$F = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}$}{Coulomb's law: alpha
+    and nucleus}
+  \ovrow{\ovYes}{$\sum m\vec{v}_\mathrm{before}$\newline
+    $\quad = \sum m\vec{v}_\mathrm{after}$\newline
+    $\sum\frac{1}{2}mv^2_\mathrm{before}$\newline
+    $\quad = \sum\frac{1}{2}mv^2_\mathrm{after}$}{Chadwick's collisions}
+  \ovch{ch3:chap}{The quantum atom}
+  \ovrow{\ovYes}{$E = hf$}{photon energy}
+  \ovrow{\ovComb}{$E = \frac{hc}{\lambda}$}{photon energy from $\lambda$}
+  \ovrow{\ovYes}{$\frac{1}{\lambda} = R\left(\frac{1}{n_\mathrm{f}^2} - \frac{1}{n_\mathrm{i}^2}\right)$}
+    {hydrogen's lines}
+\end{ovgrid}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.488\linewidth}
+\begin{ovgrid}
+  \ovch{ch3:chap}{(continued)}
+  \ovrow{\ovYes}{$\lambda = \frac{h}{mv}$}{matter waves (also Ch~5)}
+  \ovrow{\ovNo}{$2\pi r = n\lambda$}{allowed Bohr orbits}
+  \ovch{ch4:chap}{The nucleus}
+  \ovrow{\ovNo}{$\sum A_\mathrm{before} = \sum A_\mathrm{after}$\newline
+    $\sum Z_\mathrm{before} = \sum Z_\mathrm{after}$}{balance a nuclear equation}
+  \ovrow{\ovYes}{$N_\mathrm{t} = N_0 e^{-\lambda t}$}{amount left after $t$}
+  \ovrow{\ovYes}{$\lambda = \frac{\ln 2}{t_{\frac{1}{2}}}$}{decay constant}
+  \ovrow{\ovNo}{$N_\mathrm{t} = N_0\left(\frac{1}{2}\right)^{n}$, \ $n = \frac{t}{t_{\frac{1}{2}}}$}
+    {whole half-lives}
+  \ovrow{\ovNo}{$A = \lambda N$, \ $A_\mathrm{t} = A_0 e^{-\lambda t}$}{activity}
+  \ovrow{\ovYes}{$E = mc^2$}{energy from mass lost}
+  \ovrow{\ovNo}{$\Delta m = (Zm_\mathrm{p} + Nm_\mathrm{n})$\newline
+    $\phantom{\Delta m =} - m_\mathrm{nucleus}$\newline
+    $E_\mathrm{B} = \Delta m\,c^2$}{mass defect, binding energy}
+  \ovrow{\ovNo}{$E = \sum E_\mathrm{B,after}$\newline $\phantom{E =} - \sum E_\mathrm{B,before}$}
+    {energy from binding energies}
+  \ovch{ch5:chap}{Deep inside the atom}
+  \ovrow{\ovYes}{$p_\mathrm{v} = \frac{m_0 v}{\sqrt{\left(1 - \frac{v^2}{c^2}\right)}}$}
+    {momentum near $c$}
+  \ovrow{\ovNo}{$Q = q_1 + q_2 + q_3$ (baryon)\newline $Q = q_1 + q_2$ (meson)}
+    {charge of a hadron}
+  \ovrow{\ovYes}{$W = qV$}{energy from a gap}
+  \ovrow{\ovNo}{$r = \frac{mv}{qB}$, \ $T = \frac{2\pi m}{qB}$}{circles in a magnetic field;
+    cyclotron}
+\end{ovgrid}
+\end{minipage}
+\par\medskip

@@ -1,0 +1,1256 @@
+% ch5.tex -- Module 8, Chapter 5: Deep inside the atom (Standard Model, particle accelerators)
+% All figures are TikZ / pgfplots, drawn inline.
+\chapter[Deep Inside the Atom]{Deep Inside the Atom: the Standard Model and Particle Accelerators}\label{ch5:chap}
+\covers{M8.IQ5.01, M8.IQ5.02, M8.IQ5.03}
+
+% chapter-local macros (prefix chFive, as the style guide asks)
+\newcommand\chFiveaq[1]{\ensuremath{\overline{\mathrm{#1}}}} % antiquark, e.g. \chFiveaq{d}
+\newcommand\chFiveperc{\ensuremath{/c^2}}                     % "GeV/c^2" after \qty{..}{GeV}
+\newcommand\chFiveanu{\ensuremath{\overline{\nu}_\mathrm{e}}} % electron antineutrino
+
+\inquiry{How is it known that human understanding of matter is still incomplete?}
+
+\begin{goals}
+  \item analyse the evidence that protons and neutrons are made of quarks, and that
+        other subatomic particles exist
+  \item describe the Standard Model: quarks, leptons, hadrons and the four forces
+  \item explain how linacs, cyclotrons and synchrotrons work, using $W = qV$,
+        $r = mv/(qB)$ and $T = 2\pi m/(qB)$
+  \item assess how accelerators test the Standard Model, and why our understanding of
+        matter is still incomplete
+\end{goals}
+
+%% ==================================================================
+\section{Are protons and neutrons fundamental?}\label{ch5:sec:evidence}
+\covers{M8.IQ5.01}
+
+\begin{bigidea}
+By 1932 (when the neutron was found), every atom could be explained with protons, neutrons
+and electrons. Later experiments showed that protons and neutrons are made of smaller
+particles, called quarks. They also found many other subatomic particles (particles
+smaller than an atom).
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Fundamental particle}{a particle with no smaller parts, as far as we can tell.}
+  \kw{Deep inelastic scattering}{firing very fast electrons at protons to see inside them.}
+  \kw{Particle zoo}{the hundreds of new particles found in the 1950s and 1960s.}
+  \kw{Antiparticle}{a partner with the same mass but opposite charge and properties.}
+\end{keywords}
+
+A \term{fundamental particle} is a particle with no smaller parts. The electron is
+fundamental: experiments find no size and no parts inside it. A proton or a neutron is
+different. Three kinds of evidence show that they have parts.
+
+\subsection{Evidence 1: deep inelastic scattering}
+
+From 1967 to 1973, physicists at SLAC (Stanford, USA) fired electrons with energies up
+to about \qty{20}{GeV} at protons. This is \term{deep inelastic scattering}. ``Deep''
+means the electrons look deep inside the proton. ``Inelastic'' means the electrons lose
+a lot of kinetic energy, and the proton breaks apart. It is Rutherford's gold-foil idea
+(\cref{ch2:sec:nucleus}), one level deeper.
+
+\Cref{ch5:fig:dis} compares two models. Suppose the proton's charge were smeared evenly
+through it, like jam soaked into a sponge. Then each electron would get only a small
+sideways pull. But SLAC found something else. Far more electrons than expected came out
+at large angles. So the proton contains tiny, \term{point-like}
+charges: charges so small that they act like dots with no size. We now call them
+\term{quarks}: the particles that make up protons and neutrons.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm,
+      etrack/.style={line width=0.9pt, color=hscvel, midarrow},
+      eout/.style={line width=0.9pt, color=hscvel, -{Stealth[length=2.2mm, width=1.7mm]}},
+      qk/.style={circle, text=white, font=\tiny\bfseries, inner sep=0pt,
+        minimum size=0.36cm}]
+    % Model A: charge spread evenly. Electrons (negative) are pulled slightly TOWARDS the
+    % positive charge, so every track bends towards the axis.
+    \node[font=\small\bfseries, text=hscink] at (0,1.7) {Model A: smooth proton};
+    \fill[hscforce!14] (0,0) circle (1.05);
+    \draw[hscforce!70, line width=0.7pt] (0,0) circle (1.05);
+    \draw[etrack] (-2.4,0.75) -- (-0.4,0.75) -- (2.4,0.55);
+    \draw[etrack] (-2.4,0.35) -- (-0.2,0.35) -- (2.4,0.24);
+    \draw[etrack] (-2.4,-0.45) -- (-0.2,-0.45) -- (2.4,-0.31);
+    \draw[etrack] (-2.4,-0.85) -- (-0.4,-0.85) -- (2.4,-0.64);
+    \node[font=\scriptsize, text=hscforce!80!black, fill=hscforce!14, inner sep=1pt]
+      at (0,-0.05) {$+$ charge spread evenly};
+    \node[font=\footnotesize, text=hscmuted] at (0,-1.75)
+      {prediction: only small deflections};
+    \node[diagramlabel, text=hscvel, anchor=east] at (-2.45,0) {electrons};
+    % Model B: point-like charges. One electron is turned back by about 150 degrees
+    % (by the negative d), one leaves at a large angle (u).
+    \begin{scope}[xshift=6.4cm]
+      \node[font=\small\bfseries, text=hscink] at (0,1.7) {Model B: tiny charges inside};
+      \draw[hscmuted, dashed, line width=0.7pt] (0,0) circle (1.05);
+      \draw[etrack] (-2.4,0.20) -- (0,0.20) -- (2.4,0.13);
+      \draw[etrack] (-2.4,0.70) -- (0.07,0.70);
+      \draw[eout] (0.07,0.70) -- (-0.97,1.30);
+      \draw[etrack] (-2.4,-0.62) -- (0.10,-0.62);
+      \draw[eout] (0.10,-0.62) -- (0.60,-1.49);
+      \node[qk, fill=hscseriesC!85!black] at (0.30,0.70) {d};
+      \node[qk, fill=hscseriesB] at (-0.45,-0.20) {u};
+      \node[qk, fill=hscseriesB] at (0.35,-0.62) {u};
+      \node[font=\footnotesize, text=hscforce!80!black] at (0,-1.75)
+        {SLAC: far more scatter at large angles};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Deep inelastic scattering: two models of the proton. The negative electrons are
+    pulled slightly towards the positive charge. Model A gives only small deflections.
+    SLAC saw large-angle bounces, which need point-like charges inside (Model B). Today we
+    know these are quarks: u = up quark, d = down quark (\cref{ch5:sec:sm}).}\label{ch5:fig:dis}
+\end{figure}
+
+Why such fast electrons? A wave can only show details bigger than its wavelength. An
+electron is also a wave (\cref{ch3:sec:debroglie}). To see inside a proton (diameter about
+\qty{1.7e-15}{m}), its wavelength must be much smaller than that.
+
+\begin{formulacard}{de Broglie wavelength}
+  \cardformula{\lambda = \frac{h}{mv}}
+  \begin{symbols}
+    \sym{$\lambda$}{wavelength of the moving particle}{\si{m}}
+    \sym{$h$}{Planck constant, \num{6.626e-34}}{\si{J.s}}
+    \sym{$m$, $v$}{mass and speed of the particle}{\si{kg}, \si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{more momentum ($mv$) means a shorter wavelength, so smaller details show up.}
+  \whentouse{any moving particle with mass (electron, proton, neutron).}
+  \whennottouse{photons ($E = hf$ instead). Above about $0.1c$, use the relativistic
+    momentum $p_\mathrm{v}$ in place of $mv$.}
+  \rearranged{$v = \dfrac{h}{m\lambda}$ \qquad $mv = \dfrac{h}{\lambda}$}
+  \tensecond{electron at \qty{1.0e6}{m.s^{-1}}:
+    $\lambda = \dfrac{\num{6.626e-34}}{\num{9.109e-31} \times \num{1.0e6}} = \qty{7.3e-10}{m}$.}
+  \trap{use the electron's mass (\qty{9.109e-31}{kg}), not the proton's.}
+\end{formulacard}
+
+\begin{workedexample}{A slow electron cannot see inside a proton}\label{ch5:we:slow}
+An electron moves at \qty{2.0e7}{m.s^{-1}}. Find its de Broglie wavelength. Compare it
+with a proton's diameter, \qty{1.7e-15}{m}.
+\given{$v = \qty{2.0e7}{m.s^{-1}}$ (only $0.07c$, well below $0.1c$, so
+  $\lambda = \dfrac{h}{mv}$ works), \ $m = \qty{9.109e-31}{kg}$, \
+  proton diameter $d = \qty{1.7e-15}{m}$}
+\find{$\lambda$, then $\lambda \div d$}
+\formula{$\lambda = \dfrac{h}{mv}$}
+\substitute{\eqlines{\lambda &= \frac{\qty{6.626e-34}{J.s}}{\qty{9.109e-31}{kg} \times
+  \qty{2.0e7}{m.s^{-1}}} = \qty{3.637e-11}{m}}\par
+  \eqlines{\frac{\lambda}{d} &= \frac{\qty{3.637e-11}{m}}{\qty{1.7e-15}{m}}
+  = \frac{3.637}{1.7} \times 10^{-11-(-15)} \quad\text{(divide the numbers)}\\
+  &= 2.14 \times 10^{4} \quad\text{(subtract the powers: $-11 - (-15) = 4$)}}}
+\answer{\final{$\lambda = \qty{3.6e-11}{m}$}: about \num{21000} times bigger than a
+  proton, so it shows nothing inside one.}
+\checkstep{$\lambda$ is about a third of the size of an atom (about \qty{e-10}{m}). Slow
+  electrons like this are used to study atoms in crystals, which fits. (Powers of ten:
+  see the toolkit in \cref{ch1:sec:bigbang}.)}
+\end{workedexample}
+
+To see inside a proton, the electron needs far more momentum. Near the speed of light,
+momentum is no longer $mv$. You met the correct formula in Module 7.
+
+\begin{formulacard}{Relativistic momentum (Module 7)}
+  \cardformula{p_\mathrm{v} = \frac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}}
+  \begin{symbols}
+    \sym{$p_\mathrm{v}$}{momentum of a particle moving at speed $v$}{\si{kg.m.s^{-1}}}
+    \sym{$m_0$}{rest mass (the mass measured when the particle is not moving)}{\si{kg}}
+    \sym{$v$}{speed of the particle}{\si{m.s^{-1}}}
+    \sym{$c$}{speed of light, \num{3.00e8}}{\si{m.s^{-1}}}
+  \end{symbols}
+  \inwords{near the speed of light, momentum grows much faster than speed.}
+  \whentouse{a particle faster than about $0.1c$. Put $p_\mathrm{v}$ in place of $mv$:
+    $\lambda = \dfrac{h}{p_\mathrm{v}}$ for its wavelength, $r = \dfrac{p_\mathrm{v}}{qB}$
+    for its radius in a magnetic field. (These two forms are not printed on the sheet.)}
+  \whennottouse{slow particles: below $0.1c$ the square root is 0.995 or more, so
+    $p = mv$ is accurate to 0.5\%. Not for photons (they have no rest mass).}
+  \rearranged{$m_0 = \dfrac{p_\mathrm{v}}{v}\sqrt{1 - \dfrac{v^2}{c^2}}$ \qquad
+    for small $v$: $p_\mathrm{v} \approx m_0 v$}
+  \tcbbreak % layout QA (book build): page break here, so "(continued)" is not a lone Trap line
+  \tensecond{proton at $0.60c$: $m_0 v = \num{1.673e-27} \times 0.60 \times \num{3.00e8}
+    = \num{3.01e-19}$; \ $\sqrt{1 - 0.60^2} = 0.80$; \ so
+    $p_\mathrm{v} = \qty{3.8e-19}{kg.m.s^{-1}}$.}
+  \trap{$m_0$ is the rest mass from the data sheet. Square $\dfrac{v}{c}$ \emph{before}
+    you subtract it from 1.}
+\end{formulacard}
+
+\begin{workedexample}{Is 0.9999$c$ fast enough?}\label{ch5:we:fast}
+An electron moves at $0.9999c$. Find its relativistic momentum and its wavelength. Can it
+show structure inside a proton (diameter \qty{1.7e-15}{m})?
+\given{$v = 0.9999c = 0.9999 \times \qty{3.00e8}{m.s^{-1}}$, \ rest mass
+  $m_0 = \qty{9.109e-31}{kg}$, \ $d = \qty{1.7e-15}{m}$}
+\find{$p_\mathrm{v}$, then $\lambda$, then $\lambda \div d$}
+\formula{$p_\mathrm{v} = \dfrac{m_0 v}{\sqrt{\left(1 - \dfrac{v^2}{c^2}\right)}}$
+  (on the sheet), \ then $\lambda = \dfrac{h}{p_\mathrm{v}}$ (not printed in this form:
+  $\lambda = \dfrac{h}{mv}$ with $p_\mathrm{v}$ in place of $mv$)}
+\substitute{\eqlines{m_0 v &= \qty{9.109e-31}{kg} \times 0.9999 \times \qty{3.00e8}{m.s^{-1}}\\
+  &= \qty{2.732e-22}{kg.m.s^{-1}} \quad\text{(the top of the fraction)}\\
+  \frac{v^2}{c^2} &= 0.9999^2 = 0.99980001 \quad\text{(now the bottom)}\\
+  1 - \frac{v^2}{c^2} &= 1 - 0.99980001 = 0.00019999\\
+  \sqrt{0.00019999} &= 0.014142 \quad\text{(square root last)}}\par
+  \eqlines{p_\mathrm{v} &= \frac{\qty{2.732e-22}{kg.m.s^{-1}}}{0.014142} = \qty{1.932e-20}{kg.m.s^{-1}}\\
+  \lambda &= \frac{\qty{6.626e-34}{J.s}}{\qty{1.932e-20}{kg.m.s^{-1}}} = \qty{3.429e-14}{m}\\
+  \frac{\lambda}{d} &= \frac{\qty{3.429e-14}{m}}{\qty{1.7e-15}{m}} = 20}}
+\answer{\final{$p_\mathrm{v} = \qty{1.93e-20}{kg.m.s^{-1}}$}, \
+  \final{$\lambda = \qty{3.43e-14}{m}$}. No: $\lambda$ is still about 20 times
+  \emph{bigger} than a proton.}
+\checkstep{the speed is 15 times bigger than in \cref{ch5:we:slow}, but $p_\mathrm{v}$ is
+  about 1060 times bigger (relativity). So $\lambda$ should be about 1060 times shorter:
+  $\num{3.637e-11} \div 1060 = \qty{3.43e-14}{m}$ \cmark.}
+\end{workedexample}
+
+SLAC's \qty{20}{GeV} electrons had about 550 times more momentum than this. Their
+wavelength was about \qty{6e-17}{m}, about 27 times \emph{smaller} than a proton. That
+is why SLAC could see inside it.
+
+\subsection{Evidence 2 and 3: beta decay and the particle zoo}
+
+\begin{itemize}
+  \item \textbf{Beta decay.} A free neutron decays:
+        $\mathrm{n} \to \mathrm{p} + \mathrm{e}^- + \chFiveanu$ (\cref{ch4:sec:decay}). In the
+        quark model, a neutron is udd: one up quark (u) and two down quarks (d). A proton
+        is uud. So in this decay, just \emph{one} down quark changes into an up quark. The
+        other two stay the same. This is easy to explain if the neutron has parts. So it
+        supports the idea that protons and neutrons are not fundamental. (It is not proof
+        on its own. The muon, a fundamental particle like a heavy electron, also decays.)
+  \item \textbf{The particle zoo.} In the 1950s and 1960s, accelerators made hundreds of
+        new particles. Scientists called this huge, confusing list the \term{particle zoo}.
+        In 1964 Gell-Mann and Zweig proposed a simple idea. All these particles are built
+        from just three kinds of quark: up, down and strange. Gell-Mann's earlier pattern
+        of particles (1962) had also predicted a new particle, the omega-minus
+        ($\Omega^-$). It was found in 1964, with the predicted charge and mass. In the
+        quark model it is sss.
+\end{itemize}
+
+\subsection{Other subatomic particles}
+
+Many other particles exist (\cref{ch5:tab:particles}). An \term{antiparticle} is a partner
+with the same mass but the opposite charge. Its other built-in properties are opposite
+too. So even a neutral particle can have a different antiparticle: an antineutron is not
+a neutron. The \term{positron} ($\mathrm{e}^+$) is the antiparticle of the electron.
+
+The positron was the first antiparticle found (\cref{ch5:fig:anderson}). Anderson saw it
+in a \term{cloud chamber}: a box where fast charged particles leave a trail of tiny drops.
+It came from \term{cosmic rays}: fast particles from space and the particles they make in
+the air.
+
+\begin{sidebyside}[0.40]
+  \centering
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm]
+    \draw[hscink, fill=hscmuted!8, line width=0.6pt] (-0.4,-0.3) rectangle (3.2,3.7);
+    \foreach \p in {(0.1,0.5), (1.3,0.5), (0.1,1.4), (1.3,1.4), (0.1,2.7), (2.7,2.7),
+                    (0.1,3.35), (2.7,3.35)}
+      \node[text=hscfield, font=\scriptsize] at \p {$\times$};
+    \fill[hscink!55] (-0.4,1.9) rectangle (3.2,2.15);
+    \draw[hscvel, line width=0.9pt, midarrow] (2.6,0) arc[start angle=0, end angle=22.33,
+      radius=5.0];
+    \draw[hscvel, line width=0.9pt, -{Stealth[length=2.2mm, width=1.7mm]}] (2.122,2.15)
+      arc[start angle=22.33, end angle=75, radius=2.0];
+    \node[font=\scriptsize, anchor=west] at (3.3,2.02) {lead plate};
+    \node[font=\scriptsize, anchor=west, align=left] at (3.3,0.8) {before:\\[-2pt]bends less};
+    \node[font=\scriptsize, anchor=west, align=left] at (3.3,3.15) {after:\\[-2pt]bends more};
+    \node[font=\scriptsize, text=hscfield, anchor=north] at (1.4,-0.4)
+      {$\times$: $B$ into the page};
+  \end{tikzpicture}
+  \captionof{figure}{Sketch of Anderson's positron track (1932). It bends more after the
+    lead plate, so it moved upwards.}\label{ch5:fig:anderson}
+\nextside
+  Anderson's cloud chamber (1932) sat inside a magnetic field.
+  \begin{itemize}
+    \item A lead plate slowed the particle, so its track curved more after the plate
+          (less momentum, tighter curve). So it moved upwards.
+    \item It moved up and bent left, with $B$ into the page. So its charge was
+          \emph{positive}. An electron would bend right.
+    \item The track was thin and long, like an electron's. A proton bent this much would
+          stop much sooner. So its mass was about the electron's.
+    \item No known particle was light and positive, so it was new.
+  \end{itemize}
+\end{sidebyside}
+
+How did scientists know that each of these particles was new? In each case they saw a
+mass, a charge or a behaviour that no known particle had (\cref{ch5:tab:particles}).
+
+\begin{table}
+  \caption{Some particles that are not protons, neutrons or electrons.}\label{ch5:tab:particles}
+  \centering
+  \small
+  \begin{tabular}{@{}L{22mm}L{10mm}L{29mm}L{77mm}@{}}
+    \toprule
+    \colhead{Particle} & \colhead{Year} & \colhead{What it is} &
+      \colhead{What was seen, and what it shows}\\
+    \midrule
+    positron $\mathrm{e}^+$ & 1932 & antiparticle of the electron & A cloud-chamber
+      track (\cref{ch5:fig:anderson}). It had an electron's mass but bent the opposite
+      way, so it was positive. Dirac's theory (1928) had predicted it; he named the
+      anti-electron in 1931.\\
+    muon $\mu^-$ & 1936 & a heavy copy of the electron & Cosmic-ray tracks. Charge $-e$,
+      but about 207 times the electron's mass. No known particle fitted.\\
+    pions $\pi^+$, $\pi^-$ & 1947 & particles made of quarks (mesons) & Cosmic-ray
+      tracks in photographic film taken up mountains. Mass about 270 electron masses, between the
+      muon and the proton. No known particle had this mass.\\
+    antiproton $\overline{\mathrm{p}}$ & 1955 & antiparticle of the proton & Made in a
+      proton accelerator (Bevatron, USA). It had the proton's mass but charge $-e$.\\
+    neutrino $\nu$ & 1956 & a neutral particle with a tiny mass & In beta decay, electrons
+      come out with a spread of energies (\cref{ch4:fig:betaspectrum}). Some energy seemed
+      to vanish. Pauli (1930) said a hidden neutral particle carries it. It was detected
+      near a nuclear reactor in 1956.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``A neutron is a proton plus an electron.'' \cmark\ The electron and
+        antineutrino are \emph{created} in the decay.
+  \item \xmark\ Using $\lambda = \dfrac{h}{m_0 v}$ near $c$. \cmark\ Use $p_\mathrm{v}$.
+  \item \xmark\ ``The electron is made of quarks.'' \cmark\ It is a fundamental lepton.
+  \item \xmark\ ``An antiparticle only has the opposite charge.'' \cmark\ Its other
+        built-in properties are opposite too, so an antineutrino differs from a neutrino.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Analyse the evidence that protons and neutrons are not fundamental'' (4--5 marks).
+Link each observation to what it shows. SLAC electrons bounced at large angles far more
+often than a smooth proton allows. So the proton has point-like charged parts (quarks).
+Then add supporting evidence: beta decay ($\mathrm{d} \to \mathrm{u}$) and the quark
+pattern of the particle zoo (the $\Omega^-$ prediction). For the other half of this dot
+point, name each new particle. Say what was observed: for example, a positive track with an
+electron's mass, or the spread of beta energies. Then say why that means a new particle
+exists.
+\end{examtip}
+
+\begin{quickcheck}
+  \item State what a fundamental particle is. Is the electron one?
+  \item Electrons in a beam each have momentum \qty{8.0e-18}{kg.m.s^{-1}}. Find their
+        wavelength. Can they show structure inside a proton (\qty{1.7e-15}{m})?
+  \item Explain how beta-minus decay supports the idea that a neutron is not fundamental.
+  \item Name two particles other than protons, neutrons and electrons, with the evidence
+        for each.
+\end{quickcheck}
+
+%% ==================================================================
+\section{The Standard Model: particles and forces}\label{ch5:sec:sm}
+\covers{M8.IQ5.02}
+
+\begin{bigidea}
+The Standard Model is our best theory of what matter is made of. It has 12 matter
+particles: 6 quarks and 6 leptons. Other particles, called bosons, carry the forces.
+Quarks always join in groups to make hadrons, such as protons and neutrons.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Quark}{a fundamental matter particle (fermion) that feels the strong force (the
+    force that holds the nucleus together).}
+  \kw{Lepton}{a fundamental matter particle that does not feel the strong force.}
+  \kw{Hadron}{a particle made of quarks, such as a proton.}
+  \kw{Fermion / boson}{a particle with half-number spin / with whole-number spin (spin is
+    a built-in amount of turning).}
+\end{keywords}
+
+The \term{Standard Model} is the theory that lists the fundamental particles and the
+forces between them (\cref{ch5:fig:sm}). It has passed nearly every test since the 1970s.
+
+Every particle has \term{spin}: a built-in amount of turning, like a tiny spinning top. A
+\term{fermion} has half-number spin ($\tfrac12$, $\tfrac32$, \ldots). All quarks and
+leptons are fermions. A \term{boson} has whole-number spin (0, 1, 2, \ldots). The force
+carriers and the Higgs are bosons.
+
+\subsection{Quarks and leptons}
+
+\begin{itemize}
+  \item A \term{quark} is a fundamental matter particle (a fermion) that feels the strong
+        force. There are six \term{flavours} (types) in three \term{generations}: each
+        generation is a heavier copy of the one before. Ordinary matter uses only u and d.
+  \item Up-type quarks (u, c, t) have charge $+\tfrac23 e$. Down-type quarks (d, s, b)
+        have $-\tfrac13 e$. Quarks carry \term{colour charge}: the ``charge'' of the
+        strong force (not real colour).
+  \item A quark is never found alone. This is \term{confinement}: quarks are always locked
+        inside hadrons.
+  \item A \term{lepton} is a fundamental matter particle that does not feel the strong
+        force. The electron, muon and tau have charge $-1e$. The three \term{neutrinos}
+        have a tiny mass. They have no electric charge and no colour charge, so only the
+        weak force and gravity act on them.
+  \item Every particle has an antiparticle with the same mass and the opposite charge. (A
+        few neutral particles, such as the photon, are their own antiparticle.) An
+        antiquark has a bar: $\chFiveaq{u}$ has charge $-\tfrac23 e$ and $\chFiveaq{d}$
+        has $+\tfrac13 e$.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      cell/.style={draw=#1!75!black, fill=#1!14, rounded corners=1.5mm,
+        minimum width=1.9cm, minimum height=1.36cm, line width=0.6pt,
+        align=center, inner sep=1pt, execute at begin node={\setstretch{0.9}}},
+      bcell/.style={cell=#1, minimum width=2.25cm}]
+    \foreach \x/\g in {0/1, 2.05/2, 4.1/3}
+      \node[font=\footnotesize\bfseries] at (\x,1.0) {Generation \g};
+    \node[font=\footnotesize\bfseries] at (6.55,1.0) {Force carriers};
+    \node[font=\footnotesize\bfseries] at (8.95,1.0) {Higgs};
+    \node[cell=hscseriesB] at (0,0)    {{\large $\mathrm{u}$}\\{\scriptsize up}\\{\scriptsize $+\tfrac23$}};
+    \node[cell=hscseriesB] at (2.05,0) {{\large $\mathrm{c}$}\\{\scriptsize charm}\\{\scriptsize $+\tfrac23$}};
+    \node[cell=hscseriesB] at (4.1,0)  {{\large $\mathrm{t}$}\\{\scriptsize top}\\{\scriptsize $+\tfrac23$}};
+    \node[cell=hscseriesB] at (0,-1.48)    {{\large $\mathrm{d}$}\\{\scriptsize down}\\{\scriptsize $-\tfrac13$}};
+    \node[cell=hscseriesB] at (2.05,-1.48) {{\large $\mathrm{s}$}\\{\scriptsize strange}\\{\scriptsize $-\tfrac13$}};
+    \node[cell=hscseriesB] at (4.1,-1.48)  {{\large $\mathrm{b}$}\\{\scriptsize bottom}\\{\scriptsize $-\tfrac13$}};
+    \node[cell=hscseriesC] at (0,-2.96)    {{\large $\mathrm{e}^-$}\\{\scriptsize electron}\\{\scriptsize $-1$}};
+    \node[cell=hscseriesC] at (2.05,-2.96) {{\large $\mu^-$}\\{\scriptsize muon}\\{\scriptsize $-1$}};
+    \node[cell=hscseriesC] at (4.1,-2.96)  {{\large $\tau^-$}\\{\scriptsize tau}\\{\scriptsize $-1$}};
+    \node[cell=hscseriesC] at (0,-4.44)    {{\large $\nu_\mathrm{e}$}\\{\scriptsize e-neutrino}\\{\scriptsize $0$}};
+    \node[cell=hscseriesC] at (2.05,-4.44) {{\large $\nu_\mu$}\\{\scriptsize $\mu$-neutrino}\\{\scriptsize $0$}};
+    \node[cell=hscseriesC] at (4.1,-4.44)  {{\large $\nu_\tau$}\\{\scriptsize $\tau$-neutrino}\\{\scriptsize $0$}};
+    \node[bcell=hscseriesA] at (6.55,0)     {{\large $\mathrm{g}$}\\{\scriptsize gluon}\\{\scriptsize strong force}};
+    \node[bcell=hscseriesA] at (6.55,-1.48) {{\large $\gamma$}\\{\scriptsize photon}\\{\scriptsize EM force}};
+    \node[bcell=hscseriesA] at (6.55,-2.96) {{\large $\mathrm{W}^\pm$}\\{\scriptsize W bosons}\\{\scriptsize weak force}};
+    \node[bcell=hscseriesA] at (6.55,-4.44) {{\large $\mathrm{Z}^0$}\\{\scriptsize Z boson}\\{\scriptsize weak force}};
+    \node[cell=hscbrand] at (8.95,0) {{\large $\mathrm{H}$}\\{\scriptsize Higgs boson}\\{\scriptsize spin 0}};
+    \node[draw=hscmuted, dashed, rounded corners=1.5mm, minimum width=1.9cm,
+      minimum height=1.36cm, align=center, inner sep=1pt, line width=0.6pt,
+      execute at begin node={\setstretch{0.9}}] (grav) at (8.95,-2.35)
+      {{\large\color{hscmuted} G?}\\{\scriptsize\color{hscmuted} graviton}};
+    \node[font=\scriptsize, text=hscmuted, align=center, below=1pt of grav]
+      {never found;\\ NOT in the\\ Standard Model};
+    \draw[hscseriesB!75!black, line width=0.8pt] (-1.15,0.68) -- (-1.25,0.68) -- (-1.25,-2.16) -- (-1.15,-2.16);
+    \node[rotate=90, font=\footnotesize\bfseries, text=hscseriesB!75!black] at (-1.55,-0.74) {QUARKS};
+    \draw[hscseriesC!75!black, line width=0.8pt] (-1.15,-2.28) -- (-1.25,-2.28) -- (-1.25,-5.12) -- (-1.15,-5.12);
+    \node[rotate=90, font=\footnotesize\bfseries, text=hscseriesC!75!black] at (-1.55,-3.70) {LEPTONS};
+    \draw[hscmuted, line width=0.6pt] (-0.95,-5.3) -- (5.05,-5.3);
+    \node[font=\scriptsize] at (2.05,-5.57) {matter particles: fermions (spin $\tfrac12$)};
+    \draw[hscmuted, line width=0.6pt] (5.42,-5.3) -- (10.1,-5.3);
+    \node[font=\scriptsize] at (7.75,-5.57) {bosons (whole-number spin)};
+  \end{tikzpicture}
+  \caption{The particles of the Standard Model. Numbers are charges in units of $e$.
+    EM = electromagnetic.}\label{ch5:fig:sm}
+\end{figure}
+
+\subsection{The four fundamental forces}
+
+Imagine two people on skateboards passing a heavy medicine ball. The thrower rolls
+backwards. The catcher rolls backwards too. Each pass pushes them further apart. In the
+same way, two electrons swap photons, and this pushes them apart. (This picture only
+explains pushing apart. Attraction needs the full theory.) A boson that carries a force
+like this is an \term{exchange particle} (\cref{ch5:tab:forces}).
+
+\begin{table}
+  \caption{The four forces. Strengths are rough values compared with the strong force
+    (books differ a little).}\label{ch5:tab:forces}
+  \centering
+  \small
+  \begin{tabular}{@{}L{17mm}L{22mm}L{26mm}L{13mm}L{14mm}L{36mm}@{}}
+    \toprule
+    \colhead{Force} & \colhead{Carrier} & \colhead{Acts on} & \colhead{Strength}
+      & \colhead{Range} & \colhead{What it does}\\
+    \midrule
+    strong & gluons (g) & quarks and gluons & 1 & \qty{e-15}{m} & holds quarks in hadrons
+      and holds the nucleus together\\
+    electro\-magnetic & photon ($\gamma$) & charged particles & $10^{-2}$ & no limit
+      & holds atoms together; light\\
+    weak & $\mathrm{W}^+$, $\mathrm{W}^-$, $\mathrm{Z}^0$ & all quarks and leptons
+      & $10^{-6}$ & \qty{e-18}{m} & beta decay; changes quark flavour\\
+    gravity & graviton? (never found) & everything with mass or energy & $10^{-38}$
+      & no limit & planets, stars, galaxies\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Strong force.} The \term{strong force} (carried by gluons) holds quarks
+        together inside protons and neutrons. A little of this pull leaks out of each
+        proton and neutron. This left-over pull holds the nucleus together, even though
+        its protons repel each other.
+  \item \textbf{Weak force.} The \term{weak force} is the only force that can change a
+        quark's flavour (type). It is carried by three bosons: $\mathrm{W}^+$,
+        $\mathrm{W}^-$ and $\mathrm{Z}^0$. They are very heavy: about 86 and 97 times the
+        mass of a proton. A heavy exchange particle can only exist for a very short time.
+        So it cannot travel far, and the weak force has a tiny range (about
+        \qty{e-18}{m}). \Cref{ch5:fig:beta} shows how it changes a quark in beta decay.
+\end{itemize}
+
+\begin{sidebyside}[0.42]
+  \centering
+  \begin{tikzpicture}[x=0.95cm, y=0.95cm,
+      had/.style={draw=hscbrand!60, fill=hscbrand!6, line width=0.7pt},
+      qk/.style={circle, text=white, font=\scriptsize\bfseries, minimum size=0.46cm,
+        inner sep=0pt},
+      hl/.style={draw=hscforce, line width=1.3pt}]
+    \draw[had] (0,0) circle (0.8);
+    \node[qk, fill=hscseriesB] at (-0.3,0.25) {u};
+    \node[qk, fill=hscseriesC!85!black] at (0.3,0.25) {d};
+    \node[qk, fill=hscseriesC!85!black, hl] at (0,-0.3) {d};
+    \node[font=\scriptsize\bfseries] at (0,1.1) {neutron (udd)};
+    \draw[hscink, line width=0.9pt, -{Stealth[length=2.2mm, width=1.7mm]}] (0.95,0) -- (2.45,0);
+    \node[font=\scriptsize, text=hscforce, anchor=south] at (1.7,0.05) {d $\to$ u};
+    \draw[had] (3.4,0) circle (0.8);
+    \node[qk, fill=hscseriesB] at (3.1,0.25) {u};
+    \node[qk, fill=hscseriesC!85!black] at (3.7,0.25) {d};
+    \node[qk, fill=hscseriesB, hl] at (3.4,-0.3) {u};
+    \node[font=\scriptsize\bfseries] at (3.4,1.1) {proton (uud)};
+    \draw[hscacc, line width=1pt, decorate, decoration={snake, amplitude=0.8mm,
+      segment length=2.2mm}] (1.7,-0.05) -- (1.7,-1.1);
+    \node[font=\scriptsize, text=hscacc!80!black, anchor=west] at (1.8,-0.6) {$\mathrm{W}^-$};
+    \draw[hscvel, line width=0.9pt, -{Stealth[length=2.2mm, width=1.7mm]}] (1.7,-1.1) -- (0.75,-1.85);
+    \draw[hscvel, line width=0.9pt, -{Stealth[length=2.2mm, width=1.7mm]}] (1.7,-1.1) -- (2.65,-1.85);
+    \node[font=\scriptsize, anchor=north, align=center] at (0.6,-1.9) {electron\\[-2pt]$\mathrm{e}^-$};
+    \node[font=\scriptsize, anchor=north, align=center] at (2.85,-1.9) {antineutrino\\[-2pt]$\chFiveanu$};
+  \end{tikzpicture}
+  \captionof{figure}{Beta-minus decay at the quark level. The ringed quark is the one
+    that changes.}\label{ch5:fig:beta}
+\nextside
+  \begin{itemize}
+    \item \textbf{Beta-minus decay:} a down quark becomes an up quark and gives out a
+          $\mathrm{W}^-$: $\mathrm{d} \to \mathrm{u} + \mathrm{W}^-$. The $\mathrm{W}^-$
+          quickly becomes an electron and an antineutrino:
+          $\mathrm{W}^- \to \mathrm{e}^- + \chFiveanu$. So the neutron (udd) becomes a
+          proton (uud).
+    \item \textbf{Beta-plus decay} (only inside a nucleus):
+          $\mathrm{u} \to \mathrm{d} + \mathrm{W}^+$, then
+          $\mathrm{W}^+ \to \mathrm{e}^+ + \nu_\mathrm{e}$. A free proton cannot do this:
+          it is lighter than a neutron.
+    \item Charge balances at every step: $-\tfrac13 = +\tfrac23 + (-1)$.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{itemize}
+  \item \textbf{The Higgs field} fills all space. Most fundamental particles get their mass
+        by interacting with it. (How neutrinos get their tiny mass is not yet known.) The
+        photon and gluon do not interact with it, so they have no mass. A rough picture:
+        it is harder to get moving in water than in air. In the same way, a particle that
+        interacts strongly with the Higgs field is harder to speed up, so it has more
+        mass. (This is only a picture: the field does not slow particles down like
+        friction.) A ripple in the field is the \term{Higgs boson}, found in 2012. Most
+        of a proton's mass is not from the Higgs: about 99\% is the energy of its moving
+        quarks and gluons.
+\end{itemize}
+
+\subsection{Hadrons: baryons and mesons}
+
+\begin{sidebyside}[0.40]
+  \centering
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm,
+      had/.style={draw=hscbrand!60, fill=hscbrand!6, line width=0.7pt},
+      upq/.style={circle, fill=hscseriesB!80, text=white, font=\small\bfseries,
+        minimum size=0.48cm, inner sep=0pt},
+      dnq/.style={circle, fill=hscseriesC!85!black, text=white, font=\small\bfseries,
+        minimum size=0.48cm, inner sep=0pt},
+      glue/.style={decorate, decoration={coil, aspect=0, segment length=1.6mm,
+        amplitude=0.6mm}, hscmuted, line width=0.5pt}]
+    \draw[had] (0,0) circle (0.95);
+    \node[upq] (a) at (-0.38,0.30) {u}; \node[upq] (b) at (0.40,0.30) {u};
+    \node[dnq] (c) at (0,-0.38) {d};
+    \draw[glue] (a) -- (b); \draw[glue] (b) -- (c); \draw[glue] (c) -- (a);
+    \node[font=\footnotesize\bfseries] at (0,1.25) {proton (baryon)};
+    \node[font=\footnotesize] at (0,-1.3) {$+\tfrac23 + \tfrac23 - \tfrac13 = +1$};
+    \begin{scope}[xshift=2.9cm]
+      \draw[had] (0,0) ellipse (0.95 and 0.75);
+      \node[upq] (a) at (-0.40,0) {u};
+      \node[circle, draw=hscseriesC!85!black, line width=1pt, fill=white,
+        text=hscseriesC!70!black, font=\small\bfseries, minimum size=0.48cm,
+        inner sep=0pt] (b) at (0.40,0) {$\overline{\mathrm{d}}$};
+      \draw[glue] (a) -- (b);
+      \node[font=\footnotesize\bfseries] at (0,1.25) {pion $\pi^+$ (meson)};
+      \node[font=\footnotesize] at (0,-1.3) {$+\tfrac23 + \tfrac13 = +1$};
+    \end{scope}
+  \end{tikzpicture}
+  \captionof{figure}{A baryon and a meson. The springs stand for gluons.}\label{ch5:fig:hadrons}
+\nextside
+  A \term{hadron} is a particle made of quarks held together by the strong force
+  (\cref{ch5:fig:hadrons}).
+  \begin{itemize}
+    \item A \term{baryon} is a hadron of three quarks: proton (uud), neutron (udd). Three
+          half-number spins add to a half-number, so baryons are fermions.
+    \item A \term{meson} is a hadron of a quark and an antiquark: pion $\pi^+$
+          (u$\chFiveaq{d}$). Two half-number spins add to a whole number, so mesons are
+          bosons. All mesons are unstable.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{toolkit}{Adding thirds}
+Write every charge as a fraction over 3. Then add the top numbers:
+$\tfrac23 + \tfrac23 - \tfrac13 = \dfrac{2 + 2 - 1}{3} = \dfrac{3}{3} = 1$. Keep each minus
+sign with its top number. To get coulombs, multiply by $e = \qty{1.602e-19}{C}$.
+\end{toolkit}
+
+\begin{formulacard}[notonsheet]{Charge of a hadron}
+  \cardformula{Q = q_1 + q_2 + q_3 \ \ \text{(baryon)} \qquad Q = q_1 + q_2 \ \ \text{(meson)}}
+  \begin{symbols}
+    \sym{$Q$}{total charge of the hadron}{\si{C} (or $e$)}
+    \sym{$q_1, q_2, q_3$}{charge of each quark: u, c, t $+\tfrac23 e$; d, s, b
+      $-\tfrac13 e$; antiquarks opposite}{\si{C} (or $e$)}
+  \end{symbols}
+  \inwords{add up the charges of the quarks inside.}
+  \whentouse{any baryon or meson; or backwards, to find a missing quark.}
+  \whennottouse{leptons: they are not made of quarks.}
+  \rearranged{missing quark $= Q - {}$(sum of the known quarks); \ in coulombs, multiply
+    the charge in $e$ by \qty{1.602e-19}{C}.}
+  \tensecond{proton uud: $+\tfrac23 + \tfrac23 - \tfrac13 = +1e$.}
+  \derive{charge is conserved and adds up: a group's charge is the sum of its parts'
+    charges. The quark charges must be learnt.}
+  \trap{flip the sign for an antiquark: $\chFiveaq{d}$ is $+\tfrac13 e$.}
+\end{formulacard}
+
+\begin{workedexample}{Charges of two hadrons}\label{ch5:we:charges}
+The $\Xi^0$ (``xi-zero'') baryon is uss. The $\mathrm{K}^-$ (``K-minus'', a kaon) meson is
+s$\chFiveaq{u}$. Find the charge of each, in units of $e$ and in coulombs.
+\given{u $= +\tfrac23 e$, \ s $= -\tfrac13 e$, \ $\chFiveaq{u} = -\tfrac23 e$ (sign flipped)}
+\find{$Q$ for $\Xi^0$ and for $\mathrm{K}^-$}
+\formula{$Q = q_1 + q_2 + q_3$ (baryon), \ $Q = q_1 + q_2$ (meson)}
+\substitute{\eqlines{Q(\Xi^0) &= +\tfrac23 - \tfrac13 - \tfrac13 = \dfrac{2 - 1 - 1}{3} = 0\\
+  Q(\Xi^0) &= 0 \times \qty{1.602e-19}{C} = \qty{0}{C} \quad\text{(change to coulombs)}\\
+  Q(\mathrm{K}^-) &= -\tfrac13 - \tfrac23 = \dfrac{-1 - 2}{3} = -1\\
+  Q(\mathrm{K}^-) &= -1 \times \qty{1.602e-19}{C} = \qty{-1.602e-19}{C}}}
+\answer{\final{$Q(\Xi^0) = 0 = \qty{0}{C}$} \ and \
+  \final{$Q(\mathrm{K}^-) = -1e = \qty{-1.602e-19}{C}$}}
+\checkstep{the small 0 and $-$ in the names $\Xi^0$ and $\mathrm{K}^-$ show their charges
+  \cmark. A hadron's charge is always a whole number of $e$.}
+\end{workedexample}
+
+\begin{workedexample}{Counting quarks in a nucleus}\label{ch5:we:nitrogen}
+A nitrogen-14 nucleus has 7 protons and 7 neutrons. How many up and down quarks does it
+contain? Use them to check its charge.
+\given{7 protons (uud) and $14 - 7 = 7$ neutrons (udd)}
+\find{the number of u and d quarks, and the total charge}
+\formula{count the quarks in each nucleon (proton or neutron); then add all the quark
+  charges: $Q = \sum q$ ($\sum$ means ``add them all up'')}
+\substitute{\eqlines{\text{up} &= 7 \times 2 + 7 \times 1 = 21 \quad\text{(2 per proton, 1 per neutron)}\\
+  \text{down} &= 7 \times 1 + 7 \times 2 = 21\\
+  Q &= 21 \times \left(+\tfrac23\right) + 21 \times \left(-\tfrac13\right)
+  = \tfrac{42}{3} - \tfrac{21}{3} = 14 - 7 = +7}}
+\answer{\final{21 up and 21 down quarks}, total charge $+7e$.}
+\checkstep{7 protons give $+7e$ \cmark. $3 \times 14 = 42$ quarks \cmark. Electrons are
+  leptons, so they add no quarks.}
+\end{workedexample}
+
+\begin{workedexample}{Finding a missing quark}\label{ch5:we:missing}
+A baryon has charge $-1e$. Two of its quarks are s and d. Its third quark is from the
+first generation (u or d). (a) Find the third quark. (b) Is this baryon a fermion or a
+boson? Explain. (c) It decays when its s quark changes into a u quark. Which force does
+this, and which boson is given out?
+\given{$Q = -1e$; \ s $= -\tfrac13 e$, \ d $= -\tfrac13 e$; \ third quark u
+  ($+\tfrac23 e$) or d ($-\tfrac13 e$)}
+\find{(a) the third quark \ (b) fermion or boson \ (c) the force and the boson}
+\formula{missing quark $= Q - {}$(sum of the known quarks); \ charge is conserved in
+  every change}
+\substitute{\eqlines{q_3 &= -1 - \left(-\tfrac13\right) - \left(-\tfrac13\right)
+  \quad\text{(take away the two known quarks)}\\
+  &= -\tfrac33 + \tfrac13 + \tfrac13 = -\tfrac13 \quad\text{(so it is d, not u)}\\
+  \mathrm{s} &\to \mathrm{u} + \mathrm{W}^-: \quad -\tfrac13 = +\tfrac23 + (-1)
+  \quad\text{(charge balances)}}}
+\answer{(a) \final{d}: the baryon is dds (the sigma-minus, $\Sigma^-$). (b) Each quark has
+  spin $\tfrac12$. Three half-number spins add to a half-number, so it is a
+  \final{fermion}. (c) Only the \final{weak force} changes a quark's flavour. The s quark
+  gives out a \final{$\mathrm{W}^-$}.}
+\checkstep{dds: $-\tfrac13 - \tfrac13 - \tfrac13 = -1$ \cmark. With u instead,
+  $+\tfrac23 - \tfrac13 - \tfrac13 = 0$, not $-1$, so u is ruled out \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Not flipping an antiquark's sign. \cmark\ $\chFiveaq{u} = -\tfrac23 e$,
+        $\chFiveaq{d} = +\tfrac13 e$.
+  \item \xmark\ ``Mesons are fermions.'' \cmark\ Quark + antiquark gives whole-number
+        spin: mesons are bosons. Hadrons include both baryons and mesons.
+  \item \xmark\ ``The graviton is part of the Standard Model.'' \cmark\ It has never been
+        found, and gravity is not in the Standard Model.
+  \item \xmark\ $\mathrm{n} \to \mathrm{p} + \mathrm{e}^- + \nu$. \cmark\ Beta-minus decay
+        gives an \emph{anti}neutrino, $\chFiveanu$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Compare quarks and leptons'' (4 marks) needs two similarities and two differences,
+each with an example. Same: both are fundamental fermions in 3 generations of 2, and both
+feel the weak force. Different: only quarks feel the strong force; quark charges are
+$+\tfrac23 e$ or $-\tfrac13 e$, lepton charges $-1e$ or 0. For beta decay, show the quark
+change ($\mathrm{d} \to \mathrm{u}$), the $\mathrm{W}^-$ and the $\chFiveanu$.
+\end{examtip}
+
+\begin{quickcheck}
+  \item The antiproton is $\chFiveaq{u}\,\chFiveaq{u}\,\chFiveaq{d}$. Find its charge in
+        $e$ and in coulombs.
+  \item Sort into lepton, baryon, meson or force carrier: muon, $\pi^-$, proton, photon,
+        electron neutrino. Which are fundamental?
+  \item A baryon has charge $+2e$ and only first-generation quarks. What is it made of?
+  \item List the four forces from weakest to strongest, with the carrier of each.
+  \item Write beta-plus decay at the quark level. Which boson is involved?
+\end{quickcheck}
+
+%% ==================================================================
+\section{Particle accelerators: how they work and what they show}\label{ch5:sec:accel}
+\covers{M8.IQ5.03}
+
+\begin{bigidea}
+Accelerators use electric fields to speed up charged particles and magnetic fields to
+steer them. Fast particles show tiny details, and their collisions make new heavy
+particles. This is how the Standard Model has been tested.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Linac}{a linear accelerator: particles are pushed along a straight line.}
+  \kw{Cyclotron}{particles spiral outwards in a fixed magnetic field.}
+  \kw{Synchrotron}{a ring where the magnetic field grows as the particles gain momentum,
+    so they stay on one circle.}
+  \kw{Collider}{an accelerator where two beams hit each other head-on.}
+\end{keywords}
+
+A \term{particle accelerator} is a machine that makes charged particles move very fast.
+There are two reasons to build one. First, more momentum gives a shorter wavelength
+($\lambda = \dfrac{h}{mv}$), so smaller details show up. Second, in a collision, kinetic
+energy can turn into the mass of new particles ($E = mc^2$). To make a particle and its
+antiparticle, you need at least $2mc^2$ (\cref{ch1:we:proton}).
+
+\begin{refresher}{Charges in fields (Module 6)}
+An electric field pushes a positive charge along the field. It pushes a negative charge
+(such as an electron) the opposite way. A magnetic force, $F = qv_\perp B = qvB\sin\theta$
+($\theta$ is the angle between $v$ and $B$), is always at \ang{90} to the velocity. It changes the direction, not the speed, so it does
+no work. Only \emph{charged} particles can be accelerated.
+\end{refresher}
+
+\begin{toolkit}{Electronvolts}
+One electronvolt (\si{eV}, \cref{ch1:sec:bigbang}) is the energy a charge $e$ gains through \qty{1}{V}:
+$\qty{1}{eV} = \qty{1.602e-19}{J}$. Prefixes: k $= 10^3$, M $= 10^6$, G $= 10^9$,
+T $= 10^{12}$. A proton through \qty{250}{kV} gains \qty{250}{keV}; an alpha particle
+($q = 2e$) gains twice as much. To change eV to J, multiply by \num{1.602e-19}.
+\end{toolkit}
+
+\begin{formulacard}{Energy gained by a charge}
+  \cardformula{W = qV}
+  \begin{symbols}
+    \sym{$W$}{work done on the charge (= the kinetic energy it gains)}{\si{J}}
+    \sym{$q$}{charge of the particle}{\si{C}}
+    \sym{$V$}{potential difference (voltage) it moves through}{\si{V}}
+  \end{symbols}
+  \inwords{a charge that moves through a voltage $V$ gains energy $qV$.}
+  \whentouse{a charge speeding up between plates, in a linac gap or a cyclotron gap. From
+    rest, after $n$ equal gaps: $K = nqV$.}
+  \whennottouse{magnetic fields (they do no work); neutral particles ($q = 0$). Do not use
+    $\tfrac12 mv^2 = qV$ to find a speed above about $0.1c$.}
+  \rearranged{$V = \dfrac{W}{q}$ \qquad from rest: $\tfrac12 mv^2 = qV$, so
+    $v = \sqrt{\dfrac{2qV}{m}}$ (below about $0.1c$)}
+  \tensecond{electron through \qty{5.0}{kV}:
+    $W = \num{1.602e-19} \times \num{5.0e3} = \qty{8.0e-16}{J} = \qty{5.0}{keV}$.}
+  \trap{change \si{kV} to \si{V} first. An alpha particle has $q = 2e$, not $e$, so it
+    gains twice as many eV.}
+\end{formulacard}
+
+\subsection{The linear accelerator (linac)}
+
+A \term{linac} is a row of hollow metal \term{drift tubes}: tubes the particles coast
+through (move at a steady speed, with no push). Every second tube is joined to one end of
+an AC supply. The tubes in between are joined to the other end (\cref{ch5:fig:linac}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm,
+      tube/.style={draw=hscink, fill=hscmuted!18, line width=0.7pt}]
+    \draw[draw=hscink, fill=hscbrand!10, line width=0.7pt] (-1.75,-0.35) rectangle (-0.55,0.35);
+    \node[font=\scriptsize, align=center] at (-1.15,0) {proton\\[-2pt]source};
+    \foreach \a/\b/\s in {0/0.850/+, 1.200/2.402/-, 2.752/4.224/+, 4.574/6.274/-, 6.624/8.525/+}{
+      \draw[tube] (\a,-0.3) rectangle (\b,0.3);
+      \node[font=\small\bfseries] at ({(\a+\b)/2},0) {$\s$};
+    }
+    \draw[guide] (-0.55,0) -- (0,0);
+    \draw[velocity] (8.6,0) -- (9.6,0) node[midway, below, font=\scriptsize, text=hscvel] {beam};
+    \fill[hscvel] (1.02,0) circle (2.2pt);
+    \draw[force] (1.0,0.55) -- (1.6,0.55);
+    \node[font=\scriptsize, text=hscforce, anchor=south] at (1.3,0.62) {push};
+    % odd tubes -> top wire; even tubes -> bottom wire. The AC supply sits above the
+    % tubes, off the beam line; its second wire runs round the left end.
+    \foreach \c in {0.425, 3.488, 7.575} \draw[hscink, line width=0.6pt] (\c,0.3) -- (\c,1.15);
+    \foreach \c in {1.801, 5.424} \draw[hscink, line width=0.6pt] (\c,-0.3) -- (\c,-1.15);
+    \draw[hscink, line width=0.6pt] (0.425,1.15) -- (7.575,1.15);
+    \draw[hscink, line width=0.6pt] (4.6,1.15) -- (4.6,1.45);
+    \draw[hscink, fill=white, line width=0.7pt] (4.6,1.75) circle (0.3);
+    \node[font=\small] at (4.6,1.75) {$\sim$};
+    \node[font=\scriptsize, anchor=west] at (4.95,1.75) {AC supply};
+    \draw[hscink, line width=0.6pt] (4.6,2.05) -- (4.6,2.3) -- (-2.1,2.3) -- (-2.1,-1.15)
+      -- (5.424,-1.15);
+    \node[font=\scriptsize, anchor=north] at (3.488,-0.38) {no field inside a tube};
+    \draw[hscmuted, line width=0.5pt] (6.45,0.62) -- (6.45,0.36);
+    \node[font=\scriptsize, anchor=south] at (6.45,0.6) {gap: field here};
+    \draw[displacement] (2.75,-1.55) -- (8.5,-1.55) node[midway, below, font=\scriptsize, text=hscmuted]
+      {each tube is longer than the one before};
+  \end{tikzpicture}
+  \caption{A linac at one instant. Half a cycle later every $+$ and $-$ swaps, so the
+    next gap also pushes the proton forward.}\label{ch5:fig:linac}
+\end{figure}
+
+There is no field inside a tube, so the particle coasts. In each gap the field pushes it
+forward and it gains $qV$. While it is inside a tube, the AC swaps $+$ and $-$, so the
+next gap is ready to push. The particle speeds up, so each tube is \emph{longer}. This
+keeps the time inside every tube equal to half an AC cycle. Hospitals use electron linacs
+to make X-rays that treat cancer. The SLAC linac is \qty{3.2}{km} long.
+
+\begin{workedexample}{Designing a proton linac}\label{ch5:we:linac}
+The first stage of a proton accelerator must give each proton \qty{2.00}{MeV}. The
+protons start from rest. Each gap has \qty{250}{kV} across it. How many gaps are needed?
+How fast is a proton at the end?
+\given{$K = \qty{2.00}{MeV}$, \ $V = \qty{250}{kV} = 250 \times 10^3 = \qty{2.50e5}{V}$, \
+  $q = e = \qty{1.602e-19}{C}$, \ $m = \qty{1.673e-27}{kg}$}
+\find{the number of gaps $n$ and the final speed $v$}
+\formula{$W = qV$ for each gap; from rest $K = nqV$; then $K = \tfrac12 mv^2$, so
+  $v = \sqrt{\dfrac{2K}{m}}$}
+\substitute{\eqlines{W &= e \times \qty{250}{kV} = \qty{250}{keV} = \qty{0.250}{MeV}
+  \quad\text{(energy from one gap)}\\
+  n &= \frac{\qty{2.00}{MeV}}{\qty{0.250}{MeV}} = 8 \quad\text{(number of gaps)}}\par
+  \eqlines{K &= \num{2.00e6} \times \qty{1.602e-19}{J} = \qty{3.204e-13}{J}
+  \quad\text{(eV to J)}\\
+  v &= \sqrt{\frac{2 \times \qty{3.204e-13}{J}}{\qty{1.673e-27}{kg}}}
+  = \sqrt{\num{3.830e14}} = \qty{1.957e7}{m.s^{-1}}}}
+\answer{\final{$n = 8$ gaps}, \ \final{$v = \qty{1.96e7}{m.s^{-1}}$}}
+\checkstep{$\dfrac{v}{c} = \dfrac{\num{1.957e7}}{\num{3.00e8}} = 0.065$, well below
+  $0.1c$, so $\tfrac12 mv^2$ is fine (relativity changes $v$ by only 0.2\%).}
+\end{workedexample}
+
+\subsection{The cyclotron}
+
+A \term{cyclotron} has two hollow, D-shaped electrodes called \term{dees}, with a gap
+between them. A large magnet makes a uniform field (the same strength and direction
+everywhere) through the dees. An AC voltage is connected across the gap
+(\cref{ch5:fig:cyclotron}). The particles are \term{ions}: charged atoms (a proton is a
+hydrogen ion).
+
+\begin{sidebyside}[0.47]
+  \centering
+  \begin{tikzpicture}[x=1.3cm, y=1.3cm]
+    \fill[hscseriesB!12] (0.15,-1.45) arc[start angle=-90, end angle=90, radius=1.75] -- cycle;
+    \fill[hscseriesB!12] (-0.15,2.05) arc[start angle=90, end angle=270, radius=1.75] -- cycle;
+    \draw[hscseriesB!75!black, line width=0.8pt] (0.15,-1.45) arc[start angle=-90, end angle=90, radius=1.75] -- cycle;
+    \draw[hscseriesB!75!black, line width=0.8pt] (-0.15,2.05) arc[start angle=90, end angle=270, radius=1.75] -- cycle;
+    \foreach \p in {(-1.45,1.25), (-1.45,-0.55), (-0.95,1.62), (-0.75,-1.25), (1.45,1.25),
+                    (1.45,-0.65), (0.95,1.62), (0.75,-1.25), (-1.72,0.3)}
+      \node[text=hscfield, font=\small] at \p {$\times$};
+    \draw[hscvel, line width=0.9pt, postaction={decorate}, decoration={markings,
+        mark=at position 0.12 with {\arrow{Stealth[length=2mm, width=1.6mm]}},
+        mark=at position 0.45 with {\arrow{Stealth[length=2mm, width=1.6mm]}},
+        mark=at position 0.80 with {\arrow{Stealth[length=2mm, width=1.6mm]}}}]
+      (0,0) -- (0.15,0) arc[start angle=-90, end angle=90, radius=0.400] -- ++(-0.30,0)
+      arc[start angle=90, end angle=270, radius=0.566] -- ++(0.30,0)
+      arc[start angle=-90, end angle=90, radius=0.693] -- ++(-0.30,0)
+      arc[start angle=90, end angle=270, radius=0.800] -- ++(0.30,0)
+      arc[start angle=-90, end angle=90, radius=0.894] -- ++(-0.30,0)
+      arc[start angle=90, end angle=270, radius=0.980] -- ++(0.30,0)
+      arc[start angle=-90, end angle=90, radius=1.058] -- ++(-0.30,0)
+      arc[start angle=90, end angle=270, radius=1.131] -- ++(0.30,0)
+      arc[start angle=-90, end angle=90, radius=1.200] -- ++(-0.30,0)
+      arc[start angle=90, end angle=270, radius=1.265] -- ++(0.30,0)
+      arc[start angle=-90, end angle=-15, radius=1.327];
+    \draw[velocity] (1.431,-0.009) -- (1.846,1.536);
+    \node[font=\scriptsize, text=hscvel, anchor=west] at (1.86,1.5) {exit};
+    \fill[hscink] (0,0) circle (1.6pt);
+    \draw[hscink, line width=0.6pt] (-0.6,1.98) -- (-0.6,2.35) -- (-0.25,2.35);
+    \draw[hscink, line width=0.6pt] (0.6,1.98) -- (0.6,2.35) -- (0.25,2.35);
+    \draw[hscink, fill=white, line width=0.7pt] (0,2.35) circle (0.25);
+    \node[font=\small] at (0,2.35) {$\sim$};
+    \node[font=\scriptsize, anchor=west] at (0.62,2.42) {AC};
+    \node[font=\scriptsize, text=hscseriesB!65!black] at (-1.15,-1.62) {dee 1};
+    \node[font=\scriptsize, text=hscseriesB!65!black] at (1.15,-1.62) {dee 2};
+    \node[font=\scriptsize] at (0,-1.62) {gap};
+    \node[font=\scriptsize, align=center, anchor=north] at (0,-1.8)
+      {gap: the AC pushes the ion here\\[-1pt]$\times$: $B$ into the page \quad
+       dot: ion source};
+  \end{tikzpicture}
+  \captionof{figure}{Top view of a cyclotron. A positive ion starts at the centre and
+    turns anticlockwise.}\label{ch5:fig:cyclotron}
+\nextside
+  \begin{itemize}
+    \item Each time the ion crosses the gap, the electric field speeds it up.
+    \item Inside a dee there is no electric field. The magnetic force bends the ion
+          around a half circle.
+    \item Faster means a bigger circle, so the path spirals outwards.
+    \item The AC flips while the ion is inside a dee, so every crossing is a push.
+    \item At the edge the fast ions are steered out.
+  \end{itemize}
+\end{sidebyside}
+
+\begin{formulacard}[notonsheet]{A charge moving in a circle in a magnetic field}
+  \cardformula{r = \frac{mv}{qB} \qquad\qquad T = \frac{2\pi m}{qB}}
+  \begin{symbols}
+    \sym{$r$, $T$}{radius of the circle; period (time for one full circle)}{\si{m}, \si{s}}
+    \sym{$m$, $v$}{mass and speed (speed at \ang{90} to $B$)}{\si{kg}, \si{m.s^{-1}}}
+    \sym{$q$, $B$}{charge; magnetic field strength}{\si{C}, \si{T}}
+  \end{symbols}
+  \inwords{faster or heavier particles curve less, but the time for one circle does not
+    depend on speed: a faster particle goes round a bigger circle in the same time.}
+  \whentouse{a charge moving at \ang{90} to a uniform field at speeds well below $c$:
+    cyclotron, slow tracks in detectors. A cyclotron's AC has one cycle per turn, so
+    $f = \dfrac{1}{T}$.}
+  \whennottouse{well above $0.1c$ (synchrotrons, the LHC). Then put $p_\mathrm{v}$ in
+    place of $mv$: $r = \dfrac{p_\mathrm{v}}{qB}$. The period grows, so the ions fall out
+    of step with a fixed AC.}
+  \rearranged{$v = \dfrac{qBr}{m}$ \qquad $B = \dfrac{mv}{qr}$ \qquad
+    $f = \dfrac{1}{T} = \dfrac{qB}{2\pi m}$}
+  \tensecond{proton in \qty{1.0}{T}: $T = \dfrac{2\pi \times \num{1.673e-27}}{\num{1.602e-19}
+    \times 1.0} = \qty{6.6e-8}{s}$, so $f = \qty{1.5e7}{Hz}$.}
+  \derive{the magnetic force ($\theta = \ang{90}$) is the centripetal force (both on the
+    sheet).
+    \begin{align*}
+      qvB &= \frac{mv^2}{r} && \text{magnetic force $=$ centripetal force}\\[4pt]
+      r &= \frac{mv^2}{qvB} && \text{multiply both sides by $r$, then divide by $qvB$}\\[4pt]
+      r &= \frac{mv}{qB} && \text{one $v$ cancels (top and bottom)}\\[4pt]
+      T &= \frac{2\pi r}{v} = \frac{2\pi}{v} \times \frac{mv}{qB} = \frac{2\pi m}{qB}
+        && \text{from $v = \dfrac{2\pi r}{T}$; the $v$ cancels}\\[4pt]
+      f &= \frac{1}{T} = \frac{qB}{2\pi m} && \text{$f = \dfrac{1}{T}$ is on the sheet}
+    \end{align*}}
+  \trap{use the radius, not the diameter (the largest $r$ is the dee radius). Keep the
+    $2\pi$: $f = \dfrac{qB}{2\pi m}$, not $\dfrac{qB}{m}$.}
+\end{formulacard}
+
+\begin{workedexample}{A hospital cyclotron}\label{ch5:we:cyclotron}
+A hospital needs \qty{11.0}{MeV} protons to make fluorine-18 for PET scans. Its cyclotron
+magnet gives \qty{1.2}{T}. Find (a) the AC frequency and (b) the smallest dee radius.
+\given{$K = \qty{11.0}{MeV}$, \ $B = \qty{1.2}{T}$, \ $q = \qty{1.602e-19}{C}$, \
+  $m = \qty{1.673e-27}{kg}$}
+\find{(a) $f$ \ (b) the radius $r$ of the last half circle (the dee must be at least this
+  big)}
+\formula{$f = \dfrac{1}{T} = \dfrac{qB}{2\pi m}$; \ $K = \tfrac12 mv^2$, so
+  $v = \sqrt{\dfrac{2K}{m}}$; \ then $r = \dfrac{mv}{qB}$}
+\substitute{\eqlines{f &= \frac{\qty{1.602e-19}{C} \times \qty{1.2}{T}}{2\pi \times
+  \qty{1.673e-27}{kg}} = \qty{1.829e7}{Hz}\\
+  K &= \num{11.0e6} \times \qty{1.602e-19}{J} = \qty{1.762e-12}{J}
+  \quad\text{(eV to J)}}\par
+  \eqlines{
+  v &= \sqrt{\frac{2 \times \qty{1.762e-12}{J}}{\qty{1.673e-27}{kg}}}
+  = \qty{4.590e7}{m.s^{-1}}\\
+  r &= \frac{\qty{1.673e-27}{kg} \times \qty{4.590e7}{m.s^{-1}}}{\qty{1.602e-19}{C}
+  \times \qty{1.2}{T}} = \qty{0.3994}{m}}}
+\answer{(a) \final{$f = \qty{1.8e7}{Hz}$} \ (b) \final{$r = \qty{0.40}{m}$} (2 significant
+  figures, like $B$)}
+\checkstep{$v \approx 0.15c$, a little above $0.1c$. Relativity makes $r$ only 0.3\%
+  bigger here, so $\tfrac12 mv^2$ is still fine to 2 significant figures. The gap voltage
+  is not needed: more voltage only means fewer turns.}
+\end{workedexample}
+
+Near $c$, the momentum grows much faster than the speed (relativity). So each turn takes
+longer, and the ions fall out of step with the AC. A \term{synchrocyclotron} lowers the AC
+frequency as the ions speed up. Cyclotrons are small enough to fit in a hospital. There
+they make radioactive isotopes for medical scans (for example, fluorine-18 for PET scans)
+and proton beams that destroy tumours.
+
+\subsection{The synchrotron and the Large Hadron Collider}
+
+A cyclotron's magnet must cover the whole spiral. Since $r = \dfrac{p_\mathrm{v}}{qB}$,
+very high momentum would need a gigantic magnet. A \term{synchrotron} is a ring where the
+magnetic field is raised as the particles gain momentum, so the radius stays the same.
+The pushes are also timed to match each lap: the ``synchro'' in the name
+(\cref{ch5:fig:sync}).
+
+\begin{sidebyside}[0.46]
+  \centering
+  \begin{tikzpicture}[x=0.82cm, y=0.82cm]
+    \draw[hscvel, line width=0.8pt, midarrow] (1.95,0) arc[start angle=0, end angle=359.9, radius=1.95];
+    \draw[hscforce, line width=0.8pt, postaction={decorate}, decoration={markings,
+      mark=at position 0.3 with {\arrow{Stealth[length=2.2mm, width=1.7mm, reversed]}}}]
+      (2.12,0) arc[start angle=0, end angle=359.9, radius=2.12];
+    \foreach \a in {30, 60, 120, 150, 210, 240, 300, 330}
+      \fill[hscbrand, rotate=\a] (1.87,-0.16) rectangle (2.2,0.16);
+    \draw[hscacc, fill=hscacc!25, line width=0.8pt] (-0.3,-2.27) rectangle (0.3,-1.8);
+    \draw[hscink, fill=hscseriesC!25, line width=0.7pt] (2.03,0) circle (0.3);
+    \draw[hscink, fill=hscseriesC!25, line width=0.7pt] (-2.03,0) circle (0.3);
+    % inside each detector the two beams are steered together and cross
+    \draw[hscvel, line width=0.8pt] (1.84,-0.17) -- (2.22,0.17);
+    \draw[hscforce, line width=0.8pt] (1.84,0.17) -- (2.22,-0.17);
+    \draw[hscvel, line width=0.8pt] (-2.22,-0.17) -- (-1.84,0.17);
+    \draw[hscforce, line width=0.8pt] (-2.22,0.17) -- (-1.84,-0.17);
+    \draw[hscink, fill=hscmuted!20, line width=0.6pt] (-2.4,2.55) rectangle (-1.2,2.8);
+    \draw[hscink, line width=0.7pt] (0.25,2.68) circle (0.35);
+    \draw[->, hscink, line width=0.6pt] (-1.2,2.68) -- (-0.1,2.68);
+    \draw[->, hscink, line width=0.6pt] (0.25,2.33) -- (0.25,2.14);
+    \node[font=\scriptsize, anchor=south] at (-1.8,2.8) {linac};
+    \node[font=\scriptsize, anchor=west] at (0.62,2.68) {booster ring};
+    \node[font=\scriptsize, text=hscbrand] at (0,0.75) {bending magnets};
+    \draw[hscbrand!60, line width=0.4pt] (0.3,0.95) -- (0.85,1.45);
+    \draw[hscbrand!60, line width=0.4pt] (-0.3,0.95) -- (-0.85,1.45);
+    \node[font=\scriptsize, text=hscacc!80!black] at (0,-1.4) {RF cavity};
+    \node[font=\scriptsize, align=center] at (0,-0.3) {two beams go\\[-2pt]opposite ways};
+    \node[font=\scriptsize, anchor=west] at (2.38,0) {detector};
+    \node[font=\scriptsize, anchor=east] at (-2.38,0) {detector};
+  \end{tikzpicture}
+  \captionof{figure}{A synchrotron collider (not to scale). The two beams are steered
+    together inside each detector, where they collide. In the LHC both beams are protons,
+    so they travel in two separate pipes with opposite magnetic fields.}\label{ch5:fig:sync}
+\nextside
+  \begin{itemize}
+    \item A linac and smaller rings speed the particles up first.
+    \item An \term{RF cavity} (RF = radio frequency) is a metal box with a fast-changing
+          electric field. It pushes the particles once per lap.
+    \item Bending magnets keep the particles on the ring. $B$ is raised as the momentum
+          grows, so $r = \dfrac{p_\mathrm{v}}{qB}$ stays fixed.
+    \item Other magnets focus the beam into a thin line.
+  \end{itemize}
+\end{sidebyside}
+
+A \term{collider} is an accelerator where two beams meet head-on. Think of two equal cars
+crashing head-on at the same speed. Their total momentum is zero, so the wreck stops and
+all the kinetic energy goes into the crash. When a car hits a parked car, the wreck keeps
+moving, so much of the energy stays as motion. In the same way, head-on collisions let
+much more of the energy become new particles.
+
+The \term{Large Hadron Collider} (LHC) at CERN, near Geneva, is a \qty{27}{km} ring. Since
+2022 each proton in the LHC has \qty{6.8}{TeV} of energy. When two protons meet head-on,
+the collision has $6.8 + 6.8 = \qty{13.6}{TeV}$. The LHC's magnets give about \qty{8}{T}.
+The protons move only about \qty{3}{m.s^{-1}} slower than light: extra energy adds
+momentum, not much speed. \Cref{ch5:tab:compare} compares the three machines.
+
+\begin{table}
+  \caption{Three kinds of accelerator.}\label{ch5:tab:compare}
+  \centering
+  \small
+  \begin{tabular}{@{}L{20mm}L{36mm}L{36mm}L{38mm}@{}}
+    \toprule
+     & \colhead{Linac} & \colhead{Cyclotron} & \colhead{Synchrotron}\\
+    \midrule
+    Path & straight line & spiral outwards & ring of fixed radius\\
+    Speeds up by & electric field in the gaps between tubes & electric field in the gap
+      between the dees & electric field in RF cavities, once per lap\\
+    Magnetic field & only to focus & constant; bends the path & raised as the momentum
+      grows\\
+    Limit & length & falls out of step near $c$ & size and magnet strength\\
+    Used for & X-ray cancer treatment; first stage & medical isotopes; proton therapy &
+      particle physics (LHC); X-ray light sources\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{What accelerators have shown}
+
+A \term{detector} surrounds the collision point. It tracks and measures what comes out.
+Curved tracks in a magnetic field give each particle's charge sign and momentum
+($r = \dfrac{p_\mathrm{v}}{qB}$). Neutral particles leave no track. Most new particles
+decay at once, so they are found from what they decay into. Each row of
+\cref{ch5:tab:tests} is a prediction that an accelerator then confirmed.
+
+\begin{table}
+  \caption{Standard Model predictions tested by accelerators.}\label{ch5:tab:tests}
+  \centering
+  \small
+  \begin{tabular}{@{}L{50mm}L{46mm}L{42mm}@{}}
+    \toprule
+    \colhead{Theory predicts} & \colhead{Accelerator test} & \colhead{Result}\\
+    \midrule
+    the $\Omega^-$, charge $-1$, and its mass (Gell-Mann's pattern, 1962; later explained
+      as sss) & Brookhaven, 1964 & found, as predicted\\
+    quarks inside protons (1964) & SLAC linac, deep inelastic scattering, 1968 &
+      point-like charges inside\\
+    W and Z bosons, about 80 and \qty{91}{GeV}\chFiveperc & CERN proton--antiproton
+      collider, 1983 & found at the predicted masses\\
+    a third-generation quark (top) & Fermilab (USA), 1995 & found,
+      \qty{173}{GeV}\chFiveperc\\
+    the Higgs boson (1964) & LHC, CERN, 2012 & found, \qty{125}{GeV}\chFiveperc\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The Higgs idea (1964) came first. The theory used it to predict the masses of the W and
+Z. The W and Z were found at those masses in 1983, and the Higgs boson itself only in
+2012. Experiments can also lead to new theory: the particle zoo led to the quark model.
+Accelerators test Module 7 too: particles never reach $c$, and fast unstable particles
+live longer (time dilation).
+
+Particle masses are often given in \si{GeV}\chFiveperc. A mass of \qty{1}{GeV}\chFiveperc\
+means the particle's rest energy, $mc^2$, is \qty{1}{GeV}. To change it to kilograms, use
+$E = mc^2$ (on the sheet; its formula card is in \cref{ch1:sec:bigbang}).
+
+\begin{workedexample}{How heavy is the Higgs boson?}\label{ch5:we:higgs}
+The Higgs boson has a mass of \qty{125}{GeV}\chFiveperc. Find its mass in kilograms. How
+many times heavier is it than a proton?
+\given{rest energy $E = \qty{125}{GeV} = \qty{125e9}{eV}$, \ $c = \qty{3.00e8}{m.s^{-1}}$,
+  \ $m_\mathrm{p} = \qty{1.673e-27}{kg}$}
+\find{the mass $m$ in \si{kg}, then $m \div m_\mathrm{p}$}
+\formula{$E = mc^2$, so $m = \dfrac{E}{c^2}$ (divide both sides by $c^2$)}
+\substitute{\eqlines{E &= \num{125e9} \times \qty{1.602e-19}{J} = \qty{2.0025e-8}{J}
+  \quad\text{(eV to J)}\\
+  m &= \frac{\qty{2.0025e-8}{J}}{(\qty{3.00e8}{m.s^{-1}})^2}
+  = \frac{\qty{2.0025e-8}{J}}{\qty{9.00e16}{m^2.s^{-2}}} = \qty{2.225e-25}{kg}\\
+  \frac{m}{m_\mathrm{p}} &= \frac{\qty{2.225e-25}{kg}}{\qty{1.673e-27}{kg}} = 133}}
+\answer{\final{$m = \qty{2.23e-25}{kg}$}, about \final{133 times} the mass of a proton.}
+\checkstep{each LHC collision has \qty{13.6}{TeV}, about 109 times the Higgs boson's rest
+  energy. So the LHC has enough energy to make it \cmark.}
+\end{workedexample}
+
+\subsection{Why our understanding is still incomplete}
+
+\begin{itemize}
+  \item \textbf{Gravity} is not in the Standard Model, and the graviton has never been found.
+  \item \textbf{Dark matter and dark energy:} ordinary matter is only about 5\% of the
+        Universe. \term{Dark matter} (unseen matter known only by its gravity) is about
+        27\%. Dark energy (an unknown cause of the Universe's speeding-up expansion) is
+        about 68\%. No Standard Model particle explains them.
+  \item \textbf{Antimatter:} the Big Bang should have made equal amounts of matter and
+        antimatter. But today the Universe is almost all matter. No one knows why
+        (\cref{ch1:sec:bigbang}).
+  \item \textbf{Neutrino mass:} the first Standard Model had massless neutrinos.
+        Experiments since 1998 show they have a tiny mass.
+  \item \textbf{Unanswered questions:} why are there exactly three generations? The theory
+        cannot predict about 19 of its own numbers, such as particle masses. They must be
+        measured.
+\end{itemize}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``The magnets speed the particles up.'' \cmark\ Electric fields do; magnets
+        only bend and focus.
+  \item \xmark\ ``Drift tubes get longer to keep the force the same.'' \cmark\ They keep
+        the time in each tube equal to half an AC cycle.
+  \item \xmark\ ``A cyclotron's frequency must change as the ions speed up.''
+        \cmark\ $T = \dfrac{2\pi m}{qB}$ does not depend on speed, so one fixed frequency
+        works. The period only starts to grow when the ions get close to $c$.
+  \item \xmark\ ``Making new particles breaks conservation of mass.'' \cmark\ Mass--energy
+        is conserved: kinetic energy becomes mass ($E = mc^2$).
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain how a cyclotron works'' (3--4 marks): the gap's electric field speeds the
+protons up ($W = qV$). The magnetic field bends them; faster means a bigger radius. The
+period does not depend on speed, so a fixed AC frequency stays in step. Another common
+question asks you to analyse how theory and experiment together built the Standard Model
+(6 marks in the 2025 HSC). Give 2--3 \emph{prediction $\to$ test} pairs
+(\cref{ch5:tab:tests}). Add one case where experiment came first (particle zoo $\to$
+quarks). Finish with the implication: theory and experiment drive each other, and new
+results (neutrino mass, dark matter) show the model is still incomplete.
+\end{examtip}
+
+\begin{quickcheck}
+  \item An alpha particle (charge $2e$) is accelerated through \qty{50}{kV}. Find the energy
+        it gains in \si{keV} and in \si{J}.
+  \item A cyclotron for protons uses a \qty{0.80}{T} field. Find the AC frequency. What
+        happens to it if $B$ is doubled?
+  \item The magnetic field in a cyclotron does no work. Explain why the cyclotron still
+        needs it.
+  \item An electron and a positron collide head-on and make a tau and an antitau. Each has
+        a mass of \qty{3.167e-27}{kg}. Use $E = mc^2$ (as in \cref{ch1:we:proton}) to
+        find the least total energy needed, in \si{GeV}.
+  \item Give three reasons why our understanding of matter is still incomplete.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiments}\label{ch5:sec:experiments}
+\covers{M8.IQ5.01, M8.IQ5.03}
+
+\begin{experiment}{Deep inelastic scattering at SLAC (1967--1973)}
+\aim{To find out whether the proton has parts inside it.}
+\apparatus{the \qty{3.2}{km} SLAC electron linac. A target of liquid hydrogen
+  (protons), or of liquid deuterium for neutrons (deuterium is heavy hydrogen: one proton
+  and one neutron). Magnetic spectrometers that measure each scattered electron's energy
+  and angle. A beam dump: a block that safely stops the unscattered beam.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=1cm, y=1cm]
+      \draw[draw=hscink, fill=hscmuted!18, line width=0.7pt] (0,-0.25) rectangle (4.0,0.25);
+      \node[font=\scriptsize] at (2.0,0) {electron linac (\qty{3.2}{km})};
+      \draw[velocity] (4.0,0) -- (5.55,0);
+      \node[font=\scriptsize, text=hscvel, anchor=south] at (4.75,0.05) {electrons};
+      \draw[draw=hscink, fill=hscseriesA!20, line width=0.7pt] (5.8,0) circle (0.25);
+      \node[font=\scriptsize, align=center, anchor=north] at (5.8,-0.32) {liquid hydrogen\\[-2pt]target};
+      \draw[guide] (6.05,0) -- (9.3,0);
+      \draw[draw=hscink, fill=hscink!70, line width=0.7pt] (9.3,-0.3) rectangle (9.7,0.3);
+      \node[font=\scriptsize, anchor=north] at (9.5,-0.35) {beam dump};
+      \draw[velocity] (5.8,0) -- (7.75,1.13);
+      \draw[draw=hscink, fill=hscbrand!12, line width=0.7pt, rotate around={30:(8.35,1.48)}]
+        (7.75,1.18) rectangle (8.95,1.78);
+      \node[font=\scriptsize, align=center, anchor=west] at (9.05,1.75)
+        {magnetic spectrometer:\\[-2pt]measures energy\\[-2pt]and angle};
+      \draw[hscink, line width=0.5pt] (7.0,0) arc[start angle=0, end angle=30, radius=1.2];
+      \node[font=\small] at (7.25,0.33) {$\theta$};
+      \draw[->, hscmuted, line width=0.5pt, dashed] (8.7,0.55) arc[start angle=8, end angle=50, radius=2.9];
+      \node[font=\scriptsize, text=hscmuted, anchor=east] at (7.5,2.42) {swings to new angles};
+    \end{tikzpicture}
+    \caption{Deep inelastic scattering at SLAC (top view, not to scale).}\label{ch5:fig:slac}
+  \end{figure}}
+\method{fire electrons (up to about \qty{20}{GeV}) at the target. At each angle $\theta$,
+  count the scattered electrons and measure the energy each lost. Repeat for many angles
+  and energies, and compare with the prediction for a smooth proton.}
+\results{many electrons scattered at large angles and lost a lot of energy. A smooth
+  proton would give far fewer of these. The electrons acted as if they hit tiny
+  point-like charges.}
+\conclusion{protons and neutrons contain point-like charged parts: quarks.}
+\significance{the first direct evidence of point-like parts (quarks) inside protons and
+  neutrons. It turned the quark model from a pattern into real particles (Nobel Prize
+  1990).}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} electrons have no parts and ignore the strong force. Their
+        wavelength (about \qty{e-16}{m}; \qty{6e-17}{m} at \qty{20}{GeV}) is much smaller
+        than a proton.
+  \item \textbf{Reliability:} very many electrons counted at many angles and energies;
+        later experiments at CERN and DESY (Germany) agreed.
+  \item \textbf{Accuracy:} precise magnetic spectrometers, with small corrections for
+        energy lost before and after scattering.
+\end{itemize}}
+\end{experiment}
+
+\begin{experiment}{Discovery of the Higgs boson at the LHC (2012)}
+\aim{To find the Higgs boson predicted in 1964, and measure its mass.}
+\apparatus{the LHC (\cref{ch5:fig:sync}) and two huge detectors, ATLAS and CMS
+  (\cref{ch5:fig:detector}). Each detector is built in layers around the beam pipe.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.95cm, y=0.95cm]
+      \fill[hscmuted!12] (0,0) circle (2.2);
+      \draw[hscink, line width=0.6pt] (0,0) circle (2.2);
+      \fill[white] (0,0) circle (1.75);
+      \draw[hscink, line width=0.6pt] (0,0) circle (1.75);
+      \fill[hscseriesB!16] (0,0) circle (1.5);
+      \draw[hscink, line width=0.6pt] (0,0) circle (1.5);
+      \fill[white] (0,0) circle (0.95);
+      \fill[hscseriesA!12] (0,0) circle (0.95);
+      \draw[hscink, line width=0.6pt] (0,0) circle (0.95);
+      \draw[hscink, fill=white, line width=0.6pt] (0,0) circle (0.16);
+      \fill[hscforce] (0,0) circle (1.4pt);
+      % two photons: no track in the tracker, energy dumped in the calorimeter
+      \draw[hscray, line width=1pt, decorate, decoration={snake, amplitude=0.7mm,
+        segment length=2mm}] (0,0) -- (120:1.3);
+      \draw[hscray, line width=1pt, decorate, decoration={snake, amplitude=0.7mm,
+        segment length=2mm}] (0,0) -- (-60:1.3);
+      \fill[hscray] (120:1.3) circle (2.4pt);
+      \fill[hscray] (-60:1.3) circle (2.4pt);
+      % a charged particle: curved track in the tracker
+      \draw[hscvel, line width=0.8pt] (0,0) arc[start angle=60, end angle=110, radius=1.0];
+      \foreach \chFiveX/\chFiveR/\chFiveT/\chFiveY in {1.6/1.25/{muon detectors}/1.6,
+          1.3/0.45/{calorimeter (measures energy)}/0.75,
+          0.55/0.15/{tracker (curved tracks)}/-0.1,
+          0.1/-0.1/{beam pipe (beams go into the page)}/-0.95}
+        {\draw[hscmuted, line width=0.4pt] (\chFiveX,\chFiveR) -- (2.55,\chFiveY);
+         \node[font=\scriptsize, anchor=west] at (2.6,\chFiveY) {\chFiveT};}
+      \node[font=\scriptsize, text=hscray!85!black, anchor=north] at (0,-2.25)
+        {wavy lines: two photons from a Higgs boson};
+    \end{tikzpicture}
+    \caption{Cross-section of a detector such as ATLAS or CMS (sketch, not to scale).}\label{ch5:fig:detector}
+  \end{figure}}
+\method{collide protons (\qtyrange{7}{8}{TeV} in total) hundreds of millions of times a
+  second. Keep the \term{events} (single collisions and what comes out of them) that have
+  the products a Higgs should give: two photons, or four leptons. Use their energies and
+  momenta to find the mass of the particle that decayed into them. Plot the number of
+  events against this mass.}
+\results{a small bump at about \qty{125}{GeV}\chFiveperc\ above a smooth background
+  (\cref{ch5:fig:bump}), seen by both ATLAS and CMS.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.6\linewidth, height=0.3\linewidth,
+          xmin=105, xmax=160, ymin=0, ymax=1100, ytick=\empty,
+          xlabel={mass of the photon pair (\si{GeV}\chFiveperc)},
+          ylabel={number of events}]
+        \addplot[hscseriesA, line width=1.2pt, domain=105:160, samples=160]
+          {1000*exp(-(x-105)/30) + 200*exp(-(x-125)^2/(2*2.2^2))};
+        \addplot[hscseriesB, dashed, line width=1pt, domain=105:160, samples=80]
+          {1000*exp(-(x-105)/30)};
+        \draw[->, hscseriesA, line width=0.6pt] (axis cs:131,880) -- (axis cs:126,725);
+        \node[font=\scriptsize, text=hscseriesA, anchor=south west] at (axis cs:131,860)
+          {bump at \qty{125}{GeV}\chFiveperc: the Higgs};
+        \draw[->, hscseriesB!80!black, line width=0.6pt] (axis cs:122,250) -- (axis cs:124.5,500);
+        \node[font=\scriptsize, text=hscseriesB!80!black, anchor=north] at (axis cs:122,250)
+          {background (other events)};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Sketch of the kind of graph shown in 2012 (not real data).}\label{ch5:fig:bump}
+  \end{figure}}
+\conclusion{a new boson of about \qty{125}{GeV}\chFiveperc\ exists: the Higgs boson.}
+\significance{the last missing Standard Model particle. The theorists Englert and Higgs,
+  who predicted it, won the Nobel Prize in 2013.}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} it looked for the exact decay products the theory predicts (two
+        photons; four leptons). It compared the counts with the background expected with
+        no Higgs.
+  \item \textbf{Reliability:} two separate detectors and teams found the same mass. The
+        chance of a random bump had to be below 1 in 3.5 million (``5 sigma'').
+  \item \textbf{Accuracy:} calibrated with known particles (the Z). In 2012 the mass was
+        known to about 0.5\%. Today it is known to about 0.1\%
+        (\qty{125.2}{GeV}\chFiveperc).
+\end{itemize}}
+\end{experiment}

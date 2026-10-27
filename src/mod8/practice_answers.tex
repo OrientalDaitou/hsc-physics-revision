@@ -1,0 +1,805 @@
+% practice_answers.tex -- Module 8 (From the Universe to the Atom): worked answers to the
+% Practice set. One practiceans per practiceq in practice.tex, in the same order (25 answers).
+% Local helpers (prefix "prac"), the same as in practice.tex (\providecommand: whichever
+% file is read first defines them).
+\providecommand\pracNuc[3]{\ensuremath{\mathord{%
+  \setbox0=\hbox{$\scriptstyle#1$}\setbox2=\hbox{$\scriptstyle#2$}%
+  \ifdim\wd0<\wd2 \setbox0=\hbox to\wd2{\hss\box0}\else\setbox2=\hbox to\wd0{\hss\box2}\fi
+  {}^{\box0}_{\box2}\mathrm{#3}}}}
+\providecommand\pracaq[1]{\ensuremath{\overline{\mathrm{#1}}}}
+
+\begin{practiceanswers}
+
+% ===================================================================== Section I
+% ---- Q1 radiation to matter
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  In the first moments, the photons had huge energies. A photon with energy of at least
+  $2mc^2$ can turn into a particle of mass $m$ and its antiparticle (pair production).
+  Energy becomes mass, as $E = mc^2$ says. Mass--energy is conserved. As the Universe
+  cooled, quarks joined into protons and neutrons, and later these made nuclei.
+  \begin{itemize}
+    \item \xmark\ A: atoms formed much later, about \num{380000} years after the Big Bang,
+          when the Universe had cooled to about \qty{3000}{K}. Quarks, protons, neutrons and
+          nuclei came first.
+    \item \xmark\ B: the mass came from the photons' energy. Mass--energy was conserved.
+    \item \xmark\ D: protons and neutrons formed in the first second. The first stars formed
+          about 200 million years later. Stars fuse nuclei that already exist.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q2 Curie-Joliot
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  Balance the mass numbers: $27 + 4 = 30 + A$, so $A = 1$. Balance the atomic numbers:
+  $13 + 2 = 15 + Z$, so $Z = 0$. A particle with $A = 1$ and no charge is a neutron,
+  $\pracNuc{1}{0}{n}$.
+  \begin{itemize}
+    \item \xmark\ A: a proton is $\pracNuc{1}{1}{H}$. The $Z$ total on the right would be 16,
+          not 15.
+    \item \xmark\ C: an electron is $\pracNuc{0}{-1}{e}$. The $A$ total on the right would be
+          30, not 31.
+    \item \xmark\ D: a gamma ray has $A = 0$ and $Z = 0$. The $A$ total would be 30, not 31.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q3 D+ meson
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  The charm quark is an up-type quark: $+\tfrac23 e$. The down quark has $-\tfrac13 e$, so
+  the anti-down quark has the opposite sign: $+\tfrac13 e$. Total:
+  $+\tfrac23 + \tfrac13 = \tfrac33 = +1e$. A quark and an antiquark make a meson. Two
+  half-number spins add to a whole number, so a meson is a boson.
+  \begin{itemize}
+    \item \xmark\ B: fermions have half-number spin. Baryons (three quarks) are fermions;
+          mesons are bosons.
+    \item \xmark\ C: this forgets to flip the sign of the antiquark:
+          $+\tfrac23 - \tfrac13 = +\tfrac13$.
+    \item \xmark\ D: this makes both mistakes.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q4 velocity selector with protons
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  The electrons go straight, so the electric force and the magnetic force are equal and
+  opposite: $qE = qvB$, so $v = \dfrac{E}{B}$. The charge cancels, and the mass does not
+  appear. A proton has the opposite charge, so \emph{both} forces point the other way. But
+  their sizes, $eE$ and $evB$, are the same as before. They still cancel, so the protons go
+  straight.
+  \begin{itemize}
+    \item \xmark\ A: the magnetic force on the protons is reversed too, so the two forces
+          still balance.
+    \item \xmark\ B: the net force is zero, so there is no bending. Mass does not appear in
+          $qE = qvB$.
+    \item \xmark\ C: the magnetic force $evB$ has the same size for protons as for electrons
+          (same size of charge, same speed), and the electric force still balances it.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q5 Chadwick
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  The fastest protons knocked out of the wax had about \qty{5.7}{MeV}. For its energy, a
+  photon carries very little momentum. To give a proton \qty{5.7}{MeV}, a gamma photon would
+  need about \qty{50}{MeV}. The alpha--beryllium reaction could supply at most about
+  \qty{14}{MeV}. So gamma rays would break conservation of energy. A neutral particle with
+  about a proton's mass fits the data.
+  \begin{itemize}
+    \item \xmark\ A: this is true, but gamma rays have no charge either. So it does not rule
+          them out. (This is why Bothe and Becker thought it \emph{was} gamma rays.)
+    \item \xmark\ B: false. The radiation was very penetrating: it passed through thick lead.
+    \item \xmark\ D: neutrons leave no track, so their speed could not be measured directly.
+          Chadwick worked out the mass from the recoil of the nuclei it hit.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q6 longest wavelength
+\Needspace{22\baselineskip}
+\begin{practiceans}
+  \correct{D}
+  The longest wavelength comes from the smallest energy gap, because $E = \dfrac{hc}{\lambda}$.
+  Higher levels are closer together. In the Rydberg equation, the smallest bracket
+  $\left(\dfrac{1}{n_\mathrm{f}^2} - \dfrac{1}{n_\mathrm{i}^2}\right)$ gives the smallest
+  $\dfrac{1}{\lambda}$, so the longest $\lambda$:
+  \begin{center}\small
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    Jump & $2 \to 1$ & $3 \to 2$ & $4 \to 2$ & $4 \to 3$\\
+    \midrule
+    Bracket & 0.7500 & 0.1389 & 0.1875 & 0.0486\\
+    Energy gap (\si{eV}) & 10.2 & 1.89 & 2.55 & 0.661\\
+    $\lambda$ (\si{nm}) & 121.5 (UV) & 656.3 (red) & 486.2 (cyan) & 1875 (infrared)\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \begin{itemize}
+    \item \xmark\ A: the biggest gap gives the \emph{shortest} wavelength.
+    \item \xmark\ B: \qty{656}{nm} is the longest \emph{visible} hydrogen line, but $4 \to 3$
+          is longer (infrared).
+    \item \xmark\ C: a bigger gap than $3 \to 2$, so a shorter wavelength.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q7 binding energy curve
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{B}
+  The binding energy per nucleon curve peaks near iron-56. Splitting a heavy nucleus and
+  joining light nuclei both move the nucleons towards the peak. The products are more
+  tightly bound, so their total mass is smaller. The lost mass comes out as energy:
+  $E = \Delta m\,c^2$.
+  \begin{itemize}
+    \item \xmark\ A: binding energy is the energy needed to pull a nucleus apart. It is not
+          stored energy that comes out. Here the products have a \emph{larger} value.
+    \item \xmark\ C: the number of nucleons ($A$) is conserved. Instead, each nucleon ends up
+          with a little less mass.
+    \item \xmark\ D: in both reactions the products have \emph{less} mass. More mass would
+          need energy to be supplied.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q8 cyclotron
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{A}
+  Each time an ion crosses the gap, the electric field does work on it ($W = qV$), so it
+  speeds up. Inside the dees the magnetic force is at \ang{90} to the velocity. It bends the
+  path into a half circle but does no work.
+  \begin{itemize}
+    \item \xmark\ B: a force at \ang{90} to the motion does no work, so the magnetic field
+          cannot change the speed.
+    \item \xmark\ C: $r = \dfrac{mv}{qB}$ grows as $v$ grows, so the path spirals outwards.
+    \item \xmark\ D: the time for a half turn, $\dfrac{T}{2} = \dfrac{\pi m}{qB}$, does not
+          depend on the speed (well below $c$). So one fixed frequency works.
+  \end{itemize}
+\end{practiceans}
+
+% ---- Q9 magnitudes and radius
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \correct{C}
+  The difference is $7.5 - (-2.5) = 10$ magnitudes. That is two steps of 5, so the factor is
+  $100 \times 100 = 10^4$. X has the smaller magnitude, so X is brighter. The stars have the
+  same temperature, so each square metre of their surfaces gives out the same power. X must
+  have $10^4$ times more surface area, so X is much bigger. (Area depends on radius$^2$, so its
+  radius is $\sqrt{10^4} = 100$ times bigger.)
+  \begin{itemize}
+    \item \xmark\ A: a \emph{larger} magnitude means a \emph{dimmer} star.
+    \item \xmark\ B: the magnitude scale is not linear. Ten magnitudes is a factor of $10^4$,
+          not 10.
+    \item \xmark\ D: if two stars had the same temperature and the same radius, they would
+          have the same luminosity.
+  \end{itemize}
+\end{practiceans}
+
+% ===================================================================== Section II
+% ---- Q10 Millikan
+\begin{practiceans}
+  \given{$m = \qty{4.2e-15}{kg}$, \ $d = \qty{15.0}{mm} = \qty{0.0150}{m}$, \
+    $V = \qty{964}{V}$, \ $g = \qty{9.8}{m.s^{-2}}$, \ $e = \qty{1.602e-19}{C}$}
+  \find{(a) the size of the charge $q$ \quad (b) the number of extra electrons $n$}
+  \formula{$q = \dfrac{mgd}{V}$ (not on the formula sheet: the drop is still, so
+    $qE = mg$, with $E = \dfrac{V}{d}$) \quad and \quad $n = \dfrac{q}{e}$}
+  \substitute{\eqlines{mgd &= \qty{4.2e-15}{kg} \times \qty{9.8}{m.s^{-2}} \times
+      \qty{0.0150}{m}\\
+    &= \qty{6.174e-16}{J} \quad\text{(top of the fraction)}\\
+    q &= \frac{\qty{6.174e-16}{J}}{\qty{964}{V}} = \qty{6.405e-19}{C}
+      \quad\text{(divide by $V$)}\\
+    n &= \frac{\qty{6.405e-19}{C}}{\qty{1.602e-19}{C}} = 4.00 \quad\text{(count the electrons)}}}
+  \answer{(a) \final{$q = \qty{6.4e-19}{C}$} \quad (b) \final{4 extra electrons}. The top
+    plate is positive, so the field points down. The electric force must point up to hold
+    the drop, so the drop is negative: it has gained electrons. $n$ is a whole number, as it
+    must be.}
+  \checkstep{units: $\unit{J} \div \unit{V} = \unit{J} \div \unit{J.C^{-1}} = \unit{C}$
+    \cmark. A few electrons is typical for an oil drop \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Uses $qE = mg$ with $E = \dfrac{V}{d}$, and $d$ in metres}{1}
+    \criterion{(a) Correct charge, \qty{6.4e-19}{C}}{1}
+    \criterion{(b) 4 electrons, justified (whole number of $e$; the drop is negative)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q11 oxygen-16 binding energy
+\begin{practiceans}
+  \given{$Z = 8$, \ $N = 16 - 8 = 8$, \ $m_\mathrm{nucleus} = \qty{15.990523}{\amu}$, \
+    $m_\mathrm{p} = \qty{1.007276}{\amu}$, \ $m_\mathrm{n} = \qty{1.008665}{\amu}$}
+  \find{(a) $\Delta m$ \quad (b) $E_\mathrm{B}$ \quad (c) $\dfrac{E_\mathrm{B}}{A}$}
+  \formula{$\Delta m = (Zm_\mathrm{p} + Nm_\mathrm{n}) - m_\mathrm{nucleus}$ \ and \
+    $E_\mathrm{B}\ (\si{MeV}) = \Delta m\ (\si{\amu}) \times 931.5$ (both not on the formula
+    sheet; the second uses $E = mc^2$ with $\qty{1}{\amu} = \qty{931.5}{MeV}/c^2$)}
+  \substitute{\eqlines{\text{parts} &= 8 \times \qty{1.007276}{\amu} + 8 \times
+      \qty{1.008665}{\amu}\\
+    &= \qty{8.058208}{\amu} + \qty{8.069320}{\amu} = \qty{16.127528}{\amu}\\
+    \Delta m &= \qty{16.127528}{\amu} - \qty{15.990523}{\amu} = \qty{0.137005}{\amu}\\
+    E_\mathrm{B} &= 0.137005 \times \qty{931.5}{MeV} = \qty{127.62}{MeV}\\
+    \frac{E_\mathrm{B}}{A} &= \frac{\qty{127.62}{MeV}}{16} = \qty{7.976}{MeV}
+      \quad\text{(16 nucleons)}}}
+  \answer{(a) \final{$\Delta m = \qty{0.137005}{\amu}$} \quad
+    (b) \final{$E_\mathrm{B} = \qty{127.6}{MeV}$}\par
+    (c) \final{\qty{7.98}{MeV} per nucleon}\par
+    (931.5 has 4 significant figures, so give $E_\mathrm{B}$ to 4 significant figures. In
+    (c), divide the unrounded value by 16.)}
+  \checkstep{the nucleus is lighter than its parts \cmark. About \qty{8}{MeV} per nucleon is
+    near the top of the binding energy curve (iron-56 has \qty{8.8}{MeV}) \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct mass defect, \qty{0.137005}{\amu}}{1}
+    \criterion{(b) Correct binding energy, \qty{127.6}{MeV} (accept \qty{128}{MeV})}{1}
+    \criterion{(c) Correct binding energy per nucleon, \qty{7.98}{MeV}}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q12 Wien and spectra
+\begin{practiceans}
+  \given{$\lambda_\mathrm{max} = \qty{460}{nm} = \qty{4.60e-7}{m}$, \
+    $b = \qty{2.898e-3}{m.K}$}
+  \find{(a) the surface temperature $T$ \quad (b) the class and colour \quad (c) an
+    explanation}
+  \formula{$\lambda_\mathrm{max} = \dfrac{b}{T}$, so $T = \dfrac{b}{\lambda_\mathrm{max}}$}
+  \substitute{$T = \dfrac{\qty{2.898e-3}{m.K}}{\qty{4.60e-7}{m}} = \qty{6300}{K}$\par
+    The classes run O B A F G K M (hottest to coolest). Class F is \num{6000} to
+    \qty{7500}{K}.}
+  \answer{(a) \final{$T = \qty{6.30e3}{K}$} \quad (b) \final{class F}, yellow-white}
+  \checkstep{a little hotter than the Sun (\qty{5800}{K}, peak near \qty{500}{nm}), so its
+    peak is at a slightly shorter wavelength \cmark.}
+  \begin{modelanswer}
+  (c) The hot, dense inside of the star gives out a continuous (black body) spectrum. The
+  cooler gas in the star's outer layers absorbs some photons. A photon is absorbed only if
+  its energy exactly equals the gap between two energy levels ($hf = E_\mathrm{f} -
+  E_\mathrm{i}$). The atoms give this energy out again in random directions, so less light
+  of those wavelengths reaches us. Those wavelengths look dark. A black body spectrum is
+  continuous: every wavelength is present, on a smooth curve whose peak depends only on the
+  temperature. The star's spectrum is that curve with dark lines at wavelengths that identify
+  the elements in its outer layers.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Correct temperature, \qty{6.30e3}{K}}{1}
+    \criterion{(b) Class F, yellow-white}{1}
+    \criterion{(c) Explains absorption by cooler gas of photons whose energy matches a gap
+      between energy levels, AND contrasts this with the continuous black body spectrum}{2}
+    \criterion{(c) Gives one of these two points}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q13 de Broglie: accelerating voltage
+\begin{practiceans}
+  \given{$\lambda = \qty{1.10e-10}{m}$, \ $m = \qty{9.109e-31}{kg}$, \
+    $h = \qty{6.626e-34}{J.s}$, \ $q = \qty{1.602e-19}{C}$; the electrons start from rest}
+  \find{(a) the speed $v$ \quad (b) the accelerating voltage $V$}
+  \formula{$\lambda = \dfrac{h}{mv}$, so $v = \dfrac{h}{m\lambda}$; \ then
+    $qV = \tfrac12 mv^2$ ($W = qV$ and $K = \tfrac12 mv^2$, both on the sheet), so
+    $V = \dfrac{mv^2}{2q}$}
+  \substitute{\eqlines{v &= \frac{\qty{6.626e-34}{J.s}}{\qty{9.109e-31}{kg} \times
+      \qty{1.10e-10}{m}} = \qty{6.613e6}{m.s^{-1}}\\
+    K &= \tfrac12 \times \qty{9.109e-31}{kg} \times (\qty{6.613e6}{m.s^{-1}})^2
+      = \qty{1.992e-17}{J}\\
+    V &= \frac{K}{q} = \frac{\qty{1.992e-17}{J}}{\qty{1.602e-19}{C}} = \qty{124.3}{V}}}
+  \answer{(a) \final{$v = \qty{6.61e6}{m.s^{-1}}$} \quad (b) \final{$V = \qty{124}{V}$}}
+  \checkstep{$\dfrac{v}{c} = \dfrac{\num{6.61e6}}{\num{3.00e8}} = 0.022$, well below $0.1c$,
+    so $K = \tfrac12 mv^2$ is fine. Davisson and Germer used a similar voltage (\qty{54}{V})
+    \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct speed, \qty{6.61e6}{m.s^{-1}}}{1}
+    \criterion{(b) Uses $qV = \tfrac12 mv^2$}{1}
+    \criterion{(b) Correct voltage, \qty{124}{V}}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q14 redshift and Hubble's law
+\begin{practiceans}
+  \given{$\lambda_0 = \qty{486.1}{nm}$, \ $\lambda = \qty{497.8}{nm}$, \
+    $H_0 = \qty{68.0}{km.s^{-1}.Mpc^{-1}}$, \ $c = \qty{3.00e8}{m.s^{-1}}$}
+  \find{(a) the recession velocity $v$ \quad (b) the distance $d$ \quad (c) an explanation}
+  \formula{$\dfrac{\Delta\lambda}{\lambda_0} \approx \dfrac{v}{c}$, so
+    $v = \dfrac{c\,\Delta\lambda}{\lambda_0}$; \ $v = H_0 d$, so $d = \dfrac{v}{H_0}$ (both not
+    on the formula sheet)}
+  \substitute{\eqlines{\Delta\lambda &= \qty{497.8}{nm} - \qty{486.1}{nm} = \qty{11.7}{nm}\\
+    \frac{\Delta\lambda}{\lambda_0} &= \frac{\qty{11.7}{nm}}{\qty{486.1}{nm}} = 0.02407
+      \quad\text{(no unit)}\\
+    v &= 0.02407 \times \qty{3.00e8}{m.s^{-1}} = \qty{7.221e6}{m.s^{-1}}\\
+    &= \qty{7221}{km.s^{-1}} \quad\text{(divide by 1000 for km)}\\
+    d &= \frac{\qty{7221}{km.s^{-1}}}{\qty{68.0}{km.s^{-1}.Mpc^{-1}}} = \qty{106.2}{Mpc}}\par
+    \textbf{(c)} Space itself is expanding, everywhere. An observer in \emph{any} galaxy
+    would see almost all other galaxies moving away, with speed proportional to distance.
+    So no galaxy is special, and there is no centre.}
+  \answer{(a) \final{$v = \qty{7.22e6}{m.s^{-1}}$} ($\qty{7.22e3}{km.s^{-1}}$) \quad
+    (b) \final{$d = \qty{106}{Mpc}$}\par
+    (c) every galaxy sees the same pattern, so the Milky Way is not at the centre.}
+  \checkstep{$v$ is only \qty{2.4}{\percent} of $c$, so the low-speed redshift formula is
+    fine \cmark. Galaxies about \qty{100}{Mpc} away move at several thousand
+    \si{km.s^{-1}} \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Finds $\dfrac{\Delta\lambda}{\lambda_0} = 0.0241$}{1}
+    \criterion{(a) Correct velocity, \qty{7.22e6}{m.s^{-1}}}{1}
+    \criterion{(b) Correct distance, \qty{106}{Mpc}}{1}
+    \criterion{(c) Space expands everywhere, so observers in every galaxy see the same
+      recession (no centre)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q15 proton-proton chain step
+\begin{practiceans}
+  \given{$m(\mathrm{H\text{-}2}) = \qty{2.014102}{\amu}$, \
+    $m(\mathrm{H\text{-}1}) = \qty{1.007825}{\amu}$, \
+    $m(\mathrm{He\text{-}3}) = \qty{3.016029}{\amu}$. Electrons balance ($1 + 1 = 2$), so
+    the atomic masses can be used as they are.}
+  \find{(a) the energy released $E$, in MeV \quad (b) the photon's wavelength $\lambda$}
+  \formula{$E\ (\si{MeV}) = (m_\mathrm{before} - m_\mathrm{after}) \times 931.5$ (from
+    $E = mc^2$); \ $E = \dfrac{hc}{\lambda}$ (not on the sheet: $E = hf$ with $c = f\lambda$),
+    so $\lambda = \dfrac{hc}{E}$}
+  \substitute{\eqlines{m_\mathrm{before} &= \qty{2.014102}{\amu} + \qty{1.007825}{\amu}
+      = \qty{3.021927}{\amu}\\
+    \Delta m &= \qty{3.021927}{\amu} - \qty{3.016029}{\amu} = \qty{0.005898}{\amu}\\
+    E &= 0.005898 \times \qty{931.5}{MeV} = \qty{5.494}{MeV}\\
+    E &= 5.494 \times \qty{1.602e-13}{J} = \qty{8.801e-13}{J} \quad\text{(MeV to J)}\\
+    \lambda &= \frac{\qty{6.626e-34}{J.s} \times \qty{3.00e8}{m.s^{-1}}}{\qty{8.801e-13}{J}}
+      = \qty{2.26e-13}{m}}}
+  \answer{(a) \final{$E = \qty{5.49}{MeV}$} \quad (b) \final{$\lambda = \qty{2.26e-13}{m}$}}
+  \checkstep{a gamma ray has a wavelength much shorter than \qty{e-11}{m} \cmark. The energy
+    is positive because the product has less mass \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct mass defect, \qty{0.005898}{\amu}}{1}
+    \criterion{(a) Correct energy, \qty{5.49}{MeV}}{1}
+    \criterion{(b) Changes MeV to J and finds $\lambda = \qty{2.26e-13}{m}$}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q16 Thomson
+\begin{practiceans}
+  \given{plates $d = \qty{2.0}{cm} = \qty{0.020}{m}$, \ $V = \qty{400}{V}$, \
+    $B = \qty{8.0e-4}{T}$, \ $r = \qty{17.8}{cm} = \qty{0.178}{m}$, \
+    $e = \qty{1.602e-19}{C}$}
+  \find{(a) the speed $v$ \quad (b) $\dfrac{q}{m}$ \quad (c) the mass $m_\mathrm{e}$}
+  \formula{$E = \dfrac{V}{d}$ (on the sheet); \ $v = \dfrac{E}{B}$ (not on the sheet:
+    $qE = qvB$); \ $\dfrac{q}{m} = \dfrac{v}{Br}$ (not on the sheet: $qvB = \dfrac{mv^2}{r}$);
+    \ $m_\mathrm{e} = e \div \dfrac{q}{m}$}
+  \substitute{\eqlines{E &= \frac{\qty{400}{V}}{\qty{0.020}{m}} = \qty{2.0e4}{V.m^{-1}}\\
+    v &= \frac{\qty{2.0e4}{V.m^{-1}}}{\qty{8.0e-4}{T}} = \qty{2.5e7}{m.s^{-1}}\\
+    Br &= \qty{8.0e-4}{T} \times \qty{0.178}{m} = \num{1.424e-4} \quad\text{(bottom of the
+      fraction)}\\
+    \frac{q}{m} &= \frac{\qty{2.5e7}{m.s^{-1}}}{\num{1.424e-4}} = \qty{1.756e11}{C.kg^{-1}}\\
+    m_\mathrm{e} &= \frac{\qty{1.602e-19}{C}}{\qty{1.756e11}{C.kg^{-1}}} = \qty{9.12e-31}{kg}}}
+  \answer{(a) \final{$v = \qty{2.5e7}{m.s^{-1}}$} \quad
+    (b) \final{$\dfrac{q}{m} = \qty{1.8e11}{C.kg^{-1}}$}\par
+    (c) \final{$m_\mathrm{e} = \qty{9.1e-31}{kg}$} (2 significant figures, like $B$)\par
+    In (c), divide by the unrounded $\dfrac{q}{m}$ (\num{1.756e11}). The rounded value
+    \num{1.8e11} gives \qty{8.9e-31}{kg}, which is too small.}
+  \checkstep{the data-sheet value is \qty{9.109e-31}{kg} \cmark. The speed is about
+    \qty{8}{\percent} of $c$, so relativity can be ignored \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct field, \qty{2.0e4}{V.m^{-1}}}{1}
+    \criterion{(a) Correct speed, \qty{2.5e7}{m.s^{-1}}}{1}
+    \criterion{(b) Correct charge-to-mass ratio, \qty{1.8e11}{C.kg^{-1}}}{1}
+    \criterion{(c) Correct mass, \qty{9.1e-31}{kg}}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q17 technetium-99m
+\begin{practiceans}
+  \given{$t_{\frac{1}{2}} = \qty{6.01}{h} = 6.01 \times \qty{3600}{s} = \qty{21636}{s}$, \
+    $A_0 = \qty{6.0e8}{Bq}$, \ $t = \qty{24.0}{h} = \qty{86400}{s}$}
+  \find{(a) $\lambda$ \quad (b) $N_0$ \quad (c) $A_\mathrm{t}$ after \qty{24.0}{h} \quad
+    (d) the time for $A_\mathrm{t} = 0.010A_0$}
+  \formula{$\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$ (on the sheet); \ $A = \lambda N$ and
+    $A_\mathrm{t} = A_0 e^{-\lambda t}$ (not on the sheet; the same form as
+    $N_\mathrm{t} = N_0 e^{-\lambda t}$)}
+  \substitute{\eqlines{\lambda &= \frac{0.6931}{\qty{21636}{s}} = \qty{3.204e-5}{s^{-1}}\\
+    N_0 &= \frac{A_0}{\lambda} = \frac{\qty{6.0e8}{s^{-1}}}{\qty{3.204e-5}{s^{-1}}}
+      = \num{1.873e13}\\
+    \lambda t &= \qty{3.204e-5}{s^{-1}} \times \qty{86400}{s} = 2.768 \quad\text{(no unit)}\\
+    A_\mathrm{t} &= \qty{6.0e8}{Bq} \times e^{-2.768} = \qty{6.0e8}{Bq} \times 0.06279
+      = \qty{3.77e7}{Bq}}\par
+    \textbf{(d)} Divide $A_\mathrm{t} = A_0 e^{-\lambda t}$ by $A_0$, then take ln of both
+    sides:\par
+    \eqlines{0.010 &= e^{-\lambda t} \ \Rightarrow\ \ln 0.010 = -\lambda t
+      \ \Rightarrow\ -4.605 = -\lambda t\\
+    t &= \frac{4.605}{\qty{3.204e-5}{s^{-1}}} = \qty{1.437e5}{s}
+      = \frac{\qty{1.437e5}{s}}{\qty{3600}{s.h^{-1}}} = \qty{39.9}{h}}}
+  \answer{(a) \final{$\lambda = \qty{3.20e-5}{s^{-1}}$} \quad
+    (b) \final{$N_0 = \num{1.9e13}$ nuclei}\par
+    (c) \final{$A = \qty{3.8e7}{Bq}$} \quad (d) \final{$t = \qty{39.9}{h}$} (about
+    \qty{40}{h})}
+  \checkstep{\qty{24.0}{h} is almost 4 half-lives, and $\left(\tfrac12\right)^4 = 0.0625$
+    \cmark. Falling to \qty{1}{\percent} takes $\dfrac{\ln 100}{\ln 2} = 6.6$ half-lives,
+    and $6.6 \times \qty{6.01}{h} = \qty{40}{h}$ \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct decay constant in \si{s^{-1}}}{1}
+    \criterion{(b) Correct number of nuclei, using $A = \lambda N$}{1}
+    \criterion{(c) Correct activity, \qty{3.8e7}{Bq}}{1}
+    \criterion{(d) Correct time, \qty{39.9}{h} (accept \qty{40}{h})}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q18 fission
+\begin{practiceans}
+  \given{the fission equation; binding energy per nucleon: U-235 \qty{7.59}{MeV}, Ba-141
+    \qty{8.33}{MeV}, Kr-92 \qty{8.51}{MeV}; a free neutron has $E_\mathrm{B} = 0$}
+  \find{(a) $x$ \quad (b) the energy released $E$ \quad (c) the job of the control rods}
+  \formula{$\sum A$ and $\sum Z$ are the same on both sides; \
+    $E_\mathrm{B} = (\text{per nucleon value}) \times A$; \
+    $E = \sum E_\mathrm{B,after} - \sum E_\mathrm{B,before}$ (not on the sheet)}
+  \substitute{\eqlines{A\colon\ 235 + 1 &= 141 + 92 + x \ \Rightarrow\ x = 236 - 233 = 3\\
+    Z\colon\ 92 + 0 &= 56 + 36 + 0 = 92 \ \text{\cmark}\\
+    E_\mathrm{B,before} &= 235 \times \qty{7.59}{MeV} = \qty{1783.65}{MeV}\\
+    E_\mathrm{B,after} &= 141 \times \qty{8.33}{MeV} + 92 \times \qty{8.51}{MeV}\\
+    &= \qty{1174.53}{MeV} + \qty{782.92}{MeV} = \qty{1957.45}{MeV}\\
+    E &= \qty{1957.45}{MeV} - \qty{1783.65}{MeV} = \qty{173.8}{MeV}}\par
+    \textbf{(c)} Control rods (boron or cadmium) absorb neutrons. They are moved in or out
+    so that, on average, exactly one neutron from each fission causes another fission. Then
+    the rate of fission stays steady.}
+  \answer{(a) \final{$x = 3$} \quad (b) \final{$E \approx \qty{174}{MeV}$} \quad (c) they
+    absorb neutrons, so that on average one neutron per fission causes a new fission.}
+  \checkstep{close to the usual ``about \qty{200}{MeV}'' per fission \cmark. Using atomic
+    masses instead gives \qty{173}{MeV}, which agrees.}
+  \begin{markingcriteria}
+    \criterion{(a) $x = 3$}{1}
+    \criterion{(b) Multiplies each per nucleon value by its mass number}{1}
+    \criterion{(b) Correct energy, about \qty{174}{MeV}}{1}
+    \criterion{(c) Control rods absorb neutrons, so on average one neutron per fission causes
+      another fission}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q19 deuteron cyclotron
+\begin{practiceans}
+  \given{$q = \qty{1.602e-19}{C}$, \ $m = \qty{3.344e-27}{kg}$, \ $B = \qty{1.2}{T}$, \
+    $r = \qty{0.45}{m}$, \ gap voltage $V = \qty{40}{kV} = \qty{4.0e4}{V}$}
+  \find{(a) the AC frequency $f$ \quad (b) the final kinetic energy $K$ \quad (c) the number
+    of turns}
+  \formula{$f = \dfrac{qB}{2\pi m}$ and $r = \dfrac{mv}{qB}$, so $v = \dfrac{qBr}{m}$ (both
+    not on the sheet; from $qvB = \dfrac{mv^2}{r}$ and $v = \dfrac{2\pi r}{T}$); \
+    $K = \tfrac12 mv^2$; \ each turn crosses the gap twice, gaining $2qV$}
+  \substitute{\eqlines{f &= \frac{\qty{1.602e-19}{C} \times \qty{1.2}{T}}{2\pi \times
+      \qty{3.344e-27}{kg}} = \qty{9.149e6}{Hz}\\
+    v &= \frac{\qty{1.602e-19}{C} \times \qty{1.2}{T} \times \qty{0.45}{m}}{\qty{3.344e-27}{kg}}
+      = \qty{2.587e7}{m.s^{-1}}\\
+    K &= \tfrac12 \times \qty{3.344e-27}{kg} \times (\qty{2.587e7}{m.s^{-1}})^2\\
+    &= \qty{1.119e-12}{J}\\
+    K &= \frac{\qty{1.119e-12}{J}}{\qty{1.602e-13}{J.MeV^{-1}}} = \qty{6.985}{MeV}
+      \quad\text{(J to MeV)}\\
+    \text{energy per turn} &= 2 \times \qty{40}{keV} = \qty{80}{keV} = \qty{0.080}{MeV}\\
+    \text{turns} &= \frac{\qty{6.985}{MeV}}{\qty{0.080}{MeV}} = 87.3}}
+  \answer{(a) \final{$f = \qty{9.1e6}{Hz}$} \quad (b) \final{$K = \qty{7.0}{MeV}$} \quad
+    (c) \final{about 87 turns}}
+  \checkstep{$\dfrac{v}{c} = \dfrac{\num{2.587e7}}{\num{3.00e8}} = 0.086$, below $0.1c$, so
+    $\tfrac12 mv^2$ is fine \cmark. A bigger gap voltage would mean fewer turns, but the same
+    final energy (it is set by $B$ and $r$) \cmark.}
+  \begin{markingcriteria}
+    \criterion{(a) Correct frequency, \qty{9.1e6}{Hz}}{1}
+    \criterion{(b) Finds the exit speed from $r = \dfrac{mv}{qB}$}{1}
+    \criterion{(b) Correct kinetic energy, \qty{7.0}{MeV}}{1}
+    \criterion{(c) About 87 turns (two gap crossings per turn)}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ===================================================================== Section III
+% ---- Q20 Geiger-Marsden
+% layout QA (book build): keep "Question 20" with the start of its model answer
+\Needspace{9\baselineskip}
+\begin{practiceans}
+  \begin{modelanswer}
+  \textbf{(a)} \emph{Results.} Most alpha particles passed straight through the gold foil,
+  or were turned by only a small angle. A very small fraction (about 1 in 8000) were turned
+  by more than \ang{90}. A few bounced almost straight back.
+
+  \emph{Rutherford's explanation.}
+  \begin{itemize}
+    \item Most alphas passed straight through, so the atom is mostly empty space.
+    \item A large deflection needs a very large repulsive force. Positive charge spread
+          through the whole atom (Thomson's model) is far too weak to give it. So all the
+          positive charge, and nearly all the mass, must be packed into a tiny centre: the
+          nucleus.
+    \item Large deflections were very rare, so the nucleus must be very small: about
+          \num{10000} to \num{100000} times smaller across than the atom.
+    \item The electrons move around the nucleus, far away from it, so the atom is neutral.
+  \end{itemize}
+
+  \textbf{(b)} An electron moving around the nucleus in a circle is accelerating (its
+  direction keeps changing). Classical electromagnetism (Maxwell) says that an accelerating
+  charge gives out electromagnetic waves. These carry energy away. So the electron should
+  lose energy and spiral into the nucleus in about \qty{e-11}{s}. Real atoms are stable,
+  so the model cannot be complete.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Describes the results, including the rare large-angle deflections, AND
+      links each result to a feature of the nuclear model (empty space; tiny, dense, positive
+      nucleus)}{3}
+    \criterion{(a) Describes the results and links one of them to the nuclear model}{2}
+    \criterion{(a) States one correct result or one feature of the nuclear model}{1}
+    \criterion{(b) The orbiting electron accelerates, so it radiates energy, so it spirals
+      into the nucleus}{2}
+    \criterion{(b) States that the electron radiates energy, OR that the atom should
+      collapse}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q21 Balmer investigation
+\begin{practiceans}
+  \given{500 lines per mm, so $d = \dfrac{\qty{1}{mm}}{500} = \dfrac{\qty{1.00e-3}{m}}{500}
+    = \qty{2.00e-6}{m}$; \ $m = 1$; \ $\theta = \ang{14.1}$; \ $R = \qty{1.097e7}{m^{-1}}$}
+  \find{(a) $\lambda$ \quad (b) the Rydberg wavelength for $n = 4 \to n = 2$ \quad
+    (c) an evaluation}
+  \formula{$d\sin\theta = m\lambda$ (on the sheet), so $\lambda = d\sin\theta$ for the first
+    order; \ $\dfrac{1}{\lambda} = R\left(\dfrac{1}{n_\mathrm{f}^2} -
+    \dfrac{1}{n_\mathrm{i}^2}\right)$ (on the sheet)}
+  \substitute{\eqlines{\lambda &= \qty{2.00e-6}{m} \times \sin\ang{14.1}
+      = \qty{2.00e-6}{m} \times 0.2436\\
+    &= \qty{4.87e-7}{m} = \qty{487}{nm}\\
+    \frac{1}{\lambda} &= \qty{1.097e7}{m^{-1}} \times \left(\frac{1}{2^2} - \frac{1}{4^2}\right)\\
+    &= \qty{1.097e7}{m^{-1}} \times 0.1875 = \qty{2.057e6}{m^{-1}}\\
+    \lambda &= \frac{1}{\qty{2.057e6}{m^{-1}}} = \qty{4.862e-7}{m} = \qty{486.2}{nm}}}
+  \answer{(a) \final{$\lambda = \qty{487}{nm}$} \quad (b) the $4 \to 2$ jump gives
+    \qty{486.2}{nm}. This is within \qty{0.2}{\percent} of the measured value. The other
+    visible Balmer lines are far away (\qty{656}{nm}, \qty{434}{nm}, \qty{410}{nm}). So the
+    cyan line is the $n = 4 \to n = 2$ jump.}
+  \checkstep{cyan light is about 480 to \qty{500}{nm} \cmark.}
+  \begin{modelanswer}
+  (c) The method has low reliability. There is only one reading, so a random error (in
+  setting the cross-wire on the line, or in reading the scale) cannot be seen or averaged
+  out. Reading on one side only also lets a systematic error into $\theta$: for example, if
+  the scale does not read exactly \ang{0} for the straight-through beam, or the grating is
+  not at right angles to the beam. An error of only \ang{0.1} changes $\lambda$ by about
+  \qty{3}{nm}. So the close agreement with the Rydberg value may be partly luck.
+
+  \emph{Improvements:}
+  \begin{enumerate}
+    \item Repeat the reading at least three times and use the mean (better reliability).
+    \item Measure the angle on both sides of the straight-through position, and halve the
+          angle between them. This cancels a zero error and a slightly turned grating (better
+          accuracy).
+  \end{enumerate}
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{(a) Correct grating spacing, \qty{2.00e-6}{m}}{1}
+    \criterion{(a) Correct wavelength, \qty{487}{nm}}{1}
+    \criterion{(b) Rydberg value for $4 \to 2$ (\qty{486}{nm}) compared with the measured
+      value}{1}
+    \criterion{(c) Judges the reliability (low) with a reason, AND gives two suitable
+      improvements}{3}
+    \criterion{(c) Judges the reliability with a reason AND gives one suitable improvement,
+      OR gives two suitable improvements}{2}
+    \criterion{(c) Gives one suitable improvement, OR a judgement with a reason}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q22 decay graph
+\begin{practiceans}
+  \textbf{(a)} Take ln of both sides of $N_\mathrm{t} = N_0 e^{-\lambda t}$:
+  \begin{align*}
+    \ln N_\mathrm{t} &= \ln\left(N_0 e^{-\lambda t}\right) && \text{take ln of both sides}\\
+    \ln N_\mathrm{t} &= \ln N_0 + \ln\left(e^{-\lambda t}\right) && \text{$\ln(ab) = \ln a + \ln b$}\\
+    \ln N_\mathrm{t} &= -\lambda t + \ln N_0 && \text{$\ln(e^{x}) = x$}
+  \end{align*}
+  This has the form $y = mx + c$, with $y = \ln N_\mathrm{t}$ and $x = t$. So the graph is a
+  straight line. Its gradient is $-\lambda$ and its $y$-intercept is $\ln N_0$.
+
+  \textbf{(b)} Corrected count rate = measured count rate $-$ 30. Then press ln.
+  \begin{center}\small\setlength\tabcolsep{4pt}
+  \begin{tabular}{@{}L{36mm}*{9}{C{8.5mm}}@{}}
+    \toprule
+    Time $t$ (\si{s}) & 0 & 30 & 60 & 90 & 120 & 150 & 180 & 210 & 240\\
+    \midrule
+    Corrected count rate & 971 & 767 & 547 & 407 & 298 & 220 & 165 & 120 & 87\\
+    \midrule
+    $\ln(\text{corrected})$ & 6.88 & 6.64 & 6.30 & 6.01 & 5.70 & 5.39 & 5.11 & 4.79 & 4.47\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+
+  \textbf{(c)} The points lie close to a straight line (see the graph below). Draw one
+  straight line with about as many points above it as below it.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=0.8\linewidth, height=0.52\linewidth,
+          xmin=0, xmax=250, ymin=4.0, ymax=7.0,
+          xlabel={Time $t$ (\si{s})}, ylabel={$\ln(\text{corrected count rate})$},
+          xtick={0,50,...,250}, ytick={4.0,4.5,...,7.0},
+          minor x tick num=4, minor y tick num=4,
+          grid=both, minor grid style={hscrule!45, line width=0.2pt},
+          yticklabel style={/pgf/number format/.cd, fixed, fixed zerofill, precision=1}]
+        \addplot[hscseriesB, line width=1pt, domain=0:250, samples=2] {6.913 - 0.010125*x};
+        \addplot[hscseriesA, only marks, mark=*, mark size=2pt] coordinates {
+          (0,6.878) (30,6.642) (60,6.304) (90,6.009) (120,5.697) (150,5.394) (180,5.106)
+          (210,4.787) (240,4.466)};
+        \draw[hscmuted, line width=0.7pt, dashed] (axis cs:0,6.91) -- (axis cs:240,6.91)
+          -- (axis cs:240,4.48);
+        \node[font=\footnotesize, anchor=north, text=hscink] at (axis cs:165,6.89)
+          {run $= \qty{240}{s}$};
+        \node[font=\footnotesize, anchor=east, text=hscink] at (axis cs:237,5.9)
+          {rise $= -2.43$};
+        \node[font=\footnotesize, anchor=north east, text=hscseriesB] at (axis cs:120,5.6)
+          {line of best fit};
+      \end{axis}
+    \end{tikzpicture}
+    \caption*{Model graph for part (c). The dashed triangle gives the gradient in part (d).}
+  \end{figure}
+
+  \textbf{(d)}
+  \given{two points far apart \emph{on the line}: $(\qty{0}{s},\ 6.91)$ and
+    $(\qty{240}{s},\ 4.48)$}
+  \find{the gradient, then $\lambda$, then $t_{\frac{1}{2}}$}
+  \formula{gradient $= \dfrac{\text{rise}}{\text{run}} = -\lambda$; \
+    $\lambda = \dfrac{\ln 2}{t_{\frac{1}{2}}}$ (on the sheet), so
+    $t_{\frac{1}{2}} = \dfrac{\ln 2}{\lambda}$}
+  \substitute{\eqlines{\text{gradient} &= \frac{4.48 - 6.91}{\qty{240}{s} - \qty{0}{s}}
+      = \frac{-2.43}{\qty{240}{s}} = \qty{-0.01013}{s^{-1}}\\
+    \lambda &= \qty{0.01013}{s^{-1}} \quad\text{(gradient $= -\lambda$)}\\
+    t_{\frac{1}{2}} &= \frac{0.6931}{\qty{0.01013}{s^{-1}}} = \qty{68.4}{s}}}
+  \answer{\final{$t_{\frac{1}{2}} \approx \qty{68}{s}$}. (Any value from about 65 to
+    \qty{72}{s} is fine; it depends on your line.)}
+  \checkstep{from the table, the count rate falls to a quarter of 971 (about 243) at about
+    \qty{140}{s}. That is two half-lives, so $t_{\frac{1}{2}} \approx \qty{70}{s}$, close to
+    our answer \cmark. The accepted value is about \qty{70}{s}. The points scatter a little
+    about the line because decay is random.}
+  \begin{markingcriteria}
+    \criterion{(a) Takes ln of both sides and shows $\ln N_\mathrm{t} = \ln N_0 - \lambda t$,
+      a straight line with gradient $-\lambda$}{1}
+    \criterion{(b) All corrected count rates and ln values correct}{1}
+    \criterion{(c) All 9 points plotted correctly, AND a single straight line of best
+      fit}{2}
+    \criterion{(c) At least 7 points plotted correctly with a suitable line, OR all points
+      plotted correctly but the line is missing or poor}{1}
+    \criterion{(d) Gradient found from two points on the line}{1}
+    \criterion{(d) Half-life from $t_{\frac{1}{2}} = \dfrac{\ln 2}{\lambda}$, about
+      \qty{68}{s}}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q23 matter waves: Bohr to Schrodinger
+\begin{practiceans}
+  \begin{modelanswer}
+  \textbf{Bohr's limitation.} Bohr's model (1913) said that electrons move only in certain
+  orbits (stationary states), where they do not radiate. Their angular momentum is
+  quantised: $mvr = \dfrac{nh}{2\pi}$. But these were \emph{postulates}. Bohr gave no reason
+  why only these orbits are allowed, or why an electron in them does not radiate.
+
+  \textbf{De Broglie's matter waves (1924).} De Broglie proposed that every moving particle
+  has a wavelength, $\lambda = \dfrac{h}{mv}$. Then an electron in an orbit is a wave
+  wrapped around the nucleus. The wave joins itself smoothly only if a whole number of
+  wavelengths fits around the orbit: $2\pi r = n\lambda$. This makes a standing wave. In any
+  other orbit the wave is out of step with itself and cancels, so that orbit cannot exist.
+  Put $\lambda = \dfrac{h}{mv}$ into $2\pi r = n\lambda$ and you get $mvr = \dfrac{nh}{2\pi}$:
+  exactly Bohr's rule. A standing wave does not travel, so it does not carry energy away. So
+  matter waves \emph{explain} what Bohr had only assumed.
+
+  \textbf{Evidence.} In 1927 Davisson and Germer, and G.\,P. Thomson, diffracted electrons
+  with crystals. The wavelengths from the patterns matched $\dfrac{h}{mv}$. So matter waves
+  are real.
+
+  \textbf{Schrödinger's model (1926).} Schrödinger treated the electron fully as a wave. He
+  wrote a wave equation for it in three dimensions. Its solutions (wave functions) describe
+  orbitals: regions where the electron is \emph{likely} to be found. There are no fixed
+  orbits. The energy levels and three quantum numbers ($n$, $l$, $m_l$) come out of the maths;
+  none is assumed. With approximations, the model also works for atoms with many electrons.
+  It also predicts how bright the spectral lines are.
+
+  \textbf{Analysis.} De Broglie's idea is the link between the two models. It turned Bohr's
+  assumed rule into a result of wave behaviour. It also gave Schrödinger the starting point
+  for today's quantum model of the atom.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{Identifies a limitation of Bohr's model; explains how matter waves
+      ($\lambda = \dfrac{h}{mv}$, $2\pi r = n\lambda$) explain the stationary states; refers
+      to evidence (electron diffraction); explains how Schrödinger's wave model developed
+      from this (wave functions, probability, quantisation from the maths); clear
+      cause-and-effect links throughout}{5}
+    \criterion{Covers most of these points, with one part weak or links missing}{4}
+    \criterion{Explains de Broglie's idea and links it to Bohr's model OR to Schrödinger's
+      model}{3}
+    \criterion{Describes some relevant features of the models or of matter waves}{2}
+    \criterion{States one relevant point}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q24 accelerators as microscopes
+\begin{practiceans}
+  \begin{modelanswer}
+  \textbf{How accelerators work.} Electric fields speed up charged particles: in the gaps
+  of a linac, in the gap between the dees of a cyclotron, and in the RF cavities of a
+  synchrotron. Magnetic fields bend and focus the beam ($r = \dfrac{p}{qB}$). In a
+  synchrotron the magnetic field is raised as the momentum grows, so the particles stay on
+  one ring. In a collider two beams meet head-on, and detectors track the particles that
+  come out.
+
+  \textbf{Why ``microscope'' fits.} To see a small detail, the probe's wavelength must be
+  smaller than the detail. A faster particle has more momentum, so its de Broglie wavelength,
+  $\lambda = \dfrac{h}{p}$, is shorter. Accelerators give particles enough momentum to make
+  $\lambda$ smaller than a proton (about \qty{e-15}{m}). At SLAC (1967--1973), electrons of up
+  to about \qty{20}{GeV} ($\lambda \approx \qty{6e-17}{m}$) were fired at protons. Far more
+  electrons than expected were scattered through large angles. So the proton contains tiny,
+  point-like charges: quarks. Protons are not fundamental. This is Rutherford's gold-foil
+  idea, one level deeper.
+
+  \textbf{Why the description is incomplete.} Accelerators also \emph{create} particles that
+  were not inside the colliding particles. The collision energy becomes mass ($E = mc^2$).
+  The Standard Model predicted particles, and accelerators then found them with the
+  predicted properties: the $\Omega^-$ (1964), the W and Z bosons at about 80 and
+  \qty{91}{GeV}/$c^2$ (CERN, 1983), the top quark (Fermilab, 1995) and the Higgs boson at
+  \qty{125}{GeV}/$c^2$ (LHC, 2012). A microscope only looks at what is already there.
+
+  \textbf{Judgement.} The description is partly valid. Accelerators act like microscopes when
+  they probe structure, as in deep inelastic scattering. But it is incomplete: much of their
+  role in testing the Standard Model is as ``particle factories'', which turn energy into
+  new, heavy particles.
+  \end{modelanswer}
+  \begin{markingcriteria}
+    \criterion{Explains how accelerators work (electric fields accelerate, magnetic fields
+      steer); explains the microscope idea with the de Broglie wavelength, with evidence (for
+      example deep inelastic scattering); explains particle creation with $E = mc^2$, with
+      evidence (for example W and Z, Higgs); makes a clear, justified judgement}{6}
+    \criterion{As above, with one part less detailed}{5}
+    \criterion{Explains how accelerators work and gives two pieces of evidence with a
+      judgement; OR explains both roles without specific evidence}{4}
+    \criterion{Describes how an accelerator works and links one piece of evidence to the
+      Standard Model}{3}
+    \criterion{Describes some features of accelerators, or some evidence}{2}
+    \criterion{States one relevant point}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+% ---- Q25 HR diagram
+% layout QA (book build): one extra line on this page and on the next lets the Q25
+% marking criteria end on the same page as the model answer.
+\enlargethispage{\baselineskip}
+\begin{practiceans}
+  \begin{modelanswer}
+  \textbf{(a)} \emph{R is a white dwarf.} It is hot (about \qty{9000}{K}, on the left) but
+  very dim (about $0.003\,L_\odot$, near the bottom). A hot star gives out a lot of power
+  from each square metre, so a dim hot star must be very small.
+
+  \emph{P is a red giant.} It is cool (about \qty{3600}{K}, on the right, so red) but very
+  luminous (about $300\,L_\odot$). A cool star gives out little power from each square metre,
+  so a luminous cool star must be very large. It lies above and to the right of the main
+  sequence.
+
+  \textbf{(b)}
+  \begin{itemize}
+    \item \emph{Mass:} on the main sequence, hotter and more luminous stars are more massive.
+          Q (about \qty{20000}{K}, $3000\,L_\odot$) is much more massive than the Sun. S
+          (about \qty{4200}{K}, $0.15\,L_\odot$) is less massive than the Sun.
+    \item \emph{Time on the main sequence:} Q has more fuel, but its hotter core fuses it
+          much faster. So Q stays on the main sequence for only tens of millions of years.
+          S stays there for tens of billions of years, longer than the Sun.
+    \item \emph{Fusion:} both fuse hydrogen into helium in their cores. Q's core is hotter
+          than about 18 million K, so Q mainly uses the CNO cycle. Carbon, nitrogen and
+          oxygen act as catalysts. S has a cooler core, so it mainly uses the proton--proton
+          chain.
+  \end{itemize}
+
+  \textbf{(c)} When the hydrogen in the core runs out, fusion in the core stops. The core
+  shrinks and heats up, and hydrogen fuses in a shell around it. The outer layers swell and
+  cool: the Sun becomes a red giant, like P. When the core reaches about 100 million K,
+  helium fuses into carbon by the triple-alpha process ($3\,\pracNuc{4}{2}{He} \to
+  \pracNuc{12}{6}{C}$). Some carbon also captures helium to make oxygen. The Sun is not
+  massive enough to fuse carbon. Its outer layers drift away as a planetary nebula. The hot
+  carbon--oxygen core is left as a white dwarf, like R. It has no fusion and slowly cools.
+  \end{modelanswer}
+  % layout QA (book build): one extra line lets these criteria fit under the model answer
+  % (otherwise they fill only 40% of an extra page).
+  \enlargethispage{\baselineskip}
+  \begin{markingcriteria}
+    \criterion{(a) R is the white dwarf and P is the red giant, each justified with its
+      temperature and luminosity (and so its size)}{2}
+    \criterion{(a) Both identified without justification, OR one identified and
+      justified}{1}
+    \criterion{(b) Correct comparison of mass, time on the main sequence AND fusion process
+      (Q: more massive, shorter life, CNO cycle; S: less massive, longer life, p--p
+      chain)}{3}
+    \criterion{(b) Two of these correct}{2}
+    \criterion{(b) One of these correct}{1}
+    \criterion{(c) Describes all three stages: core hydrogen runs out, so the core contracts
+      and heats (hydrogen fuses in a shell; red giant); helium fuses into carbon (and
+      oxygen) at about 100 million K; fusion stops, the outer layers drift away as a
+      planetary nebula and the core is left as a white dwarf}{3}
+    \criterion{(c) Describes two of these stages correctly}{2}
+    \criterion{(c) Describes one correct stage}{1}
+  \end{markingcriteria}
+\end{practiceans}
+
+\end{practiceanswers}

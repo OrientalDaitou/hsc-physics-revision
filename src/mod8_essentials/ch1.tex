@@ -1,0 +1,373 @@
+% ch1.tex -- Module 8 ESSENTIALS edition, Chapter 1: Origins of the Elements (IQ1).
+% book): same notation, same facts and numbers. Figures copied from src/mod8/figures/
+% (same file names); the TikZ is copied (life-cycle chart made more compact) from the full
+\chapter{Origins of the Elements: the Big Bang and the Stars}\label{ch1:chap}
+\covers{M8.IQ1.01, M8.IQ1.02, M8.IQ1.03, M8.IQ1.04, M8.IQ1.05, M8.IQ1.06, M8.IQ1.07}
+
+% nuclide symbol with right-aligned mass number A and atomic number Z: \chOneNuc{A}{Z}{X}
+\newlength\chOneNucW
+\newlength\chOneNucV
+\newcommand\chOneNuc[3]{%
+  \settowidth\chOneNucW{$\scriptstyle #1$}\settowidth\chOneNucV{$\scriptstyle #2$}%
+  \ifdim\chOneNucV>\chOneNucW\chOneNucW=\chOneNucV\fi
+  {}^{\makebox[\chOneNucW][r]{$\scriptstyle #1$}}_{\makebox[\chOneNucW][r]{$\scriptstyle #2$}}\mathrm{#3}}
+
+\begin{summarybox}{In this chapter}
+\begin{itemize}
+  \item Energy into matter after the Big Bang; Hubble's evidence that space expands.
+  \item Spectra and Wien's law; classes of stars; the HR diagram and the life of a star.
+  \item Fusion in stars: the proton--proton chain, the CNO cycle and heavier elements.
+\end{itemize}
+\end{summarybox}
+
+%% ==================================================================
+\section{From radiation to matter: the Big Bang}\label{ch1:sec:bigbang}
+\covers{M8.IQ1.01, M8.IQ1.03}
+
+\begin{bigidea}
+About 13.8 billion years ago the Universe was extremely hot and dense. As space expanded, it
+cooled, and energy turned into matter ($E = mc^2$).
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Pair production}{a photon turning into a particle and its \textbf{antiparticle} (same
+    mass, opposite charge).}
+  \kw{Annihilation}{a particle and its antiparticle turning into photons.}
+\end{keywords}
+
+\begin{itemize}
+  \item The \term{Big Bang} was not an explosion into empty space. Space itself stretches,
+        everywhere at once, so there is no centre. Expanding space cools.
+  \item $E = mc^2$ (on the formula sheet; $E$ in J, $m$ in kg): mass and energy are two forms
+        of the same thing. Early high-energy \term{photons} (packets of light) with
+        $E \geq 2mc^2$ made pairs (such as $\mathrm{e}^-$ and $\mathrm{e}^+$), near a nucleus or
+        with a second photon. For a pair, use $2m$.
+  \item As photons lost energy, proton pairs stopped first (they need more energy); electron
+        pairs stopped a few seconds after the Big Bang. Matter and antimatter annihilated, but
+        one particle in a billion was left: all matter today.
+  \item Order: \term{inflation} (very fast expansion, \num{e-36} to \qty{e-32}{s}) $\to$
+        \term{quarks} (tiny particles) join into protons and neutrons (\qty{e-6}{s}) $\to$
+        helium nuclei form (3--20 minutes, \qty{e9}{K}).
+  \item Then: atoms form and light is set free (\num{380000} years, \qty{3000}{K}) $\to$
+        first stars (200 million years) $\to$ today (\qty{2.7}{K}).
+  \item This \term{Big Bang nucleosynthesis} (making nuclei) left about \qty{75}{\percent}
+        hydrogen and \qty{25}{\percent} helium by mass, and a trace of lithium. Heavier
+        elements were made later, in stars.
+\end{itemize}
+
+%% ==================================================================
+\section{Evidence for an expanding Universe}\label{ch1:sec:expansion}
+\covers{M8.IQ1.02, M8.IQ1.01}
+
+\begin{bigidea}
+The further away a galaxy is, the faster it moves away (its light is redshifted). So space is
+expanding, and long ago the Universe was small, hot and dense.
+\end{bigidea}
+
+\begin{itemize}
+  \item Each element has its own set of \term{spectral lines} (dark lines in starlight). A source moving away stretches
+        its waves, so all lines shift to longer wavelengths: \term{redshift} (towards us:
+        \term{blueshift}). A bigger shift means a faster speed.
+  \item \emph{Speeds}: Slipher (from 1912) found most galaxies were redshifted: moving away.
+  \item \emph{Distances}: a \term{Cepheid variable} star brightens and dims in a regular cycle.
+        Leavitt (1912): the cycle time gives its luminosity (true brightness); comparing this
+        with how bright it looks gives its distance.
+  \item Hubble used Cepheids to show Andromeda is another galaxy (1924). In 1929 he found
+        $v \propto d$: twice as far, twice as fast. The gradient of $v$ against $d$ is the
+        \term{Hubble constant} $H_0$, about \qty{70}{km.s^{-1}.Mpc^{-1}}.
+\end{itemize}
+
+% unbreakable: the card stays on one page (formula and symbols with their use and trap)
+\begin{formulacard}[notonsheet, unbreakable]{Redshift, Hubble's law and the age of the Universe}
+  \cardformula{z = \frac{\Delta\lambda}{\lambda_0} = \frac{\lambda - \lambda_0}{\lambda_0}
+    \approx \frac{v}{c} \qquad v = H_0 d \qquad t \approx \frac{1}{H_0}}
+  \begin{symbols}
+    \sym{$z$; $\lambda_0$, $\lambda$}{redshift; laboratory and observed wavelength}{no unit; \si{m}}
+    \sym{$v$; $d$}{recession velocity; distance ($\qty{1}{Mpc} = \qty{3.086e22}{m}$)}{\si{m.s^{-1}};
+      \si{m}}
+    \sym{$H_0$; $t$}{Hubble constant; age of the Universe}{\si{s^{-1}}; \si{s}}
+  \end{symbols}
+  \whentouse{$z \approx v/c$: light (not sound), $v$ below about $0.1c$. $v = H_0 d$: distant
+    galaxies only (nearby ones have their own motion).}
+  \derive{one wave every period $T$: $\lambda_0 = cT$, $\Delta\lambda = vT$, so
+    $\frac{\Delta\lambda}{\lambda_0} = \frac{v}{c}$. At constant
+    speed, $t = \frac{d}{v} = \frac{d}{H_0 d} = \frac{1}{H_0}$.}
+  \trap{change $H_0$ from \si{km.s^{-1}.Mpc^{-1}} into \si{s^{-1}} for $t$: $H_0 = 70$ is
+    \qty{2.27e-18}{s^{-1}}.}
+\end{formulacard}
+
+% Two more knowledge points of this section (in the full book: the subsections "What the
+% expansion means" and "More evidence: the CMB and the light elements"), each with a run-in
+% head as in "Classifying stars." below.
+\textbf{What the expansion means.} The \term{cosmological principle}: on a large scale, the
+Universe looks the same from everywhere. So every galaxy sees the others moving away: space
+itself stretches, and Earth is not the centre. Run backwards, everything was once hot and dense.
+
+\textbf{More evidence for the Big Bang.} The \term{cosmic microwave background} (CMB), found in
+1965, is faint microwave radiation from every direction. It is the light set free at
+\num{380000} years, stretched about 1100 times: today a \qty{2.7}{K} black body. Also, the
+oldest stars have about \qty{25}{\percent} helium, as Big Bang nucleosynthesis predicts.
+
+%% ==================================================================
+\section{Spectra and the classification of stars}\label{ch1:sec:spectra}
+\covers{M8.IQ1.04, M8.IQ1.05}
+
+\begin{bigidea}
+A hot, dense object gives a continuous spectrum set only by its temperature. A gas gives
+bright or dark lines that identify the element. Dark lines sort stars into classes.
+\end{bigidea}
+
+\Cref{ch1:fig:spectra} shows a \term{continuous spectrum} (every wavelength), an
+\term{emission spectrum} (bright lines only) and an \term{absorption spectrum} (dark lines).
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_spectra.pdf}
+  \caption{The three kinds of spectrum. Hydrogen's dark lines are at exactly the same
+    wavelengths as its bright lines.}\label{ch1:fig:spectra}
+\end{figure}
+
+\begin{itemize}
+  \item An electron in an atom can only have certain energies, its \term{energy levels}.
+        \emph{Emission}: heat or a current lifts electrons; each drops back and gives out one
+        photon, $E = hf$ = the gap.
+  \item \emph{Absorption}: a photon with exactly the gap energy lifts an electron. It is given
+        out again in all directions, so the line is dark. Same gaps, same wavelengths.
+  \item A \term{black body} absorbs all light; its glow depends only on its temperature. Its
+        particles jostle, so it gives out every wavelength. Hotter: more light at every
+        wavelength, and a shorter peak (\textbf{Wien's displacement law}).
+\end{itemize}
+
+\begin{formulacard}{Wien's displacement law}
+  \cardformula{\lambda_\mathrm{max} = \frac{b}{T}}
+  \begin{symbols}
+    \sym{$\lambda_\mathrm{max}$}{wavelength where the spectrum peaks}{\si{m}}
+    \sym{$b$}{Wien's constant, \qty{2.898e-3}{m.K} (data sheet)}{\si{m.K}}
+    \sym{$T$}{surface temperature}{\si{K}}
+  \end{symbols}
+  \whentouse{black bodies (stars, the CMB), not for emission or absorption lines.}
+  \trap{$T$ in kelvin, not \si{\degreeCelsius}. $\lambda_\mathrm{max}$ comes out in metres.}
+\end{formulacard}
+
+\textbf{Classifying stars.} Starlight is an absorption spectrum: cooler outer gas absorbs some
+wavelengths. The \term{spectral classes}, hottest to coolest, are O B A F G K M (``\textbf{O}h
+\textbf{B}e \textbf{A} \textbf{F}ine \textbf{G}uy, \textbf{K}iss \textbf{M}e''), with
+subclasses 0 to 9; the Sun is G2. (Ionised: an atom has lost electrons. ``Metal'': any element
+heavier than helium.)
+
+\begin{table}
+  \caption{Spectral classes (temperatures are approximate). $\lambda_\mathrm{max}$ is from
+    Wien's law.}\label{ch1:tab:classes}
+  \centering\small
+  \begin{tabular}{@{}C{9mm}L{27mm}L{20mm}L{17mm}L{58mm}@{}}
+    \toprule
+    \colhead{Class} & \colhead{Temperature (K)} & \colhead{Colour} &
+      \colhead{$\lambda_\mathrm{max}$ (nm)} & \colhead{Main absorption lines}\\
+    \midrule
+    O & above \num{30000} & blue & below 97 & ionised helium; weak hydrogen\\
+    B & \num{10000}--\num{30000} & blue-white & 97--290 & neutral helium; stronger hydrogen\\
+    A & \num{7500}--\num{10000} & white & 290--386 & hydrogen strongest\\
+    F & \num{6000}--\num{7500} & yellow-white & 386--483 & weaker hydrogen; ionised metals\\
+    G & \num{5000}--\num{6000} & yellow & 483--580 & ionised calcium; many metals (Sun)\\
+    K & \num{3500}--\num{5000} & orange & 580--828 & neutral metals; some molecules\\
+    M & below \num{3500} & red & above 828 & molecules (titanium oxide); very weak hydrogen\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item Payne (1925): the classes differ because of \emph{temperature}, not the elements.
+        Hydrogen's visible lines need electrons in $n = 2$: strongest in class A. Cooler stars
+        keep electrons in $n = 1$; in O stars hydrogen is ionised.
+  \item A shift of all lines gives the star's motion towards or away from us.
+  \item Line width gives gas density: broad lines mean a small, dense main sequence star;
+        narrow lines a huge giant. This is the \term{luminosity class}: I supergiant, III
+        giant, V main sequence (Sun: G2V).
+  \item Fast rotation also broadens lines: one edge comes towards us, the other moves away.
+\end{itemize}
+
+%% ==================================================================
+\section{The Hertzsprung--Russell diagram and the life of stars}\label{ch1:sec:hr}
+\covers{M8.IQ1.06, M8.IQ1.07}
+
+\begin{bigidea}
+An HR diagram plots luminosity against surface temperature. A star's place shows its colour,
+luminosity, size and stage of life. Its mass decides how it lives and dies.
+\end{bigidea}
+
+\term{Luminosity} ($L$) is the total power a star gives out (W); distance does not change it
+($L_\odot = \qty{3.83e26}{W}$). \term{Apparent brightness}, how bright it looks, depends on
+distance. \term{Absolute magnitude} ($M$) is how bright a star would look from 10 parsecs:
+smaller is brighter, and 5 magnitudes is a factor of 100:
+$\dfrac{L_A}{L_B} = 100^{(M_B - M_A)/5}$ (not on the formula sheet). On the HR diagram
+(\cref{ch1:fig:hr}):
+\begin{itemize}
+  \item Hot stars are on the \textbf{left} (blue, class O); bright stars at the \textbf{top}.
+  \item \term{Main sequence}: the diagonal band of stars fusing hydrogen into helium; about
+        \qty{90}{\percent} of stars, because it is the longest stage.
+  \item Top right: \term{red giants} and supergiants, cool but luminous, so huge. Bottom left:
+        \term{white dwarfs}, hot but dim, so tiny. (Stars with the same temperature give out
+        the same power from each square metre, so a dim hot star must be small.)
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics{ch1_hr.pdf}
+  \caption{An HR diagram (simplified). The Sun: 1 = now, 2 = red giant, 3 = white
+    dwarf.}\label{ch1:fig:hr}
+\end{figure}
+
+\textbf{The life of a star.} A gas cloud (\term{nebula}) collapses into a hot
+\term{protostar}. At about 10~million~K hydrogen fusion starts: the main sequence, where
+inward gravity balances outward gas pressure (\term{stellar equilibrium}). More mass ($M_\odot$ = the
+Sun's mass) means faster fusion and a shorter life (Sun 10 billion years, $10\,M_\odot$ 30
+million). Later it swells into a red giant or supergiant.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1mm, y=1mm,
+      st/.style={concept=#1, font=\footnotesize, inner sep=1.4mm},
+      fin/.style={concept=#1, font=\footnotesize, inner sep=1.2mm, fill=hscbrand!16}]
+    \node[st=12mm] (neb) at (7.4,0) {nebula};
+    \node[st=15mm] (pro) at (27.9,0) {protostar};
+    \node[st=15mm] (ms) at (49.9,0) {main\\sequence};
+    \node[st=17mm] (rg) at (76.9,9) {red giant};
+    \node[st=17mm] (rsg) at (76.9,-9) {red\\supergiant};
+    \node[st=15mm] (pn) at (99.9,9) {planetary\\nebula};
+    \node[st=15mm] (sn) at (99.9,-9) {supernova};
+    \node[fin=30mm] (wd) at (130,9) {white dwarf\\(core below $1.4\,M_\odot$)};
+    \node[fin=30mm] (ns) at (130,-3) {neutron star\\(core $1.4$--$3\,M_\odot$)};
+    \node[fin=30mm] (bh) at (130,-14) {black hole\\(core above $3\,M_\odot$)};
+    \draw[link] (neb) -- (pro);
+    \draw[link] (pro) -- (ms);
+    \draw[link] (ms.east) -- (rg.west);
+    \draw[link] (ms.east) -- (rsg.west);
+    \node[font=\footnotesize\bfseries, text=hscbrand, anchor=south west] at (64,14.5)
+      {Starting mass below $8\,M_\odot$};
+    \node[font=\footnotesize\bfseries, text=hscbrand, anchor=north west] at (64,-14.5)
+      {Starting mass above $8\,M_\odot$};
+    \draw[link] (rg) -- (pn);
+    \draw[link] (pn) -- (wd);
+    \draw[link] (rsg) -- (sn);
+    \draw[link] (sn.east) -- (ns.west);
+    \draw[link] (sn.east) -- (bh.west);
+  \end{tikzpicture}
+  \caption{A star's life depends on its starting mass. A white dwarf is Earth-sized; a
+    neutron star is about \qty{20}{km} across; light cannot escape a black
+    hole.}\label{ch1:fig:lifecycle}
+\end{figure}
+
+%% ==================================================================
+\section{Fusion in stars: \texorpdfstring{$E = mc^2$}{E = mc2} and nucleosynthesis}\label{ch1:sec:fusion}
+\covers{M8.IQ1.03, M8.IQ1.07}
+
+\begin{bigidea}
+In \term{nuclear fusion}, light nuclei join. The products have a little less mass; this
+\term{mass defect} $\Delta m$ (mass before minus mass after) becomes energy, $E = \Delta m\,c^2$.
+\end{bigidea}
+
+\begin{itemize}
+  \item $4\,\chOneNuc{1}{1}{H} \to \chOneNuc{4}{2}{He}$ turns \qty{0.7}{\percent} of the mass
+        into energy: \qty{6.4e14}{J} per kg, over 10 million times petrol. So stars shine for
+        billions of years. Fusion releases energy only for nuclei up to iron.
+  \item Fusion needs over 10 million K: nuclei are positive and repel, so only very fast ones
+        get close enough to join.
+\end{itemize}
+
+\begin{formulacard}[combine={$E = mc^2$ and $\mathrm{u} = 931.5\ \mathrm{MeV}/c^2$}]{Energy released in a nuclear reaction}
+  \cardformula{E = \Delta m\,c^2 \qquad E\,(\mathrm{MeV}) = \Delta m\,(\mathrm{u}) \times 931.5}
+  \begin{symbols}
+    \sym{$E$; $\Delta m$}{energy released; mass defect
+      ($\qty{1}{u} = \qty{1.661e-27}{kg} = \qty{931.5}{MeV}/c^2$)}{\si{J} or \si{MeV}; \si{kg}
+      or u}
+  \end{symbols}
+  \whentouse{known masses. Mass lost by a star of power $P$:
+    $\frac{\Delta m}{\Delta t} = \frac{P}{c^2}$.}
+  \derive{$E = \Delta m\,(\mathrm{u}) \times \frac{\qty{931.5}{MeV}}{c^2} \times c^2 =
+    \Delta m\,(\mathrm{u}) \times \qty{931.5}{MeV}$.}
+  \trap{one route only: u $\to$ MeV, or kg $\to$ J. Keep every decimal place.}
+\end{formulacard}
+
+\textbf{The proton--proton chain} is the main route in stars up to about $1.3\,M_\odot$ (core
+below about 18 million K). It gives about \qty{26.7}{MeV} per helium-4, including the
+positrons' annihilation ($\chOneNuc{2}{1}{H}$ =
+deuterium, $\chOneNuc{0}{+1}{e}$ = positron, $\nu_\mathrm{e}$ = neutrino (neutral, almost no
+mass); $A$ and $Z$ balance).
+
+{\centering
+\begin{tabular}{@{}l@{\qquad}l@{}}
+  Step 1 (twice) & $\chOneNuc{1}{1}{H} + \chOneNuc{1}{1}{H} \to \chOneNuc{2}{1}{H}
+    + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$\\[2pt]
+  Step 2 (twice) & $\chOneNuc{2}{1}{H} + \chOneNuc{1}{1}{H} \to \chOneNuc{3}{2}{He} + \gamma$\\[2pt]
+  Step 3 & $\chOneNuc{3}{2}{He} + \chOneNuc{3}{2}{He} \to \chOneNuc{4}{2}{He} + \chOneNuc{1}{1}{H}
+    + \chOneNuc{1}{1}{H}$\\[2pt]
+  \textbf{Net} & $4\,\chOneNuc{1}{1}{H} \to \chOneNuc{4}{2}{He} + 2\,\chOneNuc{0}{+1}{e}
+    + 2\nu_\mathrm{e} + 2\gamma$\\
+\end{tabular}\par}
+
+\textbf{The CNO cycle} is the main route in hotter stars (above about $1.3\,M_\odot$). Carbon-12
+catches four
+protons and is given back, so it is a \term{catalyst} (made by earlier stars). Net: the same
+as the p--p chain, but with $3\gamma$.
+
+{\centering\small
+\begin{tabular}{@{}l@{\qquad}l@{}}
+  1.\ $\chOneNuc{12}{6}{C} + \chOneNuc{1}{1}{H} \to \chOneNuc{13}{7}{N} + \gamma$ &
+  4.\ $\chOneNuc{14}{7}{N} + \chOneNuc{1}{1}{H} \to \chOneNuc{15}{8}{O} + \gamma$\\[2pt]
+  2.\ $\chOneNuc{13}{7}{N} \to \chOneNuc{13}{6}{C} + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$ &
+  5.\ $\chOneNuc{15}{8}{O} \to \chOneNuc{15}{7}{N} + \chOneNuc{0}{+1}{e} + \nu_\mathrm{e}$\\[2pt]
+  3.\ $\chOneNuc{13}{6}{C} + \chOneNuc{1}{1}{H} \to \chOneNuc{14}{7}{N} + \gamma$ &
+  6.\ $\chOneNuc{15}{7}{N} + \chOneNuc{1}{1}{H} \to \chOneNuc{12}{6}{C} + \chOneNuc{4}{2}{He}$\\
+\end{tabular}\par}
+
+\textbf{After the main sequence.} In a red giant (about 100 million K) the
+\term{triple-alpha process} fuses $3\,\chOneNuc{4}{2}{He} \to \chOneNuc{12}{6}{C}$; then
+$\chOneNuc{12}{6}{C} + \chOneNuc{4}{2}{He} \to \chOneNuc{16}{8}{O} + \gamma$. Massive stars fuse
+carbon, neon, oxygen and silicon in shells, up to iron. Fusing iron takes in energy, so the
+core collapses. Elements heavier than iron form by neutron capture (supernovae, neutron-star
+collisions, old giant stars). Supernovae and planetary nebulae spread the elements into new stars.
+
+%% ==================================================================
+\section{Key experiments}\label{ch1:sec:experiments}
+\covers{M8.IQ1.02, M8.IQ1.04, M8.IQ1.05, M8.IQ1.06}
+
+\begin{experiment}{Hubble's law from galaxy data}
+\textbf{Aim:} to show that $v \propto d$. \textbf{What was done:} Hubble (1929) found speeds
+from redshifts and distances from Cepheids, then plotted $v$ against $d$. \textbf{Result:} a
+straight line through the origin, so $v \propto d$. (Hubble's own gradient was about
+\qty{500}{km.s^{-1}.Mpc^{-1}}: his distances were too small. Today
+$H_0 \approx \qty{70}{km.s^{-1}.Mpc^{-1}}$, so $t \approx \frac{1}{H_0} = \qty{1.4e10}{years}$.)
+\textbf{Conclusion and significance:} space is expanding: the first strong
+evidence for the Big Bang (Hubble--Lema\^{\i}tre law).
+\end{experiment}
+
+\begin{experiment}{Observing continuous, emission and absorption spectra}
+\textbf{Aim:} to compare the three kinds of spectrum. \textbf{What was done:} a spectroscope
+(it splits light into its colours) viewed a filament lamp, gas discharge tubes, and the lamp through a sodium flame.
+\textbf{Result:} a rainbow; bright lines for each gas (hydrogen: 656, 486, 434, \qty{410}{nm});
+a dark sodium line at \qty{589}{nm}. \textbf{Conclusion and significance:} dark lines sit where
+the bright lines are, so lines show what stars are made of.
+\end{experiment}
+
+\begin{experiment}{Plotting an HR diagram from star data}
+\textbf{Aim:} to find the groups of stars. \textbf{What was done:} real stars plotted by
+temperature (hot on the left) and absolute magnitude (bright at the top). \textbf{Result:}
+the Sun, Sirius A and Vega on the main sequence; Betelgeuse and Rigel (supergiants) above it;
+Sirius B (a white dwarf) below left. \textbf{Conclusion and significance:} stars group by size
+and stage of life; the main sequence is the long, steady stage.
+\end{experiment}
+
+\begin{summarybox}{Remember}
+\begin{itemize}
+  \item Space expands and cools. Photons made pairs ($E \geq 2mc^2$); a little extra matter
+        survived annihilation.
+  \item Hubble: redshift + Cepheid distances give $v = H_0 d$. Also: the CMB and
+        \qty{25}{\percent} helium.
+  \item Continuous spectrum: set by $T$ ($\lambda_\mathrm{max} = \frac{b}{T}$). Lines: energy
+        levels; dark and bright lines at the same wavelengths.
+  \item O B A F G K M, hot to cool. HR: hot left, bright top. Below $8\,M_\odot$: white dwarf;
+        above: supernova.
+  \item $E = \Delta m\,c^2$. p--p chain or CNO cycle: 4 protons $\to$ helium-4,
+        \qty{26.7}{MeV}. Heavier: up to iron in stars, then neutron capture.
+\end{itemize}
+\end{summarybox}

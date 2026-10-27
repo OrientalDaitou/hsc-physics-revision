@@ -1,0 +1,20 @@
+% booklet.tex -- Module 5 (Advanced Mechanics) multiple-choice booklet: 72 new questions,
+%   Topic 1 Projectile motion        Q1-24   (topic1.tex)
+%   Topic 2 Circular motion, torque  Q25-48  (topic2.tex)
+%   Topic 3 Gravity and orbits       Q49-72  (topic3.tex)
+% Answers and worked solutions: answers.tex.  Every number: checks/m5-mc-booklet/numbers.py
+% Key (18 of each letter):
+%  1B 2A 3C 4A 5C 6B 7C 8A 9D 10A 11B 12D 13C 14D 15B 16D 17D 18C 19A 20A 21C 22B 23B 24D
+%  25B 26C 27D 28C 29A 30C 31B 32A 33C 34A 35D 36B 37A 38B 39D 40D 41A 42C 43D 44B 45C 46B 47A 48D
+%  49B 50A 51A 52A 53C 54C 55C 56A 57C 58D 59C 60A 61B 62B 63A 64D 65B 66C 67D 68B 69D 70D 71B 72D
+% Build: TEXINPUTS=.: xelatex booklet.tex (twice)
+\documentclass[12pt]{article}
+\usepackage{quiz}
+\hypersetup{pdftitle={Multiple Choice Booklet - Module 5 - Advanced Mechanics}}
+
+\begin{document}
+\quiztitle{Year 12 Physics}{Multiple Choice Booklet - Module 5 - Advanced Mechanics}
+\InputIfFileExists{topic1}{}{}
+\InputIfFileExists{topic2}{}{}
+\InputIfFileExists{topic3}{}{}
+\end{document}

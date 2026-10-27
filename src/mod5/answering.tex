@@ -1,0 +1,206 @@
+% answering.tex -- Module 5: Answering HSC questions (NESA key verbs + model answers).
+% Verb meanings are written in our own simple words (not the NESA glossary text).
+%   ISS: r = 6.791e6 m, g = 8.678 m s^-2 (88.6 % of 9.8).
+% Final audit: Model answer 1 now writes a_y = -9.8 m s^-2 (up positive), the book's sign convention.
+\unnumberedchapter[\faPenNib]{Answering HSC questions}
+
+% marking-point tag used in the model answers below
+\newcommand\ansPt[1]{\textcolor{hscbrand}{\bfseries(#1)}}
+
+Every HSC question starts with a \textbf{key verb}, such as ``explain'' or ``evaluate''.
+The verb tells you what kind of answer the marker wants (see the table below). Then count the
+marks: give about \textbf{one correct point for each mark}. Write one idea in each sentence,
+and link the ideas with ``so'' or ``because''. Use physics words, formulas and labelled
+diagrams.
+
+\begin{table}
+  \caption*{The key verbs used in HSC Physics questions}
+  \centering
+  \small
+  \begin{tabular}{@{}L{19mm}L{60mm}L{62mm}@{}}
+    \toprule
+    \colhead{Verb} & \colhead{What it asks you to do} & \colhead{Module 5 example}\\
+    \midrule
+    \textbf{Identify} & Name the thing. A word or a short phrase is enough.
+      & Identify the force that keeps the Moon in orbit. \emph{(The Earth's gravity.)}\\
+    \textbf{Outline} & Give the main points only, in order. No details.
+      & Outline how to find the range of a kick on level ground. \emph{(Find $u_x$ and
+        $u_y$; time of flight from $u_y$; range $= u_x \times$ time.)}\\
+    \textbf{Describe} & Say what it is like or what happens. You do not need to say why.
+      & Describe the path of a projectile in the model. \emph{(A symmetrical curve, a
+        parabola; constant horizontal velocity.)}\\
+    \textbf{Explain} & Say \emph{why} or \emph{how} it happens. Link each cause to its
+      effect with ``because'' or ``so''.
+      & Model answer~2 below.\\
+    \textbf{Compare} & Give the similarities \emph{and} the differences.
+      & Model answer~1 below.\\
+    \textbf{Analyse} & Break it into parts (forces, components, steps). Show how they are
+      linked and what follows.
+      & Model answer~3 below.\\
+    \textbf{Assess} & Make a judgement (is it true? how good? how big?) and give reasons.
+      & Model answer~4 below.\\
+    \textbf{Evaluate} & Judge it against criteria: give strengths \emph{and} limitations,
+      then a clear final judgement.
+      & Model answer~5 below.\\
+    \textbf{Justify} & Give reasons or evidence that support an answer or a decision.
+      & Justify why all geostationary satellites have the same altitude. \emph{(The period
+        must be one day, so Kepler's third law allows only one $r$.)}\\
+    \textbf{Calculate} & Work out a number. Show the formula, the substitution with units,
+      and the answer with a unit.
+      & Each step can earn a mark: $r = r_\mathrm{E} + h$ in metres, the substitution, the
+        answer with a unit.\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+In the model answers below, each point that earns a mark is numbered, like \ansPt{1}. The
+marking criteria show how a marker gives the marks.
+
+\section*{Model answer 1: compare (3 marks)}
+
+\emph{Compare the horizontal and vertical motion of a projectile. Ignore air resistance.}
+
+\begin{modelanswer}
+\ansPt{1} \textbf{Similarity:} both motions last for the same time, from launch to landing.
+
+\ansPt{2} \textbf{Difference:} horizontally there is no force, so $v_x$ stays constant.
+Vertically, gravity gives an acceleration of \qty{9.8}{m.s^{-2}} downwards
+($a_y = \qty{-9.8}{m.s^{-2}}$, up positive), so $v_y$ changes.
+
+\ansPt{3} \textbf{Difference:} the horizontal distance grows steadily, $s_x = u_x t$. The
+vertical displacement is $s_y = u_y t - \frac{1}{2}gt^2$, so the path is a parabola.
+\end{modelanswer}
+
+\begin{markingcriteria}
+  \criterion{Points (1), (2) and (3): a similarity and two differences}{3}
+  \criterion{A similarity and one difference, or two differences}{2}
+  \criterion{One correct feature of either motion}{1}
+\end{markingcriteria}
+
+\section*{Model answer 2: explain (3 marks)}
+
+\emph{Explain why a satellite in a circular orbit keeps a constant speed, even though gravity
+acts on it all the time.}
+
+\begin{modelanswer}
+\ansPt{1} Gravity is the only force on the satellite. It points to the centre of the Earth.
+
+\ansPt{2} The velocity is along the tangent, so gravity is at \ang{90} to the motion at
+every instant. So gravity does no work: $W = Fs\cos\ang{90} = 0$.
+
+\ansPt{3} No work means no change in kinetic energy, so the speed stays constant. Gravity
+changes only the direction of the velocity: it is the centripetal force.
+\end{modelanswer}
+
+\begin{markingcriteria}
+  \criterion{Points (1), (2) and (3), linked}{3}
+  \criterion{Two of these points, linked}{2}
+  \criterion{One relevant point, for example ``gravity is the centripetal force''}{1}
+\end{markingcriteria}
+
+\section*{Model answer 3: analyse (4 marks)}
+
+\emph{Analyse the forces on a car going round a banked curve at its design speed (the speed
+at which no friction is needed). Include a diagram.}
+
+\begin{modelanswer}
+\begin{sidebyside}[0.36]
+  \centering
+  % bank angle 20 deg; F_N at 90 deg to the road (110 deg), length 1.6;
+  % mg = 1.6 cos 20 = 1.50 (it equals the vertical part of F_N)
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[ground] (0,0) -- (3.4,1.2375) -- (3.4,0.93) -- (0,-0.31) -- cycle;
+    \draw[hscink, line width=1pt] (0,0) -- (3.4,1.2375);
+    \draw[guide] (0,0) -- (2.2,0);
+    \draw[hscink, line width=0.5pt] (0.9,0) arc (0:20:0.9);
+    \node[diagramlabel] at (1.12,0.16) {$\theta$};
+    \coordinate (P) at (2.2,0.8007);
+    \begin{scope}[rotate around={20:(P)}]
+      \draw[object, rounded corners=1.5pt] ($(P)+(-0.5,0.12)$) rectangle ($(P)+(0.5,0.58)$);
+      \fill[hscink] ($(P)+(-0.3,0.1)$) circle (0.1);
+      \fill[hscink] ($(P)+(0.3,0.1)$) circle (0.1);
+    \end{scope}
+    \coordinate (G) at (2.0735,1.1484);
+    \draw[guide] (G) -- ++(0,1.6);
+    \draw[force] (G) -- ++(110:1.6) node[pos=1, left, inner sep=2pt, text=hscforce] {$F_\mathrm{N}$};
+    \draw[force] (G) -- ++(0,-1.5035) node[pos=0.9, right, text=hscforce] {$mg$};
+    \draw[hscink, line width=0.5pt] ($(G)+(0,0.75)$) arc (90:110:0.75);
+    \node[diagramlabel] at ($(G)+(-0.1,0.98)$) {$\theta$};
+    \fill[hscink] (G) circle (1.4pt);
+    \draw[displacement] (1.5,-0.75) -- (0.2,-0.75);
+    \node[diagramlabel, anchor=north, text=hscmuted, font=\footnotesize]
+      at (0.85,-0.8) {to the centre of the bend};
+  \end{tikzpicture}
+\nextside
+\ansPt{1} Only two forces act on the car. Its weight $mg$ acts straight down. The normal
+force $F_\mathrm{N}$ acts at \ang{90} to the road. There is no friction.
+
+\ansPt{2} Split $F_\mathrm{N}$ into two parts. The vertical part balances the weight:
+$F_\mathrm{N}\cos\theta = mg$.
+\end{sidebyside}
+
+\ansPt{3} The horizontal part points to the centre of the bend. It is the centripetal force:
+$F_\mathrm{N}\sin\theta = \dfrac{mv^2}{r}$.
+
+\ansPt{4} Dividing the two equations gives $\tan\theta = \dfrac{v^2}{rg}$. So the design
+speed depends only on the bank angle and the radius, not on the car's mass. Faster than this,
+friction must act down the slope; slower, it acts up the slope.
+\end{modelanswer}
+
+\begin{markingcriteria}
+  \criterion{Points (1) to (4): diagram, both parts of $F_\mathrm{N}$, a consequence}{4}
+  \criterion{Two or three of these points}{2--3}
+  \criterion{Names one force correctly}{1}
+\end{markingcriteria}
+
+\section*{Model answer 4: assess (3 marks)}
+
+\emph{A student says: ``Astronauts on the International Space Station (ISS) float because
+there is no gravity in space.'' The ISS orbits \qty{420}{km} above the Earth's surface.
+Assess this claim.}
+
+\begin{modelanswer}
+\ansPt{1} The claim is \textbf{incorrect}.
+
+\ansPt{2} At the ISS, $r = \qty{6.371e6}{m} + \qty{4.20e5}{m} = \qty{6.791e6}{m}$, so
+$g = \dfrac{GM}{r^2} = \qty{8.7}{m.s^{-2}}$. Gravity there is almost \qty{90}{\percent} as
+strong as at the surface. It provides the centripetal force that keeps the ISS in orbit.
+
+\ansPt{3} The ISS and the astronauts fall together with the same acceleration (free fall).
+So the floor does not push on the astronauts: the normal force is zero. They feel
+weightless because there is no normal force, not because there is no gravity.
+\end{modelanswer}
+
+\begin{markingcriteria}
+  \criterion{Points (1), (2) and (3): judgement, $g$ in orbit, free fall}{3}
+  \criterion{Judgement with one correct supporting reason}{2}
+  \criterion{One relevant point, for example ``there is gravity in orbit''}{1}
+\end{markingcriteria}
+
+\section*{Model answer 5: evaluate (4 marks)}
+
+\emph{Evaluate the projectile model (constant $g$ and no air resistance) for predicting the
+motion of real projectiles.}
+
+\begin{modelanswer}
+\ansPt{1} \textbf{Strength:} the model treats the horizontal and vertical motions separately.
+So it is simple and makes clear predictions, such as the longest range at \ang{45}.
+
+\ansPt{2} \textbf{Evidence:} it works well for dense, slow objects over short distances. In the
+experiment of \cref{ch1:sec:experiments}, a steel ball landed within about \qty{2}{\percent}
+of the predicted range.
+
+\ansPt{3} \textbf{Limitation:} real projectiles feel air resistance, which grows with speed.
+It shortens the range and lowers the maximum height. At \qty{30}{m.s^{-1}} and \ang{45}, the
+range falls from about \qty{92}{m} to about \qty{69}{m} (\cref{ch1:fig:drag}).
+
+\ansPt{4} \textbf{Judgement:} the model is very useful for dense, slow objects over short
+distances, such as a shot put. It is poor for light or fast objects, such as a feather or a
+golf drive.
+\end{modelanswer}
+
+\begin{markingcriteria}
+  \criterion{Points (1) to (4): strength, evidence, limitation, judgement}{4}
+  \criterion{Strengths and limitations with a judgement, but little evidence}{3}
+  \criterion{A strength or a limitation of the model}{1--2}
+\end{markingcriteria}

@@ -1,0 +1,71 @@
+% experiments.tex -- Module 6 ESSENTIALS: Key experiments at a glance.
+% One row per Key experiment box of ch1.tex ... ch5.tex in this folder (the Chapter 1
+% box has two parts, so it has two rows). Facts and numbers as in those boxes, which
+% follow the full book (src/mod6/ch*.tex and the overview table in
+% src/mod6/frontmatter.tex).
+\unnumberedchapter[\faFlask]{Key experiments at a glance}
+
+The syllabus asks you to carry out or study these investigations. Each one has a Key
+experiment box (or a short paragraph) in its chapter (``Ch'': click the number to go
+there).
+
+\par\smallskip
+{\small
+\setlength\LTpre{4pt}\setlength\LTpost{4pt}
+\renewcommand\arraystretch{1.25}\arrayrulecolor{hscrule}
+\newcommand\essexhead{\colhead{Experiment} & \colhead{What was done} &
+  \colhead{What it showed} & \colhead{Ch}}
+\newcommand\essexch[1]{\hyperref[ch#1:sec:experiments]{\textcolor{hscbrand}{\bfseries #1}}}
+\begin{longtable}{@{}L{31mm}@{\hspace{3mm}}L{50mm}@{\hspace{3mm}}%
+    L{\dimexpr\linewidth-31mm-50mm-8mm-9mm\relax}@{\hspace{3mm}}C{8mm}@{}}
+  \essexhead\\\hline\endfirsthead
+  \essexhead\\\hline\endhead
+  \textbf{Charges between parallel plates} (simulation)
+    & An electron enters between the plates, moving parallel to them. Change $V$, the
+      speed and the particle; record the deflection $y$.
+    & $y \propto V$ and $y \propto x^2$: the path is a parabola, like a projectile.
+      Half the speed gives four times the deflection.
+    & \essexch{1}\\\hline
+  \textbf{Speed gained from a voltage} (simulation)
+    & An electron gun: record the exit speed $v$ for several voltages $V$, then double
+      the gap.
+    & $v^2 \propto V$, as $qV = \frac{1}{2}mv^2$ predicts. The gap makes no difference.
+    & \essexch{1}\\\hline
+  \textbf{The force on a wire} (current balance)
+    & A wire passes through the gap of a magnet that sits on a balance. Change $I$, then
+      the angle; $F = \Delta m\, g$.
+    & $F \propto I$. $F$ is largest at \ang{90} to $B$ and zero when parallel. This
+      agrees with $F = lIB\sin\theta$.
+    & \essexch{2}\\\hline
+  \textbf{Two parallel wires} (\textbf{required})
+    & Two rods, one on a balance and one clamped above it. Change $I$ (and the gap $r$);
+      plot $F$ against $I^2$.
+    & Like currents attract, opposite currents repel. $F \propto I_1 I_2$, as
+      $F/l = (\mu_0/2\pi)(I_1 I_2/r)$ predicts.
+    & \essexch{2}\\\hline
+  \textbf{Faraday's induction experiments} (1831)
+    & A magnet moved in and out of a coil with a galvanometer (a meter for very small
+      currents); a switch closed and opened on two coils on an iron ring.
+    & An emf is induced only while the flux changes. A faster change gives a bigger
+      emf; the opposite change, the opposite current.
+    & \essexch{3}\\\hline
+  \textbf{Falling magnets and swinging plates} (eddy currents)
+    & A magnet falls through PVC, copper and slotted copper tubes. Solid and slotted
+      plates swing between magnet poles.
+    & Eddy currents oppose the motion (Lenz's law): the fall in copper is much slower.
+      The energy becomes heat. Slots weaken the braking.
+    & \essexch{3},\newline\essexch{5}\\\hline
+  \textbf{Testing the transformer equations}
+    & A demountable (take-apart) transformer: measure $V_\mathrm{s}$ for several $N_\mathrm{s}$;
+      read all four meters with a load; open the core.
+    & $V_\mathrm{s} \propto N_\mathrm{s}$, a little below the ideal line. Efficiency
+      about 90\%. An open core gives a much smaller $V_\mathrm{s}$ (flux leakage).
+    & \essexch{4}\\\hline
+  \textbf{Investigating a simple DC motor}
+    & A coil on paper-clip supports above a magnet; one wire end is only half scraped.
+      A lab motor's current is read while it runs and while it is held still.
+    & The half-scraped end switches the current off for half of each turn, so the torque
+      always acts one way (like a commutator); the clips act as brushes. Back emf makes
+      the running current smaller than the stalled current.
+    & \essexch{5}\\\hline
+\end{longtable}}

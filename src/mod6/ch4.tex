@@ -1,0 +1,1196 @@
+% ch4.tex -- Module 6, Chapter 4: Transformers and Power Transmission
+% Dot points: M6.IQ3.03, M6.IQ3.04, M6.IQ3.05.
+% (Faraday's iron ring / two solenoids, M6.IQ3.02, is a key experiment in Chapter 3.)
+% All figures are TikZ / pgfplots, drawn inline.
+\chapter{Transformers and Power Transmission}\label{ch4:chap}
+\covers{M6.IQ3.03, M6.IQ3.04, M6.IQ3.05}
+
+% chapter-local colours (prefix chFour, as the style guide asks)
+\colorlet{chFourcopper}{hscseriesB!80!black}  % coil wire
+\colorlet{chFouriron}{hscmuted!28}            % iron core
+\colorlet{chFourcurrent}{hscseriesB}          % induced (eddy) currents
+
+\inquiry{How are electric and magnetic fields related?}
+
+\begin{goals}
+  \item explain how a transformer uses a changing flux to change an AC voltage
+  \item use $\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$ and
+        $V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$ for ideal transformers
+  \item evaluate why real transformers waste energy, and how to reduce the losses
+  \item explain why electricity is sent at high voltage, using $P = VI$ and
+        $P_\mathrm{loss} = I^2R$
+\end{goals}
+
+\begin{syllabus}
+  \item M6.IQ3.03: analyse with numbers how ideal transformers work, using
+        $\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$ and
+        $V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$
+  \item M6.IQ3.04: evaluate the limits of the ideal transformer model, and how
+        transformers are made more efficient: incomplete flux linkage, resistive heating
+        and eddy currents
+  \item M6.IQ3.05: analyse uses of step-up and step-down transformers, including sending
+        energy through high-voltage transmission lines
+\end{syllabus}
+Every phone charger and every power station uses a transformer. Transformers let us send
+electricity hundreds of kilometres with little loss. Then they make it safe for your home.
+
+
+%% ==================================================================
+\section{The ideal transformer}\label{ch4:sec:ideal}
+\covers{M6.IQ3.03}
+
+\begin{bigidea}
+A transformer changes the size of an AC voltage. A changing current in one coil makes a
+changing magnetic field in an iron core. This changing field makes (induces) a voltage in
+a second coil. Energy is conserved, so when the voltage goes up, the current goes down.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Direct current (DC)}{current that flows in one direction only.}
+  \kw{Alternating current (AC)}{current that keeps reversing its direction.}
+  \kw{Transformer}{a device that changes the size of an AC voltage.}
+  \kw{Primary / secondary coil}{the input coil (joined to the supply) / the output coil
+    (joined to the load, the device that uses the energy).}
+  \kw{Turns ratio}{$N_\mathrm{p} : N_\mathrm{s}$, primary turns compared with secondary
+    turns.}
+  \kw{Mutual induction}{an emf made in one coil by a changing current in a nearby coil.}
+  \kw{Ideal transformer}{a perfect transformer that wastes no energy.}
+  \kw{Step-up / step-down}{makes the voltage bigger / smaller.}
+\end{keywords}
+
+\subsection{DC and AC}
+
+\begin{sidebyside}[0.46]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=66mm, height=42mm, xmin=0, xmax=40, ymin=-3.6, ymax=4.6,
+        xtick={0,10,20,30,40}, ytick={-2,0,2},
+        xlabel={Time $t$ (\si{ms})}, ylabel={Current $I$ (\si{A})}]
+      \draw[hscink!60, line width=0.5pt] (axis cs:0,0) -- (axis cs:40,0);
+      \addplot[hscseriesA, line width=1.2pt, domain=0:40, samples=2] {1.5};
+      \addplot[hscseriesB, line width=1.2pt, domain=0:40, samples=161, smooth] {2.5*sin(18*x)};
+      \node[font=\small\bfseries, text=hscseriesA, anchor=south] at (axis cs:36.5,1.5) {DC};
+      \node[font=\small\bfseries, text=hscseriesB, anchor=north] at (axis cs:15,-2.6) {AC};
+      \draw[guide] (axis cs:5,2.5) -- (axis cs:5,3.5) (axis cs:25,2.5) -- (axis cs:25,3.5);
+      \draw[<->, hscink, line width=0.6pt] (axis cs:5,3.3) -- (axis cs:25,3.3)
+        node[midway, above, inner sep=1.5pt, font=\footnotesize] {one period $T = \qty{20}{ms}$};
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{Current against time for DC (blue) and for \qty{50}{Hz} AC
+    (orange).}
+  \label{ch4:fig:dcac}
+\nextside
+  A battery gives \term{direct current} (DC): current that flows in one direction only.
+  The power points (wall sockets) at home give \term{alternating current} (AC): current
+  that keeps reversing its direction (\cref{ch4:fig:dcac}).\par\smallskip
+  Australian \term{mains} electricity (the supply from the wall socket) is \qty{230}{V}
+  AC. Older books say \qty{240}{V}. If a question gives \qty{240}{V}, use \qty{240}{V}.
+\end{sidebyside}
+
+One \term{cycle} is one full swing forwards and back. The \term{frequency} ($f$) is the
+number of cycles each second; for mains it is \qty{50}{Hz}. The \term{period} ($T$) is the
+time for one cycle. The sheet gives $f = \dfrac{1}{T}$, so
+$T = \dfrac{1}{f} = \dfrac{1}{50} = \qty{0.020}{s} = \qty{20}{ms}$
+(\qty{1}{ms} $=$ \qty{0.001}{s}).
+
+A current makes a magnetic field. AC keeps changing, so its magnetic field keeps changing
+too. A changing field is what Faraday's law needs to induce a voltage (see the refresher
+below).
+
+\begin{refresher}{Fields from currents, Faraday's law and Lenz's law (\cref{ch3:chap})}
+\begin{itemize}
+  \item A current in a coil makes a magnetic field through the coil
+        (\cref{ch2:sec:fields}). A bigger current makes a stronger field. If the current
+        reverses, the field reverses too.
+  \item \term{Magnetic flux} ($\Phi = BA\cos\theta$, unit \si{Wb}) is how much magnetic
+        field passes through an area.
+  \item Faraday's law: a \emph{changing} flux through a coil induces an \term{emf} (a
+        voltage made by induction), $\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$. No
+        change in flux, no emf. The minus sign is Lenz's law: the induced current makes a
+        magnetic field that opposes the change in flux.
+\end{itemize}
+\end{refresher}
+
+\subsection{How a transformer works}
+
+Your phone needs about \qty{5}{V}, but the wall socket gives \qty{230}{V}. A transformer
+inside the charger makes the voltage smaller.
+
+A \term{transformer} is a device that changes the size of an AC voltage.
+\Cref{ch4:fig:transformer} shows a simple one. The \term{primary coil}
+($N_\mathrm{p}$ turns) is joined to the AC supply. The \term{secondary coil}
+($N_\mathrm{s}$ turns) is joined to the \term{load}: the device that uses the energy.
+One \term{turn} is one loop of wire around the core. Both coils are wrapped around one
+closed \term{core}: a ring of iron that carries the magnetic field from one coil to the
+other. The core is made of \term{soft iron}, which is iron that is easy to turn into a
+magnet and back again. No wire joins the two coils.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    % iron core (closed loop)
+    \fill[chFouriron, even odd rule] (0,0) rectangle (5.6,3.6) (1.1,0.9) rectangle (4.5,2.7);
+    \draw[hscink!70, line width=0.6pt] (0,0) rectangle (5.6,3.6) (1.1,0.9) rectangle (4.5,2.7);
+    % flux path (clockwise at this instant)
+    \draw[hscfield, line width=0.8pt, dashed] (0.55,0.45) rectangle (5.05,3.15);
+    \draw[field] (1.4,3.15) -- (4.2,3.15);
+    \draw[field] (4.2,0.45) -- (1.4,0.45);
+    \node[diagramlabel, text=hscfield, align=center] at (2.8,1.8)
+      {changing\\ magnetic flux $\Phi$\\ in the core};
+    % primary coil: 4 turns on the left limb
+    \foreach \y in {1.2,1.6,2.0,2.4}
+      \draw[chFourcopper, line width=1.6pt] (-0.14,\y) -- (1.24,\y+0.18);
+    % secondary coil: 8 turns on the right limb
+    \foreach \y in {0.95,1.17,...,2.5}
+      \draw[chFourcopper, line width=1.6pt] (5.74,\y) -- (4.36,\y+0.11);
+    % primary circuit and AC supply (leads join the two ends of the coil)
+    \draw[hscink, line width=0.7pt] (-0.14,2.4) -- (-2.2,2.4) -- (-2.2,2.15);
+    \draw[hscink, line width=0.7pt] (-0.14,1.2) -- (-2.2,1.2) -- (-2.2,1.45);
+    \draw[hscink, line width=0.7pt, fill=white] (-2.2,1.8) circle (0.35);
+    \node at (-2.2,1.8) {$\sim$};
+    \node[diagramlabel, align=center, below] at (-2.2,1.1) {AC\\ supply};
+    \node[diagramlabel] at (-1.2,1.8) {$V_\mathrm{p}$};
+    \node[diagramlabel, above] at (-1.2,2.4) {$I_\mathrm{p}$};
+    % secondary circuit and lamp (leads join the two ends of the coil)
+    \draw[hscink, line width=0.7pt] (5.74,2.49) -- (7.6,2.49) -- (7.6,2.1);
+    \draw[hscink, line width=0.7pt] (5.74,0.95) -- (7.6,0.95) -- (7.6,1.5);
+    \draw[hscink, line width=0.7pt, fill=white] (7.6,1.8) circle (0.3);
+    \draw[hscink, line width=0.7pt] (7.6,1.8) ++(45:0.3) -- ++(225:0.6)
+      (7.6,1.8) ++(135:0.3) -- ++(315:0.6);
+    \node[diagramlabel, align=center, below] at (7.6,0.85) {lamp\\ (load)};
+    \node[diagramlabel] at (6.7,1.75) {$V_\mathrm{s}$};
+    \node[diagramlabel, above] at (6.7,2.49) {$I_\mathrm{s}$};
+    % labels
+    \node[diagramlabel] (pl) at (0.3,4.0) {primary coil ($N_\mathrm{p}$ turns)};
+    \draw[hscmuted, line width=0.5pt] (0.3,3.8) -- (0.3,2.52);
+    \node[diagramlabel] (sl) at (5.3,4.0) {secondary coil ($N_\mathrm{s}$ turns)};
+    \draw[hscmuted, line width=0.5pt] (5.3,3.8) -- (5.3,2.58);
+    \node[diagramlabel, below] at (2.8,-0.05) {soft-iron core (a closed loop)};
+  \end{tikzpicture}
+  \caption{A step-up transformer ($N_\mathrm{s} > N_\mathrm{p}$). The flux arrows show one
+    instant; with AC they reverse every half-cycle. No wire joins the two coils.}
+  \label{ch4:fig:transformer}
+\end{figure}
+
+Energy goes from the primary circuit to the secondary circuit through the changing
+magnetic field. Here is how, one step at a time.
+\begin{enumerate}
+  \item AC in the primary makes a magnetic field that keeps changing size and direction.
+  \item The iron core carries this changing flux around to the secondary coil.
+  \item The flux through each secondary turn keeps changing, so an emf is induced in
+        every turn (Faraday's law).
+  \item The turns are in series (joined one after another along the same wire), so
+        their emfs add up: more turns, bigger voltage.
+  \item The flux reverses with the supply, so the output is AC of the \emph{same
+        frequency}.
+\end{enumerate}
+An emf made in one coil by a changing current in a nearby coil is called
+\term{mutual induction}.
+
+\textbf{Why a transformer needs AC.} Steady DC also makes a magnetic field, but the flux
+does not change. So $\dfrac{\Delta\Phi}{\Delta t} = 0$ and no emf is induced. The
+secondary gives only a short pulse when the DC is switched on or off (Faraday's iron
+ring, \cref{ch3:sec:experiments}).
+
+\textbf{Step-up and step-down.} A \term{step-up transformer} has more turns on the
+secondary ($N_\mathrm{s} > N_\mathrm{p}$), so it makes the voltage bigger. A
+\term{step-down transformer} has fewer ($N_\mathrm{s} < N_\mathrm{p}$), so it makes the
+voltage smaller. The \term{turns ratio} $N_\mathrm{p} : N_\mathrm{s}$ compares the turns.
+
+\begin{toolkit}{Ratios and rearranging a fraction equation}
+``$N_\mathrm{p} : N_\mathrm{s} = 1 : 20$'' means the secondary has 20 times as many turns
+as the primary. To find $V_\mathrm{s}$ in $\dfrac{12}{V_\mathrm{s}} = \dfrac{100}{400}$:
+cross-multiply (multiply each top by the bottom of the other fraction):
+$12 \times 400 = 100\,V_\mathrm{s}$; then divide both sides by 100,
+$V_\mathrm{s} = \dfrac{12 \times 400}{100} = \qty{48}{V}$.
+\end{toolkit}
+
+\begin{formulacard}{The transformer (turns) equation}
+  \cardformula{\frac{V_\mathrm{p}}{V_\mathrm{s}} = \frac{N_\mathrm{p}}{N_\mathrm{s}}}
+  \begin{symbols}
+    \sym{$V_\mathrm{p}$}{voltage across the primary coil (input)}{\si{V}}
+    \sym{$V_\mathrm{s}$}{voltage across the secondary coil (output)}{\si{V}}
+    \sym{$N_\mathrm{p}$, $N_\mathrm{s}$}{number of turns on the primary, on the
+      secondary}{no unit}
+  \end{symbols}
+  \inwords{the voltage ratio equals the turns ratio. More secondary turns give a bigger
+    output voltage.}
+  \whentouse{a transformer on AC (exact if ideal, a good estimate if real).}
+  \whennottouse{steady DC (the output is zero), or for currents.}
+  \rearranged{$V_\mathrm{s} = V_\mathrm{p}\dfrac{N_\mathrm{s}}{N_\mathrm{p}}$ \qquad
+    $N_\mathrm{s} = N_\mathrm{p}\dfrac{V_\mathrm{s}}{V_\mathrm{p}}$ \qquad
+    $N_\mathrm{p} = N_\mathrm{s}\dfrac{V_\mathrm{p}}{V_\mathrm{s}}$}
+  \tensecond{$N_\mathrm{p} = 500$, $N_\mathrm{s} = 50$, $V_\mathrm{p} = \qty{230}{V}$, so
+    $V_\mathrm{s} = 230 \times \dfrac{50}{500} = \qty{23}{V}$.}
+  \derive{the core carries the same flux through every turn of both coils, so each turn
+    has the same $\dfrac{\Delta\Phi}{\Delta t}$. Use the size of Faraday's emf for each coil.
+    \begin{align*}
+      &V_\mathrm{s} = N_\mathrm{s}\frac{\Delta\Phi}{\Delta t}
+        && \text{Faraday's law (size only) for the secondary}\\
+      &V_\mathrm{p} = N_\mathrm{p}\frac{\Delta\Phi}{\Delta t}
+        && \text{the same for the primary (in an ideal coil,}\\
+      & && \text{\quad the emf induced in it equals the supply voltage)}\\
+      &\frac{V_\mathrm{p}}{V_\mathrm{s}}
+        = \frac{N_\mathrm{p}\,\Delta\Phi/\Delta t}{N_\mathrm{s}\,\Delta\Phi/\Delta t}
+        = \frac{N_\mathrm{p}}{N_\mathrm{s}}
+        && \text{divide line 2 by line 1; $\tfrac{\Delta\Phi}{\Delta t}$ cancels}
+    \end{align*}
+    This comes from Faraday's law, not from conservation of energy.}
+  \trap{put the primary values on the top of both fractions ($V_\mathrm{p}$ over
+    $V_\mathrm{s}$, and $N_\mathrm{p}$ over $N_\mathrm{s}$). The primary is the coil joined
+    to the supply, wherever it is drawn.}
+\end{formulacard}
+
+\begin{sidebyside}[0.44]
+  \textbf{What the output looks like.} The \term{peak} voltage is the largest voltage in
+  each cycle. A transformer multiplies the peak by $\dfrac{N_\mathrm{s}}{N_\mathrm{p}}$.
+  It does not change the period or the frequency (\cref{ch4:fig:vpvs}).
+
+  With $N_\mathrm{p} = 600$ and $N_\mathrm{s} = 200$, a \qty{12}{V} input peak gives
+  $12 \times \dfrac{200}{600} = \qty{4.0}{V}$.
+\nextside
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, width=76mm, height=46mm, xmin=0, xmax=40, ymin=-14, ymax=20,
+        xtick={0,10,20,30,40}, ytick={-12,-4,4,12},
+        xlabel={Time $t$ (\si{ms})}, ylabel={Voltage (\si{V})},
+        legend style={at={(0.5,1.02)}, anchor=north, legend columns=2,
+          /tikz/every even column/.append style={column sep=3mm}}]
+      \draw[hscink!60, line width=0.5pt] (axis cs:0,0) -- (axis cs:40,0);
+      \addplot[hscseriesA, line width=1.2pt, domain=0:40, samples=161, smooth] {12*sin(18*x)};
+      \addplot[hscseriesB, line width=1.4pt, dashed, domain=0:40, samples=161, smooth] {4*sin(18*x)};
+      \legend{input $V_\mathrm{p}$, output $V_\mathrm{s}$}
+    \end{axis}
+  \end{tikzpicture}
+  \captionof{figure}{An ideal step-down transformer, \mbox{$600 : 200$}. The peak falls from
+    \qty{12}{V} to \qty{4.0}{V}. The period (\qty{20}{ms}) stays the same.}
+  \label{ch4:fig:vpvs}
+\end{sidebyside}
+
+The \qty{230}{V} of the mains is an \term{effective value}: the steady (DC) voltage that
+would heat a heater by the same amount. The real voltage swings between about
+$+\qty{325}{V}$ and $-\qty{325}{V}$ (its peak). The turns equation works with peak values
+or with effective values, as long as both sides use the same kind.
+
+\textbf{Careful: a graph of the primary \emph{current}.} Some questions give the primary
+current (or the flux) against time, not the primary voltage. The flux in the core follows
+the current. The secondary emf depends on how fast the flux changes
+($\varepsilon = -N\dfrac{\Delta\Phi}{\Delta t}$). So the emf follows the \term{gradient}
+of the current graph: how steep the graph is (\cref{ch4:fig:gradient}).
+\begin{itemize}
+  \item Where the current graph is flat, the emf is zero.
+  \item Where it is steepest, the emf is biggest.
+  \item A current that rises in a straight line gives a constant emf.
+  \item A sine-shaped current gives a cosine-shaped emf, shifted by a quarter of a period.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[hsc, name=chFourItop, width=84mm, height=31mm, xmin=0, xmax=40,
+        ymin=-1.35, ymax=1.35, xtick={0,10,20,30,40}, xticklabels={}, ytick=\empty,
+        ylabel={$I_\mathrm{p}$}, ylabel style={rotate=-90}]
+      \draw[hscink!60, line width=0.5pt] (axis cs:0,0) -- (axis cs:40,0);
+      \draw[guide] (axis cs:5,-1.35) -- (axis cs:5,1.35) (axis cs:10,-1.35) -- (axis cs:10,1.35);
+      \addplot[hscseriesA, line width=1.2pt, domain=0:40, samples=161, smooth] {sin(18*x)};
+      \node[font=\footnotesize, text=hscseriesA, anchor=south] at (axis cs:5,1.0) {flat};
+      \node[font=\footnotesize, text=hscseriesA, anchor=south west] at (axis cs:10.6,0.05) {steepest};
+    \end{axis}
+    \begin{axis}[hsc, at={(chFourItop.south)}, anchor=north, yshift=-3mm, width=84mm,
+        height=31mm, xmin=0, xmax=40, ymin=-1.35, ymax=1.35, xtick={0,10,20,30,40},
+        ytick=\empty, xlabel={Time $t$ (\si{ms})},
+        ylabel={$\varepsilon_\mathrm{s}$}, ylabel style={rotate=-90}]
+      \draw[hscink!60, line width=0.5pt] (axis cs:0,0) -- (axis cs:40,0);
+      \draw[guide] (axis cs:5,-1.35) -- (axis cs:5,1.35) (axis cs:10,-1.35) -- (axis cs:10,1.35);
+      \addplot[hscseriesB, line width=1.2pt, domain=0:40, samples=161, smooth] {-cos(18*x)};
+      \node[font=\footnotesize, text=hscseriesB, anchor=north west] at (axis cs:5.4,-0.05) {zero};
+      \node[font=\footnotesize, text=hscseriesB, anchor=south] at (axis cs:10,1.0) {biggest};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Top: a sine-shaped primary current. Bottom: the secondary emf. It
+    follows the gradient of the current graph, so it is shifted by a quarter of a period.}
+  \label{ch4:fig:gradient}
+\end{figure}
+
+\subsection{Power and current}
+
+A transformer cannot create energy. It only passes energy on. In an \term{ideal
+transformer} no energy is wasted, so the power out equals the power in.
+
+\begin{refresher}{Power and Ohm's law (Year 11)}
+\term{Power} ($P$) is the energy transferred each second, in watts
+($\qty{1}{W} = \qty{1}{J.s^{-1}}$). Ohm's law: $V = IR$, where $R$ is the resistance in
+ohms (\si{\ohm}). Both are on the formula sheet.
+\end{refresher}
+
+\begin{formulacard}{Electrical power}
+  \cardformula{P = VI}
+  \begin{symbols}
+    \sym{$P$}{power: energy transferred each second}{\si{W}}
+    \sym{$V$}{voltage across that part of the circuit}{\si{V}}
+    \sym{$I$}{current through that part of the circuit}{\si{A}}
+  \end{symbols}
+  \inwords{power equals voltage times current.}
+  \whentouse{the power of one coil ($V_\mathrm{p}I_\mathrm{p}$ or
+    $V_\mathrm{s}I_\mathrm{s}$), of a device, or the current a power station sends
+    ($I = \dfrac{P}{V}$).}
+  \whennottouse{to find the heat lost in a line from the voltage sent. Find $I$ first,
+    then use $P_\mathrm{loss} = I^2R$ (\cref{ch4:sec:transmission}).}
+  \rearranged{$I = \dfrac{P}{V}$ \qquad $V = \dfrac{P}{I}$}
+  \tensecond{a kettle on \qty{230}{V} takes \qty{8.0}{A}, so
+    $P = 230 \times 8.0 = \qty{1840}{W} \approx \qty{1.8}{kW}$.}
+  \trap{$V$ and $I$ must belong to the same part of the circuit. Never multiply the
+    primary voltage by the secondary current. Change \si{kV} to \si{V} and \si{mA} to
+    \si{A} first.}
+\end{formulacard}
+
+\begin{formulacard}{Power in an ideal transformer}
+  \cardformula{V_\mathrm{p} I_\mathrm{p} = V_\mathrm{s} I_\mathrm{s}}
+  \begin{symbols}
+    \sym{$V_\mathrm{p}$, $I_\mathrm{p}$}{voltage and current of the primary (input)}{\si{V}, \si{A}}
+    \sym{$V_\mathrm{s}$, $I_\mathrm{s}$}{voltage and current of the secondary (output)}{\si{V}, \si{A}}
+  \end{symbols}
+  \inwords{power in equals power out. So when the voltage goes up, the current goes down
+    by the same factor.}
+  \whentouse{an ideal transformer, to find a current or a power.}
+  \whennottouse{a transformer that loses energy (use the efficiency,
+    \cref{ch4:sec:losses}).}
+  \rearranged{$I_\mathrm{s} = \dfrac{V_\mathrm{p}I_\mathrm{p}}{V_\mathrm{s}}$ \qquad
+    $I_\mathrm{p} = \dfrac{V_\mathrm{s}I_\mathrm{s}}{V_\mathrm{p}}$ \qquad and with the
+    turns equation: $\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{V_\mathrm{p}}{V_\mathrm{s}}
+    = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$ (this form is not printed on the sheet)}
+  \tensecond{$N_\mathrm{p} = 1000$, $N_\mathrm{s} = 50$, $I_\mathrm{p} = \qty{0.20}{A}$,
+    so $I_\mathrm{s} = 0.20 \times \dfrac{1000}{50} = \qty{4.0}{A}$.}
+  \derive{energy is conserved and nothing is lost, so power in = power out. With
+    $P = VI$ for each coil: $V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$. Divide
+    both sides by $V_\mathrm{s}I_\mathrm{p}$: $\dfrac{V_\mathrm{p}}{V_\mathrm{s}} =
+    \dfrac{I_\mathrm{s}}{I_\mathrm{p}}$. Then the turns equation gives the current form.}
+  \trap{``step-up'' means the \emph{voltage} goes up; the current goes \emph{down}.
+    $I_\mathrm{s}$ is on top in the current ratio.}
+\end{formulacard}
+
+\textbf{The load decides the current.} A \qty{60}{W} lamp on the secondary takes the
+current it needs. The primary then draws just enough current to supply that power.
+
+\begin{workedexample}{A garden-light transformer}\label{ch4:we:garden}
+An ideal transformer changes \qty{230}{V} mains to \qty{12}{V} for garden lights. Its
+primary has 1150 turns. The lights use \qty{60}{W} in total. Find (a)~the number of
+secondary turns, (b)~the secondary current and (c)~the primary current.
+\given{$V_\mathrm{p} = \qty{230}{V}$, \ $V_\mathrm{s} = \qty{12}{V}$, \
+  $N_\mathrm{p} = 1150$, \ $P = \qty{60}{W}$ in and out (ideal)}
+\find{(a) $N_\mathrm{s}$ \quad (b) $I_\mathrm{s}$ \quad (c) $I_\mathrm{p}$}
+\formula{$N_\mathrm{s} = N_\mathrm{p}\dfrac{V_\mathrm{s}}{V_\mathrm{p}}$ \quad and \quad
+  $P = VI$, so $I = \dfrac{P}{V}$ for each coil}
+\substitute{(a) $N_\mathrm{s} = 1150 \times \dfrac{\qty{12}{V}}{\qty{230}{V}} = 60$
+  \quad (the volts cancel)\par
+  (b) $I_\mathrm{s} = \dfrac{\qty{60}{W}}{\qty{12}{V}} = \qty{5.0}{A}$ \qquad
+  (c) $I_\mathrm{p} = \dfrac{\qty{60}{W}}{\qty{230}{V}} = \qty{0.261}{A}$}
+\answer{(a) \final{60 turns} \quad (b) \final{$I_\mathrm{s} = \qty{5.0}{A}$} \quad
+  (c) \final{$I_\mathrm{p} = \qty{0.26}{A}$}}
+\checkstep{$\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{5.0}{0.261} = 19.2$ and
+  $\dfrac{N_\mathrm{p}}{N_\mathrm{s}} = \dfrac{1150}{60} = 19.2$ \cmark. Step-down, so
+  the secondary has the bigger current \cmark.}
+\end{workedexample}
+
+\begin{workedexample}{The current trap}\label{ch4:we:trap}
+An ideal transformer has 150 turns on its primary and 600 turns on its secondary. The
+primary voltage is \qty{48}{V} and the secondary current is \qty{2.4}{A}.
+(a)~Calculate the primary current. (b)~Calculate the output power.
+\given{$N_\mathrm{p} = 150$, \ $N_\mathrm{s} = 600$, \ $V_\mathrm{p} = \qty{48}{V}$, \
+  $I_\mathrm{s} = \qty{2.4}{A}$}
+\find{(a) $I_\mathrm{p}$ \quad (b) $P_\mathrm{out} = V_\mathrm{s}I_\mathrm{s}$}
+\formula{$\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$
+  (current ratio, from the formula card). Turn both fractions upside down:
+  $\dfrac{I_\mathrm{p}}{I_\mathrm{s}} = \dfrac{N_\mathrm{s}}{N_\mathrm{p}}$. Multiply both
+  sides by $I_\mathrm{s}$: $I_\mathrm{p} = I_\mathrm{s}\dfrac{N_\mathrm{s}}{N_\mathrm{p}}$.
+  For (b): $V_\mathrm{s} = V_\mathrm{p}\dfrac{N_\mathrm{s}}{N_\mathrm{p}}$, then $P = VI$.}
+\substitute{(a) $I_\mathrm{p} = \qty{2.4}{A} \times \dfrac{600}{150} = \qty{9.6}{A}$\par
+  (b) $V_\mathrm{s} = \qty{48}{V} \times \dfrac{600}{150} = \qty{192}{V}$, so
+  $P_\mathrm{out} = \qty{192}{V} \times \qty{2.4}{A} = \qty{460.8}{W}$}
+\answer{(a) \final{$I_\mathrm{p} = \qty{9.6}{A}$} \quad
+  (b) \final{$P_\mathrm{out} = \qty{4.6e2}{W}$} (2 significant figures)}
+\checkstep{power in $= 48 \times 9.6 = \qty{460.8}{W}$ = power out \cmark. Step-up, so
+  the primary has the \emph{bigger} current. (The upside-down ratio gives \qty{0.60}{A}.)}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``DC makes no magnetic field.'' \cmark\ DC makes a \emph{steady} field,
+        so the flux does not change.
+  \item \xmark\ $\dfrac{I_\mathrm{p}}{I_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$.
+        \cmark\ The current ratio is upside down:
+        $\dfrac{I_\mathrm{s}}{I_\mathrm{p}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$.
+  \item \xmark\ ``A step-up transformer increases the power.''
+        \cmark\ Power out is never more than power in.
+  \item \xmark\ ``Current flows from one coil to the other.''
+        \cmark\ No charge crosses; the changing field carries the energy.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Explain how a transformer changes the voltage'' (3--4 marks). Write steps 1--4 of the
+list in ``How a transformer works'' (\cref{ch4:sec:ideal}) as linked sentences. Markers
+want:
+\begin{enumerate}
+  \item AC in the primary makes a changing magnetic flux;
+  \item the iron core links this flux to the secondary;
+  \item the changing flux through the secondary induces an emf (Faraday's law);
+  \item $\dfrac{V_\mathrm{p}}{V_\mathrm{s}} = \dfrac{N_\mathrm{p}}{N_\mathrm{s}}$, so more
+        secondary turns give a bigger voltage.
+\end{enumerate}
+In calculations, one mark is for the equation with numbers and one for the answer with a
+unit. Graphs: from a graph of $V_\mathrm{p}$, keep the period and multiply the peak by
+$N_\mathrm{s}/N_\mathrm{p}$. From a graph of the primary \emph{current}, draw its gradient
+(\cref{ch4:fig:gradient}).
+\end{examtip}
+
+% Layout QA (whole book): the Quick check missed the bottom of the page by a few points
+% and left 42 % of that page empty; one extra line on this page lets it fit.
+\enlargethispage{\baselineskip}
+\begin{quickcheck}
+  \item A transformer with 400 primary turns and 2000 secondary turns is joined to
+        \qty{24}{V} AC. Is it step-up or step-down? Find the output voltage.
+  \item $N_\mathrm{p} = 250$ and $N_\mathrm{s} = 100$. The primary voltage has a peak of
+        \qty{9.0}{V} and a frequency of \qty{50}{Hz}. State the peak and the frequency of
+        the output.
+  \item The primary current of a transformer rises steadily from 0 to \qty{2.0}{A} in
+        \qty{5.0}{ms}. It stays at \qty{2.0}{A} for \qty{5.0}{ms}, then falls steadily to 0
+        in \qty{5.0}{ms}. (a)~Sketch the secondary emf against time. (b)~Explain why the
+        emf is zero from \qty{5}{ms} to \qty{10}{ms}.\label{ch4:qc:ramp}
+  \item An ideal transformer has $N_\mathrm{p} : N_\mathrm{s} = 1 : 25$ and a primary
+        current of \qty{50}{A}. Find the secondary current.
+  \item A welding machine needs a very large current. Explain why it uses a step-down
+        transformer.
+\end{quickcheck}
+
+%% ==================================================================
+\section{Real transformers: energy losses and efficiency}\label{ch4:sec:losses}
+\covers{M6.IQ3.04}
+
+\begin{bigidea}
+Real transformers waste a little energy, mostly as heat. So the power out is a bit less
+than the power in. A closed iron core, thick wire and a laminated core keep the losses
+small.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Efficiency ($\eta$)}{the percentage of the input power that comes out as useful power.}
+  \kw{Incomplete flux linkage}{some flux from the primary misses the secondary.}
+  \kw{Resistive heating}{heat made when a current flows through a resistance.}
+  \kw{Eddy currents}{loops of current induced inside a solid piece of metal by a changing
+    magnetic flux.}
+  \kw{Laminated core}{a core made of thin iron sheets with insulation between them.}
+\end{keywords}
+
+A phone charger feels warm after an hour of charging. That heat is energy that did not
+reach the phone. In a real transformer the power out is less than the power in:
+$V_\mathrm{s}I_\mathrm{s} < V_\mathrm{p}I_\mathrm{p}$. The energy is not destroyed. It
+becomes heat (and a little sound). The syllabus names three main limitations of the
+ideal model.
+
+\subsection{Limitation 1: incomplete flux linkage}
+
+\term{Incomplete flux linkage} means that not all the flux made by the primary passes
+through the secondary. Some flux leaks into the air, so the secondary gets a smaller emf
+than the turns equation predicts (\cref{ch4:fig:linkage}). Less energy reaches the
+secondary.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.85cm, y=0.85cm]
+    % (a) two coils with no core
+    \draw[field] (-1.55,0.12) -- (1.95,0.12) .. controls (2.9,0.12) and (2.9,1.3) ..
+      (1.2,1.3) -- (-0.8,1.3) .. controls (-2.5,1.3) and (-2.5,0.12) .. (-1.55,0.12);
+    \draw[field] (-1.55,-0.12) -- (1.95,-0.12) .. controls (2.9,-0.12) and (2.9,-1.3) ..
+      (1.2,-1.3) -- (-0.8,-1.3) .. controls (-2.5,-1.3) and (-2.5,-0.12) .. (-1.55,-0.12);
+    \draw[field] (-1.55,0.3) -- (-0.15,0.3) .. controls (0.55,0.3) and (0.45,0.85) ..
+      (-0.8,0.85) .. controls (-2.0,0.85) and (-2.1,0.3) .. (-1.55,0.3);
+    \draw[field] (-1.55,-0.3) -- (-0.15,-0.3) .. controls (0.55,-0.3) and (0.45,-0.85) ..
+      (-0.8,-0.85) .. controls (-2.0,-0.85) and (-2.1,-0.3) .. (-1.55,-0.3);
+    \foreach \x in {-1.4,-1.16,...,-0.3}
+      \draw[chFourcopper, line width=1pt] (\x,0) ellipse (0.07 and 0.45);
+    \foreach \x in {0.7,0.94,...,1.8}
+      \draw[chFourcopper, line width=1pt] (\x,0) ellipse (0.07 and 0.45);
+    \node[font=\small] at (-1.2,-1.7) {primary};
+    \node[font=\small] at (1.6,-1.7) {secondary};
+    \node[font=\small, text=hscfield] (lf) at (0.9,1.85) {leaked flux};
+    \draw[hscmuted, line width=0.4pt] (lf.south west) -- (-0.1,0.72);
+    \node[font=\small\bfseries, text=hscink] at (0.2,2.6) {(a) no core};
+    % (b) closed iron core
+    \begin{scope}[xshift=4.94cm, yshift=-1.33cm]
+      \fill[chFouriron, even odd rule] (0,0) rectangle (3.4,2.5) (0.75,0.65) rectangle (2.65,1.85);
+      \draw[hscink!70, line width=0.6pt] (0,0) rectangle (3.4,2.5) (0.75,0.65) rectangle (2.65,1.85);
+      \draw[hscfield, line width=0.8pt, dashed] (0.375,0.325) rectangle (3.025,2.175);
+      \draw[field] (0.9,2.175) -- (2.5,2.175);
+      \draw[field] (2.5,0.325) -- (0.9,0.325);
+      \foreach \y in {0.85,1.15,1.45}
+        \draw[chFourcopper, line width=1.4pt] (-0.12,\y) -- (0.87,\y+0.14);
+      \foreach \y in {0.75,0.95,...,1.6}
+        \draw[chFourcopper, line width=1.4pt] (3.52,\y) -- (2.53,\y+0.1);
+      \node[font=\small] at (0.375,-0.4) {primary};
+      \node[font=\small] at (3.025,-0.4) {secondary};
+      \node[font=\small\bfseries, text=hscink] at (1.7,3.65) {(b) closed iron core};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{(a) Without a core, much of the flux (violet) misses the secondary.
+    (b) A closed iron core guides almost all of it through both coils.}
+  \label{ch4:fig:linkage}
+\end{figure}
+
+How engineers reduce it:
+\begin{itemize}
+  \item wrap both coils around one \emph{closed} loop of soft iron, which guides the field
+        lines from one coil to the other;
+  \item wrap the secondary directly over the primary, on the same part of the core.
+\end{itemize}
+Wireless phone chargers have an air gap and no shared core, so much of their flux leaks.
+
+\subsection{Limitation 2: resistive heating in the coils}
+
+The coils are long copper wires, and every wire has some resistance. A current in a
+resistance makes heat. This is \term{resistive heating}. The heat made each second is
+$I^2R$, where $I$ is the current and $R$ is the resistance (\cref{ch4:sec:transmission}
+shows where this comes from). A hotter wire has a higher resistance, so it heats even
+more.
+
+Engineers use \emph{thick copper wire}: a thick wire has less resistance, like a wide pipe
+lets water through more easily. They use the thickest wire for the coil with the larger
+current. They also \emph{cool} the transformer with air vents, fans or, in big
+transformers, oil.
+
+\subsection{Limitation 3: eddy currents in the core}
+
+\term{Eddy currents} are loops of current induced inside a solid piece of metal when the
+flux through it changes (\cref{ch3:sec:solenoids}). The iron core is a conductor, and its
+flux changes all the time. So eddy currents circulate inside the core, in loops at right
+angles to the flux (Faraday's law). By Lenz's law, their magnetic field opposes the change
+in flux. They heat the core, and that energy never reaches the secondary. (In magnetic brakes, \cref{ch5:chap}, eddy currents are wanted. In a
+transformer they only waste energy.)
+
+The fix is a \term{laminated core}: a stack of thin iron sheets, each coated with a thin
+insulating layer. The sheets lie \emph{along} the flux, so the flux passes easily. The
+insulation cuts across the eddy-current paths, so each loop must stay inside one thin
+sheet (\cref{ch4:fig:eddy}). Each thin loop surrounds only a thin strip of the changing
+flux, so the emf that drives it is much smaller. The current must also squeeze through a
+narrow path, which has a high resistance. So the eddy currents, and the heat they make,
+are much smaller.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+    \tikzset{chFourdot/.pic={\draw[hscfield, line width=0.6pt, fill=white] (0,0) circle (0.12);
+      \fill[hscfield] (0,0) circle (0.035);}}
+    % (a) solid core
+    \fill[chFouriron] (0,0) rectangle (3,3);
+    \draw[hscink!70, line width=0.6pt] (0,0) rectangle (3,3);
+    \draw[chFourcurrent, line width=1.3pt, rounded corners=8pt] (0.5,0.5) rectangle (2.5,2.5);
+    \draw[chFourcurrent, line width=1.3pt, -{Stealth[length=2.6mm]}] (1.3,2.5) -- (1.75,2.5);
+    \draw[chFourcurrent, line width=1.3pt, -{Stealth[length=2.6mm]}] (1.7,0.5) -- (1.25,0.5);
+    \draw[chFourcurrent, line width=1.3pt, -{Stealth[length=2.6mm]}] (2.5,1.7) -- (2.5,1.25);
+    \draw[chFourcurrent, line width=1.3pt, -{Stealth[length=2.6mm]}] (0.5,1.3) -- (0.5,1.75);
+    \foreach \p in {(1.5,1.5),(0.25,0.25),(2.75,0.25),(0.25,2.75),(2.75,2.75)}
+      \pic at \p {chFourdot};
+    \node[font=\small\bfseries, text=hscink, align=center] at (1.5,3.65)
+      {(a) solid core:\\ large eddy currents};
+    % (b) laminated core
+    \begin{scope}[xshift=4.8cm]
+      \fill[chFouriron] (0,0) rectangle (3,3);
+      \foreach \x in {0.5,1.0,...,2.6}
+        \draw[hscink, line width=1.3pt] (\x,0) -- (\x,3);
+      \draw[hscink!70, line width=0.6pt] (0,0) rectangle (3,3);
+      \foreach \x in {0,0.5,...,2.6} {
+        \draw[chFourcurrent, line width=1pt, rounded corners=3pt]
+          (\x+0.13,0.35) rectangle (\x+0.37,2.65);
+        \draw[chFourcurrent, line width=1pt, -{Stealth[length=2mm]}]
+          (\x+0.37,1.7) -- (\x+0.37,1.3);
+        \draw[chFourcurrent, line width=1pt, -{Stealth[length=2mm]}]
+          (\x+0.13,1.3) -- (\x+0.13,1.7);
+      }
+      \node[font=\small\bfseries, text=hscink, align=center] at (1.5,3.65)
+        {(b) laminated core:\\ small eddy currents};
+      \node[diagramlabel, anchor=west] (ins) at (3.5,2.4) {insulating layer};
+      \draw[hscmuted, line width=0.4pt] (ins.west) -- (2.5,2.2);
+      \node[diagramlabel, anchor=west] (sh) at (3.5,1.5) {thin iron sheet};
+      \draw[hscmuted, line width=0.4pt] (sh.west) -- (2.8,1.5);
+      \node[diagramlabel, anchor=west] (ed) at (3.5,0.6) {eddy current};
+      \draw[hscmuted, line width=0.4pt] (ed.west) -- (2.87,0.6);
+      \foreach \p in {(0.25,0.15),(1.25,2.85),(2.75,0.15)}
+        \pic at \p {chFourdot};
+    \end{scope}
+    \pic at (-0.45,-0.5) {chFourdot};
+    \node[diagramlabel, anchor=west] at (-0.25,-0.5)
+      {flux $\Phi$ points out of the page in both cores};
+  \end{tikzpicture}
+  \caption{A slice through the core. The flux comes out of the page towards you, and it is
+    growing. The eddy currents flow clockwise (they reverse every half-cycle). Insulating
+    layers cut each large loop into many thin ones.}
+  \label{ch4:fig:eddy}
+\end{figure}
+
+Small transformers in chargers often use \term{ferrite} cores instead. Ferrite is a
+magnetic ceramic that conducts electricity very poorly, so eddy currents are tiny.
+Cooling does \emph{not} stop eddy currents; it only removes heat after it is made.
+
+\textbf{Another loss: hysteresis.} Each cycle the core is magnetised one way, then the
+other. This takes energy, called \term{hysteresis} loss, which also heats the core. Soft
+iron is easy to magnetise and demagnetise, which keeps this loss low.
+
+\textbf{Hum.} The core also vibrates a little. It does this twice in every cycle (once for
+each direction of the field), so the hum is at $2 \times \qty{50}{Hz} = \qty{100}{Hz}$.
+
+\textbf{Is the ideal model good enough?} The \term{efficiency} ($\eta$) is the percentage
+of the input power that comes out as useful power. Big transformers in power stations
+and substations (places where the grid changes voltage, \cref{ch4:sec:transmission}) are
+about 99\% efficient. Small ones often waste 10--20\%. So the ideal model is a very good
+approximation, but never exact. Engineers can reduce the losses, but never remove them.
+
+\begin{toolkit}{Percentages and decimals}
+To change a percentage to a decimal, divide by 100: $92\% = \dfrac{92}{100} = 0.92$. To
+find 85\% of \qty{200}{W}: $0.85 \times \qty{200}{W} = \qty{170}{W}$. To change a decimal
+back to a percentage, multiply by 100.
+\end{toolkit}
+
+\begin{formulacard}[notonsheet]{Efficiency}
+  \cardformula{\eta = \frac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\%
+    = \frac{V_\mathrm{s}I_\mathrm{s}}{V_\mathrm{p}I_\mathrm{p}} \times 100\%}
+  \begin{symbols}
+    \sym{$\eta$}{efficiency (Greek letter ``eta'')}{no unit (\%)}
+    \sym{$P_\mathrm{out}$, $P_\mathrm{in}$}{useful power out of the secondary, power into
+      the primary}{\si{W}}
+  \end{symbols}
+  \inwords{the percentage of the input power that comes out as useful power.}
+  \whentouse{a question says a transformer loses energy, or gives its efficiency.}
+  \whennottouse{an ideal transformer: then $\eta = 100\%$.}
+  \rearranged{$P_\mathrm{out} = \eta P_\mathrm{in}$ \qquad
+    $I_\mathrm{s} = \dfrac{\eta V_\mathrm{p}I_\mathrm{p}}{V_\mathrm{s}}$ \qquad
+    ($\eta$ as a decimal, for example $0.92$)}
+  \tensecond{\qty{200}{W} in and \qty{190}{W} out, so
+    $\eta = \dfrac{190}{200} \times 100\% = 95\%$.}
+  \derive{it is a definition: useful power out $\div$ power in. The power lost is
+    $P_\mathrm{in} - P_\mathrm{out}$.}
+  \trap{the efficiency goes on the \emph{power}, not on the voltage. Use $0.92$, not $92$,
+    inside a formula.}
+\end{formulacard}
+
+\begin{formulacard}{Power and energy}
+  \cardformula{P = \frac{\Delta E}{\Delta t}}
+  \begin{symbols}
+    \sym{$P$}{power}{\si{W}}
+    \sym{$\Delta E$}{energy transferred (for example, wasted as heat)}{\si{J}}
+    \sym{$\Delta t$}{time taken}{\si{s}}
+  \end{symbols}
+  \inwords{power is the energy transferred each second.}
+  \whentouse{to find the energy used or wasted in a given time, or the power from an
+    energy and a time.}
+  \whennottouse{with a time in minutes or hours. Change it to seconds first.}
+  \rearranged{$\Delta E = P\,\Delta t$ \qquad $\Delta t = \dfrac{\Delta E}{P}$}
+  \tensecond{a transformer wastes \qty{25}{W} for \qty{2.0}{min} $= \qty{120}{s}$, so
+    $\Delta E = 25 \times 120 = \qty{3000}{J}$.}
+  \trap{change hours or minutes to seconds: $\qty{1}{h} = 60 \times 60 = \qty{3600}{s}$.
+    Use the power \emph{wasted} ($P_\mathrm{in} - P_\mathrm{out}$) for the energy wasted.}
+\end{formulacard}
+
+\begin{workedexample}{How much energy is wasted?}\label{ch4:we:eff}
+A transformer takes in \qty{2400}{W} and gives out \qty{2280}{W}. (a)~Calculate its
+efficiency. (b)~How much energy is wasted in one hour?
+\given{$P_\mathrm{in} = \qty{2400}{W}$, \ $P_\mathrm{out} = \qty{2280}{W}$, \
+  $\Delta t = \qty{1}{h} = \qty{3600}{s}$}
+\find{(a) $\eta$ \quad (b) the energy wasted, $\Delta E$}
+\formula{$\eta = \dfrac{P_\mathrm{out}}{P_\mathrm{in}} \times 100\%$ \quad and \quad
+  $P = \dfrac{\Delta E}{\Delta t}$, so $\Delta E = P\,\Delta t$}
+\substitute{(a) $\eta = \dfrac{\qty{2280}{W}}{\qty{2400}{W}} \times 100\% = 95.0\%$\par
+  (b) power wasted $= \qty{2400}{W} - \qty{2280}{W} = \qty{120}{W}$, so
+  $\Delta E = \qty{120}{W} \times \qty{3600}{s} = \qty{432000}{J}$}
+\answer{(a) \final{$\eta = 95.0\%$} \quad (b) \final{$\Delta E = \qty{4.32e5}{J}$}}
+\checkstep{$\eta < 100\%$ \cmark. Wasting \qty{120}{W} is like leaving a bright old light
+  globe on, which is enough to make the transformer warm.}
+\end{workedexample}
+
+\begin{workedexample}{A real step-down transformer}\label{ch4:we:real}
+A transformer for \qty{12}{V} downlights in a kitchen is 92\% efficient. Its primary is
+at \qty{230}{V} and carries \qty{0.50}{A}. The output voltage is \qty{12}{V}. (a)~Calculate the secondary current.
+(b)~Compare it with the ideal value and give the main cause of the difference.
+\given{$\eta = 0.92$, \ $V_\mathrm{p} = \qty{230}{V}$, \ $I_\mathrm{p} = \qty{0.50}{A}$, \
+  $V_\mathrm{s} = \qty{12}{V}$}
+\find{(a) $I_\mathrm{s}$ \quad (b) the ideal $I_\mathrm{s}$, and why they differ}
+\formula{$P_\mathrm{in} = V_\mathrm{p}I_\mathrm{p}$, \ $P_\mathrm{out} = \eta P_\mathrm{in}$,
+  \ $I_\mathrm{s} = \dfrac{P_\mathrm{out}}{V_\mathrm{s}}$}
+\substitute{(a) $P_\mathrm{in} = \qty{230}{V} \times \qty{0.50}{A} = \qty{115}{W}$, \
+  $P_\mathrm{out} = 0.92 \times \qty{115}{W} = \qty{105.8}{W}$, \
+  $I_\mathrm{s} = \dfrac{\qty{105.8}{W}}{\qty{12}{V}} = \qty{8.82}{A}$\par
+  (b) ideal: $I_\mathrm{s} = \dfrac{\qty{115}{W}}{\qty{12}{V}} = \qty{9.58}{A}$}
+\answer{(a) \final{$I_\mathrm{s} = \qty{8.8}{A}$} \quad (b) ideal \qty{9.6}{A}. The
+  missing \qty{9.2}{W} is mostly heat from resistance in the coils and eddy currents in
+  the core.}
+\checkstep{$\dfrac{8.82}{9.58} = 0.92$, which equals $\eta$ \cmark. The real current is a
+  little smaller than the ideal one \cmark. Step-down, so $I_\mathrm{s} > I_\mathrm{p}$
+  \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ ``Energy is destroyed.'' \cmark\ It becomes heat and sound; energy is
+        conserved.
+  \item \xmark\ ``Cooling reduces eddy currents.'' \cmark\ Laminations (or ferrite) do.
+        Cooling only removes heat.
+  \item \xmark\ Laminations across the flux. \cmark\ The sheets lie along the flux; the
+        insulation blocks the eddy currents.
+  \item \xmark\ Naming a loss without the physics. \cmark\ Give the cause, the effect and
+        the fix.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Evaluate the ideal transformer model'' needs a judgement. (1)~State that the model
+assumes no losses ($V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$). (2)~Explain two
+or three limitations with their causes: flux leakage, $I^2R$ heating in the coils, eddy
+currents in the core. (3)~Give a fix for each: closed iron core, thick copper wire,
+laminated core. (4)~Judge: ``A very good approximation, but real output power is always a
+little less than input power.''
+\end{examtip}
+
+\begin{quickcheck}
+  \item A transformer takes in \qty{500}{W} and gives out \qty{470}{W}. Find its
+        efficiency, and the energy it wastes in 10 minutes.
+  \item Explain why the core of a transformer is laminated instead of
+        solid.\label{ch4:qc:laminate}
+  \item A student puts two coils side by side on a bench, with no iron core. The turns
+        equation predicts a secondary voltage of \qty{6.0}{V}, but the voltmeter reads only
+        \qty{1.5}{V}. Name the limitation that causes this, explain it, and give one way to
+        fix it.
+  \item A transformer is 85\% efficient. $V_\mathrm{p} = \qty{230}{V}$,
+        $I_\mathrm{p} = \qty{2.0}{A}$ and $V_\mathrm{s} = \qty{46}{V}$. Find the
+        secondary current.
+  \item A wireless phone charger has an air gap and no shared iron core. Explain why it
+        wastes more energy than a transformer with a closed core.\label{ch4:qc:wireless}
+\end{quickcheck}
+
+%% ==================================================================
+\section{Sending electricity at high voltage}\label{ch4:sec:transmission}
+\covers{M6.IQ3.05}
+
+\begin{bigidea}
+Power lines have resistance, so the current in them makes heat. This loss is $I^2R$: it
+depends on the current squared. Stepping the voltage up makes the current small, so much
+less energy is wasted.
+\end{bigidea}
+
+\begin{keywords}
+  \kw{Transmission line}{a long, thick wire on tall towers that carries electricity far.}
+  \kw{Voltage drop}{the voltage used up pushing current through a resistance, $IR$.}
+  \kw{Substation}{a place with transformers that change the voltage (near towns, they
+    step it down).}
+  \kw{Electricity grid}{the network of power stations, lines and transformers.}
+\end{keywords}
+
+Most power stations and wind farms are far from cities. \term{Transmission lines}, long
+thick wires on tall towers, carry the electricity. Even good wires have some resistance,
+and a line hundreds of kilometres long can have several ohms.
+
+\Cref{ch4:fig:line} models the line as one resistance $R$. Some voltage is used up
+pushing the current $I$ through this resistance. This is the \term{voltage drop}:
+$V_\mathrm{drop} = IR$ (Ohm's law). The power turned into heat in the line is the power
+loss, $P_\mathrm{loss}$. Less current means much less heat, as the formula card below
+shows.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \draw[hscink, line width=0.7pt] (0,0.95) -- (0,1.6) -- (2.6,1.6);
+    \draw[hscink, line width=0.7pt] (4.4,1.6) -- (7.4,1.6) -- (7.4,1.1);
+    \draw[hscink, line width=0.7pt] (7.4,0.1) -- (7.4,-0.4) -- (0,-0.4) -- (0,0.25);
+    \draw[hscink, line width=0.7pt, fill=white] (0,0.6) circle (0.35);
+    \node at (0,0.6) {$\sim$};
+    \draw[hscink, line width=0.7pt, fill=hscforce!10] (2.6,1.4) rectangle (4.4,1.8);
+    \node[diagramlabel] at (3.5,1.6) {$R$};
+    \draw[hscink, line width=0.7pt, fill=hscbrand!8] (7.0,0.1) rectangle (7.8,1.1);
+    \node[diagramlabel, rotate=90] at (7.4,0.6) {town};
+    \draw[velocity] (1.0,1.6) -- (1.9,1.6) node[midway, above, text=hscvel] {$I$};
+    \node[diagramlabel, align=center, anchor=east] at (-0.45,0.6)
+      {power station\\ sends voltage $V$};
+    \node[diagramlabel, align=center, above] at (3.5,1.85)
+      {line resistance $R$ (both wires)\\ voltage drop $V_\mathrm{drop} = IR$};
+    \node[diagramlabel, align=center, anchor=west] at (7.95,0.6)
+      {voltage left\\ for the town\\ $= V - IR$};
+    \node[diagramlabel, text=hscforce] at (3.5,1.0) {heat: $P_\mathrm{loss} = I^2R$};
+  \end{tikzpicture}
+  \caption{A simple model of a transmission line. The current $I$ is the same all the way
+    around the loop.}
+  \label{ch4:fig:line}
+\end{figure}
+
+\begin{toolkit}{Prefixes, scientific notation, squares and square roots}
+k (kilo) $= 10^3$ and M (mega) $= 10^6$. Change to the base unit before you calculate:
+$\qty{330}{kV} = 330 \times 10^3\ \si{V}$. Move the decimal point 2 places to the left and
+add 2 to the power: $\qty{3.30e5}{V}$. In the same way,
+$\qty{20}{MW} = 20 \times 10^6\ \si{W} = \qty{2.0e7}{W}$.\par\smallskip
+Squaring a change: if the current is multiplied by a number, the loss $I^2R$ is multiplied
+by that number squared. So $\tfrac{1}{4}$ of the current gives
+$\left(\tfrac{1}{4}\right)^2 = \tfrac{1}{16}$ of the loss. To undo a square, take the
+square root of both sides: if $I^2 = 900$, then $I = \sqrt{900} = 30$.
+\end{toolkit}
+
+\begin{formulacard}[notonsheet]{Power lost in a transmission line}
+  \cardformula{P_\mathrm{loss} = I^2R}
+  \begin{symbols}
+    \sym{$P_\mathrm{loss}$}{power turned into heat in the line}{\si{W}}
+    \sym{$I$}{current in the line}{\si{A}}
+    \sym{$R$}{total resistance of the line (both wires)}{\si{\ohm}}
+  \end{symbols}
+  \inwords{the heat lost each second grows with the \emph{square} of the current. Halve
+    the current and the loss falls to a quarter.}
+  \whentouse{heat lost in power lines, extension leads or transformer coils. Find the
+    current first with $I = \dfrac{P}{V}$.}
+  \whennottouse{for the power the town receives. That is $P - P_\mathrm{loss}$.}
+  \rearranged{$I = \sqrt{\dfrac{P_\mathrm{loss}}{R}}$ \qquad
+    $R = \dfrac{P_\mathrm{loss}}{I^2}$}
+  \tensecond{$I = \qty{100}{A}$ in a \qty{3.0}{\ohm} line, so
+    $P_\mathrm{loss} = 100^2 \times 3.0 = \qty{3.0e4}{W}$.}
+  \derive{combine $P = VI$ and $V = IR$ (both on the sheet), using the voltage
+    \emph{drop} across the line.
+    \begin{align*}
+      P_\mathrm{loss} &= V_\mathrm{drop}\, I && \text{$P = VI$ for the line only}\\
+      &= (IR)\, I && \text{the drop across the line is $V_\mathrm{drop} = IR$}\\
+      &= I^2R && \text{multiply the two $I$s}
+    \end{align*}}
+  \trap{do not use $\dfrac{V^2}{R}$ with the line's voltage (for example \qty{330}{kV}).
+    There, $V$ must be the voltage drop $IR$, not the voltage sent.}
+\end{formulacard}
+
+\textbf{Why high voltage?} A power station sends a fixed power $P$. Since $P = VI$, a
+higher voltage needs a smaller current. The loss $I^2R$ depends on the \emph{square} of
+the current. Example: 10 times the voltage gives $\tfrac{1}{10}$ of the current. Then the
+loss is $\left(\tfrac{1}{10}\right)^2 = \tfrac{1}{100}$ of what it was. Thicker wires
+would also help, but they are heavy and very expensive.
+
+\textbf{The grid.} The \term{electricity grid} is the network of power stations, lines
+and transformers (\cref{ch4:fig:grid}). A \term{substation} is a place with transformers
+that change the voltage (near towns, they step it down).
+
+\begin{sidebyside}[0.45]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, node distance=3.8mm,
+      stage/.style={concept=33mm, font=\footnotesize, inner sep=1.1mm},
+      tlabel/.style={font=\footnotesize, text=hscbrand, anchor=west, align=left}]
+    \node[stage] (a) {power station\\ generator: about \qty{20}{kV}};
+    \node[stage, below=of a] (b) {transmission lines\\ \qty{330}{kV} or \qty{500}{kV}};
+    \node[stage, below=of b] (c) {lines to suburbs\\ \qty{132}{kV} or \qty{66}{kV}};
+    \node[stage, below=of c] (d) {local lines \qty{11}{kV}};
+    \node[stage, below=of d] (e) {homes \qty{230}{V}};
+    \draw[link] (a) -- node[tlabel, right=1mm] {step-up} (b);
+    \draw[link] (b) -- node[tlabel, right=1mm] {step-down (substation)} (c);
+    \draw[link] (c) -- node[tlabel, right=1mm] {step-down (substation)} (d);
+    \draw[link] (d) -- node[tlabel, right=1mm] {step-down (on a power pole)} (e);
+  \end{tikzpicture}
+  \captionof{figure}{From power station to home (typical NSW voltages). The last
+    transformer sits on a power pole in your street.}
+  \label{ch4:fig:grid}
+\nextside
+  \begin{itemize}
+    \item \textbf{Step up} at the power station: a low current in the long lines, so
+          little energy is lost.
+    \item \textbf{Step down} near towns: high voltages are dangerous. They can spark
+          (arc) across air, and need tall towers and big insulators.
+    \item Homes get \qty{230}{V}, the voltage appliances are built for.
+    \item \textbf{Why AC?} Transformers need a changing current, so they work with AC
+          but not with steady DC. (A few undersea links, such as Basslink, use DC.)
+  \end{itemize}
+\end{sidebyside}
+
+\textbf{Everyday uses.} Transformers are not only used to send electricity far.
+\Cref{ch4:tab:uses} shows some step-up and step-down transformers you may meet.
+
+\begin{table}
+  \caption{Some uses of step-up and step-down transformers.}\label{ch4:tab:uses}
+  \centering\small
+  \begin{tabular}{@{}L{27mm}L{17mm}L{26mm}L{65mm}@{}}
+    \toprule
+    \colhead{Where} & \colhead{Type} & \colhead{About} & \colhead{Why}\\
+    \midrule
+    Power station & step-up & \qty{20}{kV} $\to$ \qty{330}{kV} & less loss in long lines\\
+    Microwave oven & step-up & \qty{230}{V} $\to$ \qty{2}{kV} & high voltage makes the microwaves\\
+    Welding machine & step-down & \qty{230}{V} $\to$ \qty{50}{V} & very large current melts metal\\
+    Phone charger & step-down & \qty{230}{V} $\to$ \qty{5}{V} & low voltage for the phone: a
+      small high-frequency ferrite-core transformer, then electronics make DC\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{workedexample}{Power to a farm}\label{ch4:we:farm}
+A small power station sends \qty{60.0}{kW} to a farm at \qty{2.40}{kV}. The line has a
+total resistance of \qty{4.0}{\ohm}. Calculate (a)~the current, (b)~the power lost in the
+line, (c)~the power that reaches the farm and (d)~the voltage that reaches the farm.
+(e)~At the farm, an ideal step-down transformer gives \qty{230}{V}. Find its turns ratio.
+\given{$P = \qty{6.00e4}{W}$, \ $V = \qty{2.40}{kV} = \qty{2400}{V}$, \
+  $R = \qty{4.0}{\ohm}$, \ farm voltage $V_\mathrm{s} = \qty{230}{V}$}
+\find{(a) $I$ \quad (b) $P_\mathrm{loss}$ \quad (c) the power received \quad
+  (d) $V_\mathrm{farm}$ \quad (e) $N_\mathrm{p} : N_\mathrm{s}$}
+\formula{$I = \dfrac{P}{V}$, \ then $P_\mathrm{loss} = I^2R$, \ then
+  received $= P - P_\mathrm{loss}$. \ For (d): $V_\mathrm{drop} = IR$ and
+  $V_\mathrm{farm} = V - V_\mathrm{drop}$. \ For (e):
+  $\dfrac{N_\mathrm{p}}{N_\mathrm{s}} = \dfrac{V_\mathrm{p}}{V_\mathrm{s}}$, with
+  $V_\mathrm{p} = V_\mathrm{farm}$.}
+\substitute{(a) $I = \dfrac{\qty{6.00e4}{W}}{\qty{2400}{V}} = \qty{25.0}{A}$\par
+  (b) $P_\mathrm{loss} = (\qty{25.0}{A})^2 \times \qty{4.0}{\ohm} = \qty{2500}{W}$\par
+  (c) received $= \qty{60.0}{kW} - \qty{2.5}{kW} = \qty{57.5}{kW}$\par
+  (d) $V_\mathrm{drop} = \qty{25.0}{A} \times \qty{4.0}{\ohm} = \qty{100}{V}$, so
+  $V_\mathrm{farm} = \qty{2400}{V} - \qty{100}{V} = \qty{2300}{V}$\par
+  (e) $\dfrac{N_\mathrm{p}}{N_\mathrm{s}} = \dfrac{\qty{2300}{V}}{\qty{230}{V}} = 10$}
+\answer{(a) \final{$I = \qty{25.0}{A}$} \quad (b) \final{$P_\mathrm{loss} = \qty{2.5}{kW}$}
+  \quad (c) \final{\qty{57.5}{kW}} \quad (d) \final{\qty{2300}{V}} \quad
+  (e) \final{$N_\mathrm{p} : N_\mathrm{s} = 10 : 1$}}
+\checkstep{the loss is $\dfrac{2.5}{60.0} = 4.2\%$ of the power sent: sensible \cmark.
+  The wrong method, $\dfrac{V^2}{R} = \dfrac{2400^2}{4.0} = \qty{1.44}{MW}$, is more than
+  the power sent: impossible.\par
+  The current on the farm side is
+  $\dfrac{\qty{57500}{W}}{\qty{230}{V}} = \qty{250}{A} = 10 \times \qty{25.0}{A}$
+  \cmark. Step-down, so the current goes up by the turns ratio.}
+\end{workedexample}
+
+\begin{workedexample}{Why a wind farm steps up the voltage}\label{ch4:we:wind}
+A wind farm sends \qty{20.0}{MW} along a line of total resistance \qty{8.0}{\ohm}.
+(a)~Find the power lost if it sends at \qty{22.0}{kV}. (b)~A transformer with turns ratio
+$N_\mathrm{p} : N_\mathrm{s} = 1 : 6$ first steps the voltage up. Find the new voltage
+and the new loss. (c)~By what factor does the loss fall?
+\given{$P = \qty{2.00e7}{W}$, \ $R = \qty{8.0}{\ohm}$, \ $V_1 = \qty{2.20e4}{V}$, \
+  $N_\mathrm{p} : N_\mathrm{s} = 1 : 6$}
+\find{(a) $P_\mathrm{loss}$ at \qty{22.0}{kV} \quad (b) $V_2$ and the new $P_\mathrm{loss}$
+  \quad (c) the factor}
+\formula{$I = \dfrac{P}{V}$, \ $P_\mathrm{loss} = I^2R$, \
+  $V_\mathrm{s} = V_\mathrm{p}\dfrac{N_\mathrm{s}}{N_\mathrm{p}}$}
+\substitute{(a) $I_1 = \dfrac{\qty{2.00e7}{W}}{\qty{2.20e4}{V}} = \qty{909}{A}$, \
+  $P_\mathrm{loss} = (\qty{909}{A})^2 \times \qty{8.0}{\ohm} = \qty{6.61e6}{W}$\par
+  (b) $V_2 = \qty{22.0}{kV} \times \dfrac{6}{1} = \qty{132}{kV}$, \
+  $I_2 = \dfrac{\qty{2.00e7}{W}}{\qty{1.32e5}{V}} = \qty{151.5}{A}$, \
+  $P_\mathrm{loss} = (\qty{151.5}{A})^2 \times \qty{8.0}{\ohm} = \qty{1.84e5}{W}$\par
+  (c) $\dfrac{\qty{6.61e6}{W}}{\qty{1.84e5}{W}} = 35.9 \approx 36$}
+\answer{(a) \final{\qty{6.6}{MW}} (33\%) \quad
+  (b) \final{\qty{132}{kV}}, \final{\qty{0.18}{MW}} (about 0.9\%)\par
+  (c) \final{36 times}}
+\checkstep{6 times the voltage gives $\tfrac{1}{6}$ of the current, so the loss falls by
+  $6^2 = 36$ \cmark.}
+\end{workedexample}
+
+\begin{mistakes}
+\begin{itemize}
+  \item \xmark\ Using $\dfrac{V^2}{R}$ with the transmission voltage.
+        \cmark\ Find $I = \dfrac{P}{V}$ first, then use $I^2R$.
+  \item \xmark\ ``The loss is proportional to $I$.'' \cmark\ It is proportional to $I^2$.
+  \item \xmark\ ``High-voltage lines have less resistance.'' \cmark\ Same $R$, smaller $I$.
+\end{itemize}
+\end{mistakes}
+
+\begin{examtip}
+``Justify the use of high-voltage AC transmission'' (4 marks). Link every claim to its
+reason, and use numbers when you can.
+\begin{enumerate}
+  \item For a fixed power, $P = VI$. So a higher voltage means a smaller current.
+  \item $P_\mathrm{loss} = I^2R$. So the loss falls with the square of the current.
+  \item Transformers can step AC up and down, because AC makes a changing flux. They
+        cannot do this with steady DC.
+  \item The voltage is stepped down near homes for safety.
+\end{enumerate}
+\end{examtip}
+
+\begin{quickcheck}
+  \item A line of resistance \qty{2.0}{\ohm} carries \qty{150}{A}. Find the power lost.
+  \item A power station sends the same power at 4 times the voltage. What happens to the
+        current and to the power lost in the line?
+  \item A \qty{6.0}{\ohm} line carries \qty{200}{MW} at \qty{330}{kV}. A student finds
+        the loss as $\dfrac{(\num{330000})^2}{6.0} = \qty{1.8e10}{W}$. Explain the error,
+        and find the correct loss.\label{ch4:qc:v2r}
+  \item Explain why the grid uses AC, and why the voltage is stepped down before it
+        reaches homes.
+  \item A power station sends \qty{200}{A} at \qty{67.0}{kV} along a line of total
+        resistance \qty{5.0}{\ohm}. (a)~Find the voltage at the far end. (b)~A substation
+        transformer there gives \qty{11.0}{kV}. Is it step-up or step-down? Find
+        $N_\mathrm{p} : N_\mathrm{s}$. (c)~Assume it is ideal. Find the current in the
+        \qty{11.0}{kV} lines.\label{ch4:qc:substation}
+\end{quickcheck}
+
+%% ==================================================================
+\section{Key experiment}\label{ch4:sec:experiments}
+\covers{M6.IQ3.03, M6.IQ3.04}
+
+\begin{toolkit}{Gradient from a graph}
+The gradient of a straight line is how steep it is: how much $y$ goes up for each 1 unit
+along $x$. Pick two points on the line, far apart. Then
+gradient $= \dfrac{\text{rise}}{\text{run}} = \dfrac{y_2 - y_1}{x_2 - x_1}$. Example
+(\cref{ch4:fig:vsns}): the line of best fit passes through $(0, \qty{0}{V})$ and
+$(1200, \qty{11.4}{V})$, so gradient
+$= \dfrac{(11.4 - 0)\ \si{V}}{(1200 - 0)\ \text{turns}} = \qty{0.0095}{V}$ per turn.
+A straight line through the origin means $y$ is \term{directly proportional} to $x$,
+written $y \propto x$: double $x$ and $y$ doubles.
+\end{toolkit}
+
+\begin{experiment}{Testing the transformer equations}
+\aim{To test $V_\mathrm{p}/V_\mathrm{s} = N_\mathrm{p}/N_\mathrm{s}$ for a real
+  transformer, and to find its efficiency.}
+\apparatus{a transformer kit that comes apart (a \emph{demountable} kit): a laminated
+  U-shaped iron core, a straight iron bar (the \emph{I-bar}) that closes the top of the U,
+  and coils of 150 to 1200 turns that slide onto the two arms (sides) of the U; a
+  low-voltage AC power pack; two AC voltmeters and two AC ammeters (meters made to read
+  AC); a load resistor (\cref{ch4:fig:apparatus}).
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[x=0.9cm, y=0.9cm]
+      % U-core
+      \fill[chFouriron] (0,0) -- (3.2,0) -- (3.2,2.3) -- (2.5,2.3) -- (2.5,0.7) --
+        (0.7,0.7) -- (0.7,2.3) -- (0,2.3) -- cycle;
+      \draw[hscink!70, line width=0.6pt] (0,0) -- (3.2,0) -- (3.2,2.3) -- (2.5,2.3) --
+        (2.5,0.7) -- (0.7,0.7) -- (0.7,2.3) -- (0,2.3) -- cycle;
+      % I-bar, lifted above the core
+      \fill[chFouriron] (0,2.75) rectangle (3.2,3.4);
+      \draw[hscink!70, line width=0.6pt] (0,2.75) rectangle (3.2,3.4);
+      \draw[displacement] (1.6,2.7) -- (1.6,2.38);
+      % coils on the two arms
+      \foreach \cx in {0.35,2.85} {
+        \fill[white] (\cx-0.5,0.95) rectangle (\cx+0.5,2.05);
+        \draw[chFourcopper, line width=0.8pt] (\cx-0.5,0.95) rectangle (\cx+0.5,2.05);
+        \foreach \y in {1.05,1.17,...,1.98}
+          \draw[chFourcopper, line width=0.6pt] (\cx-0.5,\y) -- (\cx+0.5,\y);
+      }
+      % labels
+      \node[diagramlabel, anchor=west] (ib) at (3.4,3.07) {I-bar};
+      \node[diagramlabel, anchor=north] at (1.6,-0.08) {U-shaped core};
+      \node[diagramlabel, anchor=east, align=right] at (-0.3,1.5) {primary\\ coil};
+      \node[diagramlabel, anchor=west, align=left] at (3.4,1.5) {secondary\\ coil};
+      \node[diagramlabel, anchor=west] (arm) at (3.4,0.35) {arm};
+      \draw[hscmuted, line width=0.4pt] (arm.west) -- (2.95,0.55);
+      \node[font=\small\bfseries, text=hscink] at (1.6,4.0) {(a) the kit};
+    \end{tikzpicture}\hspace{4mm}%
+    \begin{tikzpicture}[x=0.8cm, y=0.8cm, line width=0.7pt]
+      \tikzset{meter/.style={draw=hscink, fill=white, circle, minimum size=6.5mm,
+        inner sep=0pt, font=\small\bfseries}}
+      % primary circuit
+      \draw (0,0.3) -- (0,0) -- (3,0) -- (3,0.4);
+      \draw (0,0.9) -- (0,2) -- (3,2) -- (3,1.6);
+      \draw (3,1.6) arc[start angle=90, end angle=-90, radius=0.15]
+        arc[start angle=90, end angle=-90, radius=0.15]
+        arc[start angle=90, end angle=-90, radius=0.15]
+        arc[start angle=90, end angle=-90, radius=0.15];
+      \draw[fill=white] (0,0.6) circle (0.3); \node at (0,0.6) {$\sim$};
+      \node[meter] at (0.75,2) {A};
+      \draw (1.65,2) -- (1.65,0);
+      \node[meter] at (1.65,1) {V};
+      % core
+      \draw[line width=1.2pt] (3.42,0.3) -- (3.42,1.7) (3.58,0.3) -- (3.58,1.7);
+      % secondary circuit
+      \draw (4.0,1.6) arc[start angle=90, end angle=270, radius=0.15]
+        arc[start angle=90, end angle=270, radius=0.15]
+        arc[start angle=90, end angle=270, radius=0.15]
+        arc[start angle=90, end angle=270, radius=0.15];
+      \draw (4.0,1.6) -- (4.0,2) -- (6.6,2) -- (6.6,1.45);
+      \draw (4.0,0.4) -- (4.0,0) -- (6.6,0) -- (6.6,0.55);
+      \draw[fill=hscbrand!8] (6.4,0.55) rectangle (6.8,1.45);
+      \draw (5.3,2) -- (5.3,0);
+      \node[meter] at (5.3,1) {V};
+      \node[meter] at (6.05,2) {A};
+      % labels
+      \node[diagramlabel, align=center, anchor=north] at (0,-0.1) {AC power\\ pack};
+      \node[diagramlabel, anchor=east] at (2.75,1.0) {$N_\mathrm{p}$};
+      \node[diagramlabel, anchor=west] at (4.2,1.0) {$N_\mathrm{s}$};
+      \node[diagramlabel] at (3.5,2.35) {iron core};
+      \node[diagramlabel, align=center, anchor=north] at (6.6,-0.1) {load\\ resistor};
+      \node[font=\small\bfseries, text=hscink] at (3.3,3.2) {(b) the circuit};
+    \end{tikzpicture}
+    \caption{(a) The demountable kit: two coils slide onto the arms of the U-core, and
+      the I-bar closes the top. (b) The test circuit. The symbol in the middle is an
+      iron-core transformer.}
+    \label{ch4:fig:apparatus}
+  \end{figure}}
+\method{\begin{enumerate}
+  \item Slide a 600-turn primary onto one arm of the U-core and join it to \qty{6.0}{V}
+        AC. Slide a secondary coil onto the other arm. Put the I-bar across the top to
+        close the core.
+  \item With no load (only the voltmeter joined to the secondary), read $V_\mathrm{s}$
+        for secondaries of 150 to 1200 turns, 3 times each. Switch off before you change
+        a coil.
+  \item With the load on a 300-turn secondary, read all four meters ($V_\mathrm{p}$,
+        $I_\mathrm{p}$, $V_\mathrm{s}$, $I_\mathrm{s}$). Then
+        $P_\mathrm{in} = V_\mathrm{p}I_\mathrm{p}$ and
+        $P_\mathrm{out} = V_\mathrm{s}I_\mathrm{s}$.
+  \item Switch off, remove the load and lift off the I-bar. Switch on and read
+        $V_\mathrm{s}$ again.
+\end{enumerate}}
+\results{Sample results from a school kit:
+  \begin{center}\small\vspace{-6pt}
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    $N_\mathrm{s}$ (with $N_\mathrm{p} = 600$, $V_\mathrm{p} = \qty{6.0}{V}$)
+      & 150 & 300 & 600 & 900 & 1200\\
+    \midrule
+    ideal $V_\mathrm{s} = V_\mathrm{p}N_\mathrm{s}/N_\mathrm{p}$ (\si{V})
+      & 1.50 & 3.00 & 6.00 & 9.00 & 12.00\\
+    measured $V_\mathrm{s}$, mean of 3 (\si{V}) & 1.42 & 2.86 & 5.71 & 8.55 & 11.36\\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[hsc, width=86mm, height=44mm, xmin=0, xmax=1300, ymin=0, ymax=13.5,
+          xtick={0,300,600,900,1200}, ytick={0,3,6,9,12},
+          xticklabel style={/pgf/number format/1000 sep={}},
+          xlabel={Number of secondary turns $N_\mathrm{s}$},
+          ylabel={$V_\mathrm{s}$ (\si{V})}]
+        \addplot[hscseriesB, dashed, line width=1pt, domain=0:1300, samples=2] {0.010*x};
+        \addplot[hscseriesA, line width=1pt, domain=0:1300, samples=2] {0.009485*x};
+        \addplot[hscseriesA, only marks, mark=*, mark size=2pt]
+          coordinates {(150,1.42) (300,2.86) (600,5.71) (900,8.55) (1200,11.36)};
+        \node[font=\small, text=hscseriesB, anchor=south east] at (axis cs:1150,12.3)
+          {ideal: \qty{0.010}{V} per turn};
+        \node[font=\small, text=hscseriesA, anchor=north west] at (axis cs:1000,9.0)
+          {best fit: \qty{0.0095}{V} per turn};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Measured points lie just below the ideal line (dashed).}
+    \label{ch4:fig:vsns}
+  \end{figure}
+  Load test (300-turn secondary): $V_\mathrm{p} = \qty{6.0}{V}$,
+  $I_\mathrm{p} = \qty{0.52}{A}$, $V_\mathrm{s} = \qty{2.80}{V}$,
+  $I_\mathrm{s} = \qty{1.00}{A}$. So
+  $P_\mathrm{in} = \qty{6.0}{V} \times \qty{0.52}{A} = \qty{3.12}{W}$ (\qty{3.1}{W} to 2
+  significant figures), $P_\mathrm{out} = \qty{2.80}{V} \times \qty{1.00}{A}
+  = \qty{2.80}{W}$ and
+  $\eta = \dfrac{\qty{2.80}{W}}{\qty{3.12}{W}} \times 100\% = 89.7\% \approx 90\%$.
+  Open core (no load): $V_\mathrm{s}$ fell from \qty{2.86}{V} to about \qty{0.9}{V}.}
+\conclusion{$V_\mathrm{s}$ against $N_\mathrm{s}$ is a straight line through the origin
+  ($V_\mathrm{s} \propto N_\mathrm{s}$), as the turns equation predicts. Its gradient,
+  \qty{0.0095}{V} per turn, is 5\% below the ideal
+  $V_\mathrm{p}/N_\mathrm{p} = \qty{0.010}{V}$ per turn, mainly because some flux leaks
+  (incomplete flux linkage). With a load, $P_\mathrm{out} < P_\mathrm{in}$
+  ($\eta = 90\%$): energy is lost as heat. The ideal model is close, but not exact.}
+\significance{It supports the model behind every grid transformer, and shows why cores
+  are closed loops. (Faraday's iron ring, the first transformer, is in
+  \cref{ch3:sec:experiments}.)}
+\validity{\begin{itemize}
+  \item \textbf{Validity:} change only $N_\mathrm{s}$; keep $V_\mathrm{p}$, $N_\mathrm{p}$,
+        the frequency and the core the same; use AC meters.
+  \item \textbf{Reliability:} repeat each reading 3 times and average; use 5 coils.
+  \item \textbf{Accuracy:} use calibrated AC meters on a suitable range. Every measured
+        $V_\mathrm{s}$ is about 5\% below the ideal value. A gap that is the same for every
+        coil is a \emph{systematic} error (here, mainly flux leakage); repeating cannot
+        remove it. \emph{Random} errors make readings scatter; averaging reduces them.
+  \item \textbf{Safety:} never use mains; a $1:10$ step-up turns \qty{12}{V} into
+        \qty{120}{V}. Switch off the power pack before you change a coil or move the
+        I-bar.
+\end{itemize}}
+\end{experiment}
+
+%% ==================================================================
+\begin{summarybox}{\Cref{ch4:chap} in five lines}
+\begin{itemize}
+  \item A transformer needs AC. A changing current in the primary makes a changing flux
+        in the iron core. This induces an emf in the secondary (Faraday's law).
+  \item Ideal transformer: $V_\mathrm{p}/V_\mathrm{s} = N_\mathrm{p}/N_\mathrm{s}$ and
+        $V_\mathrm{p}I_\mathrm{p} = V_\mathrm{s}I_\mathrm{s}$. Voltage up means current
+        down; the frequency stays the same.
+  \item Real transformers are not ideal: flux leakage (some flux misses the secondary),
+        $I^2R$ heating in the coils and eddy currents in the core. Fixes: closed iron
+        core, thick copper wire, laminated core.
+  \item Line loss $P_\mathrm{loss} = I^2R$ (not on the sheet). For a fixed power, a higher
+        voltage gives a smaller current, so much less loss.
+  \item Grid: step up at the power station; step down in stages to \qty{230}{V} for safety.
+\end{itemize}
+\end{summarybox}
