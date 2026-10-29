@@ -1,0 +1,1703 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M7 T4 光与狭义相对论</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m7">Module 7</a><span class="sep">/</span><span aria-current="page">Topic 4</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 7 · Topic 4</div>
+  <h1>Light and Special Relativity</h1>
+  <p class="h1-sub">光与狭义相对论 · 零基础讲解</p>
+  <p class="lead">这一章从一个奇怪的事实出发：不管你跑多快，量到的光速都一样。由它推出：动的钟变慢，动的东西变短，有质量的东西永远追不上光，质量能变成能量。记住下面<b>三条规则</b>，整章都只是在用它们。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">All inertial frames of reference are equivalent.</div>
+    <p>Einstein 的 postulate 1（基本假设，也叫公设）：不加速的 <span class="t">inertial frame</span>（惯性参考系）都平等。物理规律都一样，没有实验能分出谁“真的”静止。</p>
+    <div class="eqs">物理规律：frame A = frame B</div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">The speed of light in a vacuum is an absolute constant.</div>
+    <p>Postulate 2：每个人量到的真空光速都是 <span class="m"><i>c</i></span>，不管光源和观察者跑多快。</p>
+    <div class="eqs"><i>c</i> = 3.00 × 10<sup>8</sup> m s<sup>−1</sup></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">The factor √(1 − v²/c²)</div>
+    <p><span class="m"><i>v</i></span> 越接近 <span class="m"><i>c</i></span>，这个根号越接近 0：动的钟变慢，动的东西变短，momentum（动量）冲向无穷大。</p>
+    <div class="eqs"><i>v</i> → <i>c</i>：√(1 − <i>v</i>²/<i>c</i>²) → 0</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章内容">
+  <div class="map-row head"><span>部分</span><span>核心公式或证据</span><span>一句话</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">4.1</span><span class="t">Frames &amp; the aether</span></span><span>Galilean 相加</span><span>速度能相加；可是找不到 aether</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">4.1</span><span class="t">Einstein's two postulates</span></span><span>表 4.1</span><span>① 所有 inertial frame 平等 ② 光速不变</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">4.2</span><span class="t">Simultaneity</span></span><span>思想实验 1</span><span>一个人看是同时，另一个人看不是</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">4.2</span><span class="t">Light clock</span></span><span><span class="m"><i>t</i><sub>0</sub> = 2<i>d</i>/<i>c</i></span></span><span>③ 动的钟走得慢</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">4.2</span><span class="t">Proper time, length &amp; muons</span></span><span><span class="m"><i>l</i> = <i>l</i><sub>0</sub>√(1 − <i>v</i>²/<i>c</i>²)</span></span><span>③ 动的东西变短；muon 两样都看得到</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">4.3</span><span class="t">Relativistic momentum</span></span><span><span class="m"><i>p</i><sub>v</sub> → ∞</span></span><span>③ 有质量的东西到不了 <i>c</i></span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">4.4</span><span class="t">E = mc²</span></span><span><span class="m"><i>E</i> = <i>mc</i>²</span></span><span>放出能量，就丢一点质量</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">4.5</span><span class="t">Key experiments</span></span><span>3 个实验</span><span>没有 aether；动的钟真的变慢</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是 Pythagoras 和 μs、ns。</li>
+    <li>按 4.1 → 4.4 讲。每节先读“一句话”，再开动画。每个结论都问学生：这是在<b>谁的</b> frame 里量的？</li>
+    <li>最后做“快问快答”，再看“常见错误”。两条 postulate 的英文原句要背下来。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li>匀速运动：<span class="m"><i>s</i> = <i>vt</i></span>，距离 = 速度 × 时间。muon 那一节要用。</li>
+    <li><span class="t">Pythagoras</span>（勾股定理）：直角三角形里，两条直角边的平方加起来，等于斜边的平方。光钟那一节要用。</li>
+    <li>Momentum <span class="m"><i>p</i> = <i>mv</i></span>：质量 × 速度。力推得越久，momentum 加得越多：<span class="m">Δ<i>p</i> = <i>F</i><sub>net</sub>Δ<i>t</i></span>。4.3 要用。</li>
+    <li>光速 <span class="m"><i>c</i> = 3.00 × 10<sup>8</sup> m s<sup>−1</sup></span>。很短的时间：1 μs = 10<sup>−6</sup> s，1 ns = 10<sup>−9</sup> s。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">4.1</div>
+  <h2>从哪里看？参考系和以太<span class="en">Frames of reference and Einstein's postulates</span></h2>
+  <p class="big"><span class="lbl">一句话</span>运动总是从某个“视角”量出来的。Einstein 说：不加速的视角没有哪一个是特别的；而且每个人量到的真空光速都一样。</p>
+  <ul class="pts">
+    <li><span class="t">Frame of reference</span>（参考系）：一个“视角”，带着自己的尺子和钟。站台是一个 frame，火车是另一个 frame。</li>
+    <li>Inertial frame：不加速的 frame，静止或者匀速直线走。注意：不变的是<b>速度</b>（velocity，包括方向）。</li>
+    <li><span class="t">Non-inertial frame</span>（非惯性参考系）：在加速、减速或者转弯的 frame。地面通常可以当成 inertial frame。</li>
+    <li><span class="t">Event</span>（事件）：在一个地点、一个瞬间发生的事，比如一次闪光。</li>
+    <li><span class="t">Postulate</span>：一个理论一开始就当成对的话。上面的规则 ①、② 就是 Einstein 的两条 postulate。</li>
+    <li><span class="t">Galilean relativity</span>（伽利略相对性原理）：运动的规律在每个 inertial frame 里都一样，日常的速度可以直接相加。在匀速的火车上扔球，和在地上扔一样。Einstein 的 postulate 1 把它推广到<b>所有</b>物理。</li>
+  </ul>
+
+  <h3>光速是“相对谁”的？</h3>
+  <ul class="pts">
+    <li>Maxwell 的方程算出光只有一个速度：<span class="m"><i>c</i> = 3.00 × 10<sup>8</sup> m s<sup>−1</sup></span>。可是它没说<b>相对谁</b>。</li>
+    <li>当时大家觉得，光要有一个 <span class="t">medium</span>（介质：让波传过去的东西，像声音靠空气）。于是假设太空里充满一种看不见的东西，叫 <span class="t">luminiferous aether</span>（以太，也叫光以太）。</li>
+    <li>地球在太空里跑，大约 30 km s<sup>−1</sup>。如果有 aether，地球上就会吹着“aether 风”（<span class="t">aether wind</span>），光速应该随方向变：顺风快，逆风慢。</li>
+    <li>Michelson 和 Morley（1887）去测这个变化，结果什么变化都没有。这叫 <span class="t">null result</span>（零结果：没找到要找的效果）。</li>
+    <li>他们用的仪器叫 <span class="t">interferometer</span>（干涉仪）。光从 source（光源）出来，一面 <span class="t">half-silvered mirror</span>（半镀银镜）把它分成互相垂直的两束。每一束沿一条 <span class="t">arm</span>（臂）走到 mirror（镜子），再回来。两束光合在一起进 telescope（望远镜），形成 <span class="t">fringes</span>（条纹：一条亮、一条暗）。光速一变，fringes 就会移动。实验细节在 4.5，先看动画 1。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Galilean adding · 伽利略速度相加</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>v</i><sub>ground</sub> = <i>v</i><sub>frame</sub> + <i>v</i><sub>in frame</sub></div>
+    <dl class="sym">
+      <div><dt style="flex:none">v<sub>ground</sub></dt><dd>velocity on the ground：地上的人量到的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt style="flex:none">v<sub>frame</sub></dt><dd>frame velocity：frame（比如火车）相对地面的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt style="flex:none">v<sub>in frame</sub></dt><dd>velocity in the frame：在 frame 里量到的速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b>火车以 20 m s<sup>−1</sup> 往前开，你在车里往前走 1 m s<sup>−1</sup>。地上的人量你：20 + 1 = 21 m s<sup>−1</sup>。<br><b>陷阱：</b><b>光永远不能这样加</b>。车灯的光是 <span class="m"><i>c</i></span>，不是 <span class="m"><i>c</i> + <i>v</i></span>。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · Michelson–Morley：找不到 aether</span><span class="sim-tag">从上往下看 · 0.4 和 0.02 条：booklet · wind、光速、臂长：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="从上往下看 Michelson–Morley 的 interferometer：光从 source 出来，被 half-silvered mirror 分成互相垂直的两束，各自到 mirror 再回来，一起进 telescope。整个仪器浮在 mercury 上慢慢转，虚线箭头是假设的 aether wind。旁边（手机上在下面）是 telescope 里看到的 fringes，和 fringe 移动随转角 θ 的图：aether 理论预测转到 90° 时移动约 0.4 条，1887 年实测不到 0.02 条。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="看哪一种">
+        <button class="btn" type="button" id="s1-aether" aria-pressed="true">aether 理论的预测</button>
+        <button class="btn" type="button" id="s1-real" aria-pressed="false">1887 真实结果</button>
+      </span>
+      <label class="range">转角 θ <input type="range" id="s1-ang" min="0" max="180" step="5" value="0"><output id="s1-ang-out" for="s1-ang">0°</output></label>
+      <button class="btn" type="button" id="s1-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看“aether 理论的预测”：光顺着 wind 走得快，逆着 wind 走得慢。沿着 wind 的那条臂，光来回最慢，所以两束光不同时回到 telescope。仪器转到 90°，两条臂交换了方向，telescope 里的 fringes 应该移动约 0.4 条。② 把“转角 θ”拖到 45°：两条臂和 wind 一样斜，两束光同时回来。0° 时 arm 2 先回来，现在一样快：时间差变了，所以 fringes 已经移了一半（0.2 条）。拖动时仪器停住（光还在走），按“重来”从 0° 再转。③ 按“1887 真实结果”：光在每个方向都是 <i>c</i>，两束光总是同时回来，怎么转 fringes 都几乎不动（不到 0.02 条）。这就是 null result。数据：0.4 条和 0.02 条来自 booklet；Earth 约 30 km s<sup>−1</sup>，只有 <i>c</i> 的万分之一（计算值）。为了看得见，画面里把 wind 放大到 0.5<i>c</i>（5000 倍），光也放慢了；wind 的方向和臂长都是示意。</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">4.1</div>
+  <h2>Einstein 的两条 postulate<span class="en">Einstein's two postulates (1905)</span></h2>
+  <p class="big"><span class="lbl">一句话</span>整个 special relativity（狭义相对论）只站在两条 postulate 上。它们的英文原句要背下来，一个字都不能错。</p>
+  <p><span class="t">Special relativity</span>：讲 inertial frame 里的人看到的空间和时间是什么样的理论。</p>
+  <ol class="pts">
+    <li><b class="t">All inertial frames of reference are equivalent.</b><br>物理规律（包括光的规律）在每个 inertial frame 里都一样。没有实验能分出哪个 inertial frame “真的”静止。</li>
+    <li><b class="t">The speed of light in a vacuum is an absolute constant.</b><br>每个 inertial <span class="t">observer</span>（观察者）量到的都是 <span class="m"><i>c</i> = 3.00 × 10<sup>8</sup> m s<sup>−1</sup></span>，不管光源或者观察者跑多快。</li>
+  </ol>
+  <ul class="pts">
+    <li>按 postulate 1，Maxwell 的方程在每个 inertial frame 里都成立，所以每个 frame 都算出同一个 <span class="m"><i>c</i></span>。</li>
+    <li>光的速度<b>不能</b>相加：车在开，车灯的光还是 <span class="m"><i>c</i></span>，不是 <span class="m"><i>c</i> + <i>v</i></span>。</li>
+    <li>两个相对运动的人量同一束光，都得到 <span class="m"><i>c</i></span>。只有一个办法让它成立：他们量的<b>距离</b>、<b>时间</b>（或者两样都）不一样。4.2 就讲这个。</li>
+    <li><span class="m"><i>c</i></span> 只在<b>真空</b>里不变。光在玻璃和水里会变慢。</li>
+  </ul>
+
+  <h3>证据（讲义表 4.1）</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>证据</th><th>发现了什么</th><th style="white-space:nowrap">支持哪条</th></tr></thead>
+      <tbody>
+        <tr><td>Michelson–Morley（1887）</td><td>null result：每个方向的光速都一样</td><td style="white-space:nowrap">1 和 2</td></tr>
+        <tr><td>没找到“绝对运动”（<span class="t">no absolute motion found</span>）</td><td>在运动的地球上，物理规律都一样</td><td style="white-space:nowrap">1</td></tr>
+        <tr><td>快速的 <span class="t">pion</span>（一种寿命很短的粒子），CERN（1964）</td><td>光源以 0.99975<i>c</i> 运动，发出的光还是 <i>c</i></td><td style="white-space:nowrap">2</td></tr>
+        <tr><td>现代激光实验（<span class="t">modern laser tests</span>）</td><td>每个方向的 <i>c</i> 都一样，精确到 10<sup>17</sup> 分之 1</td><td style="white-space:nowrap">2</td></tr>
+        <tr><td>Muon（见 4.2）、原子钟、GPS</td><td>relativity 的每一个预测都被证实</td><td style="white-space:nowrap">1 和 2</td></tr>
+        <tr><td>OPERA（2011）的说法</td><td>“比光快”的 <span class="t">neutrino</span>（中微子：很小、几乎没有质量的粒子）：其实是一根线没接好（loose cable）</td><td style="white-space:nowrap">都不是</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li><b>判断（Judgement）：</b>两条 postulate 被<b>很有力地支持</b>（strongly supported）。很多实验都对得上；反对它们的结果，检查之后都站不住。注意：证据<b>支持</b>一个理论，不是<b>证明</b>它。</li>
+    <li><b>局限（Limitation）：</b>Michelson 和 Morley 的光源是静止的。pion 实验补上了“光源在动”的情况。</li>
+  </ul>
+</section>
+
+<section id="s3">
+  <div class="secnum">4.2</div>
+  <h2>“同时”也是相对的<span class="en">Time dilation and length contraction · Thought experiment 1: lightning and a fast train</span></h2>
+  <p class="big"><span class="lbl">一句话</span>每个人量到的光速都一样，所以互相运动的人，对时间和长度的看法一定不一样。第一个例子：一个人看是同时发生的两件事，另一个人看不是同时。</p>
+  <ul class="pts">
+    <li><span class="t">Thought experiment</span>（思想实验）：在脑子里做的实验，一步一步用逻辑推。它能想象接近 <span class="m"><i>c</i></span> 的速度。这种速度，1905 年没人能拿来做实验。</li>
+    <li>它<b>不是证据</b>。它只告诉我们理论预测什么。要靠真实的实验来检验。</li>
+  </ul>
+
+  <h3>闪电和快车（讲义图 4.1）</h3>
+  <ol class="pts">
+    <li>火车往右开，速度 <span class="m"><i>v</i></span>。Peter 坐在火车正中间。Olivia 站在站台上，正好在 A 和 B 的中间。</li>
+    <li>站台上看：闪电同时打在 A 和 B，正好是火车的两头（<span class="t">rear</span> 车尾，<span class="t">front</span> 车头）。</li>
+    <li><b>Olivia：</b>两个闪光（<span class="t">flash</span>）同时到她。所以对她来说，两次闪电是 <span class="t">simultaneous</span>（同时的）。</li>
+    <li><b>Peter：</b>火车带着他迎向 front 的闪光，所以 front 的闪光先到他。</li>
+    <li>Peter 想：我在车的正中间，我是静止的。两个闪光都以 <span class="m"><i>c</i></span> 走一样远的路。front 的先到，所以对我来说，<b>front 那一下真的先打</b>。他的 frame 和 Olivia 的一样有效（postulate 1）。</li>
+  </ol>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">站台 frame（Olivia）</div><p>两次闪电<b>同时</b>打下。Peter 迎着 front 的光走，所以先看到 front 的光。</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">火车 frame（Peter）</div><p>Peter 不动。两个光都是 <i>c</i>、走一样远，front 的先到，所以 <b>front 先打</b>。</p></div>
+  </div>
+  <p>这就是 <span class="t">relativity of simultaneity</span>（同时的相对性）：在不同地点发生的两个 event，在一个 frame 里同时，在另一个沿着它们的连线运动的 frame 里，就<b>不</b>同时。两个人都对。</p>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · 闪电和快车：同时是相对的</span><span class="sim-tag">从侧面看 · 光速放慢 · 长度按真实比例 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="从侧面看：火车往右开，闪电打在站台的 A、B 两点，正好是火车两端。两道 flash 以光速往中间走，Olivia 站在站台中间，Peter 坐在火车中间。可以切换成火车的 frame：火车不动，站台往左退。下面的时间顺序图记下这个 frame 里每件事的先后。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="从哪个 frame 看">
+      <button class="btn" type="button" id="s2-fp" aria-pressed="true">站台 frame</button>
+      <button class="btn" type="button" id="s2-ft" aria-pressed="false">火车 frame</button>
+    </span>
+    <label class="range">火车速度 <i>v</i> <input type="range" id="s2-v" min="0.2" max="0.8" step="0.1" value="0.6"><output id="s2-v-out" for="s2-v">0.6c</output></label>
+    <button class="btn" type="button" id="s2-again">再打一次闪电</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看“站台 frame”：两个闪电同时打下，两道 flash 同时到 Olivia；Peter 迎着 front flash 走，所以先收到它。下面“闪电打下”那一行只有一个点：同时。② 换成“火车 frame”：Peter 不动，站台往左退。front 的闪电先打，rear 的后打；两道 flash 都以 <i>c</i> 走半个火车长，front 的先到 Peter。“闪电打下”那一行分成了两个点。③ 看 Olivia：两个 frame 里，两道 flash 都同时到她（同一个地点、同一瞬间的事，大家都同意）。④ 把 <i>v</i> 拉到 0.8<i>c</i>：火车 frame 里两个闪电差得更远；拉到 0.2<i>c</i>，差得很少。注意：两个 frame 里量到的长度不一样，这是 length contraction（长度收缩，4.2 后面会讲）：站台 frame 里火车在动，被量短成和 AB 一样长；火车 frame 里火车不动，是它本来的长度，在动的站台 AB 被量短。按真实比例画；画面里光速放慢了，<i>v</i> 和长度都是示意。</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">4.2</div>
+  <h2>光钟：动的钟走得慢<span class="en">Thought experiment 2: the light clock</span></h2>
+  <p class="big"><span class="lbl">一句话</span>动的钟走得慢。在别人看来，钟里的光走的是斜线，路更长；可光速还是 <span class="m"><i>c</i></span>，所以每一下都要更久。</p>
+  <ul class="pts">
+    <li><span class="t">Light clock</span>（光钟）：两面镜子，一束光在中间上下来回。光走一个来回，钟就“滴答”一下，叫一个 <span class="t">tick</span>。</li>
+    <li>(a) 钟不动：光一个来回走 2<i>d</i>，所以一个 tick 是 <span class="m"><i>t</i><sub>0</sub> = 2<i>d</i>/<i>c</i></span>。</li>
+    <li>(b) 钟以速度 <span class="m"><i>v</i></span> 往右走（你站着不动看它）：光要走斜线，才追得上已经往前移的镜子。斜线更长。</li>
+    <li>但光速还是 <span class="m"><i>c</i></span>（postulate 2）。路长了，速度没变，时间就长了：每个 tick 都更久。这就是 <span class="t">time dilation</span>（时间膨胀，也叫时间延缓）。</li>
+  </ul>
+
+  <h3>用 Pythagoras 算出来（讲义图 4.2）</h3>
+  <ol class="pts">
+    <li>看 (b) 里的直角三角形。斜边：光走半个 tick 的路，<span class="m"><i>ct</i>/2</span>。竖边：两面镜子的距离 <span class="m"><i>d</i></span>。横边：钟走半个 tick 的路，<span class="m"><i>vt</i>/2</span>。</li>
+    <li>Pythagoras：<span class="m">(<i>ct</i>/2)² = <i>d</i>² + (<i>vt</i>/2)²</span>。</li>
+    <li>整理一下：<span class="m"><i>t</i> = 2<i>d</i>/√(<i>c</i>² − <i>v</i>²) = (2<i>d</i>/<i>c</i>)/√(1 − <i>v</i>²/<i>c</i>²)</span>。</li>
+    <li>把 <span class="m"><i>t</i><sub>0</sub> = 2<i>d</i>/<i>c</i></span> 放进去：<span class="m"><i>t</i> = <i>t</i><sub>0</sub>/√(1 − <i>v</i>²/<i>c</i>²)</span>。</li>
+  </ol>
+  <ul class="pts">
+    <li>根号里的数比 1 小，所以 <span class="m"><i>t</i></span> 永远比 <span class="m"><i>t</i><sub>0</sub></span> 大。<span class="m"><i>v</i> = 0</span> 时两个一样。</li>
+    <li>倍数 <span class="m">1/√(1 − <i>v</i>²/<i>c</i>²)</span> 有个名字：<span class="t">Lorentz factor</span>（洛伦兹因子），写成 <span class="m"><i>γ</i></span>。例如 <span class="m"><i>v</i> = 0.6<i>c</i></span>：<span class="m">√(1 − 0.6²) = 0.8</span>，<span class="m"><i>γ</i> = 1.25</span>，动的钟一个 tick 是 1.25 倍长。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">One tick of a light clock · 光钟的一个 tick</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>t</i><sub>0</sub> = 2<i>d</i> / <i>c</i></div>
+    <dl class="sym">
+      <div><dt>t<sub>0</sub></dt><dd>钟自己的 frame 里，一个 tick 的时间 (s)</dd></div>
+      <div><dt>d</dt><dd>两面镜子的距离 (m)</dd></div>
+      <div><dt>c</dt><dd>真空光速，3.00 × 10<sup>8</sup> m s<sup>−1</sup> (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>钟不动时，光一个来回走 2<i>d</i>。时间 = 距离 ÷ 速度 = 2<i>d</i>/<i>c</i>。<br><b>例子：</b><span class="m"><i>d</i> = 1.5 m</span>：<span class="m"><i>t</i><sub>0</sub> = 2 × 1.5 / (3.00 × 10<sup>8</sup>) = 1.0 × 10<sup>−8</sup> s = 10 ns</span>。<br><b>陷阱：</b>这是钟<b>自己</b> frame 里的 tick。看它在动的人，量到的 tick 更长。</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · 光钟：动的钟走得慢</span><span class="sim-tag">画面里光速放慢 · 镜子间距：示意 · 倍数：计算值</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边是静止的光钟 (a)：一束光在两面镜子之间上下走，一个来回是一个 tick。右边是同样的钟 (b) 以速度 v 往右走，光要走斜线，画出 d、vt/2、ct/2 的直角三角形。两个钟下面各有 tick 计数。下方是公式读数和 γ = 1/√(1 − v²/c²) 随 v/c 变化的曲线，点标出现在的 v。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">速度 <i>v</i> <input type="range" id="s3-v" min="0" max="0.995" step="0.005" value="0.6" list="s3-ticks"><output id="s3-v-out" for="s3-v">0.60c</output></label>
+    <datalist id="s3-ticks"><option value="0.6"></option><option value="0.8"></option><option value="0.9"></option><option value="0.995"></option></datalist>
+    <button class="btn" type="button" id="s3-tri" aria-pressed="true">Pythagoras 三角形：开</button>
+    <button class="btn" type="button" id="s3-frame" aria-pressed="false">换 frame：坐到 (b) 上</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看 <i>v</i> = 0.6<i>c</i>：(b) 的光走斜线，路更长，可它的速度和 (a) 一样都是 <i>c</i>。看下面的 tick 数：(a) 走 5 个 tick，(b) 才走 4 个（1.25 倍）。三角形的三条边 <i>d</i> : <i>vt</i>/2 : <i>ct</i>/2 = 1 : 0.75 : 1.25，正好是 4 : 3 : 5。② 拖动 <i>v</i>（停在 0.6<i>c</i>、0.8<i>c</i>、0.9<i>c</i>、0.995<i>c</i> 附近会自动对齐）：到 0.9<i>c</i>，倍数是 2.29，不是 3.16，因为要先平方：√(1 − 0.9²) = 0.44；拖到最右边 0.995<i>c</i>，倍数约 10，和 muon 一样；拖回 0，两个钟完全一样。③ 按“换 frame：坐到 (b) 上”：现在 (b) 不动，(a) 往左走，变慢的变成了 (a)。效果是相互的。画面里的光速放慢了，<i>d</i> 是示意；倍数 1/√(1 − <i>v</i>²/<i>c</i>²) 是计算值。</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">4.2</div>
+  <h2>固有时、固有长度和 muon<span class="en">Proper time and proper length · Muons: both effects in action</span></h2>
+  <p class="big"><span class="lbl">一句话</span>动的东西沿运动方向变短。Muon 把“钟变慢”和“长度变短”都用上了：换一个 frame 看，结果完全一样。</p>
+
+  <h3>谁量的才算 proper？</h3>
+  <ul class="pts">
+    <li><span class="t">Proper time</span>（固有时，也叫原时）<span class="m"><i>t</i><sub>0</sub></span>：两个 event 之间的时间，用一个<b>两个 event 都在场</b>的钟量。不管在哪个 frame：muon 自己的钟量它的一生，飞船上的钟量一次旅行。别人量到的 <span class="m"><i>t</i></span> 都更长。</li>
+    <li><span class="t">Proper length</span>（固有长度，也叫原长）<span class="m"><i>l</i><sub>0</sub></span>：在东西<b>静止</b>的那个 frame 里量的长度。</li>
+    <li><span class="t">Length contraction</span>（长度收缩，也叫尺缩效应）：动的东西被量得更短。只沿<b>运动方向</b>变短，横着不变。</li>
+    <li>地球到一颗星的距离：<span class="m"><i>l</i><sub>0</sub></span> 在 Earth–star frame 里量（地球和星星在这个 frame 里都不动）。</li>
+    <li>两种效果都是<b>相互的</b>：A 看 B 的钟慢，B 看 A 的钟也慢。你自己的钟和尺子，在你看来永远正常。</li>
+    <li>日常速度下，效果非常小（<span class="m"><i>v</i> = 0.1<i>c</i></span> 时，<span class="m"><i>t</i></span> 也只比 <span class="m"><i>t</i><sub>0</sub></span> 长约 0.5 %）。接近 <span class="m"><i>c</i></span> 才变得很大。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Time dilation and length contraction · 时间膨胀和长度收缩</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>t</i> = <i>t</i><sub>0</sub> / √(1 − <i>v</i>²/<i>c</i>²)</span><span style="display:inline-block;margin:0 .6em"><i>l</i> = <i>l</i><sub>0</sub>√(1 − <i>v</i>²/<i>c</i>²)</span></div>
+    <dl class="sym">
+      <div><dt>t</dt><dd>在钟<b>在动</b>的 frame 里量的时间 (s)</dd></div>
+      <div><dt>t<sub>0</sub></dt><dd>proper time：两个 event 都在场的钟量的 (s)</dd></div>
+      <div><dt>l</dt><dd>在东西<b>在动</b>的 frame 里量的长度 (m)</dd></div>
+      <div><dt>l<sub>0</sub></dt><dd>proper length：在东西静止的 frame 里量的 (m)</dd></div>
+      <div><dt>v</dt><dd>钟或东西和观察者之间的相对速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>c</dt><dd>真空光速，3.00 × 10<sup>8</sup> m s<sup>−1</sup> (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b><span class="m"><i>t</i></span>：同样的两个 event，从两个 inertial frame 看。<span class="m"><i>l</i></span>：沿着运动方向的长度。<br><b>例子：</b><span class="m"><i>v</i> = 0.6<i>c</i></span>：<span class="m">√(1 − 0.6²) = 0.8</span>。<span class="m"><i>t</i><sub>0</sub> = 8.0 s</span> → <span class="m"><i>t</i> = 8.0/0.8 = 10 s</span>；<span class="m"><i>l</i><sub>0</sub> = 100 m</span> → <span class="m"><i>l</i> = 100 × 0.8 = 80 m</span>。<br><b>陷阱：</b>先把 <span class="m"><i>v</i>/<i>c</i></span> 平方：<span class="m">√(1 − 0.9²)</span>，不是 <span class="m">√(1 − 0.9)</span>。永远 <span class="m"><i>t</i> &gt; <i>t</i><sub>0</sub></span>，<span class="m"><i>l</i> &lt; <i>l</i><sub>0</sub></span>。</p>
+  </div>
+
+  <h3>Muon：两种效果一起看（讲义图 4.3）</h3>
+  <ul class="pts">
+    <li><span class="t">Cosmic rays</span>（宇宙射线：从太空飞来的快速质子）在 10–15 km 高的空中撞出 <span class="t">muon</span>（μ子，也叫缪子）。muon 像一个很重的电子。</li>
+    <li>Muon 是 <span class="t">unstable</span>（不稳定的）：过一会儿就 <span class="t">decay</span>（衰变）成别的粒子。静止时它的 <span class="t">mean lifetime</span>（平均寿命）是 2.2 μs。</li>
+    <li>没有 relativity 的话：用 <span class="m"><i>s</i> = <i>vt</i></span>，就算差不多以光速飞，也只能走大约 660 m。可是很多 muon 到了地面。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">(a) Earth frame（地面看）</div><p>muon 的钟<b>变慢</b>，它活得够久，能飞完整段空气 <span class="m"><i>l</i><sub>0</sub></span>。用的是：变长的时间 <i>t</i> + proper length。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">(b) muon frame（muon 自己看）</div><p>muon 不动，地面冲上来。它只活 <span class="m"><i>t</i><sub>0</sub></span>，但空气层被<b>压短</b>成 <span class="m"><i>l</i></span>，够用了。用的是：proper time + 变短的长度。</p></div>
+  </div>
+  <ul class="pts">
+    <li>两个 frame 的结论一样：muon 到了地面。<b>永远不要</b>在同一个 frame 里同时用“变长的时间”和“变短的长度”。</li>
+  </ul>
+
+  <h3>证据</h3>
+  <ul class="pts">
+    <li><b>Frisch and Smith（1963）：</b>数速度约 0.995<i>c</i> 的 muon。在 1.9 km 高的山上，每小时 563 个；在海平面，每小时 408 个。如果没有 time dilation，只会剩大约 30 个。</li>
+    <li>用这些计数算出的变慢倍数约是 9。按 0.995<i>c</i> 算应该是 10；差一点，是因为 muon 在空气里会减速。</li>
+    <li><b>CERN（1977）：</b>把 muon 存在一个环里，以 0.999418<i>c</i> 转圈。它们活得比静止时长 29.3 倍，正是 time dilation 的预测。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>看法</th><th>距离和时间</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>没有 relativity</td><td>飞 1.9&nbsp;km 要约 6.4&nbsp;μs（计算值），差不多 3 个 lifetime</td><td>只剩约 30 个</td></tr>
+        <tr><td>Earth frame</td><td>距离是 <i>l</i><sub>0</sub> = 1.9&nbsp;km；muon 的钟慢 10 倍，它自己只过了约 0.64&nbsp;μs（计算值）</td><td>大部分到得了（实测 408 个）</td></tr>
+        <tr><td>muon frame</td><td>muon 只活 <i>t</i><sub>0</sub>；1.9&nbsp;km 收缩成约 190&nbsp;m（计算值），地面约 0.64&nbsp;μs 就冲到</td><td>和 Earth frame 一样</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Distance at a constant speed (muons) · 匀速走的距离</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>s</i> = <i>vt</i></div>
+    <dl class="sym">
+      <div><dt>s</dt><dd>走的距离 (m)</dd></div>
+      <div><dt>v</dt><dd>速度，不变 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>t</dt><dd>时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b>sheet 上印的是 <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span>。速度不变时 <span class="m"><i>a</i> = 0</span>，<span class="m"><i>u</i></span> 就是 <span class="m"><i>v</i></span>，所以 <span class="m"><i>s</i> = <i>vt</i></span>。<br><b>例子：</b>没有 relativity：<span class="m"><i>s</i> = 3.00 × 10<sup>8</sup> × 2.2 × 10<sup>−6</sup> = 660 m</span>。<br><b>陷阱：</b><span class="m"><i>s</i></span>、<span class="m"><i>v</i></span>、<span class="m"><i>t</i></span> 要在<b>同一个</b> frame 里量。</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">动画 4 · Muon：两个 frame，同一个结果</span><span class="sim-tag">Frisch and Smith 数据：booklet · 时间和收缩后长度：计算值 · 点数、画面速度：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边：一群 muon 从 1.9 km 高的山顶往海平面飞，路上随机 decay，decay 的变成灰色小圈。可以切换成没有 relativity、Earth frame（muon 的钟变慢）或 muon frame（muon 不动，地面冲上来，1.9 km 和山都沿运动方向收缩成 1/10）。右边（手机上在下面）是距离、地面钟、muon 的钟和还剩多少个 muon。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="用哪种看法">
+      <button class="btn" type="button" id="s4-none" aria-pressed="true">没有 relativity</button>
+      <button class="btn" type="button" id="s4-earth" aria-pressed="false">Earth frame</button>
+      <button class="btn" type="button" id="s4-muon" aria-pressed="false">muon frame</button>
+    </span>
+    <button class="btn" type="button" id="s4-one" aria-pressed="false">只看一个 muon</button>
+    <button class="btn" type="button" id="s4-reset">重来</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看“没有 relativity”：飞 1.9 km 要 6.4 μs ≈ 3 个平均寿命，563 个只剩约 30 个，可海平面实测是 408 个。② 按“Earth frame”：路还是 <i>l</i><sub>0</sub> = 1.9 km，可 muon 的钟慢 10 倍，只走了 0.64 μs，大部分活着到了海平面。③ 按“muon frame”：muon 不动，地面冲上来，1.9 km 收缩成 190 m（同一比例尺，山也变矮，宽度不变），0.64 μs 就到。来回切这两个 frame：同一批 muon 在同一刻 decay，剩下的一样多。④ 按“只看一个 muon”：没有 relativity 时它飞约 660 m 就 decay；有 relativity 时它的表盘转不到 1/3 圈就到了。存活比例直接用 booklet 的实测计数 408/563。严格按 10 倍算，会剩约 420 个（计算值）；实测少一点，是因为 muon 在空气里会减速。6.4 μs、0.64 μs、190 m 是计算值；点数和画面速度是示意（muon frame 慢放 10 倍，地面其实也是 0.995<i>c</i>）。</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">4.3</div>
+  <h2>越推越难：速度上限是 c<span class="en">Relativistic momentum and the speed limit</span></h2>
+  <p class="big"><span class="lbl">一句话</span>接近 <span class="m"><i>c</i></span> 时，momentum 涨得比 <span class="m"><i>m</i><sub>0</sub><i>v</i></span> 快得多，一直冲向无穷大。所以有质量的东西永远到不了光速。</p>
+  <ul class="pts">
+    <li>接近 <span class="m"><i>c</i></span> 时，<span class="m"><i>p</i> = <i>mv</i></span> 不对了：用它算，momentum 会在一个 inertial frame 里守恒、在另一个里不守恒。这违反 postulate 1。</li>
+    <li>要用 <span class="t">relativistic momentum</span>（相对论动量）<span class="m"><i>p</i><sub>v</sub></span>。它用的是 <span class="t">rest mass</span>（静止质量）<span class="m"><i>m</i><sub>0</sub></span>：东西静止时量到的质量。</li>
+    <li><span class="m"><i>v</i> → <i>c</i></span>（越来越接近 <span class="m"><i>c</i></span>）时，根号 → 0，所以 <span class="m"><i>p</i><sub>v</sub> → ∞</span>（讲义图 4.4）。</li>
+    <li>有限的力推有限的时间，只能给有限的 <span class="m">Δ<i>p</i> = <i>F</i><sub>net</sub>Δ<i>t</i></span>。要把 momentum 推到无穷大，做不到。所以 <span class="m"><i>v</i></span> 永远到不了 <span class="m"><i>c</i></span>。</li>
+    <li>换句话说：你一直用同样的力推。momentum 每秒都涨一样多，可是速度涨得越来越少，永远差一点点到 <span class="m"><i>c</i></span>。</li>
+    <li>速度低于约 0.1<i>c</i> 时，<span class="m"><i>p</i><sub>v</sub> ≈ <i>m</i><sub>0</sub><i>v</i></span>，两条线几乎重合。</li>
+    <li><span class="t">Photon</span>（光子）没有 rest mass，它永远以 <span class="m"><i>c</i></span> 走。</li>
+  </ul>
+
+  <h3>证据和应用</h3>
+  <ul class="pts">
+    <li><b>Bertozzi（1964）：</b>把 electron（电子）加到最多 15 MeV 的能量。它们越来越接近 <span class="m"><i>c</i></span>，但从来没超过。</li>
+    <li><b>LHC</b>（Large Hadron Collider，大型强子对撞机，CERN 最大的加速器）给 proton（质子）的能量是它 <span class="t">rest energy</span>（静能：因为有质量而有的能量，见 4.4）的 7000 倍。可它们还是比 <span class="m"><i>c</i></span> 慢。</li>
+    <li>磁铁能让运动的电荷走圆：<span class="m"><i>r</i> = <i>p</i>/(<i>qB</i>)</span>（从 <span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span> 来）。不在 sheet 上，要背。</li>
+    <li><span class="t">Synchrotron</span>（同步加速器：一种环形的加速器）：环的半径 <span class="m"><i>r</i></span> 固定，所以磁场 <span class="m"><i>B</i></span> 要跟着 <span class="m"><i>p</i><sub>v</sub></span> 一起变大，不是跟着 <span class="m"><i>m</i><sub>0</sub><i>v</i></span>。它每天都在检验 relativity。</li>
+    <li>HSC 的公式里 <span class="m"><i>m</i><sub>0</sub></span> 不变：变大的是 momentum，<b>不是质量</b>。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Relativistic momentum · 相对论动量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>p</i><sub>v</sub> = <i>m</i><sub>0</sub><i>v</i> / √(1 − <i>v</i>²/<i>c</i>²)</div>
+    <dl class="sym">
+      <div><dt>p<sub>v</sub></dt><dd>以速度 v 运动的东西的 momentum (kg m s<sup>−1</sup>)</dd></div>
+      <div><dt>m<sub>0</sub></dt><dd>rest mass (kg)</dd></div>
+      <div><dt>v</dt><dd>东西相对观察者的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>c</dt><dd>真空光速，3.00 × 10<sup>8</sup> m s<sup>−1</sup> (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>任何有质量、在动的东西。Photon 不能用（它没有 rest mass）。<br><b>例子：</b>electron（<span class="m"><i>m</i><sub>0</sub> = 9.109 × 10<sup>−31</sup> kg</span>）以 0.6<i>c</i> 运动：<span class="m"><i>p</i><sub>v</sub> = 9.109 × 10<sup>−31</sup> × 1.8 × 10<sup>8</sup> / 0.8 = 2.05 × 10<sup>−22</sup> kg m s<sup>−1</sup></span>。用 <span class="m"><i>m</i><sub>0</sub><i>v</i></span> 只得 1.64 × 10<sup>−22</sup>。<br><b>陷阱：</b>分子上的 <span class="m"><i>v</i></span> 要用 m s<sup>−1</sup>（几分之几的 <i>c</i>，再乘 3.00 × 10<sup>8</sup>）。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Change in momentum · 力改变 momentum</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq">Δ<i>p⃗</i> = <i>F⃗</i><sub>net</sub> Δ<i>t</i></div>
+    <dl class="sym">
+      <div><dt>Δp</dt><dd>momentum 的变化 (kg m s<sup>−1</sup>)</dd></div>
+      <div><dt style="flex:none">F<sub>net</sub></dt><dd>合力 (N)</dd></div>
+      <div><dt>Δt</dt><dd>力推的时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>在这一章的用处：</b>有限的力 × 有限的时间 = 有限的 Δ<i>p</i>。momentum 到不了无穷大，所以 <span class="m"><i>v</i> &lt; <i>c</i></span>。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Radius of a charge's path in a magnetic field · 电荷在磁场里走圆的半径</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>r</i> = <i>mv</i> / (<i>qB</i>) = <i>p</i> / (<i>qB</i>)</div>
+    <dl class="sym">
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+      <div><dt>m</dt><dd>电荷（粒子）的质量 (kg)</dd></div>
+      <div><dt>v</dt><dd>速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>p</dt><dd>电荷的 momentum (kg m s<sup>−1</sup>)</dd></div>
+      <div><dt>q</dt><dd>电荷量 (C)</dd></div>
+      <div><dt>B</dt><dd>磁场强度 (T)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>磁力当向心力：<span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span>。两边约掉一个 <span class="m"><i>v</i></span>，得 <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>) = <i>p</i>/(<i>qB</i>)</span>。<br><b>注意：</b>synchrotron 的 <span class="m"><i>r</i></span> 固定，所以 <span class="m"><i>B</i></span> 要跟着 <span class="m"><i>p</i><sub>v</sub></span> 变大。</p>
+  </div>
+
+<figure class="sim" id="sim5">
+    <figcaption class="sim-head"><span class="sim-title">动画 5 · 越推越难：<i>v</i> 永远到不了 <i>c</i></span><span class="sim-tag">恒定的力从静止开始推 · 力的大小和时间：示意 · 坐标轴照 booklet Figure 4.4</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边：一个 rest mass 为 m₀ 的粒子被绿色的恒定力 F 一直往右推，旁边是 p 和 v 的读数，下面的表记下 v 到 0.90c、0.95c、0.98c、0.99c 各用了多久。右边（手机上在下面）是 booklet Figure 4.4：纵轴 p/(m₀c)，横轴 v/c，铜色实线是 relativistic momentum pv，虚线是 p = m₀v，竖虚线是 v = c；一个点沿实线往上爬，越来越贴近 v = c，但碰不到。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">推力 <i>F</i> <input type="range" id="s5-F" min="0.5" max="2" step="0.25" value="1"><output id="s5-F-out" for="s5-F">× 1.0</output></label>
+      <button class="btn" type="button" id="s5-newton" aria-pressed="false">Newton 对照 <i>p</i> = <i>m</i><sub>0</sub><i>v</i>：关</button>
+      <button class="btn" type="button" id="s5-reset">重来（从静止开始）</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看 Figure 4.4 那张图：<i>p</i> 每秒涨一样多（Δ<i>p</i> = <i>F</i><sub>net</sub>Δ<i>t</i>），点沿着实线 <i>p</i><sub>v</sub> 往上爬，越来越贴着 <i>v</i> = <i>c</i> 的竖虚线，但永远碰不到。<i>x</i> 轴上的短线是 <i>p</i> = 1、2、3 … <i>m</i><sub>0</sub><i>c</i> 时的 <i>v</i>：<i>p</i> 每多一样多，<i>v</i> 加得越来越少，短线越挤越密。② 看“推的时间”那张表（推力 × 1 时）：0 → 0.90<i>c</i> 用 4.1 s；0.95<i>c</i> → 0.98<i>c</i> 只多 0.03<i>c</i>，却要 3.8 s；0.98<i>c</i> → 0.99<i>c</i> 只多 0.01<i>c</i>，要 4.2 s。③ 按“Newton 对照”：虚线 <i>p</i> = <i>m</i><sub>0</sub><i>v</i> 上的空心圈在 <i>p</i> = 1 <i>m</i><sub>0</sub><i>c</i> 时就到了 <i>c</i>，再推就“超过 <i>c</i>”，这是错的。④ 把推力拉到 × 2：<i>p</i> 涨得快一倍，可 <i>v</i> 还是到不了 <i>c</i>。<i>m</i><sub>0</sub> 一直不变：变大的是 momentum，不是质量。推到 0.99<i>c</i>（图的最上面）就松手，按“重来”再推一次。力的大小和秒数是示意（推力 × 1 时 <i>p</i> 每秒涨 0.5 <i>m</i><sub>0</sub><i>c</i>）。</p>
+  </figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">4.4</div>
+  <h2>质量就是能量<span class="en">Mass–energy equivalence: E = mc²</span></h2>
+  <p class="big"><span class="lbl">一句话</span>质量是浓缩得非常厉害的能量。放出能量时，会丢掉一点质量：放出的能量 = 丢掉的质量 × <span class="m"><i>c</i>²</span>。</p>
+  <ul class="pts">
+    <li>任何质量 <span class="m"><i>m</i></span> 都有 rest energy（也叫静止能量）<span class="m"><i>E</i> = <i>mc</i>²</span>。</li>
+    <li><span class="m"><i>c</i>² = 9.00 × 10<sup>16</sup> m² s<sup>−2</sup></span>，大得吓人。所以一点点质量 = 非常多的能量。1 g 质量，大约等于一个大电站一天发的电。</li>
+    <li>每个放出能量的过程都会丢质量。一个密封的盒子，只有能量<b>跑出去</b>时才变轻。</li>
+    <li>反过来也行：碰撞的能量可以变成新的粒子。</li>
+    <li><span class="t">Mass defect</span>（质量亏损）<span class="m">Δ<i>m</i></span> = 之前的质量 − 之后的质量，就是消失了的那部分质量。</li>
+  </ul>
+
+  <h3>两条路，不能混</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">质量用 u</div><p>u 是 <span class="t">atomic mass unit</span>（原子质量单位）。乘 931.5，得到 <b>MeV</b>。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">质量用 kg</div><p>用 <span class="m"><i>E</i> = <i>mc</i>²</span>，得到 <b>J</b>。1 eV = 1.602 × 10<sup>−19</sup> J。</p></div>
+  </div>
+
+  <h3>丢多少质量：三个例子</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>过程</th><th style="white-space:nowrap">丢掉的质量</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>Sun（太阳）</td><td>约 0.7 %</td><td><span class="t">Nuclear fusion</span>（核聚变：轻的原子核合在一起）：4 个 hydrogen（氢）原子核变成 1 个 helium-4（氦-4）。Sun 每秒少 4 million tonnes（400 万吨）。</td></tr>
+        <tr><td>烧燃料</td><td>约 100 亿分之 5</td><td>讲义原文：5 parts in 10 billion。太小，称不出来，只能靠计算知道。</td></tr>
+        <tr><td><span class="t">Annihilation</span>（湮灭）</td><td><b>全部</b></td><td>electron 和 <span class="t">positron</span>（正电子）的质量 2<i>m</i><sub>e</sub> 全部变成 photon。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Annihilation：质量全部变成光（讲义图 4.5）</h3>
+  <ul class="pts">
+    <li><span class="t">Antiparticle</span>（反粒子）：质量和另一个粒子一样、电荷相反的粒子。</li>
+    <li>Positron（e<sup>+</sup>）：electron 的 antiparticle。质量一样，带正电。</li>
+    <li>Annihilation：粒子碰到它的 antiparticle，两个一起变成 photon。</li>
+    <li>electron 碰到 positron（两个差不多静止）：<b>全部</b>质量 2<i>m</i><sub>e</sub> 变成两个一样的 <span class="t">gamma-ray</span>（γ 射线）photon，方向相反。</li>
+    <li>为什么是两个、方向相反？碰之前总 momentum 是 0，碰之后也要是 0。两个一样大、方向相反的 photon，加起来正好是 0。</li>
+    <li>医院的 PET scanner（一种医学扫描）就是在探测这一对一对的 photon。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Mass–energy equivalence · 质能等价</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>E</i> = <i>mc</i>²</div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>和这些质量相当的能量（放出的能量）(J)</dd></div>
+      <div><dt>m</dt><dd>质量；算放出的能量时，用丢掉的质量 Δ<i>m</i> (kg)</dd></div>
+      <div><dt>c</dt><dd>真空光速，3.00 × 10<sup>8</sup> m s<sup>−1</sup> (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>丢了质量、放出能量的时候（fusion、annihilation、烧燃料）。<br><b>例子：</b>1 g = 0.001 kg：<span class="m"><i>E</i> = 0.001 × 9.00 × 10<sup>16</sup> = 9.00 × 10<sup>13</sup> J</span>。<br><b>陷阱：</b><span class="m"><i>c</i></span> 要平方。只用<b>丢掉</b>的那部分质量（annihilation 是全部）。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Power · 功率</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>P</i> = Δ<i>E</i> / Δ<i>t</i></div>
+    <dl class="sym">
+      <div><dt>P</dt><dd>功率 (W)</dd></div>
+      <div><dt>ΔE</dt><dd>放出的能量 (J)</dd></div>
+      <div><dt>Δt</dt><dd>时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>这里怎么用：</b><span class="m"><i>P</i></span> 就是恒星或电站每秒放出的能量。和 <span class="m"><i>E</i> = <i>mc</i>²</span> 放在一起，就得到下一张卡：每秒丢多少质量。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Mass lost each second (the Sun) · 每秒丢多少质量</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq">Δ<i>m</i> / Δ<i>t</i> = <i>P</i> / <i>c</i>²</div>
+    <dl class="sym">
+      <div><dt style="flex:none">Δm/Δt</dt><dd>每秒丢的质量 (kg s<sup>−1</sup>)</dd></div>
+      <div><dt>P</dt><dd>power output，输出功率 (W)</dd></div>
+      <div><dt>c</dt><dd>真空光速 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b><span class="m"><i>P</i> = Δ<i>E</i>/Δ<i>t</i></span> 和 <span class="m"><i>E</i> = <i>mc</i>²</span> 都在 sheet 上。把 <span class="m">Δ<i>E</i> = Δ<i>m c</i>²</span> 放进去，<span class="m"><i>P</i> = Δ<i>m c</i>²/Δ<i>t</i></span>，所以 <span class="m">Δ<i>m</i>/Δ<i>t</i> = <i>P</i>/<i>c</i>²</span>。<br><b>什么时候用：</b>一颗恒星或者一个电站，知道它的功率 <span class="m"><i>P</i></span>（单位 W）。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy released in annihilation · 湮灭放出的能量</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>E</i> = 2<i>m</i><sub>e</sub><i>c</i>²</div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>两个 photon 的总能量 (J)</dd></div>
+      <div><dt>m<sub>e</sub></dt><dd>electron 的质量，9.109 × 10<sup>−31</sup> kg (kg)</dd></div>
+      <div><dt>c</dt><dd>真空光速，3.00 × 10<sup>8</sup> m s<sup>−1</sup> (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b>electron 和 positron 质量一样，全部质量 2<i>m</i><sub>e</sub> 都变成了能量，放进 <span class="m"><i>E</i> = <i>mc</i>²</span>。所以两个 photon 里，每个的能量是 <span class="m"><i>E</i> = <i>m</i><sub>e</sub><i>c</i>²</span>。<br><b>例子：</b><span class="m"><i>E</i> = 2 × 9.109 × 10<sup>−31</sup> × 9.00 × 10<sup>16</sup> = 1.64 × 10<sup>−13</sup> J</span>，每个 photon 8.20 × 10<sup>−14</sup> J。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy from a mass change in u · 用 u 算能量</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>E</i> (MeV) = Δ<i>m</i> (u) × 931.5</div>
+    <dl class="sym">
+      <div><dt>Δm</dt><dd>丢掉的质量 (u)</dd></div>
+      <div><dt>E</dt><dd>放出的能量 (MeV)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b>data sheet 上写着 1 u 相当于 931.5&nbsp;MeV/<i>c</i>²。<br><b>例子：</b><span class="m">Δ<i>m</i> = 0.01 u</span>：<span class="m"><i>E</i> = 0.01 × 931.5 = 9.315&nbsp;MeV</span>。<br><b>陷阱：</b>不要把 u 乘 <span class="m"><i>c</i>²</span>。用 u 就乘 931.5；用 kg 才用 <span class="m"><i>E</i> = <i>mc</i>²</span>。</p>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">4.5</div>
+  <h2>三个关键实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>Michelson and Morley（1887）：找 aether</h3>
+    <dl>
+      <dt>目的</dt><dd>测出地球在 aether 里的运动。</dd>
+      <dt>做法</dt><dd>用一台 <span class="t">interferometer</span>（干涉仪，讲义图 4.6）。光从 source（光源）出来，被一面 <span class="t">half-silvered mirror</span>（半镀银镜：一半光穿过去，一半光反射）分成互相垂直的两束。每一束沿一条臂走到镜子，再回来。两束合在一起，在 telescope（望远镜）里形成干涉 <span class="t">fringes</span>（条纹：一条亮、一条暗）。整台仪器浮在 mercury（水银）上，慢慢转，一天里不同时间、一年里不同时候都测。光速一变，fringes 就会移动。看 <a href="#sim1">动画 1</a>（在 4.1）。</dd>
+      <dt>结果</dt><dd>预测：移动约 0.4 条 fringe。实际看到：不到 0.02 条（null result）。</dd>
+      <dt>结论</dt><dd>没有 aether 风：在运动的地球上，光在每个方向的速度都一样。</dd>
+      <dt>意义</dt><dd>没有证据说明有 aether。这个结果和两条 postulate 都对得上。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Hafele–Keating 原子钟（1971）</h3>
+    <dl>
+      <dt>目的</dt><dd>用非常准的原子钟坐飞机绕地球飞，检验 time dilation。</dd>
+      <dt>做法</dt><dd>四个 caesium（铯）<span class="t">atomic clock</span>（原子钟）坐飞机绕地球一圈：先往东飞，再往西飞，然后和地面上的钟比。从地球中心看，往东飞的钟最快（地球本身也往东转），所以它走得最慢。</dd>
+      <dt>结果</dt><dd>往东的钟少了 59 ns（预测 40 ns）；往西的钟多了 273 ns（预测 275 ns）。预测里还算进了重力的影响（general relativity，广义相对论，不在 HSC 范围内）。</dd>
+      <dt>结论</dt><dd>量到的和预测的，在误差范围内对得上：动的钟走得慢，飞机这么慢的速度也看得出来。</dd>
+      <dt>意义</dt><dd>用真实的钟、在日常速度下，给了 time dilation 直接的证据。GPS 卫星也要做类似的修正：速度和重力加在一起，每天约 38&nbsp;μs。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>来自宇宙的证据：慢动作的超新星</h3>
+    <dl>
+      <dt>目的</dt><dd>检验很远的星系里发生的事，是不是也被量得变慢。</dd>
+      <dt>做法</dt><dd>每一颗 <span class="t">Type Ia supernova</span>（Ia型超新星：一种爆炸的恒星）变暗的过程几乎都一样。测了几百颗变暗用多久，再量每一颗的 <span class="t">redshift</span>（红移）<span class="m"><i>z</i></span>：光被拉长了多少。</dd>
+      <dt>结果</dt><dd>越远的变暗越慢，慢 1 + <i>z</i> 倍（<i>z</i> = 1 时，用两倍的时间）。</dd>
+      <dt>结论</dt><dd><span class="t">Cosmological time dilation</span>（宇宙学时间膨胀），主要来自宇宙的膨胀（general relativity）。</dd>
+      <dt>意义</dt><dd>宇宙学研究给出的 time dilation 证据：就算放到整个宇宙，时间也不是绝对的。</dd>
+    </dl>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Stretch factor of a distant supernova · 远处超新星的拉长倍数</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq">1 + <i>z</i> = <i>λ</i><sub>observed</sub> / <i>λ</i><sub>emitted</sub></div>
+    <dl class="sym">
+      <div><dt>z</dt><dd>redshift（没有单位）</dd></div>
+      <div><dt style="flex:none">λ<sub>observed</sub></dt><dd>我们量到的波长 (m)</dd></div>
+      <div><dt style="flex:none">λ<sub>emitted</sub></dt><dd>发出时的波长 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>redshift <span class="m"><i>z</i></span> 是波长多出来的那部分和原来的比：<span class="m"><i>z</i> = (<i>λ</i><sub>observed</sub> − <i>λ</i><sub>emitted</sub>)/<i>λ</i><sub>emitted</sub></span>。两边加 1，就是 <span class="m">1 + <i>z</i> = <i>λ</i><sub>observed</sub>/<i>λ</i><sub>emitted</sub></span>。<br><b>例子：</b><span class="m"><i>z</i> = 1</span>：1 + <i>z</i> = 2。波长被拉长成 2 倍，变暗的过程也慢成 2 倍。<br><b>注意：</b>两个波长的单位要一样（都用 m 或者都用 nm）。</p>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>v</i><sub>ground</sub> = <i>v</i><sub>frame</sub> + <i>v</i><sub>in frame</sub></td><td>Galilean 速度相加；光不能用</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>s</i> = <i>vt</i></td><td>匀速走的距离（muon）</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>t</i> = <i>t</i><sub>0</sub>/√(1 − <i>v</i>²/<i>c</i>²)</td><td>time dilation（<i>t</i><sub>0</sub> = proper time）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>l</i> = <i>l</i><sub>0</sub>√(1 − <i>v</i>²/<i>c</i>²)</td><td>length contraction（<i>l</i><sub>0</sub> = proper length）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>t</i><sub>0</sub> = 2<i>d</i>/<i>c</i></td><td>光钟在自己 frame 里的一个 tick</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>p</i><sub>v</sub> = <i>m</i><sub>0</sub><i>v</i>/√(1 − <i>v</i>²/<i>c</i>²)</td><td>任何速度的 momentum（photon 不能用）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f">Δ<i>p⃗</i> = <i>F⃗</i><sub>net</sub> Δ<i>t</i></td><td>有限的力只给有限的 <i>p</i>：<i>v</i> &lt; <i>c</i></td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>r</i> = <i>mv</i>/(<i>qB</i>) = <i>p</i>/(<i>qB</i>)</td><td>电荷在磁场里走圆的半径</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>mc</i>²</td><td>丢掉的质量变成能量：Δ<i>E</i> = Δ<i>m c</i>²（用 kg）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f">Δ<i>m</i>/Δ<i>t</i> = <i>P</i>/<i>c</i>²</td><td>每秒丢的质量（Sun）</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>E</i> = 2<i>m</i><sub>e</sub><i>c</i>²</td><td>annihilation：两个 photon 的总能量</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>E</i> (MeV) = Δ<i>m</i> (u) × 931.5</td><td>质量用 u 时算能量</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f">1 + <i>z</i> = <i>λ</i><sub>observed</sub>/<i>λ</i><sub>emitted</sub></td><td>远处超新星的拉长倍数</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>P</i> = Δ<i>E</i>/Δ<i>t</i></td><td>功率：每秒放出的能量（总表记在 Ch 3、4）</td><td><span class="badge on">有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>Postulate 1：<span class="t">All inertial frames of reference are equivalent.</span> Postulate 2：<span class="t">The speed of light in a vacuum is an absolute constant.</span></li>
+    <li>“同时”是相对的。动的钟走得慢（<span class="m"><i>t</i> &gt; <i>t</i><sub>0</sub></span>）；动的东西沿运动方向变短（<span class="m"><i>l</i> &lt; <i>l</i><sub>0</sub></span>）。muon 两样都能看到。</li>
+    <li>Proper time <span class="m"><i>t</i><sub>0</sub></span>：两个 event 都在场的钟量的。Proper length <span class="m"><i>l</i><sub>0</sub></span>：在东西静止的 frame 里量的。</li>
+    <li><span class="m"><i>v</i> → <i>c</i></span> 时，<span class="m"><i>p</i><sub>v</sub> → ∞</span>，所以有质量的东西到不了 <span class="m"><i>c</i></span>。</li>
+    <li><span class="m">Δ<i>E</i> = Δ<i>m c</i>²</span>：Sun 丢约 0.7 %，annihilation 丢全部，烧燃料丢得极少。</li>
+    <li>证据：Michelson–Morley、muon、原子钟、加速器、超新星。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>车灯的光速度是 <span class="m"><i>c</i> + <i>v</i></span>（Galilean 相加）。<br><span class="ok">对：</span>光永远是 <span class="m"><i>c</i></span>（postulate 2）。Galilean 相加只用在日常速度上。</div>
+    <div><span class="x">错：</span>光在哪里都是 <span class="m"><i>c</i></span>。<br><span class="ok">对：</span>只有在<b>真空</b>里是 <span class="m"><i>c</i></span>。在玻璃和水里会变慢。</div>
+    <div><span class="x">错：</span>Thought experiment 证明了 relativity。<br><span class="ok">对：</span>thought experiment 只说明理论预测什么，不是证据。真实实验（muon、原子钟……）也只是<b>支持</b>理论，不是证明它。</div>
+    <div><span class="x">错：</span><span class="m"><i>v</i> = 0.9<i>c</i></span> 时算 <span class="m">√(1 − 0.9) = 0.32</span>。<br><span class="ok">对：</span>先把 <span class="m"><i>v</i>/<i>c</i></span> 平方：<span class="m">√(1 − 0.9²) = 0.44</span>。</div>
+    <div><span class="x">错：</span>算出 <span class="m"><i>t</i> &lt; <i>t</i><sub>0</sub></span> 或 <span class="m"><i>l</i> &gt; <i>l</i><sub>0</sub></span>。<br><span class="ok">对：</span>永远 <span class="m"><i>t</i> &gt; <i>t</i><sub>0</sub></span>，<span class="m"><i>l</i> &lt; <i>l</i><sub>0</sub></span>。算反了，就是 proper 的那个放错了。</div>
+    <div><span class="x">错：</span>在一个 frame 里，同时用变长的时间和变短的长度。<br><span class="ok">对：</span>Earth frame：变长的时间 <span class="m"><i>t</i></span> + <span class="m"><i>l</i><sub>0</sub></span>。muon frame：<span class="m"><i>t</i><sub>0</sub></span> + 变短的 <span class="m"><i>l</i></span>。一个 frame 只用一种。</div>
+    <div><span class="x">错：</span>动的东西每个方向都变短。<br><span class="ok">对：</span>只沿<b>运动方向</b>变短，横着不变。</div>
+    <div><span class="x">错：</span>接近 <span class="m"><i>c</i></span> 时质量变大；photon 也用 <span class="m"><i>p</i><sub>v</sub></span> 公式。<br><span class="ok">对：</span>HSC 公式里 <span class="m"><i>m</i><sub>0</sub></span> 不变，变大的是 momentum。photon 没有 rest mass，不能用这个公式。</div>
+    <div><span class="x">错：</span><span class="m"><i>p</i><sub>v</sub></span> 公式分子上的 <span class="m"><i>v</i></span> 直接放 0.6。<br><span class="ok">对：</span><span class="m"><i>v</i></span> 用 m s<sup>−1</sup>：0.6 × 3.00 × 10<sup>8</sup>。</div>
+    <div><span class="x">错：</span>质量用 u 时乘 <span class="m"><i>c</i>²</span>；或者用整个物体的质量算放出的能量。<br><span class="ok">对：</span>用 u 就乘 931.5（得 MeV）；用 kg 才用 <span class="m"><i>E</i> = <i>mc</i>²</span>（得 J）。只用<b>丢掉</b>的质量 Δ<i>m</i>，<span class="m"><i>c</i></span> 要平方。</div>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Frame of reference</td><td>参考系</td><td>一个“视角”，带着自己的尺子和钟</td></tr>
+        <tr><td class="t">Inertial frame of reference</td><td>惯性参考系</td><td>不加速的 frame：静止或匀速直线运动</td></tr>
+        <tr><td class="t">Non-inertial frame</td><td>非惯性参考系</td><td>在加速、减速或转弯的 frame</td></tr>
+        <tr><td class="t">Event</td><td>事件</td><td>在一个地点、一个瞬间发生的事</td></tr>
+        <tr><td class="t">Observer</td><td>观察者</td><td>在一个 frame 里做测量的人或仪器</td></tr>
+        <tr><td class="t">Postulate</td><td>基本假设（公设）</td><td>理论一开始就当成对的话</td></tr>
+        <tr><td class="t">Galilean relativity</td><td>伽利略相对性原理</td><td>运动规律在每个 inertial frame 里都一样</td></tr>
+        <tr><td class="t">Medium</td><td>介质</td><td>让波传过去的东西，像声音靠空气</td></tr>
+        <tr><td class="t">Luminiferous aether</td><td>（光）以太</td><td>以前以为充满太空、能传光的东西；其实不存在</td></tr>
+        <tr><td class="t">Null result</td><td>零结果</td><td>实验没找到它要找的效果</td></tr>
+        <tr><td class="t">Special relativity</td><td>狭义相对论</td><td>讲 inertial frame 里的空间和时间的理论</td></tr>
+        <tr><td class="t">Thought experiment</td><td>思想实验</td><td>在脑子里用逻辑做的实验；不是证据</td></tr>
+        <tr><td class="t">Simultaneous</td><td>同时（的）</td><td>在同一个时刻发生</td></tr>
+        <tr><td class="t">Relativity of simultaneity</td><td>同时的相对性</td><td>一个 frame 里同时，另一个 frame 里不同时</td></tr>
+        <tr><td class="t">Light clock</td><td>光钟</td><td>光在两面镜子之间来回；一个来回 = 一个 tick</td></tr>
+        <tr><td class="t">Time dilation</td><td>时间膨胀（时间延缓）</td><td>动的钟被量得走得慢</td></tr>
+        <tr><td class="t">Lorentz factor (γ)</td><td>洛伦兹因子</td><td>1/√(1 − <i>v</i>²/<i>c</i>²)：动的钟一个 tick 长多少倍</td></tr>
+        <tr><td class="t">Proper time (t<sub>0</sub>)</td><td>固有时（原时）</td><td>用两个 event 都在场的钟量的时间</td></tr>
+        <tr><td class="t">Proper length (l<sub>0</sub>)</td><td>固有长度（原长）</td><td>在东西静止的 frame 里量的长度</td></tr>
+        <tr><td class="t">Length contraction</td><td>长度收缩（尺缩效应）</td><td>动的东西沿运动方向被量得更短</td></tr>
+        <tr><td class="t">Cosmic rays</td><td>宇宙射线</td><td>从太空飞来的快速质子</td></tr>
+        <tr><td class="t">Muon</td><td>μ子（缪子）</td><td>像很重的电子，不稳定，cosmic rays 在高空撞出来</td></tr>
+        <tr><td class="t">Unstable</td><td>不稳定的</td><td>过一会儿就变成别的粒子</td></tr>
+        <tr><td class="t">Decay</td><td>衰变</td><td>不稳定的粒子变成别的粒子</td></tr>
+        <tr><td class="t">Mean lifetime</td><td>平均寿命</td><td>不稳定粒子平均活多久（muon 静止时 2.2 μs）</td></tr>
+        <tr><td class="t">Relativistic momentum (p<sub>v</sub>)</td><td>相对论动量</td><td>任何速度都对的 momentum；<i>v</i> → <i>c</i> 时冲向无穷大</td></tr>
+        <tr><td class="t">Rest mass (m<sub>0</sub>)</td><td>静止质量</td><td>东西静止时量到的质量</td></tr>
+        <tr><td class="t">Synchrotron</td><td>同步加速器</td><td>环形加速器，磁场跟着 momentum 一起变强</td></tr>
+        <tr><td class="t">Rest energy</td><td>静能（静止能量）</td><td>因为有质量而有的能量，<i>E</i> = <i>mc</i>²</td></tr>
+        <tr><td class="t">Mass defect (Δm)</td><td>质量亏损</td><td>之前的质量减之后的质量：消失的那部分</td></tr>
+        <tr><td class="t">Nuclear fusion</td><td>核聚变</td><td>轻的原子核合成重的，放出能量</td></tr>
+        <tr><td class="t">Antiparticle</td><td>反粒子</td><td>质量一样、电荷相反的粒子</td></tr>
+        <tr><td class="t">Positron (e<sup>+</sup>)</td><td>正电子</td><td>electron 的 antiparticle，带正电</td></tr>
+        <tr><td class="t">Annihilation</td><td>湮灭</td><td>粒子碰到它的 antiparticle，全部变成 photon</td></tr>
+        <tr><td class="t">Interferometer</td><td>干涉仪</td><td>把光分成两束再合起来，比较两条路</td></tr>
+        <tr><td class="t">Fringe</td><td>条纹</td><td>干涉图样里的一条亮带或暗带</td></tr>
+        <tr><td class="t">Atomic clock</td><td>原子钟</td><td>数原子发出的辐射振动的、非常准的钟</td></tr>
+        <tr><td class="t">Type Ia supernova</td><td>Ia型超新星</td><td>一种爆炸的恒星，每次变亮变暗的样子都差不多</td></tr>
+        <tr><td class="t">Redshift (z)</td><td>红移</td><td>光谱线移到更长的波长：光被拉长了</td></tr>
+        <tr><td class="t">Cosmological time dilation</td><td>宇宙学时间膨胀</td><td>很远的星系里的事被量得变慢，慢 1 + <i>z</i> 倍</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 写出 Einstein 的两条 postulate（英文原句）。</summary><p class="ans"><b>1. All inertial frames of reference are equivalent. 2. The speed of light in a vacuum is an absolute constant.</b>第一条：物理规律在每个 inertial frame 里都一样。第二条：每个人量到的真空光速都是 <i>c</i>。</p></details>
+    <details><summary>2. 火车上的 Peter 说 front 的闪电先打，站台上的 Olivia 说两个同时打。谁对？</summary><p class="ans"><b>两个都对。</b>每个 inertial frame 都一样有效（postulate 1）。不同地点的两个 event，在一个 frame 里同时，在另一个沿着它们的连线运动的 frame 里就不同时：这就是 relativity of simultaneity。</p></details>
+    <details><summary>3. 飞船以 0.6c 飞过地球。飞船上的钟过了 8.0&nbsp;s，地球上的人量到过了多久？飞船自己量长 100 m，地球上的人量它多长？</summary><p class="ans"><b>10 s；80 m。</b>√(1 − 0.6²) = √0.64 = 0.8。<i>t</i> = 8.0 / 0.8 = 10 s（<i>t</i> &gt; <i>t</i><sub>0</sub>）。<i>l</i> = 100 × 0.8 = 80 m（<i>l</i> &lt; <i>l</i><sub>0</sub>）。</p></details>
+    <details><summary><span>4. v = 0.9c。一个学生算 √(1 − 0.9) = 0.32。错在哪？动的钟一个 tick 是 t<sub>0</sub> 的几倍？</span></summary><p class="ans"><b>要先把 0.9 平方；约 2.3 倍。</b>√(1 − 0.9²) = √0.19 ≈ 0.436（约 0.44）。<i>t</i> = <i>t</i><sub>0</sub> / 0.436 ≈ 2.29 <i>t</i><sub>0</sub>，约 2.3 倍。</p></details>
+    <details><summary>5. Muon 静止时平均活 2.2 μs。以 0.995c 飞时（倍数是 10），地面上看，它平均能飞多远？</summary><p class="ans"><b>约 6.6 km。</b>地面上看，muon 的钟慢 10 倍，它平均活 2.2 × 10 = 22 μs。<i>s</i> = <i>vt</i> = 0.995 × 3.00 × 10<sup>8</sup> × 22 × 10<sup>−6</sup> ≈ 6.6 × 10<sup>3</sup> m。没有 relativity 只有约 660 m。</p></details>
+    <details><summary>6. 在 muon 自己的 frame 里，它只活 2.2 μs。为什么它也能到地面？</summary><p class="ans"><b>因为空气层被压短了。</b>在 muon frame 里，muon 不动，地面以 0.995<i>c</i> 冲上来。空气层的长度 <i>l</i> = <i>l</i><sub>0</sub>√(1 − <i>v</i>²/<i>c</i>²)，只有原来的约 1/10。这里用 proper time + 变短的长度，不能再用变长的时间。</p></details>
+    <details><summary>7. 一个不变的力一直推一个粒子。为什么它永远到不了 c？</summary><p class="ans"><b>到 c 要无穷大的 momentum。</b><i>v</i> → <i>c</i> 时 <i>p</i><sub>v</sub> → ∞。有限的力推有限的时间，只给有限的 Δ<i>p</i> = <i>F</i><sub>net</sub>Δ<i>t</i>。所以 <i>v</i> 只能越来越接近 <i>c</i>。</p></details>
+    <details><summary><span>8. Sun 每秒少 4 million tonnes（4 × 10<sup>9</sup> kg）质量。它的功率是多少？</span></summary><p class="ans"><b>约 3.6 × 10<sup>26</sup> W。</b><i>P</i> = (Δ<i>m</i>/Δ<i>t</i>) × <i>c</i>² = 4 × 10<sup>9</sup> × 9.00 × 10<sup>16</sup> = 3.6 × 10<sup>26</sup> W。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m7/t3.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M7 T3 · Light as a Particle: Black Bodies and the Photoelectric Effect</span><span class="pg-z">光的粒子性：黑体辐射和光电效应</span></a><a class="pg next" href="../m8/t1.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M8 T1 · Origins of the Elements: the Big Bang and the Stars</span><span class="pg-z">元素的起源：大爆炸和恒星</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 7 The Nature of Light · Chapter 4 整理。实验数据（Michelson–Morley：约 30&nbsp;km&nbsp;s<sup>−1</sup>，预测约 0.4 条、实测不到 0.02 条 fringe；表 4.1 各行；muon：10–15 km、2.2 μs、约 660 m；Frisch and Smith：0.995<i>c</i>、1.9 km、每小时 563 个 / 408 个 / 约 30 个、倍数约 9；CERN：0.999418<i>c</i>、29.3 倍；Bertozzi 15&nbsp;MeV；LHC 7000 倍；Hafele–Keating：59 ns / 40 ns、273&nbsp;ns / 275 ns，GPS 约 38 μs；Sun 0.7 %、4 million tonnes；燃料 5 parts in 10 billion；1 g ≈ 大电站一天的输出、<i>c</i>² = 9.00 × 10<sup>16</sup> m² s<sup>−2</sup>；超新星：几百颗，慢 1 + <i>z</i> 倍（<i>z</i> = 1 时两倍）；931.5 MeV）来自讲义。6.4 μs、0.64 μs、190 m 是用讲义的数算出来的计算值。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · Michelson–Morley：找不到 aether wind（4.1 前半；4.5 的 MM 框也指到这里）
+   从上往下看 interferometer（摆法照 booklet Figure 4.6）：source → half-silvered mirror（45°）分成两束：
+   arm 1（θ = 0 时向右）和 arm 2（θ = 0 时向上）→ 各自的 mirror → 回到 half-silvered mirror → 一起往下进 telescope。
+   整个仪器绕中心转 θ（画面上逆时针），θ 自动在 0° 和 180° 之间来回（每秒 10°）；拖 slider 时停住。
+   aether wind：画面上固定向左（Earth 向右走，约 30 km s⁻¹，booklet）。
+   aether 模式：光相对 aether 是 c，相对仪器的速度 s(û) = w·û + √(c² − w² + (w·û)²)，w = 向左的 wind：
+     顺着 wind c + v，逆着 wind c − v，横着 √(c² − v²)。
+     臂和 wind 夹角 φ 时，来回时间 = (2L/c)·√(1 − β² sin²φ)/(1 − β²)：沿着 wind 最慢，横着较快，45° 时两臂一样。
+   画面里 β = v/c = 0.5（示意）；真实 β = 30 km s⁻¹ ÷ 3.00 × 10⁵ km s⁻¹ = 1.0 × 10⁻⁴（计算值），放大 5000 倍。光速、臂长也是示意。
+   fringe 移动（相对 θ = 0）：0.4 × (1 − cos 2θ)/2 = 0.4 sin²θ：0° 是 0，90° 最大 0.4（booklet：predicted about 0.4 of a fringe），
+     180° 回到 0（每转 90° 两条臂交换角色）。booklet 没说 0.4 对应转多少度，按历史做法放在 90°（计划 ①）。
+   1887 真实结果：光在每个方向都是 c → 两束光同时回来，fringes 不动（booklet：seen less than 0.02 of a fringe），画成 0。 */
+var LA=1,AS=0.55,BT=0.55,KC=(LA-AS)/2,OFF=0.035,BETA=0.5,CV=0.85,PER=2.2,OMG=10,SHIFT=0.4,PL=0.13,RU=1.34,HS=0.93;
+var BSU=-KC,BSW=-KC;
+/* 仪器坐标：u 沿 arm 1，w 沿 arm 2，原点 = 转动中心。两条光路一样长（返回的光偏开 OFF，像 booklet 的图）。 */
+function mkPath(pts){var sg=[],cum=0;for(var i=0;i+1<pts.length;i++){var a=pts[i],b=pts[i+1],du=b[0]-a[0],dw=b[1]-a[1],l=Math.hypot(du,dw);sg.push({u0:a[0],w0:a[1],du:du/l,dw:dw/l,len:l,c0:cum});cum+=l;}return {sg:sg,tot:cum};}
+var PA=[
+  mkPath([[BSU-AS,BSW],[BSU,BSW],[BSU+LA,BSW],[BSU+LA,BSW-OFF],[BSU-OFF,BSW-OFF],[BSU-OFF,BSW-BT]]),
+  mkPath([[BSU-AS,BSW],[BSU,BSW],[BSU,BSW+LA],[BSU+OFF,BSW+LA],[BSU+OFF,BSW-BT]])
+];
+var NP=10,PU=[];for(var ip=0;ip<NP;ip++)PU.push({on:false,p:[0,0],done:[false,false]});
+var m1={th:0,dir:1,auto:true,aether:true,emit:0,flash:0,ph:0,shown:-1};
+var CS=1,SN=0,OX=0,OY=0,KS=100;
+function setAng(){var a=m1.th*Math.PI/180;CS=Math.cos(a);SN=Math.sin(a);}
+function X(u,w){return OX+KS*(u*CS-w*SN);}
+function Y(u,w){return OY-KS*(u*SN+w*CS);}
+
+/* ---------- 物理 ---------- */
+/* 光相对仪器的速度（方向 du,dw 是仪器坐标里的单位向量） */
+function spd(du,dw){if(!m1.aether)return CV;var sx=du*CS-dw*SN,wd=-BETA*CV*sx;return wd+Math.sqrt(CV*CV*(1-BETA*BETA)+wd*wd);}
+function segAt(path,p){var sg=path.sg,i=0;while(i<sg.length-1&&p>=sg[i].c0+sg[i].len)i++;return sg[i];}
+function adv(path,p,dt){
+  for(var g=0;g<8&&dt>0;g++){if(p>=path.tot)return path.tot;var s=segAt(path,p),v=spd(s.du,s.dw),tt=(s.c0+s.len-p)/v;
+    if(dt<tt)return p+v*dt;p=s.c0+s.len+1e-9;dt-=tt;}
+  return Math.min(p,path.tot);
+}
+function fshift(){return m1.aether?SHIFT*SN*SN:0;}
+/* 来回时间（只比大小）：arm 1 和 wind 夹角 θ，arm 2 夹角 90° − θ */
+function race(){if(!m1.aether)return 0;var b2=BETA*BETA,t1=Math.sqrt(1-b2*SN*SN),t2=Math.sqrt(1-b2*CS*CS),d=(t1-t2)/t2;return Math.abs(d)<0.012?0:(d>0?2:1);}
+
+var rA=document.getElementById('s1-ang'),oA=document.getElementById('s1-ang-out');
+function syncAng(){var d=Math.round(m1.th);if(d!==m1.shown){m1.shown=d;oA.textContent=d+'°';if(m1.auto)rA.value=String(Math.round(d/5)*5);}}
+
+function step1(dt){
+  var n=4,h=dt/n;
+  for(var k=0;k<n;k++){
+    m1.ph+=h;
+    if(m1.auto){m1.th+=m1.dir*OMG*h;if(m1.th>=180){m1.th=180;m1.dir=-1;}else if(m1.th<=0){m1.th=0;m1.dir=1;}setAng();}
+    m1.emit-=h;
+    if(m1.emit<=0){m1.emit+=PER;for(var i=0;i<NP;i++){var q=PU[i];if(!q.on){q.on=true;q.p[0]=0;q.p[1]=0;q.done[0]=false;q.done[1]=false;break;}}}
+    for(var j=0;j<NP;j++){var q2=PU[j];if(!q2.on)continue;
+      for(var b=0;b<2;b++){if(q2.done[b])continue;q2.p[b]=adv(PA[b],q2.p[b],h);if(q2.p[b]>=PA[b].tot){q2.done[b]=true;m1.flash=1;}}
+      if(q2.done[0]&&q2.done[1])q2.on=false;}
+    m1.flash=Math.max(0,m1.flash-h/0.35);
+  }
+  syncAng();
+}
+/* 第一帧：光已经在仪器里走，arm 2 的光刚好在进 telescope 的路上（看得出谁先回来） */
+function prestep(){
+  for(var i=0;i<NP;i++)PU[i].on=false;m1.emit=0;var a=m1.auto;m1.auto=false;setAng();
+  for(var k=0;k<600;k++){step1(1/60);if(k<200)continue;var ok=false;
+    for(var j=0;j<NP;j++){var q=PU[j],t=PA[1].tot;if(q.on&&!q.done[1]&&q.p[1]>t-0.3&&q.p[1]<t-0.18)ok=true;}
+    if(ok)break;}
+  m1.auto=a;m1.flash=0;
+}
+prestep();
+
+/* ---------- 画图小工具 ---------- */
+function lum(c){var h=String(c).replace('#','').trim();if(h.length===3)h=h.split('').map(function(x){return x+x;}).join('');var n=parseInt(h,16);
+  if(isNaN(n)||h.length!==6)return 0.5;return (0.2126*((n>>16)&255)+0.7152*((n>>8)&255)+0.0722*(n&255))/255;}
+/* 字放在 (x,y) 外面 (dx,dy) 方向，按字的大小留出空隙，转到哪个角度都不压住东西 */
+function lab(ctx,s,x,y,dx,dy,gap,col,size,weight){ctx.font=(weight||500)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,h=size*0.82;
+  var o=gap+Math.abs(dx)*w/2+Math.abs(dy)*h/2,lx=x+dx*o,ly=y+dy*o;
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,lx,ly);
+  txt(ctx,s,lx,ly,col,size,weight,'center','middle');}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW){ctx.font=weight+' '+size+'px '+FONT;var w=ctx.measureText(s).width;if(w>maxW)size=Math.max(11,size*maxW/w);txt(ctx,s,x,y,col,size,weight);}
+function qbox(ctx,u,w,hu,hw){ctx.beginPath();ctx.moveTo(X(u-hu,w-hw),Y(u-hu,w-hw));ctx.lineTo(X(u+hu,w-hw),Y(u+hu,w-hw));
+  ctx.lineTo(X(u+hu,w+hw),Y(u+hu,w+hw));ctx.lineTo(X(u-hu,w+hw),Y(u-hu,w+hw));ctx.closePath();}
+function useg(ctx,u1,w1,u2,w2,col,wd){seg(ctx,X(u1,w1),Y(u1,w1),X(u2,w2),Y(u2,w2),col,wd);}
+function packet(ctx,path,p){var s=segAt(path,p),a=p-s.c0,b=Math.max(0,a-PL);
+  var x1=X(s.u0+s.du*b,s.w0+s.dw*b),y1=Y(s.u0+s.du*b,s.w0+s.dw*b),x2=X(s.u0+s.du*a,s.w0+s.dw*a),y2=Y(s.u0+s.du*a,s.w0+s.dw*a);
+  ctx.lineCap='round';seg(ctx,x1,y1,x2,y2,rgba(C.light,0.28),10);seg(ctx,x1,y1,x2,y2,C.light,4.5);ctx.lineCap='butt';}
+
+/* ---------- 左边：仪器（从上往下看） ---------- */
+function apparatus(ctx,R,wide){
+  var ae=m1.aether,i;
+  /* aether wind：画面上固定向左（假设的，示意方向） */
+  var gap=R*0.29,xl=OX-R-10,xr=OX+R+8,wc=ae?rgba(C.muted,0.55):rgba(C.muted,0.2);
+  for(var j=-3;j<=3;j++){var y=OY+j*gap;
+    ctx.strokeStyle=wc;ctx.lineWidth=1.3;ctx.setLineDash([7,9]);ctx.lineDashOffset=ae?-m1.ph*34:0;
+    ctx.beginPath();ctx.moveTo(xr,y);ctx.lineTo(xl+8,y);ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0;
+    arrow(ctx,xl+13,y,xl,y,ae?rgba(C.muted,0.85):rgba(C.muted,0.3),1.4,7);}
+  /* mercury + 石板（半透明：wind 穿过整个仪器） */
+  dot(ctx,OX,OY,R,rgba(C.field,0.16));ring(ctx,OX,OY,R,rgba(C.field,0.6),1.5);
+  ctx.save();ctx.translate(OX,OY);ctx.rotate(-m1.th*Math.PI/180);rrect(ctx,-HS*KS,-HS*KS,2*HS*KS,2*HS*KS,10);
+  ctx.fillStyle=rgba(C.surface,0.8);ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
+  /* 光路（淡）+ 光脉冲 */
+  for(var b=0;b<2;b++){var sg=PA[b].sg;ctx.beginPath();ctx.moveTo(X(sg[0].u0,sg[0].w0),Y(sg[0].u0,sg[0].w0));
+    for(i=0;i<sg.length;i++){var e=sg[i];ctx.lineTo(X(e.u0+e.du*e.len,e.w0+e.dw*e.len),Y(e.u0+e.du*e.len,e.w0+e.dw*e.len));}
+    ctx.strokeStyle=rgba(C.light,0.42);ctx.lineWidth=1.8;ctx.lineJoin='round';ctx.setLineDash([]);ctx.stroke();}
+  for(i=0;i<NP;i++){var q=PU[i];if(!q.on)continue;
+    for(var bb=0;bb<2;bb++){if(q.done[bb])continue;if(bb===1&&q.p[1]<AS&&!q.done[0])continue;packet(ctx,PA[bb],q.p[bb]);}}
+  /* source、mirrors、half-silvered mirror、telescope */
+  var su=BSU-AS-0.07,tw=BSW-BT-0.07,m1u=BSU+LA+0.03,m2w=BSW+LA+0.03;
+  qbox(ctx,su,BSW,0.07,0.07);ctx.fillStyle=rgba(C.light,0.55);ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.stroke();
+  qbox(ctx,BSU,tw,0.08,0.07);ctx.fillStyle=rgba(C.light,0.1+0.8*m1.flash);ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.stroke();
+  ctx.lineCap='round';
+  useg(ctx,m1u,BSW-0.15,m1u,BSW+0.15,C.ink,4.5);
+  useg(ctx,BSU-0.15,m2w,BSU+0.15,m2w,C.ink,4.5);
+  useg(ctx,BSU-0.12,BSW-0.12,BSU+0.12,BSW+0.12,rgba(C.ink,0.8),2.5);
+  ctx.lineCap='butt';
+  /* 标签：都放在零件外侧，转到哪里都不会互相压住 */
+  var fs=wide?12:11.5,eu=[CS,-SN],ew=[-SN,-CS],k=KS;
+  lab(ctx,'source',X(su,BSW),Y(su,BSW),-eu[0],-eu[1],0.07*k+5,C.muted,fs,500);
+  lab(ctx,'telescope',X(BSU,tw),Y(BSU,tw),-ew[0],-ew[1],0.07*k+5,C.muted,fs,500);
+  lab(ctx,'mirror',X(m1u,BSW),Y(m1u,BSW),eu[0],eu[1],6,C.muted,fs,500);
+  lab(ctx,'mirror',X(BSU,m2w),Y(BSU,m2w),ew[0],ew[1],6,C.muted,fs,500);
+  var dd=64/k/Math.SQRT2,hx=X(BSU+dd,BSW+dd),hy=Y(BSU+dd,BSW+dd);
+  txt(ctx,'half-silvered',hx,hy-7,C.muted,11.5,500,'center','middle');txt(ctx,'mirror',hx,hy+8,C.muted,11.5,500,'center','middle');
+  var ao=25/k;
+  txt(ctx,'arm 1',X(BSU+0.56*LA,BSW-ao),Y(BSU+0.56*LA,BSW-ao),C.ink,12,700,'center','middle');
+  txt(ctx,'arm 2',X(BSU-ao,BSW+0.56*LA),Y(BSU-ao,BSW+0.56*LA),C.ink,12,700,'center','middle');
+}
+
+/* ---------- 右边：telescope 里的 fringes ---------- */
+function eyepiece(ctx,cx,cy,r){
+  var dk=lum(C.ink)<lum(C.bg)?C.ink:C.bg,lt=dk===C.ink?C.bg:C.ink,d=fshift(),Lf=r*0.66;
+  dot(ctx,cx,cy,r,dk);
+  ctx.save();ctx.beginPath();ctx.arc(cx,cy,r-1,0,TAU);ctx.clip();
+  for(var x=-r;x<r;x+=2){var I=Math.cos(Math.PI*(x/Lf-d));I*=I;ctx.fillStyle=rgba(C.light,0.05+0.9*I);ctx.fillRect(cx+x,cy-r,2.2,2*r);}
+  seg(ctx,cx,cy-r,cx,cy+r,rgba(lt,0.85),1.5);
+  if(d*Lf>3){var ay=cy-r*0.6;arrow(ctx,cx,ay,cx+d*Lf,ay,C.violet,3,8);}
+  ctx.restore();
+  ring(ctx,cx,cy,r,C.line,2);
+}
+function graph(ctx,gx,gy,gw,gh,wide){
+  var YM=0.5,y0=gy+gh,i,th=m1.th,ae=m1.aether;
+  function GX(t){return gx+t/180*gw;}
+  function GY(v){return y0-v/YM*gh;}
+  seg(ctx,gx,gy,gx,y0,C.muted,1);seg(ctx,gx,y0,gx+gw,y0,C.muted,1);
+  [0.2,0.4].forEach(function(v){seg(ctx,gx,GY(v),gx+gw,GY(v),C.grid,1);});
+  [0,0.2,0.4].forEach(function(v){txt(ctx,v===0?'0':v.toFixed(1),gx-6,GY(v)+4,C.muted,11,500,'right');});
+  var tk=wide?[0,45,90,135,180]:[0,90,180];
+  for(i=0;i<tk.length;i++){seg(ctx,GX(tk[i]),y0,GX(tk[i]),y0+4,C.muted,1);txt(ctx,tk[i]+'°',GX(tk[i]),y0+16,C.muted,11,500,'center');}
+  txt(ctx,'转角 θ',gx+gw,y0+32,C.muted,11.5,500,'right');
+  /* 1887 实测：< 0.02 条（booklet） */
+  ctx.fillStyle=rgba(C.copper,ae?0.12:0.22);ctx.fillRect(gx,GY(0.02),gw,GY(0)-GY(0.02));
+  seg(ctx,gx,y0-1,gx+gw,y0-1,ae?rgba(C.copper,0.45):C.copper,ae?2:3);
+  txt(ctx,'1887 实测 < 0.02',GX(90),y0-11,ae?rgba(C.copper,0.85):C.copper,11.5,700,'center');
+  /* aether 预测：0.4 sin²θ */
+  ctx.beginPath();for(var t=0;t<=180;t+=3){var s=Math.sin(t*Math.PI/180),y=GY(SHIFT*s*s);if(t)ctx.lineTo(GX(t),y);else ctx.moveTo(GX(t),y);}
+  ctx.strokeStyle=ae?C.violet:rgba(C.violet,0.4);ctx.lineWidth=ae?2.6:1.8;ctx.setLineDash([6,4]);ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);
+  txt(ctx,'aether 预测',GX(90),GY(SHIFT)-14,ae?C.violet:rgba(C.violet,0.85),11.5,700,'center');
+  /* 现在的转角 */
+  seg(ctx,GX(th),gy,GX(th),y0,rgba(C.ink,0.35),1.2,[3,3]);
+  dot(ctx,GX(th),GY(fshift()),5.5,ae?C.violet:C.copper);ring(ctx,GX(th),GY(fshift()),5.5,C.stage,1.5);
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return w>=640?420:680;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,ae=m1.aether,R,rx,ex,ey,er,gx,gy,gw,gh,rdx,rdy,sy;
+    if(wide){R=140;OX=18+R+6;OY=52+R;rx=OX+R+36;er=56;ex=rx+er;ey=100;rdx=rx+2*er+24;rdy=62;gx=rx+34;gy=214;gw=W-16-gx;gh=102;sy=H-36;}
+    else{R=Math.min(112,(W-44)/2);OX=W/2;OY=48+R;rx=16;er=46;ex=rx+er;ey=OY+R+100;rdx=rx+2*er+22;rdy=ey-36;gx=46;gy=ey+er+58;gw=W-16-gx;gh=96;sy=H-42;}
+    KS=R/RU;setAng();
+    /* 上面的说明：aether wind */
+    if(ae){txt(ctx,'← aether wind（假设的，示意方向）',16,wide?22:20,C.muted,wide?12.5:12,600);
+      txt(ctx,'画面里 wind 放大了 5000 倍，光也放慢了（示意）',16,wide?40:37,C.muted,11.5,500);}
+    else{txt(ctx,'← aether wind（假设的）：1887 年测不到',16,wide?22:20,C.muted,wide?12.5:12,600);
+      txt(ctx,'光在每个方向都是 c，两束光同时回来',16,wide?40:37,C.muted,11.5,500);}
+    apparatus(ctx,R,wide);
+    txt(ctx,'浮在 mercury（水银）上，可以慢慢转',OX+R,OY+R+16,C.muted,11.5,500,'right');
+    /* telescope 里的 fringes + 读数 */
+    txt(ctx,'telescope 里看到的 fringes',rx,ey-er-14,C.ink,wide?13:12.5,700);
+    eyepiece(ctx,ex,ey,er);
+    txt(ctx,wide?'竖线：0° 时亮纹的位置':'竖线：0° 时的位置',rx,ey+er+18,C.muted,11,500);
+    var d=fshift();
+    txt(ctx,'转角 θ = '+Math.round(m1.th)+'°',rdx,rdy,C.ink,13.5,600,'left','alphabetic',MONO);
+    ctx.font='500 12px '+FONT;var lw=ctx.measureText('fringes 移动了').width;
+    txt(ctx,'fringes 移动了',rdx,rdy+26,C.muted,12,500);
+    txt(ctx,ae?d.toFixed(2)+' 条':'< 0.02 条',rdx+lw+8,rdy+27,ae?C.violet:C.copper,wide?20:17,700,'left','alphabetic',MONO);
+    /* 两条臂来回一趟的时间（画面里 β = 0.5，示意；单位：没有 wind 时的 2L/c） */
+    var b2=BETA*BETA,t1=ae?Math.sqrt(1-b2*SN*SN)/(1-b2):1,t2=ae?Math.sqrt(1-b2*CS*CS)/(1-b2):1,bx=rdx+46,bw=W-16-bx;
+    txt(ctx,'两条臂来回一趟的时间（示意）',rdx,rdy+52,C.muted,11.5,500);
+    txt(ctx,'arm 1',rdx,rdy+72,C.ink,11.5,700);hbar(ctx,bx,rdy+63,bw,9,t1/1.45,C.light);
+    txt(ctx,'arm 2',rdx,rdy+91,C.ink,11.5,700);hbar(ctx,bx,rdy+82,bw,9,t2/1.45,C.light);
+    /* 图：fringe 移动 vs θ */
+    txt(ctx,'fringe 移动（条）',rx,gy-12,C.ink,12,700);
+    graph(ctx,gx,gy,gw,gh,wide);
+    /* 状态提示 */
+    var th=m1.th,f=SN*SN,l1,l2,rc=race(),dg=Math.round(th);
+    if(ae){
+      if(f<0.05){l1=th<90?'aether 预测：arm 1 沿着 wind，arm 2 横着':'aether 预测：转了 '+dg+'°，arm 1 又'+(dg===180?'':'差不多')+'沿着 wind 那条线';
+        l2=th<90?'沿着 wind 来回最慢 → arm 2 的光先回来':(dg===180?'和 0° 时一样 → fringes 回到起点（移动 0）':'和 0° 时差不多 → fringes 回到起点附近');}
+      else if(f>0.95){l1='aether 预测：转到 '+dg+'°，两条臂'+(dg===90?'':'差不多')+'交换了方向';l2='现在 arm 1 先回来 → fringes 移动约 0.4 条';}
+      else{l1='aether 预测：离 90° 越近，fringes 移得越多';
+        l2=rc===0?'两条臂和 wind 一样斜 → 同时回来；fringes 已经移了一半（0.2 条）':(rc===1?'arm 1 的光先回来，':'arm 2 的光先回来，')+'时间差在变';}
+    }else{
+      if(th<2.5){l1='1887 真实结果：光在每个方向都是 c';l2='两束光总是同时回来。转动仪器看看';}
+      else{l1='真实结果：转了 '+Math.round(th)+'°，fringes 移动不到 0.02 条';l2='几乎不动 → null result：没有 aether wind';}
+    }
+    seg(ctx,0,sy-26,W,sy-26,C.line,1);
+    fitTxt(ctx,l1,16,sy-2,C.ink,wide?15:13.5,600,W-32);
+    fitTxt(ctx,l2,16,sy+20,ae?C.violet:C.copper,wide?13.5:12.5,600,W-32);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bAe=document.getElementById('s1-aether'),bRe=document.getElementById('s1-real');
+function setMode(a){m1.aether=a;press(bAe,a);press(bRe,!a);S1.render();}
+bAe.addEventListener('click',function(){setMode(true);});
+bRe.addEventListener('click',function(){setMode(false);});
+rA.addEventListener('input',function(){m1.auto=false;m1.th=parseFloat(rA.value);if(m1.th>=180)m1.dir=-1;else if(m1.th<=0)m1.dir=1;setAng();m1.shown=-1;syncAng();S1.render();});
+var pb1=document.querySelector('#sim1 [data-play]');
+if(pb1)pb1.addEventListener('click',function(){if(S1.playing)m1.auto=true;});
+document.getElementById('s1-reset').addEventListener('click',function(){m1.th=0;m1.dir=1;m1.auto=true;m1.shown=-1;prestep();rA.value='0';syncAng();S1.setPlaying(true);S1.render();});
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 闪电和快车：同时是相对的（booklet Figure 4.1 动起来，再加上 Peter 的 frame）
+   单位：长度用 L（站台 A 到 B 的距离），时间用 L/c，所以 c = 1。
+   站台 frame：A = −0.5，B = +0.5，Olivia 在 0；火车（在这个 frame 里长 L，正好盖住 AB）中点 Peter 在 x = vt；
+     两个闪电在 t = 0 同时打在 ±0.5。flash 从打下的地方以 c 往两边走。
+     Peter 收到 front：t = 0.5/(1 + v)；收到 rear：t = 0.5/(1 − v)；Olivia 两个都在 t = 0.5 收到。
+   火车 frame（Lorentz 变换 x′ = γ(x − vt)，t′ = γ(t − vx/c²)）：火车静止，长 γL，Peter 在 0；
+     站台以 v 往左：Olivia 在 −vt′，AB 收缩成 L/γ；front 闪电 t′ = −γv/2 打在 +γ/2，rear 闪电 t′ = +γv/2 打在 −γ/2
+     （front 早 γvL/c²，只画不写）。Peter 收到 front：t′ = γ(1 − v)/2，rear：γ(1 + v)/2（都走 γL/2）。
+     Olivia 在 t′ = γ/2、x′ = −γv/2 同时收到两个（和站台 frame 是同一个 event）。
+   两个 frame 用同一个比例尺（px / L）和同一条时间轴，长度按真实比例；光速在画面里放慢（RATE），v 和 L 是示意。 */
+var RATE=0.3,HOLD=0.9,ENDHOLD=2.6,SPAN=2.84;
+var rv=document.getElementById('s2-v'),ov=document.getElementById('s2-v-out');
+var bP=document.getElementById('s2-fp'),bT=document.getElementById('s2-ft');
+var m={frame:'P',v:0.6,g:1,t:0,hold:0,end:0,evI:0,cur:0,rt:0,fF:-99,fR:-99,fP:-99,fO:-99,
+  sFt:0,sFx:0.5,sRt:0,sRx:-0.5,xc:0,tlo:0,thi:1};
+var EV=[];
+var CW=300,SC=100,CX=150,AX0=0,AX1=1;
+function X(x){return CX+(x-m.xc)*SC;}
+function TX(t){return AX0+(t-m.tlo)/(m.thi-m.tlo)*(AX1-AX0);}
+
+/* 事件：t（这个 frame 的时间）、在时间图的哪一行、标签、特效（1 front 闪电，2 rear 闪电，4 Peter 收到，8 Olivia 收到）、状态两行 */
+function ev(t,row,lab,fx,m1,m2){EV.push({t:t,row:row,lab:lab,fx:fx,m1:m1,m2:m2});}
+function build(){
+  var v=m.v,g=1/Math.sqrt(1-v*v);m.g=g;EV.length=0;
+  if(m.frame==='P'){
+    m.sFt=0;m.sFx=0.5;m.sRt=0;m.sRx=-0.5;
+    m.xc=(-0.62+Math.max(0.62,v*0.5/(1-v)+0.2))/2;
+    ev(0,0,'front、rear 同时',3,'站台 frame：闪电同时打在 A 和 B（火车两端）','两道 flash 都以 c 走；Peter 迎着 front flash 走');
+    ev(0.5/(1+v),1,'front',4,'front flash 先到 Peter：他迎着它走，路更短','rear flash 还在后面追他');
+    ev(0.5,2,'两道同时到',8,'两道 flash 同时到 Olivia（她在 A、B 正中间）','→ 对 Olivia 来说，两个闪电同时打下（simultaneous）');
+    ev(0.5/(1-v),1,'rear',4,'rear flash 现在才追上 Peter','Peter 先看到 front，后看到 rear。换到火车 frame 看看');
+  }else{
+    m.sFt=-g*v/2;m.sFx=g/2;m.sRt=g*v/2;m.sRx=-g/2;m.xc=0;
+    var tfp=g*(1-v)/2,early=tfp<m.sRt-1e-9;
+    ev(m.sFt,0,'front',1,'火车 frame：Peter 不动，站台往左退','front 的闪电先打（B 刚到火车前端），rear 端还没打');
+    ev(tfp,1,'front',4,'front flash 到 Peter：走了半个火车长',early?'这时 rear 的闪电还没打！':'rear flash 也要走半个火车长，可它出发晚');
+    ev(m.sRt,0,'rear',2,Math.abs(tfp-m.sRt)<1e-9?'front flash 到 Peter 的同一刻，rear 的闪电才打':'rear 的闪电现在才打（A 刚到火车后端）','比 front 晚 → 对 Peter 来说 front 先打');
+    ev(g/2,2,'两道同时到',8,'两道 flash 同时到 Olivia：一道追她，一道迎面来','同一个地点、同一瞬间的事，两个 frame 都同意');
+    ev(g*(1+v)/2,1,'rear',4,'两道 flash 都是 c，都走半个火车长','front 先到 → 对 Peter 来说 front 真的先打');
+  }
+  EV.sort(function(a,b){return a.t-b.t;});
+  /* 时间轴：两个 frame 用同一段，方便切换时对比 */
+  m.tlo=-g*v/2;m.thi=0.5/(1-v);var pd=0.07*(m.thi-m.tlo);m.tlo-=pd;m.thi+=pd;
+}
+function fire(){
+  var any=false;
+  while(m.evI<EV.length&&EV[m.evI].t<=m.t+1e-9){var e=EV[m.evI];m.cur=m.evI;
+    if(e.fx&1)m.fF=m.rt;if(e.fx&2)m.fR=m.rt;if(e.fx&4)m.fP=m.rt;if(e.fx&8)m.fO=m.rt;m.evI++;any=true;}
+  if(any)m.hold=HOLD;
+}
+function restart(){build();m.t=EV[0].t;m.evI=0;m.cur=0;m.hold=0;m.end=0;m.fF=m.fR=m.fP=m.fO=-99;fire();}
+function sub(h){
+  m.rt+=h;
+  if(m.hold>0){m.hold-=h;return;}
+  if(m.evI>=EV.length){m.end+=h;if(m.end>=ENDHOLD)restart();return;}
+  var nt=m.t+RATE*h,ne=EV[m.evI].t;
+  if(nt>=ne){m.t=ne;fire();}else m.t=nt;
+}
+function step(dt){var n=4,h=dt/n;for(var i=0;i<n;i++)sub(h);}
+
+m.v=Math.round((parseFloat(rv.value)||0.6)*10)/10;ov.textContent=m.v.toFixed(1)+'c';
+restart();
+for(var q=0;q<1500&&m.evI<2;q++)step(1/60); /* 第一帧：front flash 刚到 Peter（booklet 图 4.1 的第 2 格） */
+
+/* ---------- 画图小工具 ---------- */
+/* 文字带一圈底色（halo），flash 线穿过时也看得清；整段文字不在 canvas 里就不画 */
+function lab(ctx,s,x,y,col,size,weight,align,halo,family){
+  ctx.font=weight+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  var l=align==='center'?x-w/2:(align==='right'?x-w:x);
+  if(l<3||l+w>CW-3)return;
+  ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=halo;ctx.strokeText(s,x,y);
+  txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);
+}
+function fit(ctx,s,x,y,col,size,weight,maxW){
+  var sz=size;ctx.font=weight+' '+sz+'px '+FONT;
+  while(sz>11&&ctx.measureText(s).width>maxW){sz-=0.5;ctx.font=weight+' '+sz+'px '+FONT;}
+  txt(ctx,s,x,y,col,sz,weight);
+}
+function clab(ctx,s,x,y,col,size,weight,lo,hi){ctx.font=weight+' '+size+'px '+FONT;var w=ctx.measureText(s).width/2,cx=clamp(x,lo+w,hi-w);
+  ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,cx,y);
+  txt(ctx,s,cx,y,col,size,weight,'center');}
+function cross(ctx,x,y,col){seg(ctx,x-5,y-5,x+5,y+5,col,2);seg(ctx,x-5,y+5,x+5,y-5,col,2);}
+function bolt(ctx,x,yt,yb,a){ctx.strokeStyle=rgba(C.light,a);ctx.lineWidth=2.8;ctx.lineJoin='miter';ctx.setLineDash([]);ctx.beginPath();
+  ctx.moveTo(x+6,yt);ctx.lineTo(x-4,yt+(yb-yt)*0.48);ctx.lineTo(x+4,yt+(yb-yt)*0.56);ctx.lineTo(x-1,yb);ctx.stroke();
+  dot(ctx,x-1,yb,4,rgba(C.light,a*0.8));}
+
+var st=makeStage('sim2',{
+  height:function(w){return w>=640?376:362;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,y0=wide?66:60,P=m.frame==='P',v=m.v,g=m.g,t=m.t,i;
+    CW=W;SC=(W-20)/SPAN;CX=W/2;
+    var trT=y0+42,trB=y0+68,trM=(trT+trB)/2,rail=y0+72,bandB=y0+88,bandM=(rail+bandB)/2,labY=y0+106,arY=y0+120,
+        lnT=y0+16,lnB=y0+132,fsz=wide?12:11.5,HS=C.stage;
+
+    /* 站台：platform 坐标 p（Olivia = 0，A = −0.5，B = +0.5）→ 这个 frame 的 x = off + p·k */
+    var off=P?0:-v*t,k=P?1:1/g;
+    ctx.fillStyle=rgba(C.muted,0.13);ctx.fillRect(0,rail,W,bandB-rail);
+    var hw=W/(2*SC)+0.3,p0=Math.floor((m.xc-hw-off)/(k*0.125)),p1=Math.ceil((m.xc+hw-off)/(k*0.125));
+    for(i=p0;i<=p1;i++){var xx=X(off+i*0.125*k);seg(ctx,xx,rail+4,xx,bandB-3,rgba(C.muted,0.32),1);}
+    seg(ctx,0,rail,W,rail,C.ink,1.5);
+    var xA=X(off-0.5*k),xB=X(off+0.5*k),xO=X(off);
+    cross(ctx,xA,rail,C.muted);cross(ctx,xB,rail,C.muted);
+
+    /* 火车 */
+    var tc=P?v*t:0,th=P?0.5:g/2,xl=X(tc-th),xr=X(tc+th),xP=X(tc);
+    rrect(ctx,xl,trT,xr-xl,trB-trT,5);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;ctx.stroke();
+
+    /* 速度：站台 frame 里火车往右；火车 frame 里站台（和 Olivia）往左 */
+    var vOK=P?(xr+52<W):(xO-18>2&&xO+34<W);
+    if(vOK){if(P)arrow(ctx,xr+7,trM,xr+36,trM,rgba(C.ink,0.7),2.2,8);else arrow(ctx,xO+16,arY,xO-16,arY,rgba(C.ink,0.7),2.2,8);}
+
+    /* flash：从打下的地方以 c 往两边走；往中间走的画实线，往外走的画淡虚线 */
+    var fxI=-99,rxI=-99;
+    for(var s=0;s<2;s++){
+      var F=s===0,te=F?m.sFt:m.sRt,sx=F?m.sFx:m.sRx;
+      if(t<te-1e-9)continue;
+      var d=t-te,dir=F?-1:1,xi=X(sx+dir*d),xo=X(sx-dir*d);
+      if(d>1e-6&&xo>-4&&xo<W+4){seg(ctx,xo,y0+30,xo,y0+100,rgba(C.light,0.45),1.6,[5,4]);arrow(ctx,xo,y0+30,xo-dir*11,y0+30,rgba(C.light,0.6),1.6,6);}
+      if(xi>-4&&xi<W+4){
+        seg(ctx,xi,lnT,xi,lnB,C.light,2.6);
+        if(F){arrow(ctx,xi,lnT,xi-15,lnT,C.light,2,7);fxI=xi;}
+        else{arrow(ctx,xi,lnB,xi+15,lnB,C.light,2,7);rxI=xi;}
+      }
+    }
+    /* 闪电（打下后 1.2 s 慢慢消失） */
+    var aF=1-(m.rt-m.fF)/1.2,aR=1-(m.rt-m.fR)/1.2;
+    if(aF>0&&aF<=1)bolt(ctx,X(m.sFx),y0+18,trT,aF);
+    if(aR>0&&aR<=1)bolt(ctx,X(m.sRx),y0+18,trT,aR);
+    /* 两个人，和“收到”的光圈 */
+    dot(ctx,xO,bandM,5.5,C.violet);dot(ctx,xP,trM,5.5,C.south);
+    var aP=(m.rt-m.fP)/0.9,aO=(m.rt-m.fO)/0.9;
+    if(aP>=0&&aP<1)ring(ctx,xP,trM,8+aP*20,rgba(C.light,1-aP),2.4);
+    if(aO>=0&&aO<1)ring(ctx,xO,bandM,8+aO*20,rgba(C.light,1-aO),2.4);
+
+    /* 文字最后画（带 halo） */
+    lab(ctx,'A',xA,labY,C.muted,fsz+1,700,'center',HS);lab(ctx,'B',xB,labY,C.muted,fsz+1,700,'center',HS);
+    lab(ctx,'Olivia',xO,labY,C.violet,fsz+0.5,700,'center',HS);
+    lab(ctx,'rear',xl+7,trM+4,C.muted,fsz,600,'left',C.surface);lab(ctx,'front',xr-7,trM+4,C.muted,fsz,600,'right',C.surface);
+    lab(ctx,'Peter',xP,trT-7,C.south,fsz+0.5,700,'center',HS);
+    if(vOK){if(P)lab(ctx,'v',xr+42,trM+5,C.ink,16,'italic 500','left',HS,MATH);else lab(ctx,'v',xO+22,arY+5,C.ink,16,'italic 500','left',HS,MATH);}
+    if(fxI>-99)lab(ctx,'front flash',fxI,y0+8,C.light,fsz,700,'center',HS);
+    if(rxI>-99)lab(ctx,'rear flash',rxI,lnB+15,C.light,fsz,700,'center',HS);
+
+    /* 状态 */
+    var e=EV[m.cur];
+    fit(ctx,e.m1,16,wide?26:24,C.ink,wide?15:13.5,600,W-32);
+    fit(ctx,e.m2,16,wide?48:44,C.muted,wide?13:12,500,W-32);
+
+    /* 时间顺序：只画已经发生的事 */
+    var sy=lnB+(wide?28:26),hy=sy+22,rg=wide?34:32,r0y=hy+(wide?30:28);
+    seg(ctx,0,sy,W,sy,C.line,1);
+    txt(ctx,'时间顺序（按这个 frame 的钟）',16,hy,C.muted,wide?12.5:12,600);
+    txt(ctx,'时间 →',W-18,hy,C.muted,wide?12:11.5,500,'right');
+    AX0=16+(wide?100:82);AX1=W-18;
+    var cols=[C.light,C.south,C.violet];
+    txt(ctx,'闪电打下',16,r0y+4,C.ink,wide?12.5:11.5,600);
+    txt(ctx,'Peter 收到',16,r0y+rg+4,C.south,wide?12.5:11.5,600);
+    txt(ctx,'Olivia 收到',16,r0y+2*rg+4,C.violet,wide?12.5:11.5,600);
+    for(i=0;i<3;i++)seg(ctx,AX0,r0y+i*rg,AX1,r0y+i*rg,C.line,1.2);
+    var xn=TX(t),yl=r0y+2*rg;
+    seg(ctx,xn,hy+10,xn,yl+9,rgba(C.ink,0.5),1.3,[3,3]);
+    clab(ctx,'现在',xn,yl+24,C.muted,11,600,AX0,AX1);
+    for(i=0;i<m.evI;i++){var e2=EV[i],ex=TX(e2.t),ey=r0y+e2.row*rg;
+      dot(ctx,ex,ey,5.5,cols[e2.row]);clab(ctx,e2.lab,ex,ey-9,C.ink,11,600,AX0,AX1);}
+  }
+});
+
+function setFrame(f){m.frame=f;press(bP,f==='P');press(bT,f==='T');restart();st.render();}
+bP.addEventListener('click',function(){setFrame('P');});
+bT.addEventListener('click',function(){setFrame('T');});
+rv.addEventListener('input',function(){m.v=Math.round(parseFloat(rv.value)*10)/10;ov.textContent=m.v.toFixed(1)+'c';restart();st.render();});
+document.getElementById('s2-again').addEventListener('click',function(){restart();st.setPlaying(true);st.render();});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 光钟：动的钟走得慢
+   画面 = 一个 inertial frame（默认是 (a) 的 frame）。光在画面里永远是同一个速率 c
+   （示意：放慢成“像素/秒”，静止的钟一个 tick = T0 = 1.6 s 真实时间；d 也是示意）。
+   动的钟以 v 走：光子水平速度 = v，竖直速度 = √(c² − v²)，所以一个 tick = t₀/√(1 − v²/c²)（计算值）。
+   三角形（单位 d）：ct/2 = γd，vt/2 = (v/c)γd，(ct/2)² = d² + (vt/2)²。
+   画面放不下时：动的钟在一个 tick（放不下就半个 tick）结束、光子碰到镜子的那一刻，回到起点重画；
+   连半个 tick 都放不下（v 很接近 c）时，钟从一边出去、另一边进来，三角形太扁，不画。 */
+var T0=1.6,SNAP=[0.6,0.8,0.9,0.995],YM=11,BM=Math.sqrt(1-1/(YM*YM));
+var rv=document.getElementById('s3-v'),ro=document.getElementById('s3-v-out');
+var btri=document.getElementById('s3-tri'),bfr=document.getElementById('s3-frame');
+var m={v:0.6,frame:'a',tri:true,t:0};
+var VW={xc:0,dir:1,bs:0,Tm:T0,yb:0,d:1};
+
+function gam(v){return 1/Math.sqrt(1-v*v);}
+function tri(p){var f=p-Math.floor(p);return f<0.5?2*f:2-2*f;}
+function vs(v){return String(parseFloat(v.toFixed(3)));}
+function v2(v){var s=v.toFixed(3);return s.charAt(s.length-1)==='0'?v.toFixed(2):s;}
+function gs(g){return g>=9.995?g.toFixed(1):g.toFixed(2);}
+function restart(){m.t=0.875*gam(m.v)*T0;} /* 动的钟：第一个 tick 走了 7/8（光在往下走），静止的钟已经 tick 过 */
+function readV(){var raw=parseFloat(rv.value);if(isNaN(raw))raw=0.6;
+  for(var i=0;i<SNAP.length;i++){if(Math.abs(raw-SNAP[i])<0.0101)raw=SNAP[i];}
+  raw=clamp(Math.round(raw*1000)/1000,0,0.995);m.v=raw;ro.textContent=raw===0?'0':v2(raw)+'c';return raw;}
+readV();restart();
+
+function ftxt(ctx,s,x,y,col,size,weight,align,maxW,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,Math.floor(size*maxW/w*10)/10);
+  txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);}
+
+function lay(W){
+  if(W>=640)return {wide:true,H:466,s1:24,s2:47,fs1:14.5,fs2:13.5,ty:78,tfs:12.5,yt:114,d:120,mw:52,rx:96,rp:16,dvx:160,
+    tx0:168,tx1:W-16,cy:278,bw:120,ry:332,rdy:22,rfs:13,gx:452,gy:346,gw:W-452-30,gh:90};
+  return {wide:false,H:536,s1:22,s2:43,fs1:13.5,fs2:12.5,ty:70,tfs:11.5,yt:102,d:76,mw:36,rx:54,rp:8,dvx:90,
+    tx0:96,tx1:W-8,cy:222,bw:76,ry:270,rdy:20,rfs:12.5,gx:40,gy:396,gw:W-40-26,gh:108};
+}
+
+/* 动的钟在画面上的位置（全部由 m.t 算出来，没有累积误差） */
+function view(L){
+  var g=gam(m.v),Tm=g*T0,b=m.v,dir=m.frame==='a'?1:-1,mh=L.mw/2,mg=mh+4;
+  var u0=L.tx0+mg,u1=L.tx1-mg,us=u1-u0,bs=b*2*L.d/T0,wl=b*g*L.d;
+  var o={g:g,Tm:Tm,dir:dir,bs:bs,wl:wl,mode:'',xc:0,ta:Math.max(0,m.t-Tm)},st=dir>0?u0:u1,ch=0;
+  if(b<1e-6){o.mode='rest';o.xc=(L.tx0+L.tx1)/2;}
+  else{
+    if(2*wl<=us){o.mode='fit';ch=Math.floor(us/(2*wl))*Tm;}   /* 整数个 tick 放得下 */
+    else if(wl<=us){o.mode='leg';ch=Tm/2;}                      /* 只放得下半个 tick */
+    if(ch>0){var t0=Math.floor(m.t/ch+1e-9)*ch;o.xc=st+dir*bs*(m.t-t0);o.ta=Math.max(t0,o.ta);}
+    else{o.mode='wrap';var P=(L.tx1-L.tx0)+L.mw+8,s=((bs*m.t+mg+mh+4)%P+P)%P;o.xc=dir>0?L.tx0-mh-4+s:L.tx1+mh+4-s;}
+  }
+  VW.xc=o.xc;VW.dir=dir;VW.bs=bs;VW.Tm=Tm;VW.yb=L.yt+L.d;VW.d=L.d;
+  return o;
+}
+function px(tt){return VW.xc-VW.dir*VW.bs*(m.t-tt);}
+function py(tt){return VW.yb-VW.d*tri(tt/VW.Tm);}
+
+function clock(ctx,cx,L){var h=L.mw/2,yb=L.yt+L.d;
+  seg(ctx,cx-h,L.yt,cx-h,yb,rgba(C.muted,0.45),1.2);seg(ctx,cx+h,L.yt,cx+h,yb,rgba(C.muted,0.45),1.2);
+  ctx.lineCap='round';seg(ctx,cx-h,L.yt,cx+h,L.yt,C.ink,4);seg(ctx,cx-h,yb,cx+h,yb,C.ink,4);ctx.lineCap='butt';}
+function photon(ctx,x,y){ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=12;dot(ctx,x,y,5.5,C.light);ctx.restore();}
+function glow(ctx,x,y,h,s){var a=1-s/0.35;if(a<=0)return;ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=16*a;
+  ctx.lineCap='round';seg(ctx,x-h,y,x+h,y,rgba(C.light,0.95*a),5);ctx.restore();}
+function counter(ctx,x,y,n,frac,flash,bw){
+  txt(ctx,'tick 数',x,y,C.muted,12,500);var w=ctx.measureText('tick 数').width;
+  txt(ctx,String(n),x+w+6,y+0.5,flash?C.light:C.ink,14,700,'left','alphabetic',MONO);
+  hbar(ctx,x,y+7,bw,7,frac,rgba(C.light,0.9));}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){m.t+=dt;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),o=view(L),g=o.g,Tm=o.Tm,b=m.v,yb=L.yt+L.d,ym=(L.yt+yb)/2,mh=L.mw/2,half=Tm/2;
+    var rn=m.frame==='a'?'(a)':'(b)',mn=m.frame==='a'?'(b)':'(a)',vv=vs(b);
+    /* 状态提示 */
+    var s1,s2;
+    if(m.frame==='b'){
+      if(b===0){s1='坐到 (b) 上：v = 0，两个钟还是一样';s2='一个 tick 都是 t₀ = 2d/c';}
+      else{s1='坐到 (b) 上：现在 (a) 在动，变慢的是 (a)';s2='效果是相互的：(a) 一个 tick = '+gs(g)+' t₀';}
+    }else if(b===0){s1='v = 0：(b) 也不动，两个钟完全一样';s2='一个 tick 都是 t₀ = 2d/c';}
+    else if(b===0.9){s1='v = 0.9c：√(1 − 0.9²) = 0.44，不是 √(1 − 0.9) = 0.32';s2='先把 v/c 平方：t = 2.29 t₀，不是 3.16 t₀';}
+    else if(b===0.995){s1='v = 0.995c：(a) 走 10 个 tick，(b) 才走 1 个';s2='t = t₀/√(1 − 0.995²) = 10.0 t₀，muon 就是这样';}
+    else if(g<1.05){s1='v = '+vv+'c：斜线只比竖线长一点点';s2='(b) 只慢一点点：t = t₀/√(1 − '+vv+'²) = '+gs(g)+' t₀';}
+    else{s1='v = '+vv+'c：斜线更长，光还是 c → (b) 的 tick 更久';s2='t = t₀/√(1 − '+vv+'²) = '+gs(g)+' t₀';}
+    ftxt(ctx,s1,16,L.s1,C.ink,L.fs1,600,'left',W-32);
+    ftxt(ctx,s2,16,L.s2,C.copper,L.fs2,600,'left',W-32);
+
+    /* 标题和分隔线 */
+    seg(ctx,L.dvx,L.ty-12,L.dvx,L.cy+16,C.line,1);
+    txt(ctx,rn+' 静止',L.rp,L.ty,C.ink,L.tfs,700);
+    txt(ctx,b===0?mn+' 也不动':mn+' 以 v 往'+(o.dir>0?'右':'左')+'走',L.tx0+8,L.ty,C.ink,L.tfs,700);
+    if(m.tri&&o.mode==='wrap')txt(ctx,'三角形太扁，画不下',L.tx1,L.ty,C.muted,L.tfs-0.5,500,'right');
+
+    /* 静止的钟 */
+    var nR=Math.floor(m.t/T0+1e-9),fR=m.t/T0-nR,sR=m.t-nR*T0;
+    seg(ctx,L.rx,L.yt+3,L.rx,yb-3,rgba(C.light,0.3),2);
+    clock(ctx,L.rx,L);
+    if(nR>0)glow(ctx,L.rx,yb,mh,sR);
+    var dx=L.rx-mh-12;
+    arrow(ctx,dx,ym,dx,L.yt+1,C.muted,1.3,7);arrow(ctx,dx,ym,dx,yb-1,C.muted,1.3,7);
+    txt(ctx,'d',dx-6,ym+5,C.ink,15,'italic 500','right','alphabetic',MATH);
+    photon(ctx,L.rx,yb-L.d*tri(m.t/T0));
+
+    /* 动的钟（只画在右边的框里） */
+    var nM=Math.floor(m.t/Tm+1e-9),fM=m.t/Tm-nM,sM=m.t-nM*Tm,xc=o.xc,dir=o.dir,lo=L.tx0+10,hi=L.tx1-10;
+    ctx.save();ctx.beginPath();ctx.rect(L.tx0,L.yt-36,L.tx1-L.tx0,L.d+66);ctx.clip();
+    if(o.mode==='rest')seg(ctx,xc,L.yt+3,xc,yb-3,rgba(C.light,0.3),2);
+    var showTri=m.tri&&(o.mode==='fit'||o.mode==='leg')&&o.wl>=6;
+    if(showTri){
+      var k=Math.floor(m.t/half+1e-9),ts=k*half,te=ts+half,up=(k%2===0);
+      var Px=px(ts),Py=py(ts),Qx=px(te),Qy=py(te);
+      var xV=up?Qx:Px,xO=up?Px:Qx,sg=xO>xV?1:-1,tc=rgba(C.ink,0.6);
+      seg(ctx,xO,yb,xV,yb,tc,1.6,[5,4]);
+      seg(ctx,xV,yb,xV,L.yt,tc,1.6,[5,4]);
+      ctx.strokeStyle=tc;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(xV+sg*9,yb);ctx.lineTo(xV+sg*9,yb-9);ctx.lineTo(xV,yb-9);ctx.stroke();
+      seg(ctx,px(m.t),py(m.t),Qx,Qy,rgba(C.light,0.6),1.6,[4,5]);
+      var lx=xV-sg*9,lbl=o.wl>=L.mw*0.9; /* 三角形太窄（v 小）时不写字，免得挤在钟里 */
+      if(lbl&&lx>lo&&lx<hi)txt(ctx,'d',lx,ym+5,C.ink,15,'italic 500',sg>0?'right':'left','alphabetic',MATH);
+      lx=(xO+xV)/2;
+      if(lbl&&lx>lo+12&&lx<hi-12)txt(ctx,'vt/2',lx,yb+18,C.ink,14,'italic 500','center','alphabetic',MATH);
+      var hx=Qx-Px,hy=Qy-Py,hl=Math.hypot(hx,hy),nx=-hy/hl,ny=hx/hl,Mx=(Px+Qx)/2,My=(Py+Qy)/2;
+      if(nx*(Mx-xV)+ny*(My-yb)<0){nx=-nx;ny=-ny;}
+      lx=Mx+nx*17;
+      if(lbl&&lx>lo+14&&lx<hi-14)txt(ctx,'ct/2',lx,My+ny*17,C.light,14,'italic 600','center','middle',MATH);
+    }
+    /* 光走过的路：越早的越淡 */
+    var ta=o.ta;
+    if(o.mode!=='rest'&&m.t-ta>1e-4){
+      var N=40;ctx.lineWidth=2.4;ctx.lineCap='butt';ctx.lineJoin='round';ctx.setLineDash([]);
+      for(var i=0;i<N;i++){
+        var t1=ta+(m.t-ta)*i/N,t2=ta+(m.t-ta)*(i+1)/N,kv=Math.ceil(t1/half)*half;
+        ctx.strokeStyle=rgba(C.light,0.15+0.8*(i+1)/N);ctx.beginPath();ctx.moveTo(px(t1),py(t1));
+        if(kv>t1&&kv<t2)ctx.lineTo(px(kv),py(kv));
+        ctx.lineTo(px(t2),py(t2));ctx.stroke();
+      }
+    }
+    clock(ctx,xc,L);
+    if(nM>0)glow(ctx,xc,yb,mh,sM);
+    if(b>0){
+      arrow(ctx,xc-dir*12,L.yt-18,xc+dir*24,L.yt-18,rgba(C.ink,0.7),2.2,8);
+      var vx=xc+dir*30;
+      if(vx>lo&&vx<hi)txt(ctx,'v',vx,L.yt-13,rgba(C.ink,0.75),15,'italic 600',dir>0?'left':'right','alphabetic',MATH);
+    }
+    photon(ctx,xc,py(m.t));
+    ctx.restore();
+    seg(ctx,L.tx0,yb+30,L.tx1,yb+30,rgba(C.line,0.9),1);
+
+    /* tick 计数：两条进度条一样长，满 = 那个钟的一个 tick */
+    counter(ctx,L.rp,L.cy,nR,fR,nR>0&&sR<0.35,L.bw);
+    counter(ctx,L.tx0+8,L.cy,nM,fM,nM>0&&sM<0.35,L.bw);
+    txt(ctx,'一个 tick = '+(b===0?'':gs(g)+' ')+'t₀',L.tx0+8+L.bw+12,L.cy+14,C.copper,12.5,600);
+
+    /* 读数 */
+    seg(ctx,0,L.cy+28,W,L.cy+28,C.line,1);
+    var y=L.ry,dy=L.rdy,fs=L.rfs,mw2=L.wide?L.gx-60:W-32,dec=g*g>=9.995?1:2;
+    ftxt(ctx,rn+' 静止：一个 tick = t₀ = 2d/c',16,y,C.ink,fs,500,'left',mw2);
+    ftxt(ctx,b>0?mn+' 在动：t = t₀/√(1 − v²/c²) = '+gs(g)+' t₀':mn+' 也不动：一个 tick 也是 t₀',16,y+dy,C.copper,fs,600,'left',mw2);
+    ftxt(ctx,b>0?mn+' 的光：水平 '+v2(b)+'c，竖直 '+(1/g).toFixed(2)+'c，合起来还是 c':'光只上下走，速度是 c',16,y+2*dy,C.ink,fs,500,'left',mw2);
+    if(m.tri){
+      ftxt(ctx,'Pythagoras：(ct/2)² = d² + (vt/2)²',16,y+3*dy,C.muted,fs,500,'left',mw2);
+      var Gr=+gs(g),Br=+gs(b*g);
+      ftxt(ctx,b>0?'('+gs(g)+'d)² = d² + ('+gs(b*g)+'d)² → '+(Gr*Gr).toFixed(dec)+' ≈ 1 + '+(Br*Br).toFixed(dec):'v = 0：光不走斜线，没有三角形',16,y+4*dy,C.muted,fs,500,'left',mw2);
+    }else ftxt(ctx,'打开“Pythagoras 三角形”，看 t 怎么算出来',16,y+3*dy,C.muted,fs,500,'left',mw2);
+
+    /* γ 曲线 */
+    var gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,j,G,yy,xx;
+    txt(ctx,'动的钟慢几倍：γ = 1/√(1 − v²/c²)',gx-24,gy-14,C.ink,L.wide?12.5:12,600);
+    [1,5,10].forEach(function(Gv){var y2=gy+gh-Gv/YM*gh;seg(ctx,gx,y2,gx+gw,y2,C.grid,1,[2,4]);txt(ctx,String(Gv),gx-6,y2+4,C.muted,11,500,'right');});
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+    seg(ctx,gx+gw,gy,gx+gw,gy+gh,rgba(C.muted,0.7),1.2,[4,4]);
+    SNAP.forEach(function(sv){var x2=gx+sv*gw;seg(ctx,x2,gy+gh,x2,gy+gh+4,C.muted,1);});
+    txt(ctx,'v = 0',gx,gy+gh+16,C.muted,11,500,'center');txt(ctx,'0.5c',gx+gw/2,gy+gh+16,C.muted,11,500,'center');txt(ctx,'c',gx+gw,gy+gh+16,C.muted,11,500,'center');
+    ctx.beginPath();
+    for(j=0;j<=160;j++){var u=j/160,bb=BM*(1-(1-u)*(1-u));G=1/Math.sqrt(1-bb*bb);xx=gx+bb*gw;yy=gy+gh-G/YM*gh;if(j)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+    var bx=gx+b*gw,by=gy+gh-g/YM*gh;
+    seg(ctx,bx,by,bx,gy+gh,rgba(C.muted,0.8),1,[3,3]);seg(ctx,gx,by,bx,by,rgba(C.muted,0.8),1,[3,3]);
+    dot(ctx,bx,by,6,C.copper);ring(ctx,bx,by,6,C.stage,1.5);
+    if(b<0.75)txt(ctx,'×'+gs(g),bx+10,by-9,C.copper,13,700,'left','alphabetic',MONO);
+    else txt(ctx,'×'+gs(g),bx-11,Math.max(gy+5,by-8),C.copper,13,700,'right','alphabetic',MONO);
+  }
+});
+
+rv.addEventListener('input',function(){var v=readV();if(String(v)!==rv.value)rv.value=String(v);restart();S3.render();});
+btri.addEventListener('click',function(){m.tri=!m.tri;press(btri,m.tri);btri.textContent='Pythagoras 三角形：'+(m.tri?'开':'关');S3.render();});
+bfr.addEventListener('click',function(){m.frame=m.frame==='a'?'b':'a';var on=m.frame==='b';press(bfr,on);
+  bfr.textContent=on?'换回 (a) 的 frame':'换 frame：坐到 (b) 上';restart();S3.render();});
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · Muon：两个 frame，同一个结果（放在 4.2 Muons: both effects in action）
+   booklet：v = 0.995c；山高 1.9 km；山顶 563 个/小时，海平面 408 个/小时；没有 time dilation 只剩约 30 个；
+     mean lifetime 2.2 μs，没有 relativity 只飞约 660 m；因子 10（实测约 9：muon 在空气里减速）。
+   计算值（c = 3.00 × 10⁸ m s⁻¹）：t = 1.9 km ÷ 0.995c = 6.37 μs ≈ 6.4 μs；√(1 − 0.995²) = 0.0999 ≈ 1/10；
+     t₀ = 0.64 μs；l = 190 m；0.995c × 2.2 μs = 657 m ≈ 660 m。
+   存活：每个 muon 一个随机数 u（分层抽样：活着的点数总是跟着计数走）。存活比例随飞行进度 p (0→1) 指数下降，
+     exp(−k p)，k 让 p = 1 时正好是 booklet 的计数：有 relativity 408/563，没有 relativity 30/563。
+     Earth frame 和 muon frame 用同一组 u、同一个 k、同一个 p → 同一批 muon 在同一刻 decay，剩下的完全一样。
+   同一比例尺：muon frame 的空气柱只有 l = l₀/10 高；山只沿运动方向（竖直）变矮，宽度不变。
+   画面时间：每次飞行都放成 RUN 秒，所以 muon 的钟在两个 frame 里走得一样快；
+     muon frame 的画面比 Earth frame 慢放 10 倍（图上写明“画面慢放”）。
+   “只看一个 muon”：它正好活平均寿命 2.2 μs（表盘 1 圈）。
+   颜色：muon --south，decay 后 --muted；v 箭头 --ink 70%；地面、山 --field 浅色填充。 */
+var V=0.995,CL=3.00e8,L0=1900,GF=1/Math.sqrt(1-V*V),TE=L0/(V*CL)*1e6,T0=TE/GF,LC=L0/GF,LIFE=2.2,
+    N0=563,NSEA=408,NNO=30,KR=Math.log(N0/NSEA),KN=Math.log(N0/NNO),NM=28,H0=0.7,RUN=4.6,H1=2.8,P1=LIFE/TE;
+var MTN=[[0,0],[0.13,0.3],[0.26,0.24],[0.55,1],[0.7,0.6],[0.83,0.66],[1,0]];
+var m={mode:'none',one:false,tt:H0+0.55*RUN,u:[]};
+function newDraw(){var o=[],i,j,t;for(i=0;i<NM;i++)o.push(i);
+  for(i=NM-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=o[i];o[i]=o[j];o[j]=t;}
+  for(i=0;i<NM;i++)m.u[i]=(o[i]+0.15+0.7*Math.random())/NM;}
+newDraw();
+function prog(){return clamp((m.tt-H0)/RUN,0,1);}
+function kNow(){return m.mode==='none'?KN:KR;}
+function pDec(i){return -Math.log(m.u[i])/kNow();}
+function left(p){return Math.round(N0*Math.exp(-kNow()*p));}
+function tMu(p){if(m.mode!=='none')return p*T0;var t=p*TE;return m.one?Math.min(t,LIFE):t;}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW){ctx.font=weight+' '+size+'px '+FONT;
+  while(size>11.5&&ctx.measureText(s).width>maxW){size-=0.5;ctx.font=weight+' '+size+'px '+FONT;}
+  txt(ctx,s,x,y,col,size,weight);}
+
+/* ---------- 状态提示：[现在怎样, 为什么] ---------- */
+function status(p){
+  var no=m.mode==='none',mu=m.mode==='muon',end=p>=1,start=p<=0;
+  if(m.one){
+    if(no){if(p>=P1)return ['只飞了约 660 m 就 decay 了','离海平面还有约 1.2 km → 它到不了'];
+      return ['没有 relativity：它的钟和地面钟一样快','只活 2.2 μs → s = vt ≈ 660 m 就 decay'];}
+    if(mu){if(end)return ['muon frame：0.64 μs 地面就到了 → 它还活着','和 Earth frame 结果一样，只是解释不同'];
+      return ['muon frame：muon 不动，它的钟正常走','地面冲上来，只要走 l = 190 m（收缩了）'];}
+    if(end)return ['到海平面：地面钟 6.4 μs，它的钟才 0.64 μs','离 2.2 μs 还早 → 它还活着'];
+    return ['Earth frame：它的钟慢 10 倍，活得够久','地面钟 '+(p*TE).toFixed(1)+' μs，它的钟才 '+(p*T0).toFixed(2)+' μs'];
+  }
+  if(no){if(start)return ['没有 relativity：muon 的钟和地面钟一样快','山顶 563 个/小时，要飞 1.9 km'];
+    if(end)return ['没有 relativity：563 个只剩约 30 个','可海平面实测是 408 个/小时 → 对不上！'];
+    return ['没有 relativity：飞 1.9 km 要 6.4 μs','≈ 3 个平均寿命（2.2 μs）→ 一路大量 decay'];}
+  if(mu){if(start)return ['muon frame：muon 不动，地面以 0.995c 冲上来','1.9 km 收缩成约 190 m'];
+    if(end)return ['muon frame：0.64 μs 地面就到了','还剩 408 个/小时 → 和 Earth frame 一样'];
+    return ['muon frame：它的钟正常走，可路只有 190 m','它的钟 '+(p*T0).toFixed(2)+' μs · 还剩 '+left(p)+' 个/小时'];}
+  if(start)return ['Earth frame：muon 以 0.995c 往下飞','路是 l₀ = 1.9 km，要 6.4 μs'];
+  if(end)return ['Earth frame：它自己的钟只走了 0.64 μs','→ 大部分到了海平面：实测 408 个/小时'];
+  return ['Earth frame：muon 的钟慢 10 倍','地面钟 '+(p*TE).toFixed(1)+' μs，它的钟才 '+(p*T0).toFixed(2)+' μs'];
+}
+
+/* ---------- 排版 ---------- */
+function geo(W,H){
+  var g={wide:W>=640};
+  if(g.wide){g.sw=380;g.yT=118;g.hc=236;g.yB=H-10;g.rx0=g.sw+28;g.rx1=W-16;g.ry=96;g.pitch=56;}
+  else{g.sw=W;g.yT=100;g.hc=210;g.yB=g.yT+g.hc+26;g.rx0=16;g.rx1=W-16;g.ry=g.yB+28;g.pitch=54;}
+  g.yS=g.yT+g.hc;g.hh=g.hc/GF;g.bx=20;
+  g.mx1=g.sw-12;g.mx0=g.mx1-clamp(Math.round(g.sw*0.27),70,112);g.c0=g.wide?104:94;g.c1=g.mx0-8;
+  g.cx=(g.c0+g.c1)/2;g.pk=g.mx0+MTN[3][0]*(g.mx1-g.mx0);g.dx=(g.c1-g.c0-20)/13.5;
+  return g;
+}
+
+/* ---------- 小零件 ---------- */
+function dial(ctx,x,y,r,t,col){
+  dot(ctx,x,y,r,C.surface);
+  var f=(t/LIFE)%1;
+  if(f>0.003){ctx.beginPath();ctx.moveTo(x,y);ctx.arc(x,y,r-1.5,-Math.PI/2,-Math.PI/2+f*TAU);ctx.closePath();ctx.fillStyle=rgba(col,0.22);ctx.fill();}
+  ring(ctx,x,y,r,col,2);
+  for(var k=0;k<4;k++){var a=k*Math.PI/2;seg(ctx,x+Math.cos(a)*(r-3.5),y+Math.sin(a)*(r-3.5),x+Math.cos(a)*r,y+Math.sin(a)*r,col,1.2);}
+  var b=-Math.PI/2+(t/LIFE)*TAU;seg(ctx,x,y,x+Math.cos(b)*(r-2.5),y+Math.sin(b)*(r-2.5),C.ink,1.8);
+  dot(ctx,x,y,1.8,C.ink);
+}
+function burst(ctx,x,y,dp,p){if(dp<0||dp>0.07||p>=1)return;var f=dp/0.07,r1=6+10*f;
+  for(var k=0;k<6;k++){var a=k*TAU/6+0.3;seg(ctx,x+Math.cos(a)*(r1-4),y+Math.sin(a)*(r1-4),x+Math.cos(a)*r1,y+Math.sin(a)*r1,rgba(C.muted,1-f),1.4);}}
+function halo(ctx,s,x,y,col,size,weight,align){ctx.font=weight+' '+size+'px '+FONT;ctx.textAlign=align;ctx.textBaseline='alphabetic';
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align);}
+function sym(ctx,s,x,y,size){txt(ctx,s,x,y,C.ink,size,'italic 500','left','alphabetic',MATH);return ctx.measureText(s).width;}
+
+/* ---------- 左边：山、空气柱、muon ---------- */
+function scene(ctx,g,p){
+  var mu=m.mode==='muon',no=m.mode==='none',hgt=mu?g.hh:g.hc,top=mu?g.yT-p*g.hh:g.yT,sea=top+hgt,i,x,y;
+  var ref=mu?g.yT:g.yT+p*g.hc; /* muon 所在的高度（点的下沿） */
+  ctx.fillStyle=rgba(C.field,0.26);ctx.fillRect(0,sea,g.sw,g.yB-sea);
+  ctx.beginPath();
+  for(i=0;i<MTN.length;i++){x=g.mx0+MTN[i][0]*(g.mx1-g.mx0);y=sea-MTN[i][1]*hgt;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.closePath();ctx.fillStyle=rgba(C.field,0.22);ctx.fill();ctx.strokeStyle=C.field;ctx.lineWidth=1.5;ctx.lineJoin='round';ctx.stroke();
+  seg(ctx,0,sea,g.sw,sea,C.field,2);
+  seg(ctx,g.bx,top,g.pk-9,top,rgba(C.muted,0.75),1.1,[4,4]);
+  rrect(ctx,g.pk-8,top-6,16,6,2);ctx.fillStyle=C.ink;ctx.fill();
+  /* 尺寸线 */
+  var bl=g.bx+4,mid=(top+sea)/2;
+  seg(ctx,bl,top,bl,sea,C.muted,1.3);seg(ctx,bl-4,top,bl+4,top,C.muted,1.3);seg(ctx,bl-4,sea,bl+4,sea,C.muted,1.3);
+  if(mu){var w=sym(ctx,'l',bl+8,mid+5,16);txt(ctx,' = 190 m',bl+8+w,mid+5,C.ink,12.5,600);}
+  else{var lw=sym(ctx,'l',bl+8,mid-3,16);txt(ctx,'0',bl+9+lw,mid+1,C.ink,11,500,'left','alphabetic');txt(ctx,'1.9 km',bl+8,mid+15,C.ink,12,600);}
+  txt(ctx,mu?'山顶':'山顶 1.9 km',g.pk,top-12,C.ink,12,600,'center');
+  txt(ctx,'海平面',bl+8,sea+18,C.ink,12,600);
+  txt(ctx,mu?'muon 不动（这是它自己的 frame）':'↓ muon 从 10–15 km 高处飞来',16,mu?g.yT-g.hh-9:g.yT-24,C.muted,11.5,500);
+  txt(ctx,mu?'画面慢放：1 s = 0.14 μs':'画面慢放：1 s = 1.4 μs',g.sw-12,g.yB-8,C.muted,11,500,'right');
+  if(mu){
+    var ay=sea+20;arrow(ctx,g.cx,ay+56,g.cx,ay,rgba(C.ink,0.7),2.5,10);
+    txt(ctx,'地面以 v = 0.995c',g.cx+12,ay+22,C.ink,12,600);
+    txt(ctx,'往上冲',g.cx+12,ay+40,C.ink,12,600);
+    txt(ctx,'同一比例尺：1.9 km 收缩成 190 m',16,sea+112,C.muted,12,500);
+    txt(ctx,'山也变矮了，宽度不变（只沿运动方向收缩）',16,sea+130,C.muted,12,500);
+  }
+  /* muon */
+  var alive=true;
+  if(m.one){
+    var dead=no&&p>=P1,yd=g.yT+P1*g.hc;
+    alive=!dead;
+    if(dead){ring(ctx,g.cx,yd-7,6,rgba(C.muted,0.9),1.6);burst(ctx,g.cx,yd-7,p-P1,p);txt(ctx,'decay 了：',g.cx+14,yd-10,C.muted,12,600);txt(ctx,'只飞了约 660 m',g.cx+14,yd+6,C.muted,12,600);}
+    else{dot(ctx,g.cx,ref-7,6,C.south);halo(ctx,'muon',g.cx-12,ref-3,C.south,12,600,'right');
+      dial(ctx,g.cx+24,ref-7,11,tMu(p),C.south);halo(ctx,'它的钟',g.cx+40,ref-3,C.ink,11.5,500,'left');}
+    if(!mu){dial(ctx,58,g.yS-24,13,p*TE,C.ink);txt(ctx,'地面钟',58,g.yS-44,C.ink,11.5,600,'center');}
+  }else{
+    for(i=0;i<NM;i++){var pd=pDec(i);if(pd>p)continue;
+      x=g.c0+10+Math.floor(i/2)*g.dx+(i%2)*g.dx/2;y=(mu?g.yT:g.yT+pd*g.hc)-5+(i%2?3.5:-3.5);
+      ring(ctx,x,y,3,rgba(C.muted,0.85),1.3);burst(ctx,x,y,p-pd,p);}
+    for(i=0;i<NM;i++){if(pDec(i)<=p)continue;
+      x=g.c0+10+Math.floor(i/2)*g.dx+(i%2)*g.dx/2;dot(ctx,x,ref-5+(i%2?3.5:-3.5),3.4,C.south);}
+    if(!mu&&p>=1)txt(ctx,'→ '+left(1)+' 个/小时',g.cx,sea+18,C.south,12.5,700,'center');
+  }
+  if(!mu&&alive){var L=Math.min(34,g.yS-ref-10);
+    if(L>12){arrow(ctx,g.cx,ref+5,g.cx,ref+5+L,rgba(C.ink,0.7),2.2,8);if(L>24)txt(ctx,'v = 0.995c',g.cx+9,ref+9+L/2,C.ink,12,600);}}
+}
+
+/* ---------- 右边（手机：下面）：读数 ---------- */
+function head(ctx,x0,x1,y,lab,val,lc,vc){txt(ctx,lab,x0,y,lc||C.ink,12.5,600);txt(ctx,val,x1,y,vc||C.ink,12.5,600,'right','alphabetic',MONO);}
+function readouts(ctx,g,p){
+  var x0=g.rx0,x1=g.rx1,bw=x1-x0,y=g.ry,P=g.pitch,mu=m.mode==='muon',no=m.mode==='none',tm=tMu(p),xl=x0+bw*LIFE/TE;
+  var pf=(m.one&&no)?Math.min(p,P1):p; /* 只看一个 muon、没有 relativity：它在 P1（约 660 m）decay，之后不再飞 */
+  /* 1 距离 */
+  head(ctx,x0,x1,y,mu?'地面走过的距离':'muon 飞过的距离',mu?Math.round(p*LC)+' / 190 m':(pf*L0/1000).toFixed(2)+' / 1.9 km');
+  if(mu){rrect(ctx,x0+0.5,y+8.5,bw-1,9,4.5);ctx.strokeStyle=rgba(C.muted,0.7);ctx.lineWidth=1;ctx.setLineDash([4,3]);ctx.stroke();ctx.setLineDash([]);}
+  hbar(ctx,x0,y+8,mu?bw/GF:bw,10,pf,C.field);
+  txt(ctx,no?(m.one&&p>=P1?'它在约 0.66 km 处 decay 了，没飞完 1.9 km':'没有 relativity：距离就是 1.9 km'):(mu?'l = 190 m：1.9 km（虚线）沿运动方向收缩了':'l₀ = 1.9 km：proper length（在地面上量）'),x0,y+34,C.muted,11.5,500);
+  /* 2 地面钟 */
+  y+=P;
+  if(mu){head(ctx,x0,x1,y,'地面钟','这里不用',C.muted,C.muted);hbar(ctx,x0,y+8,bw,10,0,C.ink);
+    txt(ctx,'muon frame 只用 muon 自己的钟 t₀',x0,y+34,C.muted,11.5,500);}
+  else{head(ctx,x0,x1,y,'地面钟 t',(p*TE).toFixed(1)+' μs');hbar(ctx,x0,y+8,bw,10,p,rgba(C.ink,0.7));}
+  /* 3 muon 的钟 */
+  y+=P;
+  head(ctx,x0,x1,y,no?'muon 的钟':'muon 的钟 t₀',tm.toFixed(no?1:2)+' μs',C.ink,C.south);
+  hbar(ctx,x0,y+8,bw,10,tm/TE,C.south);
+  seg(ctx,xl,(mu?y:y-P)+5,xl,y+22,rgba(C.ink,0.65),1.3,[3,3]);
+  txt(ctx,'↑ 平均寿命 2.2 μs',xl-5,y+34,C.ink,11.5,600);
+  /* 4 还剩多少 */
+  y+=P;
+  if(m.one){var used=tm/LIFE,dead=no&&p>=P1;
+    head(ctx,x0,x1,y,'它用掉的寿命',dead?'100% → decay':Math.round(used*100)+'%',C.ink,dead?C.muted:C.south);
+    hbar(ctx,x0,y+8,bw,10,used,dead?C.muted:C.south);
+    txt(ctx,'这个 muon 正好活平均寿命 2.2 μs（表盘 1 圈）',x0,y+34,C.muted,11.5,500);}
+  else{var n=left(p),xs=x0+bw*NSEA/N0;
+    head(ctx,x0,x1,y,'还剩的 muon',n+' 个/小时',C.ink,C.south);
+    hbar(ctx,x0,y+8,bw,10,n/N0,C.south);seg(ctx,xs,y+4,xs,y+22,C.ink,1.6);
+    txt(ctx,'山顶 563 个/小时 → 海平面实测 408（竖线）',x0,y+34,C.muted,11.5,500);}
+  /* 这个 frame 怎么算 */
+  var R=no?['没有 relativity：t = 1.9 km ÷ 0.995c ≈ 6.4 μs','6.4 μs ÷ 2.2 μs ≈ 3 个平均寿命 → 大部分 decay']
+    :(mu?['muon frame = proper time t₀ + 变短的长度 l','l = 1.9 km × √(1 − 0.995²) = 190 m']
+      :['Earth frame = 变长的时间 t + proper length l₀','t₀ = 6.4 μs × √(1 − 0.995²) = 0.64 μs']);
+  var yr=y+34+(g.wide?38:32);
+  seg(ctx,x0,yr-20,x1,yr-20,C.line,1);
+  fitTxt(ctx,R[0],x0,yr,C.ink,12.5,600,bw);fitTxt(ctx,R[1],x0,yr+19,C.ink,12,500,bw);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?400:620;},
+  step:function(dt){m.tt+=dt;if(m.tt>H0+RUN+H1)m.tt=0;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var g=geo(W,H),p=prog(),st=status(p);
+    fitTxt(ctx,st[0],16,g.wide?28:24,C.ink,g.wide?15:13.5,600,W-32);
+    fitTxt(ctx,st[1],16,g.wide?50:44,C.ink,g.wide?14:12.5,500,W-32);
+    if(g.wide)seg(ctx,g.sw+12,66,g.sw+12,H-12,C.line,1);
+    scene(ctx,g,p);
+    readouts(ctx,g,p);
+  }
+});
+
+var bN=document.getElementById('s4-none'),bE=document.getElementById('s4-earth'),bM=document.getElementById('s4-muon'),b1=document.getElementById('s4-one');
+function setMode(md){
+  var restart=(md==='none')!==(m.mode==='none');
+  m.mode=md;press(bN,md==='none');press(bE,md==='earth');press(bM,md==='muon');
+  if(restart){m.tt=0;S4.setPlaying(true);}
+  S4.render();
+}
+bN.addEventListener('click',function(){setMode('none');});
+bE.addEventListener('click',function(){setMode('earth');});
+bM.addEventListener('click',function(){setMode('muon');});
+b1.addEventListener('click',function(){m.one=!m.one;press(b1,m.one);b1.textContent=m.one?'看回一群 muon':'只看一个 muon';S4.render();});
+document.getElementById('s4-reset').addEventListener('click',function(){newDraw();m.tt=0;S4.setPlaying(true);S4.render();});
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 越推越难：v 永远到不了 c（4.3 Relativistic momentum and the speed limit）
+   一个恒定的力 F 从静止开始一直推一个 rest mass m0 的粒子（力和 v 同方向）。
+   Δp = Fnet Δt → p = F t：p 匀速涨。
+   pv = m0 v/√(1 − v²/c²)。记 P = p/(m0 c)，β = v/c：P = β/√(1 − β²) → β = P/√(1 + P²) < 1（永远）。
+   Newton 对照：p = m0 v → β = P，P = 1 时就到 c，再推就“超过 c”（错的）。
+   右图照 booklet Figure 4.4：横轴 v/c 0–1.08，纵轴 p/(m0c) 0–7，实线 pv，虚线 m0v，竖虚线 v = c。
+   推到 v = 0.99c（P = 7.02，图顶）就松手（F = 0），之后 v 不变。
+   力的大小和秒数是示意：推力 × 1 时 P 每秒涨 0.5 → 0.90c 在 4.13 s，0.95c 在 6.08 s，0.98c 在 9.85 s，0.99c 在 14.04 s。 */
+var KP=0.5,TICK=36,SCR=150;
+var BM=[0.9,0.95,0.98,0.99],PM=[],qi;
+for(qi=0;qi<4;qi++)PM.push(BM[qi]/Math.sqrt(1-BM[qi]*BM[qi]));
+var PEND=PM[3];
+function beta(P){return P/Math.sqrt(1+P*P);}
+function fv(b){return (b>=0.9?b.toFixed(3):b.toFixed(2))+'c';}
+function fs1(x){return x.toFixed(1)+' s';}
+
+var m={P:0,t:0,f:1,newton:false,done:false,off:0,tm:[null,null,null,null]};
+function reset(){m.P=0;m.t=0;m.done=false;m.off=0;m.tm=[null,null,null,null];}
+function step(dt){
+  var n=4,h=dt/n,i,j;
+  for(i=0;i<n;i++){
+    m.off=(m.off+beta(m.P)*SCR*h)%TICK;
+    if(m.done)continue;
+    var r=KP*m.f,P1=m.P+r*h;
+    for(j=0;j<4;j++){if(m.tm[j]===null&&P1>=PM[j])m.tm[j]=m.t+(PM[j]-m.P)/r;}
+    if(P1>=PEND){m.P=PEND;m.t=m.tm[3];m.done=true;}else{m.P=P1;m.t+=h;}
+  }
+}
+/* 第一帧：推力 × 1 推了 5 s → p = 2.50 m0c，v = 0.928c，第一行时间已经记下 */
+for(qi=0;qi<300;qi++)step(1/60);
+
+/* 按“块”换行：只在块和块之间断开（块太长时再按字断开） */
+function wrap(ctx,chunks,maxW,out){
+  var line='',i,t;
+  for(i=0;i<chunks.length;i++){
+    t=line+chunks[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=chunks[i].replace(/^\s+/,'');}
+    else line=t;
+    while(ctx.measureText(line).width>maxW&&line.length>1){var k=line.length-1;while(k>1&&ctx.measureText(line.slice(0,k)).width>maxW)k--;out.push(line.slice(0,k));line=line.slice(k);}
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+/* 带下标的符号：斜体 a，小一号往下错开的下标 b，后面可以再接斜体 tail（如 p 下标 v、m 下标 0 再接 v） */
+function sym(ctx,a,b,tail,x,y,col,size,align){
+  var ss=size*0.72,up=/^[0-9]$/.test(b);
+  ctx.font='italic 600 '+size+'px '+MATH;var w1=ctx.measureText(a).width,w3=tail?ctx.measureText(tail).width:0;
+  ctx.font=(up?'600 ':'italic 600 ')+ss+'px '+MATH;var w2=ctx.measureText(b).width+1;
+  var tw=w1+w2+w3,x0=align==='right'?x-tw:(align==='center'?x-tw/2:x);
+  txt(ctx,a,x0,y,col,size,'italic 600','left','alphabetic',MATH);
+  txt(ctx,b,x0+w1,y+size*0.22,col,ss,up?600:'italic 600','left','alphabetic',MATH);
+  if(tail)txt(ctx,tail,x0+w1+w2,y,col,size,'italic 600','left','alphabetic',MATH);
+}
+
+/* ---------- 状态提示：A = 现在怎样，B = 所以 ---------- */
+function status(){
+  var P=m.P,b=beta(P),vs=fv(b),ps=P.toFixed(2)+' m₀c',A,B;
+  if(m.done){
+    A=['推到 0.99c（图的最上面）就松手：','F = 0 → p 不变 → v 停在 0.990c。'];
+    B=['推了 '+fs1(m.t)+'，v 还是 < c。','有限的力 × 有限的时间 = 有限的 p ','→ v 永远到不了 c。'];
+  }else if(b<0.1){
+    A=['v = '+vs+'（< 0.1c）：','两条线几乎重合 ','→ p ≈ m₀v。'];
+    B=['低速时 Newton 的 p = m₀v 够用。','p 匀速变大：Δp = FΔt。'];
+  }else if(m.newton&&P>=1&&P<3.5){
+    A=['Newton 的 p = m₀v 说 v = p/m₀ = '+P.toFixed(2)+'c：','已经超过 c，','这是错的。'];
+    B=['真的 v 只有 '+vs+'：','实线只会贴着 v = c 往上走，','碰不到。'];
+  }else if(P<1){
+    A=['p 匀速变大（Δp = FΔt）：','p = '+ps+'，','v = '+vs+'。'];
+    B=m.newton?['Newton 说 v = '+P.toFixed(2)+'c（空心圈），','真的 v = '+vs+'（实心点）。']
+              :['根号 √(1 − v²/c²) 开始变小 ','→ p 比 m₀v 大，','实线开始往上弯。'];
+  }else if(b<0.9){
+    A=['p 还是匀速涨，','可 v 加得越来越慢：','v = '+vs+'。'];
+    B=['同样多的 Δp，换来的 Δv 越来越小：','看 x 轴上的短线越来越挤。'];
+  }else if(b<0.95){
+    A=['p 还是匀速涨（Δp = FΔt），','可 v 加得越来越慢：','0 → 0.90c 用了 '+fs1(m.tm[0])+'。'];
+    B=['越接近 c，根号越接近 0 ','→ 同样多的 Δp 只换来很小的 Δv。'];
+  }else if(b<0.98){
+    A=['v 从 0.95c 到 0.98c 要推很久 ','→ 越接近 c 越难加速。'];
+    B=['0.90c → 0.95c 用了 '+fs1(m.tm[1]-m.tm[0])+'；','0.95c → 0.98c 已经推了 '+fs1(m.t-m.tm[1])+'。'];
+  }else{
+    A=['v = '+vs+'，p = '+ps+'：','再多 1 m₀c 的 p，','v 只多 '+(beta(P+1)-b).toFixed(3)+'c。'];
+    B=['v → c 时根号 → 0，p → ∞：','要无限大的 p 才到得了 c。'];
+  }
+  return [A,B];
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+function lay(W){
+  if(W>=640){var lw=Math.round(W*0.44);
+    return {wide:true,x0:16,x1:lw-14,hd:22,by:84,bar0:166,lh:23,mh:244,mr:20,lc:96,
+      ghx:lw+12,gt:22,gyl:44,gx0:lw+46,gx1:W-24,gy0:56,gy1:296,sep:340,st:364,slh:21,stF:14.5,stMax:2};}
+  return {wide:false,x0:12,x1:W-12,hd:20,by:80,bar0:160,lh:22,mh:232,mr:19,lc:94,
+    ghx:12,gt:336,gyl:354,gx0:42,gx1:W-22,gy0:364,gy1:556,sep:602,st:624,slh:19,stF:13.5,stMax:4};
+}
+
+var ROWS=['0 → 0.90c','0.90c → 0.95c','0.95c → 0.98c','0.98c → 0.99c'],MIDS=['v 多 0.90c','只多 0.05c','只多 0.03c','只多 0.01c'];
+
+function left(ctx,L){
+  var x0=L.x0,x1=L.x1,by=L.by,R=15,bx=x0+28,P=m.P,b=beta(P),i,xk;
+  txt(ctx,m.done?'松手了：F = 0，m₀ 以不变的 v 往前飞':'恒定的力 F 一直推 m₀（从静止开始）',x0,L.hd,C.ink,L.wide?13:12.5,700);
+  /* 路标：往后退得越快 = v 越大 */
+  var ry=by+R+5;
+  seg(ctx,x0,ry,x1,ry,rgba(C.muted,0.45),1);
+  for(xk=x0+(TICK-m.off)%TICK;xk<=x1;xk+=TICK)seg(ctx,xk,ry,xk,ry+6,rgba(C.muted,0.7),1.2);
+  /* 力 F（和 v 同方向） */
+  var fy=by-R-11;
+  if(!m.done){var Lf=24+20*m.f;arrow(ctx,bx,fy,bx+Lf,fy,C.force,3,10);
+    txt(ctx,'F × '+m.f.toFixed(m.f%0.5?2:1),bx+Lf+7,fy+4,C.force,12.5,700);}
+  else txt(ctx,'F = 0（松手了）',bx,fy+4,C.muted,12,600);
+  /* 速度 v：满长 = c（竖虚线） */
+  var vx0=bx+R+3,Lc=x1-18-vx0,xc=vx0+Lc;
+  seg(ctx,xc,by-12,xc,by+12,C.ink,1.4,[3,3]);
+  txt(ctx,'c',xc,by-17,C.ink,14,700,'center','alphabetic',MATH);
+  if(b*Lc>3)arrow(ctx,vx0,by,vx0+b*Lc,by,rgba(C.ink,0.7),2.6,9);
+  txt(ctx,'v',vx0+3,by-8,C.muted,13,700,'left','alphabetic',MATH);
+  /* 粒子 m0 */
+  dot(ctx,bx,by,R,C.surface);ring(ctx,bx,by,R,C.ink,2);
+  sym(ctx,'m','0','',bx-1,by+3,C.ink,15.5,'center');
+  /* Newton 对照：v = p/m0 */
+  var ny=ry+18,ly=ny+18;
+  if(m.newton){
+    var xe=Math.min(vx0+P*Lc,x1);
+    if(xe-vx0>10){seg(ctx,vx0,ny,xe-8,ny,C.south,2,[5,4]);arrow(ctx,xe-10,ny,xe,ny,C.south,2,8);}
+    txt(ctx,'Newton：v = p/m₀ = '+P.toFixed(2)+'c'+(P>1?'（> c，不可能）':''),vx0,ly,C.south,11.5,600);
+  }else txt(ctx,'按“Newton 对照”：看 p = m₀v 说 v 是多少',vx0,ly,C.muted,11.5,500);
+  /* 读数：p 匀速涨，v 越涨越慢，m0 不变 */
+  var bx0=x0+44,bx1=x1-74,y=L.bar0;
+  txt(ctx,'p',x0,y,C.ink,13,700,'left','alphabetic',MATH);
+  hbar(ctx,bx0+18,y-9,bx1-bx0-18,10,P/PEND,C.copper);
+  txt(ctx,P.toFixed(2)+' m₀c',x1,y,C.copper,12.5,700,'right','alphabetic',MONO);
+  y+=L.lh;
+  txt(ctx,'v',x0,y,C.ink,13,700,'left','alphabetic',MATH);
+  hbar(ctx,bx0+18,y-9,bx1-bx0-18,10,b,rgba(C.ink,0.7));
+  seg(ctx,bx1,y-12,bx1,y+3,C.ink,1.6);
+  txt(ctx,fv(b),x1,y,C.ink,12.5,700,'right','alphabetic',MONO);
+  y+=L.lh;
+  sym(ctx,'m','0','',x0,y,C.ink,15.5,'left');
+  txt(ctx,'一直不变：变大的是 p，不是质量',bx0+18,y,C.muted,11.5,600);
+  /* 推的时间表 */
+  txt(ctx,'推的时间 t = '+fs1(m.t)+'（示意）',x0,L.mh,C.ink,12.5,700);
+  for(i=0;i<4;i++){
+    var yy=L.mh+(i+1)*L.mr,prev=i?m.tm[i-1]:0,dn=m.tm[i]!==null,go=!dn&&prev!==null&&!m.done;
+    if(go){rrect(ctx,x0-4,yy-14,x1-x0+8,19,5);ctx.fillStyle=rgba(C.copper,0.12);ctx.fill();}
+    txt(ctx,ROWS[i],x0,yy,dn||go?C.ink:C.muted,12,600);
+    txt(ctx,MIDS[i],x0+L.lc,yy,C.muted,11.5,500);
+    if(dn)txt(ctx,fs1(m.tm[i]-prev),x1,yy,C.ink,12.5,700,'right','alphabetic',MONO);
+    else if(go)txt(ctx,'推了 '+fs1(m.t-prev)+' …',x1,yy,C.copper,12,600,'right');
+    else txt(ctx,'—',x1,yy,C.muted,12,500,'right');
+  }
+}
+
+function graph(ctx,L){
+  var x0=L.gx0,x1=L.gx1,y0=L.gy0,y1=L.gy1,k,P=m.P,b=beta(P);
+  function X(u){return x0+u/1.08*(x1-x0);}
+  function Y(u){return y1-u/7*(y1-y0);}
+  txt(ctx,'booklet Figure 4.4：momentum 对 speed',L.ghx,L.gt,C.ink,L.wide?13:12.5,700);
+  txt(ctx,'momentum p/(m₀c)',x0-30,L.gyl,C.muted,11.5,600);
+  /* v > c：不可能的区域（Newton 对照时才涂） */
+  if(m.newton){ctx.fillStyle=rgba(C.north,0.08);ctx.fillRect(X(1),y0,x1-X(1),y1-y0);}
+  for(k=1;k<=7;k++)seg(ctx,x0,Y(k),x1,Y(k),C.grid,1);
+  for(k=1;k<=4;k++)seg(ctx,X(k*0.2),y0,X(k*0.2),y1,C.grid,1);
+  seg(ctx,x0,y0,x0,y1,C.muted,1.2);seg(ctx,x0,y1,x1,y1,C.muted,1.2);
+  for(k=0;k<=7;k++)txt(ctx,String(k),x0-7,Y(k)+4,C.muted,11,500,'right');
+  for(k=0;k<=5;k++){seg(ctx,X(k*0.2),y1,X(k*0.2),y1+4,C.muted,1);txt(ctx,k===0?'0':(k===5?'1':'0.'+(2*k)),X(k*0.2),y1+16,C.muted,11,500,'center');}
+  txt(ctx,'speed v/c',x1,y1+33,C.muted,11.5,600,'right');
+  /* v = c */
+  seg(ctx,X(1),y0,X(1),y1,C.ink,1.3,[5,4]);
+  ctx.save();ctx.translate((X(1)+x1)/2,Y(3.5));ctx.rotate(-Math.PI/2);
+  txt(ctx,'v = c',0,0,C.ink,12,700,'center','middle',MATH);ctx.restore();
+  /* 虚线 p = m0v（Newton） */
+  var ue=m.newton?1.08:1;
+  seg(ctx,X(0),Y(0),X(ue),Y(ue),C.south,2,[7,5]);
+  /* 实线 pv：按 P 取点，越接近 c 越密 */
+  ctx.beginPath();ctx.moveTo(X(0),Y(0));
+  for(var q=0.02;q<=7.0001;q+=0.02)ctx.lineTo(X(beta(q)),Y(q));
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.lineJoin='round';ctx.stroke();
+  sym(ctx,'p','v','',X(0.935),Y(4.4),C.copper,16,'right');
+  sym(ctx,'m','0','v',X(0.93),Y(0.4),C.south,15.5,'center');
+  /* p = 1, 2, 3 … m0c 时的 v：x 轴上的短线越来越挤 */
+  for(k=1;k<=7;k++){if(P<k-1e-9)break;var bk=beta(k);dot(ctx,X(bk),Y(k),2.8,C.copper);seg(ctx,X(bk),y1-7,X(bk),y1,C.copper,2);}
+  /* Newton 的点 */
+  if(m.newton){
+    if(P<=1.08){dot(ctx,X(P),Y(P),6,C.stage);ring(ctx,X(P),Y(P),5,C.south,2.2);}
+    else arrow(ctx,x1+2,Y(P),x1+17,Y(P),C.south,2.2,8);
+  }
+  /* 现在的点 */
+  dot(ctx,X(b),Y(P),7.5,C.stage);dot(ctx,X(b),Y(P),5.5,C.copper);
+  /* 左上角的说明（这里离曲线远） */
+  var lx=x0+10,l1=Y(6.55),l2=l1+17;
+  if(m.newton){
+    txt(ctx,'Newton（虚线）：v = p/m₀ = '+P.toFixed(2)+'c',lx,l1,C.south,12,700);
+    txt(ctx,P>1.08?'空心圈跑到图外 → v > c：不可能':(P>=1?'空心圈到了 c，再推就“超过 c”':'空心圈 = Newton，实心点 = 真的'),lx,l2,C.south,11.5,600);
+  }else{
+    txt(ctx,'实心点 = 现在的 v 和 p',lx,l1,C.muted,11.5,600);
+    txt(ctx,'x 轴上的短线：p = 1, 2, 3 … m₀c 时的 v',lx,l2,C.muted,11.5,600);
+  }
+}
+
+var LINES=[];
+var ST=makeStage('sim5',{
+  height:function(w){return w>=640?400:694;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    left(ctx,L);graph(ctx,L);
+    seg(ctx,0,L.sep,W,L.sep,C.line,1);
+    var sb=status(),fs=L.stF,i,maxW=W-32,na;
+    for(;;){LINES.length=0;ctx.font='600 '+fs+'px '+FONT;wrap(ctx,sb[0],maxW,LINES);na=LINES.length;ctx.font='500 '+fs+'px '+FONT;wrap(ctx,sb[1],maxW,LINES);
+      if(LINES.length<=L.stMax||fs<=12.5)break;fs-=0.5;}
+    for(i=0;i<LINES.length;i++)txt(ctx,LINES[i],16,L.st+i*L.slh,i<na?C.ink:C.muted,fs,i<na?600:500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var rF=document.getElementById('s5-F'),oF=document.getElementById('s5-F-out'),bN=document.getElementById('s5-newton');
+rF.value='1';
+rF.addEventListener('input',function(){m.f=parseFloat(rF.value);oF.textContent='× '+m.f.toFixed(m.f%0.5?2:1);ST.render();});
+bN.addEventListener('click',function(){m.newton=!m.newton;press(bN,m.newton);bN.innerHTML='Newton 对照 <i>p</i> = <i>m</i><sub>0</sub><i>v</i>：'+(m.newton?'开':'关');ST.render();});
+document.getElementById('s5-reset').addEventListener('click',function(){reset();ST.setPlaying(true);ST.render();});
+})();
+</script>
+</body>
+</html>

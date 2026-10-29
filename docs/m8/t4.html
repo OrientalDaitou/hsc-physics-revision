@@ -1,0 +1,2267 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M8 T4 原子核的性质</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m8">Module 8</a><span class="sep">/</span><span aria-current="page">Topic 4</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 8 · Topic 4</div>
+  <h1>Properties of the Nucleus</h1>
+  <p class="h1-sub">原子核的性质：放射性、核裂变和核聚变 · 零基础讲解</p>
+  <p class="lead">这一章讲原子核：它为什么会衰变，衰变有多快，裂变和聚变为什么能放出那么多能量。内容看起来很多，其实只靠<b>三条规则</b>。先把这三条弄懂，后面都只是在用它们。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Strong nuclear force vs repulsion</div>
+    <p>核里在拔河：protons 互相推开；<span class="t">strong nuclear force</span>（核力）把所有 <span class="t">nucleons</span>（核子）拉在一起，但它只够到约 3&nbsp;fm。核太大，或者 <i>N</i> 和 <i>Z</i> 搭配不对，核就会自己衰变。</p>
+    <div class="eqs">太大，或 <i>N</i>、<i>Z</i> 不对 → 衰变</div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Conservation of <i>A</i> and <i>Z</i></div>
+    <p>核反应前后，nucleons 的总数不变，电荷的总数也不变。所以方程两边：上面的数（<i>A</i>）加起来相等，下面的数（<i>Z</i>）加起来也相等。</p>
+    <div class="eqs">Σ<i>A</i><sub>before</sub> = Σ<i>A</i><sub>after</sub><br>Σ<i>Z</i><sub>before</sub> = Σ<i>Z</i><sub>after</sub></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">Mass becomes energy</div>
+    <p>质量少了，能量就出来。用 u 算：每少 1&nbsp;u，放出 931.5&nbsp;MeV。裂变和聚变都是往比结合能曲线的上面走（往 iron-56 走），质量变少，所以放出能量。</p>
+    <div class="eqs"><i>E</i> = Δ<i>m c</i>²</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章内容">
+  <div class="map-row head"><span>部分</span><span>关键</span><span>用到的规则</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">4.1</span><span class="t">Why nuclei decay</span></span><span>稳定带</span><span>① 拔河输了，核就衰变</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">4.1</span><span class="t">Alpha, beta, gamma</span></span><span>α：<span class="m"><i>A</i> − 4，<i>Z</i> − 2</span></span><span>② 方程两边 <i>A</i>、<i>Z</i> 加起来相等</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">4.2</span><span class="t">Half-life and activity</span></span><span><span class="m"><i>N</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></span></span><span>一个核随机；很多核每个 half-life 剩一半</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">4.3</span><span class="t">Mass defect</span></span><span><span class="m"><i>E</i> = Δ<i>m c</i>²</span></span><span>③ 少掉的质量变成能量</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">4.3</span><span class="t">Binding energy per nucleon</span></span><span>峰在 Fe-56 附近</span><span>③ 往铁走，就放能量</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">4.4</span><span class="t">Fission &amp; chain reactions</span></span><span>约 200&nbsp;MeV</span><span>③ 重核分开；中子再引起裂变</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">4.4</span><span class="t">Fusion</span></span><span>17.6&nbsp;MeV</span><span>③ 轻核合起来；① 先要冲过斥力</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">4.5</span><span class="t">Key experiments</span></span><span>2 个实验</span><span>骰子模拟半衰期；α、β、γ 的穿透</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是 <i>A</i>、<i>Z</i>、<i>N</i> 的意思和计算器上的 ln。</li>
+    <li>按 4.1 → 4.4 讲。每节先读“一句话”，再开动画，让学生自己说看到了什么。动画 1 先让学生猜“哪种衰变能把核带回带里”，再按按钮。</li>
+    <li>最后做“快问快答”，再看“常见错误”。计算题让学生先写单位：<i>λ</i> 和 <i>t</i> 用同一个时间单位；u × 931.5 得 MeV。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li>原子的结构：中间是很小的 <span class="t">nucleus</span>（原子核），里面有 <span class="t">proton</span>（质子，带 +<i>e</i>）和 <span class="t">neutron</span>（中子，不带电）。外面是 <span class="t">electron</span>（电子，带 −<i>e</i>）。核的大小用 fm 量：1&nbsp;fm = 10<sup>−15</sup>&nbsp;m。</li>
+    <li>电荷之间的力：同种电荷互相推，离得越近推得越厉害（<span class="t">Coulomb's law</span>，M8 T2）。带电粒子在磁场里受力 <span class="m"><i>F</i> = <i>qvB</i> sin <i>θ</i></span>，方向用 <span class="t">right-hand palm rule</span>（右手掌定则）判断。正、负电荷往相反方向弯；<span class="t">momentum</span>（动量）越小，弯得越厉害（<span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span>）。</li>
+    <li><span class="m"><i>E</i> = <i>mc</i>²</span>（M8 T1）：质量和能量可以互相转换。核物理里，能量常用 MeV（百万电子伏特）。data sheet 上有：<span class="m">1&nbsp;u = 931.5&nbsp;MeV/<i>c</i>²</span>。u 是 <span class="t">atomic mass unit</span>（原子质量单位）。</li>
+    <li>计算器上的 <span class="m"><i>e</i></span> 和 ln：这里的 <span class="m"><i>e</i></span> 是一个数，约 2.718（不是电子的电荷）。<span class="m"><i>e</i><sup><i>x</i></sup></span> 和 ln 是一对反运算：<span class="m">ln(<i>e</i><sup><i>x</i></sup>) = <i>x</i></span>。这一章用 ln，不用 log。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">4.1</div>
+  <h2>原子核为什么会衰变？<span class="en">Radioactive decay: alpha, beta and gamma</span></h2>
+  <p class="big"><span class="lbl">一句话</span>有些核里 proton 和 neutron 的搭配不对，或者核太大。它们会自己变成更稳定的核，同时放出 α、β 或 γ 射线。</p>
+  <ul class="pts">
+    <li>Nucleon：一个 proton 或一个 neutron，也就是核里的粒子。</li>
+    <li>记号 <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i></span></span>X</span></span>：<span class="m"><i>A</i></span> = <span class="t">mass number</span>（质量数）= protons + neutrons。<span class="m"><i>Z</i></span> = <span class="t">atomic number</span>（原子序数）= protons 的个数。neutrons 的个数：<span class="m"><i>N</i> = <i>A</i> − <i>Z</i></span>。</li>
+    <li>例子：<span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>235</span><span>92</span></span>U</span></span> 有 92 个 protons，235 − 92 = 143 个 neutrons。</li>
+    <li><span class="t">Isotopes</span>（同位素）：<span class="m"><i>Z</i></span> 一样，<span class="m"><i>N</i></span> 不一样。比如 hydrogen-1、hydrogen-2、hydrogen-3 都是氢（<span class="m"><i>Z</i> = 1</span>），neutrons 分别是 0、1、2 个。</li>
+  </ul>
+
+  <h3>核里在拔河</h3>
+  <ul class="pts">
+    <li>protons 都带正电，互相推开。两个 protons 相距 1&nbsp;fm（= 10<sup>−15</sup>&nbsp;m）时，斥力约 230&nbsp;N。</li>
+    <li>Strong nuclear force：nucleons 之间一种非常强、距离非常短的吸引力。它拉每个 nucleon，比斥力还强。但它只够到约 3&nbsp;fm。</li>
+    <li>所以核一大就麻烦了：每个 proton 只被身边的几个 nucleons 拉住，却被核里<b>所有</b>的 protons 推。核越大，斥力长得比吸引力快。</li>
+    <li>Neutrons 不带电。多加 neutrons，只加吸引，不加排斥。</li>
+    <li>类比：一群人手拉手围成一圈。每个人只拉得住身边的人（核力很短）。有些人（protons）互相讨厌，离多远都想推开对方（斥力够得很远）。人越多，讨厌的人越多，圈越容易散。多加几个只拉手、不推人的人（neutrons），圈就稳一点。</li>
+  </ul>
+
+  <h3>稳定带</h3>
+  <ul class="pts">
+    <li>把稳定的核画在图上：纵轴是 <span class="m"><i>N</i></span>，横轴是 <span class="m"><i>Z</i></span>。它们挤在一条细细的带子里，叫 <span class="t">band of stability</span>（稳定带）。</li>
+    <li>轻的核：<span class="m"><i>N</i> ≈ <i>Z</i></span>。重的核：要多一些 neutrons，帮着拉住它。</li>
+    <li><span class="m"><i>Z</i> &gt; 82</span> 的核，没有一个是稳定的。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>在图上</th><th>问题</th><th>多半怎样衰变</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">带子上方</td><td style="white-space:nowrap">neutrons 太多</td><td>β<sup>−</sup>：一个 n 变成 p</td></tr>
+        <tr><td style="white-space:nowrap">带子下方</td><td style="white-space:nowrap">neutrons 太少</td><td>β<sup>+</sup>：一个 p 变成 n</td></tr>
+        <tr><td style="white-space:nowrap"><span class="m"><i>Z</i> &gt; 82</span></td><td style="white-space:nowrap">核太大</td><td>α：一下子少 2 个 p 和 2 个 n</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>衰变是自己发生的</h3>
+  <ul class="pts">
+    <li><span class="t">Radioactive decay</span>（放射性衰变）是 <span class="t">spontaneous</span>（自发的）：不用谁去碰它，核自己就变了。</li>
+    <li>衰变前的核叫 <span class="t">parent nucleus</span>（母核），衰变后的叫 <span class="t">daughter nucleus</span>（子核）。daughter 比 parent 更靠近稳定带。</li>
+    <li>α 和 β 衰变会改变 <span class="m"><i>Z</i></span>，所以元素变了。这叫 <span class="t">transmutation</span>（核嬗变：一种元素变成另一种）。</li>
+    <li>放出来的射线都是 <span class="t">ionising radiation</span>（电离辐射）：它把原子里的电子撞出来，让原子变成 <span class="t">ion</span>（离子）。</li>
+  </ul>
+  <p>动画 1：给一个不稳定的核选一种衰变，看它在 <span class="m"><i>N</i></span>–<span class="m"><i>Z</i></span> 图上往哪走，能不能回到带里。</p>
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · 稳定带：衰变把核带回带里</span><span class="sim-tag">N 对 Z 作图 · 带子的形状和三个起点：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边（手机上是上面）是 N–Z 图：横轴 Z 是质子数，纵轴 N 是中子数，虚线是 N = Z，灰色的带子是稳定带，Z 大于 82 的地方画了斜线，表示没有稳定的核；小框是旁边（手机上是下面）放大的范围。放大图里每一格是一种核，铜色的点是现在的核。旁边把这个核放大画成红色的 proton 和灰色的 neutron 小球，下面写着 A、Z、N。按一种衰变：射出的粒子从核里飞出去，点沿箭头走到新的格子，最下面写出衰变方程，并检查两边 A 和 Z 加起来相等。不会发生的衰变只画一条虚线箭头。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="起点：哪一种不稳定的核">
+        <button class="btn" type="button" id="s1-rich" aria-pressed="true" title="在稳定带上方">中子太多</button>
+        <button class="btn" type="button" id="s1-poor" aria-pressed="false" title="在稳定带下方">中子太少</button>
+        <button class="btn" type="button" id="s1-big" aria-pressed="false" title="Z 大于 82">太大 Z &gt; 82</button>
+      </span>
+      <button class="btn" type="button" id="s1-a">α 衰变</button>
+      <button class="btn" type="button" id="s1-m">β<sup>−</sup> 衰变</button>
+      <button class="btn" type="button" id="s1-p">β<sup>+</sup> 衰变</button>
+      <button class="btn" type="button" id="s1-g" aria-disabled="true">γ 衰变</button>
+      <button class="btn" type="button" id="s1-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看“中子太多”：核在稳定带上方。按 β<sup>+</sup> 或 α：只出现一条虚线箭头，核不动，看最上面的提示为什么。② 按 β<sup>−</sup>：一个灰色的 neutron 变成红色的 proton，飞出 e<sup>−</sup> 和 <span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span>；点往右下走一格（<i>Z</i> + 1，<i>N</i> − 1，<i>A</i> 不变）。看最下面的方程：左上角的 <i>A</i> 两边加起来相等，左下角的 <i>Z</i> 也相等（e<sup>−</sup> 的 <i>Z</i> 算 −1）。③ 子核是激发态 *（外面一圈黄光）：按 γ 放掉多余的能量，点不动；再按一次 β<sup>−</sup>，就到带子里了。④ 换“中子太少”试 β<sup>+</sup>（往左上走一格）；换“太大”试 α：带走 2 个 p 和 2 个 n，点往左下斜着走两格，和 <i>N</i> = <i>Z</i> 线平行。“轻核 <i>N</i> ≈ <i>Z</i>”和“<i>Z</i> &gt; 82 没有稳定的核”来自讲义；带子的形状、三个起点、每次 α / β 以后子核都在激发态、粒子飞的快慢是示意（真实的衰变以后，子核不一定在激发态；方程里 X 是衰变前的核，Y 是衰变后的核，不写元素名）。</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">4.1</div>
+  <h2>α、β、γ 衰变和它们的射线<span class="en">Alpha, beta and gamma decay and their radiation</span></h2>
+  <p class="big"><span class="lbl">一句话</span>α 是一个 helium-4 核，β 是一个电子或正电子，γ 是一个光子。它们的电荷和质量不同，所以穿透多远、在磁场里怎么弯，都不一样。</p>
+  <ul class="pts">
+    <li>β 粒子不是核里本来就有的，它是衰变那一刻<b>新造出来</b>的。β<sup>−</sup>：一个 neutron 变成 proton，同时造出一个 electron（再细一点看：一个 down quark 变成 up quark。<span class="t">quark</span>（夸克）在 T5 讲）。</li>
+    <li><span class="t">Positron</span>（正电子）：electron 的 <span class="t">antiparticle</span>（反粒子），带 +<i>e</i>。</li>
+    <li><span class="t">Neutrino</span>（中微子）：不带电，质量几乎为 0。β<sup>−</sup> 放出 <span class="t">antineutrino</span>（反中微子）<span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span>，β<sup>+</sup> 放出 neutrino <span class="m"><i>ν</i><sub>e</sub></span>。</li>
+    <li><span class="t">Gamma ray</span>（γ射线）：能量很高的 <span class="t">photon</span>（光子）。它从 <span class="t">excited</span>（激发态，记号 *）的核里放出来。</li>
+  </ul>
+
+  <h3>四条衰变方程</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>衰变</th><th>方程</th></tr></thead>
+      <tbody>
+        <tr><td>α</td><td class="f"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i></span></span>X</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i>−4</span><span><i>Z</i>−2</span></span>Y</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span></td></tr>
+        <tr><td>β<sup>−</sup></td><td class="f"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i></span></span>X</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i>+1</span></span>Y</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>−1</span></span>e</span> + <i style="text-decoration:overline">ν</i><sub>e</sub></td></tr>
+        <tr><td>β<sup>+</sup></td><td class="f"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i></span></span>X</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i>−1</span></span>Y</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>+1</span></span>e</span> + <i>ν</i><sub>e</sub></td></tr>
+        <tr><td>γ</td><td class="f"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i></span></span>X<sup>*</sup></span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span><i>A</i></span><span><i>Z</i></span></span>X</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>0</span></span><i>γ</i></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Balancing a nuclear equation · 配平核反应方程</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em">Σ<i>A</i><sub>before</sub> = Σ<i>A</i><sub>after</sub></span><span style="display:inline-block;margin:0 .6em">Σ<i>Z</i><sub>before</sub> = Σ<i>Z</i><sub>after</sub></span></div>
+    <dl class="sym">
+      <div><dt>A</dt><dd>mass number，nucleons 的个数（没有单位）</dd></div>
+      <div><dt>Z</dt><dd>atomic number，也是电荷（以 <i>e</i> 为单位）</dd></div>
+    </dl>
+    <p class="trap"><b>为什么：</b>nucleons 和电荷都守恒，不会多出来，也不会少掉。<br><b>例子：</b>Rutherford 1919 年的反应 <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>14</span><span>7</span></span>N</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>17</span><span>8</span></span>O</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>1</span></span>H</span></span>。上面：14 + 4 = 17 + 1 = 18。下面：7 + 2 = 8 + 1 = 9。两边相等。<br><b>陷阱：</b>electron 写成 <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>−1</span></span>e</span></span>，算 <span class="m"><i>Z</i> = −1</span>；positron <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>+1</span></span>e</span></span> 算 +1；γ 是 <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>0</span></span><i>γ</i></span></span>，两个数都是 0。neutrino 不带电、几乎没有质量，不影响配平。</p>
+  </div>
+
+  <h3>四种衰变比一比（表 4.1）</h3>
+  <div class="tbl-wrap wide">
+    <table style="min-width:680px">
+      <thead><tr><th></th><th style="text-transform:none;font-size:14px">α</th><th style="text-transform:none;font-size:14px">β<sup>−</sup></th><th style="text-transform:none;font-size:14px">β<sup>+</sup></th><th style="text-transform:none;font-size:14px">γ</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">发生了什么</td><td>2 个 protons 和 2 个 neutrons 一起离开</td><td>一个 neutron 变成 proton</td><td>一个 proton 变成 neutron</td><td>激发态的核放掉能量</td></tr>
+        <tr><td style="white-space:nowrap">放出什么</td><td>helium-4 核 <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span></span></td><td>electron <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>−1</span></span>e</span></span> 和 antineutrino <span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span></td><td>positron <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>+1</span></span>e</span></span> 和 neutrino <span class="m"><i>ν</i><sub>e</sub></span></td><td>photon <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>0</span></span><i>γ</i></span></span></td></tr>
+        <tr><td style="white-space:nowrap">变化</td><td><span class="m"><i>A</i> − 4，<i>Z</i> − 2</span></td><td><span class="m"><i>A</i></span> 不变，<span class="m"><i>Z</i> + 1</span></td><td><span class="m"><i>A</i></span> 不变，<span class="m"><i>Z</i> − 1</span></td><td>没有</td></tr>
+        <tr><td style="white-space:nowrap">哪些核</td><td>多数是很重的（<span class="m"><i>Z</i> &gt; 82</span>）</td><td>neutrons 太多（在带子上方）</td><td>neutrons 太少（在带子下方）</td><td>刚做完 α 或 β 衰变的核</td></tr>
+        <tr><td style="white-space:nowrap">电荷</td><td>+2<i>e</i></td><td>−<i>e</i></td><td>+<i>e</i></td><td>0</td></tr>
+        <tr><td style="white-space:nowrap">质量</td><td>约 4&nbsp;u</td><td>0.000&nbsp;55&nbsp;u</td><td>0.000&nbsp;55&nbsp;u</td><td>0</td></tr>
+        <tr><td style="white-space:nowrap">速度</td><td>约 5&nbsp;% 的 <i>c</i></td><td>最多 99&nbsp;% 的 <i>c</i></td><td>最多 99&nbsp;% 的 <i>c</i></td><td><i>c</i></td></tr>
+        <tr><td style="white-space:nowrap">电离</td><td>强</td><td>中</td><td>中</td><td>弱</td></tr>
+        <tr><td style="white-space:nowrap">被什么挡住</td><td>纸、皮肤或几 cm 空气</td><td>几 mm 铝</td><td>几 mm 铝</td><td>厚铅也只能减弱</td></tr>
+        <tr><td style="white-space:nowrap">在场里</td><td>弯一点</td><td>弯很多，和 α 反方向</td><td>弯很多，和 α 同方向</td><td>不弯</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">u = atomic mass unit（原子质量单位）。</p>
+  <ul class="pts">
+    <li><b>穿透：</b>α 又重又慢，带 +2<i>e</i>。它在很短的路上电离很多原子，能量很快就用完了。所以电离最强的，<span class="t">penetrating</span>（穿透）最弱。像推着大购物车挤过人群：一路撞到很多人，很快就走不动了。</li>
+    <li>讲义图 4.1(a)（动画 2 的“(a) 穿透”）：α 到纸就停了；β 能穿过纸，到几 mm 的铝停下；γ 穿过几 cm 的铅，还有一部分出来。</li>
+    <li><b>在场里：</b>α 和 β<sup>−</sup> 往相反方向弯，因为电荷相反。β 弯得更多，因为它的 momentum 小得多。γ 不带电，直着走（讲义图 4.1(b)，动画 2 的“(b) 在磁场里偏转”）。</li>
+    <li>方向用 palm rule：<span class="m"><i>B</i></span> 进纸面、粒子向右飞时，正电荷（α）受力向上，负电荷（β<sup>−</sup>）受力向下。</li>
+  </ul>
+  <p>动画 2 把讲义图 4.1 的两半动起来：一半看穿透，一半看在磁场里怎么弯（不按比例）。</p>
+<figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">动画 2 · α、β、γ：穿透和在磁场里偏转</span><span class="sim-tag">穿透结果来自讲义实验 · 计数、距离、弯曲大小：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边（手机上是上面）：α、β、γ 三条通道，粒子从源飞向右边的 GM tube，中间放着可以换的吸收物，路上留下的 + 和 − 表示电离，下面三根计数条是 GM 计数率。右边（手机上是下面）：画满 × 的磁场（B 进纸面）里，α 往上弯一点，β⁻ 往下弯很多并散成扇形，γ 直走。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="吸收物">
+        <button class="btn" type="button" id="s2-ab0" aria-pressed="false">无</button>
+        <button class="btn" type="button" id="s2-ab1" aria-pressed="true">纸</button>
+        <button class="btn" type="button" id="s2-ab2" aria-pressed="false">5&nbsp;mm 铝</button>
+        <button class="btn" type="button" id="s2-ab3" aria-pressed="false">10&nbsp;mm 铅</button>
+      </span>
+      <span class="seg" role="group" aria-label="磁场 B 的方向">
+        <button class="btn" type="button" id="s2-bin" aria-pressed="true"><i>B</i> 进纸面 ×</button>
+        <button class="btn" type="button" id="s2-bout" aria-pressed="false"><i>B</i> 出纸面 ⊙</button>
+      </span>
+      <button class="btn" type="button" id="s2-plus" aria-pressed="false">加上 β<sup>+</sup></button>
+    </div>
+    <p class="try"><b>试一试：</b>① 左边（手机上是上面）：吸收物从“无”换到“纸”，α 在纸前面停住，它的计数掉到 0（已减去 background）。路上的 + 和 − 是被撞出来的离子：α 留下的最密，电离最强，所以能量很快用完，穿透最弱。② 换成“5&nbsp;mm 铝”，β 也停了；换成“10&nbsp;mm 铅”，γ 的计数只从 160 降到 80，少了一半，还是没挡住。③ 右边（手机上是下面）：α 往上弯一点，β<sup>−</sup> 往下弯很多，而且散成一把扇形（β 的能量有大有小）；γ 不带电，直走。用 palm rule 检查：四指指进纸面（<i>B</i>），大拇指向右（<i>v</i>），掌心朝上，就是 + 电荷受力的方向。④ 按“<i>B</i> 出纸面 ⊙”，所有弯曲都反过来，γ 还是直走。⑤ 加上 β<sup>+</sup>：它带 +<i>e</i>，和 α 往同一边弯，但弯得多（动量小，<i>r</i> = <i>p</i>/(<i>qB</i>) 小）。穿透结果照讲义实验（Am-241、Sr-90、Co-60）；计数、GM tube 的距离（α 在空气里其实只能走几 cm）、吸收物厚度、弯曲大小都是示意，不按比例。</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">4.2</div>
+  <h2>半衰期和放射性活度<span class="en">Half-life and activity</span></h2>
+  <p class="big"><span class="lbl">一句话</span>一个核什么时候衰变，完全是随机的。但很多很多核放在一起，每过同样长的一段时间，就剩下一半。这段时间叫 half-life（半衰期）。</p>
+  <ul class="pts">
+    <li><span class="t">Half-life</span> <span class="m"><i>t</i><sub>½</sub></span>（半衰期）：样品里一半的放射性核衰变掉所用的时间。</li>
+    <li><span class="t">Decay constant</span> <span class="m"><i>λ</i></span>（衰变常量）：一个核在一秒里衰变的机会。单位 s<sup>−1</sup>。</li>
+    <li><span class="t">Activity</span> <span class="m"><i>A</i></span>（放射性活度）：每秒衰变多少个。单位 <span class="t">becquerel</span>（贝可勒尔，Bq）：1&nbsp;Bq = 每秒衰变 1 个。</li>
+  </ul>
+
+  <h3>一个一个是随机的，一大堆就很有规律</h3>
+  <ul class="pts">
+    <li>衰变是 <span class="t">random</span>（随机的）：没法预测某一个核什么时候衰变。</li>
+    <li>每个核每秒的机会都一样。核“多老”、温度高低、化学上和什么结合、样品有多大，都不改变这个机会。</li>
+    <li>类比：600 个人一起掷骰子。谁会掷出 6，说不准。但每次大约有 100 个人掷出 6。</li>
+    <li>所以 parent 的数量每过一个 half-life 就减半（讲义图 4.2，就是动画 3 里的 N–t 图）：<span class="m"><i>N</i><sub>0</sub> → <i>N</i><sub>0</sub>/2 → <i>N</i><sub>0</sub>/4 → <i>N</i><sub>0</sub>/8</span> …… 减半的是<b>剩下的</b>，所以两个 half-life 以后剩 <span class="m"><i>N</i><sub>0</sub>/4</span>，不是 0。</li>
+    <li><span class="t">Geiger counter</span>（盖革-米勒计数管）测的是 <span class="t">count rate</span>（计数率：每秒或每分钟数到几次）。减去 <span class="t">background radiation</span>（本底辐射：身边一直都有的辐射）以后，它和 activity 成正比。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">The decay law and the decay constant · 衰变定律和衰变常量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>N</i><sub>t</sub> = <i>N</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></span><span style="display:inline-block;margin:0 .6em"><i>λ</i> = ln 2 / <i>t</i><sub>½</sub></span></div>
+    <dl class="sym">
+      <div><dt>N<sub>t</sub></dt><dd>时间 <i>t</i> 时还没衰变的（parent）核（没有单位）</dd></div>
+      <div><dt>N<sub>0</sub></dt><dd>开始时还没衰变的核（没有单位）</dd></div>
+      <div><dt>λ</dt><dd>decay constant (s<sup>−1</sup>，或 h<sup>−1</sup>、yr<sup>−1</sup>)</dd></div>
+      <div><dt>t</dt><dd>从开始算的时间 (s，或 h、yr)</dd></div>
+      <div><dt>t<sub>½</sub></dt><dd>half-life (s，或 h、yr)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>只有一种 isotope、有很多很多核的时候。也可以用来算质量或 activity：<span class="m"><i>A</i><sub>t</sub> = <i>A</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></span>。要求时间，用下面第二张卡。<br><b>陷阱：</b><i>λ</i> 和 <i>t</i> 要用同一个时间单位；这里的 <i>λ</i> 不是波长；计算器上用 ln，不用 log。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">A whole number of half-lives · 整数个半衰期</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>N</i><sub>t</sub> = <i>N</i><sub>0</sub>(½)<sup><i>n</i></sup></span><span style="display:inline-block;margin:0 .6em"><i>n</i> = <i>t</i> / <i>t</i><sub>½</sub></span></div>
+    <dl class="sym">
+      <div><dt>n</dt><dd>过了几个 half-life（没有单位）</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b><span class="m"><i>N</i><sub>0</sub> = 200</span>，过了 3 个 half-life：<span class="m">200 × (½)³ = 25</span>。<br><b>陷阱：</b>每过一个 half-life 都是“剩下的”减半，不是每次减掉“原来的”一半。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Time to fall from N<sub>0</sub> to N<sub>t</sub> · 降到 N<sub>t</sub> 要多久</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>t</i> = (1/<i>λ</i>) ln(<i>N</i><sub>0</sub>/<i>N</i><sub>t</sub>)</div>
+    <p class="trap" style="border-top:none;padding-top:0"><b>从哪里来：</b>把 <span class="m"><i>N</i><sub>t</sub> = <i>N</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></span> 两边除以 <span class="m"><i>N</i><sub>0</sub></span>，再取 ln：<span class="m">ln(<i>N</i><sub>t</sub>/<i>N</i><sub>0</sub>) = −<i>λt</i></span>。两边乘 −1，ln 里的分数就倒过来：<span class="m"><i>λt</i> = ln(<i>N</i><sub>0</sub>/<i>N</i><sub>t</sub>)</span>。最后除以 <span class="m"><i>λ</i></span>。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Activity · 放射性活度</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>A</i> = <i>λN</i></span><span style="display:inline-block;margin:0 .6em"><i>A</i><sub>t</sub> = <i>A</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></span></div>
+    <dl class="sym">
+      <div><dt>A</dt><dd>activity (Bq)</dd></div>
+      <div><dt>λ</dt><dd>decay constant (s<sup>−1</sup>)</dd></div>
+      <div><dt>N</dt><dd>还没衰变的核（没有单位）</dd></div>
+    </dl>
+    <p class="trap"><b>为什么：</b><i>N</i> 个没衰变的核，每个每秒有 <i>λ</i> 的机会衰变，所以每秒衰变 <i>λN</i> 个。<i>N</i> 减半，activity 也减半。<br><b>陷阱：</b>要得到 Bq，<i>λ</i> 必须用 s<sup>−1</sup>。这里的 <i>A</i> 是 activity，不是 mass number。这里的 <i>N</i> 是还没衰变的核的个数，不是 4.1 里 neutrons 的个数（<i>N</i> = <i>A</i> − <i>Z</i>）。</p>
+  </div>
+  <p>动画 3：看一个一个的核随机衰变，同时看 <span class="m"><i>N</i></span>–<span class="m"><i>t</i></span> 图怎样一步步画出来。也可以切换成掷骰子。</p>
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · 随机衰变和半衰期</span><span class="sim-tag"><span style="white-space:nowrap">半衰期、开始的个数：示意</span> · <span style="white-space:nowrap">骰子 200 个、约 3.8 次：讲义实验</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边（手机上是上面）是一格一格的原子核：铜色实心点是还没衰变的 parent，衰变的那一下闪一个小光点，然后变成灰色空心点（daughter）。哪一个先衰变完全随机。右边（手机上是下面）是 N–t 图，坐标和讲义图 4.2 一样：紫色虚线是理论曲线 N₀e^(−λt)，铜色线是实际数出来的 N，在 t½、2t½ 处有辅助虚线。下面是 t、n、N、λ 和 activity 的读数。掷骰子模式里是 200 个骰子，每掷一次，掷到 6 的拿走。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="开始时的个数 N0">
+      <button class="btn" type="button" id="s3-n20" aria-pressed="false"><i>N</i><sub>0</sub> = 20</button>
+      <button class="btn" type="button" id="s3-n200" aria-pressed="true">200</button>
+      <button class="btn" type="button" id="s3-n2000" aria-pressed="false">2000</button>
+    </span>
+    <span class="seg" role="group" aria-label="模式">
+      <button class="btn" type="button" id="s3-nuc" aria-pressed="true">原子核</button>
+      <button class="btn" type="button" id="s3-dice" aria-pressed="false">掷骰子</button>
+    </span>
+    <label class="range"><span><i>t</i><sub>½</sub></span> <input type="range" id="s3-th" min="2" max="8" step="1" value="4" aria-label="半衰期 t½，2 到 8 秒（示意）"><output id="s3-th-out" for="s3-th">4&nbsp;s</output></label>
+    <button class="btn" type="button" id="s3-reset">重来</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看左边（手机上是上面）：哪一个点先变灰，完全没有规律；但右边（手机上是下面）的铜色线一直跟着紫色虚线走，每过一个 <i>t</i><sub>½</sub> 剩下一半。② 选 <i>N</i><sub>0</sub> = 20，多按几次“重来”：每次都差很多；选 2000：几乎贴着理论曲线。③ 把 <i>t</i><sub>½</sub> 拉到 2&nbsp;s：<i>λ</i> = ln 2/<i>t</i><sub>½</sub> 变大，衰变得更快；但横轴是“几个 <i>t</i><sub>½</sub>”，曲线的样子不变。④ 看读数：<i>N</i> 减半时，activity <i>A</i> = <i>λN</i> 也减半；“刚过去 1&nbsp;s 实际衰变”的个数和它差不多（稍大一点：这 1&nbsp;s 里 <i>N</i> 一直在变少），但会随机跳。⑤ 换成“掷骰子”：200 个骰子，每次掷到 6 的拿走，约 3.8 次剩一半，和讲义 4.5 的实验一样。加热、改变化学状态都不会改变 <i>λ</i>。<i>t</i><sub>½</sub>（2–8&nbsp;s）和 <i>N</i><sub>0</sub> 是示意；<i>λ</i>、理论值和 <i>A</i> 都是按 <i>t</i><sub>½</sub> 算出来的。</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">4.3</div>
+  <h2>质量亏损和结合能<span class="en">Mass defect, binding energy and energy released</span></h2>
+  <p class="big"><span class="lbl">一句话</span>核比拆开的 protons 和 neutrons 加起来要轻。任何核反应，只要总质量变少，少掉的质量就变成能量（<span class="m"><i>E</i> = <i>mc</i>²</span>）。</p>
+  <ul class="pts">
+    <li><span class="t">Mass defect</span> <span class="m">Δ<i>m</i></span>（质量亏损）：nucleons 合成一个核时，“不见了”的那部分质量。</li>
+    <li><span class="t">Binding energy</span> <span class="m"><i>E</i><sub>B</sub></span>（结合能）：把一个核拆成一个个 nucleon 要给的能量。</li>
+    <li>单独的 nucleons 合在一起时，会放出能量，所以质量变少。核比它的零件<b>轻</b>。例子 helium-4：<span class="m">Δ<i>m</i> = 0.030&nbsp;377&nbsp;u</span>，也就是 28.3&nbsp;MeV。</li>
+    <li>Binding energy 是拆开核时<b>要给进去</b>的能量，不是核里“存着”的能量。类比：两块磁铁吸在一起时“啪”一声放出能量；要拉开它们，你得花力气。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Mass defect, binding energy and energy released · 质量亏损、结合能和放出的能量</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>E</i> = Δ<i>m c</i>²</span><span style="display:inline-block;margin:0 .6em"><i>E</i> (MeV) = Δ<i>m</i> (u) × 931.5</span></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>放出的能量（或 binding energy <i>E</i><sub>B</sub>）(J 或 MeV)</dd></div>
+      <div><dt>Δm</dt><dd>反应前的质量 − 反应后的质量 (kg 或 u)</dd></div>
+      <div><dt>m<sub>p</sub></dt><dd>proton 的质量，1.007&nbsp;276&nbsp;u（sheet 上只给 kg）(kg 或 u)</dd></div>
+      <div><dt>m<sub>n</sub></dt><dd>neutron 的质量，1.008&nbsp;665&nbsp;u（sheet 上只给 kg）(kg 或 u)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>任何核反应，还有 binding energy。题目给的是 binding energies 时（fission、fusion）：<span class="m"><i>E</i> = Σ<i>E</i><sub>B,after</sub> − Σ<i>E</i><sub>B,before</sub></span>（见下一节<a href="#s5">比结合能曲线</a>）。<br><b>从哪里来：</b><span class="m"><i>E</i> = <i>mc</i>²</span>，加上 <span class="m">1&nbsp;u = 931.5&nbsp;MeV/<i>c</i>²</span>（1&nbsp;u = 1.661 × 10<sup>−27</sup>&nbsp;kg）。这两样 sheet 上都有。<br><b>陷阱：</b>① 只走一条路：u × 931.5 得 MeV；kg × <i>c</i>² 得 J。两条路的结果差约 0.2&nbsp;%，不要在一道题里混着用。② 每一位小数都保留。③ 表上的 atomic mass（原子质量）包括电子，每个电子 0.000&nbsp;549&nbsp;u。用 <i>m</i><sub>p</sub> 算 mass defect 时，先从 atomic mass 里减去 <i>Z</i> × 0.000&nbsp;549&nbsp;u。④ 算反应（α、β<sup>−</sup>、fission、fusion）时，两边的电子会抵消，直接用 atomic mass；β<sup>+</sup> 衰变还要再减去 2<i>m</i><sub>e</sub>。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Mass defect of a nucleus · 一个核的质量亏损</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq">Δ<i>m</i> = (<i>Zm</i><sub>p</sub> + <i>Nm</i><sub>n</sub>) − <i>m</i><sub>nucleus</sub></div>
+    <dl class="sym">
+      <div><dt>Z, N</dt><dd>protons、neutrons 的个数</dd></div>
+      <div><dt>m<sub>nucleus</sub></dt><dd>整个核的质量 (u)</dd></div>
+    </dl>
+    <p class="trap"><b>然后：</b><span class="m"><i>E</i><sub>B</sub> = Δ<i>m c</i>²</span>；每个 nucleon 的 binding energy = <span class="m"><i>E</i><sub>B</sub>/<i>A</i></span>。<br><b>例子：</b>helium-4：<span class="m">Δ<i>m</i> = 0.030&nbsp;377&nbsp;u</span>，<span class="m"><i>E</i><sub>B</sub> = 0.030&nbsp;377 × 931.5 ≈ 28.3&nbsp;MeV</span>。它有 4 个 nucleons：每个约 28.3 / 4 ≈ 7.1&nbsp;MeV。<br><b>注意：</b>核的质量（u）不在 data sheet 上，题目会给。</p>
+  </div>
+
+  <h3>衰变和人工核转变放出的能量</h3>
+  <ul class="pts">
+    <li>守恒的有三样：mass-energy（质能）、<span class="m"><i>A</i></span> 和电荷。</li>
+    <li>反应后质量<b>变少</b>：少掉的质量变成 <span class="t">kinetic energy</span>（动能）和 γ 射线。反应后质量<b>变多</b>：必须从外面给能量。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Alpha decay</div><p>衰变前后 momentum 都是 0，所以 daughter 往后退，叫 <span class="t">recoil</span>（反冲），像开枪时枪往后坐。α 很轻，拿走大部分能量（约 98&nbsp;%）。所以 α 的能量是<b>固定的</b>。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Beta decay</div><p>每次衰变放出的能量都一样，但 β 的能量<b>有大有小</b>。Pauli（1930）说：剩下的能量被一个 neutrino 带走了。neutrino 1956 年第一次被探测到。</p></div>
+  </div>
+  <ul class="pts">
+    <li><span class="t">Artificial transmutation</span>（人工核转变）：用粒子去打核，逼它变成别的核。</li>
+    <li>Rutherford（1919，第一次）：<span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>14</span><span>7</span></span>N</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>17</span><span>8</span></span>O</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>1</span></span>H</span></span>。</li>
+    <li>Cockcroft and Walton（1932）：<span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>7</span><span>3</span></span>Li</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>1</span></span>H</span> → <span style="white-space:nowrap">2 <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span></span>，放出约 17&nbsp;MeV，和质量亏损预测的一样。这是 <span class="m"><i>E</i> = <i>mc</i>²</span> 第一次被直接验证。</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="secnum">4.3</div>
+  <h2>比结合能曲线：往铁走就放能量<span class="en">Binding energy per nucleon</span></h2>
+  <p class="big"><span class="lbl">一句话</span>比结合能越大，核里的 nucleons 结合得越紧。沿着曲线往上走（往 iron-56 走），质量就变少，能量就放出来。</p>
+  <ul class="pts">
+    <li><span class="t">Binding energy per nucleon</span>（比结合能）= <span class="m"><i>E</i><sub>B</sub>/<i>A</i></span>：平均每个 nucleon 的 binding energy。越大，结合得越紧。</li>
+    <li>讲义图 4.3（动画 4 里的曲线）画的是比结合能对 mass number <span class="m"><i>A</i></span> 的曲线。几个要记的点：</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>核</th><th>比结合能</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">Hydrogen-2</td><td style="white-space:nowrap">1.1&nbsp;MeV</td><td>只有 1.1&nbsp;MeV，很松</td></tr>
+        <tr><td style="white-space:nowrap">Helium-4</td><td style="white-space:nowrap">7.1&nbsp;MeV</td><td>特别高</td></tr>
+        <tr><td style="white-space:nowrap">Iron-56</td><td style="white-space:nowrap">8.8&nbsp;MeV</td><td>峰在它附近：结合得最紧</td></tr>
+        <tr><td style="white-space:nowrap">Uranium</td><td style="white-space:nowrap">约 7.6&nbsp;MeV</td><td>很重，比铁松一点</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li><b>Key rule：</b>沿着曲线往上走（往 iron 走）= 质量变少 = 放出能量。</li>
+    <li>为什么往上 = 质量变少：每个 nucleon 结合得更紧，合在一起时放出的能量更多，少掉的质量也更多。</li>
+    <li>往上走有两条路：轻核合起来（<span class="t">fusion</span>，核聚变），从左边往上；重核分开（<span class="t">fission</span>，核裂变），从右边往上。4.4 会讲这两种。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy from binding energies · 用结合能算放出的能量</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>E</i> = Σ<i>E</i><sub>B,after</sub> − Σ<i>E</i><sub>B,before</sub></div>
+    <dl class="sym">
+      <div><dt>E<sub>B</sub></dt><dd>每个核整个的 binding energy (MeV)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>fission 或 fusion，题目给了 binding energies。after 比 before 大，就放出能量。<br><b>陷阱：</b>图上读的是<b>每个 nucleon</b> 的值。先乘以 <i>A</i>，得到整个核的 <i>E</i><sub>B</sub>，再相加。</p>
+  </div>
+  <p>动画 4：左边（手机上是上面）看反应，右边（手机上是下面）看这个反应在曲线上从哪里走到哪里。</p>
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">动画 4 · 比结合能曲线：往铁走就放能量</span><span class="sim-tag"><span style="text-transform:none">曲线照讲义图 4.3 · 数字来自讲义 · 核的大小、速度和铁以后的例子：示意</span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边（手机上是上面）是反应小剧场，每个小点是一个 nucleon：U-235 吸收一个慢中子，变成 U-236*，拉长成花生形，分成 Xe-140 和 Sr-94 两块碎片和 2 个快中子；也可以换成 H-2 和 H-3 互相排斥着慢慢靠近，合成 He-4 和一个中子；或者两个比铁大的核硬合成一个更大的核。右边（手机上是下面）是比结合能曲线：纵轴 binding energy per nucleon，横轴 mass number A，峰在 Fe-56 附近。反应前后的点用箭头连起来：fission 和 fusion 都往上走，铁以后再聚变往下走。一条竖线是可以拖动的 A 光标。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="看哪一种核反应：Fission 裂变、Fusion 聚变、铁以后还聚变">
+        <button class="btn" type="button" id="s4-fis" aria-pressed="true">Fission</button>
+        <button class="btn" type="button" id="s4-fus" aria-pressed="false">Fusion</button>
+        <button class="btn" type="button" id="s4-fe" aria-pressed="false">铁以后还聚变？</button>
+      </span>
+      <label class="range"><i>A</i> 光标 <input type="range" id="s4-a" min="2" max="240" step="1" value="56"><output id="s4-a-out" for="s4-a">56</output></label>
+      <button class="btn" type="button" id="s4-replay">重放</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看 Fission：慢中子不带电，不被排斥，被 U-235 吸收；核拉长成花生形，裂成 Xe-140 和 Sr-94 两块，还有 2 个快中子。小的 Sr-94 飞得更快（动量一样大）。看右边（手机上是下面）的曲线：箭头从 U-235（7.6&nbsp;MeV）<b>往上</b>指到两块碎片（8.3 到 8.6&nbsp;MeV）→ 结合得更紧 → 质量变小 → 放出约 200&nbsp;MeV。② 换 Fusion：H-2 和 H-3 都带正电，越靠近，绿色的排斥力越大，细箭头（速度）越短；靠到约 3&nbsp;fm 以内才合在一起。箭头从 H-2（1.1&nbsp;MeV）往上走很多，到 He-4（7.1&nbsp;MeV）。③ 换“铁以后还聚变？”：两个比铁大的核硬合在一起，箭头<b>往下</b>走 → 质量变大 → 要吸收能量。④ 拖 <i>A</i> 光标：<i>A</i> 小（≤ 45）时，轻核合起来往上走；<i>A</i> 大（≥ 100）时，重核分开往上走；两边都是往铁走。Fe-56 附近曲线很平，合或分都几乎放不出能量。只有 <i>A</i> = 2、4、56、235 会显示讲义的数字。记住：比结合能大 = 核紧 = 拆开要给的能量多，不是核里“存着”的能量多。每个小点是一个 nucleon（点数是真的）；核的大小、速度，还有铁以后的例子（<i>A</i> = 100 + 100 → 200）都是示意。</p>
+  </figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">4.4</div>
+  <h2>核裂变和链式反应<span class="en">Fission and chain reactions</span></h2>
+  <p class="big"><span class="lbl">一句话</span>重核分开（fission）和轻核合起来（fusion），都让 nucleons 结合得更紧。产物的质量更小，所以放出能量。这一节先讲 fission。</p>
+  <ul class="pts">
+    <li><span class="t">Chain reaction</span>（链式反应）：一次 fission 放出的 neutrons，引起更多的 fission。</li>
+    <li><span class="t">Critical mass</span>（临界质量）：能让链式反应一直进行下去的最少燃料质量。</li>
+  </ul>
+
+  <h3>U-235 怎么裂开（Hahn and Strassmann，1938）</h3>
+  <ol class="pts">
+    <li>它吸收一个慢的 <span class="t">thermal neutron</span>（热中子）。neutron 不带电，所以不会被核推开。U-235 变成激发态的 U-236，拉长成花生的形状。</li>
+    <li>Strong nuclear force 的作用距离很短，抓不住离得远的两头。斥力把两头推开：变成两块 <span class="t">fission fragments</span>（裂变碎片，它们的动能最后变成热），再加 2 或 3 个快中子。</li>
+  </ol>
+  <div class="eq" style="font-size:clamp(17px,3.4vw,25px)"><span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>235</span><span>92</span></span>U</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>0</span></span>n</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>236</span><span>92</span></span>U<sup>*</sup></span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>140</span><span>54</span></span>Xe</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>94</span><span>38</span></span>Sr</span> + <span style="white-space:nowrap">2 <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>0</span></span>n</span></span></div>
+  <p class="note">这是一种可能的分法。检查配平：<i>A</i>：235 + 1 = 140 + 94 + 2 = 236；<i>Z</i>：92 = 54 + 38。</p>
+  <ul class="pts">
+    <li><b>能量：</b>U-235 每个 nucleon 7.6&nbsp;MeV；碎片是 8.3 到 8.6&nbsp;MeV。结合得更紧 → 质量更小 → 每次 fission 放出约 200&nbsp;MeV（这个数不在 data sheet 上，题目要用时会给）。</li>
+    <li>碎片有放射性，就是 <span class="t">nuclear waste</span>（核废料）。</li>
+  </ul>
+
+  <h3>链式反应</h3>
+  <p>新放出的 2 或 3 个 neutrons 可以再去引起 fission。关键是：平均每次 fission 的 neutrons 里，有<b>几个</b>引起了新的 fission（讲义图 4.4，动画 5）。</p>
+  <ul class="pts">
+    <li><b>多于一个：</b>fission 越来越多：1, 3, 9, 27, …。这是 <span class="t">uncontrolled chain reaction</span>（不受控链式反应），就是核爆炸。</li>
+    <li><b>正好一个：</b>速度稳定。这是 <span class="t">controlled chain reaction</span>（受控链式反应），反应堆就靠它。Fermi 的团队 1942 年第一次做到。</li>
+    <li><b>少于一个：</b>链式反应停了。</li>
+  </ul>
+  <ul class="pts">
+    <li>类比：传消息。每人传给 3 个人，很快全城都知道；每人只传 1 个人，一直只有一个人在说；不到 1 个，消息很快就断了。</li>
+    <li>小块燃料从表面跑掉很多 neutrons。小于 critical mass（<span class="t">subcritical</span>，次临界）：链式反应会停。大于 critical mass（<span class="t">supercritical</span>，超临界）：越来越快。</li>
+    <li>天然铀里只有 0.7&nbsp;% 是 U-235。反应堆的燃料要 <span class="t">enriched</span>（浓缩）到 3 到 5&nbsp;% 的 U-235；核弹要约 90&nbsp;%。</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">Reactor 反应堆</div><p><span class="t">Moderator</span>（慢化剂：水或石墨）让 neutrons <b>变慢</b>，慢的更容易让 U-235 裂开。<span class="t">Control rods</span>（控制棒：硼或镉）<b>吸收</b> neutrons，让每次 fission 正好引起一次新的 fission。<span class="t">Coolant</span>（冷却剂）把热带走，用来烧出蒸汽。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Bomb 核弹</div><p>高浓缩的燃料被一下子压到一起，变成 supercritical。没有东西吸收多出来的 neutrons，所有能量在不到一秒里放出来。</p></div>
+  </div>
+  <p>回到<a href="#sim4">动画 4</a>，选“Fission”：U-235 的点往上走到两块碎片。下面的动画 5 看链式反应怎样一代一代长大。</p>
+<figure class="sim" id="sim5">
+    <figcaption class="sim-head"><span class="sim-title">动画 5 · 链式反应：多于、正好、少于一个</span><span class="sim-tag"><span style="text-transform:none"><span style="white-space:nowrap">每次 3 个中子，同讲义图 4.4</span> · <span style="white-space:nowrap">1, 3, 9, 27 和约 200&nbsp;MeV：讲义</span> · <span style="white-space:nowrap">小块的分支和快慢：示意</span></span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="链式反应从左往右一代一代长。每个圆是一个 U-235 核，被中子打中就闪一下、裂成两块碎片，同时放出 3 个中子（箭头）。虚线框是燃料块：中子飞出虚线框就是跑掉了。控制棒插入时是燃料块里的一根深色横条，打到它的中子被吸收。右边（手机上是下面）的柱状图是每一代的裂变次数，下面写一共有几次裂变、大约放出多少能量。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <button class="btn" type="button" id="s5-rod" aria-pressed="false">控制棒：拔出</button>
+      <span class="seg" role="group" aria-label="燃料块的大小">
+        <button class="btn" type="button" id="s5-big" aria-pressed="true">大块 &gt; critical mass</button>
+        <button class="btn" type="button" id="s5-small" aria-pressed="false">小块 &lt; critical mass</button>
+      </span>
+      <button class="btn" type="button" id="s5-reset">重来（从 1 次裂变开始）</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看“控制棒拔出 + 大块”：每次裂变的 3 个中子都打中新的 U-235，裂变次数 1、3、9、27、81，柱子很快冲出图外。这就是不受控链式反应 = 核爆炸。核弹的燃料要浓缩到约 90&nbsp;%，压成 supercritical，没有东西吸收多余的中子；反应堆的燃料只有 3 到 5&nbsp;%，拔出控制棒也不会变成核弹。② 按一下“控制棒”按钮，让它变成“插入”：每次 1 个中子被控制棒吸收，1 个跑出燃料块，只剩 1 个引起新的裂变 → 每一代都是 1 次，速度稳定 = 反应堆。注意：控制棒是<b>吸收</b>中子；让中子<b>变慢</b>的是 moderator（慢化剂），不是控制棒。③ 换“小块”：中子离表面太近，很容易跑掉 → 平均少于一个，链式反应很快就停了（插不插控制棒都一样）。④ 看下面的能量：裂变次数 × 约 200&nbsp;MeV。关键不是每次放出几个中子，而是平均有几个<b>引起新的裂变</b>。说明：这里和讲义图 4.4 一样画成每次 3 个中子（讲义：2 或 3 个）；“小块”的 1 → 1 → 0 是示意；时间放慢了很多。换控制棒或燃料块会从 1 次裂变重新开始。</p>
+  </figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">4.4</div>
+  <h2>核聚变<span class="en">Nuclear fusion</span></h2>
+  <p class="big"><span class="lbl">一句话</span>轻核合起来，nucleons 结合得更紧，质量变少，放出能量。难的是两个核都带正电，要非常热，才能撞到一起。</p>
+  <ul class="pts">
+    <li><b>为什么放能量：</b>helium-4（每个 nucleon 7.1&nbsp;MeV）比 hydrogen-2（1.1&nbsp;MeV）结合得紧得多，所以产物质量更小。</li>
+    <li><b>为什么难：</b>两个核都带正电，互相推开。它们要靠近到约 3&nbsp;fm 以内，strong nuclear force 才起作用。所以气体要非常热、非常密：越热，核跑得越快，越能冲过斥力。太阳核心约 1.5 × 10<sup>7</sup>&nbsp;K；地球上的反应堆要超过 10<sup>8</sup>&nbsp;K。</li>
+    <li><b>太阳：</b><span class="m"><span style="white-space:nowrap">4 <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>1</span></span>H</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span> + <span style="white-space:nowrap">2 <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>0</span><span>+1</span></span>e</span> + 2 <i>ν</i><sub>e</sub></span>，一共放出 26.7&nbsp;MeV（包括 positron 的 <span class="t">annihilation</span>，湮灭）。</li>
+    <li><b>未来的反应堆：</b><span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>2</span><span>1</span></span>H</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>3</span><span>1</span></span>H</span> → <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span> + <span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>1</span><span>0</span></span>n</span></span>（17.6&nbsp;MeV）。燃料是 <span class="t">deuterium</span>（氘，hydrogen-2：1 个 proton、1 个 neutron）和 <span class="t">tritium</span>（氚，hydrogen-3：1 个 proton、2 个 neutrons）。</li>
+    <li>比铁更重的核再聚变，就要<b>吸收</b>能量（在曲线上往下走）。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th></th><th>Fission 裂变</th><th>Fusion 聚变</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">做什么</td><td>重核分开，比如 <span style="white-space:nowrap">U-235</span></td><td>轻核合起来，比如 H-2 和 H-3</td></tr>
+        <tr><td style="white-space:nowrap">在曲线上</td><td>从右边往上走（7.6 → 8.3 到 8.6&nbsp;MeV）</td><td>从左边往上走（1.1 → 7.1&nbsp;MeV）</td></tr>
+        <tr><td style="white-space:nowrap">需要什么</td><td>慢中子；燃料超过 critical mass</td><td>非常热、非常密（地球上 &gt; 10<sup>8</sup>&nbsp;K）</td></tr>
+        <tr><td style="white-space:nowrap">一次放多少</td><td>约 200&nbsp;MeV</td><td>H-2 + H-3：17.6&nbsp;MeV；太阳（4 个 H-1 → 1 个 He-4，一共）：26.7&nbsp;MeV</td></tr>
+        <tr><td style="white-space:nowrap">在哪里</td><td>反应堆、核弹</td><td>太阳、未来的反应堆</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>回到<a href="#sim4">动画 4</a>，选“Fusion”：箭头从 H-2 往上到 He-4。再选“铁以后还聚变？”，看箭头往下走。</p>
+</section>
+
+<section id="s8">
+  <div class="secnum">4.5</div>
+  <h2>两个要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>掷骰子模拟半衰期</h3>
+    <dl>
+      <dt>做法</dt><dd>掷 200 个骰子，把掷出 6 的拿走。剩下的再掷，一直重复。</dd>
+      <dt>结果</dt><dd>剩下的个数像讲义图 4.2 那样往下掉：大约掷 3.8 次，剩一半。不管一开始有多少个，都是这样。</dd>
+      <dt>为什么</dt><dd>每个骰子每次都有 1/6 的机会是 6，就像每个核每秒都有同样的机会（<i>λ</i>）衰变。每掷一次剩下 5/6，<span class="m">(5/6)<sup><i>n</i></sup> = ½</span> → <span class="m"><i>n</i> = ln 2 / ln(6/5) ≈ 3.8</span>。<a href="#sim3">动画 3</a> 的“掷骰子”模式就是这个实验。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>α、β、γ 的穿透能力</h3>
+    <dl>
+      <dt>目的</dt><dd>比较 α、β、γ 穿过物体的能力（<span class="t">penetrating power</span>，穿透能力）。</dd>
+      <dt>做法</dt><dd>先量 background count（本底计数：不放源时数到的次数）。把每个密封的源（Am-241：α；Sr-90：β；Co-60：γ）放在离 <span class="t">Geiger–Müller tube</span>（盖革-米勒计数管）固定的距离。分别在没有吸收物、纸、5&nbsp;mm 铝、10&nbsp;mm 铅的情况下计数。</dd>
+      <dt>结果</dt><dd>纸挡住 α；5&nbsp;mm 铝挡住 β；10&nbsp;mm 铅只让 γ 的计数减半。</dd>
+      <dt>结论</dt><dd>穿透能力 γ &gt; β &gt; α；电离能力正好反过来。</dd>
+      <dt>意义</dt><dd>这决定了怎样防护、怎样使用：烟雾报警器里用 α，治疗癌症用 γ。<a href="#sim2">动画 2</a> 的“穿透”那一半就是这个实验。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>E</i> = <i>mc</i>²</td><td>质量和能量；总表记在 Ch. 1、4、5</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>E</i> = Δ<i>m c</i>²<br><i>E</i> (MeV) = Δ<i>m</i> (u) × 931.5</td><td>质量少了放出的能量；也是 binding energy <i>E</i><sub>B</sub>；总表记在 Ch. 1、4</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f">Σ<i>A</i><sub>before</sub> = Σ<i>A</i><sub>after</sub><br>Σ<i>Z</i><sub>before</sub> = Σ<i>Z</i><sub>after</sub></td><td>写或检查核反应方程；找出缺的那个核</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>N</i><sub>t</sub> = <i>N</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup><br><i>λ</i> = ln 2 / <i>t</i><sub>½</sub></td><td>过了时间 <i>t</i> 还剩多少；decay constant</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>t</i> = (1/<i>λ</i>) ln(<i>N</i><sub>0</sub>/<i>N</i><sub>t</sub>)</td><td>从 <i>N</i><sub>0</sub> 降到 <i>N</i><sub>t</sub> 要多久</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>N</i><sub>t</sub> = <i>N</i><sub>0</sub>(½)<sup><i>n</i></sup><br><i>n</i> = <i>t</i> / <i>t</i><sub>½</sub></td><td>过了整数个 half-life</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>A</i> = <i>λN</i><br><i>A</i><sub>t</sub> = <i>A</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></td><td>activity，单位 Bq（<i>λ</i> 用 s<sup>−1</sup>）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f">Δ<i>m</i> = (<i>Zm</i><sub>p</sub> + <i>Nm</i><sub>n</sub>) − <i>m</i><sub>nucleus</sub></td><td>mass defect；<i>E</i><sub>B</sub> = Δ<i>m c</i>²；每个 nucleon：<i>E</i><sub>B</sub>/<i>A</i></td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>E</i> = Σ<i>E</i><sub>B,after</sub> − Σ<i>E</i><sub>B,before</sub></td><td>用 binding energies 算 fission 或 fusion</td><td><span class="badge learn">要背</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>短程的 strong nuclear force 对抗 protons 之间的斥力：核太大，或者 <span class="m"><i>N</i></span> 和 <span class="m"><i>Z</i></span> 搭配不对，就不稳定。</li>
+    <li>α：<span class="m"><i>A</i> − 4，<i>Z</i> − 2</span>。β<sup>−</sup>：n → p。β<sup>+</sup>：p → n。γ：只放能量。</li>
+    <li>电离能力 α &gt; β &gt; γ；穿透能力正好反过来。</li>
+    <li><span class="m"><i>N</i><sub>t</sub> = <i>N</i><sub>0</sub><i>e</i><sup>−<i>λt</i></sup></span>，<span class="m"><i>λ</i> = ln 2/<i>t</i><sub>½</sub></span>，<span class="m"><i>A</i> = <i>λN</i></span>（要得到 Bq，<i>λ</i> 用 s<sup>−1</sup>）。</li>
+    <li><span class="m"><i>E</i> = Δ<i>m c</i>²</span>，或 Δ<i>m</i> (u) × 931.5&nbsp;MeV。Fission 和 fusion 都沿曲线往上、往 iron-56 走：质量变少，放出能量。</li>
+    <li>α 的能量是固定的；β 的能量有大有小（因为有 neutrino）。反应堆：每次 fission 正好有一个 neutron 引起新的 fission；moderator 让中子变慢，control rods 吸收中子。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>β 粒子是核里本来就有的电子，衰变时跑了出来。<br><span class="ok">对：</span>β 粒子是衰变那一刻新造出来的：一个 n 变成 p，同时造出一个 electron。</div>
+    <div><span class="x">错：</span>α 电离最强，所以穿透也最强。<br><span class="ok">对：</span>正好反过来。α 电离最强，能量用得最快，一张纸就挡住。穿透：γ &gt; β &gt; α。</div>
+    <div><span class="x">错：</span>每过一个 half-life 减掉原来的一半，两个 half-life 以后就没了。<br><span class="ok">对：</span>减半的是剩下的：<span class="m"><i>N</i><sub>0</sub> → <i>N</i><sub>0</sub>/2 → <i>N</i><sub>0</sub>/4</span>。</div>
+    <div><span class="x">错：</span>加热，或者变成别的化合物，可以让它衰变得快一点。<br><span class="ok">对：</span>温度、化学、年龄、样品多大，都不改变 <i>λ</i> 和 half-life。</div>
+    <div><span class="x">错：</span>half-life 给的是小时，就直接用 h<sup>−1</sup> 的 <i>λ</i> 代进 <span class="m"><i>A</i> = <i>λN</i></span>，说单位是 Bq。<br><span class="ok">对：</span>要得到 Bq，<i>λ</i> 必须用 s<sup>−1</sup>。<i>λ</i> 和 <i>t</i> 永远用同一个时间单位。</div>
+    <div><span class="x">错：</span>计算器上用 log；把 <i>λ</i> 当成波长。<br><span class="ok">对：</span>用 ln。这里的 <i>λ</i> 是 decay constant。</div>
+    <div><span class="x">错：</span>一道题里一会儿用 u × 931.5，一会儿用 kg × <i>c</i>²，中间还四舍五入。<br><span class="ok">对：</span>只走一条路：u × 931.5 得 MeV；kg × <i>c</i>² 得 J。每一位小数都保留。</div>
+    <div><span class="x">错：</span>用 <i>m</i><sub>p</sub> 和 <i>m</i><sub>n</sub> 算 mass defect 时，直接用表上的 atomic mass。<br><span class="ok">对：</span>atomic mass 包括电子，先减去 <i>Z</i> × 0.000&nbsp;549&nbsp;u。算反应时电子会抵消，不用减；β<sup>+</sup> 衰变还要再减 2<i>m</i><sub>e</sub>。</div>
+    <div><span class="x">错：</span>binding energy 是核里存着、可以放出来的能量。<br><span class="ok">对：</span>binding energy 是拆开核时要给进去的能量。比结合能越大，结合得越紧。</div>
+    <div><span class="x">错：</span>control rods 让 neutrons 变慢。<br><span class="ok">对：</span>moderator 让 neutrons 变慢；control rods 吸收 neutrons。</div>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Nucleus</td><td>原子核</td><td>原子中间很小、很密、带正电的部分</td></tr>
+        <tr><td class="t">Nucleon</td><td>核子</td><td>一个 proton 或一个 neutron</td></tr>
+        <tr><td class="t">Strong nuclear force</td><td>核力</td><td>nucleons 之间很强、距离很短（约 3&nbsp;fm）的吸引力</td></tr>
+        <tr><td class="t">Mass number (A)</td><td>质量数</td><td>protons + neutrons 的个数</td></tr>
+        <tr><td class="t">Atomic number (Z)</td><td>原子序数</td><td>protons 的个数，它决定是什么元素</td></tr>
+        <tr><td class="t">Isotope</td><td>同位素</td><td><i>Z</i> 相同，neutrons 个数不同</td></tr>
+        <tr><td class="t">Band of stability</td><td>稳定带</td><td><i>N</i>–<i>Z</i> 图上稳定的核挤在一起的那条带</td></tr>
+        <tr><td class="t">Radioactive decay</td><td>放射性衰变</td><td>不稳定的核自己变成别的核</td></tr>
+        <tr><td class="t">Spontaneous</td><td>自发的</td><td>自己发生，不用谁去触发</td></tr>
+        <tr><td class="t">Parent nucleus</td><td>母核</td><td>衰变前的核</td></tr>
+        <tr><td class="t">Daughter nucleus</td><td>子核</td><td>衰变后的新核</td></tr>
+        <tr><td class="t">Transmutation</td><td>核嬗变</td><td>一种元素变成另一种</td></tr>
+        <tr><td class="t">Ionising radiation</td><td>电离辐射</td><td>把原子里的电子撞出来、做出 ion 的辐射</td></tr>
+        <tr><td class="t">Ion</td><td>离子</td><td>丢了或多了电子的原子</td></tr>
+        <tr><td class="t">Alpha particle (α)</td><td>α粒子</td><td>一个 helium-4 核，带 +2<i>e</i></td></tr>
+        <tr><td class="t">Beta particle (β)</td><td>β粒子</td><td>很快的 electron（β<sup>−</sup>）或 positron（β<sup>+</sup>）</td></tr>
+        <tr><td class="t">Positron</td><td>正电子</td><td>electron 的 antiparticle，带 +<i>e</i></td></tr>
+        <tr><td class="t">Antiparticle</td><td>反粒子</td><td>质量一样，电荷等性质相反</td></tr>
+        <tr><td class="t">Neutrino</td><td>中微子</td><td>不带电，质量几乎为 0</td></tr>
+        <tr><td class="t">Antineutrino</td><td>反中微子</td><td>neutrino 的 antiparticle，β<sup>−</sup> 衰变时放出</td></tr>
+        <tr><td class="t">Quark</td><td>夸克</td><td>proton 和 neutron 里面更小的粒子（T5 讲）</td></tr>
+        <tr><td class="t">Gamma ray (γ)</td><td>γ射线</td><td>从核里放出的高能 photon</td></tr>
+        <tr><td class="t">Photon</td><td>光子</td><td>一小份光的能量</td></tr>
+        <tr><td class="t">Excited state</td><td>激发态</td><td>比最低能量高的状态，记号 *</td></tr>
+        <tr><td class="t">Momentum</td><td>动量</td><td>运动的“量”，<i>p</i> = <i>mv</i></td></tr>
+        <tr><td class="t">Penetrating power</td><td>穿透能力</td><td>射线能穿过物体多远</td></tr>
+        <tr><td class="t">Half-life (t½)</td><td>半衰期</td><td>一半的核衰变掉所用的时间</td></tr>
+        <tr><td class="t">Decay constant (λ)</td><td>衰变常量</td><td>一个核每秒衰变的机会，单位 s<sup>−1</sup></td></tr>
+        <tr><td class="t">Activity (A)</td><td>放射性活度</td><td>每秒衰变多少个，单位 Bq</td></tr>
+        <tr><td class="t">Becquerel (Bq)</td><td>贝可勒尔</td><td>activity 的单位：每秒衰变 1 个</td></tr>
+        <tr><td class="t">Random</td><td>随机的</td><td>对一个核来说，没法预测</td></tr>
+        <tr><td class="t">Geiger–Müller (GM) tube</td><td>盖革-米勒计数管</td><td>数电离辐射的探测器</td></tr>
+        <tr><td class="t">Count rate</td><td>计数率</td><td>每秒（或每分钟）数到几次</td></tr>
+        <tr><td class="t">Background radiation</td><td>本底辐射</td><td>身边一直都有的辐射</td></tr>
+        <tr><td class="t">Mass defect (Δm)</td><td>质量亏损</td><td>nucleons 合成核时，或核反应里，少掉的质量</td></tr>
+        <tr><td class="t">Binding energy (E<sub>B</sub>)</td><td>结合能</td><td>把核拆成一个个 nucleon 要给的能量</td></tr>
+        <tr><td class="t">Binding energy per nucleon</td><td>比结合能</td><td><i>E</i><sub>B</sub> ÷ <i>A</i>；越大结合得越紧</td></tr>
+        <tr><td class="t">Atomic mass unit (u)</td><td>原子质量单位</td><td>1&nbsp;u = 1.661 × 10<sup>−27</sup>&nbsp;kg = 931.5&nbsp;MeV/<i>c</i>²</td></tr>
+        <tr><td class="t">Kinetic energy</td><td>动能</td><td>运动的能量</td></tr>
+        <tr><td class="t">Recoil</td><td>反冲</td><td>放出东西以后往后退</td></tr>
+        <tr><td class="t">Artificial transmutation</td><td>人工核转变</td><td>用粒子打核，逼它变成别的核</td></tr>
+        <tr><td class="t">Nuclear fission</td><td>核裂变</td><td>重核分成两个小一些的核</td></tr>
+        <tr><td class="t">Nuclear fusion</td><td>核聚变</td><td>轻核合成一个重一些的核</td></tr>
+        <tr><td class="t">Thermal (slow) neutron</td><td>热中子</td><td>慢的 neutron，U-235 很容易吸收它</td></tr>
+        <tr><td class="t">Fission fragments</td><td>裂变碎片</td><td>重核裂开后的两块，有放射性</td></tr>
+        <tr><td class="t">Nuclear waste</td><td>核废料</td><td>有放射性的裂变碎片</td></tr>
+        <tr><td class="t">Chain reaction</td><td>链式反应</td><td>fission 放出的 neutrons 引起更多 fission</td></tr>
+        <tr><td class="t">Uncontrolled chain reaction</td><td>不受控链式反应</td><td>每次 fission 引起不止一次新 fission</td></tr>
+        <tr><td class="t">Controlled chain reaction</td><td>受控链式反应</td><td>每次 fission 正好引起一次新 fission</td></tr>
+        <tr><td class="t">Generation (of fissions)</td><td>代</td><td>链式反应里的一轮 fission</td></tr>
+        <tr><td class="t">Critical mass</td><td>临界质量</td><td>能让链式反应一直进行的最少燃料</td></tr>
+        <tr><td class="t">Subcritical</td><td>次临界</td><td>燃料太少，链式反应会停</td></tr>
+        <tr><td class="t">Supercritical</td><td>超临界</td><td>比 critical mass 多，fission 越来越快</td></tr>
+        <tr><td class="t">Enriched uranium</td><td>浓缩铀</td><td>U-235 超过 0.7&nbsp;% 的铀</td></tr>
+        <tr><td class="t">Moderator</td><td>慢化剂</td><td>让 neutrons 变慢的材料（水、石墨）</td></tr>
+        <tr><td class="t">Control rod</td><td>控制棒</td><td>吸收 neutrons 的棒（硼、镉）</td></tr>
+        <tr><td class="t">Coolant</td><td>冷却剂</td><td>把热带出反应堆的液体或气体</td></tr>
+        <tr><td class="t">Deuterium, tritium</td><td>氘，氚</td><td>hydrogen-2 和 hydrogen-3</td></tr>
+        <tr><td class="t">Annihilation</td><td>湮灭</td><td>粒子和它的 antiparticle 变成 photons</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary><span>1. 一个核在稳定带上方（neutrons 太多）。它多半做哪种衰变？<i>A</i> 和 <i>Z</i> 怎么变？</span></summary><p class="ans"><b>β<sup>−</sup> 衰变：<i>A</i> 不变，<i>Z</i> + 1。</b>一个 neutron 变成 proton：neutrons 少一个，protons 多一个，核更靠近稳定带。</p></details>
+    <details><summary><span><span>2. <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>235</span><span>92</span></span>U</span></span> 做一次 α 衰变。子核（daughter）的 <i>A</i> 和 <i>Z</i> 是多少？它有几个 neutrons？</span></span></summary><p class="ans"><b><i>A</i> = 231，<i>Z</i> = 90，有 141 个 neutrons。</b>α 带走 <span class="m"><span style="white-space:nowrap"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em;margin-right:.04em"><span>4</span><span>2</span></span>He</span></span>。上面：235 − 4 = 231。下面：92 − 2 = 90。neutrons：<i>N</i> = <i>A</i> − <i>Z</i> = 231 − 90 = 141。检查：231 + 4 = 235，90 + 2 = 92，两边相等。</p></details>
+    <details><summary>3. 实验里，纸、5&nbsp;mm 铝、10&nbsp;mm 铅各挡住了什么？为什么 α 最容易被挡住？</summary><p class="ans"><b>纸挡住 α；5&nbsp;mm 铝挡住 β；10&nbsp;mm 铅只让 γ 的计数减半。</b>α 又重又慢，带 +2<i>e</i>，一路电离很多原子，能量很快用完。电离越强，穿透越弱。</p></details>
+    <details><summary>4. 一个样品有 1000 个没衰变的核，half-life 是 10&nbsp;s。30&nbsp;s 以后还剩多少？这时的 activity 是多少？</summary><p class="ans"><b>125 个；约 8.66&nbsp;Bq。</b><i>n</i> = 30/10 = 3，<i>N</i> = 1000 × (½)³ = 125。<i>λ</i> = ln 2/10 = 0.0693&nbsp;s<sup>−1</sup>。<i>A</i> = <i>λN</i> = 0.0693 × 125 ≈ 8.66&nbsp;Bq。用 <i>e</i><sup>−<i>λt</i></sup> 算也一样：1000 × <i>e</i><sup>−0.0693 × 30</sup> = 125。</p></details>
+    <details><summary>5. 同一个样品（half-life 10&nbsp;s），从 1000 个降到 100 个要多久？</summary><p class="ans"><b>约 33.2&nbsp;s。</b><i>t</i> = (1/<i>λ</i>) ln(<i>N</i><sub>0</sub>/<i>N</i><sub>t</sub>) = (1/0.0693) × ln(1000/100) = 14.43 × 2.303 ≈ 33.2&nbsp;s。检查：30&nbsp;s（3 个 half-life）剩 125，40&nbsp;s 剩 62.5，100 在中间，对。</p></details>
+    <details><summary>6. Helium-4 的 mass defect 是 0.030&nbsp;377&nbsp;u。它的 binding energy 是多少 MeV？每个 nucleon 呢？</summary><p class="ans"><b>约 28.3&nbsp;MeV；每个 nucleon 约 7.1&nbsp;MeV。</b><i>E</i><sub>B</sub> = 0.030&nbsp;377 × 931.5 ≈ 28.3&nbsp;MeV。He-4 有 4 个 nucleons：28.3 / 4 ≈ 7.1&nbsp;MeV，正好是曲线上 He-4 的值。</p></details>
+    <details><summary>7. Fission 是分开，fusion 是合起来。为什么两个都放能量？</summary><p class="ans"><b>两个都沿比结合能曲线往上走（往 iron-56 走）。</b>往上 = nucleons 结合得更紧 = 质量更小，少掉的质量变成能量。比铁更重的核再 fusion，是往下走，要吸收能量。</p></details>
+    <details><summary>8. 反应堆里 moderator 和 control rods 各做什么？</summary><p class="ans"><b>Moderator 让 neutrons 变慢；control rods 吸收 neutrons。</b>慢的 neutron 更容易让 U-235 裂开。Control rods 吸走多余的 neutrons，让每次 fission 正好引起一次新的 fission，这就是 controlled chain reaction。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m8/t3.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M8 T3 · The Quantum Atom</span><span class="pg-z">原子的量子模型：玻尔、德布罗意和薛定谔</span></a><a class="pg next" href="../m8/t5.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M8 T5 · Deep Inside the Atom</span><span class="pg-z">深入原子内部：标准模型和粒子加速器</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 8 From the Universe to the Atom · Chapter 4 整理。实验数据（Am-241、Sr-90、Co-60；纸、5&nbsp;mm 铝、10&nbsp;mm 铅、γ 计数减半；200 个骰子、约 3.8 次剩一半）和正文里的数字（230&nbsp;N、3&nbsp;fm、0.000&nbsp;55&nbsp;u、5&nbsp;% / 99&nbsp;%、0.030&nbsp;377&nbsp;u、28.3&nbsp;MeV、1.007&nbsp;276&nbsp;u、1.008&nbsp;665&nbsp;u、0.000&nbsp;549&nbsp;u、1.661 × 10<sup>−27</sup>&nbsp;kg、约 98&nbsp;%、约 17&nbsp;MeV、1.1 / 7.1 / 8.8 / 7.6&nbsp;MeV、8.3 到 8.6&nbsp;MeV、约 200&nbsp;MeV、2 或 3 个中子、0.7&nbsp;% / 3 到 5&nbsp;% / 约 90&nbsp;%、1.5 × 10<sup>7</sup>&nbsp;K、10<sup>8</sup>&nbsp;K、17.6&nbsp;MeV、26.7&nbsp;MeV）来自讲义。快问快答里的样品（1000 个核、half-life 10&nbsp;s）用的是简单整数。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · 稳定带：衰变把核带回带里（4.1 Radioactive decay: alpha, beta and gamma，第一节）
+   booklet：稳定的核在一条细的 band of stability 上（N 对 Z 作图）：轻核 N ≈ Z，重核要多一些 neutrons；Z > 82 没有稳定的核。
+   衰变后的 daughter 更靠近稳定带。Table 4.1：α = 2 protons 和 2 neutrons 一起离开，A − 4、Z − 2（主要是很重的核，Z > 82）；
+   β⁻ = 一个 neutron 变成 proton，A 不变、Z + 1（带上方：中子太多）；β⁺ = 一个 proton 变成 neutron，A 不变、Z − 1（带下方）；
+   γ = 激发态 * 的核放出 photon，A、Z 都不变（就在 α 或 β 之后）。
+   图上的方向：α (ΔZ, ΔN) = (−2, −2)，和 N = Z 线平行；β⁻ = (+1, −1)；β⁺ = (−1, +1)；γ = (0, 0)。
+   方程照 booklet 的写法（X = 衰变前的核，Y = 衰变后的核；γ 用 X* → X + γ）；配平：两边 A 的和、Z 的和相等
+   （β⁻ 的电子算 Z = −1，β⁺ 的正电子算 +1，ν 不写 A、Z）。
+   示意（booklet 没给）：稳定带的形状（中心 N = Z + 0.4 + 0.0063 Z²，半宽 0.9 + 0.085 Z，只画到 Z = 82）；
+   三个起点 (Z, N) = (20, 30)、(9, 8)、(86, 128)：走法和真实的衰变一致（β⁻、β⁻；β⁺；α、α），但不写元素名；
+   每次 α、β 之后都让子核处在激发态；粒子飞的快慢（只保证 α 慢、β 快、γ 最快）；核里小球的排法（平面图，小球个数 = A）。
+   “不会这样衰变”的几种，对这三个核在真实里也都不会发生（能量不够）。
+   颜色：proton --north，neutron --muted，现在的核（parent）--copper，α 的 4 个核子外圈 --north，e⁻ --south 实心，
+   e⁺ --north 空心，ν / ν̄ --muted 小点，γ 和激发态的光 --light。 */
+var ZCUT=82,GA=Math.PI*(3-Math.sqrt(5));
+function bandC(z){return z+0.4+0.0063*z*z;}
+function bandH(z){return 0.9+0.085*z;}
+function inBand(z,n){return z>=1&&z<=ZCUT&&Math.abs(n-bandC(z))<=bandH(z);}
+function side(z,n){if(z>ZCUT)return 'big';if(inBand(z,n))return 'ok';return n>bandC(z)?'rich':'poor';}
+var START={rich:[20,30],poor:[9,8],big:[86,128]};
+var WIN={rich:[21,29],poor:[9,9],big:[84,126]};          /* 放大图的中心（±5 格包住整条路线） */
+var DZ={a:-2,m:1,p:-1,g:0},DN={a:-2,m:-1,p:1,g:0};
+var TP=0.35,TM0=0.45,TM1=1.25,TG=0.8,TEND={a:2.6,m:2.0,p:2.0,g:1.5};   /* 准备、点开始走、点走到、γ 结束、整段结束（s） */
+var VA=32,VE=100,VNU=125,VG=125;                          /* 飞的速度 px/s（示意：α 慢；β 快；γ、ν 最快，接近 c） */
+var ANG={a:-1.95,e:-1.0,nu:-2.3,g:-2.05};                /* 飞出去的方向（画布坐标，负 = 往上） */                /* 飞出去的方向（画布坐标，负 = 往上） */
+
+/* ---------- 固定种子的随机数（同样的起点，核里的小球排法每次一样） ---------- */
+var seed=1;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+function ease(x){x=clamp(x,0,1);return x*x*(3-2*x);}
+function cbrt(x){return Math.pow(x,1/3);}
+
+/* ---------- 放大的核：A 个小球（平面图），CC = 1 是 proton ---------- */
+var NMX=240;
+var CX=new Float64Array(NMX),CY=new Float64Array(NMX),OX=new Float64Array(NMX),OY=new Float64Array(NMX);
+var TX=new Float64Array(NMX),TY=new Float64Array(NMX),CC=new Uint8Array(NMX),TC=new Uint8Array(NMX),USED=new Uint8Array(NMX);
+var AX=new Float64Array(4),AY=new Float64Array(4),AC=new Uint8Array(4),AI=new Int32Array(4);
+var cl={n:0,morph:1,j:-1,jFrom:0};
+function spiral(n,X,Y){for(var i=0;i<n;i++){var r=Math.sqrt((i+0.5)/n),t=i*GA;X[i]=r*Math.cos(t);Y[i]=r*Math.sin(t);}}
+function buildCluster(z,n){
+  var A=z+n,i,k,tmp;cl.n=A;spiral(A,CX,CY);
+  for(i=0;i<A;i++){CC[i]=i<z?1:0;OX[i]=CX[i];OY[i]=CY[i];}
+  for(i=A-1;i>0;i--){k=Math.floor(rnd()*(i+1));tmp=CC[i];CC[i]=CC[k];CC[k]=tmp;}
+  cl.morph=1;cl.j=-1;
+}
+function pickBall(col,ux,uy){var best=-1,bv=-9,i,v;for(i=0;i<cl.n;i++){if(CC[i]!==col)continue;v=CX[i]*ux+CY[i]*uy;if(v>bv){bv=v;best=i;}}return best;}
+function pickAlpha(ux,uy){                                  /* 2 个 p + 2 个 n，最靠近飞出去那一边 */
+  var k,i,v,col,c0,b1,b2,v1,v2;
+  for(col=0;col<2;col++){b1=-1;b2=-1;v1=-9;v2=-9;
+    for(i=0;i<cl.n;i++){if(CC[i]!==col)continue;v=CX[i]*ux+CY[i]*uy;if(v>v1){v2=v1;b2=b1;v1=v;b1=i;}else if(v>v2){v2=v;b2=i;}}
+    c0=col?0:2;AI[c0]=b1;AI[c0+1]=b2;}
+  for(k=0;k<4;k++)USED[AI[k]]=0;
+}
+function applyAlpha(){                                      /* 4 个核子离开；剩下的重新排紧（每个球就近换位，颜色跟着球走） */
+  var nO=cl.n,nN=nO-4,ratio=cbrt(nO/nN),q=0,i,j,k,best,bd,dx,dy,d,rem;
+  for(k=0;k<4;k++){AX[k]=CX[AI[k]]*ratio;AY[k]=CY[AI[k]]*ratio;AC[k]=CC[AI[k]];}
+  for(i=0;i<nO;i++){rem=false;for(k=0;k<4;k++)if(AI[k]===i)rem=true;if(rem)continue;TX[q]=CX[i]*ratio;TY[q]=CY[i]*ratio;TC[q]=CC[i];USED[q]=0;q++;}
+  spiral(nN,CX,CY);
+  for(j=nN-1;j>=0;j--){best=-1;bd=1e9;
+    for(i=0;i<nN;i++){if(USED[i])continue;dx=TX[i]-CX[j];dy=TY[i]-CY[j];d=dx*dx+dy*dy;if(d<bd){bd=d;best=i;}}
+    USED[best]=1;OX[j]=TX[best];OY[j]=TY[best];CC[j]=TC[best];}
+  cl.n=nN;cl.morph=0;
+}
+
+/* ---------- 状态 ---------- */
+var m={start:'rich',z:20,n:30,exc:false,mode:'start',msgA:'',msgB:'',hist:[],rej:null,eq:null,time:0};
+var an={on:false,k:'',t:0,z0:0,n0:0,z1:0,n1:0,applied:false,sx:0,sy:0};
+var MOVE={m:'中子太多 → β⁻：一个 n 变成 p → Z + 1，N − 1，A 不变 → 往右下走一格',
+          p:'中子太少 → β⁺：一个 p 变成 n → Z − 1，N + 1，A 不变 → 往左上走一格',
+          a:'太大 → α：2 个 p 和 2 个 n 一起飞出 → A − 4，Z − 2 → 往左下斜着走两格',
+          g:'γ：A 和 Z 都不变 → 点不动，只是放掉多余的能量'};
+var STARTMSG={rich:'这个核在稳定带上方：中子太多',poor:'这个核在稳定带下方：中子太少',big:'这个核太大：Z = 86 > 82，没有稳定的核'};
+var NOWAY='→ 这个核不会这样衰变（虚线箭头：核不动）';
+
+function reset(key){
+  if(key)m.start=key;
+  var s=START[m.start];m.z=s[0];m.n=s[1];m.exc=false;m.mode='start';m.hist.length=0;m.rej=null;m.eq=null;
+  an.on=false;seed=20260401+s[0]*131+s[1];buildCluster(m.z,m.n);sync();
+}
+function post(z,n,moved){
+  var sd=side(z,n);
+  if(sd==='ok')return moved?(m.exc?'到带子里了 → 按 γ 放掉多余的能量，就稳定了':'到带子里了 → 稳定，不再衰变'):'在稳定带里 → 稳定，不再衰变';
+  if(sd==='big')return 'Z = '+z+'，还是 > 82 → 还是太大，还会再衰变';
+  if(sd==='rich')return moved?'更靠近了，但还在带子上方 → 还会再衰变':'还在带子上方：中子太多 → 还会再衰变';
+  return moved?'更靠近了，但还在带子下方 → 还会再衰变':'还在带子下方：中子太少 → 还会再衰变';
+}
+function statusAB(){
+  if(m.mode==='start')return [STARTMSG[m.start],'试试哪种衰变能把它带回带里'];
+  if(m.mode==='rej')return [m.msgA,m.msgB];
+  var B='';
+  if(m.mode==='move'){if(!an.on||an.t>=TM1)B=post(m.z,m.n,true);return [MOVE[m.hist[m.hist.length-1].k],B];}
+  if(!an.on||an.t>=TG)B=post(m.z,m.n,false);
+  return [MOVE.g,B];
+}
+/* 这个衰变会不会发生？不会的话给出原因（A 行、B 行）和要不要画虚线箭头 */
+var JD={ok:false,A:'',B:'',arrow:false};
+function judge(k){
+  var sd=side(m.z,m.n);JD.ok=false;JD.arrow=false;JD.B=NOWAY;
+  if(k==='g'){
+    if(m.exc){JD.ok=true;return JD;}
+    if(!m.hist.length){JD.A='γ 只在刚衰变完、子核是激发态 * 时才有';JD.B='→ 先做一次 α 或 β 衰变';}
+    else{JD.A='已经放过 γ 了：现在是基态';JD.B='→ 没有多余的能量可放';}
+    return JD;
+  }
+  if(m.exc){JD.A='子核还在激发态 *：多余的能量要先放掉';JD.B='→ 先按 γ，再看下一步';return JD;}
+  if(sd==='ok'){JD.A='这个核在稳定带里 → 稳定';JD.B='→ 不会再 α 或 β 衰变';return JD;}
+  JD.arrow=true;
+  if(sd==='big'){
+    if(k==='a'){JD.ok=true;return JD;}
+    JD.A=k==='m'?'β⁻：A 不变 → 核还是一样大，Z 还变大了':'β⁺：A 不变 → 核还是一样大，还是太大';return JD;
+  }
+  if(k==='a'){JD.A='α 衰变主要发生在很重的核（Z > 82）';return JD;}
+  if(sd==='rich'){if(k==='m'){JD.ok=true;return JD;}JD.A='β⁺ 会让它离带子更远（Z − 1，N + 1）';return JD;}
+  if(k==='p'){JD.ok=true;return JD;}
+  JD.A='β⁻ 会让它离带子更远（Z + 1，N − 1）';return JD;
+}
+
+/* ---------- 方程（booklet 写法）和配平 ---------- */
+function NU(a,z,x,it,star){return {k:'n',a:String(a),z:String(z),x:x,it:!!it,star:!!star};}
+var HE4=NU(4,2,'He'),OFX=[-1,1,1,-1],OFY=[-1,1,-1,1];  /* α 飞的时候 4 个核子排成 2 × 2（p、p 对角） */
+var PL={k:'o',s:'+'},TO={k:'o',s:'→'},ANU={k:'nu',bar:true},NUE={k:'nu',bar:false};
+function zs(z){return z<0?'−'+(-z):String(z);}
+function makeEq(k,z,n){
+  var A=z+n;
+  if(k==='a')return {t:[NU(A,z,'X'),TO,NU(A-4,z-2,'Y'),PL,NU(4,2,'He')],A:A+' = '+(A-4)+' + 4',Z:z+' = '+(z-2)+' + 2'};
+  if(k==='m')return {t:[NU(A,z,'X'),TO,NU(A,z+1,'Y'),PL,NU(0,zs(-1),'e'),PL,ANU],A:A+' = '+A+' + 0',Z:z+' = '+(z+1)+' + (−1)'};
+  if(k==='p')return {t:[NU(A,z,'X'),TO,NU(A,z-1,'Y'),PL,NU(0,'+1','e'),PL,NUE],A:A+' = '+A+' + 0',Z:z+' = '+(z-1)+' + 1'};
+  return {t:[NU(A,z,'X',false,true),TO,NU(A,z,'X'),PL,NU(0,0,'γ',true)],A:A+' = '+A+' + 0',Z:z+' = '+z+' + 0'};
+}
+/* 画一个记号，返回宽度（draw = false 只量宽度）：核素 A 在左上、Z 在左下（右对齐），运算符，ν̄e / νe */
+function tok(ctx,tk,x,y,col,es,ess,draw){
+  var w,w1,w2,f='500 ';
+  if(tk.k==='n'){
+    ctx.font=f+ess+'px '+MATH;w=Math.max(ctx.measureText(tk.a).width,ctx.measureText(tk.z).width);
+    if(draw){txt(ctx,tk.a,x+w,y-es*0.42,col,ess,500,'right','alphabetic',MATH);txt(ctx,tk.z,x+w,y+es*0.26,col,ess,500,'right','alphabetic',MATH);}
+    ctx.font=(tk.it?'italic 500 ':f)+es+'px '+MATH;w1=ctx.measureText(tk.x).width;
+    if(draw)txt(ctx,tk.x,x+w+1,y,col,es,tk.it?'italic 500':500,'left','alphabetic',MATH);
+    w2=0;if(tk.star){ctx.font=f+ess+'px '+FONT;w2=ctx.measureText('*').width+1;if(draw)txt(ctx,'*',x+w+2+w1,y-es*0.42,col,ess+1,600,'left','alphabetic',FONT);}
+    return w+1+w1+w2;
+  }
+  if(tk.k==='o'){var pd=tk.s==='→'?8:5;ctx.font=f+es+'px '+MATH;w=ctx.measureText(tk.s).width;if(draw)txt(ctx,tk.s,x+pd,y,col,es,500,'left','alphabetic',MATH);return w+2*pd;}
+  ctx.font='italic 500 '+es+'px '+MATH;w1=ctx.measureText('ν').width;ctx.font=f+ess+'px '+MATH;w2=ctx.measureText('e').width;
+  if(draw){txt(ctx,'ν',x,y,col,es,'italic 500','left','alphabetic',MATH);txt(ctx,'e',x+w1+0.5,y+es*0.26,col,ess,500,'left','alphabetic',MATH);
+    if(tk.bar)seg(ctx,x+1,y-es*0.62,x+w1,y-es*0.62,col,1.2);}
+  return w1+0.5+w2;
+}
+function eqDraw(ctx,toks,x,y,col,es,ess){for(var i=0;i<toks.length;i++)x+=tok(ctx,toks[i],x,y,col,es,ess,true);return x;}
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+var LC={W:-1};
+function lay(W){
+  if(LC.W===W)return LC;
+  var L=LC,ow,rcw,cs;L.W=W;L.wide=W>=640;
+  if(L.wide){
+    rcw=W>=720?160:150;ow=clamp(Math.round(W*0.25),150,190);cs=clamp(Math.floor((W-124-ow-rcw)/11),18,25);
+    L.stF=14.5;L.stY=26;L.stLH=21;L.stMax=2;L.titY=82;
+    L.ox0=50;L.ox1=50+ow;L.oy0=96;L.cs=cs;L.oy1=L.oy0+11*cs;
+    L.gx0=L.ox1+56;L.gy0=L.oy0;L.gx1=L.gx0+11*cs;L.gy1=L.gy0+11*cs;
+    L.rc0=W-rcw;L.cx=L.rc0+rcw/2+4;L.cy=L.gy0+104;L.R0=(rcw>=160?53:50)/cbrt(214);
+    L.px0=L.rc0-8;L.py0=64;L.px1=W-2;L.py1=L.cy+62;
+    L.stateG=22;L.rdX=L.rc0+4;L.rdY=L.cy+124;L.rdDY=25;
+    L.tickY=L.gy1+16;L.ztY=L.gy1+34;
+    L.eqY=L.gy1+78;L.balY=L.eqY+30;L.balY2=L.balY;L.ES=19;L.ESS=11.5;L.H=L.balY+22;
+  }else{
+    ow=clamp(Math.round(W*0.42),130,220);cs=clamp(Math.floor((W-44-86)/11),17,26);
+    L.stF=13.5;L.stY=19;L.stLH=18;L.stMax=3;L.titY=0;
+    L.ox0=38;L.ox1=38+ow;L.oy0=90;L.oy1=242;L.cs=cs;
+    L.rc0=L.ox1+12;L.cx=Math.round((L.rc0+W)/2);L.cy=176;L.R0=Math.min(46,(W-L.rc0)/2-26)/cbrt(214);
+    L.px0=L.rc0;L.py0=66;L.px1=W-2;L.py1=L.cy+50;
+    L.stateG=19;L.tickY0=L.oy1+14;
+    L.gx0=44;L.gy0=L.oy1+56;L.gx1=L.gx0+11*cs;L.gy1=L.gy0+11*cs;
+    L.rdX=L.gx1+10;L.rdY=L.gy0+26;L.rdDY=40;
+    L.tickY=L.gy1+15;L.ztY=L.gy1+31;
+    L.eqY=L.ztY+38;L.balY=L.eqY+27;L.balY2=L.balY+20;L.ES=17;L.ESS=11;L.H=L.balY2+14;
+  }
+  return L;
+}
+
+/* ---------- 状态提示换行：在“，”“：”后面和“ →”前面可以断开 ---------- */
+var PCS=[];
+function pieces(s){PCS.length=0;var cur='',i,ch;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch===' '&&s.charAt(i+1)==='→'&&cur){PCS.push(cur);cur='';}cur+=ch;if(ch==='，'||ch==='：'){PCS.push(cur);cur='';}}
+  if(cur)PCS.push(cur);return PCS;}
+var WR={key:'',lines:[],size:13};
+function wrapAll(ctx,L,a,b){
+  var key=a+'|'+b+'|'+L.W;if(WR.key===key)return WR;
+  var size,maxW=L.W-32,parts=[a,b],p,k,line,t,ps;
+  for(size=L.stF;size>=11.5;size-=1){
+    WR.lines.length=0;ctx.font='600 '+size+'px '+FONT;
+    for(p=0;p<2;p++){if(!parts[p])continue;ps=pieces(parts[p]);line='';
+      for(k=0;k<ps.length;k++){t=line?line+ps[k]:ps[k].replace(/^ +/,'');if(!line||ctx.measureText(t).width<=maxW)line=t;else{WR.lines.push(line);line=ps[k].replace(/^ +/,'');}}
+      if(line)WR.lines.push(line);}
+    if(WR.lines.length<=L.stMax)break;
+  }
+  WR.key=key;WR.size=size;return WR;
+}
+
+/* ---------- 小工具 ---------- */
+function hatch(ctx,x0,y0,x1,y1,col,gap){
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0,x1-x0,y1-y0);ctx.clip();ctx.strokeStyle=col;ctx.lineWidth=1;ctx.setLineDash([]);ctx.beginPath();
+  for(var s=x0-(y1-y0);s<x1;s+=gap){ctx.moveTo(s,y1);ctx.lineTo(s+(y1-y0),y0);}ctx.stroke();ctx.restore();}
+function cross(ctx,x,y,r,col){seg(ctx,x-r,y-r,x+r,y+r,col,2);seg(ctx,x-r,y+r,x+r,y-r,col,2);}
+function gammaW(ctx,x,y,ux,uy,a,len){                       /* γ：琥珀色波包，头在 (x,y)，方向 (ux,uy) */
+  var n=22,i,s,d,w,qx=-uy,qy=ux,X,Y;
+  ctx.beginPath();
+  for(i=0;i<=n;i++){s=i/n;d=-len-7+len*s;w=Math.sin(s*TAU*2)*3.6*Math.sin(s*Math.PI);X=x+ux*d+qx*w;Y=y+uy*d+qy*w;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+  ctx.strokeStyle=rgba(C.light,a);ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+  arrow(ctx,x-ux*8,y-uy*8,x,y,rgba(C.light,a),2,7);
+}
+function nuDraw(ctx,x,y,bar,col,size){                      /* “ν̄e / νe” 标签，返回宽度 */
+  ctx.font='italic 500 '+size+'px '+MATH;var w1=ctx.measureText('ν').width;
+  txt(ctx,'ν',x,y,col,size,'italic 500','left','alphabetic',MATH);
+  txt(ctx,'e',x+w1+0.5,y+size*0.26,col,11,500,'left','alphabetic',MATH);
+  if(bar)seg(ctx,x+1,y-size*0.62,x+w1,y-size*0.62,col,1.2);
+}
+function kLab(ctx,k,x,y,col,size,suf){                    /* 衰变名字（居中）：β 的 ± 号画成上标 */
+  var g=k==='a'?'α':(k==='g'?'γ':'β'),sg=k==='m'?'−':(k==='p'?'+':''),w1,w2,w3;
+  ctx.font='italic 600 '+size+'px '+MATH;w1=ctx.measureText(g).width;ctx.font='700 11px '+FONT;w2=sg?ctx.measureText(sg).width+1:0;
+  ctx.font='700 12px '+FONT;w3=suf?ctx.measureText(suf).width:0;
+  var x0=x-(w1+w2+w3)/2;txt(ctx,g,x0,y,col,size,'italic 600','left','alphabetic',MATH);
+  if(sg)txt(ctx,sg,x0+w1+1,y-size*0.45,col,11,700,'left','alphabetic',FONT);if(suf)txt(ctx,suf,x0+w1+w2,y,col,12,700,'left');
+}
+function fadeAt(L,x,y){return clamp(Math.min(x-L.px0,L.px1-x,y-L.py0)/16,0,1);}
+
+/* ---------- 左边（手机上面）：N–Z 总图 ---------- */
+function OXp(L,z){return L.ox0+z/100*(L.ox1-L.ox0);}
+function OYp(L,n){return L.oy1-n/150*(L.oy1-L.oy0);}
+function markerZN(){                                       /* 点现在在 (Z, N) 的哪里（走的时候是中间值） */
+  if(an.on&&an.k!=='g'){var u=ease((an.t-TM0)/(TM1-TM0));return [lerp(an.z0,an.z1,u),lerp(an.n0,an.n1,u)];}
+  return [m.z,m.n];
+}
+var MZ=[0,0];
+function drawOverview(ctx,L){
+  var x0=L.ox0,x1=L.ox1,y0=L.oy0,y1=L.oy1,z,xh=OXp(L,ZCUT+0.5),i,v,w=L.wide;
+  ctx.fillStyle=rgba(C.muted,0.07);ctx.fillRect(xh,y0,x1-xh,y1-y0);
+  hatch(ctx,xh,y0,x1,y1,rgba(C.muted,0.38),6);
+  ctx.beginPath();
+  for(z=1;z<=ZCUT;z++)ctx.lineTo(OXp(L,z),OYp(L,bandC(z)+bandH(z)+0.5));
+  ctx.lineTo(OXp(L,ZCUT+0.5),OYp(L,bandC(ZCUT)+bandH(ZCUT)+0.5));ctx.lineTo(OXp(L,ZCUT+0.5),OYp(L,bandC(ZCUT)-bandH(ZCUT)-0.5));
+  for(z=ZCUT;z>=1;z--)ctx.lineTo(OXp(L,z),OYp(L,Math.max(0,bandC(z)-bandH(z)-0.5)));
+  ctx.closePath();ctx.fillStyle=rgba(C.ink,0.16);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.4);ctx.lineWidth=1;ctx.stroke();
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0,x1-x0,y1-y0);ctx.clip();seg(ctx,x0,y1,OXp(L,100),OYp(L,100),C.muted,1.3,[5,4]);ctx.restore();
+  seg(ctx,x0,y0,x0,y1,C.muted,1);seg(ctx,x0,y1,x1,y1,C.muted,1);
+  for(i=0;i<=5;i++){v=i*20;if(!w&&i%2)continue;seg(ctx,OXp(L,v),y1,OXp(L,v),y1+4,C.muted,1);txt(ctx,String(v),OXp(L,v),y1+15,C.muted,11,500,'center');}
+  for(i=0;i<=3;i++){v=i*50;seg(ctx,x0-4,OYp(L,v),x0,OYp(L,v),C.muted,1);txt(ctx,String(v),x0-6,OYp(L,v)+4,C.muted,11,500,'right');}
+  txt(ctx,'↑ N 中子数',16,y0-10,C.ink,11.5,600);
+  txt(ctx,'Z 质子数 →',xh-6,y1-8,C.ink,11.5,600,'right');
+  txt(ctx,'N = Z',OXp(L,w?64:66),OYp(L,w?50:46),C.muted,11.5,600,'left');
+  txt(ctx,'稳定带',OXp(L,w?47:44),OYp(L,w?82:88),C.ink,12,700,'right');
+  txt(ctx,'Z > 82：没有稳定的核',xh-4,y0+14,C.muted,11,600,'right');
+  /* 放大的范围 + 点 */
+  var c=WIN[m.start],rx0=OXp(L,c[0]-5.5),rx1=OXp(L,c[0]+5.5),ry0=OYp(L,c[1]+5.5),ry1=OYp(L,c[1]-5.5);
+  rrect(ctx,rx0,ry0,rx1-rx0,ry1-ry0,2);ctx.strokeStyle=C.ink;ctx.lineWidth=1.3;ctx.stroke();
+  var p=markerZN();dot(ctx,OXp(L,p[0]),OYp(L,p[1]),3.4,C.copper);
+}
+
+/* ---------- 放大图：每一格 = 一种核 ---------- */
+function gcx(L,z){return L.gx0+(z-(WIN[m.start][0]-5))*L.cs+L.cs/2;}
+function gcy(L,n){return L.gy0+((WIN[m.start][1]+5)-n)*L.cs+L.cs/2;}
+function drawGrid(ctx,L){
+  var c=WIN[m.start],z0=c[0]-5,n0=c[1]-5,cs=L.cs,i,j,z,n,x,y,gx0=L.gx0,gy0=L.gy0,gx1=L.gx1,gy1=L.gy1;
+  ctx.fillStyle=C.surface;ctx.fillRect(gx0,gy0,gx1-gx0,gy1-gy0);
+  for(i=0;i<11;i++)for(j=0;j<11;j++){z=z0+i;n=n0+j;if(inBand(z,n)){ctx.fillStyle=rgba(C.ink,0.16);ctx.fillRect(gx0+i*cs,gy0+(10-j)*cs,cs,cs);}}
+  if(z0+10>ZCUT){x=gx0+(ZCUT+1-z0)*cs;ctx.fillStyle=rgba(C.muted,0.07);ctx.fillRect(x,gy0,gx1-x,gy1-gy0);hatch(ctx,x,gy0,gx1,gy1,rgba(C.muted,0.38),7);}
+  for(i=0;i<=11;i++){seg(ctx,gx0+i*cs,gy0,gx0+i*cs,gy1,rgba(C.muted,0.28),1);seg(ctx,gx0,gy0+i*cs,gx1,gy0+i*cs,rgba(C.muted,0.28),1);}
+  ctx.strokeStyle=C.muted;ctx.lineWidth=1;ctx.strokeRect(gx0,gy0,gx1-gx0,gy1-gy0);
+  /* N = Z 线 */
+  var a0=Math.max(z0-0.5,n0-0.5),a1=Math.min(z0+10.5,n0+10.5);
+  if(a1>a0){var X0=gx0+(a0-(z0-0.5))*cs,Y0=gy0+((n0+10.5)-a0)*cs,X1=gx0+(a1-(z0-0.5))*cs,Y1=gy0+((n0+10.5)-a1)*cs;
+    seg(ctx,X0,Y0,X1,Y1,C.muted,1.3,[5,4]);
+    if(a1-a0>6){ctx.font='600 11.5px '+FONT;var nw=ctx.measureText('N = Z').width;rrect(ctx,gx1-nw-9,gy0+3,nw+6,16,3);ctx.fillStyle=C.surface;ctx.fill();txt(ctx,'N = Z',gx1-6,gy0+15,C.muted,11.5,600,'right');}}
+  /* 刻度：现在的 Z、N 用铜色 */
+  var p=markerZN(),zc=m.z,nc=m.n;
+  for(i=0;i<11;i++){z=z0+i;txt(ctx,String(z),gx0+i*cs+cs/2,L.tickY,z===zc?C.copper:C.muted,11,z===zc?700:500,'center');}
+  for(j=0;j<11;j++){n=n0+j;txt(ctx,String(n),gx0-5,gy0+(10-j)*cs+cs/2+4,n===nc?C.copper:C.muted,11,n===nc?700:500,'right');}
+  txt(ctx,'↑ N 中子数',L.wide?gx0-28:16,gy0-10,C.ink,11.5,600);
+  rrect(ctx,gx1-58,gy0-21,13,13,2);ctx.fillStyle=rgba(C.ink,0.16);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.4);ctx.lineWidth=1;ctx.stroke();
+  txt(ctx,'稳定带',gx1,gy0-10,C.ink,11.5,600,'right');
+  txt(ctx,'Z 质子数 →（每一格 = 一种核）',(gx0+gx1)/2,L.ztY,C.ink,11.5,600,'center');
+  if(z0+10>ZCUT){var hx=gx0+(ZCUT+1-z0)*cs,lab='Z > 82：没有稳定的核',lw;ctx.font='600 11px '+FONT;lw=ctx.measureText(lab).width;
+    var lx=Math.min((hx+gx1)/2,gx1-lw/2-4),ly=gy1-cs*0.5;rrect(ctx,lx-lw/2-4,ly-9,lw+8,17,4);ctx.fillStyle=C.stage;ctx.fill();txt(ctx,lab,lx,ly+4,C.muted,11,600,'center');}
+  /* 走过的路 */
+  var h,k,last=m.hist.length-1,sh=Math.max(5,cs*0.3);
+  for(i=0;i<=last;i++){h=m.hist[i];if(an.on&&i===last&&an.t<TP)continue;
+    var xa=gcx(L,h.z),ya=gcy(L,h.n),xb=gcx(L,h.z+DZ[h.k]),yb=gcy(L,h.n+DN[h.k]),dx=xb-xa,dy=yb-ya,dl=Math.hypot(dx,dy),ux=dx/dl,uy=dy/dl;
+    ring(ctx,xa,ya,cs*0.3,rgba(C.muted,0.9),1.6);
+    arrow(ctx,xa+ux*sh,ya+uy*sh,xb-ux*sh,yb-uy*sh,rgba(C.ink,0.75),2,8);
+    var lo=Math.max(14,cs*0.72),lxx=(xa+xb)/2-uy*lo-ux*cs*0.32,lyy=(ya+yb)/2+ux*lo-uy*cs*0.32;
+    kLab(ctx,h.k,lxx,lyy+4,C.ink,13.5,'');}
+  /* 不会发生：虚线箭头 */
+  if(m.rej){var r=m.rej,xa2=gcx(L,r.z0),ya2=gcy(L,r.n0),xb2=gcx(L,r.z1),yb2=gcy(L,r.n1),dx2=xb2-xa2,dy2=yb2-ya2,dl2=Math.hypot(dx2,dy2),vx=dx2/dl2,vy=dy2/dl2;
+    seg(ctx,xa2+vx*sh,ya2+vy*sh,xb2-vx*(sh+3),yb2-vy*(sh+3),C.muted,1.8,[4,4]);
+    arrow(ctx,xb2-vx*(sh+12),yb2-vy*(sh+12),xb2-vx*sh,yb2-vy*sh,C.muted,1.8,8);
+    rrect(ctx,xb2-cs/2+1.5,yb2-cs/2+1.5,cs-3,cs-3,3);ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([]);
+    var lo2=Math.max(15,cs*0.78);kLab(ctx,r.k,(xa2+xb2)/2-vy*lo2-vx*cs*0.32,(ya2+yb2)/2+vx*lo2-vy*cs*0.32+4,C.muted,13.5,' ×');}
+  /* 现在的核 */
+  x=gcx(L,p[0]);y=gcy(L,p[1]);
+  if(m.exc){var pu=0.5+0.5*Math.sin(m.time*5);ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=10;ring(ctx,x,y,cs*0.42+1.5,rgba(C.light,0.55+0.35*pu),2.6);ctx.restore();}
+  if(an.on&&an.k==='g'&&an.applied){var ug=(an.t-TP)/0.9;if(ug<1)ring(ctx,x,y,cs*(0.45+0.9*ug),rgba(C.light,1-ug),2);}
+  dot(ctx,x,y,cs*0.34,C.copper);
+}
+
+/* ---------- 放大看这个核 ---------- */
+function clusterR(L){return L.R0*cbrt(cl.n);}
+function ballXY(L,i,R,out){
+  var e=ease(cl.morph),bx=lerp(OX[i],CX[i],e),by=lerp(OY[i],CY[i],e),amp=m.exc?0.9:0.35;
+  out[0]=L.cx+bx*R+amp*Math.sin(m.time*(6+(i%5))+i*1.7);out[1]=L.cy+by*R+amp*Math.cos(m.time*(5+(i%7))+i*2.3);return out;
+}
+var BP=[0,0];
+function drawCluster(ctx,L){
+  var A=cl.n,R=clusterR(L),rb=Math.max(2.4,0.98*R/Math.sqrt(A)),i,col,u,k;
+  if(m.exc){var pu=0.5+0.5*Math.sin(m.time*5);ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=18;ring(ctx,L.cx,L.cy,R+rb+4,rgba(C.light,0.45+0.35*pu),4);ctx.restore();}
+  var ub=(an.on&&cl.j>=0&&an.applied)?clamp((an.t-TP)/0.3,0,1):1;
+  for(i=0;i<A;i++){ballXY(L,i,R,BP);
+    if(i===cl.j&&ub<1){dot(ctx,BP[0],BP[1],rb,cl.jFrom?C.north:C.muted);dot(ctx,BP[0],BP[1],rb,rgba(CC[i]?C.north:C.muted,ub));}
+    else dot(ctx,BP[0],BP[1],rb,CC[i]?C.north:C.muted);
+    ring(ctx,BP[0],BP[1],rb,rgba(C.stage,0.85),rb>3.5?1:0.7);}
+  /* 准备衰变：要变的球亮一下 */
+  if(an.on&&an.t<TP+0.3&&an.k!=='g'){var hl=0.5+0.5*Math.sin(an.t*20);
+    if(an.k==='a'&&!an.applied){for(k=0;k<4;k++){ballXY(L,AI[k],R,BP);ring(ctx,BP[0],BP[1],rb+2.2,rgba(C.light,0.6+0.4*hl),1.8);}}
+    else if(cl.j>=0){ballXY(L,cl.j,R,BP);ring(ctx,BP[0],BP[1],rb+2.5,rgba(C.light,0.6+0.4*hl),2);}}
+  /* 下面一行：基态 / 激发态 */
+  var sy=L.cy+R+rb+L.stateG;
+  if(m.exc)txt(ctx,'激发态 *：多的能量 → 按 γ',L.cx,sy,C.light,11.5,700,'center');
+  else txt(ctx,'这个核（放大）',L.cx,sy,C.muted,11.5,600,'center');
+}
+function drawParticles(ctx,L){
+  if(!an.on||!an.applied)return;
+  var R=clusterR(L),tau=an.t-TP,sx=L.cx+an.sx*R,sy=L.cy+an.sy*R,a,x,y,ux,uy,d,lx,ly;
+  if(tau<0.3)ring(ctx,sx,sy,4+16*tau/0.3,rgba(C.light,1-tau/0.3),2);
+  var tf=clamp((TEND[an.k]-an.t)/0.4,0,1);
+  if(an.k==='a'){
+    ux=Math.cos(ANG.a);uy=Math.sin(ANG.a);d=VA*tau;x=sx+ux*d;y=sy+uy*d;a=Math.min(fadeAt(L,x,y),tf);if(a<=0.02)return;
+    var c=ease(tau/0.35),rbA=Math.max(3.4,0.98*R/Math.sqrt(cl.n)),q=rbA*0.95,k,ox,oy;
+    for(k=0;k<4;k++){ox=lerp((AX[k]-an.sx)*R,q*OFX[k],c);oy=lerp((AY[k]-an.sy)*R,q*OFY[k],c);
+      dot(ctx,x+ox,y+oy,rbA,rgba(AC[k]?C.north:C.muted,a));ring(ctx,x+ox,y+oy,rbA,rgba(C.stage,0.85*a),0.8);}
+    if(c>0.5)ring(ctx,x,y,rbA*2.6,rgba(C.north,a*(c-0.5)*2),1.8);
+    if(a>0.4&&tau>0.25){lx=x+rbA*2.6+6;ly=y+5;txt(ctx,'α',lx,ly,rgba(C.north,a),15,'italic 600','left','alphabetic',MATH);
+      ctx.font='italic 600 15px '+MATH;tok(ctx,HE4,lx+ctx.measureText('α').width+4,ly,rgba(C.north,a),13,11,true);}
+    return;
+  }
+  if(an.k==='g'){
+    ux=Math.cos(ANG.g);uy=Math.sin(ANG.g);d=VG*tau;x=sx+ux*d;y=sy+uy*d;a=Math.min(fadeAt(L,x,y),tf);if(a<=0.02)return;
+    gammaW(ctx,x,y,ux,uy,a,Math.min(26,d+4));
+    if(a>0.4&&d>14){lx=x+12;ly=y+6;txt(ctx,'γ',lx,ly,rgba(C.light,a),15,'italic 600','left','alphabetic',MATH);}
+    return;
+  }
+  /* β：电子 / 正电子 + 中微子 / 反中微子 */
+  ux=Math.cos(ANG.e);uy=Math.sin(ANG.e);d=VE*tau;x=sx+ux*d;y=sy+uy*d;a=Math.min(fadeAt(L,x,y),tf);
+  if(a>0.02){
+    if(an.k==='m')dot(ctx,x,y,3.6,rgba(C.south,a));else{dot(ctx,x,y,4.6,rgba(C.stage,a));ring(ctx,x,y,4.6,rgba(C.north,a),2);}
+    if(a>0.4&&d>12){lx=x+9;if(lx+16>L.W-3)lx=x-25;txt(ctx,an.k==='m'?'e⁻':'e⁺',lx,y+5,rgba(an.k==='m'?C.south:C.north,a),13,700,'left');}
+  }
+  ux=Math.cos(ANG.nu);uy=Math.sin(ANG.nu);d=VNU*tau;x=sx+ux*d;y=sy+uy*d;a=Math.min(fadeAt(L,x,y),tf);
+  if(a>0.02){seg(ctx,sx+ux*Math.max(0,d-26),sy+uy*Math.max(0,d-26),x,y,rgba(C.muted,0.6*a),1.3,[3,4]);dot(ctx,x,y,3,rgba(C.muted,a));
+    if(a>0.4&&d>12){nuDraw(ctx,x-26,y+5,an.k==='m',rgba(C.muted,a),14);}}
+}
+
+/* ---------- A、Z、N 读数 ---------- */
+function drawReadouts(ctx,L){
+  var A=m.z+m.n,x=L.rdX,y=L.rdY,dy=L.rdDY,lab=L.wide;
+  txt(ctx,'A = '+A,x,y,C.ink,13.5,600,'left','alphabetic',MONO);
+  dot(ctx,x+5,y+dy-5,5,C.north);txt(ctx,'Z = '+m.z,x+15,y+dy,C.ink,13.5,600,'left','alphabetic',MONO);
+  dot(ctx,x+5,y+2*dy-5,5,C.muted);txt(ctx,'N = '+m.n,x+15,y+2*dy,C.ink,13.5,600,'left','alphabetic',MONO);
+  if(lab){txt(ctx,'质量数',x+86,y,C.muted,11.5,500);txt(ctx,'质子数',x+86,y+dy,C.muted,11.5,500);txt(ctx,'中子数',x+86,y+2*dy,C.muted,11.5,500);}
+  else{txt(ctx,'质量数',x,y+15,C.muted,11,500);txt(ctx,'质子数',x+15,y+dy+15,C.muted,11,500);txt(ctx,'中子数',x+15,y+2*dy+15,C.muted,11,500);}
+}
+
+/* ---------- 方程 + 配平 ---------- */
+function drawEq(ctx,L){
+  var es=L.ES,ess=L.ESS,x0=16,lab,lw,x,w;
+  seg(ctx,0,L.eqY-30,L.W,L.eqY-30,C.line,1);
+  if(!m.eq){
+    lab='现在：';txt(ctx,lab,x0,L.eqY,C.muted,12.5,600);ctx.font='600 12.5px '+FONT;lw=ctx.measureText(lab).width;
+    x=eqDraw(ctx,[NU(m.z+m.n,m.z,'X')],x0+lw+4,L.eqY,C.ink,es,ess);
+    var nz='N = A − Z = '+(m.z+m.n)+' − '+m.z+' = '+m.n;
+    if(L.wide){txt(ctx,nz,x+24,L.eqY,C.ink,13,500);txt(ctx,'按 α、β⁻、β⁺ 或 γ：这里写出衰变方程，再检查两边 A、Z 加起来相等',x0,L.balY,C.muted,12,500);}
+    else{txt(ctx,nz,x0,L.balY,C.ink,12.5,500);txt(ctx,'按衰变按钮，这里写出方程和配平',x0,L.balY2,C.muted,11.5,500);}
+    return;
+  }
+  lab=L.wide?'刚发生的衰变：':'刚发生：';txt(ctx,lab,x0,L.eqY,C.muted,12.5,600);ctx.font='600 12.5px '+FONT;lw=ctx.measureText(lab).width;
+  eqDraw(ctx,m.eq.t,x0+lw+6,L.eqY,C.ink,es,ess);
+  var sA='：'+m.eq.A+'（相等）',sZ='：'+m.eq.Z+'（相等）',ys=L.balY;
+  txt(ctx,'A',x0,ys,C.ink,15,'italic 500','left','alphabetic',MATH);txt(ctx,sA,x0+11,ys,C.ink,13,500);
+  ctx.font='500 13px '+FONT;w=11+ctx.measureText(sA).width;
+  var zx=L.wide?x0+Math.max(250,w+40):x0,zy=L.wide?ys:L.balY2;
+  txt(ctx,'Z',zx,zy,C.ink,15,'italic 500','left','alphabetic',MATH);txt(ctx,sZ,zx+11,zy,C.ink,13,500);
+  if(L.wide){ctx.font='500 13px '+FONT;var zw=11+ctx.measureText(sZ).width,hint='左上 A、左下 Z：两边加起来都相等';ctx.font='500 11.5px '+FONT;
+    if(zx+zw+24+ctx.measureText(hint).width<=L.W-16)txt(ctx,hint,L.W-16,zy,C.muted,11.5,500,'right');}
+}
+
+/* ---------- 动作 ---------- */
+function apply(){                                           /* 衰变“发生”的那一刻：核变了，粒子出发 */
+  an.applied=true;
+  if(an.k==='a')applyAlpha();
+  else if(an.k==='m'||an.k==='p'){cl.jFrom=CC[cl.j];CC[cl.j]=an.k==='m'?1:0;}
+  m.z=an.z1;m.n=an.n1;m.exc=an.k!=='g';sync();
+}
+function finish(){if(!an.on)return;if(!an.applied)apply();cl.morph=1;cl.j=-1;an.on=false;}
+function fire(k){
+  finish();
+  var j=judge(k);m.rej=null;
+  if(!j.ok){m.mode='rej';m.msgA=j.A;m.msgB=j.B;if(j.arrow)m.rej={k:k,z0:m.z,n0:m.n,z1:m.z+DZ[k],n1:m.n+DN[k]};St.render();return;}
+  var z=m.z,n=m.n,ux,uy,i;
+  m.eq=makeEq(k,z,n);
+  an.on=true;an.k=k;an.t=0;an.applied=false;an.z0=z;an.n0=n;an.z1=z+DZ[k];an.n1=n+DN[k];
+  if(k==='g'){m.mode='gam';ux=Math.cos(ANG.g);uy=Math.sin(ANG.g);an.sx=ux*1.05;an.sy=uy*1.05;cl.j=-1;}
+  else{
+    m.mode='move';m.hist.push({z:z,n:n,k:k});
+    if(k==='a'){ux=Math.cos(ANG.a);uy=Math.sin(ANG.a);pickAlpha(ux,uy);an.sx=0;an.sy=0;
+      var rt=cbrt(cl.n/(cl.n-4));for(i=0;i<4;i++){an.sx+=CX[AI[i]]*rt/4;an.sy+=CY[AI[i]]*rt/4;}cl.j=-1;}
+    else{ux=Math.cos(ANG.e);uy=Math.sin(ANG.e);cl.j=pickBall(k==='m'?0:1,ux,uy);an.sx=CX[cl.j];an.sy=CY[cl.j];}
+  }
+  St.setPlaying(true);St.render();
+}
+
+seed=20260401;buildCluster(m.z,m.n);
+var St=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){
+    m.time+=dt;
+    if(an.on){an.t+=dt;if(!an.applied&&an.t>=TP)apply();
+      if(an.applied&&cl.morph<1)cl.morph=Math.min(1,cl.morph+dt/0.5);
+      if(an.t>=TEND[an.k]){an.on=false;cl.j=-1;cl.morph=1;}}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),s=statusAB(),wr=wrapAll(ctx,L,s[0],s[1]),i;
+    for(i=0;i<wr.lines.length;i++)txt(ctx,wr.lines[i],16,L.stY+i*L.stLH,C.ink,wr.size,600);
+    drawOverview(ctx,L);drawGrid(ctx,L);drawCluster(ctx,L);drawReadouts(ctx,L);drawEq(ctx,L);drawParticles(ctx,L);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var BS={rich:document.getElementById('s1-rich'),poor:document.getElementById('s1-poor'),big:document.getElementById('s1-big')};
+var BG=document.getElementById('s1-g');
+function sync(){
+  var key;for(key in BS)press(BS[key],m.start===key);
+  var g=m.exc;BG.setAttribute('aria-disabled',g?'false':'true');BG.style.opacity=g?'':'0.45';
+}
+['rich','poor','big'].forEach(function(key){BS[key].addEventListener('click',function(){reset(key);St.render();});});
+['a','m','p','g'].forEach(function(k){document.getElementById('s1-'+k).addEventListener('click',function(){fire(k);});});
+document.getElementById('s1-reset').addEventListener('click',function(){reset();St.render();});
+reset('rich');
+for(var q1=0;q1<30;q1++)St.step(1/60);
+St.render();
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · α、β、γ：穿透（面板 a）和在磁场里偏转（面板 b）（4.1 第二节，booklet Figure 4.1 和 4.5 实验）
+   (a) 三条通道：u = 0 在源口，u = 1 在 GM tube 窗口；吸收物的前表面在 u = UA2。
+       booklet 实验：paper stops alpha；5 mm of aluminium stops beta；10 mm of lead only halves the gamma count。
+       所以：纸挡 α；5 mm 铝挡 α、β；10 mm 铅挡 α、β，每个 γ 只有 50 % 的机会被吸收（在铅里的随机深度），计数正好减半。
+       粒子走过的地方留下离子对（+ 离子和 − 电子）：α 很密、β 中等、γ 很稀 = 电离强弱（Table 4.1：strong / medium / weak）。
+       计数率（已减去 background）、源到 GM tube 的距离、吸收物画的厚度、粒子速度都是示意；只保证 10 mm 铅时 γ = 无吸收物的一半。
+   (b) 模型单位 = 磁场框的高度 U；源口在 (0,0)，x 向右、y 向上。粒子向右射入匀强磁场，走圆弧，r = p/(qB)。
+       palm rule：四指 = B（进纸面），大拇指 = v（向右），掌心推的方向 = + 电荷受力 → 向上；− 电荷向下。
+       （F = qv × B：x̂ × (−ẑ) = +ŷ。）B 出纸面：全部反过来。和 booklet Figure 4.1(b) 一样 α 在上、β⁻ 在下。
+       α：能量固定 → 每个 α 走同一条大弧（弯一点点）；β⁻ / β⁺：能量有大有小 → r 有大有小 → 扇形；γ 不带电，直走。
+       弯曲大小不按比例（booklet 图注 not to scale）：真实的 α 半径比 β 大几十倍，这里只画成“弯一点点”和“弯很多”。 */
+var UA2=0.5,LIFE2=1.5;
+var AB2=[{lab:'（没有吸收物）',th:0},{lab:'纸 paper',th:3},{lab:'5 mm 铝 aluminium',th:10},{lab:'10 mm 铅 lead',th:20}];
+var CNT2=[[300,240,160],[0,240,160],[0,0,160],[0,0,80]];       /* GM 计数率 /min，已减去 background（示意） */
+var SPA2=[0.36,0.85,1.25],RATEA2=[1.5,1.7,1.3],GAP2=[0.022,0.08,0.3];   /* 速度 u/s、发射率 /s、离子对平均间距（示意） */
+var ISO2=['Am-241','Sr-90','Co-60'],GK2=['α','β','γ'];
+var SA2=[['没有吸收物：α、β、γ 都到了 GM tube','GM tube 放得很近（示意）：α 在空气里只能走几 cm'],
+         ['纸：α 停住了（电离最强 → 能量很快用完）','β、γ 穿过去了，计数不变'],
+         ['5 mm 铝：β 也停了，只剩 γ','β 电离中等：几 mm 铝就把能量用完'],
+         ['10 mm 铅：γ 的计数只少了一半（160 → 80）','还是没挡住：γ 电离最弱 → 穿透最强']];
+var CHG2=[2,-1,0,1],RATEB2=[0.9,2.8,0.8,2.2],RA2=6,FADE2=[0.9,2.6,0.9,2.6];   /* β 的轨迹留得久一点，好看出扇形 */            /* α, β⁻, γ, β⁺：电荷 (e)、发射率 /s；α 的弧半径（示意） */
+var m2={ab:1,bin:true,plus:false,bars:[0,240,160],flash:[0,0,0],nextA:[0,0.2,0.4],nextB:[0,0.1,0.3,0],thU:0.012};
+var RB2=1.45,XL2=-0.14;                                         /* 磁场框的右边、左边（模型单位，draw 时更新） */
+var PA2=[],ION2=[],PB2=[],ionI=0,tmp2={x:0,y:0};
+for(var i2=0;i2<40;i2++)PA2.push({on:false,k:0,u:0,stop:2,d:0,gap:0,seen:false});
+for(i2=0;i2<400;i2++)ION2.push({on:false,row:0,u:0,s:1,jx:0,jy:0,age:0});
+for(i2=0;i2<60;i2++)PB2.push({on:false,k:0,s:0,r:0,sg:1,v:0,dead:-1,se:0});
+
+/* ---------- (a) 穿透 ---------- */
+function spawnA(k){for(var i=0;i<PA2.length;i++){var p=PA2[i];if(!p.on){p.on=true;p.k=k;p.u=0;p.stop=2;p.d=0;p.gap=GAP2[k]*(0.3+Math.random());p.seen=false;return;}}}
+function addIon(row,u){var o=ION2[ionI];ionI=(ionI+1)%ION2.length;o.on=true;o.row=row;o.u=u;o.s=Math.random()<0.5?1:-1;o.jx=(Math.random()-0.5)*3;o.jy=Math.random()*2.5;o.age=0;}
+function stepA(dt){
+  var i,p,k,ab=m2.ab;
+  for(k=0;k<3;k++){m2.nextA[k]-=dt;if(m2.nextA[k]<=0){spawnA(k);m2.nextA[k]=(0.55+0.9*Math.random())/RATEA2[k];}}
+  for(i=0;i<PA2.length;i++){p=PA2[i];if(!p.on)continue;
+    var u0=p.u,du=SPA2[p.k]*dt;p.u+=du;
+    if(!p.seen&&u0<UA2&&p.u>=UA2){p.seen=true;                 /* 刚到吸收物的前表面：决定停不停 */
+      if((p.k===0&&ab>=1)||(p.k===1&&ab>=2))p.stop=UA2;
+      else if(p.k===2&&ab===3&&Math.random()<0.5)p.stop=UA2+(0.15+0.7*Math.random())*m2.thU;
+    }
+    p.d+=du;                                                    /* 沿路留下离子对（不在吸收物里，也不在停下以后） */
+    while(p.d>=p.gap){p.d-=p.gap;var uu=p.u-p.d;if(uu<Math.min(p.stop,1)&&(uu<UA2||uu>UA2+m2.thU))addIon(p.k,uu);p.gap=GAP2[p.k]*(0.4+1.2*Math.random());}
+    if(p.u>=p.stop){p.on=false;continue;}
+    if(p.u>=1){p.on=false;m2.flash[p.k]=1;}
+  }
+  for(i=0;i<ION2.length;i++){var o=ION2[i];if(o.on){o.age+=dt;if(o.age>LIFE2)o.on=false;}}
+  for(k=0;k<3;k++){m2.flash[k]=Math.max(0,m2.flash[k]-dt*4);m2.bars[k]+=(CNT2[ab][k]-m2.bars[k])*Math.min(1,dt*2.5);}
+}
+
+/* ---------- (b) 偏转 ---------- */
+function spawnB(k){for(var i=0;i<PB2.length;i++){var p=PB2[i];if(!p.on){p.on=true;p.k=k;p.s=0;p.dead=-1;
+  if(k===0){p.r=RA2;p.v=0.45;}else if(k===2){p.r=0;p.v=1.3;}else{var f=Math.random();p.r=0.3+0.65*f;p.v=0.9+0.35*f;}
+  p.sg=CHG2[k]===0?0:(CHG2[k]>0?1:-1)*(m2.bin?1:-1);return;}}}
+function posB(p,s,o){if(p.sg===0){o.x=s;o.y=0;}else{var ph=s/p.r;o.x=p.r*Math.sin(ph);o.y=p.sg*p.r*(1-Math.cos(ph));}return o;}
+function stepB(dt,only){
+  var i,p,k;
+  for(k=0;k<4;k++){if((only>=0&&k!==only)||(k===3&&!m2.plus))continue;m2.nextB[k]-=dt;if(m2.nextB[k]<=0){spawnB(k);m2.nextB[k]=(0.55+0.9*Math.random())/RATEB2[k];}}
+  for(i=0;i<PB2.length;i++){p=PB2[i];if(!p.on||(only>=0&&p.k!==only))continue;
+    if(p.dead<0){p.s+=p.v*dt;posB(p,p.s,tmp2);if(tmp2.x>RB2||tmp2.x<XL2||Math.abs(tmp2.y)>0.5){p.dead=0;p.se=p.s;}}
+    else{p.dead+=dt;if(p.dead>FADE2[p.k])p.on=false;}
+  }
+}
+function clearB(only){for(var i=0;i<PB2.length;i++)if(only<0||PB2[i].k===only)PB2[i].on=false;}
+
+/* ---------- 画图小工具 ---------- */
+function fit2(ctx,s,x,y,col,size,weight,align,maxW,family){ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;if(w>maxW)size=Math.max(11,Math.floor(size*maxW/w*2)/2);txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);}
+function gpk(ctx,x,y,a){ctx.strokeStyle=rgba(C.light,a);ctx.lineWidth=2;ctx.setLineDash([]);ctx.beginPath();for(var j=0;j<=14;j++){var f=j/14,xx=x-15+f*15,yy=y+Math.sin(f*TAU*2)*3.4*Math.sin(f*Math.PI);if(j)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}ctx.stroke();}
+/* 一行以 β⁺ / β⁻ 开头的文字：上标手画（字体里的 ⁺ ⁻ 太小） */
+function supTxt(ctx,x,y,g,sup,rest,col,size,weight,maxW){ctx.font=(weight||500)+' '+size+'px '+FONT;var wg=ctx.measureText(g).width;txt(ctx,g,x,y,col,size,weight);
+  var sx=x+wg+4,sy=y-size*0.62;seg(ctx,sx-2.6,sy,sx+2.6,sy,col,1.5);if(sup==='+')seg(ctx,sx,sy-2.6,sx,sy+2.6,col,1.5);fit2(ctx,rest,x+wg+8,y,col,size,weight,'left',maxW-wg-8);}
+function plus2(ctx,x,y,col){seg(ctx,x-2.3,y,x+2.3,y,col,1.4);seg(ctx,x,y-2.3,x,y+2.3,col,1.4);}
+/* 路径标签：彩色希腊字母（可带手画的上标 + / −）+ 说明，底下垫一块 stage 颜色，压在 × 上也看得清；right = 右对齐的右边缘 */
+function plab(ctx,right,y,g,sup,gcol,rest,rcol,size){
+  ctx.font='700 '+(size+1)+'px '+FONT;var wg=ctx.measureText(g).width+(sup?8:0);ctx.font='600 '+size+'px '+FONT;var wr=ctx.measureText(rest).width;
+  var x=right-wg-6-wr;rrect(ctx,x-4,y-size-1,wg+wr+14,size+7,4);ctx.fillStyle=rgba(C.stage,0.88);ctx.fill();
+  if(g){txt(ctx,g,x,y,gcol,size+1,700);if(sup){var sx2=x+wg-4,sy2=y-size*0.62;seg(ctx,sx2-2.8,sy2,sx2+2.8,sy2,gcol,1.6);if(sup==='+')seg(ctx,sx2,sy2-2.8,sx2,sy2+2.8,gcol,1.6);}}
+  txt(ctx,rest,x+wg+(g?6:0),y,rcol,size,600);}
+
+function drawA(ctx,x0,y0,pw){
+  var ab=m2.ab,A=AB2[ab],xs=x0+32,xg=x0+pw-36,L=xg-xs,xa=xs+UA2*L,th=A.th,i,k;
+  m2.thU=th/L;
+  var rows=[y0+50,y0+98,y0+146],cols=[C.north,C.south,C.light];
+  txt(ctx,'(a) 穿透 Penetration',x0,y0+16,C.ink,13.5,700);
+  txt(ctx,'距离、厚度：示意',x0+pw,y0+16,C.muted,11.5,500,'right');
+  for(k=0;k<3;k++){var y=rows[k];
+    seg(ctx,xs,y,xg,y,C.grid,1.2,[3,5]);
+    rrect(ctx,x0,y-11,26,22,4);ctx.fillStyle=rgba(cols[k],0.16);ctx.fill();ctx.strokeStyle=cols[k];ctx.lineWidth=1.4;ctx.stroke();
+    txt(ctx,GK2[k],x0+13,y+1,C.ink,14,700,'center','middle');
+    txt(ctx,ISO2[k],x0,y+25,C.muted,11,500);
+    var fl=m2.flash[k];
+    rrect(ctx,xg,y-9,32,18,4);ctx.fillStyle=fl>0.02?rgba(C.light,0.15+0.55*fl):C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.3;ctx.stroke();
+    seg(ctx,xg,y-9,xg,y+9,C.ink,2.4);
+    txt(ctx,'GM',xg+17,y+1,C.muted,11,600,'center','middle');
+  }
+  if(th>0){ctx.fillStyle=ab===1?rgba(C.muted,0.5):(ab===2?rgba(C.muted,0.8):rgba(C.ink,0.55));ctx.fillRect(xa,rows[0]-26,th,rows[2]-rows[0]+52);}
+  else seg(ctx,xa,rows[0]-26,xa,rows[2]+26,rgba(C.muted,0.5),1,[2,4]);
+  fit2(ctx,A.lab,xa+th/2,rows[2]+44,th>0?C.ink:C.muted,12,600,'center',pw-20);
+  /* 离子对 */
+  for(i=0;i<ION2.length;i++){var o=ION2[i];if(!o.on)continue;var a=Math.max(0,1-o.age/LIFE2),ix=xs+o.u*L+o.jx,iy=rows[o.row],dd=4.5+o.jy;
+    plus2(ctx,ix,iy-o.s*dd,rgba(C.north,0.85*a));seg(ctx,ix+1.5-2.3,iy+o.s*dd,ix+1.5+2.3,iy+o.s*dd,rgba(C.south,0.85*a),1.4);}
+  /* 粒子 */
+  for(i=0;i<PA2.length;i++){var p=PA2[i];if(!p.on)continue;var px=xs+p.u*L,py=rows[p.k];
+    if(p.k===0)dot(ctx,px,py,4.6,C.north);else if(p.k===1)dot(ctx,px,py,2.8,C.south);else gpk(ctx,px,py,1);}
+  /* GM 计数率 */
+  var yb=rows[2]+68;
+  fit2(ctx,'GM 计数率（已减去 background）',x0,yb,C.muted,12,600,'left',pw);
+  for(k=0;k<3;k++){var yy=yb+22*(k+1);
+    txt(ctx,GK2[k],x0+2,yy,C.ink,13,700);
+    hbar(ctx,x0+22,yy-9,pw-22-76,9,m2.bars[k]/320,cols[k]);
+    txt(ctx,Math.round(m2.bars[k])+' /min',x0+pw,yy,C.ink,12,600,'right','alphabetic',MONO);}
+  fit2(ctx,SA2[ab][0],x0,y0+308,C.ink,13.5,700,'left',pw);
+  fit2(ctx,SA2[ab][1],x0,y0+328,C.muted,13,500,'left',pw);
+}
+
+function trailB(ctx,p,sx,sy,U,s1,col,a,w){
+  ctx.strokeStyle=rgba(col,a);ctx.lineWidth=w;ctx.setLineDash([]);ctx.beginPath();
+  if(p.sg===0){ctx.moveTo(sx,sy);ctx.lineTo(sx+s1*U,sy);}
+  else{var R=p.r*U,ph=s1/p.r,a0=p.sg>0?Math.PI/2:-Math.PI/2;ctx.arc(sx,sy-p.sg*R,R,a0,a0-p.sg*ph,p.sg>0);}
+  ctx.stroke();}
+
+function drawB(ctx,x0,y0,pw,fh){
+  var top=y0+28,bot=top+fh,sx=x0+30,sy=top+fh/2,U=fh,sb=m2.bin?1:-1,i,k;
+  RB2=(x0+pw-sx)/U;XL2=(x0-sx)/U;
+  txt(ctx,'(b) 在磁场里偏转 Deflection',x0,y0+16,C.ink,13.5,700);
+  rrect(ctx,x0,top,pw,fh,6);ctx.fillStyle=rgba(C.field,0.07);ctx.fill();ctx.strokeStyle=rgba(C.field,0.6);ctx.lineWidth=1.2;ctx.stroke();
+  /* B 的记号：× 进纸面，⊙ 出纸面 */
+  var nx=Math.max(6,Math.round(pw/36)),ny=Math.max(5,Math.round(fh/36)),gx=pw/nx,gy=fh/ny,fc=rgba(C.field,0.9);
+  for(var a=0;a<ny;a++)for(var b=0;b<nx;b++){var mx=x0+gx*(b+0.5),my=top+gy*(a+0.5);
+    if(m2.bin){seg(ctx,mx-3,my-3,mx+3,my+3,fc,1.2);seg(ctx,mx-3,my+3,mx+3,my-3,fc,1.2);}
+    else{ring(ctx,mx,my,3.6,fc,1.1);dot(ctx,mx,my,1.3,fc);}}
+  /* 轨迹和粒子（只画在框里） */
+  var cols=[C.north,C.south,C.light,C.north];
+  ctx.save();rrect(ctx,x0,top,pw,fh,6);ctx.clip();
+  for(i=0;i<PB2.length;i++){var p=PB2[i];if(!p.on)continue;
+    var fade=p.dead<0?1:Math.max(0,1-p.dead/FADE2[p.k]),s1=p.dead<0?p.s:p.se;
+    trailB(ctx,p,sx,sy,U,s1,cols[p.k],(p.k===0?0.65:(p.k===2?0.6:0.5))*fade,p.k===0?2.2:1.5);}
+  for(i=0;i<PB2.length;i++){p=PB2[i];if(!p.on||p.dead>=0)continue;posB(p,p.s,tmp2);var hx=sx+tmp2.x*U,hy=sy-tmp2.y*U;
+    if(p.k===0)dot(ctx,hx,hy,4.6,C.north);
+    else if(p.k===1)dot(ctx,hx,hy,2.8,C.south);
+    else if(p.k===3){dot(ctx,hx,hy,3.2,C.stage);ring(ctx,hx,hy,3.2,C.north,1.6);}
+    else gpk(ctx,hx,hy,1);}
+  ctx.restore();
+  /* 源 */
+  rrect(ctx,x0+5,sy-10,24,20,3);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.6);ctx.lineWidth=1.3;ctx.stroke();
+  txt(ctx,'源',x0+17,sy+1,C.ink,11,600,'center','middle');
+  /* 标签：贴着每条路径的右端 */
+  var R=x0+pw-6,dA=RA2-Math.sqrt(RA2*RA2-RB2*RB2),yA=sy-sb*dA*U;
+  plab(ctx,R,sb>0?yA-9:yA+19,'α','',C.north,'+2e · 弯一点点',C.ink,12);
+  plab(ctx,R,sb>0?sy+19:sy-9,'γ','',C.light,'不带电 · 直走',C.ink,12);
+  var yB=sy+sb*0.34*U;
+  plab(ctx,R,yB+(sb>0?0:8),'β','−',C.south,'−e · 弯很多',C.ink,12);
+  plab(ctx,R,yB+(sb>0?18:-12),'','',C.muted,'能量有大有小 → 扇形',C.muted,11.5);
+  if(m2.plus)plab(ctx,R,sy-sb*0.40*U+(sb>0?8:0),'β','+',C.north,'+e · 弯很多',C.ink,12);
+  /* 图例和状态 */
+  var yl=bot+20;
+  txt(ctx,m2.bin?'B 进纸面 ×':'B 出纸面 ⊙',x0,yl,C.ink,12.5,700);
+  txt(ctx,'弯曲大小：示意，不按比例',x0+pw,yl,C.muted,11.5,500,'right');
+  var l1=m2.bin?'palm rule：+ 电荷往上弯，− 电荷往下弯':'B 反过来（出纸面 ⊙）→ α 和 β 都反过来弯';
+  fit2(ctx,l1,x0,bot+44,C.ink,13.5,700,'left',pw);
+  fit2(ctx,'β 弯得比 α 多：p 小得多 → r = p/(qB) 小',x0,bot+64,C.ink,13,500,'left',pw);
+  if(m2.plus)supTxt(ctx,x0,bot+84,'β','+',' 带 +e → 和 α 往同一边弯，但弯得多',C.muted,13,500,pw);
+  else fit2(ctx,m2.bin?'γ 不带电 → 不受力 → 直走':'γ 不带电 → 还是直走',x0,bot+84,C.muted,13,500,'left',pw);
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return w>=640?344:676;},
+  step:function(dt){var n=2,h=dt/n;for(var i=0;i<n;i++){stepA(h);stepB(h,-1);}},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var g=16,pw;
+    if(W>=640){pw=(W-2*g-28)/2;seg(ctx,W/2,14,W/2,H-14,C.line,1);drawA(ctx,g,4,pw);drawB(ctx,g+pw+28,4,pw,216);}
+    else{pw=W-2*g;seg(ctx,g,350,W-g,350,C.line,1);drawA(ctx,g,4,pw);drawB(ctx,g,360,pw,196);}
+  }
+});
+for(i2=0;i2<150;i2++){stepA(1/50);stepB(1/50,-1);}             /* 第一帧：粒子已经飞了 3 秒 */
+m2.bars[0]=CNT2[1][0];m2.bars[1]=CNT2[1][1];m2.bars[2]=CNT2[1][2];
+S2.render();
+
+var abB2=[0,1,2,3].map(function(j){return document.getElementById('s2-ab'+j);});
+abB2.forEach(function(btn,j){btn.addEventListener('click',function(){m2.ab=j;abB2.forEach(function(b,q){press(b,q===j);});
+  if(!S2.playing)for(var k=0;k<3;k++)m2.bars[k]=CNT2[j][k];S2.render();});});
+var bIn2=document.getElementById('s2-bin'),bOut2=document.getElementById('s2-bout'),bPl2=document.getElementById('s2-plus');
+function setB2(v){m2.bin=v;press(bIn2,v);press(bOut2,!v);clearB(-1);m2.nextB[0]=0;m2.nextB[1]=0.1;m2.nextB[2]=0.3;m2.nextB[3]=0.05;
+  for(var i=0;i<150;i++)stepB(1/50,-1);S2.render();}
+bIn2.addEventListener('click',function(){setB2(true);});
+bOut2.addEventListener('click',function(){setB2(false);});
+bPl2.addEventListener('click',function(){m2.plus=!m2.plus;press(bPl2,m2.plus);bPl2.innerHTML=m2.plus?'去掉 β<sup>+</sup>':'加上 β<sup>+</sup>';
+  clearB(3);if(m2.plus){m2.nextB[3]=0;for(var i=0;i<75;i++)stepB(1/50,3);}S2.render();});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 随机衰变和半衰期（4.2 Half-life and activity；骰子模式对应 4.5 Dice model of half-life）
+   原子核模式：每一步、每个还没衰变的核，衰变的概率 = 1 − e^(−λΔt)，用随机数决定（不是每步拿走固定比例），
+     λ = ln 2/t½。所以小样本会上下跳，大样本贴着理论曲线 N₀e^(−λt)。t 用 s、λ 用 s⁻¹，A = λN 的单位是 Bq。
+     t½（2–8 s）和 N₀（20 / 200 / 2000）是示意；λ、理论值、A 按它们算。时间正好走到 t½ 和 2t½ 时记下 N（状态提示用）。
+   骰子模式（booklet 4.5）：200 个骰子，每掷一次，每个骰子 1/6 的机会是 6 → 拿走；(5/6)ⁿ = ½ → n = ln 2/ln(6/5) ≈ 3.8 次。
+   N–t 图的坐标和 Figure 4.2 一样：纵轴 N₀、N₀/2、N₀/4，横轴 0 到 4t½（画到 4.6 t½），t½、2t½、3t½ 画辅助虚线。
+   颜色：parent --copper 实心；daughter --muted 空心；衰变那一下 --light 光点；理论曲线 --violet 虚线；数出来的 N --copper。
+   随机数：自己的小随机数发生器。第一帧用固定种子（每次打开页面一样），“重来”和改控件时换新种子。 */
+var LN2=Math.LN2,NMAX=2000,XN=4.6,DICE_N=200,DICE_MAX=18,XD=18.5,DHALF=LN2/Math.log(6/5),TI=1.1,FL=0.45,FD=0.9;
+var alive=new Uint8Array(NMAX),tdec=new Float64Array(NMAX);
+var HX=new Float32Array(400),HY=new Float32Array(400);
+var FT=new Float64Array(256),FC=new Int32Array(256);
+var HLAB=[[1,'N₀'],[0.5,'N₀/2'],[0.25,'N₀/4']];
+var seed=0;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var x=Math.imul(seed^(seed>>>15),1|seed);x=(x+Math.imul(x^(x>>>7),61|x))^x;return ((x^(x>>>14))>>>0)/4294967296;}
+var m={mode:'nuc',N0:200,th:4,n0:200,N:200,t:0,vt:0,done:false,hn:0,next:0,fi:0,h1:-1,h2:-1,throws:0,clock:0,take:0,expTake:0};
+function rec(x,N){if(m.hn<HX.length){HX[m.hn]=x;HY[m.hn]=N;m.hn++;}}
+function reset(fresh){
+  var i;if(fresh)seed=(Math.random()*4294967296)|0;
+  m.n0=m.mode==='dice'?DICE_N:m.N0;m.N=m.n0;m.t=0;m.done=false;m.hn=0;m.next=0;m.fi=0;m.h1=-1;m.h2=-1;
+  m.throws=0;m.clock=TI-0.6;m.take=0;m.expTake=0;
+  for(i=0;i<NMAX;i++){alive[i]=i<m.n0?1:0;tdec[i]=-99;}
+  for(i=0;i<256;i++){FT[i]=-99;FC[i]=0;}
+  rec(0,m.n0);
+}
+/* 原子核：分几小步走，正好停在 t½、2t½ 和终点上 */
+function stepNuc(dt){
+  var rem=dt,lam=LN2/m.th,end=XN*m.th,h,M,p,k,i,hit;
+  while(rem>1e-9&&!m.done){
+    M=m.h1<0?m.th:(m.h2<0?2*m.th:end);
+    hit=M-m.t<=rem+1e-9;h=hit?M-m.t:rem;
+    p=1-Math.exp(-lam*h);k=0;
+    for(i=0;i<m.n0;i++){if(alive[i]&&rnd()<p){alive[i]=0;tdec[i]=m.vt;k++;}}
+    m.N-=k;m.t=hit?M:m.t+h;rem-=h;
+    FT[m.fi]=m.t;FC[m.fi]=k;m.fi=(m.fi+1)&255;
+    if(hit){if(m.h1<0)m.h1=m.N;else if(m.h2<0)m.h2=m.N;else{m.done=true;rec(XN,m.N);break;}}
+    if(m.t>=m.next){rec(m.t/m.th,m.N);m.next=m.t+m.th/50;}
+  }
+}
+/* 骰子：每 TI 秒掷一次 */
+function throwDice(){
+  var k=0,i;m.expTake=m.N/6;
+  for(i=0;i<m.n0;i++){if(alive[i]&&rnd()*6>=5){alive[i]=0;tdec[i]=m.vt;k++;}}
+  m.N-=k;m.throws++;m.take=k;rec(m.throws,m.N);
+  if(m.throws>=DICE_MAX)m.done=true;
+}
+function stepDice(dt){if(m.done)return;m.clock+=dt;if(m.clock>=TI){m.clock=0;throwDice();}}
+function step(dt){m.vt+=dt;if(m.mode==='dice')stepDice(dt);else stepNuc(dt);}
+function lastSec(){var s=0,i;for(i=0;i<256;i++)if(FT[i]>m.t-1+1e-9)s+=FC[i];return s;}
+
+seed=20261030;reset(false);
+for(var q3=0;q3<240;q3++)step(1/60);
+
+/* ---------- 画图小工具 ---------- */
+function fit(ctx,s,x,y,col,size,weight,maxW,align){
+  ctx.font=weight+' '+size+'px '+FONT;var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11.5,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left');
+}
+/* 读数：灰色的名字 + 有颜色的数（MONO）；放不下就一起缩小（不小于 11 px） */
+function item(ctx,x,y,maxW,lab,val,vcol,sz,unit){
+  var ls=sz-0.5,vs=sz,lw,vw,uw=0,k;unit=unit||'';
+  ctx.font='500 '+ls+'px '+FONT;lw=ctx.measureText(lab).width;if(unit)uw=ctx.measureText(' '+unit).width;
+  ctx.font='600 '+vs+'px '+MONO;vw=ctx.measureText(val).width;
+  if(lw+vw+uw>maxW){k=maxW/(lw+vw+uw);ls=Math.max(11,ls*k);vs=Math.max(11,vs*k);
+    ctx.font='500 '+ls+'px '+FONT;lw=ctx.measureText(lab).width;ctx.font='600 '+vs+'px '+MONO;vw=ctx.measureText(val).width;}
+  txt(ctx,lab,x,y,C.muted,ls,500);
+  txt(ctx,val,x+lw,y,vcol,vs,600,'left','alphabetic',MONO);
+  if(unit)txt(ctx,' '+unit,x+lw+vw,y,vcol,ls,500);
+}
+var GG={n:-1,w:-1,h:-1,cols:1,rows:1,p:10};
+function gridFit(n,w,h){
+  if(GG.n===n&&GG.w===w&&GG.h===h)return;
+  var best=0,bc=0,bp=0,c,r,p;
+  for(c=1;c<=n;c++){r=Math.ceil(n/c);p=Math.min(w/c,h/r);if(p>best)best=p;}
+  for(c=1;c<=n;c++){r=Math.ceil(n/c);p=Math.min(w/c,h/r);if(n%c===0&&p>=0.9*best&&p>bp){bp=p;bc=c;}}
+  if(!bc){for(c=1;c<=n;c++){r=Math.ceil(n/c);p=Math.min(w/c,h/r);if(p>=best){bc=c;bp=p;break;}}}
+  GG.n=n;GG.w=w;GG.h=h;GG.cols=bc;GG.rows=Math.ceil(n/bc);GG.p=Math.min(bp,48);
+}
+function pips6(ctx,x,y,s,col){var r=Math.max(0.9,s*0.1),dx=s*0.22,dy=s*0.27,a,b;for(a=-1;a<=1;a+=2)for(b=-1;b<=1;b++)dot(ctx,x+a*dx,y+b*dy,r,col);}
+
+function drawCells(ctx,gx,gy,gw,gh){
+  var n=m.n0,dice=m.mode==='dice',i,x,y,a,cols,p,ox,oy,r,jig;
+  gridFit(n,gw,gh);p=GG.p;cols=GG.cols;ox=gx+(gw-cols*p)/2;oy=gy+(gh-GG.rows*p)/2;
+  if(dice){
+    r=p*0.38;jig=(!m.done&&m.clock>TI-0.3)?p*0.08:0;
+    for(i=0;i<n;i++){x=ox+(i%cols+0.5)*p;y=oy+((i/cols|0)+0.5)*p;
+      if(alive[i]){if(jig){x+=(Math.random()-0.5)*2*jig;y+=(Math.random()-0.5)*2*jig;}
+        rrect(ctx,x-r,y-r,2*r,2*r,r*0.3);ctx.fillStyle=C.copper;ctx.fill();continue;}
+      a=(m.vt-tdec[i])/FD;
+      if(a<1){rrect(ctx,x-r,y-r,2*r,2*r,r*0.3);ctx.fillStyle=C.stage;ctx.fill();ctx.strokeStyle=rgba(C.light,a<0.7?1:(1-a)/0.3);ctx.lineWidth=1.6;ctx.stroke();
+        pips6(ctx,x,y,2*r,rgba(C.light,a<0.7?1:(1-a)/0.3));}
+      if(a>0.7){rrect(ctx,x-r*0.85,y-r*0.85,1.7*r,1.7*r,r*0.25);ctx.strokeStyle=rgba(C.muted,0.7*Math.min(1,(a-0.7)/0.3));ctx.lineWidth=1.2;ctx.stroke();}
+    }
+    return;
+  }
+  r=p*0.36;
+  ctx.beginPath();
+  for(i=0;i<n;i++){if(!alive[i])continue;x=ox+(i%cols+0.5)*p;y=oy+((i/cols|0)+0.5)*p;ctx.moveTo(x+r,y);ctx.arc(x,y,r,0,TAU);}
+  ctx.fillStyle=C.copper;ctx.fill();
+  ctx.beginPath();
+  for(i=0;i<n;i++){if(alive[i])continue;x=ox+(i%cols+0.5)*p;y=oy+((i/cols|0)+0.5)*p;ctx.moveTo(x+r*0.8,y);ctx.arc(x,y,r*0.8,0,TAU);}
+  ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=Math.max(1,r*0.22);ctx.stroke();
+  for(i=0;i<n;i++){if(alive[i])continue;a=(m.vt-tdec[i])/FL;if(a>=1)continue;
+    x=ox+(i%cols+0.5)*p;y=oy+((i/cols|0)+0.5)*p;dot(ctx,x,y,Math.max(1.5,r*(0.55+0.75*(1-a))),rgba(C.light,0.95*(1-a)));}
+}
+
+/* 图例 + 计数：画在格子下面 */
+function legend(ctx,x,y,maxW,wide){
+  var dice=m.mode==='dice',sz=wide?12.5:12,a=(dice?'还在 ':'没衰变 parent ')+m.N,b=(dice?'掷到 6，拿走 ':'已衰变 daughter ')+(m.n0-m.N),wa,wb,gap;
+  ctx.font='600 '+sz+'px '+FONT;wa=ctx.measureText(a).width;wb=ctx.measureText(b).width;
+  gap=Math.min(28,maxW-wa-wb-36);
+  if(dice){rrect(ctx,x,y-10,10,10,2.5);ctx.fillStyle=C.copper;ctx.fill();}else dot(ctx,x+5,y-4.5,5,C.copper);
+  txt(ctx,a,x+16,y,C.ink,sz,600);
+  var x2=x+16+wa+gap;
+  if(dice){rrect(ctx,x2+0.75,y-9.25,8.5,8.5,2);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.3;ctx.stroke();}else ring(ctx,x2+5,y-4.5,4,rgba(C.muted,0.85),1.6);
+  txt(ctx,b,x2+16,y,C.muted,sz,600);
+}
+
+function drawGraph(ctx,x0,y0,x1,y1,wide){
+  var dice=m.mode==='dice',xm=dice?XD:XN,n0=m.n0,gw=x1-x0,gh=y1-y0,i,k,v,x,y,unit=dice?DHALF:1;
+  function X(u){return x0+u/xm*gw;}
+  function Y(N){return y1-N/(1.1*n0)*gh;}
+  /* 横线和纵轴的 N₀、N₀/2、N₀/4 */
+  for(i=0;i<3;i++){y=Y(HLAB[i][0]*n0);seg(ctx,x0,y,x1,y,C.grid,1);txt(ctx,HLAB[i][1],x0-6,y+4,C.muted,11.5,500,'right');}
+  txt(ctx,'0',x0-6,y1+4,C.muted,11.5,500,'right');
+  /* 辅助虚线：t½ → N₀/2，2t½ → N₀/4，3t½ → N₀/8 */
+  for(k=1;k<=3;k++){x=X(k*unit);y=Y(n0/Math.pow(2,k));seg(ctx,x,y1,x,y,rgba(C.muted,0.7),1.1,[3,4]);seg(ctx,x,y,x0,y,rgba(C.muted,0.7),1.1,[3,4]);}
+  seg(ctx,x0,y0-4,x0,y1,C.muted,1.2);seg(ctx,x0,y1,x1,y1,C.muted,1.2);
+  if(dice){
+    for(k=0;k<=18;k+=2){x=X(k);seg(ctx,x,y1,x,y1+(k%4?3:5),C.muted,1);if(k%4===0)txt(ctx,String(k),x,y1+18,C.muted,11.5,500,'center');}
+  }else{
+    for(k=0;k<=4;k++){x=X(k);seg(ctx,x,y1,x,y1+5,C.muted,1);if(k)txt(ctx,(k>1?k:'')+'t½',x,y1+18,C.muted,12,500,'center');}
+  }
+  txt(ctx,dice?'N  还没拿走的骰子':'N  没衰变的核',x0-30,y0-10,C.muted,12,600);
+  fit(ctx,dice?'掷的次数 n（约 3.8 次 = 一个 t½）':'时间 t（t½ = '+m.th+' s，示意）',(x0+x1)/2,y1+37,C.muted,12,500,gw,'center');
+  /* 理论曲线 */
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0-6,gw+8,gh+12);ctx.clip();
+  ctx.beginPath();
+  for(i=0;i<=120;i++){v=i/120*xm;y=Y(n0*Math.pow(dice?5/6:0.5,v));if(i)ctx.lineTo(X(v),y);else ctx.moveTo(X(v),y);}
+  ctx.strokeStyle=C.violet;ctx.lineWidth=2;ctx.setLineDash([6,4]);ctx.stroke();ctx.setLineDash([]);
+  /* 数出来的 N */
+  ctx.beginPath();
+  for(i=0;i<m.hn;i++){x=X(HX[i]);y=Y(HY[i]);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  if(!dice&&!m.done)ctx.lineTo(X(m.t/m.th),Y(m.N));
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+  if(dice)for(i=1;i<m.hn;i++)dot(ctx,X(HX[i]),Y(HY[i]),2.6,C.copper);
+  x=dice?X(m.throws):X(m.t/m.th);y=Y(m.N);dot(ctx,x,y,4.8,C.copper);ring(ctx,x,y,4.8,C.stage,1.5);
+  ctx.restore();
+  /* 图例 */
+  var ly=Y(n0)+19,lx=x1-4,s1='数出来的 N',s2=dice?'理论 N₀(5/6)ⁿ':'理论 N₀e',w1,w2,w2b=0,wl;
+  ctx.font='600 12px '+FONT;w1=ctx.measureText(s1).width;w2=ctx.measureText(s2).width;
+  if(!dice){ctx.font='600 11px '+FONT;w2b=ctx.measureText('−λt').width+1;}
+  wl=Math.max(w1,w2+w2b);
+  seg(ctx,lx-wl-30,ly-4,lx-wl-8,ly-4,C.copper,2.4);txt(ctx,s1,lx-wl,ly,C.copper,12,600);
+  seg(ctx,lx-wl-30,ly+14,lx-wl-8,ly+14,C.violet,2,[5,3]);txt(ctx,s2,lx-wl,ly+18,C.violet,12,600);
+  if(!dice)txt(ctx,'−λt',lx-wl+w2+1,ly+12,C.violet,11,600);   /* 指数画成上标 */
+}
+
+/* 状态提示（两行） */
+var ST1='',ST2='';
+function status(){
+  var n0=m.n0,N=m.N,x,n;
+  if(m.mode==='dice'){
+    n=m.throws;
+    if(n===0){ST1='每掷一次：每个骰子有 1/6 的机会是 6';ST2='掷到 6 的拿走（= 衰变了），剩下的接着掷';}
+    else if(m.done){ST1='掷了 '+n+' 次：还剩 '+N+' 个，不是 0';ST2='按“重来”再掷：每次都不一样，但都是约 3.8 次减半';}
+    else if(n<=2){ST1='第 '+n+' 次：掷到 6 的 '+m.take+' 个拿走 → 剩 '+N+' 个';ST2='每次大约拿走剩下的 1/6，哪几个是 6 完全随机';}
+    else if(n<=5){ST1='掷了 '+n+' 次：剩 '+N+' 个（一半是 '+n0/2+'）';ST2='(5/6)ⁿ = ½ → n = ln 2/ln(6/5) ≈ 3.8：约 3.8 次剩一半';}
+    else if(n===6){ST1='第 6 次：掷到 6 的 '+m.take+' 个拿走 → 剩 '+N+' 个';ST2='每次还是拿走剩下的约 1/6';}
+    else if(n<=8){ST1='掷了 '+n+' 次（约 2 × 3.8）：剩 '+N+' 个（N₀/4 = '+n0/4+'）';ST2='减半的是“剩下的”，不是“原来的”';}
+    else{ST1='剩得越少 → 每次拿走的也越少';ST2='就像 activity A = λN：跟着 N 一起变小';}
+    return;
+  }
+  x=m.t/m.th;
+  if(m.done&&N>0){ST1='跑完了：还剩 '+N+' 个，不是 0';ST2='按“重来”再跑：每次的曲线都不一样（随机）';}
+  else if(N===0&&x>=1){ST1='这 '+n0+' 个全衰变完了：样本太小';ST2='随机的影响很大；理论曲线永远不到 0';}
+  else if(x<1){ST1='每个核每秒衰变的机会都一样（λ）';ST2='→ 哪一个先衰变，完全随机，没法预测';}
+  else if(x<1.6){ST1='到了 t½：剩 '+m.h1+' 个（理论：一半 = '+n0/2+'）';
+    ST2=n0<=20?'N₀ = 20：太少，每次都差很多':(n0<=200?'N₀ = 200：在一半上下差一点':'N₀ = 2000：很准，贴着理论曲线');}
+  else if(x<2){ST1='N 少了一半 → 每秒衰变的个数也少一半';ST2='activity A = λN：跟着 N 一起减半（看下面读数）';}
+  else if(x<2.8){ST1='又过了一个 t½：剩 '+m.h2+' 个（N₀/4 = '+n0/4+'）';ST2='减半的是“剩下的”，不是“原来的”，所以不是 0';}
+  else{ST1='每过一个 t½ 还是减一半：曲线越来越平';ST2='exponential：越来越接近 0，但永远不到 0';}
+}
+
+var ST=makeStage('sim3',{
+  height:function(w){return w>=640?404:628;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,dice=m.mode==='dice',gx=16,gy,gw,gh,ly,x0,x1,y0,y1,ry,cw,lam=LN2/m.th,xn=m.t/m.th,sz=12.5,dy=wide?25:22;
+    status();
+    fit(ctx,ST1,16,wide?25:22,C.ink,wide?15:13.5,600,W-32);
+    fit(ctx,ST2,16,wide?46:41,C.muted,wide?12.5:12,500,W-32);
+    if(wide){gw=Math.round(W*0.44);gy=70;gh=222;ly=gy+gh+26;x0=gx+gw+60;x1=W-18;y0=82;y1=280;ry=362;}
+    else{gw=W-32;gy=58;gh=Math.min(196,Math.round(gw*0.6));ly=gy+gh+24;y0=314;y1=472;x0=56;x1=W-16;ry=546;}
+    drawCells(ctx,gx,gy,gw,gh);
+    legend(ctx,gx,ly,gw,wide);
+    drawGraph(ctx,x0,y0,x1,y1,wide);
+    /* 读数：宽屏两行，手机四行 */
+    seg(ctx,0,ry-24,W,ry-24,C.line,1);
+    var nt=m.throws,c2=(W-32)/2,c3=(W-32)/3,c4=(W-32)/4;
+    if(dice){
+      var thr=(DICE_N*Math.pow(5/6,nt)).toFixed(1);
+      if(wide){
+        item(ctx,16,ry,c3-10,'掷了 n = ',String(nt),C.ink,sz,'次');
+        item(ctx,16+c3,ry,c3-10,'剩下 N = ',String(m.N),C.copper,sz);
+        item(ctx,16+2*c3,ry,c3-10,'理论 200 × (5/6)ⁿ = ',thr,C.violet,sz);
+        item(ctx,16,ry+dy,c3-10,'这一次拿走 ',nt?String(m.take):'—',C.ink,sz,nt?'个':'');
+        item(ctx,16+c3,ry+dy,c3-10,nt?'平均应拿走 '+(m.N+m.take)+'/6 = ':'平均应拿走 N/6 = ',nt?m.expTake.toFixed(1):'—',C.ink,sz,nt?'个':'');
+        item(ctx,16+2*c3,ry+dy,c3-10,'剩一半：ln 2/ln(6/5) ≈ ','3.8',C.ink,sz,'次');
+      }else{
+        item(ctx,16,ry,c2-8,'掷了 n = ',String(nt),C.ink,sz,'次');
+        item(ctx,16+c2,ry,c2-8,'剩下 N = ',String(m.N),C.copper,sz);
+        item(ctx,16,ry+dy,W-32,'理论 200 × (5/6)ⁿ = ',thr,C.violet,sz);
+        item(ctx,16,ry+2*dy,c2-8,'这一次拿走 ',nt?String(m.take):'—',C.ink,sz,nt?'个':'');
+        item(ctx,16+c2,ry+2*dy,c2-8,nt?'平均 '+(m.N+m.take)+'/6 = ':'平均 N/6 = ',nt?m.expTake.toFixed(1):'—',C.ink,sz,nt?'个':'');
+        item(ctx,16,ry+3*dy,W-32,'剩一半要掷：ln 2/ln(6/5) ≈ ','3.8',C.ink,sz,'次');
+      }
+      return;
+    }
+    var th=(m.n0*Math.pow(0.5,xn)).toFixed(1),A=(lam*m.N).toFixed(1),las=m.t>=1?String(lastSec()):'—',lu=m.t>=1?'个':'';
+    if(wide){
+      item(ctx,16,ry,c4-10,'t = ',m.t.toFixed(1),C.ink,sz,'s');
+      item(ctx,16+c4,ry,c4-10,'n = t/t½ = ',xn.toFixed(2),C.ink,sz);
+      item(ctx,16+2*c4,ry,c4-10,'数出来 N = ',String(m.N),C.copper,sz);
+      item(ctx,16+3*c4,ry,c4-10,'理论 N₀(½)ⁿ = ',th,C.violet,sz);
+      item(ctx,16,ry+dy,c3-10,'λ = ln 2/t½ = ',lam.toFixed(3),C.ink,sz,'s⁻¹');
+      item(ctx,16+c3,ry+dy,c3-10,'理论 A = λN = ',A,C.ink,sz,'Bq');
+      item(ctx,16+2*c3,ry+dy,c3-10,'刚过去 1 s 实际衰变 ',las,C.ink,sz,lu);
+    }else{
+      item(ctx,16,ry,c2-8,'t = ',m.t.toFixed(1),C.ink,sz,'s');
+      item(ctx,16+c2,ry,c2-8,'n = t/t½ = ',xn.toFixed(2),C.ink,sz);
+      item(ctx,16,ry+dy,c2-8,'数出来 N = ',String(m.N),C.copper,sz);
+      item(ctx,16+c2,ry+dy,c2-8,'理论 N₀(½)ⁿ = ',th,C.violet,sz);
+      item(ctx,16,ry+2*dy,c2-8,'λ = ln 2/t½ = ',lam.toFixed(3),C.ink,sz,'s⁻¹');
+      item(ctx,16+c2,ry+2*dy,c2-8,'理论 A = λN = ',A,C.ink,sz,'Bq');
+      item(ctx,16,ry+3*dy,W-32,'刚过去 1 s 实际衰变了 ',las,C.ink,sz,lu);
+    }
+  }
+});
+
+/* ---------- 控件 ---------- */
+var NV=[20,200,2000],bN=[document.getElementById('s3-n20'),document.getElementById('s3-n200'),document.getElementById('s3-n2000')];
+var bNuc=document.getElementById('s3-nuc'),bDice=document.getElementById('s3-dice'),rTh=document.getElementById('s3-th'),oTh=document.getElementById('s3-th-out');
+function sync3(){
+  var dice=m.mode==='dice',i;
+  for(i=0;i<3;i++){press(bN[i],dice?NV[i]===DICE_N:m.N0===NV[i]);bN[i].disabled=dice;bN[i].style.opacity=dice?'0.5':'';}
+  press(bNuc,!dice);press(bDice,dice);
+  rTh.disabled=dice;rTh.value=String(m.th);rTh.parentNode.style.opacity=dice?'0.6':'';
+  oTh.textContent=dice?'约 3.8 次':m.th+' s';
+}
+function restart(){reset(true);sync3();ST.setPlaying(true);ST.render();}
+function bindN(i){bN[i].addEventListener('click',function(){if(m.mode==='dice')return;m.N0=NV[i];restart();});}
+for(var i3=0;i3<3;i3++)bindN(i3);
+bNuc.addEventListener('click',function(){m.mode='nuc';restart();});
+bDice.addEventListener('click',function(){m.mode='dice';restart();});
+rTh.addEventListener('input',function(){if(m.mode==='dice'){rTh.value=String(m.th);return;}m.th=parseInt(rTh.value,10);restart();});
+document.getElementById('s3-reset').addEventListener('click',restart);
+sync3();
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 比结合能曲线：往铁走就放能量（4.3（续）Binding energy per nucleon；4.4 两节里提示“回到动画 4”）
+   曲线：booklet Figure 4.3 的画图数据（output/src/mod8_essentials/figures/ch4_becurve.py 的 line，点和点直线相连）。
+   纵轴是正的比结合能，0–10 MeV（刻度 0–9，和 Figure 4.3 一样留一点上面的空间）；横轴 A 0–250。
+   页面上显示的数字只用 booklet 正文的：H-2 1.1、He-4 7.1、Fe-56 8.8、U-235 约 7.6、碎片 8.3 到 8.6 MeV、
+   约 200 MeV、17.6 MeV。碎片 Sr-94、Xe-140 是空心方块，比曲线低一点（中子多），和 Figure 4.3 一样。
+   箭头：fission --south（U-235 → 两块碎片，往上），fusion --violet（只从 H-2 到 He-4；H-3 不在曲线上），
+   铁以后的聚变 --heat（两个 A = 100 → A = 200，往下；示意，没有元素名和数字）。
+   A 光标：只有 A = 2、4、56、235（booklet 写了数字的核）显示数值；A ≤ 45 说 fusion 往上走，A ≥ 100 说 fission
+   往上走，中间（峰附近，曲线很平）说“合起来或分开都上不去多少”（不说“左边一律 fusion、右边一律 fission”，
+   因为峰附近的核分开反而往下走）。
+   反应小剧场（大小、速度：示意；点数是真的）：
+     Fission：U-235 = 92 p + 143 n；吸收慢中子 → U-236*（236 个点）→ 花生形 → Xe-140（54 p + 86 n）+ Sr-94（38 p + 56 n）
+       + 2 个快中子。动量守恒：两块碎片往相反方向飞，位移比 = 质量反比（Sr-94 是 Xe-140 的 140/94 倍），质心不动；
+       两块碎片慢下来时动能变成热（--heat 光晕）。两个快中子速度一样、方向相反。排斥力箭头 --force，一样长。
+     Fusion：H-2 + H-3 → He-4 + n。两核都带正电：相对距离 s 按 s'' = K/s² 积分（排斥，能量守恒），越近越慢，
+       到接触时只剩起始速度的 25 %；画在质心系（质量 2 和 3 → 速度 3 : 2）。产物 He-4 和 n 动量相反，n 快 4 倍。
+     铁以后：两个 A = 100 的核（每个 44 p + 56 n，示意）互相排斥着靠近，合成 A = 200，要外加能量（--heat 箭头往里）。
+   颜色：曲线 --copper；proton --north；neutron --muted；速度 --ink 70 %；排斥力 --force。 */
+var LINE=[[2,1.112],[3,2.573],[4,7.074],[6,5.332],[7,5.606],[9,6.463],[11,6.928],[12,7.680],[14,7.476],[16,7.976],
+  [19,7.779],[20,8.032],[23,8.112],[24,8.261],[28,8.448],[32,8.493],[40,8.551],[56,8.790],[62,8.795],[64,8.736],
+  [88,8.733],[90,8.710],[120,8.505],[138,8.393],[184,8.005],[197,7.916],[208,7.867],[232,7.615],[238,7.570]];
+var P_H2=[2,1.112],P_HE=[4,7.074],P_FE=[56,8.790],P_U=[235,7.591],P_SR=[94,8.594],P_XE=[140,8.291];
+var NU_U=236,AF=100,ZF=44,FA=100,FB=200;
+var T_ABS=2.2,T_STR=2.8,T_SPL=4.4,T_FLY=1.8,T_FHOLD=5.8;
+var T_UAPP=3.0,T_UMER=0.5,T_UHOLD=4.8;
+var T_EAPP=3.0,T_EMER=0.9;
+var TEND={fis:11.5,fus:10.5,fe:9.5},T0=0.8;
+var VN=130,VHE=12,THN=20*Math.PI/180;      /* 快中子 px/s；fusion 的 He-4 px/s（n 快 4 倍）：示意 */
+var NAMED={2:'H-2：1.1 MeV',4:'He-4：7.1 MeV（特别高）',56:'Fe-56：8.8 MeV',235:'U-235：约 7.6 MeV'};
+
+function beA(A){var i=1;while(i<LINE.length-1&&LINE[i][0]<A)i++;var a=LINE[i-1],b=LINE[i];return a[1]+(b[1]-a[1])*(A-a[0])/(b[0]-a[0]);}
+function ease(u){u=clamp(u,0,1);return u*u*(3-2*u);}
+function eout(u){u=clamp(u,0,1);return 1-(1-u)*(1-u)*(1-u);}
+
+/* ---------- 原子核：六角形堆积的点（单位 = 点间距），按离中心的距离排 ---------- */
+var seed=20231;
+function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;}
+var HEX=(function(){var p=[],i,j,x,y;for(i=-13;i<=13;i++)for(j=-13;j<=13;j++){x=i+j/2;y=j*0.8660254;p.push([x,y,x*x+y*y+1e-4*Math.atan2(y,x)]);}
+  p.sort(function(a,b){return a[2]-b[2];});return p;})();
+function cluster(n){var o=[],cx=0,cy=0,i;for(i=0;i<n;i++){cx+=HEX[i][0];cy+=HEX[i][1];}cx/=n;cy/=n;for(i=0;i<n;i++)o.push([HEX[i][0]-cx,HEX[i][1]-cy]);return o;}
+function rad(n){return Math.sqrt(n*0.8660254/Math.PI);}
+function pickP(list,z,out){var idx=list.slice(),i,k,s;for(i=idx.length-1;i>0;i--){k=Math.floor(rnd()*(i+1));s=idx[i];idx[i]=idx[k];idx[k]=s;}for(i=0;i<z;i++)out[idx[i]]=1;}
+/* 配对 src[i] → dst[res[i]]，让 Σ 距离² 最小（Hungarian 算法，只在开始时算一次）。
+   这样每个点沿直线走过去时不会乱穿，中间的形状是平滑变形的（一个圆慢慢拉成两个圆）。 */
+function match(src,dst){
+  var n=src.length,INF=1e18,u=new Float64Array(n+1),v=new Float64Array(n+1),p=new Int32Array(n+1),way=new Int32Array(n+1),
+    minv=new Float64Array(n+1),used=new Uint8Array(n+1),i,j,j0,j1,i0,dl,cur,dx,dy,res=[];
+  for(i=1;i<=n;i++){
+    p[0]=i;j0=0;for(j=0;j<=n;j++){minv[j]=INF;used[j]=0;}
+    do{used[j0]=1;i0=p[j0];dl=INF;j1=0;
+      for(j=1;j<=n;j++)if(!used[j]){dx=src[i0-1][0]-dst[j-1][0];dy=src[i0-1][1]-dst[j-1][1];cur=dx*dx+dy*dy-u[i0]-v[j];
+        if(cur<minv[j]){minv[j]=cur;way[j]=j0;}if(minv[j]<dl){dl=minv[j];j1=j;}}
+      for(j=0;j<=n;j++){if(used[j]){u[p[j]]+=dl;v[j]-=dl;}else minv[j]-=dl;}
+      j0=j1;}while(p[j0]!==0);
+    do{j1=way[j0];p[j0]=p[j1];j0=j1;}while(j0);
+  }
+  for(j=1;j<=n;j++)res[p[j]-1]=j-1;return res;
+}
+function byX(list){return list.slice().sort(function(a,b){return (a[0]-b[0])||(a[1]-b[1]);});}
+
+/* Fission：236 个位置。最左边 140 个 → Xe-140，最右边 94 个 → Sr-94，中间 2 个 → 快中子。
+   ABS = 最左边那个位置：吸收进来的中子（一定是 neutron）。 */
+var FH=cluster(NU_U),FP=[],FG=[],FTY=[];
+var RX=rad(140),RS=rad(94),RU=rad(NU_U),SEPL=(RX+RS)*0.98,LA=SEPL*94/234,LB=SEPL*140/234;   /* 140·LA = 94·LB：质心不动 */
+var XE,SR,FREE,ABS;
+(function(){
+  var ord=[],i,cx,cs,mx,ms,pr={};
+  for(i=0;i<NU_U;i++)ord.push(i);
+  ord.sort(function(a,b){return (FH[a][0]-FH[b][0])||(FH[a][1]-FH[b][1]);});
+  XE=ord.slice(0,140);FREE=ord.slice(140,142);SR=ord.slice(142);ABS=XE[0];
+  FREE.sort(function(a,b){return FH[a][1]-FH[b][1];});
+  cx=cluster(140);cs=cluster(94);
+  mx=match(XE.map(function(k){return FH[k];}),cx);
+  ms=match(SR.map(function(k){return FH[k];}),cs);
+  for(i=0;i<140;i++){FP[XE[i]]=[cx[mx[i]][0]-LA,cx[mx[i]][1]];FG[XE[i]]=0;}
+  for(i=0;i<94;i++){FP[SR[i]]=[cs[ms[i]][0]+LB,cs[ms[i]][1]];FG[SR[i]]=1;}
+  var xn=((RX-LA)+(LB-RS))/2;
+  FP[FREE[0]]=[xn,-1.6];FP[FREE[1]]=[xn,1.6];FG[FREE[0]]=2;FG[FREE[1]]=2;
+  pickP(XE.filter(function(k){return k!==ABS;}),54,pr);pickP(SR,38,pr);
+  for(i=0;i<NU_U;i++)FTY[i]=pr[i]?1:0;
+})();
+
+/* 铁以后：两个 100 个点的核 → 一个 200 个点的核（左边的核去大核的左半边，右边的去右半边）。
+   第一次切到这个模式时才算（EDST[i] = 第 i 个点最后的位置）。 */
+var EC=cluster(AF),ER=rad(AF),ESEP=2*ER*0.97,ESRC=[],ETY=[],EDST=null;
+(function(){
+  var i,pr={},l0=[],l1=[];
+  for(i=0;i<AF;i++){ESRC.push([EC[i][0]-ESEP/2,EC[i][1]]);l0.push(i);l1.push(AF+i);}
+  for(i=0;i<AF;i++)ESRC.push([EC[i][0]+ESEP/2,EC[i][1]]);
+  pickP(l0,ZF,pr);pickP(l1,ZF,pr);
+  for(i=0;i<2*AF;i++)ETY[i]=pr[i]?1:0;
+})();
+function feInit(){
+  if(EDST)return;
+  var big=byX(cluster(2*AF)),L=big.slice(0,AF),R=big.slice(AF),a=match(ESRC.slice(0,AF),L),b=match(ESRC.slice(AF),R),i;
+  EDST=[];for(i=0;i<AF;i++){EDST[i]=L[a[i]];EDST[AF+i]=R[b[i]];}
+}
+
+/* Fusion：每个球 = 一个 nucleon（单位 = 球的直径）。[x, y, 1 = proton] */
+var DN=[[-0.5,0,1],[0.5,0,0]],TN=[[0,-0.577,1],[-0.5,0.289,0],[0.5,0.289,0]];
+var HE=[[-0.5,-0.5,1],[0.5,-0.5,0],[-0.5,0.5,0],[0.5,0.5,1]];
+/* 合在一起时谁去哪：D 的 p → He 左上，D 的 n → He 左下，T 的 p → He 右下，T 左下的 n → He 右上，T 右下的 n → 自由中子 */
+var DTO=[0,2],TTO=[3,1,-1];
+
+/* 互相排斥着靠近：相对距离 s（起点 1）按 s'' = K/s² 积分；K 让到 s = sc 时速度只剩 vEnd。只算一次。 */
+function appTab(sc,vEnd){var K=(1-vEnd*vEnd)/(2*(1/sc-1)),s=1,v=-1,h=2e-4,t=0,nx=0.004,tab=[1];
+  while(s>sc&&t<20){v+=K/(s*s)*h;s+=v*h;t+=h;if(t>=nx){tab.push(Math.max(s,sc));nx+=0.004;}}
+  if(tab[tab.length-1]>sc)tab.push(sc);return {tab:tab,K:K};}
+var APU=appTab(0.11,0.25),APE=appTab(0.21,0.2);
+function sAt(tb,u){var n=tb.tab.length-1,x=clamp(u,0,1)*n,i=Math.floor(x);if(i>=n)return tb.tab[n];return tb.tab[i]+(tb.tab[i+1]-tb.tab[i])*(x-i);}
+function vAt(tb,s){return Math.sqrt(Math.max(0,1-2*tb.K*(1/s-1)));}
+
+/* ---------- 状态 ---------- */
+var m={mode:'fis',t:T0,A:56};
+function step(dt){m.t+=dt;if(m.t>TEND[m.mode])m.t=0;}
+function evU(){var t=m.t;if(m.mode==='fis')return clamp((t-T_SPL)/0.9,0,1);if(m.mode==='fus')return clamp((t-T_UAPP-T_UMER*0.5)/0.9,0,1);return clamp((t-T_EAPP-T_EMER*0.5)/0.9,0,1);}
+function mcol(){return m.mode==='fis'?C.south:(m.mode==='fus'?C.violet:C.heat);}
+/* 状态提示：'|' 是可以换行的地方。[主句, 下面的小字] */
+var HOLD='比结合能越大 = 核越紧 = 拆开要给的能量越多 |（不是核里存着的能量）';
+function status(){
+  var t=m.t;
+  if(m.mode==='fis'){
+    var nf='每个点 = 一个 nucleon：红 = proton，灰 = neutron |（U-235 = 92 个 p + 143 个 n）';
+    if(t<T_ABS)return ['慢中子 thermal neutron 飞向 U-235 | → neutron 不带电，不被排斥，可以慢慢靠近',nf];
+    if(t<T_STR)return ['U-235 吸收了这个中子 | → 变成激发态的 U-236*',nf];
+    if(t<T_SPL)return ['U-236* 拉长成花生形 | → 短程的 strong nuclear force 抓不住两头 | → 排斥把两头推开',nf];
+    if(t<T_FHOLD)return ['分成两块碎片 + 2 个快中子 | → 碎片飞得很快，慢下来时动能变成热',nf];
+    return ['U-235（7.6 MeV）→ 两块碎片（8.3 到 8.6 MeV）| → 往上走 → 结合得更紧 → 质量变小 | → 放出约 200 MeV',HOLD];
+  }
+  if(m.mode==='fus'){
+    var nu='每个球 = 一个 nucleon：红 = proton，灰 = neutron | 绿箭头 = 排斥力，细箭头 = 速度 v';
+    if(t<T_UAPP)return ['H-2 和 H-3 都带正电 → 互相排斥 | → 越靠近，推得越厉害 → 越走越慢',nu];
+    if(t<T_UAPP+T_UMER)return ['靠近到约 3 fm 以内 | → strong nuclear force 起作用 → 合在一起',nu];
+    if(t<T_UHOLD)return ['变成 He-4 + 一个快中子 | → 少掉的质量变成它们的动能',nu];
+    return ['H-2（1.1 MeV）→ He-4（7.1 MeV）：往上走很多 | → 质量变小 → 放出能量（H-2 + H-3：17.6 MeV）',HOLD];
+  }
+  var ne='每个点 = 一个 nucleon · 绿箭头 = 排斥力，细箭头 = 速度 v | 两个 A = 100 → A = 200 只是示意';
+  if(t<T_EAPP)return ['两个比铁大的核都带很多正电 | → 排斥很强 → 越走越慢',ne];
+  if(t<T_EAPP+T_EMER)return ['硬把它们推到一起 | → 合成一个更大的核（A = 200）',ne];
+  return ['铁以后再合起来：往下走 → 结合得更松 | → 质量变大 → 要吸收能量',HOLD];
+}
+function zone(A){
+  if(A===56)return '峰附近：结合得最紧（the most tightly bound）| → 两边的核都往这里走';
+  if(A<=45)return '在 Fe-56 左边：轻核合起来（fusion）| → 往 Fe-56 走 = 往上走 → 放能量';
+  if(A<100)return 'Fe-56 附近：曲线很平，已经结合得很紧 | → 再合起来或再分开，都几乎放不出能量';
+  return '在 Fe-56 右边：重核分开（fission）| → 往 Fe-56 走 = 往上走 → 放能量';
+}
+function wrap(ctx,s,maxW,size,weight){
+  ctx.font=weight+' '+size+'px '+FONT;
+  var parts=s.split('|'),lines=[],cur='',i,p,tr;
+  for(i=0;i<parts.length;i++){p=parts[i].trim();tr=cur?cur+' '+p:p;if(!cur||ctx.measureText(tr).width<=maxW)cur=tr;else{lines.push(cur);cur=p;}}
+  if(cur)lines.push(cur);return lines;
+}
+
+/* ---------- 版面 ---------- */
+var G={};
+function lay(W){
+  var wide=W>=640,L;G.wide=wide;
+  if(wide){L=Math.round(W*0.47);G.L=L;G.tx0=16;G.tx1=L-14;G.yHead=74;G.cyT=182;G.yEq=284;G.yEn=310;G.yNote=334;
+    G.gx=L+34;G.gx1=W-18;G.gtl=L+14;G.yTitle=74;G.yReg=96;G.py0=108;G.py1=320;G.yRead=382;
+    G.stX=16;G.stY=26;G.stS=15;G.stLH=21;G.stW=W-32;G.noteS=12.5;}
+  else{G.tx0=12;G.tx1=W-12;G.yHead=92;G.cyT=170;G.yEq=266;G.yEn=289;G.yNote=312;G.ySep=346;
+    G.gx=36;G.gx1=W-16;G.gtl=12;G.yTitle=372;G.yReg=392;G.py0=404;G.py1=604;G.yRead=662;
+    G.stX=12;G.stY=22;G.stS=13.5;G.stLH=19;G.stW=W-24;G.noteS=12;}
+  G.gw=G.gx1-G.gx;G.tw=G.tx1-G.tx0;G.cx=(G.tx0+G.tx1)/2;G.hw=G.tw/2;
+  G.d=Math.min(clamp(G.tw/62,4.4,5.6),(G.hw-2)/(5.62*ER));
+  G.rb=clamp(G.tw/38,7.5,9);
+}
+function gX(A){return G.gx+A/250*G.gw;}
+function gY(v){return G.py1-v/10*(G.py1-G.py0);}
+
+/* ---------- 小工具 ---------- */
+function halo(ctx,x,y,r,g){if(g<=0.01)return;ctx.save();ctx.shadowColor=C.heat;ctx.shadowBlur=18*g;dot(ctx,x,y,r,rgba(C.heat,0.22*g));ctx.restore();}
+function nball(ctx,x,y,r,a){ctx.globalAlpha=a;dot(ctx,x,y,r,C.muted);ring(ctx,x,y,r,C.stage,1);ctx.globalAlpha=1;}
+function ball(ctx,x,y,r,isP,lab,a){
+  ctx.globalAlpha=a==null?1:a;dot(ctx,x,y,r,isP?C.north:C.muted);ring(ctx,x,y,r,C.stage,1.2);
+  if(lab)txt(ctx,isP?'p':'n',x,y+0.5,C.stage,11,700,'center','middle');ctx.globalAlpha=1;
+}
+function fadeBox(x,y){var dd=Math.min(x-G.tx0,G.tx1-x,y-(G.yHead+16),(G.cyT+RU*G.d+2)-y);return clamp(dd/28,0,1);}   /* 飞出画面前淡出（不压到字） */
+function vArrow(ctx,x,y,ux,uy,len,a){if(len>3)arrow(ctx,x,y,x+ux*len,y+uy*len,rgba(C.ink,0.7*(a==null?1:a)),1.6,6);}
+function fArrow(ctx,x,y,ux,len,a){if(len>3)arrow(ctx,x,y,x+ux*len,y,rgba(C.force,a),2.6,8);}
+/* 二次曲线箭头（控制点 = 中点往下挪 bend 像素），只画到 u */
+function qArrow(ctx,x0,y0,x1,y1,bend,col,u,w){
+  if(u<=0.03)return;u=Math.min(1,u);
+  var cx=(x0+x1)/2,cy=(y0+y1)/2+bend,n=24,i,s,a,px=x0,py=y0,qx=x0,qy=y0;
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash([]);ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x0,y0);
+  for(i=1;i<=n;i++){s=u*i/n;a=1-s;px=a*a*x0+2*a*s*cx+s*s*x1;py=a*a*y0+2*a*s*cy+s*s*y1;if(i===n-3){qx=px;qy=py;}ctx.lineTo(px,py);}
+  ctx.stroke();ctx.lineCap='butt';arrow(ctx,qx,qy,px,py,col,w,9);
+}
+/* 有底色的标签：网格线和光标线从字后面过去 */
+function klab(ctx,s,x,y,col,size,weight,align){
+  ctx.font=(weight||600)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  ctx.fillStyle=C.stage;ctx.fillRect(x0-2,y-size*0.82,w+4,size*1.08);txt(ctx,s,x,y,col,size,weight||600,align||'left');
+}
+
+/* ---------- 方程（照 booklet）：核素 ᴬ_Z X（A 在左上、Z 在左下）---------- */
+function NUC(a,z,x,st){return {k:'n',a:a,z:z,x:x,st:st};}
+var PL={k:'o',s:'+'},TO={k:'o',s:'→'};
+var EQF=[NUC('235','92','U'),PL,NUC('1','0','n'),TO,NUC('236','92','U',1),TO,NUC('140','54','Xe'),PL,NUC('94','38','Sr'),PL,{k:'c',s:'2'},NUC('1','0','n')];
+var EQU=[NUC('2','1','H'),PL,NUC('3','1','H'),TO,NUC('4','2','He'),PL,NUC('1','0','n')];
+function tok(ctx,tk,x,y,col,ES,ESS,dr){
+  var w,ws;
+  if(tk.k==='n'){
+    ctx.font='500 '+ESS+'px '+MATH;w=Math.max(ctx.measureText(tk.a).width,ctx.measureText(tk.z).width);
+    ctx.font='500 '+ES+'px '+MATH;ws=ctx.measureText(tk.x).width;
+    if(dr){txt(ctx,tk.a,x+w,y-ES*0.42,col,ESS,500,'right','alphabetic',MATH);txt(ctx,tk.z,x+w,y+ES*0.27,col,ESS,500,'right','alphabetic',MATH);
+      txt(ctx,tk.x,x+w+1,y,col,ES,500,'left','alphabetic',MATH);if(tk.st)txt(ctx,'*',x+w+1.5+ws,y-ES*0.36,col,ESS+1,500,'left','alphabetic',MATH);}
+    return w+1+ws+(tk.st?ESS*0.65:0);
+  }
+  ctx.font='500 '+ES+'px '+MATH;w=ctx.measureText(tk.s).width;
+  if(tk.k==='o'){var pd=tk.s==='→'?8:5;if(dr)txt(ctx,tk.s,x+pd,y,col,ES,500,'left','alphabetic',MATH);return w+2*pd;}
+  if(dr)txt(ctx,tk.s,x,y,col,ES,500,'left','alphabetic',MATH);return w+2;
+}
+function eqDraw(ctx,toks,cx,y,col,maxW){
+  var ES=16,ESS=11,i,w=0,x;
+  for(i=0;i<toks.length;i++)w+=tok(ctx,toks[i],0,0,col,ES,ESS,false);
+  if(w>maxW){ES=Math.max(13,ES*maxW/w);w=0;for(i=0;i<toks.length;i++)w+=tok(ctx,toks[i],0,0,col,ES,ESS,false);}
+  x=cx-w/2;for(i=0;i<toks.length;i++)x+=tok(ctx,toks[i],x,y,col,ES,ESS,true);
+}
+
+/* ---------- 小剧场：Fission ---------- */
+function drawFis(ctx){
+  var t=m.t,d=G.d,cx=G.cx,cy=G.cyT,r=d*0.42,i,x,y,h,p,q,a,k;
+  var DS=Math.max(24,G.hw-6-(LB+RS)*d),DX=DS*94/140;
+  var eu=t>=T_STR?ease((t-T_STR)/(T_SPL-T_STR)):0,eo=t>=T_SPL?eout((t-T_SPL)/T_FLY):0,wob=0;
+  if(t>=T_ABS&&t<T_STR){q=(t-T_ABS)/(T_STR-T_ABS);wob=0.06*Math.sin(q*TAU*2.5)*(1-0.5*q);}
+  var xX=cx-LA*d*eu-DX*eo,xS=cx+LB*d*eu+DS*eo;
+  if(t>=T_SPL){a=clamp((t-T_SPL)/0.7,0,1);halo(ctx,xX,cy,RX*d+5,a);halo(ctx,xS,cy,RS*d+5,a);}
+  for(i=0;i<NU_U;i++){
+    if(i===ABS&&t<T_ABS)continue;
+    if(FG[i]===2&&t>=T_SPL)continue;
+    h=FH[i];
+    if(t<T_STR){x=h[0]*(1+wob);y=h[1]*(1-wob);}else{p=FP[i];x=h[0]+(p[0]-h[0])*eu;y=h[1]+(p[1]-h[1])*eu;}
+    x=cx+x*d;y=cy+y*d;
+    if(t>=T_SPL)x+=FG[i]===0?-DX*eo:DS*eo;
+    dot(ctx,x,y,r,FTY[i]?C.north:C.muted);
+  }
+  var nr=7;
+  if(t<T_ABS){                                   /* 慢中子：走到核边上时缩成核里的一个点 */
+    var ax=cx+FH[ABS][0]*d,ay=cy+FH[ABS][1]*d,sx=G.tx0+16;q=t/T_ABS;x=sx+(ax-sx)*q;
+    var rr=lerp(nr,r,clamp((q-0.86)/0.14,0,1));
+    ball(ctx,x,ay,rr,0,rr>=6.4);if(q<0.86)vArrow(ctx,x+nr+3,ay,1,0,10,1);
+    if(q<0.9)txt(ctx,'慢中子',x,ay-nr-8,C.muted,11.5,600,'center');
+  }
+  if(t>=T_SPL){                                  /* 两个快中子：速度一样、方向相反（从脖子上下飞出去） */
+    for(k=0;k<2;k++){
+      i=FREE[k];var ux=k?-0.574:0.574,uy=k?0.819:-0.819,dd=VN*(t-T_SPL),rn=lerp(r,nr,clamp((t-T_SPL)/0.12,0,1));
+      x=cx+FP[i][0]*d+ux*dd;y=cy+FP[i][1]*d+uy*dd;a=fadeBox(x,y);
+      if(a>0.02){ball(ctx,x,y,rn,0,rn>=6.4,a);vArrow(ctx,x+ux*(nr+3),y+uy*(nr+3),ux,uy,24,a);}
+    }
+  }
+  /* 排斥：两头互相推开（一样长） */
+  var fa=t<T_SPL?clamp((eu-0.6)/0.25,0,1):clamp(1-(t-T_SPL)/0.7,0,1);
+  var eL=t<T_SPL?cx-lerp(RU,LA+RX,eu)*d:xX-RX*d,eR=t<T_SPL?cx+lerp(RU,LB+RS,eu)*d:xS+RS*d;
+  if(fa>0.02){fArrow(ctx,eL-4,cy,-1,22,fa);fArrow(ctx,eR+4,cy,1,22,fa);
+    txt(ctx,'排斥',eR+15,cy-9,rgba(C.force,fa),11.5,600,'center');}
+  var yl=cy+RU*d+18;
+  if(t<T_ABS)txt(ctx,'U-235',cx,yl,C.ink,12.5,600,'center');
+  else if(t<T_SPL)txt(ctx,'U-236*',cx,yl,C.ink,12.5,600,'center');
+  else{txt(ctx,'Xe-140',xX,yl,C.ink,12.5,600,'center');txt(ctx,'Sr-94',xS,yl,C.ink,12.5,600,'center');}
+}
+
+/* ---------- 小剧场：Fusion ---------- */
+function drawFus(ctx){
+  var t=m.t,rb=G.rb,D2=2*rb,cy=G.cyT,sepC=1.6*D2,sep0=sepC/0.11,xcm=G.cx+0.1*sep0,i,k,x,y,xD,xT,u,j;
+  var Ln=1.25*D2,hx0=xcm-0.2*Ln,nx0=xcm+0.8*Ln;                 /* 4 × (−0.2) + 1 × 0.8 = 0：产物的质心也在 xcm */
+  var yl=cy+D2+16;
+  if(t<T_UAPP){
+    var s=sAt(APU,t/T_UAPP),sep=s*sep0,v=vAt(APU,s),L=Math.min(46,4+3/(s*s));
+    xD=xcm-0.6*sep;xT=xcm+0.4*sep;
+    for(i=0;i<2;i++)ball(ctx,xD+DN[i][0]*D2,cy+DN[i][1]*D2,rb,DN[i][2],true);
+    for(i=0;i<3;i++)ball(ctx,xT+TN[i][0]*D2,cy+TN[i][1]*D2,rb,TN[i][2],true);
+    var yv=cy-2.15*rb-9;
+    vArrow(ctx,xD-15*v,yv,1,0,30*v,1);vArrow(ctx,xT+10*v,yv,-1,0,20*v,1);   /* 质心系：速度 3 : 2 */
+    fArrow(ctx,xD-0.5*D2-rb-3,cy,-1,L,1);fArrow(ctx,xT+0.5*D2+rb+3,cy,1,L,1);
+    txt(ctx,'排斥',xT+0.5*D2+rb+3+L/2,cy-11,C.force,11.5,600,'center');
+    txt(ctx,'H-2',xD,yl,C.ink,12.5,600,'center');txt(ctx,'H-3',xT,yl,C.ink,12.5,600,'center');
+    return;
+  }
+  xD=xcm-0.6*sepC;xT=xcm+0.4*sepC;
+  if(t<T_UAPP+T_UMER){                           /* 合在一起：nucleons 重新排成 He-4 + n */
+    u=ease((t-T_UAPP)/T_UMER);
+    for(i=0;i<2;i++){j=DTO[i];ball(ctx,lerp(xD+DN[i][0]*D2,hx0+HE[j][0]*D2,u),lerp(cy+DN[i][1]*D2,cy+HE[j][1]*D2,u),rb,DN[i][2],false);}
+    for(i=0;i<3;i++){j=TTO[i];x=j<0?nx0:hx0+HE[j][0]*D2;y=j<0?cy:cy+HE[j][1]*D2;
+      ball(ctx,lerp(xT+TN[i][0]*D2,x,u),lerp(cy+TN[i][1]*D2,y,u),rb,TN[i][2],false);}
+    ring(ctx,xcm,cy,D2*(1.2+1.4*u),rgba(C.heat,0.6*(1-u)),2.2);
+    return;
+  }
+  var tf=t-T_UAPP-T_UMER,c=Math.cos(THN),sn=Math.sin(THN);
+  var hx=hx0-c*VHE*tf,hy=cy-sn*VHE*tf,nx=nx0+c*4*VHE*tf,ny=cy+sn*4*VHE*tf,na=fadeBox(nx,ny);
+  for(k=0;k<4;k++)ball(ctx,hx+HE[k][0]*D2,hy+HE[k][1]*D2,rb,HE[k][2],true);
+  vArrow(ctx,hx-c*(D2+2),hy-sn*(D2+2),-c,-sn,10,1);
+  txt(ctx,'He-4',hx,hy+D2+16,C.ink,12.5,600,'center');
+  if(na>0.02){ball(ctx,nx,ny,rb,0,true,na);vArrow(ctx,nx+c*(rb+3),ny+sn*(rb+3),c,sn,40,na);
+    if(na>0.5&&Math.hypot(nx-hx,ny-hy)>3.6*D2)txt(ctx,'快中子',nx,ny-rb-7,rgba(C.muted,na),11.5,600,'center');}
+}
+
+/* ---------- 小剧场：铁以后 ---------- */
+function drawFe(ctx){
+  var t=m.t,d=G.d,cx=G.cx,cy=G.cyT,r=d*0.42,sepC=ESEP*d,sep0=sepC/0.21,i,x,y,u;
+  if(t<T_EAPP){
+    var s=sAt(APE,t/T_EAPP),sep=s*sep0,v=vAt(APE,s),xa=cx-sep/2,xb=cx+sep/2,L=Math.min(40,4+2.2/(s*s)),R=ER*d;
+    for(i=0;i<AF;i++){dot(ctx,xa+EC[i][0]*d,cy+EC[i][1]*d,r,ETY[i]?C.north:C.muted);dot(ctx,xb+EC[i][0]*d,cy+EC[i][1]*d,r,ETY[AF+i]?C.north:C.muted);}
+    var yv=cy-R-10;
+    vArrow(ctx,xa-13*v,yv,1,0,26*v,1);vArrow(ctx,xb+13*v,yv,-1,0,26*v,1);
+    fArrow(ctx,xa-R-3,cy,-1,L,1);fArrow(ctx,xb+R+3,cy,1,L,1);
+    txt(ctx,'排斥',xb+R+3+L/2,cy-9,C.force,11.5,600,'center');
+    txt(ctx,'A = 100',xa,cy+R+18,C.ink,12.5,600,'center');txt(ctx,'A = 100',xb,cy+R+18,C.ink,12.5,600,'center');
+    return;
+  }
+  u=ease((t-T_EAPP)/T_EMER);
+  feInit();
+  for(i=0;i<2*AF;i++){x=lerp(ESRC[i][0],EDST[i][0],u);y=lerp(ESRC[i][1],EDST[i][1],u);dot(ctx,cx+x*d,cy+y*d,r,ETY[i]?C.north:C.muted);}
+  var R2=rad(2*AF)*d,ea=clamp((t-T_EAPP-T_EMER*0.5)/0.6,0,1);
+  if(ea>0.02){
+    var pz=4*Math.sin(t*5),k,an,ux,uy,col=rgba(C.heat,ea);
+    for(k=0;k<4;k++){an=Math.PI/4+k*Math.PI/2;ux=Math.cos(an);uy=Math.sin(an);
+      arrow(ctx,cx+ux*(R2+36+pz),cy+uy*(R2+36+pz),cx+ux*(R2+9+pz),cy+uy*(R2+9+pz),col,2.6,9);}
+    txt(ctx,'要外加能量',cx-R2-34,cy+4,col,12,700,'right');
+  }
+  txt(ctx,'A = 200',cx,cy+R2+18,C.ink,12.5,600,'center');
+}
+
+/* ---------- 比结合能曲线 ---------- */
+function drawGraph(ctx){
+  var gx=G.gx,gw=G.gw,p0=G.py0,p1=G.py1,i,x,y,md=m.mode,col=mcol(),ev=evU(),pulse=0.6+0.4*Math.sin(m.t*5);
+  txt(ctx,'比结合能 binding energy per nucleon (MeV)',G.gtl,G.yTitle,C.muted,12,600);
+  for(i=1;i<=9;i++){y=gY(i);seg(ctx,gx,y,gx+gw,y,C.grid,1);}
+  for(i=50;i<=250;i+=50){x=gX(i);seg(ctx,x,p0,x,p1,C.grid,1);}
+  seg(ctx,gx,p0,gx,p1,C.muted,1.2);seg(ctx,gx,p1,gx+gw,p1,C.muted,1.2);
+  for(i=0;i<=9;i++)txt(ctx,String(i),gx-6,gY(i)+4,C.muted,11,500,'right');
+  for(i=0;i<=250;i+=50)txt(ctx,String(i),gX(i),p1+15,C.muted,11,500,'center');
+  ctx.font='600 12px '+FONT;var w1=ctx.measureText('mass number ').width,w3=ctx.measureText('（质量数）').width;
+  ctx.font='italic 500 14px '+MATH;var w2=ctx.measureText('A').width,xt=gx+gw/2-(w1+w2+w3)/2;
+  txt(ctx,'mass number ',xt,p1+34,C.muted,12,600);txt(ctx,'A',xt+w1,p1+34,C.muted,14,'italic 500','left','alphabetic',MATH);
+  txt(ctx,'（质量数）',xt+w1+w2+1,p1+34,C.muted,12,600);
+  /* Fe-56 分界线：左边 fusion 放能量，右边 fission 放能量 */
+  x=gX(56);seg(ctx,x,G.yReg-11,x,p1,rgba(C.muted,0.7),1.2,[3,4]);
+  txt(ctx,'← fusion 放能量',x-6,G.yReg,C.violet,12,600,'right');
+  txt(ctx,'fission 放能量 →',x+6,G.yReg,C.south,12,600,'left');
+  /* A 光标的竖线 */
+  var ca=gX(m.A);seg(ctx,ca,p0,ca,p1,rgba(C.ink,0.42),1.6);
+  /* 曲线 */
+  ctx.beginPath();for(i=0;i<LINE.length;i++){x=gX(LINE[i][0]);y=gY(LINE[i][1]);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.setLineDash([]);ctx.stroke();
+  /* 反应箭头 */
+  var ux=gX(P_U[0]),uy=gY(P_U[1]),sx=gX(P_SR[0]),sy=gY(P_SR[1]),xx=gX(P_XE[0]),xy=gY(P_XE[1]);
+  var ax=gX(FA),ay=gY(beA(FA)),bx=gX(FB),by=gY(beA(FB));
+  if(md==='fis'){qArrow(ctx,ux-4,uy-6,xx+5,xy-5,-16,col,ev,2.4);qArrow(ctx,ux-4,uy-6,sx+5,sy-5,-28,col,ev,2.4);}
+  else if(md==='fus'){var h0x=gX(P_H2[0])+1,h0y=gY(P_H2[1])-7,h1x=gX(P_HE[0]),h1y=gY(P_HE[1])+8;
+    if(ev>0.05)arrow(ctx,h0x,h0y,lerp(h0x,h1x,ev),lerp(h0y,h1y,ev),col,3,10);}
+  else qArrow(ctx,ax+4,ay+6,bx-4,by+6,34,col,ev,2.4);
+  /* 点 */
+  var fa=md==='fis'?1:0.35;
+  [P_SR,P_XE].forEach(function(P){var X=gX(P[0]),Y=gY(P[1]);ctx.fillStyle=C.stage;ctx.fillRect(X-3.5,Y-3.5,7,7);ctx.strokeStyle=rgba(C.south,fa);ctx.lineWidth=1.8;ctx.strokeRect(X-3.5,Y-3.5,7,7);});
+  [P_H2,P_HE,P_FE,P_U].forEach(function(P){dot(ctx,gX(P[0]),gY(P[1]),3.6,C.ink);});
+  if(md==='fe'){dot(ctx,ax,ay,4,C.stage);ring(ctx,ax,ay,4,C.heat,2);if(ev>=1){dot(ctx,bx,by,4,C.stage);ring(ctx,bx,by,4,C.heat,2);}}
+  /* 亮起来：反应前的点（一直亮），反应后的点（箭头到了才亮） */
+  var a0=rgba(col,pulse);
+  if(md==='fis'){ring(ctx,ux,uy,8,a0,2);if(ev>=1){ring(ctx,sx,sy,8,col,2);ring(ctx,xx,xy,8,col,2);}}
+  else if(md==='fus'){ring(ctx,gX(P_H2[0]),gY(P_H2[1]),8,a0,2);if(ev>=1)ring(ctx,gX(P_HE[0]),gY(P_HE[1]),8,col,2);}
+  else{ring(ctx,ax,ay,8.5,a0,2);if(ev>=1)ring(ctx,bx,by,8.5,col,2);}
+  /* 标签（有底色） */
+  seg(ctx,gX(4)+1,gY(P_HE[1])-6,gX(4)+3,gY(9.3)+3,rgba(C.muted,0.8),1);
+  klab(ctx,'He-4 · 7.1',gX(4)+2,gY(9.3),C.ink,11.5,600,'left');
+  seg(ctx,gX(56)+2,gY(P_FE[1])-4,gX(56)+8,gY(9.3)+3,rgba(C.muted,0.8),1);
+  klab(ctx,'Fe-56 · 8.8',gX(56)+9,gY(9.3),C.ink,11.5,600,'left');
+  klab(ctx,'H-2 · 1.1',gX(2)+9,gY(P_H2[1])+4,C.ink,11.5,600,'left');
+  klab(ctx,'U-235 · 约 7.6',ux+8,uy+19,C.ink,11.5,600,'right');
+  if(md==='fis'){
+    klab(ctx,'Sr-94',sx-6,sy+15,C.south,11.5,600,'right');klab(ctx,'Xe-140',xx-6,xy+15,C.south,11.5,600,'right');
+    if(ev>=1)klab(ctx,'碎片：8.3 到 8.6 MeV',gX(176),gY(9.55),C.south,12,600,'center');
+  }else if(md==='fus'){
+    if(ev>=1)klab(ctx,'fusion：往上走很多',gX(4)+14,gY(4.3),C.violet,12,600,'left');
+  }else{
+    klab(ctx,'A = 100',ax-7,ay+15,C.heat,11.5,600,'right');
+    if(ev>=1){klab(ctx,'A = 200',bx,by-9,C.heat,11.5,600,'center');klab(ctx,'往下走 → 要吸收能量',gX(150),gY(5.8),C.heat,12,600,'center');}
+  }
+  /* A 光标的点 */
+  dot(ctx,ca,gY(beA(m.A)),4.6,C.ink);ring(ctx,ca,gY(beA(m.A)),4.6,C.stage,1.4);
+  /* 光标读数 */
+  var yr=G.yRead,s='光标 A = '+m.A,L,k;
+  txt(ctx,s,G.gtl,yr,C.ink,13,600);
+  if(NAMED[m.A]){ctx.font='600 13px '+FONT;txt(ctx,' · '+NAMED[m.A],G.gtl+ctx.measureText(s).width,yr,C.copper,13,600);}
+  L=wrap(ctx,zone(m.A),G.gx1-G.gtl,12.5,500);
+  for(k=0;k<L.length&&k<2;k++)txt(ctx,L[k],G.gtl,yr+19+k*18,C.ink,12.5,500);
+}
+
+/* ---------- 画面 ---------- */
+var HEAD={fis:['Fission 裂变','south'],fus:['Fusion 聚变','violet'],fe:['铁以后还聚变？','heat']};
+function draw(ctx,W,H){
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  lay(W);
+  var st=status(),L,i;
+  L=wrap(ctx,st[0],G.stW,G.stS,600);
+  for(i=0;i<L.length;i++)txt(ctx,L[i],G.stX,G.stY+i*G.stLH,C.ink,G.stS,600);
+  if(G.wide)seg(ctx,G.L,G.yHead-14,G.L,H-14,C.line,1);else seg(ctx,12,G.ySep,W-12,G.ySep,C.line,1);
+  /* 小剧场 */
+  txt(ctx,HEAD[m.mode][0],G.tx0,G.yHead,C[HEAD[m.mode][1]],13.5,700);
+  txt(ctx,m.mode==='fe'?'整个例子：示意':'大小、速度：示意',G.tx1,G.yHead,C.muted,11.5,500,'right');
+  if(m.mode==='fis')drawFis(ctx);else if(m.mode==='fus')drawFus(ctx);else drawFe(ctx);
+  if(m.mode==='fis'){eqDraw(ctx,EQF,G.cx,G.yEq,C.ink,G.tw);txt(ctx,'放出约 200 MeV（碎片的动能 → 热）',G.cx,G.yEn,C.ink,13,600,'center');}
+  else if(m.mode==='fus'){eqDraw(ctx,EQU,G.cx,G.yEq,C.ink,G.tw);txt(ctx,'放出 17.6 MeV（变成 He-4 和 n 的动能）',G.cx,G.yEn,C.ink,13,600,'center');}
+  else{txt(ctx,'中等的核 + 中等的核 → 更大的核',G.cx,G.yEq,C.ink,13.5,600,'center');txt(ctx,'A：100 + 100 = 200（示意）· 要吸收能量',G.cx,G.yEn,C.heat,13,600,'center');}
+  L=wrap(ctx,st[1],G.tw,G.noteS,500);
+  for(i=0;i<L.length;i++)txt(ctx,L[i],G.tx0,G.yNote+i*(G.noteS+4.5),C.muted,G.noteS,500);
+  drawGraph(ctx);
+}
+
+var S4=makeStage('sim4',{height:function(w){return w>=640?436:716;},step:step,draw:draw});
+var bF=document.getElementById('s4-fis'),bU=document.getElementById('s4-fus'),bE=document.getElementById('s4-fe');
+function setMode(md){if(md==='fe')feInit();m.mode=md;m.t=T0;press(bF,md==='fis');press(bU,md==='fus');press(bE,md==='fe');S4.render();}
+bF.addEventListener('click',function(){setMode('fis');});
+bU.addEventListener('click',function(){setMode('fus');});
+bE.addEventListener('click',function(){setMode('fe');});
+var rA=document.getElementById('s4-a'),oA=document.getElementById('s4-a-out');
+function syncA(){m.A=parseInt(rA.value,10);oA.textContent=String(m.A);}
+rA.addEventListener('input',function(){syncA();S4.render();});
+syncA();
+document.getElementById('s4-replay').addEventListener('click',function(){m.t=0;S4.setPlaying(true);S4.render();});
+S4.render();
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 链式反应：多于一个、正好一个、少于一个（4.4 Fission and chain reactions，对照 booklet Figure 4.4）
+   booklet：每次裂变放出 2 或 3 个快中子（这里和 Figure 4.4 一样画 3 个）；要看的是每次裂变的中子里，平均有几个
+   引起新的裂变：多于一个 → 1, 3, 9, 27, …（uncontrolled = 核爆炸）；正好一个 → 1, 1, 1, …（controlled = 反应堆，
+   control rods 吸收中子）；少于一个 → 停了（小块从表面漏掉很多中子：低于 critical mass = subcritical）。每次裂变约 200 MeV。
+   每次 3 个中子的去向：
+     控制棒拔出 + 大块：3 个都引起裂变 → 1, 3, 9, 27, 81
+     控制棒插入 + 大块：1 个被控制棒吸收、1 个跑出燃料块、1 个引起裂变（和 Figure 4.4(b) 一样）→ 1, 1, 1, 1, 1
+     小块（不管控制棒）：第 1 代有 1 个引起裂变，第 2 代 0 个 → 1, 1, 0, 0, 0（示意）
+   树画到第 4 代（1、3、9 个圆 + 第 4 代的小点，和 Figure 4.4 一样），第 5 代只在柱状图里。一代 = P 秒，放慢了很多（示意）。
+   柱状图纵轴 0–10，超过 10 的柱子截断、数字写在上面（1 也看得见）。能量 = 裂变次数 × 约 200 MeV（booklet 的数）。
+   颜色：U-235 核 --copper，中子 --muted，裂变的一闪和碎片的热 --heat，碎片 --muted，控制棒 --ink 65 %，柱子 --copper。 */
+var P=1.8,T0=-0.7,EMIT=0.12,HOLD=5,TEND=4*P+1.2,TPRE=0.8;
+var CNT={U:[1,3,9,27,81],C:[1,1,1,1,1],S:[1,1,0,0,0]};
+var RB={U:'3 个：多于一个 → 越来越多',C:'1 个：正好一个 → 每代一样多',S:'1 个，然后 0 个：少于一个 → 停了'};
+var RU_W=[11,9.5,8,2.6],RC_W=[11,11,11,3.4],RU_N=[10,8.5,6.5,2.4],RC_N=[10,10,10,3.2];
+var m={t:TPRE,hold:0,rodIn:false,big:true,rodK:0,mode:'U'};
+var nodes=[],neus=[];
+
+/* 树的结构：node = {g 第几代, c 第几列, r 行（单位 s3）}；neutron = {a 从哪个核, k 0 引起裂变 / 1 被控制棒吸收 / 2 跑掉, b 打中哪个核, d 跑掉的方向} */
+function build(){
+  nodes.length=0;neus.length=0;
+  var mode=m.big?(m.rodIn?'C':'U'):'S',i,j,k,g,prev,n0,n1,n2,n3;m.mode=mode;
+  function add(g,c,r){nodes.push({g:g,c:c,r:r});return nodes.length-1;}
+  function nt(a,k,b,d){neus.push({a:a,k:k,b:b,d:d});}
+  n0=add(1,0,0);
+  if(mode==='U'){
+    for(i=-1;i<=1;i++){n1=add(2,1,3*i);nt(n0,0,n1,'');
+      for(j=-1;j<=1;j++){n2=add(3,2,3*i+j);nt(n1,0,n2,'');
+        for(k=-1;k<=1;k++){n3=add(4,3,3*i+j+k/3);nt(n2,0,n3,'');}}}
+  }else if(mode==='C'){
+    prev=n0;
+    for(g=2;g<=4;g++){n1=add(g,g-1,0);nt(prev,0,n1,'');nt(prev,1,-1,'u');nt(prev,2,-1,'d');prev=n1;}
+  }else{
+    n1=add(2,1,0);nt(n0,0,n1,'');
+    if(m.rodIn){nt(n0,1,-1,'u');nt(n0,2,-1,'d');nt(n1,1,-1,'u');nt(n1,2,-1,'r');nt(n1,2,-1,'d');}
+    else{nt(n0,2,-1,'u');nt(n0,2,-1,'d');nt(n1,2,-1,'u');nt(n1,2,-1,'r');nt(n1,2,-1,'d');}
+  }
+}
+build();
+
+function restart(){m.t=T0;m.hold=0;build();}
+function step(dt){
+  var tg=m.rodIn?1:0;m.rodK+=(tg-m.rodK)*Math.min(1,dt*6);if(Math.abs(tg-m.rodK)<0.002)m.rodK=tg;
+  if(m.t>=TEND){m.hold+=dt;if(m.hold>HOLD)restart();}
+  else m.t=Math.min(TEND,m.t+dt);
+}
+
+/* ---------- 排版（每帧按宽度算，不分配新对象） ---------- */
+var G={cx:[0,0,0,0]},E={sx:0,sy:0,ex:0,ey:0},L1=[],L2=[],ST=['','',''];
+/* 燃料块的上边：状态提示最低的一行下面留出控制棒（拔出时）的位置 */
+function blockTop(W){return Math.round(Math.max(W>=640?96:76,statusBottom(W)+(W>=640?44:36)));}
+function layout(W){
+  var wide=W>=640,x1,x4,b0=blockTop(W);G.wide=wide;
+  if(wide){G.bx0=16;G.bx1=Math.round(W*0.58);G.by0=b0;G.by1=b0+240;G.s3=24;G.ru=RU_W;G.rc=RC_W;G.nr=3;G.sh=52;
+    x1=G.bx0+50;x4=G.bx1-24;G.sxl=32;G.sxr=34;G.lab=G.by1+22;
+    G.px0=G.bx1+28;G.gx0=G.px0+26;G.gx1=W-16;G.gy0=b0+28;G.gy1=b0+166;G.ro=G.gy1+44;G.leg=G.by1+64;}
+  else{G.bx0=12;G.bx1=W-12;G.by0=b0;G.by1=b0+200;G.s3=20;G.ru=RU_N;G.rc=RC_N;G.nr=2.8;G.sh=48;
+    x1=G.bx0+36;x4=G.bx1-18;G.sxl=28;G.sxr=30;G.lab=G.by1+20;
+    G.px0=16;G.gx0=44;G.gx1=W-14;G.gy0=G.by1+102;G.gy1=G.gy0+92;G.ro=G.gy1+42;G.leg=G.gy1+138;}
+  G.mid=(G.by0+G.by1)/2;G.cx[0]=x1;G.cx[3]=x4;G.cx[1]=x1+(x4-x1)*0.31;G.cx[2]=x1+(x4-x1)*0.655;
+  G.sx0=x1-G.sxl;G.sx1=G.cx[1]+G.sxr;
+  /* 控制棒插入 + 大块：链放低一点，被吸收的和跑掉的中子路程差不多（和 Figure 4.4(b) 一样上下各一个） */
+  G.row=m.mode==='C'?G.mid+1.5*G.s3:G.mid;
+  G.rodH=13;G.rodOut=G.by0-16;G.rodIn=m.big?G.row-2.2*G.s3:G.mid-0.68*G.sh;
+  G.top=m.big?G.by0:G.mid-G.sh;G.bot=m.big?G.by1:G.mid+G.sh;G.left=m.big?G.bx0:G.sx0;G.right=m.big?G.bx1:G.sx1;
+  G.rx0=G.left+5;G.rx1=G.right-5;
+}
+function nrad(g){return (m.mode==='U'?G.ru:G.rc)[g-1];}
+function ny(nd){return G.row+nd.r*G.s3;}
+function tf(g){return (g-1)*P;}
+
+/* 一个中子从哪里到哪里（箭头的头尾已经让开核的半径） */
+function nGeom(n){
+  var a=nodes[n.a],ax=G.cx[a.c],ay=ny(a),ra=nrad(a.g),ex,ey,rb=0,dx,vx,vy,L,b;
+  if(n.k===0){b=nodes[n.b];ex=G.cx[b.c];ey=ny(b);rb=nrad(b.g)+1.5;}
+  else{dx=G.cx[a.c+1]-ax;
+    if(n.k===1){ex=Math.min(ax+0.42*dx,G.rx1-10);ey=G.rodIn+G.rodH/2+1;}
+    else if(n.d==='u'){ex=ax+0.5*dx;ey=G.top-10;}
+    else if(n.d==='d'){ex=ax+0.5*dx;ey=G.bot+10;}
+    else{ex=G.right+14;ey=ay;}}
+  vx=ex-ax;vy=ey-ay;L=Math.hypot(vx,vy)||1;vx/=L;vy/=L;
+  E.sx=ax+vx*(ra+1);E.sy=ay+vy*(ra+1);E.ex=ex-vx*rb;E.ey=ey-vy*rb;
+}
+
+/* 按“块”换行：只在 | 的地方断开（块太长时再按字断开） */
+function wrap(ctx,str,maxW,size,weight,out){
+  ctx.font=weight+' '+size+'px '+FONT;
+  var ch=str.split('|'),line='',i,t,k;
+  for(i=0;i<ch.length;i++){
+    t=line+ch[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=ch[i].replace(/^\s+/,'');}
+    else line=t;
+    while(ctx.measureText(line).width>maxW&&line.length>1){k=line.length-1;while(k>1&&ctx.measureText(line.slice(0,k)).width>maxW)k--;out.push(line.slice(0,k));line=line.slice(k);}
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+
+/* ---------- 状态提示：ST[0] = 现在发生了什么，ST[1] = 为什么 / 意味着什么 ---------- */
+function status(t,md,ri){
+  var g=t<0?0:Math.min(5,Math.floor(t/P)+1),a,b,c=C.ink;
+  if(g===0){a='一个慢中子打中 U-235';b='中子不带电，不被核排斥 |→ 被吸收 → 开始裂变';}
+  else if(g===1){a='1 次裂变放出 3 个中子 |（讲义：2 或 3 个）';
+    if(md==='U')b='没有控制棒，燃料块又大 |→ 3 个中子都打中新的 U-235';
+    else if(md==='C')b='控制棒吸收 1 个，1 个跑出燃料块 |→ 只有 1 个打中新的 U-235';
+    else b=ri?'控制棒吸收 1 个，1 个从表面跑掉 |→ 只有 1 个打中新的 U-235':'燃料块太小：2 个从表面跑掉 |→ 只有 1 个打中新的 U-235';}
+  else if(md==='U'){
+    if(g===2){a='第 2 代：3 次裂变 |→ 放出 3 × 3 = 9 个中子';b='每次裂变引起的新裂变多于一个 |→ 每一代 × 3';}
+    else if(g===3){a='第 3 代：9 次裂变 |→ 下一代 27 次';b='1, 3, 9, 27 … 越来越多 |= uncontrolled chain reaction |（不受控链式反应）';}
+    else{a='第 4 代 27 次 → 第 5 代 81 次 → …';b='多于一个 → 不受控 = 核爆炸 |（核弹：约 90 % 浓缩的燃料，|没有东西吸收多余的中子）';c=C.heat;}
+  }else if(md==='C'){
+    if(g<4){a='第 '+g+' 代：还是 1 次裂变';b='控制棒吸收多余的中子 |→ 每次正好一个中子引起新裂变';}
+    else{a='1, 1, 1, 1 … 每一代一样多 |→ 速度稳定';b='正好一个 = controlled chain reaction |（受控链式反应）= 反应堆。|不是没有裂变，是不越来越多';}
+  }else{
+    if(g===2){a='第 2 代：1 次裂变，|又放出 3 个中子';b=ri?'控制棒吸收 1 个，2 个从表面跑掉 |→ 一个 U-235 也没打中':'燃料块小，离表面太近 |→ 3 个都会跑掉，一个 U-235 也打不中';}
+    else{a='第 3 代：0 次 → 链式反应停了';b='小于 critical mass（subcritical）：|中子从表面跑掉太多 |→ 平均少于一个';}
+  }
+  ST[0]=a;ST[1]=b;ST[2]=c;
+}
+/* 状态提示字号、行距（宽 / 窄）；所有状态里最高的那个占到哪里（换宽度时算一次，树和图从它下面开始，画面不跳） */
+function stSize(wide){return wide?[15,13,26,20,2,18]:[13.5,12.5,22,18,1,17];}
+var MC=null,MAXW=-1,MAXY=0,COMBOS=[['U',false],['C',true],['S',false],['S',true]];
+function statusBottom(W){
+  if(W===MAXW)return MAXY;
+  if(!MC)MC=document.createElement('canvas').getContext('2d');
+  var z=stSize(W>=640),i,g,y,best=0;
+  for(i=0;i<COMBOS.length;i++)for(g=0;g<=5;g++){
+    status(g===0?-0.1:(g-1)*P+0.1,COMBOS[i][0],COMBOS[i][1]);L1.length=0;L2.length=0;
+    wrap(MC,ST[0],W-32,z[0],600,L1);wrap(MC,ST[1],W-32,z[1],500,L2);
+    y=z[2]+L1.length*z[3]+z[4]+(L2.length-1)*z[5];if(y>best)best=y;
+  }
+  MAXW=W;MAXY=best;return best;
+}
+
+/* ---------- 画图小件 ---------- */
+function drawNucleus(ctx,x,y,r,al,g){
+  if(g===4){dot(ctx,x,y,r+0.6,rgba(C.copper,0.2*al));ring(ctx,x,y,r+0.6,rgba(C.copper,al),1.2);return;}
+  dot(ctx,x,y,r,rgba(C.copper,0.2*al));ring(ctx,x,y,r,rgba(C.copper,al),2);
+}
+function drawSplit(ctx,x,y,r,a,g){
+  var fl=clamp(a/0.6,0,1),heat=clamp(1-a/1.3,0,1),s,off,fr;
+  if(fl<1)ring(ctx,x,y,r*(g===4?1+3*fl:1+1.4*fl),rgba(C.heat,0.9*(1-fl)),g===4?1.6:2.5);
+  if(g===4){dot(ctx,x,y,r,heat>0?rgba(C.heat,0.4+0.6*heat):rgba(C.muted,0.7));return;}
+  off=r*(0.32+(g===3?0.28:0.43)*clamp(a/0.35,0,1));fr=r*(g===3?0.5:0.58);
+  for(s=-1;s<=1;s+=2){
+    dot(ctx,x,y+s*off,fr,rgba(C.muted,0.3));
+    if(heat>0)dot(ctx,x,y+s*off,fr,rgba(C.heat,0.9*heat));
+    ring(ctx,x,y+s*off,fr,heat>0.3?C.heat:C.muted,1.4);
+  }
+}
+function fmtE(v){var s=String(v);return v>=10000?s.replace(/\B(?=(\d{3})+(?!\d))/g,' '):s;}
+
+var S5=makeStage('sim5',{
+  height:function(w){var b0=blockTop(w);return w>=640?b0+316:b0+544;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    layout(W);
+    var t=m.t,wide=G.wide,i,nd,n,x,y,r,a,u,te,ta,px,py,al,small=wide?1.5:1.4;
+
+    /* 状态提示 */
+    status(m.t,m.mode,m.rodIn);L1.length=0;L2.length=0;
+    var z=stSize(wide),yy=z[2];
+    wrap(ctx,ST[0],W-32,z[0],600,L1);wrap(ctx,ST[1],W-32,z[1],500,L2);
+    for(i=0;i<L1.length;i++){txt(ctx,L1[i],16,yy,ST[2],z[0],600);yy+=z[3];}
+    yy+=z[4];
+    for(i=0;i<L2.length;i++){txt(ctx,L2[i],16,yy,C.muted,z[1],500);yy+=z[5];}
+
+    /* 燃料块（虚线框） */
+    rrect(ctx,G.left,G.top,G.right-G.left,G.bot-G.top,10);ctx.fillStyle=rgba(C.copper,0.05);ctx.fill();
+    ctx.setLineDash([6,5]);ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.4;ctx.stroke();ctx.setLineDash([]);
+    if(m.big)txt(ctx,'燃料块：大于 critical mass',G.bx0+10,G.by0+17,C.muted,11.5,600);
+    else txt(ctx,'燃料块：小于 critical mass',G.sx0,G.top-32,C.muted,11.5,600);
+
+    /* 控制棒：拔出时在燃料块上面（浅），插入时滑进燃料块里 */
+    var ry=lerp(G.rodOut,G.rodIn,m.rodK),inn=m.rodK>0.5,rl;
+    rrect(ctx,G.rx0,ry-G.rodH/2,G.rx1-G.rx0,G.rodH,3);ctx.fillStyle=rgba(C.ink,lerp(0.2,0.65,m.rodK));ctx.fill();
+    if(inn){ctx.font='600 11px '+FONT;rl=ctx.measureText('控制棒 control rod：吸收中子').width<G.rx1-G.rx0-12?'控制棒 control rod：吸收中子':'控制棒：吸收中子';}
+    else rl='控制棒（拔出）';
+    txt(ctx,rl,(G.rx0+G.rx1)/2,ry+0.5,inn?C.stage:C.ink,11,600,'center','middle');
+
+    /* 引发第一次裂变的慢中子（从外面飞进来） */
+    var r1=nrad(1),tx0=2,tx1=G.cx[0]-r1-1.5;
+    if(t<0){u=clamp((t-T0)/(-T0),0,1);px=lerp(tx0,tx1,u);seg(ctx,tx0,G.row,px,G.row,rgba(C.muted,0.75),1.5);dot(ctx,px,G.row,G.nr,C.muted);}
+    else arrow(ctx,tx0,G.row,tx1,G.row,rgba(C.muted,0.8),1.5,7);
+
+    /* 中子：飞行中 = 小点 + 轨迹；到了 = 箭头（和 Figure 4.4 一样，每个箭头 = 一个中子） */
+    for(i=0;i<neus.length;i++){
+      n=neus[i];nd=nodes[n.a];te=tf(nd.g)+EMIT;ta=tf(nd.g)+P;
+      if(t<te)continue;
+      nGeom(n);u=clamp((t-te)/(ta-te),0,1);
+      var thin=(m.mode==='U'&&nd.g===3),lw=thin?1.15:small,hd=thin?5:7;
+      if(u<1){px=lerp(E.sx,E.ex,u);py=lerp(E.sy,E.ey,u);seg(ctx,E.sx,E.sy,px,py,rgba(C.muted,0.7),lw);dot(ctx,px,py,G.nr,C.muted);}
+      else{
+        arrow(ctx,E.sx,E.sy,E.ex,E.ey,rgba(C.muted,n.k===2?0.5:0.85),lw,hd);
+        if(n.k===2){al=1-(t-ta)/0.5;if(al>0)dot(ctx,E.ex,E.ey,G.nr,rgba(C.muted,al));}
+      }
+    }
+
+    /* U-235 核：被瞄准时慢慢出现；裂变时闪一下 --heat，裂成两块碎片 */
+    for(i=0;i<nodes.length;i++){
+      nd=nodes[i];x=G.cx[nd.c];y=ny(nd);r=nrad(nd.g);
+      if(nd.g>1){te=tf(nd.g-1)+EMIT;if(t<te)continue;u=clamp((t-te)/(P-EMIT),0,1);}else u=1;
+      a=t-tf(nd.g);
+      if(a<0)drawNucleus(ctx,x,y,r,0.3+0.7*u,nd.g);
+      else drawSplit(ctx,x,y,r,a,nd.g);
+    }
+
+    /* 每一列下面：第几代、几次裂变 */
+    var cnt=CNT[m.mode],lab,lw2,lx;
+    for(i=0;i<4;i++){
+      x=G.cx[i];
+      txt(ctx,'第 '+(i+1)+' 代',x,G.lab,C.muted,11.5,500,'center');
+      if(t>=tf(i+1)){
+        lab=cnt[i]?cnt[i]+' 次裂变':'0 次';
+        ctx.font='700 12.5px '+FONT;lw2=ctx.measureText(lab).width;lx=clamp(x,lw2/2+4,W-lw2/2-4);
+        txt(ctx,lab,lx,G.lab+18,cnt[i]?C.ink:C.muted,12.5,700,'center');
+      }
+    }
+
+    /* 图例 */
+    var lg=G.leg,gx=16,ls=11.5;
+    dot(ctx,gx+6,lg-4,6,rgba(C.copper,0.2));ring(ctx,gx+6,lg-4,6,C.copper,2);gx+=17;
+    txt(ctx,'U-235 核',gx,lg,C.muted,ls,500);gx+=ctx.measureText('U-235 核').width+16;
+    arrow(ctx,gx,lg-4,gx+22,lg-4,C.muted,1.5,6);gx+=28;
+    txt(ctx,'中子',gx,lg,C.muted,ls,500);gx+=ctx.measureText('中子').width+16;
+    dot(ctx,gx+4,lg-9,3.6,rgba(C.heat,0.85));dot(ctx,gx+4,lg-1,3.6,rgba(C.heat,0.85));gx+=13;
+    txt(ctx,'裂成两块碎片（发热）',gx,lg,C.muted,ls,500);
+
+    /* 柱状图：每一代的裂变次数（0–10，超过 10 截断） */
+    var gx0=G.gx0,gx1=G.gx1,gy0=G.gy0,gy1=G.gy1,hh=gy1-gy0,slot=(gx1-gx0)/5,bw=Math.round(slot*0.56),g,v,gr,top,full,tot=0;
+    txt(ctx,'每一代的裂变次数',G.px0,gy0-36,C.ink,12.5,700);
+    txt(ctx,'超过 10 的柱子截断',gx1,gy0-36,C.muted,11,500,'right');
+    seg(ctx,gx0,gy0+hh/2,gx1,gy0+hh/2,C.grid,1,[3,4]);seg(ctx,gx0,gy0,gx1,gy0,C.grid,1,[3,4]);
+    txt(ctx,'10',gx0-6,gy0+4,C.muted,11,500,'right');txt(ctx,'5',gx0-6,gy0+hh/2+4,C.muted,11,500,'right');txt(ctx,'0',gx0-6,gy1+4,C.muted,11,500,'right');
+    seg(ctx,gx0,gy0-6,gx0,gy1,C.muted,1);seg(ctx,gx0,gy1,gx1,gy1,C.muted,1);
+    for(g=0;g<5;g++){
+      x=gx0+slot*(g+0.5);
+      txt(ctx,'第 '+(g+1)+' 代',x,gy1+16,C.muted,11,500,'center');
+      if(t<tf(g+1))continue;
+      v=cnt[g];tot+=v;
+      if(v===0){txt(ctx,'0',x,gy1-6,C.muted,13,700,'center','alphabetic',MONO);continue;}
+      gr=clamp((t-tf(g+1))/0.35,0,1);full=v>10?hh+4:v/10*hh;top=gy1-full*gr;
+      ctx.fillStyle=C.copper;ctx.fillRect(x-bw/2,top,bw,gy1-top);
+      if(t-tf(g+1)<0.7){ctx.strokeStyle=rgba(C.heat,1-(t-tf(g+1))/0.7);ctx.lineWidth=2.5;ctx.strokeRect(x-bw/2-2,top-2,bw+4,gy1-top+2);}
+      if(gr>=1){
+        if(v>10){seg(ctx,x-bw/2-2,gy0+15,x+bw/2+2,gy0+9,C.stage,3);seg(ctx,x-bw/2-2,gy0+22,x+bw/2+2,gy0+16,C.stage,3);}
+        txt(ctx,String(v),x,top-6,C.ink,13,700,'center','alphabetic',MONO);
+      }
+    }
+
+    /* 读数 */
+    var ro=G.ro;
+    txt(ctx,'每次裂变放出 3 个中子，引起新裂变的有：',G.px0,ro,C.muted,12.5,500);
+    txt(ctx,RB[m.mode],G.px0,ro+22,C.ink,wide?14.5:14,700);
+    if(t>=0){
+      txt(ctx,'到现在一共 '+tot+' 次裂变',G.px0,ro+50,C.ink,12.5,600);
+      txt(ctx,tot+' × 约 200 MeV ≈ '+fmtE(tot*200)+' MeV',G.px0,ro+70,C.heat,13,700);
+    }else txt(ctx,'还没有裂变',G.px0,ro+50,C.muted,12.5,600);
+  }
+});
+
+var bRod=document.getElementById('s5-rod'),bBig=document.getElementById('s5-big'),bSmall=document.getElementById('s5-small');
+function sync(){press(bRod,m.rodIn);bRod.textContent='控制棒：'+(m.rodIn?'插入':'拔出');press(bBig,m.big);press(bSmall,!m.big);}
+/* 换设置 → 从 1 次裂变重新开始；暂停时直接跳到第一帧那样（3 个中子正在飞） */
+function change(){restart();if(!S5.playing){m.rodK=m.rodIn?1:0;m.t=TPRE;}sync();S5.render();}
+bRod.addEventListener('click',function(){m.rodIn=!m.rodIn;change();});
+bBig.addEventListener('click',function(){m.big=true;change();});
+bSmall.addEventListener('click',function(){m.big=false;change();});
+document.getElementById('s5-reset').addEventListener('click',function(){restart();m.rodK=m.rodIn?1:0;sync();S5.setPlaying(true);S5.render();});
+sync();
+})();
+</script>
+</body>
+</html>

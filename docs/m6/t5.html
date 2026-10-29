@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T5 电机与发电机</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 5</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 5</div>
+  <h1>Motors, Generators &amp; Braking</h1>
+  <p class="h1-sub">电动机、发电机和电磁刹车 · 零基础讲解</p>
+  <p class="lead">这一章没有新规则。它只是把前面的<b>两条规则</b>，用在四种机器上。先把这两条讲清楚，后面就都简单了。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Motor effect</div>
+    <p>有电流的导线放在磁场里，会被推（受力）。</p>
+    <div class="eqs"><i>F</i> = <i>lIB</i> sin <i>θ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Electromagnetic induction</div>
+    <p>穿过线圈的磁通量（<span class="t">flux</span>）一变化，就会产生电压（<span class="t">emf</span>）。这个 emf 总是反对这个变化（<span class="t">Lenz's law</span>）。</p>
+    <div class="eqs"><i>ε</i> = −<i>N</i> ΔΦ / Δ<i>t</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章四种机器">
+  <div class="map-row head"><span>机器</span><span>能量</span><span>用到的规则</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">5.1</span><span class="t">DC motor</span></span><span>电 → 转动</span><span>① 电流受力，线圈转</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">5.3</span><span class="t">Generator</span></span><span>转动 → 电</span><span>② 线圈转，flux 变，产生 emf</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">5.4</span><span class="t">AC induction motor</span></span><span>电 → 转动</span><span>② 先感应出电流，再 ① 受力</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">5.4</span><span class="t">Magnetic braking</span></span><span>运动 → 热</span><span>② 产生涡流，再 ① 产生阻力</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 3 样”。</li>
+    <li>按 5.1 → 5.4 讲。每节先读“一句话”，再开动画，让学生自己说看到了什么。</li>
+    <li>最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 3 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li><span class="t">Right-hand palm rule</span>（右手掌定则）：右手伸平，四指 = 磁场 <span class="m"><i>B</i></span>，大拇指 = 电流 <span class="m"><i>I</i></span>，手掌推的方向 = 力 <span class="m"><i>F</i></span>。</li>
+    <li><span class="t">Magnetic flux</span> <span class="m">Φ = <i>BA</i> cos <i>θ</i></span>：有多少磁感线穿过线圈。线圈正对磁场时最多，侧过来（平行于磁场）时等于 0。</li>
+    <li><span class="t">Faraday's law</span> 和 <span class="t">Lenz's law</span>：flux 变得越快，emf 越大。感应电流总是跟“变化”对着干。flux 不变，就没有 emf，不管 flux 有多大。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">5.1</div>
+  <h2>线圈为什么会转？<span class="en">Torque on a coil &amp; the simple DC motor</span></h2>
+  <p class="big"><span class="lbl">一句话</span>线圈两条长边的电流方向相反，所以一边被往上推，一边被往下推，线圈就转起来了。</p>
+  <ul class="pts">
+    <li>把一个 <span class="t">coil</span>（线圈，绕了很多圈 <span class="t">turns</span>）放在磁铁的 N 和 S 中间。</li>
+    <li>两条长边都和磁场垂直（90°）。线圈有 <span class="m"><i>n</i></span> 圈，每条长边受的力就是 <span class="m"><i>F</i> = <i>nlIB</i></span>。</li>
+    <li>两条长边：一条电流出纸面 ⊙，一条进纸面 ⊗。用 palm rule 一看：一个力向上，一个力向下。</li>
+    <li>这两个力一样大、方向相反、又不在同一条线上，叫 <span class="t">couple</span>（力偶）。像两只手转方向盘：一只手往上推，一只手往下拉。</li>
+    <li>转动的效果叫 <span class="t">torque</span>（<span class="m"><i>τ</i></span>，力矩），单位 N m。</li>
+    <li>线圈转的时候，力的大小一直不变。变的是 <span class="t">lever arm</span>（<span class="m"><i>r</i>⊥</span>，力臂）：力的作用线离转轴有多远。</li>
+    <li>两条短边（线圈两头）受的力沿着转轴方向，不会让线圈转，不产生 torque。</li>
+    <li>如果只有一条边在磁场里：这条边受的力是 <span class="m"><i>F</i> = <i>lIB</i></span>（这条边和 B 垂直），torque 用 <span class="m"><i>τ</i> = <i>r</i>⊥<i>F</i></span> 算。</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h">plane ∥ B</div><p>线圈平面和磁场<b>平行</b>。lever arm 最长，<b>torque 最大</b>。</p></div>
+    <div class="state"><div class="state-h">plane ⊥ B</div><p>线圈平面和磁场<b>垂直</b>。两个力在同一条线上，<b>torque = 0</b>。</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Torque on a coil · 线圈受的力矩</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>τ</i> = <i>nIA</i><sub>⊥</sub><i>B</i> = <i>nIAB</i> sin <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>τ</dt><dd>线圈受的 torque (N m)</dd></div>
+      <div><dt>n</dt><dd>线圈圈数</dd></div>
+      <div><dt>I</dt><dd>电流 (A)</dd></div>
+      <div><dt>A</dt><dd>一圈的面积 (m²)</dd></div>
+      <div><dt>A<sub>⊥</sub></dt><dd>= <i>A</i> sin <i>θ</i> (m²)</dd></div>
+      <div><dt>B</dt><dd>磁场强度 (T)</dd></div>
+      <div><dt>θ</dt><dd>B 和 <span class="t">normal</span> 的夹角</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>平的线圈绕一根轴转，磁场是匀强的。<br><b>陷阱：</b><span class="t">normal</span>（法线）是垂直于线圈平面的那条线。θ 从 normal 量，不是从线圈平面量。题目说“线圈平面和 B 成 30°”，那 θ = 90° − 30° = 60°。</p>
+  </div>
+
+  <h3>DC motor 的四个零件</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>零件</th><th>中文</th><th>做什么</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Stator</td><td>定子</td><td>不动的部分，提供磁场（磁铁）。</td></tr>
+        <tr><td class="t">Rotor / armature</td><td>转子 / 电枢</td><td>转的部分：线圈 + 软铁芯 + 轴。</td></tr>
+        <tr><td class="t">Split-ring commutator</td><td>换向器</td><td>两个半环。每转半圈，把线圈里的电流方向反过来。</td></tr>
+        <tr><td class="t">Brushes</td><td>电刷</td><td>固定的碳块，把电送进转动的线圈。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>能量：DC motor 把电能变成转动的动能（<span class="t">rotational kinetic energy</span>）。</p>
+
+  <h3>为什么一定要 commutator？</h3>
+  <ul class="pts">
+    <li><b>没有它：</b>线圈转过竖直位置（plane ⊥ B）以后，torque 反过来，把线圈往回拉。结果线圈来回摇几下，停在 plane ⊥ B。</li>
+    <li><b>有它：</b>每到 plane ⊥ B，电流就掉头，所以 torque 永远朝同一个方向，线圈一直转。换向那一刻 brushes 刚好碰到缝隙，线圈靠惯性（<span class="t">rotational inertia</span>）冲过去。</li>
+    <li><span class="t">Dead spot</span>（死点）：线圈刚好停在 plane ⊥ B 时，torque = 0，它自己启动不了。真实电机用很多组线圈，摆在不同角度，所以 torque 很平稳。</li>
+    <li><span class="t">Radial magnetic field</span>（辐向磁场）：磁铁的两头做成弯的（叫 <span class="t">pole pieces</span>，极靴），中间放软铁芯，磁感线像车轮辐条一样从中心往外。这样 B 一直沿着线圈平面，θ 一直是 90°，torque 几乎一直是最大值 <span class="m"><i>nIAB</i></span>。注意：最大值没变，变大的是<b>平均值</b>。</li>
+  </ul>
+
+  <figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · 线圈和 commutator</span><span class="sim-tag">从侧面看线圈 · B 向右</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="线圈在 N 和 S 磁极之间转动。两条边受到一上一下的力，下方显示 torque 大小和换向器。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <button class="btn" type="button" id="s1-comm" aria-pressed="true">commutator：开</button>
+      <button class="btn" type="button" id="s1-dead">放到 dead spot</button>
+      <button class="btn" type="button" id="s1-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 关掉 commutator，线圈摇几下就停在竖直位置。② 再打开，它会一直转。③ 按“放到 dead spot”，线圈不动，因为 torque = 0。看绿色的 r⊥：线圈越接近水平，r⊥ 越长，torque 越大。</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">5.2</div>
+  <h2>电机转起来以后：back emf<span class="en">Back emf, maximum speed and energy</span></h2>
+  <p class="big"><span class="lbl">一句话</span>电机一转起来，它自己也变成一个小 generator，产生一个“顶回去”的电压，叫 back emf。</p>
+  <ul class="pts">
+    <li>为什么会有：线圈在磁场里转，flux 在变，所以产生 emf（Faraday）。按 Lenz's law，这个 emf 反对电源。</li>
+    <li>转得越快，<span class="t">back emf</span> 越大（back emf ∝ 转速）。AC 和 DC 电机都有。</li>
+    <li>真正推动电流的是两者的差：<span class="m"><i>V</i> − <i>ε</i><sub>back</sub></span>，叫 <span class="t">net emf</span>（净电动势）。</li>
+  </ul>
+
+  <h3>电机电流的三个阶段</h3>
+  <ol class="pts">
+    <li><b>刚开机（switch-on）：</b>线圈还没转，back emf = 0，所以 <span class="m"><i>I</i> = <i>V</i>/<i>R</i></span>，电流最大，torque 也最大。</li>
+    <li><b>加速中：</b>back emf 越来越大，电流和 torque 越来越小。</li>
+    <li><b>最高速：</b>torque 刚好抵消摩擦和负载。back emf 比 <span class="m"><i>V</i></span> 小一点，所以还有一点小电流。理想电机（没摩擦、没负载）：back emf ≈ <span class="m"><i>V</i></span>，电流 ≈ 0。</li>
+  </ol>
+  <ul class="pts">
+    <li><b>加负载（<span class="t">load</span>）：</b>电机变慢，back emf 变小，电流变大，torque 变大。电机自己“加力”。</li>
+    <li><b>卡住不动（<span class="t">stall</span>）：</b>通了电但转不了，back emf = 0，电流一直很大。<span class="m"><i>I</i>²<i>R</i></span> 发热会把绝缘层烧坏（<span class="t">burn out</span>）。所以大电机串联一个 <span class="t">starting resistor</span>（启动电阻），限制开机电流。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Current in a running motor · 电机运行时的电流</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>I</i> = (<i>V</i> − <i>ε</i><sub>back</sub>) / <i>R</i></div>
+    <dl class="sym">
+      <div><dt>V</dt><dd>电源电压 (V)</dd></div>
+      <div><dt>ε<sub>back</sub></dt><dd>back emf (V)</dd></div>
+      <div><dt>R</dt><dd>线圈电阻 (Ω)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>正在转的 DC motor。刚开机或卡住时 <span class="m"><i>ε</i><sub>back</sub> = 0</span>，所以 <span class="m"><i>I</i> = <i>V</i>/<i>R</i></span>。<br><b>也可以自己推导：</b>用 sheet 上的 <span class="m"><i>V</i> = <i>IR</i></span>，把 <i>V</i> 换成 net emf：<span class="m"><i>V</i> − <i>ε</i><sub>back</sub> = <i>IR</i></span>。两边乘 <i>I</i>：<span class="m"><i>VI</i> = <i>ε</i><sub>back</sub><i>I</i> + <i>I</i>²<i>R</i></span>。<br><b>例子（示意数字）：</b><span class="m"><i>V</i> = 12 V，<i>R</i> = 2 Ω</span>。刚开机：<span class="m"><i>I</i> = 12/2 = 6 A</span>。转起来后 back emf = 10 V：<span class="m"><i>I</i> = (12 − 10)/2 = 1 A</span>。<br><b>陷阱：</b>back emf 在开机时是 0，在最高速时最大。不要说反。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy in a motor · 电机的能量去哪了</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>VI</i> = <i>ε</i><sub>back</sub><i>I</i> + <i>I</i>²<i>R</i></div>
+    <p class="trap" style="border-top:none;padding-top:0">输入功率 = 机械功率（有用的）+ 线圈发热。卡住时 back emf = 0，输入的能量<b>全部</b>变成热。所以说：back emf 就是电机“做功”的方式。</p>
+  </div>
+
+  <h3>Lenz's law 其实就是能量守恒</h3>
+  <p>假设感应 emf <b>帮着</b>电源推：电机转得越快，电流越大，torque 越大，转得更快……无限加速。能量凭空出现了，这不可能。所以感应 emf 一定是“反着顶”的。</p>
+
+  <figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">动画 2 · 开机、负载、卡住</span><span class="sim-tag">V = 12 V · R = 2 Ω · 示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="电机模拟：左边是转子，中间是电源电压被 back emf 占掉的部分，右边是电流随时间的图像，下方是功率分成机械和发热两部分。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <button class="btn" type="button" id="s2-on" aria-pressed="false">Switch on 开机</button>
+      <button class="btn" type="button" id="s2-load" aria-pressed="false">加 load</button>
+      <button class="btn" type="button" id="s2-stall" aria-pressed="false">卡住 stall</button>
+      <button class="btn" type="button" id="s2-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 按 “Switch on”，看电流先冲到 6 A，再慢慢掉下来。中间的柱子：蓝色 back emf 越长，橙色“推电流的部分”越短。② 按“加 load”，电机变慢，电流变大。③ 按“卡住 stall”，电流回到 6 A，线圈越来越烫。</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">5.3</div>
+  <h2>发电机：把 motor 反过来用<span class="en">Generators: AC and DC</span></h2>
+  <p class="big"><span class="lbl">一句话</span>用外力去转线圈，flux 一直在变，所以产生 emf。动能变成电能。</p>
+  <ul class="pts">
+    <li>线圈转，θ 在变，所以 <span class="m">Φ = <i>BA</i> cos <i>θ</i></span> 在变，产生 emf（Faraday：<span class="m"><i>ε</i> = −<i>N</i>ΔΦ/Δ<i>t</i></span>）。</li>
+    <li>emf 看的是 Φ <b>变得多快</b>（Φ–t 图像的斜率 <span class="t">gradient</span>），不是 Φ 有多大。这是全章最容易错的地方。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>线圈位置</th><th>Φ（flux）</th><th>ε（emf）</th></tr></thead>
+      <tbody>
+        <tr><td class="f">plane ⊥ <i>B</i></td><td>最大（<span class="m"><i>BA</i></span>）</td><td><b>0</b>：这一瞬间 Φ 不变。导线顺着磁感线走，没有“切”磁感线。</td></tr>
+        <tr><td class="f">plane ∥ <i>B</i></td><td><b>0</b></td><td><b>最大</b>：Φ 变得最快。导线正好垂直“切”过磁感线。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">AC generator</div><p>用 <span class="t">slip rings</span>（滑环，两个完整的环，每个环一直接着线圈的同一端）。线圈里的 emf 每半圈反一次，输出也跟着反，所以是交流电（AC）。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">DC generator</div><p>用 <span class="t">split-ring commutator</span>。每半圈换一次接线（刚好在 ε = 0 时换），输出只朝一个方向，但一跳一跳的（<span class="t">pulses</span>），是直流电（DC）。</p></div>
+  </div>
+  <h3>什么会改变输出？</h3>
+  <ul class="pts">
+    <li><b>转快一倍：</b><span class="t">peak emf</span>（峰值）× 2，频率 × 2（周期减半）。</li>
+    <li><b>更多圈、更强的磁场、更大的线圈：</b>只有峰值变大，频率不变。</li>
+    <li><b>反方向转：</b>图像上下翻过来。</li>
+  </ul>
+  <p><b>能量：</b>接上用电器以后，线圈里有电流。电流在磁场里受力（motor effect），按 Lenz's law 这个力反对转动。用电越多，越难转。就像骑车带发电机的车灯，灯一亮，脚就更累。</p>
+
+  <figure class="sim" id="sim3">
+    <figcaption class="sim-head"><span class="sim-title">动画 3 · 线圈转动、flux 和 emf</span><span class="sim-tag">两张图时间对齐</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="发电机线圈在磁场里转动。右边上图是 flux 随时间变化，下图是输出 emf 随时间变化。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="输出类型">
+        <button class="btn" type="button" id="s3-ac" aria-pressed="true">AC · slip rings</button>
+        <button class="btn" type="button" id="s3-dc" aria-pressed="false">DC · split ring</button>
+      </span>
+      <button class="btn" type="button" id="s3-step">暂停并转 45°</button>
+      <label class="range">转速 <input type="range" id="s3-speed" min="0.5" max="2" step="0.25" value="1"><output id="s3-speed-out" for="s3-speed">× 1.0</output></label>
+    </div>
+    <p class="try"><b>试一试：</b>① 看两张图：Φ 在最高点的时候，emf 正好是 0。② 按“暂停并转 45°”，一步一步对照线圈的位置。③ 切换 DC，负的那一半被翻上来了。④ 把转速调到 × 2：峰值变高，波也变密。</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">5.4</div>
+  <h2>AC 感应电动机<span class="en">AC induction motors</span></h2>
+  <p class="big"><span class="lbl">一句话</span>定子做出一个会转的磁场，它拖着转子跑，转子永远慢一点。</p>
+  <p>转子里的电流不是接电线送进去的，是<b>感应</b>出来的。所以 induction motor 没有 brushes，也没有 commutator。</p>
+  <ol class="pts">
+    <li><b>转的磁场：</b><span class="t">stator</span> 上有 3 对线圈，接 <span class="t">three-phase AC</span>（三相交流电：三个交流电，相差三分之一个周期，一个接一个到最大）。合起来的磁场大小不变，方向一圈一圈地转，叫 <span class="t">rotating magnetic field</span>。注意：线圈本身一动不动。</li>
+    <li><b>感应电流：</b><span class="t">rotor</span> 是 <span class="t">squirrel cage</span>（鼠笼）：一根根金属条，两头用金属环连起来。磁场转过去，每个回路里的 flux 在变，于是产生感应电流（Faraday）。</li>
+    <li><b>受力：</b>有电流的金属条在磁场里受力（<span class="m"><i>F</i> = <i>lIB</i></span>）。按 Lenz's law，力反对“相对运动”，所以转子被拖着跟磁场一起转。</li>
+  </ol>
+  <ul class="pts">
+    <li><span class="t">Slip</span>（转差）：转子一定比磁场慢。如果追上了，两者之间没有相对运动，flux 不变，没有电流，没有力，转子又会慢下来。</li>
+    <li>负载越大，slip 越大，感应电流越大，torque 越大。</li>
+    <li>优点：没有 brushes 和 commutator，不磨损，不打火花。缺点：转速由电源频率决定，不好调。</li>
+    <li>类比：遛狗。绳子（磁场）在前面走，狗（转子）被拉着跑，但总落后一点。狗要是和你并排走，绳子就松了，也就没有拉力了。</li>
+  </ul>
+
+  <figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">动画 4 · 旋转磁场和 slip</span><span class="sim-tag">从正面看 · 外圈 stator，内圈 rotor</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="外圈是三对定子磁极，颜色随三相电流变化，中间的箭头是旋转的磁场方向。里面的鼠笼转子跟着转，但慢一点。右边是三相交流电的波形和速度对比。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">load <input type="range" id="s4-load" min="0" max="100" step="5" value="25"><output id="s4-load-out" for="s4-load">25%</output></label>
+      <button class="btn" type="button" id="s4-lock" aria-pressed="false">让 rotor 追上磁场</button>
+      <button class="btn" type="button" id="s4-reset">从静止启动</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 看外圈：A、B、C 三组磁极轮流变强，中间的大箭头（磁场）就转起来了。② 把 load 拉大：转子变慢，slip 变大，金属条变亮（感应电流变大）。③ 按“让 rotor 追上磁场”：金属条全暗，没有电流，也就没有力。</p>
+  </figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">5.4</div>
+  <h2>电磁刹车<span class="en">Magnetic braking</span></h2>
+  <p class="big"><span class="lbl">一句话</span>金属和磁场一有相对运动，金属里就产生涡流。涡流产生的力反对运动，东西就慢下来，动能变成热。</p>
+  <ul class="pts">
+    <li><span class="t">Eddy currents</span>（涡流）：在整块金属里面绕圈圈的感应电流。</li>
+    <li>方向用 Lenz：金属进入磁场时 flux 增加，离开时 flux 减少，所以两边涡流方向相反。但两边的力都反对运动。</li>
+    <li>例子：金属圆盘转过一块进纸面的磁场（×）。刚进入磁场的那部分 flux 增加，涡流逆时针（<span class="t">anticlockwise</span>）；离开磁场的那部分涡流顺时针（<span class="t">clockwise</span>）。在磁场里这两股电流方向一样，受的力都和 <span class="m"><i>v</i></span> 相反，所以圆盘慢下来。</li>
+    <li>能量：动能 → 电能 → 金属里的热。</li>
+    <li><b>速度越快，刹车力越大。</b>速度 = 0 时 flux 不变，没有力，所以电磁刹车<b>不能把东西停住</b>。最后要靠摩擦刹车（<span class="t">friction brakes</span>）。</li>
+    <li>磁场更强、金属导电更好，刹得更狠。金属上开缝（<span class="t">slots</span>），涡流的圈被切断，刹车变弱。</li>
+    <li>不接触，所以不磨损。过山车、火车、跳楼机都在用。</li>
+    <li><span class="t">Regenerative braking</span>（再生制动）：电动车刹车时，电机变成 generator 给电池充电。按 Lenz，这个过程同时让车减速，能量没有浪费。</li>
+  </ul>
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Heat from a magnetic brake · 刹车产生的热</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>Q</i> = ½<i>mu</i>² − ½<i>mv</i>²</div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>刹车前的速度</dd></div>
+      <div><dt>v</dt><dd>刹车后的速度</dd></div>
+      <div><dt>Q</dt><dd>产生的热 (J)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>这是平地。如果同时往下掉了高度 Δh（比如跳楼机），还要加上 <span class="m"><i>mg</i>Δ<i>h</i></span>。</p>
+  </div>
+
+  <figure class="sim" id="sim5">
+    <figcaption class="sim-head"><span class="sim-title">动画 5 · 磁铁掉进三根管子</span><span class="sim-tag">时间数据来自讲义实验</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="三块一样的磁铁同时掉进 PVC 管、开缝铜管和完整铜管。铜管里有涡流，磁铁掉得慢。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <button class="btn" type="button" id="s5-drop">Drop 放下</button>
+      <button class="btn" type="button" id="s5-slow" aria-pressed="false">慢动作 × ¼</button>
+      <button class="btn" type="button" id="s5-reset">放回顶部</button>
+    </div>
+    <p class="try"><b>试一试：</b>按 “Drop”。PVC 不导电，没有涡流，磁铁自由落体。完整铜管里涡流最强，很快刹车力 F 就等于重力 mg（两个箭头一样长），磁铁匀速往下掉。开缝的铜管涡流被切断，只慢了一点。铜色的圈是涡流：从上往下看，磁铁下面的圈顺时针，上面的圈逆时针。</p>
+  </figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">5.5</div>
+  <h2>两个要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>自己做一个 DC motor</h3>
+    <dl>
+      <dt>目的</dt><dd>弄清 DC motor 每个零件的作用，以及 back emf 的效果。</dd>
+      <dt>做法</dt><dd>用漆包线（<span class="t">enamelled wire</span>，外面有一层绝缘漆）绕个线圈，架在两个回形针上，下面放一块磁铁。一端的漆全部刮掉，另一端只刮<b>上半边</b>。</dd>
+      <dt>结果</dt><dd>只有一端刮一半时，线圈才能一直转。</dd>
+      <dt>为什么</dt><dd>刮一半的那端，在 torque 会反向的那半圈把电流断开，所以 torque 永远朝一个方向，作用就像 commutator。回形针就是 brushes。</dd>
+      <dt>back emf</dt><dd>实验室电机：用手按住 1–2 秒不让转时电流 1.5 A，转起来只有 0.30 A。转起来电流变小，就是 back emf 的证据。</dd>
+      <dt>意义</dt><dd>几分钟就能看到 DC motor 的每个零件，还有 back emf。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>磁铁过铜管、金属板摆动</h3>
+    <dl>
+      <dt>做法</dt><dd>强磁铁掉过 PVC 管、开缝铜管、完整铜管；铝板或铜板在磁极之间摆动，再换开缝的板。</dd>
+      <dt>结果</dt><dd>下落时间：PVC 0.41 s，开缝铜管 0.56 s，铜管 3.57 s。实心板很快停住，开缝板摆得更久。</dd>
+      <dt>结论</dt><dd>涡流反对运动（Lenz），减少的能量变成热。开缝切断涡流，刹车变弱。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>τ</i> = <i>nIA</i><sub>⊥</sub><i>B</i> = <i>nIAB</i> sin <i>θ</i></td><td>线圈的 torque（θ 从 normal 量）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>τ</i> = <i>r</i>⊥<i>F</i> = <i>rF</i> sin <i>θ</i></td><td>一个力的 torque</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>I</i> = (<i>V</i> − <i>ε</i><sub>back</sub>)/<i>R</i></td><td>电机运行时的电流</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>VI</i> = <i>ε</i><sub>back</sub><i>I</i> + <i>I</i>²<i>R</i></td><td>输入功率 = 机械 + 发热</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>ε</i> = −<i>N</i> ΔΦ/Δ<i>t</i></td><td>generator 的平均 emf</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>Q</i> = ½<i>mu</i>² − ½<i>mv</i>²</td><td>电磁刹车的热（掉落时加 <i>mg</i>Δ<i>h</i>）</td><td><span class="badge comb">组合</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 7 句</h3>
+  <ol class="must">
+    <li><span class="m"><i>τ</i> = <i>nIAB</i> sin <i>θ</i></span>，θ 从 normal 量。线圈平面 ∥ B 时 torque 最大。</li>
+    <li>Split-ring commutator 每半圈反转电流，所以 torque 一直朝一个方向。</li>
+    <li>Back emf 反对电源，转得越快越大：<span class="m"><i>I</i> = (<i>V</i> − <i>ε</i><sub>back</sub>)/<i>R</i></span>（不在 sheet 上）。</li>
+    <li>Generator：线圈平面 ∥ B 时 emf 最大。Slip rings 出 AC，split ring 出 DC。</li>
+    <li>Induction motor：旋转磁场拖着鼠笼转子跑，转子慢一点（slip）。</li>
+    <li>电磁刹车：涡流反对运动；速度为 0 时没有力。</li>
+    <li>Lenz's law 就是能量守恒：如果感应电流帮着变化，能量会凭空产生。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>θ 是 B 和线圈平面的夹角。<br><span class="ok">对：</span>θ 是 B 和 normal 的夹角。</div>
+    <div><span class="x">错：</span>电机开机时 back emf 最大。<br><span class="ok">对：</span>开机时 back emf = 0，电流最大。</div>
+    <div><span class="x">错：</span>Generator 的 Φ 最大时，emf 也最大。<br><span class="ok">对：</span>Φ 最大时 emf = 0；Φ = 0 时 emf 最大。</div>
+    <div><span class="x">错：</span>DC motor 用 slip rings。<br><span class="ok">对：</span>DC motor 和 DC generator 用 split ring；AC generator 用 slip rings。</div>
+    <div><span class="x">错：</span>电磁刹车能让车完全停住。<br><span class="ok">对：</span>速度越小力越小，最后要靠摩擦刹车。</div>
+    <div><span class="x">错：</span>解释 Lenz's law 只说“它反对”。<br><span class="ok">对：</span>还要说为什么：energy conservation（能量守恒）。</div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Torque (τ)</td><td>力矩</td><td>让东西转的效果，单位 N m</td></tr>
+        <tr><td class="t">Couple</td><td>力偶</td><td>一对大小相同、方向相反、不在同一直线上的力</td></tr>
+        <tr><td class="t">Lever arm (r⊥)</td><td>力臂</td><td>转轴到力的作用线的垂直距离</td></tr>
+        <tr><td class="t">Normal</td><td>法线</td><td>垂直于线圈平面的线</td></tr>
+        <tr><td class="t">Stator</td><td>定子</td><td>电机不动的部分，提供磁场</td></tr>
+        <tr><td class="t">Rotor / armature</td><td>转子 / 电枢</td><td>电机转的部分</td></tr>
+        <tr><td class="t">Split-ring commutator</td><td>换向器</td><td>每半圈把线圈里的电流反过来</td></tr>
+        <tr><td class="t">Slip rings</td><td>滑环</td><td>两个完整的环，不换向，AC generator 用</td></tr>
+        <tr><td class="t">Brushes</td><td>电刷</td><td>把电送进转动线圈的固定接触</td></tr>
+        <tr><td class="t">Dead spot</td><td>死点</td><td>torque = 0、自己启动不了的位置</td></tr>
+        <tr><td class="t">Radial magnetic field</td><td>辐向磁场</td><td>磁感线从中心往外，像车轮辐条</td></tr>
+        <tr><td class="t">Pole pieces</td><td>极靴</td><td>磁铁做成弯的两头</td></tr>
+        <tr><td class="t">Back emf</td><td>反电动势</td><td>电机转动时自己产生、反对电源的 emf</td></tr>
+        <tr><td class="t">Net emf</td><td>净电动势</td><td>电源电压减去 back emf，真正推电流的部分</td></tr>
+        <tr><td class="t">Stall</td><td>堵转</td><td>通了电但转不动</td></tr>
+        <tr><td class="t">Starting resistor</td><td>启动电阻</td><td>串联进电路，限制开机电流</td></tr>
+        <tr><td class="t">Load</td><td>负载</td><td>电机要带动的东西</td></tr>
+        <tr><td class="t">Generator</td><td>发电机</td><td>动能 → 电能</td></tr>
+        <tr><td class="t">Three-phase AC</td><td>三相交流电</td><td>三个交流电，一个接一个到最大</td></tr>
+        <tr><td class="t">Rotating magnetic field</td><td>旋转磁场</td><td>线圈不动，磁场方向在转</td></tr>
+        <tr><td class="t">Squirrel-cage rotor</td><td>鼠笼式转子</td><td>金属条 + 两头的金属环</td></tr>
+        <tr><td class="t">Slip</td><td>转差</td><td>转子比磁场慢多少</td></tr>
+        <tr><td class="t">Eddy currents</td><td>涡流</td><td>在整块金属里绕圈的感应电流</td></tr>
+        <tr><td class="t">Magnetic braking</td><td>电磁制动</td><td>用涡流让金属减速，不接触</td></tr>
+        <tr><td class="t">Regenerative braking</td><td>再生制动</td><td>刹车时电机发电，给电池充电</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 线圈平面和磁场平行时，torque 最大还是最小？</summary><p class="ans"><b>最大。</b>这时 θ（B 和 normal）= 90°，sin 90° = 1，lever arm 最长。</p></details>
+    <details><summary>2. DC motor 如果没有 split-ring commutator，会怎样？</summary><p class="ans"><b>来回摇几下，停在 plane ⊥ B。</b>转过半圈后 torque 反向，把线圈拉回去。</p></details>
+    <details><summary>3. 为什么电机刚开机时电流最大？</summary><p class="ans">还没转，<b>back emf = 0</b>，所以 I = V/R，只被很小的线圈电阻限制。</p></details>
+    <details><summary>4. V = 12 V，R = 2 Ω，back emf = 10 V。电流多少？卡住时呢？</summary><p class="ans">运行：I = (12 − 10)/2 = <b>1 A</b>。卡住：back emf = 0，I = 12/2 = <b>6 A</b>。</p></details>
+    <details><summary>5. Generator 的线圈平面 ⊥ B 时，emf 是多少？为什么？</summary><p class="ans"><b>0。</b>这时 Φ 最大，但这一瞬间 Φ 不变（变化率为 0）。</p></details>
+    <details><summary>6. Induction motor 的 rotor 能和磁场转得一样快吗？</summary><p class="ans"><b>不能。</b>一样快就没有相对运动，flux 不变，没有感应电流，也就没有力。</p></details>
+    <details><summary>7. 磁铁在铜管里为什么掉得慢？少掉的能量去哪了？</summary><p class="ans">铜管里产生 <b>eddy currents</b>，按 Lenz's law 反对磁铁的运动。少掉的能量变成铜管里的<b>热</b>。</p></details>
+  </div>
+</section>
+
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m6/t4.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M6 T4 · Transformers and Power Transmission</span><span class="pg-z">变压器和电能输送</span></a><a class="pg next" href="../m7/t1.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M7 T1 · The Electromagnetic Spectrum</span><span class="pg-z">电磁波谱：Maxwell、光速和光谱学</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 6 Electromagnetism · Chapter 5 整理。实验数据（0.41 s / 0.56 s / 3.57 s，1.5 A / 0.30 A）来自讲义，下落时间是第 3 章的实验。电机例子和动画 2 的 12 V、2 Ω 是示意数字。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,MONO=S.MONO,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,rrect=S.rrect,dot=S.dot,ring=S.ring,
+  pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,press=S.press;
+
+/* ---------- Sim 1: coil + commutator ---------- */
+var m1={a:0.35,w:0,comm:true};
+var S1=makeStage('sim1',{
+  height:function(){return 430;},
+  step:function(dt){var n=6,h=dt/n;for(var i=0;i<n;i++){var c=Math.cos(m1.a);var sg;if(m1.comm){sg=Math.abs(c)<0.03?0:(c>=0?1:-1);}else sg=1;var tq=6*sg*c;m1.w+=(tq-0.9*m1.w)*h;m1.a+=m1.w*h;}m1.a=((m1.a%TAU)+TAU)%TAU;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var narrow=W<520,cy=165,ph=250,pw=narrow?36:50;
+    var lx=14,rx=W-14-pw,fx0=lx+pw+4,fx1=rx-4;
+    fieldLines(ctx,fx0,fx1,cy,3,34);
+    txt(ctx,'B',fx1-12,cy-3*34-10,C.muted,13,700,'center');
+    pole(ctx,lx,cy-ph/2,pw,ph,'N',C.north);
+    pole(ctx,rx,cy-ph/2,pw,ph,'S',C.south);
+    var cx=W/2,r=Math.max(60,Math.min(95,(fx1-fx0)/2-42));
+    var a=m1.a,c=Math.cos(a),s=Math.sin(a);
+    var ax=cx+r*c,ay=cy-r*s,bx=cx-r*c,by=cy+r*s;
+    var gap=m1.comm&&Math.abs(c)<0.03;
+    var sA=gap?0:(m1.comm?(c>=0?1:-1):1);
+    var nx=-s,ny=-c,nl=r*0.95;
+    seg(ctx,cx-nx*nl,cy-ny*nl,cx+nx*nl,cy+ny*nl,rgba(C.muted,0.85),1.3,[3,4]);
+    txt(ctx,'normal',cx+nx*(nl+18),cy+ny*(nl+18)+4,C.muted,12,500,'center');
+    if(sA!==0){
+      seg(ctx,ax,ay,ax,cy,rgba(C.force,0.5),1.2,[4,4]);
+      seg(ctx,bx,by,bx,cy,rgba(C.force,0.5),1.2,[4,4]);
+      seg(ctx,cx,cy,ax,cy,C.force,2.5);seg(ctx,cx,cy,bx,cy,C.force,2.5);
+      if(Math.abs(ax-cx)>28)txt(ctx,'r⊥',(cx+ax)/2,cy+19,C.force,13,700,'center');
+    }
+    ctx.lineCap='round';seg(ctx,ax,ay,bx,by,C.copper,7);ctx.lineCap='butt';
+    if(sA!==0){var L=44;arrow(ctx,ax,ay-sA*15,ax,ay-sA*(15+L),C.force,3,11);arrow(ctx,bx,by+sA*15,bx,by+sA*(15+L),C.force,3,11);
+      txt(ctx,'F',ax+11,ay-sA*(15+L/2)+5,C.force,14,700);txt(ctx,'F',bx+11,by+sA*(15+L/2)+5,C.force,14,700);}
+    wire(ctx,ax,ay,sA,13);wire(ctx,bx,by,-sA,13);
+    dot(ctx,cx,cy,5,C.ink);
+    /* readout */
+    seg(ctx,0,332,W,332,C.line,1);
+    var st;
+    if(gap)st='brushes 在缝隙上 → 没有电流 → torque = 0';
+    else if(Math.abs(c)<0.06)st=(!m1.comm&&Math.abs(m1.w)<0.05)?'plane ⊥ B → torque = 0 → 停在这里':'plane ⊥ B → 两个力在一条线上 → torque = 0';
+    else if(!m1.comm&&c<0)st='转过竖直位置 → torque 反过来，把线圈拉回去';
+    else if(Math.abs(c)>0.97)st='plane ∥ B → lever arm 最长 → torque 最大';
+    else st=m1.comm?'有 commutator：torque 一直朝同一个方向':'没有 commutator：线圈会来回摇';
+    txt(ctx,st,16,358,C.ink,narrow?13.5:15,600);
+    var sinT=Math.abs(c);var th=Math.round(Math.asin(Math.min(1,sinT))*180/Math.PI);
+    txt(ctx,'θ = '+th+'°   sin θ = '+sinT.toFixed(2),16,383,C.muted,13,500,'left','alphabetic',MONO);
+    var b0=40,b1=W-112,bm=(b0+b1)/2,yb=398;
+    txt(ctx,'τ',16,yb+10,C.ink,16,600,'left','alphabetic','"STIX Two Text",serif');
+    rrect(ctx,b0,yb,b1-b0,11,5.5);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+    var tv=sA*c;if(Math.abs(tv)>0.005){ctx.fillStyle=C.force;var x0=Math.min(bm,bm+tv*(bm-b0)),wv=Math.abs(tv*(bm-b0));ctx.fillRect(x0,yb,wv,11);}
+    seg(ctx,bm,yb-4,bm,yb+15,C.muted,1.2);
+    txt(ctx,'0',bm,yb+27,C.muted,11,500,'center');
+    txt(ctx,'顺时针',b0,yb+27,C.muted,11,500,'left');txt(ctx,'逆时针',b1,yb+27,C.muted,11,500,'right');
+    /* commutator inset */
+    var ix=W-56,iy=380,R=19;
+    if(m1.comm){var g=0.14;for(var hh=0;hh<2;hh++){var cen=a+hh*Math.PI;var plus=Math.cos(cen)>0.03;ctx.beginPath();ctx.arc(ix,iy,R,-cen-Math.PI/2+g,-cen+Math.PI/2-g,false);ctx.strokeStyle=plus?C.copper:rgba(C.copper,0.38);ctx.lineWidth=7;ctx.stroke();}}
+    else{ring(ctx,ix,iy,R+2,rgba(C.copper,0.9),3);ring(ctx,ix,iy,R-5,rgba(C.copper,0.5),3);}
+    ctx.fillStyle=C.muted;ctx.fillRect(ix+R+5,iy-5,9,10);ctx.fillRect(ix-R-14,iy-5,9,10);
+    txt(ctx,'+',ix+R+9.5,iy-10,C.ink,12,700,'center');txt(ctx,'−',ix-R-9.5,iy-10,C.ink,12,700,'center');
+    txt(ctx,m1.comm?'split ring':'slip rings',ix,iy+R+20,C.muted,11,500,'center');
+  }
+});
+var b1c=document.getElementById('s1-comm');
+b1c.addEventListener('click',function(){m1.comm=!m1.comm;press(b1c,m1.comm);b1c.textContent='commutator：'+(m1.comm?'开':'关');S1.render();});
+document.getElementById('s1-dead').addEventListener('click',function(){m1.a=Math.PI/2;m1.w=0;S1.render();});
+document.getElementById('s1-reset').addEventListener('click',function(){m1.a=0.35;m1.w=0;S1.setPlaying(true);S1.render();});
+
+/* ---------- Sim 2: back emf ---------- */
+var P2={V:12,R:2,k:0.12,J:0.015,b:0.0006,Lt:0.3,top:92};
+var m2;function reset2(){m2={on:false,load:false,stall:false,w:0,I:0,temp:0,t:0,hist:[],vis:0};}
+reset2();
+var S2=makeStage('sim2',{
+  height:function(w){return w>=640?350:470;},
+  step:function(dt){
+    var n=8,h=dt/n;
+    for(var i=0;i<n;i++){var eb=P2.k*m2.w;m2.I=m2.on?(P2.V-eb)/P2.R:0;if(m2.stall){m2.w=0;}else{var L=(m2.load&&m2.w>0.5)?P2.Lt:0;var tq=P2.k*m2.I-P2.b*m2.w-L-(m2.on?0:0.004*m2.w);m2.w=Math.max(0,m2.w+tq/P2.J*h);}}
+    var eb2=P2.k*m2.w;m2.I=m2.on?(P2.V-eb2)/P2.R:0;
+    var heat=m2.I*m2.I*P2.R/72;m2.temp=Math.min(1.3,Math.max(0,m2.temp+(0.55*heat-0.12*m2.temp)*dt));
+    m2.t+=dt;m2.vis+=m2.w*dt*0.08;m2.hist.push([m2.t,m2.I]);while(m2.hist.length&&m2.hist[0][0]<m2.t-10)m2.hist.shift();
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,V=P2.V,eb=P2.k*m2.w,I=m2.I,spd=m2.w/P2.top;
+    var st,stc=C.ink;
+    if(m2.stall&&m2.on){st='卡住 stall：back emf = 0 → 电流最大 → 发热！';stc=C.heat;}
+    else if(!m2.on)st=m2.w>1?'断电了：电机靠惯性慢慢停下':'电源关着。按 Switch on 开机';
+    else if(m2.load)st='有 load：变慢 → back emf 变小 → 电流变大';
+    else if(eb/V<0.3)st='刚开机：back emf ≈ 0 → 电流最大';
+    else if(eb/V<0.88)st='加速中：back emf 变大 → 电流变小';
+    else st='接近最高速：back emf ≈ V → 电流很小';
+    txt(ctx,st,16,26,stc,wide?15:13.5,600);
+    var mx,my,mr,bx,by,bh,gx,gy,gw,gh,py;
+    if(wide){mr=Math.min(66,W*0.09);mx=24+mr;my=150;bx=W*0.27;by=62;bh=196;gx=W*0.56;gy=62;gw=W-gx-20;gh=186;py=292;}
+    else{mr=54;mx=20+mr;my=130;bx=Math.max(150,W*0.45);by=56;bh=150;gx=44;gy=272;gw=W-gx-18;gh=106;py=410;}
+    /* motor */
+    ctx.lineWidth=10;
+    ctx.beginPath();ctx.arc(mx,my,mr,Math.PI/2,Math.PI*1.5);ctx.strokeStyle=C.north;ctx.stroke();
+    ctx.beginPath();ctx.arc(mx,my,mr,-Math.PI/2,Math.PI/2);ctx.strokeStyle=C.south;ctx.stroke();
+    txt(ctx,'N',mx-mr*0.82,my+4,C.north,11,700,'center');txt(ctx,'S',mx+mr*0.82,my+4,C.south,11,700,'center');
+    var hot=Math.min(1,m2.temp),rc=hot>0.25?C.heat:C.copper;
+    ctx.save();if(hot>0.25){ctx.shadowColor=C.heat;ctx.shadowBlur=26*hot;}dot(ctx,mx,my,mr*0.62,rgba(rc,0.2+0.55*Math.max(hot,0.25)));ctx.restore();
+    ring(ctx,mx,my,mr*0.62,rc,3);
+    for(var i=0;i<3;i++){var an=m2.vis+i*TAU/3;seg(ctx,mx,my,mx+Math.cos(an)*mr*0.58,my+Math.sin(an)*mr*0.58,C.ink,3);}
+    dot(ctx,mx,my,5,C.ink);
+    txt(ctx,'转速 '+Math.round(Math.min(1,spd)*100)+'%',mx,my+mr+24,C.ink,13,600,'center');
+    var hw=mr*1.7,hx=mx-hw/2,hy=my+mr+33;
+    hbar(ctx,hx,hy,hw,7,hot,C.heat);
+    txt(ctx,hot>0.8?'太烫了 → burn out!':'线圈温度',mx,hy+22,hot>0.8?C.heat:C.muted,12,hot>0.8?700:500,'center');
+    /* voltage column */
+    var bw=40;
+    txt(ctx,'电源 V = 12 V',bx+bw/2,by-10,C.ink,12.5,600,'center');
+    rrect(ctx,bx,by,bw,bh,4);ctx.fillStyle=rgba(C.muted,0.08);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    var hb=bh*Math.min(1,eb/V);
+    if(hb>0.5){ctx.fillStyle=rgba(C.south,0.8);ctx.fillRect(bx+1.5,by+bh-hb,bw-3,hb-1.5);}
+    if(m2.on&&bh-hb>0.5){ctx.fillStyle=rgba(C.copper,0.85);ctx.fillRect(bx+1.5,by+1.5,bw-3,bh-hb-1.5);}
+    var lx=bx+bw+8;
+    txt(ctx,'back emf = '+eb.toFixed(1)+' V',lx,by+bh-Math.max(hb/2,8)+4,C.south,12.5,600);
+    if(m2.on){var ny2=by+Math.max((bh-hb)/2,10);txt(ctx,'V − back emf = '+(V-eb).toFixed(1)+' V',lx,ny2+4,C.copper,12.5,600);txt(ctx,'↑ 这部分推动电流',lx,ny2+20,C.muted,11.5,500);}
+    /* graph */
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+    [0,2,4,6].forEach(function(v){var y=gy+gh-v/6*gh;if(v>0)seg(ctx,gx,y,gx+gw,y,C.grid,1);txt(ctx,String(v),gx-8,y+4,C.muted,11,500,'right');});
+    txt(ctx,'current I (A)',gx,gy-12,C.muted,12,600);
+    txt(ctx,'I = '+I.toFixed(2)+' A',gx+gw,gy-12,C.copper,15,700,'right','alphabetic',MONO);
+    if(m2.hist.length>1){ctx.beginPath();for(var j=0;j<m2.hist.length;j++){var p=m2.hist[j];var x=gx+(p[0]-(m2.t-10))/10*gw;var y=gy+gh-Math.min(6.3,p[1])/6*gh;if(j)ctx.lineTo(x,y);else ctx.moveTo(x,y);}ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();}
+    txt(ctx,'最近 10 秒 →',gx+gw,gy+gh+16,C.muted,11,500,'right');
+    /* power */
+    var P=V*I,Pm=eb*I,Ph=I*I*P2.R;
+    txt(ctx,wide?('power：VI = back emf × I + I²R = '+P.toFixed(0)+' W'):('power：VI = '+P.toFixed(0)+' W'),16,py+6,C.ink,13,600);
+    var x0=16,x1=W-16,yb2=py+14;
+    rrect(ctx,x0,yb2,x1-x0,14,7);ctx.fillStyle=rgba(C.muted,0.15);ctx.fill();
+    if(P>0.05){var fm=Pm/P;ctx.save();rrect(ctx,x0,yb2,x1-x0,14,7);ctx.clip();ctx.fillStyle=C.force;ctx.fillRect(x0,yb2,(x1-x0)*fm,14);ctx.fillStyle=C.heat;ctx.fillRect(x0+(x1-x0)*fm,yb2,(x1-x0)*(1-fm),14);ctx.restore();
+      txt(ctx,(wide?'机械 mechanical = back emf × I = ':'机械 ')+Pm.toFixed(0)+' W',x0,yb2+32,C.force,12,600);
+      txt(ctx,(wide?'发热 heat = I²R = ':'发热 ')+Ph.toFixed(0)+' W',x1,yb2+32,C.heat,12,600,'right');}
+    else txt(ctx,'没有电流，就没有功率',x0,yb2+32,C.muted,12,500);
+  }
+});
+var b2on=document.getElementById('s2-on'),b2ld=document.getElementById('s2-load'),b2st=document.getElementById('s2-stall');
+function sync2(){press(b2on,m2.on);b2on.textContent=m2.on?'Switch off 关机':'Switch on 开机';press(b2ld,m2.load);press(b2st,m2.stall);b2st.textContent=m2.stall?'松手 release':'卡住 stall';}
+b2on.addEventListener('click',function(){m2.on=!m2.on;sync2();S2.setPlaying(true);S2.render();});
+b2ld.addEventListener('click',function(){m2.load=!m2.load;sync2();S2.render();});
+b2st.addEventListener('click',function(){m2.stall=!m2.stall;sync2();S2.setPlaying(true);S2.render();});
+document.getElementById('s2-reset').addEventListener('click',function(){reset2();sync2();S2.render();});
+
+/* ---------- Sim 3: generator ---------- */
+var F0=0.4,TW=5;
+var m3={b:0,mul:1,mode:'AC',t:0,hist:[]};
+function step3(dt){var om=TAU*F0*m3.mul;m3.b+=om*dt;m3.t+=dt;var e=m3.mul*Math.sin(m3.b);m3.hist.push([m3.t,Math.cos(m3.b),m3.mode==='DC'?Math.abs(e):e]);while(m3.hist.length&&m3.hist[0][0]<m3.t-TW-0.1)m3.hist.shift();}
+for(var q=0;q<300;q++)step3(1/60);
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?330:570;},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,cw=wide?Math.min(330,W*0.45):W,cx=cw/2,cy=wide?H/2-6:140;
+    var hs=Math.min(cw/2-12,150),pw=wide?32:30,ph=wide?190:180;
+    var fx0=cx-hs+pw+4,fx1=cx+hs-pw-4;
+    fieldLines(ctx,fx0,fx1,cy,2,42);
+    pole(ctx,cx-hs,cy-ph/2,pw,ph,'N',C.north);pole(ctx,cx+hs-pw,cy-ph/2,pw,ph,'S',C.south);
+    txt(ctx,m3.mode==='AC'?'AC generator · slip rings':'DC generator · split ring',12,22,C.muted,12.5,600);
+    var r=Math.max(50,hs-pw-42);
+    var b=m3.b,phi=b+Math.PI/2,c=Math.cos(phi),s=Math.sin(phi);
+    var ax=cx+r*c,ay=cy-r*s,bx=cx-r*c,by=cy+r*s;
+    var sb=Math.sin(b),sA=Math.abs(sb)<0.08?0:(sb>0?1:-1);
+    var nx=-s,ny=-c,nl=r*0.9;
+    seg(ctx,cx-nx*nl,cy-ny*nl,cx+nx*nl,cy+ny*nl,rgba(C.muted,0.8),1.3,[3,4]);
+    var vl=Math.min(34,20*m3.mul+4);
+    arrow(ctx,ax+nx*16,ay+ny*16,ax+nx*(16+vl),ay+ny*(16+vl),rgba(C.ink,0.6),2,8);
+    arrow(ctx,bx-nx*16,by-ny*16,bx-nx*(16+vl),by-ny*(16+vl),rgba(C.ink,0.6),2,8);
+    txt(ctx,'v',ax+nx*(22+vl)+6,ay+ny*(22+vl)+4,C.muted,12,600,'center');
+    ctx.lineCap='round';seg(ctx,ax,ay,bx,by,C.copper,7);ctx.lineCap='butt';
+    wire(ctx,ax,ay,sA,12);wire(ctx,bx,by,-sA,12);
+    dot(ctx,cx,cy,5,C.ink);
+    var st,col=C.muted;
+    if(Math.abs(sb)<0.2){st='plane ⊥ B：Φ 最大，但不变 → ε = 0';col=C.ink;}
+    else if(Math.abs(Math.cos(b))<0.2){st='plane ∥ B：Φ = 0，但变得最快 → ε 最大';col=C.copper;}
+    else st='线圈在转，Φ 在变 → 有 emf';
+    txt(ctx,st,cx,cy+ph/2+26,col,13.5,600,'center');
+    var gx,gw,g1,g2,gh;
+    if(wide){gx=cw+40;gw=W-gx-20;gh=106;g1=40;g2=g1+gh+56;}else{gx=40;gw=W-58;gh=104;g1=cy+ph/2+62;g2=g1+gh+50;}
+    function graph(y0,label,idx,ymax,col2,refs){
+      var mid=y0+gh/2;
+      seg(ctx,gx,y0,gx,y0+gh,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+      refs.forEach(function(rf){var y=mid-rf[0]/ymax*(gh/2);seg(ctx,gx,y,gx+gw,y,C.grid,1,[2,4]);txt(ctx,rf[1],gx-6,y+4,C.muted,11,500,'right');});
+      txt(ctx,label,gx,y0-10,col2,12.5,700);
+      var t0=m3.t-TW;ctx.save();ctx.beginPath();ctx.rect(gx,y0-4,gw+2,gh+8);ctx.clip();ctx.beginPath();var first=true;
+      for(var j=0;j<m3.hist.length;j++){var p=m3.hist[j];var x=gx+(p[0]-t0)/TW*gw;var y=mid-p[idx]/ymax*(gh/2);if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+      ctx.strokeStyle=col2;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();ctx.restore();
+      var lp=m3.hist[m3.hist.length-1];if(lp)dot(ctx,gx+gw,mid-lp[idx]/ymax*(gh/2),4.5,col2);
+    }
+    graph(g1,'Φ  磁通量 flux',1,1.2,C.south,[[1,'BA'],[-1,'−BA']]);
+    graph(g2,'ε  输出 emf',2,2.25,C.copper,[[1,'×1'],[-1,'']]);
+    seg(ctx,gx+gw,g1,gx+gw,g2+gh,rgba(C.muted,0.6),1,[3,4]);
+    txt(ctx,'时间 →（现在在最右边）',gx+gw,g2+gh+16,C.muted,11,500,'right');
+  }
+});
+var b3ac=document.getElementById('s3-ac'),b3dc=document.getElementById('s3-dc');
+function setMode(m){m3.mode=m;press(b3ac,m==='AC');press(b3dc,m==='DC');S3.render();}
+b3ac.addEventListener('click',function(){setMode('AC');});b3dc.addEventListener('click',function(){setMode('DC');});
+document.getElementById('s3-step').addEventListener('click',function(){S3.setPlaying(false);var om=TAU*F0*m3.mul;var tot=(Math.PI/4)/om;for(var i=0;i<30;i++)step3(tot/30);S3.render();});
+var r3=document.getElementById('s3-speed'),o3=document.getElementById('s3-speed-out');
+r3.addEventListener('input',function(){m3.mul=parseFloat(r3.value);o3.textContent='× '+m3.mul.toFixed(m3.mul%1?2:1);S3.render();});
+
+/* ---------- Sim 4: induction motor ---------- */
+var P4={ws:TAU*0.3,k:1.2,b:0.06,J:0.5,Lmax:1.2};
+var m4={t:0,th:0,w:0,load:0.25,lock:false};
+function step4(dt){m4.t+=dt;if(m4.lock){m4.w=P4.ws;}else{var L=m4.w>0.05?m4.load*P4.Lmax:0;var tq=P4.k*(P4.ws-m4.w)-P4.b*m4.w-L;m4.w=Math.max(0,m4.w+tq/P4.J*dt);}m4.th+=m4.w*dt;}
+for(var q4=0;q4<240;q4++)step4(1/60);
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?340:610;},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,cx,cy,R1,gx,gy,gw,ry;
+    if(wide){R1=Math.min(128,(H-56)/2);cx=24+R1+16;cy=H/2+4;gx=cx+R1+52;gw=W-gx-20;gy=48;ry=gy+150;}
+    else{R1=Math.min(118,(W-48)/2-12);cx=W/2;cy=R1+44;gx=36;gw=W-54;gy=cy+R1+56;ry=gy+150;}
+    var phc=[C.copper,C.force,C.violet],names=['A','B','C'];
+    ring(ctx,cx,cy,R1,rgba(C.muted,0.22),18);
+    for(var k=0;k<3;k++){
+      var I=Math.cos(P4.ws*m4.t-k*TAU/3);
+      for(var e=0;e<2;e++){
+        var ang=k*TAU/3+e*Math.PI;var isS=(e===0)?(I>0):(I<0);var col=isS?C.south:C.north;
+        ctx.beginPath();ctx.arc(cx,cy,R1,-ang-0.3,-ang+0.3);ctx.strokeStyle=rgba(col,0.12+0.88*Math.abs(I));ctx.lineWidth=18;ctx.stroke();
+        if(Math.abs(I)>0.4)txt(ctx,isS?'S':'N',cx+Math.cos(ang)*R1,cy-Math.sin(ang)*R1+4,'#ffffff',11,700,'center');
+        txt(ctx,names[k]+(e?'′':''),cx+Math.cos(ang)*(R1+22),cy-Math.sin(ang)*(R1+22)+4,phc[k],12.5,700,'center');
+      }
+    }
+    var R2=R1*0.6,slip=Math.max(0,1-m4.w/P4.ws),Ii=m4.lock?0:Math.min(1,slip/0.6);
+    dot(ctx,cx,cy,R2,C.surface);ring(ctx,cx,cy,R2,C.muted,3);ring(ctx,cx,cy,R2*0.62,rgba(C.muted,0.45),1.5);
+    for(var i=0;i<10;i++){var an=m4.th+i*TAU/10;var x=cx+Math.cos(an)*R2*0.81,y=cy-Math.sin(an)*R2*0.81;
+      if(Ii>0.05){ctx.save();ctx.shadowColor=C.copper;ctx.shadowBlur=10*Ii;dot(ctx,x,y,R2*0.1,rgba(C.copper,0.15+0.85*Ii));ctx.restore();}else dot(ctx,x,y,R2*0.1,rgba(C.copper,0.12));
+      ring(ctx,x,y,R2*0.1,C.copper,1.5);}
+    seg(ctx,cx,cy,cx+Math.cos(m4.th)*R2*0.58,cy-Math.sin(m4.th)*R2*0.58,C.ink,3);
+    var fa=P4.ws*m4.t,ux=Math.cos(fa),uy=-Math.sin(fa),al=R1*0.8;
+    arrow(ctx,cx-ux*al,cy-uy*al,cx+ux*al,cy+uy*al,rgba(C.ink,0.82),3.5,14);
+    txt(ctx,'B',cx+ux*(al-22)-uy*14,cy+uy*(al-22)+ux*14+4,C.ink,13,700,'center');
+    dot(ctx,cx,cy,4.5,C.ink);
+    /* waves */
+    var wh=100,mid=gy+wh/2;
+    txt(ctx,'three-phase AC：A、B、C 轮流到最大',gx,gy-14,C.muted,12.5,600);
+    seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+    for(var k2=0;k2<3;k2++){ctx.beginPath();for(var xx=0;xx<=gw;xx+=3){var ph=xx/gw*TAU;var yy=mid-Math.cos(ph-k2*TAU/3)*wh/2*0.88;if(xx)ctx.lineTo(gx+xx,yy);else ctx.moveTo(gx+xx,yy);}ctx.strokeStyle=phc[k2];ctx.lineWidth=2;ctx.stroke();}
+    var pc=((P4.ws*m4.t)%TAU+TAU)%TAU,xc=gx+pc/TAU*gw;
+    seg(ctx,xc,gy,xc,gy+wh,rgba(C.ink,0.55),1.2,[3,3]);
+    for(var k3=0;k3<3;k3++){dot(ctx,xc,mid-Math.cos(pc-k3*TAU/3)*wh/2*0.88,4.2,phc[k3]);}
+    /* readouts */
+    var st;
+    if(m4.lock)st='rotor = 磁场速度 → flux 不变 → 没电流、没力';
+    else if(m4.w<0.35*P4.ws)st='刚启动：slip 很大 → 电流和 torque 很大';
+    else st='rotor 比磁场慢 → 有感应电流 → 被拖着转';
+    txt(ctx,st,gx,ry,m4.lock?C.north:C.ink,wide?14:12.5,600);
+    var lw=wide?120:106,bx0=gx+lw,bx1=gx+gw-46;
+    function row(y,label,frac,col,val){txt(ctx,label,gx,y,C.ink,12.5,600);hbar(ctx,bx0,y-9,bx1-bx0,10,frac,col);txt(ctx,val,gx+gw,y,C.ink,12.5,600,'right','alphabetic',MONO);}
+    row(ry+30,'磁场 field 转速',1,rgba(C.ink,0.75),'100%');
+    row(ry+56,'转子 rotor 转速',m4.w/P4.ws,C.force,Math.round(m4.w/P4.ws*100)+'%');
+    row(ry+82,'感应电流 induced',Ii,C.copper,Ii<0.02?'0':'');
+    txt(ctx,'slip = '+Math.round(slip*100)+'%   （磁场比转子快多少）',gx,ry+110,C.muted,12.5,600);
+  }
+});
+var r4=document.getElementById('s4-load'),o4=document.getElementById('s4-load-out'),b4l=document.getElementById('s4-lock');
+r4.addEventListener('input',function(){m4.load=parseInt(r4.value,10)/100;o4.textContent=r4.value+'%';S4.render();});
+b4l.addEventListener('click',function(){m4.lock=!m4.lock;press(b4l,m4.lock);b4l.textContent=m4.lock?'放开 rotor':'让 rotor 追上磁场';S4.render();});
+document.getElementById('s4-reset').addEventListener('click',function(){m4.w=0;m4.lock=false;press(b4l,false);b4l.textContent='让 rotor 追上磁场';S4.setPlaying(true);S4.render();});
+
+/* ---------- Sim 5: falling magnets ---------- */
+var G=9.8,LF=0.5*G*0.41*0.41;
+function xk(t,k){return k<1e-9?0.5*G*t*t:(G/k)*t-(G/(k*k))*(1-Math.exp(-k*t));}
+function vk(t,k){return k<1e-9?G*t:(G/k)*(1-Math.exp(-k*t));}
+function solveK(T){var lo=1e-6,hi=500;for(var i=0;i<90;i++){var m=(lo+hi)/2;if(xk(T,m)>LF)lo=m;else hi=m;}return (lo+hi)/2;}
+var tubes=[{n:'PVC',sub:'塑料，不导电',T:0.41,k:0,type:0},{n:'slotted copper',sub:'开缝铜管',T:0.56,k:0,type:1},{n:'copper',sub:'完整铜管',T:3.57,k:0,type:2}];
+tubes.forEach(function(tb){if(tb.type)tb.k=solveK(tb.T);});
+var m5={t:0,run:false,slow:false};
+var S5=makeStage('sim5',{
+  autoplay:true,
+  height:function(){return 430;},
+  step:function(dt){if(!m5.run)return;m5.t+=dt*(m5.slow?0.25:1);if(m5.t>=tubes[2].T){m5.t=tubes[2].T+0.0001;m5.run=false;}},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var colW=W/3,tw=W<480?32:40,yt=74,yb=H-86;
+    for(var i=0;i<3;i++){
+      var tb=tubes[i],xc=colW*(i+0.5),tl=xc-tw/2;
+      txt(ctx,tb.n,xc,26,C.ink,W<420?12.5:13.5,700,'center');txt(ctx,tb.sub,xc,45,C.muted,12,500,'center');
+      if(tb.type===0){ctx.fillStyle=rgba(C.field,0.2);ctx.fillRect(tl,yt,tw,yb-yt);ctx.strokeStyle=C.field;ctx.lineWidth=1.5;ctx.strokeRect(tl,yt,tw,yb-yt);}
+      else{ctx.fillStyle=rgba(C.copper,0.2);ctx.fillRect(tl,yt,tw,yb-yt);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.strokeRect(tl,yt,tw,yb-yt);if(tb.type===1)seg(ctx,xc,yt,xc,yb,C.stage,4);}
+      seg(ctx,xc-tw,yb+2,xc+tw,yb+2,C.muted,2);
+      var tt=Math.min(m5.t,tb.T),pos=Math.min(LF,xk(tt,tb.k)),falling=m5.t>0&&m5.t<tb.T,v=falling?vk(tt,tb.k):0;
+      var mw=tw-10,mh=24,my=yt+4+pos/LF*(yb-yt-8-mh);
+      if(tb.type>0&&falling&&v>0.01){
+        var strength=Math.min(1,tb.k*v/G),aa=0.3+0.7*strength;
+        [-1,1].forEach(function(sg){var ey=my+mh/2+sg*(mh/2+9);ctx.lineWidth=tb.type===1?1.5:2.6;ctx.setLineDash(tb.type===1?[4,4]:[]);
+          ctx.beginPath();ctx.ellipse(xc,ey,tw/2+7,6,0,Math.PI,TAU);ctx.strokeStyle=rgba(C.copper,aa*0.35);ctx.stroke();
+          ctx.beginPath();ctx.ellipse(xc,ey,tw/2+7,6,0,0,Math.PI);ctx.strokeStyle=rgba(C.copper,aa);ctx.stroke();ctx.setLineDash([]);
+          /* front (lower) edge: ring below the magnet is clockwise seen from above (front moves left), ring above is anticlockwise */
+          var ax=xc,ay=ey+6;ctx.beginPath();ctx.moveTo(ax-5*sg,ay);ctx.lineTo(ax+3*sg,ay-4);ctx.lineTo(ax+3*sg,ay+4);ctx.closePath();ctx.fillStyle=rgba(C.copper,aa);ctx.fill();});
+      }
+      rrect(ctx,xc-mw/2,my,mw,mh,3);ctx.save();ctx.clip();ctx.fillStyle=C.north;ctx.fillRect(xc-mw/2,my,mw,mh/2);ctx.fillStyle=C.south;ctx.fillRect(xc-mw/2,my+mh/2,mw,mh/2);ctx.restore();
+      txt(ctx,'N',xc,my+mh/4+1,'#ffffff',11,700,'center','middle');txt(ctx,'S',xc,my+mh*0.75+1,'#ffffff',11,700,'center','middle');
+      if(falling){var fx=xc+tw/2+13,fy=my+mh/2,L=30,fr=Math.min(1.05,tb.k*v/G);
+        arrow(ctx,fx,fy,fx,fy+L,C.muted,2.2,7);txt(ctx,'mg',fx,fy+L+13,C.muted,11,600,'center');
+        if(fr*L>3){arrow(ctx,fx,fy,fx,fy-fr*L,C.force,2.6,7);txt(ctx,'F',fx,fy-fr*L-6,C.force,11.5,700,'center');}}
+      var done=m5.t>=tb.T;
+      txt(ctx,(done?tb.T:Math.min(m5.t,tb.T)).toFixed(2)+' s',xc,yb+30,done?C.ink:C.muted,17,700,'center','alphabetic',MONO);
+      txt(ctx,'v = '+v.toFixed(2)+' m/s',xc,yb+50,C.muted,11.5,500,'center');
+    }
+    var st;
+    if(m5.t===0)st='按 Drop：三块一样的磁铁同时往下掉';
+    else if(m5.t<tubes[2].T){var vc=vk(Math.min(m5.t,tubes[2].T),tubes[2].k),term=G/tubes[2].k;st=(vc>0.95*term)?'铜管里：刹车力 F = mg → 匀速往下掉':'铜管里涡流最强 → 刹车力最大';}
+    else st='PVC 没涡流最快；开缝涡流弱；铜管最慢';
+    txt(ctx,st,W/2,H-12,C.ink,W<420?12.5:13.5,600,'center');
+  }
+});
+var b5s=document.getElementById('s5-slow');
+document.getElementById('s5-drop').addEventListener('click',function(){m5.t=0;m5.run=true;S5.setPlaying(true);S5.render();});
+b5s.addEventListener('click',function(){m5.slow=!m5.slow;press(b5s,m5.slow);});
+document.getElementById('s5-reset').addEventListener('click',function(){m5.t=0;m5.run=false;S5.render();});
+})();
+</script>
+</body>
+</html>

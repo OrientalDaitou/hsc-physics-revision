@@ -1,0 +1,1682 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M8 T2 原子结构</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m8">Module 8</a><span class="sep">/</span><span aria-current="page">Topic 2</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 8 · Topic 2</div>
+  <h1>Structure of the Atom</h1>
+  <p class="h1-sub">原子结构：电子、原子核和中子 · 零基础讲解</p>
+  <p class="lead">这一章讲五个实验。它们一步一步找到了原子里面的东西：先是 <span class="t">electron</span>（电子），再是 <span class="t">nucleus</span>（原子核），最后是 <span class="t">neutron</span>（中子）。每个实验用的都是下面<b>三条规则</b>。会了这三条，剩下的就是记住：谁做的、哪一年、看到了什么。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Fields bend charges, not light</div>
+    <p>电场和磁场能把带电的粒子推弯。光是一种 <span class="t">EM wave</span>（电磁波），没有电荷，推不弯。</p>
+    <div class="eqs"><i>F</i> = <i>qE</i>　 <i>F</i> = <i>qvB</i>&nbsp;sin&nbsp;<i>θ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Balanced forces</div>
+    <p>两个力一样大、方向相反，粒子就走直线，或者停住不动。Thomson 和 Millikan 都靠“平衡”算出看不见的东西：速度和电荷。</p>
+    <div class="eqs"><i>qE</i> = <i>qvB</i>　 <i>qE</i> = <i>mg</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">New evidence, new model</div>
+    <p><span class="t">Model</span>（模型）是一张能解释当时实验结果的简单图。新证据一来，图就要改：<span class="t">plum pudding model</span>（枣糕模型）→ <span class="t">nuclear model</span>（核式结构模型）→ 再加上 neutron。</p>
+    <div class="eqs">电子 → 原子核 → 中子</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章五个实验">
+  <div class="map-row head"><span>部分</span><span>谁 · 哪一年</span><span>找到了什么</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">2.1</span><span class="t">Cathode rays</span></span><span>很多人 · <span style="white-space:nowrap">1870s–1890s</span></span><span>① 射线被场推弯：是带负电的粒子</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">2.1</span><span class="t">Thomson's q/m</span></span><span>Thomson · 1897</span><span>② 先平衡量 <i>v</i>，再量 <i>r</i>：粒子比原子轻得多</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">2.2</span><span class="t">Millikan's oil drop</span></span><span>Millikan · 1909–1913</span><span>② 油滴停住：电荷一包一包，一包 = <i>e</i></span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">2.3</span><span class="t">Gold foil</span></span><span>Geiger, Marsden · 1909</span><span>③ 大部分穿过，极少数弹回</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">2.3</span><span class="t">Nuclear model</span></span><span>Rutherford · 1911</span><span>③ 很小、很密、带正电的原子核</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">2.4</span><span class="t">The neutron</span></span><span>Chadwick · 1932</span><span>③ 不带电、和质子差不多重</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">2.5</span><span class="t">Key experiments</span></span><span>5 个实验</span><span>目的、做法、结果、意义</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是电场力和磁场力的<b>方向</b>。</li>
+    <li>按 2.1 → 2.4 讲，像讲一个侦探故事。每个实验先问“它想回答什么问题”，再开动画，让学生说看到了什么，最后问“原子的 model 要怎么改”。</li>
+    <li>用 2.5 的五个实验框总复习，再做“快问快答”，最后看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li><b>电场：</b>两块平行板之间 <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>，方向从 + 板指向 − 板。电场力 <span class="m"><i>F</i> = <i>qE</i></span>：正电荷顺着 <span class="m"><i>E</i></span> 走，负电荷（比如 electron）逆着 <span class="m"><i>E</i></span> 走，也就是朝 + 板。</li>
+    <li><b>磁场：</b>运动的电荷在磁场里受力 <span class="m"><i>F</i>&nbsp;=&nbsp;<i>qvB</i>&nbsp;sin&nbsp;<i>θ</i></span>。方向用 <span class="t">right-hand rule</span>（右手定则）：四指 = <span class="m"><i>B</i></span>，大拇指 = <span class="m"><i>v</i></span>，手掌推的方向 = <b>正</b>电荷受的力。electron 正好反过来。这个力总和 <span class="m"><i>v</i></span> 垂直。<span class="m"><i>v</i></span> 和 <span class="m"><i>B</i></span> 垂直时，粒子走圆：<span class="m"><i>qvB</i>&nbsp;=&nbsp;<i>mv</i>²/<i>r</i></span>。</li>
+    <li><b>动能和动量：</b><span class="m"><i>K</i> = ½<i>mv</i>²</span>，<span class="t">momentum</span>（动量）<span class="m"><i>p</i> = <i>mv</i></span>。碰撞时如果没有外力，总 momentum 不变。</li>
+    <li><b>电荷之间的力：</b>同种电荷互相推开。离得越近，推得越狠（<span class="t">Coulomb's law</span>，库仑定律，<span class="m"><i>F</i>&nbsp;∝&nbsp;1/<i>r</i>²</span>）。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">2.1</div>
+  <h2>阴极射线：波还是粒子？<span class="en">Discovering the electron: cathode rays and Thomson</span></h2>
+  <p class="big"><span class="lbl">一句话</span>电场和磁场都能把 cathode rays 推弯，所以它们是带负电的粒子。</p>
+  <ul class="pts">
+    <li><span class="t">Cathode ray</span>（阴极射线）：在一根几乎没有空气的密封玻璃管里，从 <span class="t">cathode</span>（阴极，−）射向 <span class="t">anode</span>（阳极，+）的一种看不见的射线。</li>
+    <li>管子两头加 <span class="t">high voltage</span>（高电压，直流 DC）。它把带电粒子从 cathode 拉出来，并让它们加速。</li>
+    <li>管里的气压非常低（<span class="t">very low pressure</span>），所以路上几乎没有气体粒子挡着。</li>
+    <li>射线打到玻璃的地方，玻璃会发光。这叫 <span class="t">fluorescence</span>（荧光：能量一打上来，马上发光）。</li>
+    <li>当时大家在争论：它是<b>波</b>（主要是德国的科学家这么想），还是<b>粒子</b>（主要是英国）？</li>
+  </ul>
+
+  <h3>证据一条一条看</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>看到了什么</th><th style="width:5.5em">谁 · 哪一年</th><th>支持什么</th></tr></thead>
+      <tbody>
+        <tr><td>射线打到的地方，玻璃会发光（fluorescence）</td><td>—</td><td>两种都能解释</td></tr>
+        <tr><td>射线里放一个 <span class="t">Maltese cross</span>（马耳他十字：一个金属十字），后面留下清楚的影子：射线走直线</td><td>—</td><td>两种都能解释</td></tr>
+        <tr><td>射线能穿过很薄的金属箔</td><td>Hertz，1892</td><td><b>波</b></td></tr>
+        <tr><td>射线里放一个 <span class="t">paddle wheel</span>（叶轮），它会滚离 cathode（往 anode 那边滚）</td><td>—</td><td><b>粒子</b>：当时认为射线带着 momentum。今天知道，主要是射线把叶片<b>加热</b>，让它转。</td></tr>
+        <tr><td>射线比光慢得多</td><td>Thomson，1894</td><td><b>粒子</b></td></tr>
+        <tr><td>磁铁把射线推弯，弯的方向和负电荷一样</td><td>—</td><td><b>带负电的粒子</b></td></tr>
+        <tr><td>射线里放一个金属杯，杯子带上负电</td><td>Perrin，1895</td><td><b>带负电的粒子</b></td></tr>
+        <tr><td>带电的板把射线推向 + 板</td><td>Thomson，1897</td><td><b>带负电的粒子</b></td></tr>
+        <tr><td>带电的板推不弯射线</td><td>Hertz，1883</td><td>看起来像“不带电”。其实是他管里剩下的气体带了电，把电场抵消了。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>决定性的证据（decisive）：</b>场能推弯带电的粒子，但推不弯 EM waves，比如光（光没有电荷）。cathode rays 被推弯了，所以它们<b>不是</b>波，而是一串带负电的粒子。</p>
+</section>
+
+<section id="s2">
+  <div class="secnum">2.1</div>
+  <h2>Thomson 量比荷<span class="en">Thomson's charge-to-mass experiment (1897)</span></h2>
+  <p class="big"><span class="lbl">一句话</span>Thomson 量出了这种粒子的 <span class="m"><i>q</i>/<i>m</i></span>，发现它比原子轻得多：它就是 electron。</p>
+  <ul class="pts">
+    <li><span class="t">Charge-to-mass ratio</span>（比荷）<span class="m"><i>q</i>/<i>m</i></span>：粒子的电荷除以它的质量。单位 C kg<sup>−1</sup>。</li>
+    <li>Anodes 上开着小孔，叫 <span class="t">collimators</span>（准直器）。射线只能从小孔穿过，所以变成一条细而直的电子束。</li>
+    <li>电子束穿过 <span class="t">crossed fields</span>（正交电磁场）：<span class="m"><i>E</i></span> 和 <span class="m"><i>B</i></span> 互相垂直，也都和电子束垂直（讲义图 2.1）。</li>
+  </ul>
+
+  <h3>先看方向</h3>
+  <ul class="pts">
+    <li><b>电场：</b>上面是 + 板，下面是 − 板，<span class="m"><i>E</i></span> 向下。electron 带负电，被推向 + 板：电场力<b>向上</b>。</li>
+    <li><b>磁场：</b>管外一对 <span class="t">coils</span>（线圈）产生磁场，<span class="m"><i>B</i></span> 进纸面（⊗）。改线圈里的电流，就能调 <i>B</i>。right-hand rule 把<b>正</b>电荷推向上，所以 electron 被推<b>向下</b>。</li>
+    <li>一个往上推，一个往下推。调好大小，两个力就能抵消。</li>
+  </ul>
+
+  <h3>两步量出 q/m</h3>
+  <ol class="pts">
+    <li><b>Step 1：</b>调 <span class="m"><i>E</i></span> 和 <span class="m"><i>B</i></span>，直到电子束走直线。这时两个力一样大：<span class="m"><i>qE</i> = <i>qvB</i></span>，所以 <span class="m"><i>v</i> = <i>E</i>/<i>B</i></span>。只有这一种速度能走直线，所以这样的装置叫 <span class="t">velocity selector</span>（速度选择器）。</li>
+    <li><b>Step 2：</b>关掉 <span class="m"><i>E</i></span>。只剩磁场力，它总和 <span class="m"><i>v</i></span> 垂直，所以电子束走一段半径为 <span class="m"><i>r</i></span> 的圆弧：<span class="m"><i>qvB</i>&nbsp;=&nbsp;<i>mv</i>²/<i>r</i></span>。</li>
+  </ol>
+  <ul class="pts">
+    <li>荧光屏上的光点：只开 <span class="m"><i>E</i></span> 时在上面，两个场平衡时在中间，只开 <span class="m"><i>B</i></span> 时在下面。</li>
+    <li>重力呢？electron 的重力比 <span class="m"><i>qE</i></span> 小 10<sup>14</sup> 倍以上，不用管。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Thomson 的管</div><p>先让 <i>E</i> 和 <i>B</i> 平衡，量出 <i>v</i>。再只留 <i>B</i>，量出圆弧的半径 <i>r</i>。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">学校的 e/m tube</div><p><span class="t">Electron gun</span>（电子枪）= 热的 cathode + anode。它让 electron 从静止开始，经过电压 <i>V</i> 加速：<i>qV</i> = ½<i>mv</i>²。一个均匀的 <i>B</i> 把电子束弯成<b>一整个圆</b>。管里留了一点气体，沿着圆发光，所以看得见。</p></div>
+  </div>
+
+  <h3>为什么这个结果很重要</h3>
+  <ul class="pts">
+    <li>量到的 <span class="m"><i>q</i>/<i>m</i></span> 约是 <span class="t">hydrogen ion</span>（氢离子）的 1800 倍。如果电荷一样大，质量就只有氢原子的约 1/1800。它比原子还小，是一个 <span class="t">subatomic particle</span>（亚原子粒子）。</li>
+    <li>换什么金属、什么气体，<span class="m"><i>q</i>/<i>m</i></span> 都一样。所以这种粒子在所有原子里都有。它就是 electron。</li>
+    <li>原子是中性的（不带电）。原子里有带负电的 electron，所以一定还有正电荷。正电荷在哪？2.3 节回答。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Magnetic force; net force to the centre · 磁场力和向心力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>F</i> = <i>qv</i><sub>⊥</sub><i>B</i> = <i>qvB</i>&nbsp;sin&nbsp;<i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>运动电荷受的磁场力 (N)</dd></div>
+      <div><dt>q</dt><dd>电荷 (C)</dd></div>
+      <div><dt>v</dt><dd>速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>⊥</sub></dt><dd>速度里垂直于 <i>B</i> 的部分 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>磁场强度 (T)</dd></div>
+      <div><dt>θ</dt><dd><i>v</i> 和 <i>B</i> 的夹角</dd></div>
+      <div><dt>F<sub>c</sub></dt><dd>指向圆心的合力 (N)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>在这一章：</b>Thomson 的管里 <i>v</i> 和 <i>B</i> 垂直，<span class="m">sin 90° = 1</span>，所以 <span class="m"><i>F</i> = <i>qvB</i></span>。磁场力就是让 electron 转圈的力：<span class="m"><i>qvB</i>&nbsp;=&nbsp;<i>mv</i>²/<i>r</i></span>。<br><b>陷阱：</b>right-hand rule 给的是<b>正</b>电荷受力的方向。electron 要反过来。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Thomson's equations and the school e/m tube · Thomson 的公式和学校的 e/m 管</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i> = <i>E</i>/<i>B</i></span><span style="display:inline-block;margin:0 .6em"><i>q</i>/<i>m</i> = <i>E</i>/(<i>B</i>²<i>r</i>)</span><span style="display:inline-block;margin:0 .6em"><i>q</i>/<i>m</i> = 2<i>V</i>/(<i>B</i>²<i>r</i>²)</span></div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>走直线的粒子的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>E</dt><dd>电场强度 (V m<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>磁场强度 (T)</dd></div>
+      <div><dt>q/m</dt><dd>比荷 (C kg<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>电子束圆弧的半径 (m)</dd></div>
+      <div><dt>V</dt><dd>让粒子加速的电压 (V)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>前两条用于 crossed fields（Thomson）。第三条用于从静止经过 <i>V</i> 加速（学校的 e/m tube）。<br><b>也可以自己推导：</b><span class="m"><i>qvB</i> = <i>qE</i></span> 得 <span class="m"><i>v</i> = <i>E</i>/<i>B</i></span>。<span class="m"><i>qvB</i>&nbsp;=&nbsp;<i>mv</i>²/<i>r</i></span> 得 <span class="m"><i>q</i>/<i>m</i> = <i>v</i>/(<i>Br</i>)</span>，再把 <span class="m"><i>v</i> = <i>E</i>/<i>B</i></span> 放进去。e/m tube：<span class="m"><i>qV</i> = ½<i>mv</i>²</span> 和 <span class="m"><i>v</i> = (<i>q</i>/<i>m</i>)<i>Br</i></span>，消掉 <span class="m"><i>v</i></span>。<br><b>例子：</b><span class="m"><i>E</i>&nbsp;=&nbsp;2.0&nbsp;×&nbsp;10<sup>4</sup>&nbsp;V&nbsp;m<sup>−1</sup></span>，<span class="m"><i>B</i>&nbsp;=&nbsp;1.0&nbsp;×&nbsp;10<sup>−3</sup>&nbsp;T</span>：<span class="m"><i>v</i> = 2.0&nbsp;×&nbsp;10<sup>4</sup> / 1.0&nbsp;×&nbsp;10<sup>−3</sup> = 2.0&nbsp;×&nbsp;10<sup>7</sup>&nbsp;m&nbsp;s<sup>−1</sup></span>。<br><b>陷阱：</b>是 <i>E</i> 除以 <i>B</i>，不是 <i>B</i> 除以 <i>E</i>。<i>r</i> 用米；刻度上读到的是直径，就除以 2。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Kinetic energy · 动能</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>K</i> = ½<i>mv</i>²</div>
+    <dl class="sym">
+      <div><dt>K</dt><dd>动能 (J)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>v</dt><dd>速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>在这一章：</b>e/m tube 里，电场给 electron 的能量全部变成动能：<span class="m"><i>qV</i> = ½<i>mv</i>²</span>。Chadwick 的碰撞是弹性碰撞，碰前、碰后的总动能一样。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed after V, from rest · 从静止经过 V 加速后的速度</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>v</i> = √(2<i>qV</i>/<i>m</i>)</div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>加速以后的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>q</dt><dd>粒子的电荷 (C)</dd></div>
+      <div><dt>V</dt><dd>加速电压 (V)</dd></div>
+      <div><dt>m</dt><dd>粒子的质量 (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b>电场给粒子的能量 <span class="m"><i>qV</i></span>，全部变成动能 <span class="m"><i>K</i> = ½<i>mv</i>²</span>（在 sheet 上）。所以 <span class="m"><i>qV</i> = ½<i>mv</i>²</span>，<span class="m"><i>v</i> = √(2<i>qV</i>/<i>m</i>)</span>。<br><b>什么时候用：</b>粒子从<b>静止</b>开始被加速，比如 electron gun 里的 electron。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">动画 1 · Thomson 的交叉场：先平衡，再只留 B</span><span class="sim-tag"><i>E</i> 向下 · <i>B</i> 进纸面 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="侧面看一根横放的玻璃管：左边 cathode 和两个带小孔的 anode 射出一串电子，中间上面是 + 板、下面是 − 板，两板之间有向下的电场 E 和进纸面的磁场 B，右边是荧光屏，电子打到的地方亮一个光点。选中的电子身上画着 qE 和 qvB 两个力。旁边（手机上是下面）显示 E、B、两个力的大小、v = E/B、r 和 q/m。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="开哪个场">
+      <button class="btn" type="button" id="s1-e" aria-pressed="false">只开 E</button>
+      <button class="btn" type="button" id="s1-eb" aria-pressed="true">E 和 B</button>
+      <button class="btn" type="button" id="s1-b" aria-pressed="false">只开 B</button>
+    </span>
+    <label class="range" id="s1-bl"><i>B</i> <input type="range" id="s1-bf" min="0" max="1.5" step="0.05" value="0.6"><output id="s1-bf-out" for="s1-bf">0.60 mT</output></label>
+    <button class="btn" type="button" id="s1-light" aria-pressed="false">换成一束光</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 一开始 <i>B</i> 太小，<i>qE</i>&nbsp;&gt;&nbsp;<i>qvB</i>，电子束往 + 板弯。慢慢把 <i>B</i> 调大，直到电子束变直（两个绿色箭头一样长）：这时 <i>v</i>&nbsp;=&nbsp;<i>E</i>/<i>B</i>。② <i>B</i> 不动，按“只开 B”：电子束走圆弧，读出半径 <i>r</i>，就能算 <i>q</i>/<i>m</i>&nbsp;=&nbsp;<i>E</i>/(<i>B</i><sup>2</sup><i>r</i>)（<i>E</i> 用刚才平衡时的值）。③ 按“只开 E”看电子束往上弯，再按“换成一束光”：光在三种情况下都走直线。<i>E</i>&nbsp;=&nbsp;2.0&nbsp;×&nbsp;10<sup>4</sup>&nbsp;V&nbsp;m<sup>−1</sup>、<i>v</i>&nbsp;=&nbsp;2.0&nbsp;×&nbsp;10<sup>7</sup>&nbsp;m&nbsp;s<sup>−1</sup>、板长 5.0&nbsp;cm、板距 4.0&nbsp;cm 是示意；<i>q</i>/<i>m</i> 用 booklet 的 1.759&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>，<i>r</i> 是按这些数算出来的。</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">2.2</div>
+  <h2>Millikan 油滴实验<span class="en">Millikan's oil drop experiment</span></h2>
+  <p class="big"><span class="lbl">一句话</span>每一滴油的电荷，都是 1.6&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C 的整数倍。所以电荷是一包一包的，一包就是一个 electron 的电荷。</p>
+  <ul class="pts">
+    <li><span class="t">Quantised</span>（量子化的）：只能取一些分开的值，中间的值没有。像楼梯：只能站在一级台阶上，不能站在两级中间。</li>
+    <li><span class="t">Elementary charge</span>（元电荷）<span class="m"><i>e</i></span>：能单独找到的最小电荷，1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C。它就是一个 electron 电荷的大小。</li>
+  </ul>
+
+  <h3>装置（讲义图 2.2）</h3>
+  <ul class="pts">
+    <li><span class="t">Atomiser</span>（喷雾器）把油喷成很小的油滴。有的油滴从上板中间的小孔掉进两块板之间。</li>
+    <li>上面是 + 板，下面是 − 板，两板距离 <span class="m"><i>d</i></span>。电压 <span class="m"><i>V</i></span> 可以调（adjustable <i>V</i>）。</li>
+    <li>一边有 light（灯）照着油滴，另一边用 <span class="t">microscope</span>（显微镜）看。<span class="t">X-ray</span>（X 射线）source 能改变油滴带的电荷。</li>
+    <li>电场从 + 板指向 − 板，<b>向下</b>。所以它把<b>带负电</b>的油滴往上推。</li>
+  </ul>
+
+  <h3>油滴受两个力</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h"><i>F</i><sub>g</sub> = <i>mg</i></div><p>重力，<b>向下</b>。</p></div>
+    <div class="state hot"><div class="state-h"><i>F</i><sub>E</sub> = <i>qE</i></div><p>电场力，<b>向上</b>。调 <i>V</i> 让它刚好等于 <i>mg</i>，油滴就<b>停住</b>：<i>qE</i> = <i>mg</i>。</p></div>
+  </div>
+  <ul class="pts">
+    <li><b>先量质量：</b>关掉电场，油滴以 <span class="t">terminal velocity</span>（收尾速度：空气阻力等于重力时的稳定速度）往下落。越重的油滴落得越快，所以从下落的速度能算出 <span class="m"><i>m</i></span>。</li>
+    <li>用油不用水，因为水会蒸发，油滴的质量会一直变。</li>
+  </ul>
+
+  <h3>为什么说电荷是一包一包的</h3>
+  <ul class="pts">
+    <li>油滴只能多几个或少几个<b>整个的</b> electron。所以量到的电荷之间，共同的“步长”就是 <span class="m"><i>e</i></span>。量到的最小电荷可能是 2<i>e</i>，但每个电荷都是 <i>e</i> 的整数倍。</li>
+    <li>注意：Millikan 量的是<b>油滴</b>，不是一个单独的 electron。</li>
+    <li><b>electron 的质量：</b>Millikan 的 <span class="m"><i>e</i></span> 除以 Thomson 的 <span class="m"><i>e</i>/<i>m</i><sub>e</sub></span>，得到 <span class="m"><i>m</i><sub>e</sub> = 9.11&nbsp;×&nbsp;10<sup>−31</sup>&nbsp;kg</span>，约是 <span class="t">proton</span>（质子）质量的 1/1836。data sheet 上写 9.109&nbsp;×&nbsp;10<sup>−31</sup>&nbsp;kg，只是取整不同。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Field between plates; force on a charge · 两板之间的电场和电场力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>E</i> = <i>V</i>/<i>d</i></span><span style="display:inline-block;margin:0 .6em"><i>F⃗</i> = <i>qE⃗</i></span></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>两板之间的电场强度 (V m<sup>−1</sup>)</dd></div>
+      <div><dt>V</dt><dd>两板之间的电压 (V)</dd></div>
+      <div><dt>d</dt><dd>两板之间的距离 (m)</dd></div>
+      <div><dt>F</dt><dd>电荷受的电场力 (N)</dd></div>
+      <div><dt>q</dt><dd>电荷 (C)</dd></div>
+    </dl>
+    <p class="trap"><b>方向：</b><i>E</i> 从 + 板指向 − 板。正电荷顺着 <i>E</i> 受力；负电荷（electron、带负电的油滴）逆着 <i>E</i> 受力，也就是朝 + 板。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Millikan's balanced drop and quantised charge · Millikan 停住的油滴和量子化的电荷</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>q</i> = <i>mgd</i>/<i>V</i></span><span style="display:inline-block;margin:0 .6em"><i>q</i> = <i>ne</i></span></div>
+    <dl class="sym">
+      <div><dt>q</dt><dd>油滴电荷的大小 (C)</dd></div>
+      <div><dt>m</dt><dd>油滴的质量 (kg)</dd></div>
+      <div><dt>g</dt><dd>重力加速度，9.8&nbsp;m&nbsp;s<sup>−2</sup> (m s<sup>−2</sup>)</dd></div>
+      <div><dt>d</dt><dd>两板之间的距离 (m)</dd></div>
+      <div><dt>V</dt><dd>两板之间的电压 (V)</dd></div>
+      <div><dt>n</dt><dd>electron 的个数，整数（没有单位）</dd></div>
+      <div><dt>e</dt><dd>元电荷 (C)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>两块水平板之间<b>停住</b>的油滴。用 <span class="m"><i>q</i> = <i>ne</i></span> 数有几个 electron。<br><b>也可以自己推导：</b><span class="m"><i>qE</i> = <i>mg</i></span>，再放进 <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>（在 sheet 上）：<span class="m"><i>qV</i>/<i>d</i> = <i>mg</i></span>，所以 <span class="m"><i>q</i> = <i>mgd</i>/<i>V</i></span>。<span class="m"><i>q</i> = <i>ne</i></span> 是 Millikan 的结果。<br><b>例子：</b><span class="m"><i>q</i> = 4.806&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C</span>：<span class="m"><i>n</i> = 4.806 / 1.602 = 3</span>，油滴多带了 3 个 electron。<br><b>陷阱：</b>在动的油滴不能用。<i>d</i> 用米。用 <i>e</i> 的大小（sheet 上印的是 −<i>e</i>）。</p>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · Millikan 油滴：调电压让它停住，再数电荷</span><span class="sim-tag">+ 板在上，电场向下 · 数据：示意，<span style="text-transform:none"><i>e</i></span> 照讲义</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Millikan 装置的侧视图：上面是 + 板，下面是 − 板，中间一滴带负电的油滴，身上画着向上的电场力 qE 和向下的重力 mg。调电压 V 让油滴停住，就能算出它的电荷。旁边（手机上在下面）是一条数轴，记下每次测到的电荷，点都落在 e 的整数倍上。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">电压 <i>V</i> <input type="range" id="s2-v" min="0" max="600" step="1" value="150"><output id="s2-v-out" for="s2-v">150 V</output></label>
+    <span class="seg" role="group" aria-label="微调电压">
+      <button class="btn" type="button" id="s2-vdn">−1 V</button>
+      <button class="btn" type="button" id="s2-vup">+1 V</button>
+    </span>
+    <button class="btn" type="button" id="s2-xray">X-ray：改变电荷</button>
+    <button class="btn" type="button" id="s2-new">换一滴油</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先把 <i>V</i> 拉到 0：电场关掉，油滴匀速往下掉（空气阻力 = 重力）。这一步用来测油滴的质量 <i>m</i>。② 再把 <i>V</i> 慢慢调大，最后用 −1 V / +1 V 微调，直到 <i>qE</i> 和 <i>mg</i> 两个箭头一样长、油滴停住。停住 1 秒，数轴上就多一个点。③ 按“X-ray：改变电荷”：油滴身上的 − 号变了，要重新找平衡电压。电子多了，要的 <i>V</i> 反而变小。④ 换几滴油，多记几个点：所有点都落在 1.602 × 10<sup>−19</sup> C 的整数倍上，中间的值一次也没有出现，这就是 quantised。注意：油滴在动的时候不能用 <i>q</i> = <i>mgd</i>/<i>V</i>。<i>e</i>、<i>g</i> 照 booklet；<i>d</i>、<i>m</i>、<i>V</i> 是示意，画面里油滴比真实的走得快，也画得大很多。</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">2.3</div>
+  <h2>金箔实验：大部分穿过，极少数弹回<span class="en">The nuclear atom: Geiger–Marsden and Rutherford</span></h2>
+  <p class="big"><span class="lbl">一句话</span>大部分 alpha 直接穿过金箔，只有极少数被弹回来。所以原子里大部分是空的，中间有一个很小、很密、带正电的 nucleus。</p>
+  <ul class="pts">
+    <li><span class="t">Plum pudding model</span>：Thomson 的模型（1904）。正电荷散在整个原子里，electron 像枣糕里的枣一样，散在里面。<b>没有</b>原子核。</li>
+    <li><span class="t">Alpha particle</span>（α粒子）<span class="m"><i>α</i></span>：氦原子核，2 个 proton + 2 个 neutron，电荷 +2<i>e</i>。</li>
+  </ul>
+
+  <h3>两种原子模型（讲义图 2.3）</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">(a) Plum pudding model</div><p>Thomson，1904。正电荷散在<b>整个</b>原子里，electron 嵌在里面。</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">(b) Nuclear model</div><p>Rutherford，1911。中间一个很小的原子核（+），electron 在外面绕，其余几乎都是空的。讲义图里原子核画得太大了。</p></div>
+  </div>
+
+  <h3>怎么做的（1909，讲义图 2.4 从上往下看）</h3>
+  <ul class="pts">
+    <li>Geiger 和 Marsden 在 <span class="t">vacuum</span>（真空）里，用 alpha 打一片金箔。金箔很薄，只有约 1000 个原子厚。</li>
+    <li>Alpha source 放在铅块里，只放出一束细细的 alpha。</li>
+    <li>金箔四周围着一圈 <span class="t">zinc sulfide</span>（硫化锌）屏。alpha 打到屏上，屏会闪一下，叫 <span class="t">scintillation</span>（闪烁）。</li>
+    <li>一台 microscope 可以绕着金箔转一圈。在每个角度，数有多少次闪光。</li>
+  </ul>
+
+  <h3>按 plum pudding model，应该看到什么？</h3>
+  <ul class="pts">
+    <li>正电荷散开了，推力很弱。</li>
+    <li>electron 比 alpha 轻约 7300 倍，挡不住它，像乒乓球挡不住保龄球。</li>
+    <li>所以预测：<b>所有</b> alpha 都应该直线穿过。</li>
+  </ul>
+
+  <h3>真正看到的（讲义表 2.1）</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>看到了什么</th><th><span style="text-transform:none">Rutherford</span> 的解释（1911）</th></tr></thead>
+      <tbody>
+        <tr><td>大部分 alpha 直线穿过。</td><td>原子里大部分是空的。</td></tr>
+        <tr><td>有一些偏了一个小角度。</td><td>它们从离带正电的原子核比较近的地方经过。</td></tr>
+        <tr><td>约 1 in 8000（每 8000 个里约 1 个）偏转超过 90°。</td><td>它们几乎正对着一个很小的原子核飞去。这个原子核装着几乎全部质量，把 alpha 推了回来。这种情况很少，因为原子核很小。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · 金箔散射：大部分穿过，极少数弹回来</span><span class="sim-tag">俯视图 · 放大一层金原子，不按比例 · 比例和计数：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="金箔里一层金原子的放大俯视图：虚线圆是一个金原子，中心很小的点是原子核（+79e），外面有几个电子。alpha 粒子从左边一束束飞进来，大部分直线穿过，一些被推开一个小角度，极少数被推回来。一条加粗的“你的 alpha”按瞄准距离 b 飞向原子核，旁边标出偏转角 θ 和最近距离。旁边（手机上在下面）三根计数条统计三种结果。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="原子模型">
+      <button class="btn" type="button" id="s3-nuc" aria-pressed="true">核式（实验）</button>
+      <button class="btn" type="button" id="s3-plum" aria-pressed="false">枣糕（预测）</button>
+    </span>
+    <label class="range">瞄准距离 <i>b</i> <input type="range" id="s3-b" min="0" max="100" step="1" value="42"><output id="s3-b-out" for="s3-b">0.18 R</output></label>
+    <span class="seg" role="group" aria-label="发射方式">
+      <button class="btn" type="button" id="s3-many" aria-pressed="true">很多个一起发</button>
+      <button class="btn" type="button" id="s3-mine" aria-pressed="false">只看我的 alpha</button>
+    </span>
+    <button class="btn" type="button" id="s3-clear">清零</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看三根计数条：大部分 alpha 直线穿过，一些偏转一个小角度，只有很少几个超过 90° 弹回来，和表 2.1 的三行一样。② 把瞄准距离 <i>b</i> 往左拉，离原子核越来越近，偏转角 <i>θ</i> 就越来越大；拉到 0，alpha 原路弹回。看绿色的 <i>F</i>：离原子核越近，推力越大，而且总是把 alpha 推离原子核。虚线小圈是“最近到这里”：alpha 从来没有碰到原子核。③ 按“枣糕（预测）”，换成枣糕模型：正电荷散在整个原子里，推力很弱，所有 alpha 都直线穿过。这只是 Thomson 的预测，实验结果不是这样。④ 按“只看我的 alpha”，背景的 alpha 和计数停下，只看一条路线。<i>R</i> 是原子半径。原子核和原子的大小比例、<i>b</i> 的刻度、10° 的分界都是示意；画面里原子核画大了，所以弹回来的比真实（约 1 in 8000）多得多。真实金箔约 1000 个原子厚，这里只放大了其中一层。</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">2.3</div>
+  <h2>Rutherford 的<span style="white-space:nowrap">原子：优点和不足</span><span class="en">Rutherford's nuclear model (1911)</span></h2>
+  <p class="big"><span class="lbl">一句话</span>原子中间是一个很小的原子核，装着全部正电荷和几乎全部质量。这个模型把原子核讲对了，但 electron 那部分还不完整。</p>
+  <ul class="pts">
+    <li><b>Nuclear model（1911）：</b>很小的 nucleus 装着全部正电荷和超过 99.9% 的质量。</li>
+    <li>原子核的直径，比原子小约 10 000 到 100 000 倍。打个比方：原子要是有一个足球场那么大，原子核只有中间一颗豆子那么大。</li>
+    <li>electron 在很远的地方绕着原子核运动。其余都是空的。</li>
+    <li>alpha 从来<b>没有碰到</b>原子核，是电力把它推开的。按 Coulomb's law，只有挤得很紧的电荷，才能把很快的 alpha 推回来。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Coulomb's law: force between an alpha and a nucleus · 库仑定律：alpha 和原子核之间的力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>F</i> = (1/4π<i>ε</i><sub>0</sub>)(<i>q</i><sub>1</sub><i>q</i><sub>2</sub>/<i>r</i>²)</div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>两个电荷之间的力 (N)</dd></div>
+      <div><dt>q<sub>1</sub></dt><dd>一个电荷 (C)</dd></div>
+      <div><dt>q<sub>2</sub></dt><dd>另一个电荷 (C)</dd></div>
+      <div><dt>r</dt><dd>两个电荷之间的距离 (m)</dd></div>
+      <div><dt>ε<sub>0</sub></dt><dd><span class="t">permittivity of free space</span>（真空电容率），data sheet 上是 8.854&nbsp;×&nbsp;10<sup>−12</sup> <span style="white-space:nowrap">(A<sup>2</sup> s<sup>4</sup> kg<sup>−1</sup> m<sup>−3</sup>)</span></dd></div>
+    </dl>
+    <p class="trap"><b>在这一章：</b>alpha（+2<i>e</i>）被金原子核（+79<i>e</i>）推开。<i>r</i> 越小，力越大：距离变成一半，力变成 4 倍。所以 alpha 只有离一大团电荷非常近，才会被推回来。</p>
+  </div>
+
+  <div class="duo">
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">Strengths 优点</div><p>解释了金箔的全部三个结果，也解释了原子为什么是中性的。1913 年，在很多角度、换不同的金属、不同厚度的箔，数到的闪光都和 Coulomb's law 的预测对得上。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Limitations 不足</div><p>① 绕圈的 electron 在加速。经典物理说它会辐射、丢能量、螺旋掉进原子核。② 解释不了 <span class="t">line spectra</span>（线状光谱）。③ 没说原子核由什么组成，也没说为什么原子核的质量约是它的 proton 质量的 2 倍。</p></div>
+  </div>
+  <ul class="pts">
+    <li><b>Judgement（判断）：</b>原子核这部分有很强的证据支持；electron 那部分不完整。</li>
+    <li><b>为什么这样设计：</b>金可以压得非常薄，而且原子核电荷很大（+79<i>e</i>），推力强。真空让空气没法把 alpha 散开。</li>
+  </ul>
+</section>
+
+<section id="s6">
+  <div class="secnum">2.4</div>
+  <h2>Chadwick 找到中子<span class="en">Chadwick and the neutron</span></h2>
+  <p class="big"><span class="lbl">一句话</span>原子核的质量约是它的 proton 质量的 2 倍。Chadwick（1932）用能量守恒和动量守恒证明：多出来的质量是 neutron。</p>
+  <ul class="pts">
+    <li><span class="t">Neutron</span> <span class="m"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>1</span><span>0</span></span>n</span>：原子核里不带电的粒子，质量约等于一个 proton。</li>
+    <li><span class="t">Elastic collision</span>（弹性碰撞）：总动能不变的碰撞。</li>
+  </ul>
+
+  <h3>一步一步找到它</h3>
+  <ol class="pts">
+    <li><b>1919：</b>Rutherford 用 alpha 把 hydrogen（氢）原子核从 nitrogen（氮）里打了出来。1920 年，他把这种原子核叫做 proton（电荷 +<i>e</i>）。</li>
+    <li><b>质量不够（missing mass）：</b>helium（氦）有 2 个 proton，质量却约是 hydrogen 的 4 倍。所以他预测（1920）：原子核里还有一种不带电的粒子。</li>
+    <li><b>1930：</b>alpha 打 beryllium（铍），放出一种穿透力很强的辐射。电场、磁场都推不弯它，所以它不带电。Bothe 和 Becker 以为它是 <span class="t">gamma rays</span>（γ射线）。</li>
+    <li><b>1932：</b>这种辐射能从 <span class="t">paraffin wax</span>（石蜡）里打出很快的 proton（Curie 和 Joliot）。Chadwick 还用了 nitrogen 做靶子（讲义图 2.5）。</li>
+    <li><b>怎么测：</b>用 <span class="t">ionisation chamber</span>（电离室）测被撞出来的 <span class="t">recoil</span>（反冲）粒子。带电粒子让里面的气体电离，产生一个很小的电流。</li>
+  </ol>
+
+  <h3>Chadwick 的装置（讲义图 2.5）</h3>
+  <ol class="pts">
+    <li><b>polonium</b>（钋）：alpha source，放出 alpha particles。</li>
+    <li><b>beryllium</b>：被 alpha 打中，放出不带电的辐射（neutral radiation）。</li>
+    <li><b>paraffin wax</b>：里面有很多 H（氢），被辐射撞出 proton。</li>
+    <li><b>ionisation chamber</b>：探测器（detector），测出 proton 的能量。</li>
+  </ol>
+  <div class="duo">
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">中子正撞质子</div><p>质量一样。中子<b>停下</b>，proton 拿走几乎全部能量。像台球：白球正撞一个一样的球，白球停住，被撞的球飞出去。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">中子正撞氮核</div><p>氮核重 14 倍。中子<b>弹回来</b>，氮核只拿到约四分之一的能量。像网球正撞一个静止的篮球（篮球重约 10 倍）：网球弹回来，篮球慢慢往前滚。</p></div>
+  </div>
+
+  <h3>用能量排除 gamma rays</h3>
+  <ul class="pts">
+    <li>最快的 proton 约有 5.7&nbsp;MeV（MeV：兆电子伏，一种能量单位）。</li>
+    <li><span class="t">Photon</span>（光子）没有质量。和它的能量比起来，它的 momentum 很小。所以要打出 5.7&nbsp;MeV 的 proton，photon 要约 50&nbsp;MeV。</li>
+    <li>beryllium 的反应最多只能给约 14&nbsp;MeV。不够，所以这种辐射<b>不是</b> gamma rays。</li>
+  </ul>
+
+  <h3>用 momentum 和动能算出质量</h3>
+  <ul class="pts">
+    <li>未知粒子的质量 <span class="m"><i>m</i></span> 和速度 <span class="m"><i>u</i></span> 都不知道。用下面两条守恒式，可以从它们算出靶子被撞后的反冲速度。</li>
+    <li>Chadwick 用了两种靶子：hydrogen（约 1 <span class="t">atomic mass unit</span>，原子质量单位，写成 1&nbsp;u）和 nitrogen（约 14&nbsp;u）。</li>
+    <li>两个结果相除，不知道的速度 <span class="m"><i>u</i></span> 就约掉了。只剩质量：<span class="m"><i>m</i> ≈ 1.15</span>&nbsp;u，约等于一个 proton 的质量。</li>
+    <li>注意两个 u：斜体 <span class="m"><i>u</i></span> 是速度；正体 u 是原子质量单位，1&nbsp;u = 1.661&nbsp;×&nbsp;10<sup>−27</sup>&nbsp;kg（data sheet）。</li>
+    <li>data sheet：<span class="m"><i>m</i><sub>n</sub> = 1.675&nbsp;×&nbsp;10<sup>−27</sup>&nbsp;kg</span>，<span class="m"><i>m</i><sub>p</sub> = 1.673&nbsp;×&nbsp;10<sup>−27</sup>&nbsp;kg</span>。neutron 只比 proton 重一点点。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Chadwick's collisions · Chadwick 的碰撞：动量守恒和动能守恒</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em">Σ<i>m</i><i>v⃗</i><sub>before</sub> = Σ<i>m</i><i>v⃗</i><sub>after</sub></span><span style="display:inline-block;margin:0 .6em">Σ½<i>mv</i>²<sub>before</sub> = Σ½<i>mv</i>²<sub>after</sub></span></div>
+    <dl class="sym">
+      <div><dt>m</dt><dd>每个粒子的质量 (kg)</dd></div>
+      <div><dt>v</dt><dd>每个粒子的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>Σ</dt><dd>把所有粒子的加起来</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>momentum：没有外力时都能用。速度有方向，弹回来的算负。动能：<b>只有</b> elastic collision 才能用。<br><b>在这一章：</b>Chadwick 的碰撞是弹性的正碰。用这两条，从未知的 <i>m</i> 和 <i>u</i> 算出靶子的反冲速度。<br><b>陷阱：</b>不是每次碰撞动能都守恒。没有外力时，总守恒的是 momentum。</p>
+  </div>
+
+  <h3>核反应和“间接证据”</h3>
+  <div class="eq"><span class="m"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>4</span><span>2</span></span>He + <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>9</span><span>4</span></span>Be → <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>12</span><span>6</span></span>C + <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>1</span><span>0</span></span>n</span></div>
+  <ul class="pts">
+    <li>在 <span class="m"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span><i>A</i></span><span><i>Z</i></span></span>X</span> 里：<span class="m"><i>A</i></span> = proton 数 + neutron 数（<span class="t">mass number</span>，质量数）；<span class="m"><i>Z</i></span> = proton 数（<span class="t">atomic number</span>，原子序数）。</li>
+    <li>反应前后，<span class="m"><i>A</i></span> 的总和一样（4 + 9 = 12 + 1 = 13），<span class="m"><i>Z</i></span> 的总和也一样（2 + 4 = 6 + 0 = 6）。</li>
+    <li>neutron 不带电，不留下轨迹（track）。我们看不到它，只能从它撞出来的 proton 和氮核推出它。这叫 <span class="t">indirect evidence</span>（间接证据：只从效果推出来的证据）。</li>
+  </ul>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">动画 4 · Chadwick：中子撞质子、撞氮核</span><span class="sim-tag">一维弹性正碰 · 速度：示意 · 能量数据：讲义</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="上面一条是 Chadwick 实验的流程：polonium 放出 α，打到 beryllium，放出中性辐射，打到石蜡（或氮），撞出来的质子（或氮核）进 ionisation chamber，正在发生的一步亮起来。中间是一条直线上的弹性正碰：灰色的中子撞向静止的红色质子或氮核，箭头是碰前、碰后的速度。下面两组条比较碰前、碰后的总动量和总动能，长度一样。换成 gamma 射线时，下面换成能量对比：要约 50 MeV 的光子，但反应最多给约 14 MeV。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="靶子">
+      <button class="btn" type="button" id="s4-tp" aria-pressed="true">质子（1 u）</button>
+      <button class="btn" type="button" id="s4-tn" aria-pressed="false">氮核（14 u）</button>
+    </span>
+    <label class="range" id="s4-m-lab">入射粒子质量 <i>m</i> <input type="range" id="s4-m" min="0.5" max="4" step="0.05" value="1" list="s4-marks"><output id="s4-m-out" for="s4-m">1.00 u</output></label>
+    <button class="btn" type="button" id="s4-115">m = 1.15 u</button>
+    <datalist id="s4-marks"><option value="1.15" label="Chadwick 的结果"></option></datalist>
+    <span class="seg" role="group" aria-label="入射的是什么">
+      <button class="btn" type="button" id="s4-pn" aria-pressed="true">中子</button>
+      <button class="btn" type="button" id="s4-pg" aria-pressed="false">假如是 gamma 射线</button>
+    </span>
+    <button class="btn" type="button" id="s4-again">再撞一次</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看“质子（1&nbsp;u）”：石蜡里有很多 H，被撞出来的就是质子。质量一样（<i>m</i> = 1.00&nbsp;u）时，中子撞完就停下，质子拿走全部动能。看下面两组条：碰前、碰后的总量一样长（动量守恒，动能也守恒，因为是 elastic collision）。② 换成“氮核（14&nbsp;u）”：中子弹回来（动量条里它那一段跑到 0 的左边，算负数），氮核只拿到约四分之一的动能。③ 把 <i>m</i> 拉大到超过靶子：中子撞完还继续往前。④ 按“m = 1.15&nbsp;u”（Chadwick 的结果，滑条上也有一个小刻度），再在两种靶子之间切换：质子 ÷ 氮核 的反冲速度 = (<i>m</i> + 14)/(<i>m</i> + 1)，入射速度 <i>u</i> 约掉了，只剩 <i>m</i>。⑤ 按“假如是 gamma 射线”：光子没有质量，和它的能量比，动量很小，要约 50&nbsp;MeV 才能打出 5.7&nbsp;MeV 的质子，可反应最多只给约 14&nbsp;MeV，所以不是 gamma。速度都写成入射速度 <i>u</i> 的倍数（示意）；5.7、50、14&nbsp;MeV 和 1.15&nbsp;u 来自 booklet。</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">2.5</div>
+  <h2>五个关键实验<span class="en">Key experiments</span></h2>
+  <p>给一个实验 <b>model</b>（建模），就是：画出装置并标好名字，或者用一个 simulation（模拟，比如这页的动画），或者用一个 analogy（类比）。一个类比：在一块木板下面滚弹珠，看弹珠怎么弹出来，就能猜出木板下面藏着的东西是什么形状。</p>
+  <div class="exp">
+    <h3>早期的阴极射线实验（1870s–1890s）</h3>
+    <dl>
+      <dt>目的</dt><dd>弄清 cathode rays 是波还是粒子。</dd>
+      <dt>做法</dt><dd>把东西（Maltese cross、paddle wheel）放进射线里。把带电板或磁铁靠近管子。</dd>
+      <dt>结果</dt><dd>清楚的影子；场把射线推弯，弯的方向和负电荷一样。</dd>
+      <dt>结论和意义</dt><dd>射线走直线，带负电：它们是带负电的粒子。这引出了 Thomson 的实验。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Thomson 的比荷实验（1897）</h3>
+    <dl>
+      <dt>目的</dt><dd>量出 cathode rays 粒子的 <span class="m"><i>q</i>/<i>m</i></span>。</dd>
+      <dt>做法</dt><dd>调 <i>E</i> 和 <i>B</i>，直到电子束走直线（<span class="m"><i>v</i> = <i>E</i>/<i>B</i></span>）。再关掉 <i>E</i>，从圆弧的半径 <i>r</i> 算出 <span class="m"><i>q</i>/<i>m</i> = <i>E</i>/(<i>B</i>²<i>r</i>)</span>。换别的金属和气体，再做一遍。</dd>
+      <dt>结果</dt><dd>每种金属、每种气体，都约是 10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>（今天的值：1.759&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>）。</dd>
+      <dt>结论和意义</dt><dd>所有物质里都有同一种粒子：它带负电，比原子轻得多。这就是 electron。它是第一个 subatomic particle，引出了 plum pudding model。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Millikan 油滴实验（1909–1913）</h3>
+    <dl>
+      <dt>目的</dt><dd>看电荷有没有一个最小单位，并量出它。</dd>
+      <dt>做法</dt><dd>关掉电场，从油滴下落的速度算出它的质量。再调 <i>V</i>，直到油滴停住：<span class="m"><i>q</i> = <i>mgd</i>/<i>V</i></span>。用 X-ray 改变它的电荷；量了很多滴油。</dd>
+      <dt>结果</dt><dd>每个电荷都是 1.592&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C 的整数倍（今天的值：1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C）。</dd>
+      <dt>结论和意义</dt><dd>电荷是 quantised 的；最小单位 <i>e</i> 就是 electron 的电荷。和 Thomson 的 <span class="m"><i>q</i>/<i>m</i></span> 一起，算出了 electron 的质量。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Geiger–Marsden 实验（1909）</h3>
+    <dl>
+      <dt>目的</dt><dd>检验 plum pudding model。</dd>
+      <dt>做法</dt><dd>在真空里，用一束细细的 alpha 打很薄的金箔。在每个角度，用 microscope 数 zinc sulfide 屏上的闪光。</dd>
+      <dt>结果</dt><dd>大部分直线穿过；有一些偏了一个小角度；约 1 in 8000 偏转超过 90°。</dd>
+      <dt>结论和意义</dt><dd>原子中间有一个很小、很密、带正电的原子核；原子大部分是空的。这就是原子核的发现，也是 <span class="t">Bohr's model</span>（玻尔模型）和 <span class="t">nuclear physics</span>（核物理）的基础。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Chadwick 发现中子（1932）</h3>
+    <dl>
+      <dt>目的</dt><dd>弄清 beryllium 被 alpha 打中后，放出的中性辐射是什么。</dd>
+      <dt>做法</dt><dd>让这种辐射先打石蜡，再打氮。测出被撞出来的 proton 和氮核的反冲能量。用能量守恒和动量守恒去算。</dd>
+      <dt>结果</dt><dd>proton 最多 5.7&nbsp;MeV；氮核反冲得很慢；找不到一个 gamma ray 的能量能同时对上这两个结果。</dd>
+      <dt>结论和意义</dt><dd>它是不带电、质量约等于 proton 的粒子：neutron。它补全了原子的图，也解释了“少掉的质量”。后来人们用 neutron 去打碎（split）原子核。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>v</i> = <i>E</i>/<i>B</i>　<i>q</i>/<i>m</i> = <i>E</i>/(<i>B</i>²<i>r</i>)</td><td>Thomson：先让两个场平衡，再只留 <i>B</i></td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>q</i>/<i>m</i> = 2<i>V</i>/(<i>B</i>²<i>r</i>²)</td><td>学校的 e/m tube（从静止经过 <i>V</i> 加速）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>q</i> = <i>mgd</i>/<i>V</i>　<i>q</i> = <i>ne</i></td><td>Millikan 停住的油滴；电荷是 quantised 的</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>F</i> = (1/4π<i>ε</i><sub>0</sub>)(<i>q</i><sub>1</sub><i>q</i><sub>2</sub>/<i>r</i>²)</td><td>alpha 和原子核之间的力</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f">Σ<i>m</i><i>v⃗</i><sub>before</sub> = Σ<i>m</i><i>v⃗</i><sub>after</sub><br>Σ½<i>mv</i>²<sub>before</sub> = Σ½<i>mv</i>²<sub>after</sub></td><td>Chadwick 的碰撞（动能那一条：只用于弹性碰撞）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>V</i>/<i>d</i>　<i>F⃗</i> = <i>qE⃗</i></td><td>两板之间的电场；电荷受的电场力</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i> = <i>qv</i><sub>⊥</sub><i>B</i> = <i>qvB</i>&nbsp;sin&nbsp;<i>θ</i></td><td>运动电荷受的磁场力（总表记在 Ch. 2、5）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></td><td>指向圆心的合力，用来算 <i>r</i>（总表记在 Ch. 2、5）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>动能（总表记在 Ch. 2、5）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>v</i> = √(2<i>qV</i>/<i>m</i>)</td><td>从静止经过 <i>V</i> 加速后的速度</td><td><span class="badge comb">组合</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">最后 5 行在讲义总表的 “Other formulas” 里，是 Module 6、7 和 Year 11 学过、这一章要用的公式。</p>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>场能推弯 cathode rays，推不弯光，所以 cathode rays 是带负电的粒子。</li>
+    <li>Thomson：先 <span class="m"><i>v</i> = <i>E</i>/<i>B</i></span>，再 <span class="m"><i>q</i>/<i>m</i> = <i>E</i>/(<i>B</i>²<i>r</i>)</span>（e/m tube：<span class="m">2<i>V</i>/(<i>B</i>²<i>r</i>²)</span>）。每种金属、每种气体都一样：所有原子里都有 electron。这几条不在 sheet 上。</li>
+    <li>Millikan：停住的油滴 <span class="m"><i>qE</i> = <i>mg</i></span>，所以 <span class="m"><i>q</i> = <i>mgd</i>/<i>V</i></span>。每个电荷都是 <span class="m"><i>q</i> = <i>ne</i></span>：电荷是 quantised 的。</li>
+    <li>金箔：大部分 alpha 直线穿过（原子大部分是空的）；约 1 in 8000 偏转超过 90°（很小、很密、带正电的原子核）。</li>
+    <li>Rutherford 的模型，原子核这部分证据很强；但它解释不了 line spectra，也解释不了绕圈的 electron 为什么不会螺旋掉进去。</li>
+    <li>Chadwick：gamma ray 需要的能量比反应能给的多。用 momentum 和动能、加上两种靶子，算出一种不带电、质量和 proton 差不多的粒子。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span><span class="m"><i>v</i> = <i>B</i>/<i>E</i></span>。<br><span class="ok">对：</span><span class="m"><i>v</i> = <i>E</i>/<i>B</i></span>：<i>E</i> 除以 <i>B</i>。</div>
+    <div><span class="x">错：</span><i>r</i> 直接用 cm，或者把刻度上读到的直径当成 <i>r</i>。<br><span class="ok">对：</span><i>r</i> 用米；读到的是直径，就除以 2。</div>
+    <div><span class="x">错：</span>油滴还在动，也用 <span class="m"><i>q</i> = <i>mgd</i>/<i>V</i></span>。<br><span class="ok">对：</span>只有<b>停住</b>的油滴才能用（<span class="m"><i>qE</i> = <i>mg</i></span>）。<i>d</i> 也要用米。</div>
+    <div><span class="x">错：</span>用 sheet 上印的 −1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C 去算，得到负的 <i>n</i>。<br><span class="ok">对：</span>用 <i>e</i> 的大小 1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C，方向另外判断。</div>
+    <div><span class="x">错：</span>Millikan 量的是一个 electron 的电荷。<br><span class="ok">对：</span>他量的是油滴。每滴油的电荷都是 <i>e</i> 的整数倍，所以 <i>e</i> 是共同的“步长”。</div>
+    <div><span class="x">错：</span>弹回来的 alpha 撞到了原子核。<br><span class="ok">对：</span>alpha 从来没碰到原子核，是电力（Coulomb's law）把它推回来的。</div>
+    <div><span class="x">错：</span>paddle wheel 转起来，证明射线带着 momentum。<br><span class="ok">对：</span>当时是这么想的。今天知道，主要是射线把叶片加热，让它转。</div>
+    <div><span class="x">错：</span>Chadwick 看到了 neutron 的轨迹。<br><span class="ok">对：</span>neutron 不带电，不留轨迹。他是从撞出来的 proton 和氮核推出来的：indirect evidence。</div>
+    <div><span class="x">错：</span>所有碰撞里动能都守恒。<br><span class="ok">对：</span>没有外力时，momentum 总守恒；动能只在 elastic collision 里守恒。</div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Model</td><td>模型</td><td>能解释当时实验结果的简单图</td></tr>
+        <tr><td class="t">Cathode ray</td><td>阴极射线</td><td>密封真空管里从 cathode 射向 anode 的射线：一串 electron</td></tr>
+        <tr><td class="t">Cathode / anode</td><td>阴极 / 阳极</td><td>管子里的负极 / 正极</td></tr>
+        <tr><td class="t">Fluorescence</td><td>荧光</td><td>能量一打上来，马上发光</td></tr>
+        <tr><td class="t">Maltese cross</td><td>马耳他十字</td><td>放进射线里的金属十字，后面留下清楚的影子</td></tr>
+        <tr><td class="t">Paddle wheel</td><td>叶轮</td><td>放进射线里的小轮子。射线打上去它会转（今天知道主要是叶片被加热）</td></tr>
+        <tr><td class="t">Momentum (p)</td><td>动量</td><td>质量 × 速度，<i>p</i> = <i>mv</i></td></tr>
+        <tr><td class="t">EM wave</td><td>电磁波</td><td>电场和磁场一起变化的波，比如光；没有电荷</td></tr>
+        <tr><td class="t">Charge-to-mass ratio (q/m)</td><td>比荷</td><td>电荷除以质量，单位 C kg<sup>−1</sup></td></tr>
+        <tr><td class="t">Collimator</td><td>准直器</td><td>小孔或窄缝，做出一条细的粒子束</td></tr>
+        <tr><td class="t">Crossed fields</td><td>正交电磁场</td><td><i>E</i> 和 <i>B</i> 互相垂直，也都和粒子束垂直</td></tr>
+        <tr><td class="t">Velocity selector</td><td>速度选择器</td><td>只让一种速度（<i>v</i> = <i>E</i>/<i>B</i>）走直线的 crossed fields</td></tr>
+        <tr><td class="t">Electron gun</td><td>电子枪</td><td>热的 cathode + anode，做出一条电子束</td></tr>
+        <tr><td class="t">Hydrogen ion</td><td>氢离子</td><td>失去了 electron 的氢原子</td></tr>
+        <tr><td class="t">Subatomic particle</td><td>亚原子粒子</td><td>比原子还小的粒子</td></tr>
+        <tr><td class="t">Electron</td><td>电子</td><td>每个原子里都有的、很轻的负粒子</td></tr>
+        <tr><td class="t">Quantised</td><td>量子化的</td><td>只能取一些分开的值，中间的没有</td></tr>
+        <tr><td class="t">Elementary charge (e)</td><td>元电荷</td><td>能单独找到的最小电荷，1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C</td></tr>
+        <tr><td class="t">Atomiser</td><td>喷雾器</td><td>把油喷成很小的油滴</td></tr>
+        <tr><td class="t">Terminal velocity</td><td>收尾速度</td><td>空气阻力等于重力时的稳定下落速度</td></tr>
+        <tr><td class="t">Proton</td><td>质子</td><td>原子核里带正电的粒子，电荷 +<i>e</i></td></tr>
+        <tr><td class="t">Plum pudding model</td><td>枣糕模型</td><td>Thomson 的原子：正电荷散开，electron 嵌在里面</td></tr>
+        <tr><td class="t">Alpha particle (α)</td><td>α粒子</td><td>氦原子核，2 个 proton + 2 个 neutron，电荷 +2<i>e</i></td></tr>
+        <tr><td class="t">Vacuum</td><td>真空</td><td>几乎没有空气的空间</td></tr>
+        <tr><td class="t">Scintillation</td><td>闪烁</td><td>粒子打到屏上时的一下小闪光</td></tr>
+        <tr><td class="t">Nuclear model</td><td>核式结构模型</td><td>Rutherford 的原子：中间一个很小、很密的原子核</td></tr>
+        <tr><td class="t">Nucleus</td><td>原子核</td><td>原子中间很小、很密、带正电的部分</td></tr>
+        <tr><td class="t">Coulomb's law</td><td>库仑定律</td><td>两个电荷之间的力，<i>F</i>&nbsp;∝&nbsp;1/<i>r</i>²</td></tr>
+        <tr><td class="t">Permittivity of free space (ε<sub>0</sub>)</td><td>真空电容率</td><td>Coulomb's law 里的常数</td></tr>
+        <tr><td class="t">Line spectrum</td><td>线状光谱</td><td>只有几条很细的、确定波长的光</td></tr>
+        <tr><td class="t">Neutron</td><td>中子</td><td>原子核里不带电的粒子，质量约等于 proton</td></tr>
+        <tr><td class="t">Gamma ray (γ)</td><td>γ射线</td><td>原子核放出的高能 photon</td></tr>
+        <tr><td class="t">Photon</td><td>光子</td><td>一小包光的能量</td></tr>
+        <tr><td class="t">Paraffin wax</td><td>石蜡</td><td>含很多氢（proton）的固体</td></tr>
+        <tr><td class="t">Ionisation chamber</td><td>电离室</td><td>测一个很小的离子电流的探测器</td></tr>
+        <tr><td class="t">Recoil</td><td>反冲</td><td>被撞以后往前飞，或者放出东西以后往后退</td></tr>
+        <tr><td class="t">Elastic collision</td><td>弹性碰撞</td><td>总动能不变的碰撞</td></tr>
+        <tr><td class="t">Atomic mass unit (u)</td><td>原子质量单位</td><td>1&nbsp;u = 1.661&nbsp;×&nbsp;10<sup>−27</sup>&nbsp;kg</td></tr>
+        <tr><td class="t">Mass number (A)</td><td>质量数</td><td>proton 数 + neutron 数</td></tr>
+        <tr><td class="t">Atomic number (Z)</td><td>原子序数</td><td>proton 数，它决定是哪种元素</td></tr>
+        <tr><td class="t">Indirect evidence</td><td>间接证据</td><td>只从效果推出来、没有直接看到的证据</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s10" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary><span>1. 为什么说“场能推弯 cathode rays，却推不弯光”是决定性的证据？</span></summary><p class="ans"><b>因为这说明 cathode rays 带电，不是 EM wave。</b>光没有电荷，场推不弯它。cathode rays 被推向 + 板，所以它们是带负电的粒子。</p></details>
+    <details><summary><span>2. Thomson 实验里，<i>E</i>&nbsp;=&nbsp;2.0&nbsp;×&nbsp;10<sup>4</sup>&nbsp;V&nbsp;m<sup>−1</sup>、<i>B</i>&nbsp;=&nbsp;1.0&nbsp;×&nbsp;10<sup>−3</sup>&nbsp;T 时电子束走直线。速度多少？关掉 <i>E</i> 后，圆弧半径 <i>r</i> = 0.114&nbsp;m，<i>q</i>/<i>m</i> 是多少？</span></summary><p class="ans"><b><i>v</i> = 2.0&nbsp;×&nbsp;10<sup>7</sup>&nbsp;m&nbsp;s<sup>−1</sup>；<i>q</i>/<i>m</i> ≈ 1.75&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>。</b><i>v</i> = <i>E</i>/<i>B</i> = 2.0&nbsp;×&nbsp;10<sup>4</sup> / 1.0&nbsp;×&nbsp;10<sup>−3</sup> = 2.0&nbsp;×&nbsp;10<sup>7</sup>&nbsp;m&nbsp;s<sup>−1</sup>。<i>q</i>/<i>m</i> = <i>E</i>/(<i>B</i>²<i>r</i>) = 2.0&nbsp;×&nbsp;10<sup>4</sup> / (1.0&nbsp;×&nbsp;10<sup>−6</sup> × 0.114) ≈ 1.75&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>，和今天的值 1.759&nbsp;×&nbsp;10<sup>11</sup> 很接近。</p></details>
+    <details><summary><span>3. 一滴油质量 <i>m</i> = 1.0&nbsp;×&nbsp;10<sup>−15</sup>&nbsp;kg，两板距离 <i>d</i> = 5.0&nbsp;mm。电压调到 <i>V</i> = 153&nbsp;V 时它停住了。它带多少电荷？多带了几个 electron？</span></summary><p class="ans"><b><i>q</i> ≈ 3.20&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C，<i>n</i> = 2。</b><i>d</i> 先换成米：5.0&nbsp;×&nbsp;10<sup>−3</sup> m。<i>q</i> = <i>mgd</i>/<i>V</i> = 1.0&nbsp;×&nbsp;10<sup>−15</sup> × 9.8 × 5.0&nbsp;×&nbsp;10<sup>−3</sup> / 153 ≈ 3.20&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C。<i>n</i> = <i>q</i>/<i>e</i> = 3.20 / 1.602 ≈ 2。</p></details>
+    <details><summary><span>4. 用 Millikan 的 <i>e</i> = 1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C 和 Thomson 的 <i>q</i>/<i>m</i> = 1.759&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>，算 electron 的质量。</span></summary><p class="ans"><b>约 9.11&nbsp;×&nbsp;10<sup>−31</sup>&nbsp;kg。</b><i>m</i><sub>e</sub> = <i>e</i> ÷ (<i>e</i>/<i>m</i><sub>e</sub>) = 1.602&nbsp;×&nbsp;10<sup>−19</sup> / 1.759&nbsp;×&nbsp;10<sup>11</sup> ≈ 9.11&nbsp;×&nbsp;10<sup>−31</sup>&nbsp;kg，约是 proton 质量的 1/1836。</p></details>
+    <details><summary><span>5. 金箔实验：“大部分 alpha 直线穿过”和“约 1 in 8000 偏转超过 90°”各说明什么？</span></summary><p class="ans"><b>原子大部分是空的；中间有一个很小、很密、带正电的原子核。</b>直线穿过，说明路上几乎什么都没有。被推回来，说明有一团很集中的正电荷和几乎全部质量。这种情况很少，因为原子核很小。</p></details>
+    <details><summary><span>6. Rutherford 的模型有哪些不足？</span></summary><p class="ans"><b>三条。</b>① 绕圈的 electron 在加速，按经典物理会辐射、丢能量、螺旋掉进原子核。② 解释不了 line spectra。③ 没说原子核由什么组成，也没说为什么原子核的质量约是它的 proton 质量的 2 倍。</p></details>
+    <details><summary><span>7. Chadwick 为什么说 beryllium 放出的辐射不是 gamma rays？</span></summary><p class="ans"><b>能量不够。</b>要打出 5.7&nbsp;MeV 的 proton，gamma ray 的 photon 要约 50&nbsp;MeV（photon 没有质量，和它的能量比，momentum 很小）。可是 beryllium 的反应最多只能给约 14&nbsp;MeV。</p></details>
+    <details><summary><span><span>8. 检查反应 <span class="m"><span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>4</span><span>2</span></span>He + <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>9</span><span>4</span></span>Be → <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>12</span><span>6</span></span>C + <span style="display:inline-flex;flex-direction:column;align-items:flex-end;font-size:.62em;line-height:1.05;vertical-align:.55em"><span>1</span><span>0</span></span>n</span> 两边的 <i>A</i> 和 <i>Z</i> 是否平衡。为什么说 neutron 是靠“间接证据”找到的？</span></span></summary><p class="ans"><b>平衡：两边 <i>A</i> 都是 13，<i>Z</i> 都是 6。</b><i>A</i>：4 + 9 = 13，12 + 1 = 13。<i>Z</i>：2 + 4 = 6，6 + 0 = 6。neutron 不带电，不留轨迹，看不到它。只能从它撞出来的 proton 和氮核推出它，所以是 indirect evidence。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m8/t1.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M8 T1 · Origins of the Elements: the Big Bang and the Stars</span><span class="pg-z">元素的起源：大爆炸和恒星</span></a><a class="pg next" href="../m8/t3.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M8 T3 · The Quantum Atom</span><span class="pg-z">原子的量子模型：玻尔、德布罗意和薛定谔</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 8 From the Universe to the Atom · Chapter 2 整理。实验数据（1870s–1890s，Hertz 1892 / 1883，Thomson 1894 / 1897，Perrin 1895；plum pudding 1904，金箔 1909，nuclear model 1911，1913；Millikan 1909–1913；1919 / 1920 / 1930 / 1932；<i>q</i>/<i>m</i> 约 10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>，今天 1.759&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>，约 1800 倍，10<sup>14</sup> 倍；Millikan 1.6&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C 的整数倍，1.592&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C，今天 1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C，9.11&nbsp;×&nbsp;10<sup>−31</sup>&nbsp;kg，1/1836；金箔约 1000 个原子厚，7300 倍，约 1 in 8000，+79<i>e</i>，99.9%，10 000 到 100 000 倍；原子核质量约是 proton 质量的 2 倍，氦约是氢的 4 倍；Chadwick 5.7&nbsp;MeV / 约 50&nbsp;MeV / 约 14&nbsp;MeV，1&nbsp;u / 14&nbsp;u，1.15&nbsp;u，约四分之一）来自讲义；常数来自 data sheet。Thomson 公式卡的例子、快问快答第 2、3 题的场强、半径、油滴质量和电压是为了练习选的数。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · Thomson 的交叉场：先平衡，再只留 B（2.1 Thomson's charge-to-mass experiment）
+   侧面看一根横放的玻璃管（像 booklet Figure 2.1）。物理坐标：x 向右、y 向上，单位 cm；时间单位 ns。
+   原点 = 两块板的左端、管子的中线。板 x = 0…5 cm，板间 y = −2…+2 cm（板长 5.0 cm、板距 4.0 cm，示意）。
+   E 和 B 都只在两板之间（简化：booklet 里 B 来自一对线圈，这里把 B 的区域画成和板一样大）。
+   方向：+ 板在上，E 向下。电子 q < 0 → 电场力逆着 E，朝 + 板（向上）。
+         v 向右、B 进纸面：v × B = x̂ × (−ẑ) = +ŷ，正电荷受力向上，所以电子受力向下（booklet：electrons are pushed down）。
+   运动：a = (q/m)(E + v × B)，q/m = −1.759 × 10¹¹ C kg⁻¹（booklet 今天的值），RK4 数值积分：
+         ax = ω vy，ay = aE − ω vx，ω = |q/m| B，aE = |q/m| E（已经把电子的负号放进去了）。
+   示意：E = 2.0 × 10⁴ V m⁻¹，v = 2.0 × 10⁷ m s⁻¹（电子枪定好，不变）→ 平衡时 B = E/v = 1.00 mT。
+   计算值：只开 B（1.00 mT）r = v/(|q/m| B) = 11.37 cm → q/m = E/(B²r) = 1.759 × 10¹¹ C kg⁻¹（r 显示两位小数、q/m 三位，学生用屏上的数自己算也得 1.759）；
+          只开 E：出板角 atan(aE t/v) = 23.7°；B = 1.50 mT 只开 B：出板时 y = −1.89 cm，碰不到板（−2.0 cm）。
+   重力比 qE 小 10¹⁴ 倍以上，不画。cathode 到第一个 anode 之间：电子从静止被均匀加速到 v（示意）。
+   光（“换成一束光”）：q = 0，三种场都走直线；画面里光比电子快 3 倍（真实快得多，示意）。 */
+var QM=1.759e11,EF=2.0e4,V0=2.0,AE=QM*EF*1e-16,WB=QM*1e-3*1e-9,R1=V0/WB;   /* cm ns⁻²；每 mT 的 ω（ns⁻¹）；1 mT 时的 r（cm） */
+var PL=5,PH=2,XC=-4.6,XA1=-3.1,XA2=-2.0,XS=7.0,YS=3.9,GL=-5.25,GR=7.15;
+var AA=V0*V0/(2*(XA1-XC)),TS=0.5,TE=1.25,VL=6,TL=0.5;                         /* TS：每 ns 的动画秒数；TE：每隔多久发一个电子（ns） */
+var GP=[[GL,0.65],[-1,0.65],[-0.5,2.6],[5.3,2.6],[7.0,4.0],[GR,4.0]];        /* 玻璃管上半边的轮廓（cm） */
+var m1={mode:1,bi:12,light:false,emit:0,lemit:0,flash:0};                     /* mode 0 只开 E，1 E 和 B，2 只开 B；B = bi × 0.05 mT */
+var NE=14,NL=12,EL=[],LP=[],i0;
+for(i0=0;i0<NE;i0++)EL.push({on:false,x:0,y:0,vx:0,vy:0});
+for(i0=0;i0<NL;i0++)LP.push({on:false,x:0});
+var TMP={x:0,y:0,vx:0,vy:0},AC=[0,0];
+function Bm(){return m1.bi*0.05;}
+function eOn(){return m1.mode!==2;}
+function bOn(){return m1.mode!==0;}
+function gh(x){if(x<-1)return 0.65;if(x<-0.5)return 0.65+(x+1)/0.5*1.95;if(x<5.3)return 2.6;if(x<7)return 2.6+(x-5.3)/1.7*1.4;return 4.0;}
+
+/* ---------- 物理 ---------- */
+function acc(x,y,vx,vy){var ax=0,ay=0;
+  if(x<XA1)ax=AA;                                                             /* high voltage 把电子从静止加速 */
+  else if(x>=0&&x<=PL&&y<PH&&y>-PH){var w=bOn()?WB*Bm():0,a=eOn()?AE:0;ax=w*vy;ay=a-w*vx;}
+  AC[0]=ax;AC[1]=ay;}
+function rk(p,h){
+  var x=p.x,y=p.y,vx=p.vx,vy=p.vy,h2=h/2;
+  acc(x,y,vx,vy);var a1=AC[0],b1=AC[1];
+  var u2=vx+a1*h2,w2=vy+b1*h2;acc(x+vx*h2,y+vy*h2,u2,w2);var a2=AC[0],b2=AC[1];
+  var u3=vx+a2*h2,w3=vy+b2*h2;acc(x+u2*h2,y+w2*h2,u3,w3);var a3=AC[0],b3=AC[1];
+  var u4=vx+a3*h,w4=vy+b3*h;acc(x+u3*h,y+w3*h,u4,w4);var a4=AC[0],b4=AC[1];
+  p.x=x+h/6*(vx+2*u2+2*u3+u4);p.y=y+h/6*(vy+2*w2+2*w3+w4);
+  p.vx=vx+h/6*(a1+2*a2+2*a3+a4);p.vy=vy+h/6*(b1+2*b2+2*b3+b4);
+}
+/* 0 = 还在飞，1 = 打到板或玻璃，2 = 打到荧光屏 */
+function adv(p,h){
+  var pre=p.x<XA1;rk(p,h);
+  if(pre&&p.x>=XA1){p.vx=V0;p.vy=0;p.y=0;}
+  if(p.x>=0&&p.x<=PL){if(Math.abs(p.y)>=PH-0.06)return 1;}
+  else if(Math.abs(p.y)>=gh(p.x)-0.06)return 1;
+  if(p.x>=XS)return 2;
+  return 0;
+}
+/* 现在的设置下电子束的路径（画成淡线），和打到屏上的位置 */
+var NP=600,PX=new Float32Array(NP),PY=new Float32Array(NP),PN=0,P1={hit:0,hitY:0};
+function path(){
+  var p=TMP;p.x=XA2;p.y=0;p.vx=V0;p.vy=0;PX[0]=XC;PY[0]=0;PX[1]=XA2;PY[1]=0;PN=2;P1.hit=0;
+  for(var i=0;i<8000&&PN<NP;i++){
+    var px=p.x,py=p.y,r=adv(p,0.005);
+    if(r===2){var f=(XS-px)/(p.x-px);p.y=py+(p.y-py)*f;p.x=XS;}
+    if(r||i%4===3){PX[PN]=p.x;PY[PN]=p.y;PN++;}
+    if(r){P1.hit=r;P1.hitY=p.y;return;}
+  }
+}
+function spawn(){for(var i=0;i<NE;i++){var p=EL[i];if(!p.on){p.on=true;p.x=XC+0.08;p.y=0;p.vx=0;p.vy=0;return;}}}
+function stepE(dtp){
+  m1.emit+=dtp;while(m1.emit>=TE){m1.emit-=TE;spawn();}
+  var n=Math.max(1,Math.ceil(dtp/0.02)),h=dtp/n;
+  for(var i=0;i<NE;i++){var p=EL[i];if(!p.on)continue;
+    for(var k=0;k<n;k++){var r=adv(p,h);if(r){p.on=false;if(r===2)m1.flash=1;break;}}}
+}
+function stepL(dtp){
+  m1.lemit+=dtp;while(m1.lemit>=TL){m1.lemit-=TL;for(var i=0;i<NL;i++)if(!LP[i].on){LP[i].on=true;LP[i].x=XC+0.3;break;}}
+  for(var j=0;j<NL;j++){var q=LP[j];if(!q.on)continue;q.x+=VL*dtp;if(q.x>=XS){q.on=false;m1.flash=1;}}
+}
+function step1(dt){var dtp=dt/TS;m1.flash=Math.max(0,m1.flash-dt*2.5);if(m1.light)stepL(dtp);else stepE(dtp);}
+/* 换电子 / 光时，先让新的一串飞满管子，第一帧就有东西 */
+function prefill(){var i;for(i=0;i<NE;i++)EL[i].on=false;for(i=0;i<NL;i++)LP[i].on=false;m1.emit=0.3;m1.lemit=0;for(i=0;i<360;i++)step1(1/60);}
+
+/* ---------- 文字 ---------- */
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sci(v,d){var e=Math.floor(Math.log10(Math.abs(v))),m=v/Math.pow(10,e);if(+m.toFixed(d)>=10){m/=10;e++;}
+  var s=String(e).split('').map(function(c){return SUP[c];}).join('');return m.toFixed(d)+' × 10'+s;}
+function status1(){
+  var b=m1.bi,md=m1.mode,r=b>0?(R1/Bm()).toFixed(2):'';
+  if(m1.light)return [['光没有电荷 → 电场、磁场都推不弯它'],['所以 cathode rays 会弯 → 它们是带电粒子（决定性证据）','cathode rays 会弯 → 是带电粒子（决定性证据）','cathode rays 会弯 → 是带电粒子']];
+  if(md===0)return [['只开 E：电场力 qE 向上（朝 + 板）'],['→ 在板间走抛物线，出板后走直线，光点在上面','→ 板间走抛物线，出板后走直线']];
+  if(md===1){
+    if(b===0)return [['B = 0：只有 qE → 电子束往 + 板弯'],['把 B 调大，直到它变直']];
+    if(b<20)return [['qE > qvB → 电子束往 + 板弯'],['把 B 调大，直到它变直']];
+    if(b===20)return [['qE = qvB → 走直线 → v = E/B = '+sci(EF/(Bm()*1e-3),1)+' m s⁻¹'],
+      ['只有这个速度能走直线（velocity selector）。下一步：按“只开 B”','只有这个速度能走直线（velocity selector）','只有这个速度走直线：velocity selector']];
+    return [['qvB > qE → 电子束往 − 板弯'],['把 B 调小，直到它变直']];
+  }
+  if(b===0)return [['只开 B，但 B = 0 → 没有力 → 走直线'],['把 B 调回刚才平衡时的值']];
+  var l1=['只开 B：力总和 v 垂直 → 走圆弧，r = '+r+' cm','只开 B：力 ⊥ v → 走圆弧，r = '+r+' cm'];
+  if(b===20)return [l1,['→ q/m = E/(B²r) = '+sci(qm(),3)+' C kg⁻¹（E 用平衡时的值）','→ q/m = E/(B²r) = '+sci(qm(),3)+' C kg⁻¹']];
+  return [l1,['但 B 不是平衡时的值 → v ≠ E/B → 先回到“E 和 B”调平衡','B 不是平衡时的值 → v ≠ E/B → 先调平衡']];
+}
+function qm(){var B=Bm()*1e-3,r=R1/Bm()/100;return EF/(B*B*r);}               /* q/m = E/(B²r)，E 用第 1 步的值 */
+/* 挑第一句放得下的；都放不下就把字缩小（不小于 11 px）。字号放在 FZ */
+var FZ=13;
+function fit(ctx,arr,mw,z,wt){ctx.font=wt+' '+z+'px '+FONT;FZ=z;for(var i=0;i<arr.length;i++){if(ctx.measureText(arr[i]).width<=mw)return arr[i];}
+  var s=arr[arr.length-1],w=ctx.measureText(s).width;FZ=Math.max(11,Math.floor(z*mw/w*10)/10);return s;}
+
+/* ---------- 排版 ---------- */
+var LY={w:-1};
+function lay(W){
+  var L=LY;if(L.w===W)return L;L.w=W;L.wide=W>=640;
+  if(L.wide){L.pw=232;L.px=W-16-L.pw;L.s=Math.min(40,(L.px-28-16)/(GR-GL));L.ox=16-GL*L.s;
+    L.st1=28;L.st2=51;L.z1=15;L.z2=14;L.oy=Math.round(64+4.7*L.s);L.H=Math.max(Math.round(L.oy+4.0*L.s+16),368);
+    L.py=88;L.lz=12;L.vz=13;L.rE=4.5;L.rA=6.5;L.lf=36;L.lv=30;L.cr=4;L.hz=13;}
+  else{L.pw=W-32;L.px=16;L.s=(W-28)/(GR-GL);L.ox=14-GL*L.s;
+    L.st1=22;L.st2=42;L.z1=13.5;L.z2=12.5;L.oy=Math.round(54+4.7*L.s);
+    L.py=Math.round(L.oy+4.0*L.s+30);L.two=W<340;L.H=L.py+188+(L.two?22:0);L.lz=11.5;L.vz=12.5;L.rE=3.8;L.rA=5.5;L.lf=24;L.lv=22;L.cr=3.2;L.hz=12;}
+  return L;
+}
+function X(L,x){return L.ox+x*L.s;}
+function Y(L,y){return L.oy-y*L.s;}
+function cross(ctx,x,y,r,col,w){seg(ctx,x-r,y-r,x+r,y+r,col,w);seg(ctx,x-r,y+r,x+r,y-r,col,w);}
+/* 有底色的标签：压在场线和 × 上也看得清 */
+function halo(ctx,s,x,y,col,z){ctx.font='700 '+z+'px '+FONT;var w=ctx.measureText(s).width;
+  rrect(ctx,x-w/2-3,y-z/2-4,w+6,z+8,3);ctx.fillStyle=rgba(C.stage,0.92);ctx.fill();txt(ctx,s,x,y,col,z,700,'center','middle');}
+var BX=[];
+function addBox(ctx,s,x,y,z){ctx.font='700 '+z+'px '+FONT;var w=ctx.measureText(s).width;BX.push([x-w/2-3,y-z/2-4,x+w/2+3,y+z/2+4]);}
+function hitBox(x0,y0,x1,y1){for(var i=0;i<BX.length;i++){var b=BX[i];if(x1>b[0]&&x0<b[2]&&y1>b[1]&&y0<b[3])return true;}return false;}
+
+/* 选中的电子：力和速度箭头（屏幕坐标），先算好，好让标签下面不画 × */
+var AR={on:false,ex:0,ey:0,ux:0,uy:0,sp:1,n:0,d:[[0,0,0,'',''],[0,0,0,'',''],[0,0,0,'','']],lx:[0,0,0],ly:[0,0,0]};
+function arrows(ctx,L){
+  AR.on=false;AR.n=0;BX.length=0;
+  if(m1.light){var lx=X(L,2.5),ly=Y(L,1.0);addBox(ctx,'q = 0 → 没有力',lx,ly,L.hz);return;}
+  var best=-1,bd=9,i;
+  for(i=0;i<NE;i++){var p=EL[i];if(p.on&&p.x>0.35&&p.x<PL-0.35){var dd=Math.abs(p.x-2.4);if(dd<bd){bd=dd;best=i;}}}
+  if(best<0)return;
+  var q=EL[best],sp=Math.hypot(q.vx,q.vy);if(sp<1e-6)return;
+  AR.on=true;AR.best=best;AR.ex=X(L,q.x);AR.ey=Y(L,q.y);AR.ux=q.vx/sp;AR.uy=-q.vy/sp;AR.sp=sp;
+  function add(dx,dy,len,col,lab){if(len<3)return;var k=AR.n++,a=AR.d[k];a[0]=dx;a[1]=dy;a[2]=len;a[3]=col;a[4]=lab;
+    var off=L.wide?20:17,m=L.rA+2+len/2,yT=Y(L,PH)+L.hz/2+6,yB=Y(L,-PH)-L.hz/2-6;
+    if(lab==='v'){AR.lx[k]=AR.ex+dx*(L.rA+2+len+10);AR.ly[k]=clamp(AR.ey+dy*(L.rA+2+len+10),yT,yB);}
+    else{AR.lx[k]=AR.ex+dx*m-AR.ux*off;AR.ly[k]=clamp(AR.ey+dy*m-AR.uy*off,yT,yB);}
+    addBox(ctx,lab,AR.lx[k],AR.ly[k],L.hz);}
+  if(eOn())add(0,-1,L.lf,C.force,'qE');                                       /* 电场力：朝 + 板（向上） */
+  if(bOn()&&m1.bi>0)add(q.vy/sp,q.vx/sp,L.lf*sp/V0*Bm(),C.force,'qvB');      /* 电子：F ∥ (vy, −vx)（物理坐标）→ 屏幕 (vy, vx) */
+  add(AR.ux,AR.uy,L.lv*sp/V0,rgba(C.ink,0.7),'v');
+}
+
+/* ---------- 读数 ---------- */
+function rowV(ctx,L,y,lab,val){txt(ctx,lab,L.px,y,C.ink,L.lz+0.5,600);txt(ctx,val,L.px+L.pw,y,val==='—'?C.muted:C.ink,L.vz,600,'right','alphabetic',MONO);}
+function panel(ctx,L){
+  var x0=L.px,x1=L.px+L.pw,y=L.py,wide=L.wide,lt=m1.light,md=m1.mode,B=Bm(),eo=eOn(),bo=bOn(),b=m1.bi;
+  var ev=eo?'2.0 × 10⁴ V m⁻¹':'0（关）',bv=bo?B.toFixed(2)+' mT':'0（关）';
+  if(wide){
+    arrow(ctx,x0+5,y-12,x0+5,y+2,C.violet,1.6,6);txt(ctx,'E',x0+16,y,C.ink,13,600,'left','alphabetic',MATH);
+    txt(ctx,ev,x1,y,eo?C.ink:C.muted,L.vz,600,'right','alphabetic',MONO);y+=25;
+    cross(ctx,x0+5,y-4.5,3.6,C.field,1.8);txt(ctx,'B',x0+16,y,C.ink,13,600,'left','alphabetic',MATH);
+    txt(ctx,bv,x1,y,bo?C.ink:C.muted,L.vz,600,'right','alphabetic',MONO);y+=33;
+  }else{
+    var es='E = '+ev,bs='B = '+bv;
+    arrow(ctx,x0+5,y-11,x0+5,y+2,C.violet,1.6,6);txt(ctx,es,x0+15,y,eo?C.ink:C.muted,L.vz,600,'left','alphabetic',MONO);
+    ctx.font='600 '+L.vz+'px '+MONO;var bw=ctx.measureText(bs).width;if(L.two)y+=22;   /* 很窄的手机：B 放到下一行 */
+    cross(ctx,x1-bw-10,y-4.5,3.4,C.field,1.8);txt(ctx,bs,x1,y,bo?C.ink:C.muted,L.vz,600,'right','alphabetic',MONO);y+=24;
+  }
+  txt(ctx,lt?'光：q = 0 → 两个力都是 0':'电子受的力（= 箭头长度）',x0,y,C.muted,L.lz,500);y+=wide?23:21;
+  var bx=x0+40,bw2=x1-bx,fe=lt?0:(eo?1:0),fb=lt?0:(bo?B:0);
+  txt(ctx,'qE',x0,y,C.force,L.lz+1,700);hbar(ctx,bx,y-9,bw2,10,fe/1.6,C.force);y+=wide?23:21;
+  txt(ctx,'qvB',x0,y,C.force,L.lz+1,700);hbar(ctx,bx,y-9,bw2,10,fb/1.6,C.force);
+  if(fe>0&&fb>0){var xm=bx+bw2/1.6;seg(ctx,xm,y-9-(wide?23:21)-3,xm,y+4,rgba(C.ink,0.5),1.2,[2,3]);}   /* qE 的长度，方便比较 */
+  y+=wide?35:27;
+  var dh=wide?24:21,bal=!lt&&md!==0&&b===20;
+  rowV(ctx,L,y,'v = E/B',bal?sci(EF/(B*1e-3),1)+' m s⁻¹':'—');y+=dh;
+  rowV(ctx,L,y,'r',(!lt&&md===2&&b>0)?(R1/B).toFixed(2)+' cm':'—');y+=dh;
+  rowV(ctx,L,y,'q/m',(!lt&&md===2&&b===20)?sci(qm(),3)+' C kg⁻¹':'—');y+=dh;
+  var hy=lt?0:P1.hitY,sv=P1.hit!==2&&!lt?'—':(Math.abs(hy)<0.05?'中心':(hy>0?'上 ':'下 ')+Math.abs(hy).toFixed(1)+' cm');
+  rowV(ctx,L,y,'光点（离屏中心）',sv);
+  if(wide){txt(ctx,'E、B、v 和尺寸：示意',x0,y+34,C.muted,11.5,500);txt(ctx,'q/m：booklet 的 1.759 × 10¹¹ C kg⁻¹',x0,y+52,C.muted,11.5,500);}
+  else txt(ctx,'E、B、v 和尺寸是示意；q/m 用 booklet 的值',x0,y+26,C.muted,11,500);
+}
+
+/* ---------- stage ---------- */
+var S1=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step1,
+  draw:function(ctx,W,H){
+    var L=lay(W),wide=L.wide,s=L.s,i,j,lt=m1.light,eo=eOn(),bo=bOn()&&m1.bi>0,B=Bm();
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    /* 状态 */
+    var st=status1(),mw=W-32;
+    var s1=fit(ctx,st[0],mw,L.z1,600);txt(ctx,s1,16,L.st1,C.ink,FZ,600);
+    var s2=fit(ctx,st[1],mw,L.z2,600);txt(ctx,s2,16,L.st2,C.copper,FZ,600);
+    if(wide)seg(ctx,L.px-14,70,L.px-14,H-14,C.line,1);
+    else seg(ctx,16,L.py-22,W-16,L.py-22,C.line,1);
+    /* 玻璃管 */
+    ctx.beginPath();for(i=0;i<GP.length;i++){if(i)ctx.lineTo(X(L,GP[i][0]),Y(L,GP[i][1]));else ctx.moveTo(X(L,GP[i][0]),Y(L,GP[i][1]));}
+    for(i=GP.length-1;i>=0;i--)ctx.lineTo(X(L,GP[i][0]),Y(L,-GP[i][1]));ctx.closePath();
+    ctx.fillStyle=rgba(C.field,0.08);ctx.fill();ctx.lineJoin='round';ctx.strokeStyle=rgba(C.muted,0.85);ctx.lineWidth=1.5;ctx.stroke();
+    /* cathode、两个 anode（中间有小孔 = collimators）、high voltage */
+    var hy0=Y(L,-1.75),hy1=Y(L,-2.3),hx0=X(L,-4.85),hx1=X(L,-2.85),wy=Y(L,-1.2);
+    seg(ctx,X(L,XC),Y(L,-0.42),X(L,XC),hy0,C.muted,1.2);
+    seg(ctx,X(L,XA1),Y(L,-0.5),X(L,XA1),hy0,C.muted,1.2);
+    seg(ctx,X(L,XA2),Y(L,-0.5),X(L,XA2),wy,C.muted,1.2);seg(ctx,X(L,XA1),wy,X(L,XA2),wy,C.muted,1.2);
+    rrect(ctx,hx0,hy0,hx1-hx0,hy1-hy0,3);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    txt(ctx,'−',X(L,XC),(hy0+hy1)/2+1,C.south,13,700,'center','middle');
+    txt(ctx,'+',X(L,XA1),(hy0+hy1)/2+1,C.north,13,700,'center','middle');
+    if(lt){ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=10;dot(ctx,X(L,XC),Y(L,0),Math.max(5,0.3*s),C.light);ctx.restore();}
+    else{ctx.fillStyle=C.south;ctx.fillRect(X(L,XC)-2,Y(L,0.42),4,0.84*s);}
+    ctx.fillStyle=C.muted;
+    for(i=0;i<2;i++){var xa=X(L,i?XA2:XA1);ctx.fillRect(xa-2,Y(L,0.5),4,0.38*s);ctx.fillRect(xa-2,Y(L,-0.12),4,0.38*s);}
+    /* 中线：没有偏转时打到哪里 */
+    seg(ctx,X(L,XA2),Y(L,0),X(L,XS),Y(L,0),rgba(C.muted,0.4),1,[3,5]);
+    /* 箭头和标签的位置先算好 */
+    arrows(ctx,L);
+    /* 场：B 进纸面（×，越大越深），E 向下（紫色虚线） */
+    var x0=X(L,0),x1=X(L,PL),yT=Y(L,PH),yB=Y(L,-PH),qr=L.rA+7;
+    if(bo){var ca=0.55+0.45*B/1.5;
+      for(i=0;i<6;i++)for(j=0;j<4;j++){var cx=X(L,(i+0.5)*PL/6),cy=Y(L,-1.5+j);
+        if(AR.on&&Math.abs(cx-AR.ex)<qr&&Math.abs(cy-AR.ey)<qr)continue;
+        if(hitBox(cx-L.cr-1,cy-L.cr-1,cx+L.cr+1,cy+L.cr+1))continue;
+        cross(ctx,cx,cy,L.cr,rgba(C.field,ca),1.6);}}
+    if(eo){for(i=1;i<=5;i++){var xe=X(L,i*PL/6);seg(ctx,xe,yT+3,xe,yB-3,rgba(C.violet,0.45),1.2,[4,5]);arrow(ctx,xe,Y(L,-1.1),xe,Y(L,-1.85),rgba(C.violet,0.9),1.4,6);}}
+    /* 两块板：开 E 时 + 板红、− 板蓝；关 E 时是灰色、不带电 */
+    var pt=Math.max(5,0.18*s);
+    ctx.fillStyle=eo?C.north:rgba(C.muted,0.5);ctx.fillRect(x0,yT-pt,x1-x0,pt);
+    ctx.fillStyle=eo?C.south:rgba(C.muted,0.5);ctx.fillRect(x0,yB,x1-x0,pt);
+    if(eo){var np=Math.max(3,Math.round((x1-x0)/36)),pd=(x1-x0)/np,k=pt*0.32;
+      for(i=0;i<np;i++){var xp=x0+(i+0.5)*pd,ya=yT-pt/2,yb=yB+pt/2;
+        seg(ctx,xp-k,ya,xp+k,ya,'#ffffff',1.5);seg(ctx,xp,ya-k,xp,ya+k,'#ffffff',1.5);seg(ctx,xp-k,yb,xp+k,yb,'#ffffff',1.5);}}
+    /* 路径：电子束（淡蓝线）或光（琥珀色直线） */
+    if(lt)seg(ctx,X(L,XC),Y(L,0),X(L,XS),Y(L,0),rgba(C.light,0.5),2);
+    else if(PN>1){ctx.beginPath();for(i=0;i<PN;i++){var px=X(L,PX[i]),py=Y(L,PY[i]);if(i)ctx.lineTo(px,py);else ctx.moveTo(px,py);}
+      ctx.strokeStyle=rgba(C.south,0.35);ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();}
+    /* 只开 B：圆弧的两条半径（都 ⊥ v）指向圆心；圆心在画面下方 */
+    if(!lt&&m1.mode===2&&m1.bi>0){
+      var r=R1/B,ey=-(r-Math.sqrt(r*r-PL*PL)),ccx=X(L,0),ccy=Y(L,-r);
+      ctx.save();ctx.beginPath();ctx.rect(0,Y(L,0)-2,W,Y(L,-3.95)-Y(L,0)+2);ctx.clip();
+      seg(ctx,X(L,0),Y(L,0),ccx,ccy,rgba(C.ink,0.55),1.3,[5,4]);
+      seg(ctx,X(L,PL),Y(L,ey),ccx,ccy,rgba(C.ink,0.55),1.3,[5,4]);
+      ctx.restore();
+      halo(ctx,'r',X(L,0)-11,Y(L,-1.6),C.ink,L.hz);                               /* 竖直半径左边、低一点：不压玻璃管的拐角，也不碰 qvB 的标签 */
+      var t=(3.45+ey)/(r+ey),nx=X(L,PL*(1-t)/2);                               /* 两条半径在 y = −3.45 cm 处的中点 */
+      halo(ctx,'↓ 圆心在更下面',Math.max(nx,X(L,0)+46),Y(L,-3.45),C.muted,L.lz);
+    }
+    /* 电子 / 光 */
+    if(lt){
+      for(i=0;i<NL;i++){var lq=LP[i];if(!lq.on)continue;var qx=X(L,lq.x),qy=Y(L,0);ctx.beginPath();
+        for(j=0;j<=18;j++){var xx=qx-11+j*22/18,env=Math.sin(Math.PI*j/18);if(j)ctx.lineTo(xx,qy-env*4.5*Math.sin(j*TAU/6));else ctx.moveTo(xx,qy);}
+        ctx.strokeStyle=C.light;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();}
+      halo(ctx,'q = 0 → 没有力',X(L,2.5),Y(L,1.0),C.light,L.hz);
+    }else{
+      for(i=0;i<NE;i++){var p=EL[i];if(!p.on||(AR.on&&i===AR.best))continue;dot(ctx,X(L,p.x),Y(L,p.y),L.rE,C.south);}
+      if(AR.on){
+        for(i=0;i<AR.n;i++){var a=AR.d[i],a0=L.rA+2;arrow(ctx,AR.ex+a[0]*a0,AR.ey+a[1]*a0,AR.ex+a[0]*(a0+a[2]),AR.ey+a[1]*(a0+a[2]),a[3],wide?2.8:2.4,wide?10:8);}
+        dot(ctx,AR.ex,AR.ey,L.rA,C.south);seg(ctx,AR.ex-L.rA*0.5,AR.ey,AR.ex+L.rA*0.5,AR.ey,'#ffffff',1.6);
+        for(i=0;i<AR.n;i++){var lb=AR.d[i][4];halo(ctx,lb,AR.lx[i],AR.ly[i],lb==='v'?C.muted:C.force,L.hz);}
+      }
+    }
+    /* 荧光屏和光点 */
+    var sx=X(L,XS);ctx.fillStyle=rgba(C.muted,0.55);ctx.fillRect(sx,Y(L,YS),4,2*YS*s);
+    if(lt||P1.hit===2){var gx=sx+2,gy=Y(L,lt?0:P1.hitY),gr=(wide?16:13)*(1+0.25*m1.flash);
+      var g=ctx.createRadialGradient(gx,gy,0,gx,gy,gr);g.addColorStop(0,rgba(C.light,0.95));g.addColorStop(1,rgba(C.light,0));
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(gx,gy,gr,0,TAU);ctx.fill();dot(ctx,gx,gy,3,C.light);}
+    /* 标签 */
+    txt(ctx,lt?'光源':'cathode',X(L,XC),Y(L,1.75),lt?C.light:C.muted,L.lz,600,'center');
+    txt(ctx,'anodes',X(L,-2.45),Y(L,1.75),C.muted,L.lz,600,'center');
+    txt(ctx,'(collimators)',X(L,-2.45),Y(L,0.95),C.muted,L.lz,500,'center');
+    txt(ctx,'high voltage',X(L,-3.85),Y(L,-2.85),C.muted,L.lz,500,'center');
+    if(eo){txt(ctx,'+ 板',X(L,2.5),Y(L,2.9),C.north,L.lz+0.5,700,'center');txt(ctx,'− 板',X(L,2.5),Y(L,-3.3),C.south,L.lz+0.5,700,'center');}
+    else txt(ctx,'板不带电（E 关）',X(L,2.5),Y(L,2.9),C.muted,L.lz,600,'center');
+    txt(ctx,'fluorescent screen',X(L,GR),Y(L,4.3),C.muted,L.lz,500,'right');
+    txt(ctx,'比例示意',X(L,GL),Y(L,-3.85),C.muted,11,500,'left');
+    panel(ctx,L);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var b1E=document.getElementById('s1-e'),b1EB=document.getElementById('s1-eb'),b1B=document.getElementById('s1-b');
+var r1=document.getElementById('s1-bf'),o1=document.getElementById('s1-bf-out'),l1=document.getElementById('s1-bl'),b1L=document.getElementById('s1-light');
+function sync1(){press(b1E,m1.mode===0);press(b1EB,m1.mode===1);press(b1B,m1.mode===2);
+  r1.value=Bm().toFixed(2);o1.textContent=Bm().toFixed(2)+' mT';r1.disabled=m1.mode===0;l1.style.opacity=m1.mode===0?'0.5':'';
+  press(b1L,m1.light);b1L.textContent=m1.light?'换回电子束':'换成一束光';}
+function setMode(k){m1.mode=k;sync1();path();S1.render();}
+b1E.addEventListener('click',function(){setMode(0);});
+b1EB.addEventListener('click',function(){setMode(1);});
+b1B.addEventListener('click',function(){setMode(2);});
+r1.addEventListener('input',function(){m1.bi=clamp(Math.round(parseFloat(r1.value)/0.05),0,30);sync1();path();S1.render();});
+b1L.addEventListener('click',function(){m1.light=!m1.light;sync1();prefill();S1.render();});
+sync1();path();prefill();S1.render();
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · Millikan 油滴：调电压让它停住，再数电荷（booklet 2.2，Figure 2.2）
+   + 板在上（--north），− 板在下（--south）→ E 向下；油滴带负电 → 电场力 qE 向上，重力 mg 向下。
+   每滴油用 K = mgd/e（单位 V）描述：电荷是 ne 时，平衡电压 Vbal = mgd/(ne) = K/n。
+   K 取 60 的倍数，所以 n = 1…6 时 Vbal 都是整数：X-ray 改变 n 以后也能正好调到平衡。m = Ke/(gd)。
+   第一滴：K = 720，n = 3 → Vbal = 240 V，m = 2.35 × 10⁻¹⁵ kg；V = 150 V 时往下沉（plan 指定）。
+   换一滴油：K = 240…1980（60 的倍数），n 取 1–6 里让 Vbal 在 80–550 V 的值；X-ray：n ±1 或 ±2，Vbal 保持 40–600 V。
+   运动：收尾速度模型（空气阻力 ∝ 速度，Stokes）：v = vt (qE/mg − 1) = vt (V/Vbal − 1)，向上为正；V = 0 时 v = −vt。
+   vt ∝ m^(2/3)（密度相同：半径 ∝ m^(1/3)，vt ∝ r²），越重落得越快。画面速度放快（示意）。
+   停住时 q = mgd/V = Ke/V = ne（正好是 e 的整数倍）。e = 1.602 × 10⁻¹⁹ C、g = 9.8 m s⁻²（booklet）；d = 5.0 mm、m、V 示意。 */
+var E0=1.602e-19,G=9.8,D=0.005,K0=720,VT0=0.30,PMAX=0.76,HIT=1.1,HOLD=1;
+var rv=document.getElementById('s2-v'),ov=document.getElementById('s2-v-out');
+var m={V:150,K:720,n:3,p:0.35,still:0,hit:0,hitSide:0,xr:0,xmsg:0,dn:0,newMsg:0,id:0,t:0,rec:[],done:{},flash:0};
+var CNT=[0,0,0,0,0,0,0,0,0,0];
+var MS=[[],[[0,0]],[[-0.3,0],[0.3,0]],[[-0.3,-0.27],[0.3,-0.27],[0,0.3]],[[-0.3,-0.27],[0.3,-0.27],[-0.3,0.3],[0.3,0.3]],
+  [[-0.45,-0.27],[0,-0.27],[0.45,-0.27],[-0.25,0.3],[0.25,0.3]],[[-0.45,-0.27],[0,-0.27],[0.45,-0.27],[-0.45,0.3],[0,0.3],[0.45,0.3]]];
+var DROPS=[[0.13,0.05],[0.62,0.41],[0.31,0.77],[0.84,0.22],[0.47,0.58],[0.05,0.9],[0.73,0.69]];
+
+function vbal(){return m.K/m.n;}
+function vt(){return VT0*Math.pow(m.K/K0,2/3);}
+function isBal(){return m.V>0&&Math.abs(m.V-vbal())<1e-9;}
+function vel(){return isBal()?0:vt()*(m.V/vbal()-1);}
+function key(){return m.id+'-'+m.n;}
+function sub(h){
+  m.t+=h;
+  if(m.xr>0)m.xr-=h;if(m.xmsg>0)m.xmsg-=h;if(m.newMsg>0)m.newMsg-=h;if(m.flash>0)m.flash-=h;
+  if(m.hit>0){m.hit-=h;if(m.hit<=0){m.hit=0;m.p=0;m.still=0;}return;}
+  m.p+=vel()*h;
+  if(m.p>PMAX||m.p<-PMAX){m.hitSide=m.p>0?1:-1;m.p=m.hitSide*PMAX;m.hit=HIT;m.still=0;return;}
+  if(isBal()){
+    m.still+=h;
+    if(m.still>=HOLD&&!m.done[key()]){m.done[key()]=1;m.rec.push(m.n);if(m.rec.length>40)m.rec.shift();m.flash=1.6;}
+  }else m.still=0;
+}
+function step(dt){var k=4,h=dt/k;for(var i=0;i<k;i++)sub(h);}
+
+/* X-ray：油滴多了或少了 1 到 2 个电子（平衡电压要在 slider 的范围里） */
+function xray(){
+  var opts=[],ds=[-2,-1,1,2];
+  for(var i=0;i<4;i++){var nn=m.n+ds[i];if(nn>=1&&nn<=6&&m.K/nn<=600&&m.K/nn>=40)opts.push(ds[i]);}
+  if(!opts.length)return;
+  m.dn=opts[Math.floor(Math.random()*opts.length)];m.n+=m.dn;m.xr=0.9;m.xmsg=4;m.newMsg=0;m.still=0;
+}
+function newDrop(){
+  var K;do{K=60*(4+Math.floor(Math.random()*30));}while(K===m.K);
+  var opts=[];for(var n=1;n<=6;n++){var vb=K/n;if(vb>=80&&vb<=550)opts.push(n);}
+  m.K=K;m.n=opts[Math.floor(Math.random()*opts.length)];m.id++;m.p=0.3;m.hit=0;m.still=0;m.newMsg=4;m.xmsg=0;m.xr=0;
+}
+
+m.V=parseInt(rv.value,10)||150;ov.textContent=m.V+' V';
+for(var q0=0;q0<72;q0++)step(1/60); /* 第一帧：V = 150 V，油滴已经在慢慢往下沉 */
+
+/* ---------- 画图小工具 ---------- */
+var SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci(x,dg){
+  if(x===0)return '0';
+  var ex=Math.floor(Math.log10(Math.abs(x))),mn=+(x/Math.pow(10,ex)).toFixed(dg);
+  if(mn>=10){mn/=10;ex++;}
+  var s=String(ex),o='';for(var i=0;i<s.length;i++)o+=SUP[s[i]];
+  return mn.toFixed(dg)+' × 10'+o;
+}
+function fit(ctx,s,x,y,col,size,weight,maxW,align){
+  var sz=size;ctx.font=weight+' '+sz+'px '+FONT;
+  while(sz>11.5&&ctx.measureText(s).width>maxW){sz-=0.5;ctx.font=weight+' '+sz+'px '+FONT;}
+  txt(ctx,s,x,y,col,sz,weight,align||'left');
+}
+/* 文字带一圈底色，压在板或箭头上也看得清 */
+function hl(ctx,s,x,y,col,size,weight,align,family){
+  ctx.font=weight+' '+size+'px '+(family||FONT);ctx.textAlign=align;ctx.textBaseline='alphabetic';
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);
+  txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);
+}
+/* 竖直的力箭头（带底色描边）；cap = 太长画不下，在中间画两道折断线 */
+function farrow(ctx,x,y1,y2,col,cap){
+  arrow(ctx,x,y1,x,y2,C.stage,6,12);arrow(ctx,x,y1,x,y2,col,2.6,10);
+  if(cap){var ym=(y1+y2)/2;seg(ctx,x-6,ym+1,x+6,ym-4,C.stage,3);seg(ctx,x-6,ym+1,x+6,ym-4,col,1.6);seg(ctx,x-6,ym+6,x+6,ym+1,C.stage,3);seg(ctx,x-6,ym+6,x+6,ym+1,col,1.6);}
+}
+
+var SG=makeStage('sim2',{
+  height:function(w){return w>=640?480:544;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i;
+    var AW=wide?Math.round(W*0.6):W;
+    var px0=wide?64:40,px1=AW-(wide?132:128),cx=Math.round((px0+px1)/2);
+    var tp=wide?128:126,pt=8,gap=wide?150:140,gy0=tp+pt,bp=gy0+gap,hg=gap/2,mid=gy0+hg;
+    var r=wide?17:15,Lg=wide?30:26,LC=1.7*Lg;   /* 箭头最长 1.7 mg（再长就画折断线），油滴在中间时 qE 箭头放得下 */
+    var vb=vbal(),bal=isBal()&&m.hit<=0,ratio=m.V/vb,mass=m.K*E0/(G*D),q=m.V>0?mass*G*D/m.V:0;
+    var recd=!!m.done[key()];
+    var nd=0;for(i=0;i<10;i++)CNT[i]=0;for(i=0;i<m.rec.length;i++){if(!CNT[m.rec[i]])nd++;CNT[m.rec[i]]++;}
+    var quant=m.rec.length>=3&&nd>=2;
+
+    /* ---- 状态 ---- */
+    var s1,s2,sc=C.ink;
+    if(m.V===0&&m.xmsg<=0&&m.newMsg<=0){
+      s1='V = 0：电场关着 → 油滴以 terminal velocity 匀速下落';
+      s2=m.hit>0?'碰到 − 板了 → 放回中间，再看它掉一次':'空气阻力 = mg；越重落得越快 → 这样测出 m';
+    }else if(m.hit>0){
+      sc=C.heat;
+      s1=m.hitSide>0?'碰到 + 板了：qE > mg，油滴一直往上走':'碰到 − 板了：qE < mg，油滴一直往下走';
+      s2='→ 放回中间。'+(m.hitSide>0?'把 V 调小一点':'把 V 调大一点');
+    }else if(bal){
+      sc=C.force;s1='qE = mg → 停住了！';
+      if(!recd)s2='q = mgd/V = '+sci(q,2)+' C = '+m.n+'e → 记下来';
+      else if(quant)s2='记下的电荷都落在 e 的整数倍上 → 电荷是 quantised 的';
+      else s2='已经记下了。按 X-ray 改变电荷，或者换一滴油';
+    }else if(m.xmsg>0){
+      s1='X-ray：油滴'+(m.dn>0?'多了 ':'少了 ')+Math.abs(m.dn)+' 个电子 → q 变'+(m.dn>0?'大':'小')+'了';
+      s2=m.V===0?'V = 0 时看不出来：电场关着，下落和 q 无关':'不再平衡 → 重新调 V（q 变'+(m.dn>0?'大 → 要的 V 变小）':'小 → 要的 V 变大）');
+    }else if(m.newMsg>0){
+      s1='换了一滴油：m 和 q 都和刚才不一样';
+      s2='先把 V 调到 0 看它掉多快（测 m），再调 V 让它停住';
+    }else if(ratio<1){
+      s1='qE < mg → 油滴往下走 → 把 V 调大';
+      s2=ratio>0.96?'很接近了：用 +1 V 一点一点调':'油滴在动 → 还不能用 q = mgd/V';
+    }else{
+      s1='qE > mg → 油滴往上走 → 把 V 调小';
+      s2=ratio<1.04?'很接近了：用 −1 V 一点一点调':'油滴在动 → 还不能用 q = mgd/V';
+    }
+    fit(ctx,s1,16,wide?28:24,sc,wide?15:13.5,600,W-32);
+    fit(ctx,s2,16,wide?49:44,C.muted,wide?13:12.5,500,W-32);
+
+    /* ---- atomiser 和上面的油滴室 ---- */
+    var bx=px0+8,by=tp-26,ch0=px0+34,ch1=px1-34,cy0=tp-46,cy1=tp-2;
+    ctx.fillStyle=rgba(C.muted,0.06);ctx.fillRect(ch0,cy0,ch1-ch0,cy1-cy0);
+    ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.2;ctx.strokeRect(ch0,cy0,ch1-ch0,cy1-cy0);
+    ctx.fillStyle=rgba(C.muted,0.3);ctx.fillRect(bx+10,by-3,ch0-bx-10,6);ctx.strokeRect(bx+10,by-3,ch0-bx-10,6);
+    dot(ctx,bx,by,12,rgba(C.muted,0.35));ring(ctx,bx,by,12,C.muted,1.2);
+    txt(ctx,'atomiser',bx,tp-46,C.muted,11.5,500,'center');
+    for(i=0;i<DROPS.length;i++){var dd=DROPS[i];
+      var ox=ch0+7+dd[0]*(ch1-ch0-14)+3*Math.sin(m.t*0.8+i*1.7);
+      var oy=cy0+5+((dd[1]+m.t*0.04*(1+0.25*(i%3)))%1)*(cy1-cy0-10);
+      dot(ctx,ox,oy,2.2,rgba(C.copper,0.75));}
+
+    /* ---- 两块板（上板中间有小孔，油滴从这里掉进来）、电场 ---- */
+    var hw=6;
+    ctx.fillStyle=C.north;ctx.fillRect(px0,tp,cx-hw-px0,pt);ctx.fillRect(cx+hw,tp,px1-cx-hw,pt);
+    ctx.fillStyle=C.south;ctx.fillRect(px0,bp,px1-px0,pt);
+    txt(ctx,'+',px0-12,tp-6,C.north,18,700,'center','middle');
+    txt(ctx,'−',px0-12,bp+pt/2+1,C.south,18,700,'center','middle');
+    var EF=[0.07,0.18,0.82,0.93];
+    if(m.V>0){
+      var ea=0.5+0.5*m.V/600;
+      for(i=0;i<4;i++){var ex=px0+EF[i]*(px1-px0);arrow(ctx,ex,gy0+5,ex,bp-4,rgba(C.violet,ea),1.6,8);}
+      txt(ctx,'E',px0+EF[0]*(px1-px0)-7,mid+5,C.violet,16,'italic 500','right','alphabetic',MATH);
+    }else txt(ctx,'E = 0',px0+6,mid+5,C.muted,12,600);
+    /* d */
+    var dx=px1+10;
+    arrow(ctx,dx,mid,dx,gy0+1,rgba(C.ink,0.6),1.2,6);arrow(ctx,dx,mid,dx,bp-1,rgba(C.ink,0.6),1.2,6);
+    txt(ctx,'d',dx+6,mid+46,C.ink,16,'italic 500','left','alphabetic',MATH);
+    /* 电源 V */
+    var vw=wide?118:104,vh=26,vy=bp+pt+18,vx=cx-vw/2,wx=px0-26;
+    seg(ctx,cx,bp+pt,cx,vy,C.muted,1.2);
+    seg(ctx,px0,tp+4,wx,tp+4,C.muted,1.2);seg(ctx,wx,tp+4,wx,vy+vh/2,C.muted,1.2);seg(ctx,wx,vy+vh/2,vx,vy+vh/2,C.muted,1.2);
+    rrect(ctx,vx,vy,vw,vh,5);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    txt(ctx,'V = '+m.V+' V',cx,vy+vh/2+1,C.ink,13,600,'center','middle',MONO);
+
+    /* ---- X-ray source 和 microscope（装饰，像 Figure 2.2） ---- */
+    var rx0=px1+24,rx1=px1+110,xby=gy0+18;
+    rrect(ctx,rx0,gy0+6,rx1-rx0,24,4);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    txt(ctx,'X-ray source',(rx0+rx1)/2,xby+1,C.ink,11.5,500,'center','middle');
+    var y=mid-m.p*hg;
+    if(m.xr>0){
+      var a=Math.min(1,m.xr/0.3),x1=rx0,y1=xby,x2=cx+r+3,y2=y,L=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/L,uy=(y2-y1)/L;
+      ctx.beginPath();for(var k=0;k<=L;k+=2){var w=3*Math.sin(k/5-m.t*30);var px=x1+ux*k-uy*w,py=y1+uy*k+ux*w;if(k)ctx.lineTo(px,py);else ctx.moveTo(px,py);}
+      ctx.strokeStyle=rgba(C.light,a);ctx.lineWidth=2;ctx.stroke();
+    }else arrow(ctx,rx0-2,xby,rx0-20,xby+6,rgba(C.light,0.7),1.6,7);
+    var mx0=px1+30,mx1=px1+100;
+    ctx.fillStyle=rgba(C.muted,0.2);ctx.fillRect(mx0,mid-6,mx1-mx0,12);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.strokeRect(mx0,mid-6,mx1-mx0,12);
+    ctx.fillStyle=rgba(C.muted,0.4);ctx.fillRect(mx0-8,mid-4,8,8);ctx.fillRect(mx1,mid-8,8,16);
+    txt(ctx,'microscope',(mx0+mx1)/2,mid-13,C.muted,11.5,500,'center');
+
+    /* ---- 油滴：n 个电子，力箭头 ---- */
+    dot(ctx,cx,y,r,rgba(C.copper,0.3));ring(ctx,cx,y,r,C.copper,2);
+    var ms=MS[m.n],ml=0.15*r;
+    for(i=0;i<ms.length;i++)seg(ctx,cx+ms[i][0]*r-ml,y+ms[i][1]*r,cx+ms[i][0]*r+ml,y+ms[i][1]*r,C.south,2.2);
+    if(bal){var fr=Math.min(1,m.still/HOLD);ctx.beginPath();ctx.arc(cx,y,r+5,-Math.PI/2,-Math.PI/2+fr*TAU);ctx.strokeStyle=C.force;ctx.lineWidth=2.5;ctx.stroke();}
+    var lx=cx+9,big=wide?15:14;
+    /* 力箭头只画在两板之间：三根箭头用同一个比例 k 缩短（比例不变，平衡时仍一样长）。
+       油滴快碰到板、放不下（k < 0.35）时先不画力；碰到板的那一下也不画（状态行会说明）。 */
+    var Le0=m.V>0?Math.min(Lg*ratio,LC):0,capE=m.V>0&&Lg*ratio>LC;
+    var moving=m.hit<=0&&!bal,Ld0=moving?Math.min(Lg*Math.abs(1-ratio),LC):0,capD=Lg*Math.abs(1-ratio)>LC,sgn=ratio<1?-1:1;
+    var k=Math.min(1,(bp-6-(y+r+3))/Lg);
+    if(Le0>0)k=Math.min(k,(y-r-3-(gy0+6))/Le0);
+    if(Ld0>=6)k=Math.min(k,(sgn<0?y-(gy0+6):bp-6-y)/Ld0);
+    if(bal)k=Math.max(k,0.35);
+    if(m.hit<=0&&k>=0.35){
+      var Le=Le0*k,Lgk=Lg*k,Ld=Ld0*k;
+      if(m.V>0){
+        if(Le>=3)farrow(ctx,cx,y-r-3,y-r-3-Le,C.force,capE&&Le>=24);   /* 太短时不画折断线，免得挤成一团 */
+        var qy=Math.min(y-r-3-Le/2+5,y-r-2),qx=lx;
+        if(qy<gy0+15){qy=gy0+15;qx=cx+r+5;} /* 标签留在板间 */
+        hl(ctx,'qE',qx,qy,C.force,big,'italic 600','left',MATH);
+      }
+      farrow(ctx,cx,y+r+3,y+r+3+Lgk,C.force,false);
+      var gy=y+r+3+Lgk/2+5,gx=lx;
+      if(gy>bp-5){gy=bp-5;gx=cx+r+5;}
+      hl(ctx,'mg',gx,gy,C.force,big,'italic 600','left',MATH);
+      if(moving&&Ld>=6){var ax=cx-r-10;
+        arrow(ctx,ax,y,ax,y+sgn*Ld,C.stage,5,10);arrow(ctx,ax,y,ax,y+sgn*Ld,rgba(C.force,0.55),2,8);
+        if(capD){var yc=y+sgn*Ld/2;seg(ctx,ax-5,yc+1,ax+5,yc-3,rgba(C.force,0.7),1.4);seg(ctx,ax-5,yc+5,ax+5,yc+1,rgba(C.force,0.7),1.4);}
+        hl(ctx,wide?'空气阻力':'阻力',ax-6,y+sgn*Ld/2+4,C.force,wide?12:11.5,600,'right');}
+    }
+
+    /* ---- 读数 ---- */
+    var qtxt=bal?sci(q,2)+' C':(m.V===0?'V = 0，没法用':'油滴在动，不能用');
+    var ntxt=bal?(q/E0).toFixed(2)+' → '+m.n+' 个电子':'?';
+    if(wide){
+      var rx=AW+16,re=W-16,ry=100,rg=26;
+      txt(ctx,'e = 1.602 × 10⁻¹⁹ C，g = 9.8 m s⁻²',rx,74,C.muted,11.5,500);
+      var LB=['电压 V','板距 d（示意）','电场 E = V/d','质量 m（示意）','q = mgd/V','n = q/e'];
+      var VL=[m.V+' V','5.0 mm',m.V>0?sci(m.V/D,2)+' V m⁻¹':'0',sci(mass,2)+' kg',qtxt,ntxt];
+      for(i=0;i<6;i++){
+        var yy=ry+i*rg,hot=i>=4;
+        seg(ctx,rx,yy+8,re,yy+8,C.line,1);
+        txt(ctx,LB[i],rx,yy,hot?C.ink:C.muted,12.5,hot?600:500);
+        var num=/[0-9]/.test(VL[i].charAt(0))&&VL[i].indexOf('×')<0;
+        txt(ctx,VL[i],re,yy,hot&&bal?C.force:(hot?C.muted:C.ink),13,600,'right','alphabetic',num?MONO:FONT);
+      }
+      txt(ctx,'停住时：qE = mg，E = V/d',rx,ry+6*rg+12,C.muted,12,500);
+      txt(ctx,'→ q = mgd/V，再看 q 是 e 的几倍',rx,ry+6*rg+31,C.muted,12,500);
+      txt(ctx,'m 由 V = 0 时的下落速度测出',rx,ry+6*rg+50,C.muted,12,500);
+    }else{
+      var ny=vy+vh+26,mw=W-32;
+      fit(ctx,'V = '+m.V+' V　·　d = 5.0 mm（示意）',16,ny,C.ink,12.5,500,mw);
+      fit(ctx,'m = '+sci(mass,2)+' kg（示意，V = 0 时测出）',16,ny+20,C.ink,12.5,500,mw);
+      fit(ctx,bal?'q = mgd/V = '+qtxt:'q = mgd/V：油滴在动，还不能用',16,ny+40,bal?C.force:C.muted,12.5,600,mw);
+      fit(ctx,bal?'n = q/e = '+ntxt:'n = q/e = ?（先让它停住）',16,ny+60,bal?C.force:C.muted,12.5,600,mw);
+    }
+
+    /* ---- 数轴：记下的电荷 ---- */
+    var ly=wide?352:H-114;
+    seg(ctx,0,ly,W,ly,C.line,1);
+    var ty=ly+22,ay=wide?440:H-44,a0=wide?40:24,a1=W-(wide?40:22),QM=8.6,sx=(a1-a0)/QM;
+    var title='记下的电荷 q（× 10⁻¹⁹ C）';
+    txt(ctx,title,16,ty,C.ink,wide?13:12.5,600);
+    if(quant){ctx.font='600 '+(wide?13:12.5)+'px '+FONT;var tw=ctx.measureText(title).width;
+      fit(ctx,'都在 e 的整数倍上 → quantised',W-16,ty,C.force,wide?12.5:12,600,W-32-tw-14,'right');}
+    arrow(ctx,a0,ay,a1+12,ay,C.ink,1.4,8);
+    for(var kk=0;kk<=8;kk++){var tx=a0+kk*sx;
+      seg(ctx,tx,ay-5,tx,ay+5,C.ink,1.4);
+      txt(ctx,kk?kk+'e':'0',tx,ay+18,C.ink,wide?12.5:12,600,'center');
+      if(kk){var v=kk*1.602;txt(ctx,wide?v.toFixed(3):(v<10?v.toFixed(2):v.toFixed(1)),tx,ay+32,C.muted,11,500,'center','alphabetic',MONO);}}
+    if(!m.rec.length)txt(ctx,'让油滴停住 1 秒，这里就会记一个点',(a0+a1)/2,ay-20,C.muted,wide?12.5:12,500,'center');
+    for(i=0;i<10;i++)CNT[i]=0;
+    for(i=0;i<m.rec.length;i++){var nn=m.rec[i],c=CNT[nn]++;var dx2=a0+nn*sx;
+      if(c<4)dot(ctx,dx2,ay-11-c*10,4.2,C.copper);}
+    for(i=1;i<10;i++)if(CNT[i]>4)txt(ctx,'+'+(CNT[i]-4),a0+i*sx+8,ay-37,C.copper,11.5,700);
+    if(m.flash>0&&m.rec.length){var ln=m.rec[m.rec.length-1],lc=Math.min(3,CNT[ln]-1);
+      ring(ctx,a0+ln*sx,ay-11-lc*10,4.2+(1.6-m.flash)*7,rgba(C.copper,m.flash/1.6),1.6);}
+  }
+});
+
+function setV(v){m.V=clamp(Math.round(v),0,600);rv.value=String(m.V);ov.textContent=m.V+' V';m.still=0;SG.render();}
+rv.addEventListener('input',function(){setV(parseInt(rv.value,10)||0);});
+document.getElementById('s2-vdn').addEventListener('click',function(){setV(m.V-1);});
+document.getElementById('s2-vup').addEventListener('click',function(){setV(m.V+1);});
+document.getElementById('s2-xray').addEventListener('click',function(){xray();SG.setPlaying(true);SG.render();});
+document.getElementById('s2-new').addEventListener('click',function(){newDrop();SG.setPlaying(true);SG.render();});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 金箔散射：大部分穿过，极少数弹回来（放在 2.3）
+   俯视图，放大、不按比例：画面是金箔里的一层金原子。中间那个原子完整画出，上下两个邻居只露出一点。
+   单位：长度 = 原子半径 R，alpha 的初速度 = 1（画面里 1 R 约走 0.5 s）。
+   核式模型（Rutherford 1911）：中心是原子核（+79e），电子在外面，整个原子是中性的。
+     把电子当成均匀地散在半径 R 的球里：原子外面不受力；原子里面 a = K(1/r² − r)，方向总是背离原子核（只有排斥）。
+     离原子核近的时候就是 F ∝ 1/r²（Coulomb's law）。K = D0/2，D0 = 正对原子核时的最近距离（纯 Coulomb）。
+     D0 = 0.1 R 是示意（真实的原子核比原子小 10 000–100 000 倍，D0 也小得多），所以画面里偏转、弹回的比真实多得多。
+     按这个模型，b 均匀分布时：θ < 10° 约 59%，10°–90° 约 36%，超过 90° 约 4.6%（真实约 1 in 8000）。
+   枣糕模型（Thomson 1904）：正电荷散在整个原子里，推力很弱，偏转远小于 1°，画成直线。
+   积分：velocity Verlet，步长 ≤ 0.05 × 到原子核的距离（和 0.001 R 的细步长比，θ 相差 < 0.05°，能量守恒）。
+   计数只数随机飞过的背景 alpha；分界 10°（示意）和 90°（表 2.1）。 */
+var D0=0.1,K=D0/2,SPD=1.9,HB=1.3,NY=[0,-2,2],TM=300,NP=30,BS=0.012,BM=1600;
+var A=[0,0];
+var rb=document.getElementById('s3-b'),ro=document.getElementById('s3-b-out');
+var bNuc=document.getElementById('s3-nuc'),bPlum=document.getElementById('s3-plum');
+var bMany=document.getElementById('s3-many'),bMine=document.getElementById('s3-mine');
+var m={plum:false,mine:false,b:0.1764,t:0,emit:0,cnt:[0,0,0],tau:0};
+var seed=13;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+var P=[];
+for(var i0=0;i0<NP;i0++)P.push({on:false,out:false,fade:0,x:0,y:0,vx:1,vy:0,ax:0,ay:0,rn:9,n:0,tx:new Float32Array(TM),ty:new Float32Array(TM)});
+var Q={x:0,y:0,vx:1,vy:0,ax:0,ay:0,rn:9,n:0,tx:null,ty:null};
+var BX=new Float32Array(BM),BY=new Float32Array(BM);
+var B={n:2,ex:1,th:0,rmin:9,ri:0,exX:0,exY:0,key:''};
+var L={};
+/* 电子：[第几个原子, 半径, 起始角, 角速度]；0 = 中间，1 = 上面，2 = 下面 */
+var EL=[[0,0.5,0.4,0.3],[0,0.68,2.3,-0.24],[0,0.84,4.0,0.2],[0,0.6,5.3,-0.28],[0,0.93,1.3,0.16],
+  [1,0.82,1.2,0.22],[1,0.93,2.2,-0.18],[2,0.82,4.4,0.22],[2,0.93,5.0,-0.18]];
+/* 枣糕模型：+ 和电子散在整个原子里（固定位置，示意） */
+var PL=[[-0.45,-0.55],[0.2,-0.72],[0.62,-0.28],[-0.72,0.05],[-0.1,-0.18],[0.36,0.18],[-0.36,0.45],[0.15,0.66],[0.7,0.42]];
+var PE=[[-0.16,-0.5],[0.46,-0.56],[-0.56,-0.24],[0.3,-0.06],[-0.3,0.16],[0.66,0.08],[0.05,0.4],[-0.6,0.58],[0.44,0.64]];
+var PN=[[-0.32,0.8],[0.38,0.82]],PNE=[[0.03,0.9]];
+
+function lay(W){
+  var wide=W>=640;L.wide=wide;
+  if(wide){L.SW=W-262;L.R=clamp(L.SW/5,80,100);L.top=62;L.xc=Math.round(L.SW*0.47);}
+  else{L.SW=W;L.R=clamp(W/3.75,70,95);L.top=74;L.xc=Math.round(W/2);}
+  L.yc=L.top+HB*L.R;L.bot=L.top+2*HB*L.R;
+  L.xL=-L.xc/L.R;L.xR=(L.SW-L.xc)/L.R;
+  if(wide){L.px=L.SW+22;L.pw=W-16-L.px;L.py=L.top+16;L.H=Math.round(L.bot+12);}
+  else{L.px=16;L.pw=W-32;L.py=Math.round(L.bot+24);L.H=L.py+168;}
+  L.ad=wide?3.4:3;
+}
+/* 加速度（写进 A），返回到最近原子核的距离；枣糕模型：力小到看不出来，取 0 */
+function acc(x,y){
+  var ax=0,ay=0,rn=9;
+  if(!m.plum){for(var i=0;i<3;i++){var dy=y-NY[i],r2=x*x+dy*dy;if(r2<1){var r=Math.sqrt(r2);if(r<rn)rn=r;var f=K*(1/r2-r)/r;ax+=f*x;ay+=f*dy;}}}
+  A[0]=ax;A[1]=ay;return rn;
+}
+function adv(p,T){
+  while(T>1e-9){
+    var h=Math.max(0.001,Math.min(T,0.012,0.05*p.rn));
+    p.vx+=0.5*h*p.ax;p.vy+=0.5*h*p.ay;p.x+=h*p.vx;p.y+=h*p.vy;
+    p.rn=acc(p.x,p.y);p.ax=A[0];p.ay=A[1];p.vx+=0.5*h*p.ax;p.vy+=0.5*h*p.ay;T-=h;
+    if(p.tx&&p.n<TM){var dx=p.x-p.tx[p.n-1],dy=p.y-p.ty[p.n-1],ds=Math.min(0.035,0.3*p.rn);if(dx*dx+dy*dy>ds*ds){p.tx[p.n]=p.x;p.ty[p.n]=p.y;p.n++;}}
+  }
+}
+function deg(vx,vy){return Math.acos(clamp(vx/Math.sqrt(vx*vx+vy*vy),-1,1))*180/Math.PI;}
+function launch(p,y){p.x=L.xL-0.03;p.y=y;p.vx=1;p.vy=0;p.rn=acc(p.x,p.y);p.ax=A[0];p.ay=A[1];if(p.tx){p.n=1;p.tx[0]=p.x;p.ty[0]=p.y;}}
+
+/* 你的 alpha：整条路线先算好（同样的力和积分），动画沿着它走 */
+function buildBold(){
+  launch(Q,-m.b);
+  var n=1,inside=false;BX[0]=Q.x;BY[0]=Q.y;B.ex=-1;B.rmin=9;B.ri=0;B.th=0;
+  while(n<BM){
+    adv(Q,BS);BX[n]=Q.x;BY[n]=Q.y;
+    var r=Math.sqrt(Q.x*Q.x+Q.y*Q.y);
+    if(r<B.rmin){B.rmin=r;B.ri=n;}
+    if(r<1)inside=true;else if(inside&&B.ex<0){B.ex=n;B.exX=Q.x;B.exY=Q.y;B.th=deg(Q.vx,Q.vy);}
+    n++;
+    if(Q.x>L.xR+0.1||(Q.x<L.xL-0.1&&Q.vx<0)||Math.abs(Q.y)>HB+0.1)break;
+  }
+  B.n=n;
+  if(B.ex<0){B.ex=Math.min(n-1,Math.round(-BX[0]/BS));B.exX=BX[B.ex];B.exY=BY[B.ex];B.th=0;}/* b = R：只擦过原子边缘 */
+}
+function atExit(){m.tau=Math.min(B.n-1.5,B.ex+50)*BS;}
+
+/* 背景 alpha */
+function clearBG(){for(var i=0;i<NP;i++)P[i].on=false;m.emit=0;}
+function emitOne(){for(var i=0;i<NP;i++){var p=P[i];if(!p.on){p.on=true;p.out=false;p.fade=0;launch(p,(rnd()*2-1)*0.985);return;}}}
+function stepBG(dt){
+  m.emit-=dt;while(m.emit<=0){emitOne();m.emit+=0.12+rnd()*0.32;}
+  for(var i=0;i<NP;i++){var p=P[i];if(!p.on)continue;
+    if(p.out){p.fade+=dt;if(p.fade>1.1)p.on=false;continue;}
+    adv(p,dt*SPD);
+    if(p.x>L.xR+0.05||(p.x<L.xL-0.05&&p.vx<0)||Math.abs(p.y)>HB+0.05){
+      p.out=true;var th=deg(p.vx,p.vy);m.cnt[th<10?0:(th<90?1:2)]++;}
+  }
+}
+function step(dt){
+  m.t+=dt;
+  if(!m.mine)stepBG(dt);
+  m.tau+=dt*SPD;if(m.tau>B.n*BS+0.9*SPD)m.tau=0;
+}
+function prerun(sec){for(var i=0;i<sec*60;i++)step(1/60);}
+
+/* 把几段文字按宽度排成几行 */
+function pack(ctx,parts,maxW,size,weight){
+  ctx.font=weight+' '+size+'px '+FONT;var out=[],cur='';
+  for(var i=0;i<parts.length;i++){var t=cur+parts[i];if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=parts[i].replace(/^\s+/,'');}else cur=t;}
+  if(cur)out.push(cur);return out;
+}
+function status(){
+  if(m.plum)return [['枣糕模型：正电荷散在整个原子里',' → 推力很弱'],['→ 全部直线穿过。','这只是 Thomson 的预测，','实验结果不是这样'],C.muted];
+  var th=Math.round(B.th);
+  if(m.b<1e-6)return [['b = 0：正对原子核',' → 原路弹回来'],['θ = 180°。','它没有碰到原子核，','是电力把它推回来的'],C.north];
+  if(B.th>=90)return [['b ≈ 0：几乎正对原子核',' → 被推回来'],['θ = '+th+'° > 90°。','它没有碰到原子核，','是电力把它推回来的'],C.north];
+  if(B.th>=45)return [['b 小：离原子核很近',' → 推力很大'],['→ 偏转 θ = '+th+'°，','还没有超过 90°'],C.violet];
+  if(B.th>=10)return [['b 小：从原子核旁边经过',' → 被推开'],['→ 偏转一个小角度 θ = '+th+'°'],C.violet];
+  return [['b 大：离原子核很远',' → 几乎没有力'],['→ 几乎直线穿过，θ ≈ '+th+'°','（大部分 alpha 都是这样）'],rgba(C.ink,0.72)];
+}
+function plus(ctx,x,y,s,col){seg(ctx,x-s,y,x+s,y,col,1.8);seg(ctx,x,y-s,x,y+s,col,1.8);}
+/* 文字带一圈底色：电子和 alpha 的轨迹从字下面经过，字仍然看得清 */
+function hl(ctx,s,x,y,col,size,weight,align){
+  ctx.font=weight+' '+size+'px '+FONT;ctx.textAlign=align||'left';ctx.textBaseline='alphabetic';
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);
+  txt(ctx,s,x,y,col,size,weight,align||'left');
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){lay(w);var key=L.xL.toFixed(3)+','+L.xR.toFixed(3);if(key!==B.key){B.key=key;buildBold();}return L.H;},
+  step:step,
+  draw:function(ctx,W,H){
+    lay(W);
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var R=L.R,xc=L.xc,yc=L.yc,top=L.top,bot=L.bot,SW=L.SW,wide=L.wide,i,k;
+    function X(u){return xc+u*R;}
+    function Y(v){return yc+v*R;}
+    /* ---- status ---- */
+    var st=status(),sy=wide?24:22,dy=wide?22:19,mw=W-28;
+    var l1=pack(ctx,st[0],mw,wide?15:13.5,600),l2=pack(ctx,st[1],mw,wide?13.5:12.5,600);
+    for(i=0;i<l1.length;i++){txt(ctx,l1[i],14,sy,C.ink,wide?15:13.5,600);sy+=dy;}
+    for(i=0;i<l2.length;i++){txt(ctx,l2[i],14,sy,st[2],wide?13.5:12.5,600);sy+=dy;}
+    /* ---- scene ---- */
+    ctx.save();
+    rrect(ctx,8,top,SW-16,bot-top,8);ctx.fillStyle=rgba(C.muted,0.07);ctx.fill();ctx.clip();
+    for(k=0;k<3;k++){var ay=Y(NY[k]);
+      if(m.plum){dot(ctx,xc,ay,R,rgba(C.north,0.13));ring(ctx,xc,ay,R,rgba(C.north,0.45),1.2);}
+      else{ctx.setLineDash([5,5]);ring(ctx,xc,ay,R,rgba(C.muted,0.85),1.3);ctx.setLineDash([]);}
+    }
+    if(m.plum){
+      for(i=0;i<PL.length;i++)plus(ctx,X(PL[i][0]),Y(PL[i][1]),4.5,C.north);
+      for(i=0;i<PE.length;i++)dot(ctx,X(PE[i][0]),Y(PE[i][1]),3,C.south);
+      for(k=1;k<3;k++){var sg=k===1?1:-1;
+        for(i=0;i<PN.length;i++)plus(ctx,X(PN[i][0]),Y(NY[k]+sg*PN[i][1]),4.5,C.north);
+        for(i=0;i<PNE.length;i++)dot(ctx,X(PNE[i][0]),Y(NY[k]+sg*PNE[i][1]),3,C.south);}
+    }else{
+      for(i=0;i<EL.length;i++){var e=EL[i],an=e[2]+e[3]*m.t;dot(ctx,xc+R*e[1]*Math.cos(an),Y(NY[e[0]])+R*e[1]*Math.sin(an),3,C.south);}
+    }
+    /* background alphas */
+    if(!m.mine){
+      ctx.lineJoin='round';
+      for(i=0;i<NP;i++){var p=P[i];if(!p.on)continue;
+        var fa=p.out?Math.max(0,1-p.fade/1.1):1;
+        ctx.beginPath();ctx.moveTo(X(p.tx[0]),Y(p.ty[0]));for(var j=1;j<p.n;j++)ctx.lineTo(X(p.tx[j]),Y(p.ty[j]));ctx.lineTo(X(p.x),Y(p.y));
+        ctx.strokeStyle=rgba(C.north,0.3*fa);ctx.lineWidth=1.2;ctx.stroke();
+        if(!p.out)dot(ctx,X(p.x),Y(p.y),2.3,C.north);
+      }
+    }
+    /* aim line, b */
+    var ya=Y(-m.b),xm=X(-1)-14;
+    seg(ctx,X(-Math.sqrt(Math.max(0,1-m.b*m.b))),ya,SW,ya,rgba(C.ink,0.28),1.1,[4,5]);
+    seg(ctx,xm-6,yc,xc,yc,rgba(C.ink,0.3),1,[2,4]);
+    var bh=yc-ya;
+    if(bh>14){arrow(ctx,xm,yc-bh/2,xm,ya,rgba(C.ink,0.75),1.4,6);arrow(ctx,xm,yc-bh/2,xm,yc,rgba(C.ink,0.75),1.4,6);}
+    else{seg(ctx,xm-4,ya,xm+4,ya,rgba(C.ink,0.75),1.4);seg(ctx,xm-4,yc,xm+4,yc,rgba(C.ink,0.75),1.4);seg(ctx,xm,ya,xm,yc,rgba(C.ink,0.75),1.4);}
+    txt(ctx,'b',xm-6,bh>14?yc-bh/2+5:yc+17,C.ink,14,500,'right','alphabetic',MATH);
+    txt(ctx,'你的 α',14,ya-8,C.copper,12,700);
+    /* your alpha */
+    var ti=Math.min(m.tau/BS,B.n-1),ni=Math.min(B.n-2,Math.floor(ti)),fr=clamp(ti-ni,0,1),vis=ti<B.n-1.01;
+    var bx=BX[ni]+(BX[ni+1]-BX[ni])*fr,by=BY[ni]+(BY[ni+1]-BY[ni])*fr;
+    ctx.beginPath();ctx.moveTo(X(BX[0]),Y(BY[0]));for(i=1;i<=ni;i++)ctx.lineTo(X(BX[i]),Y(BY[i]));ctx.lineTo(X(bx),Y(by));
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+    if(!m.plum){
+      /* 原子核：比背景 alpha 的点大，并且有一圈深色边，和飞过的 alpha 区分开（仍在“最近到这里”的圈里面） */
+      dot(ctx,xc,yc,3.4,C.north);ring(ctx,xc,yc,3.4,C.ink,1.2);
+      if(B.rmin<0.42&&ti>=B.ri){var rr=B.rmin*R;ctx.setLineDash([3,3]);ring(ctx,xc,yc,rr,rgba(C.ink,0.6),1.1);ctx.setLineDash([]);
+        hl(ctx,'最近到这里',xc-rr*0.71-4,yc+rr*0.71+12,C.ink,11,600,'right');}
+      hl(ctx,'原子核 +79e',xc+8,yc+18,C.north,11.5,700);
+      hl(ctx,'（画大了）',xc+8,yc+32,C.muted,11,500);
+    }
+    if(vis){
+      var r=Math.sqrt(bx*bx+by*by);
+      if(!m.plum&&r<1&&r>1e-6){var a=K*(1/(r*r)-r),fl=Math.min(44,a*22);
+        if(fl>=7){var ux=bx/r,uy=by/r,x0=X(bx)+ux*(L.ad+2),y0=Y(by)+uy*(L.ad+2);
+          arrow(ctx,x0,y0,x0+ux*fl,y0+uy*fl,C.force,2.4,8);txt(ctx,'F',x0+ux*(fl+9),y0+uy*(fl+9),C.force,12,700,'center','middle');}}
+      dot(ctx,X(bx),Y(by),L.ad+1.2,C.stage);dot(ctx,X(bx),Y(by),L.ad,C.north);
+    }
+    if(ti>=B.ex){
+      var ex=X(B.exX),ey=Y(B.exY),thr=B.th*Math.PI/180,lab,lx,ly;
+      var ar=Math.max(12,Math.min(30,ey-top-3,bot-ey-3));   /* 角度弧不要伸出画面的上边 */
+      if(B.th>=3){seg(ctx,ex,ey,ex+46,ey,rgba(C.ink,0.55),1.2,[3,3]);ctx.beginPath();ctx.arc(ex,ey,ar,-thr,0,false);ctx.strokeStyle=C.copper;ctx.lineWidth=1.8;ctx.stroke();
+        lab='θ = '+Math.round(B.th)+'°';}
+      else lab='θ ≈ '+Math.round(B.th)+'°';
+      ctx.font='700 13px '+FONT;var tw=ctx.measureText(lab).width;
+      if(B.th<3){lx=ex+40;ly=ey-10;}            /* 几乎直线：写在路线上方 */
+      else{lx=ex+Math.cos(thr/2)*(ar+20);ly=ey-Math.sin(thr/2)*(ar+20)+4;
+        /* 角度小，或写在角平分线上会出画面：改写在参考虚线下面，不压住路线 */
+        if(B.th<60||ly<top+16||lx>SW-tw/2-14){lx=ex+12+tw/2;ly=ey+19;}}
+      txt(ctx,lab,clamp(lx,tw/2+14,SW-tw/2-14),clamp(ly,top+16,bot-8),C.copper,13,700,'center');
+    }
+    /* corner notes */
+    var fs=wide?12:11.5;
+    txt(ctx,'α 粒子束（+2e）→',14,bot-22,C.ink,fs,600);
+    txt(ctx,'示意 · 不按比例',14,bot-8,C.muted,11,500);
+    txt(ctx,m.plum?'正电荷散在整个原子里':'虚线圆 = 金原子',SW-14,bot-22,m.plum?C.north:C.muted,fs,600,'right');
+    txt(ctx,'半径 = R',SW-14,bot-8,C.muted,11,500,'right');
+    ctx.restore();
+    /* ---- counts ---- */
+    var tot=m.cnt[0]+m.cnt[1]+m.cnt[2],px=L.px,pw=L.pw,py=L.py;
+    var names=['直线穿过 θ < 10°','偏转 10°–90°','超过 90°（弹回来）'],cols=[rgba(C.ink,0.5),C.violet,C.north];
+    txt(ctx,m.mine?'背景 alpha 停了：计数暂停':'随机飞过的 alpha：共 '+tot+' 个',px,py,m.mine?C.muted:C.ink,13,700);
+    var ny;
+    for(k=0;k<3;k++){
+      var cv=tot?(m.cnt[k]+' · '+Math.round(100*m.cnt[k]/tot)+'%'):'0',fk=tot?m.cnt[k]/tot:0;
+      if(wide){var yk=py+30+44*k;txt(ctx,names[k],px,yk,C.ink,12.5,600);txt(ctx,cv,px+pw,yk,C.ink,12,600,'right','alphabetic',MONO);hbar(ctx,px,yk+8,pw,10,fk,cols[k]);ny=yk+48;}
+      else{var yn=py+26+26*k,lw=118;txt(ctx,names[k],px,yn,C.ink,12,600);hbar(ctx,px+lw,yn-9,pw-lw-76,10,fk,cols[k]);txt(ctx,cv,px+pw,yn,C.ink,12,600,'right','alphabetic',MONO);ny=yn+30;}
+    }
+    var n1=m.plum?'Thomson 的预测：0 个超过 90°':'真实实验：约 1 in 8000 超过 90°';
+    var n2=m.plum?['电子比 alpha 轻约 7300 倍，','推不动 alpha；','正电荷散开，','推力也很弱']:['原子核画大了（真实比原子小',' 10 000–100 000 倍），','所以这里弹回来的','比真实多得多'];
+    txt(ctx,n1,px,ny,C.ink,12,600);ny+=17;
+    var nl=pack(ctx,n2,pw,11.5,500);
+    for(i=0;i<nl.length;i++){txt(ctx,nl[i],px,ny,C.muted,11.5,500);ny+=16;}
+  }
+});
+
+function fmtB(b){return b<1e-6?'0（正对）':(b<0.01?b.toFixed(4):(b<0.1?b.toFixed(3):b.toFixed(2)))+' R';}
+function readB(){var v=parseInt(rb.value,10);if(isNaN(v))v=42;m.b=(v/100)*(v/100);ro.textContent=fmtB(m.b);}
+readB();buildBold();prerun(20);atExit();S3.render();  /* 先跑 20 s：画面上有轨迹，计数条有数 */
+
+rb.addEventListener('input',function(){readB();buildBold();atExit();S3.render();});
+function setModel(pl){m.plum=pl;press(bNuc,!pl);press(bPlum,pl);m.cnt=[0,0,0];clearBG();buildBold();prerun(6);atExit();S3.render();}
+bNuc.addEventListener('click',function(){if(m.plum)setModel(false);});
+bPlum.addEventListener('click',function(){if(!m.plum)setModel(true);});
+function setMine(on){m.mine=on;press(bMany,!on);press(bMine,on);if(on)clearBG();S3.render();}
+bMany.addEventListener('click',function(){setMine(false);});
+bMine.addEventListener('click',function(){setMine(true);});
+document.getElementById('s3-clear').addEventListener('click',function(){m.cnt=[0,0,0];S3.render();});
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · Chadwick：中子撞质子、撞氮核（booklet 2.4，Figure 2.5 动起来）
+   一维弹性正碰：入射粒子质量 m（u），速度 u；靶子质量 M（质子 1 u，氮核 14 u），原来静止。
+   动量守恒 m u = m v′ + M v，动能守恒 ½m u² = ½m v′² + ½M v² 解出：
+     靶子 v = 2m u/(m + M)；入射粒子 v′ = (m − M) u/(m + M)（负 = 弹回）。
+     和碰前比：靶子的动量 2M/(m + M)，入射粒子的动量 (m − M)/(m + M)，两段加起来 = 1；
+               靶子的动能 4mM/(m + M)²，入射粒子的动能 ((m − M)/(m + M))²，加起来 = 1。
+   两个靶子的反冲速度相除：v_H / v_N = (m + 14)/(m + 1)，u 约掉了，只剩 m（Chadwick：m ≈ 1.15 u）。
+   速度只用 u 的倍数（示意，booklet 没给真实速度）；画面里的位置是时间的解析式（匀速直线），不用积分。
+   gamma 模式只做能量对比（booklet：质子最快约 5.7 MeV，光子要约 50 MeV，反应最多约 14 MeV）；
+   画面里光子打到靶子后弹回，靶子只被推得很慢（示意，不算光子碰撞的数）。 */
+var TA=0.5,T1=1.7,T2MAX=1.8,TH=1.6,TREC=0.8;
+var m4={m:1,tgt:'p',g:false,t:0};
+var P={M:1,vt:1,vn:0,pt:1,pn:0,kt:1,kn:0,ratio:7.5};
+var L={wide:true,xL:16,xR:742,yT:176,xc:350,rN:9,rT:9,xs:56,xcn:332,uPx:100,Lv:52,hp:22,T2:T2MAX};
+var BX=[0,0,0,0],BW=[0,0,0,0];
+var FW={n0:['polonium','（α 源）'],n1:['beryllium','（铍）'],p:['paraffin wax','（石蜡，很多 H）'],N:['nitrogen','（氮靶）'],n3:['ionisation chamber','（电离室）']};
+var FN={n0:['Po 钋'],n1:['Be 铍'],p:['石蜡 (H)'],N:['氮靶 (N)'],n3:['电离室']};
+
+function phys(){var m=m4.m,M=m4.tgt==='p'?1:14,s=m+M;P.M=M;P.vt=2*m/s;P.vn=(m-M)/s;P.pt=2*M/s;P.pn=P.vn;P.kt=4*m*M/(s*s);P.kn=P.vn*P.vn;P.ratio=(m+14)/(m+1);}
+function geo(W){
+  var wide=W>=640,R1=wide?9:8;L.wide=wide;
+  L.xL=wide?16:12;L.xR=W-L.xL;L.yT=wide?176:156;L.Lv=wide?52:32;L.hp=wide?22:18;
+  L.rN=R1*Math.pow(m4.m,1/3);L.rT=R1*Math.pow(P.M,1/3);
+  L.xc=L.xL+(L.xR-L.xL)*(wide?0.46:0.53);
+  L.xs=L.xL+(wide?40:32);
+  L.xcn=L.xc-L.rT-L.rN;
+  L.uPx=(L.xcn-L.xs)/T1;
+  var T2=T2MAX;
+  if(!m4.g){
+    var lim=Math.min(L.xR-L.rT,W-8-P.vt*L.Lv);T2=Math.min(T2,(lim-L.xc)/(P.vt*L.uPx));
+    if(P.vn<-1e-6){var lo=Math.max(L.xL+L.rN,8-P.vn*L.Lv,L.xL+30);T2=Math.min(T2,(L.xcn-lo)/(-P.vn*L.uPx));}
+    T2=Math.max(0.5,T2);
+  }
+  L.T2=T2;
+}
+function step(dt){m4.t+=dt;if(m4.t>=TA+T1+L.T2+TH)m4.t=0;}
+
+/* ---------- 文字小工具 ---------- */
+function fit(ctx,s,x,y,col,size,wt,maxw){ctx.font=wt+' '+size+'px '+FONT;var w=ctx.measureText(s).width;if(w>maxw)size=Math.max(11,size*maxw/w);txt(ctx,s,x,y,col,size,wt);}
+/* 一行里几段不同字体/颜色：parts = [[文字, 颜色, 字号, 字重, 字体], ...] */
+function rw(ctx,parts){var w=0;for(var i=0;i<parts.length;i++){var p=parts[i];ctx.font=(p[3]||500)+' '+p[2]+'px '+(p[4]||FONT);w+=ctx.measureText(p[0]).width;}return w;}
+function rich(ctx,parts,x,y){for(var i=0;i<parts.length;i++){var p=parts[i];txt(ctx,p[0],x,y,p[1],p[2],p[3]||500,'left','alphabetic',p[4]);x+=ctx.measureText(p[0]).width;}}
+function vp(pre,num,col,fs){return [[pre+num,col,fs,600],['u',col,fs+1.5,'italic 600',MATH]];}
+function fv(v){return (v<0?'−':'')+Math.abs(v).toFixed(2);}
+function fp(x){var p=x*100;if(Math.abs(p-100)<0.05)return '100%';if(Math.abs(p)<0.05)return '0%';return (p<0?'−':'')+Math.abs(p).toFixed(1)+'%';}
+function tname(){return m4.tgt==='p'?'质子':'氮核';}
+/* 入射粒子的名字：m 在 1 u 附近（0.8–1.2 u，包括 Chadwick 的 1.15 u）叫“中子”；拉远了只是“假如质量是 m”，叫“入射粒子” */
+function iname(){return Math.abs(m4.m-1)<=0.2+1e-6?'中子':'入射粒子';}
+/* 速度标签：放在箭头尖端外面；放不下就放到箭头起点的另一边 */
+function vlab(ctx,parts,x0,tip,y,W){
+  var w=rw(ctx,parts),l;
+  if(tip>=x0){l=tip+7;if(l+w>W-6)l=x0-8-w;}else{l=tip-7-w;if(l<6)l=x0+8;}
+  rich(ctx,parts,clamp(l,6,W-6-w),y+4);
+}
+function clab(ctx,s,x,y,col,size,W){ctx.font='600 '+size+'px '+FONT;var w=ctx.measureText(s).width;txt(ctx,s,clamp(x,6+w/2,W-6-w/2),y,col,size,600,'center');}
+
+/* ---------- 状态提示 ---------- */
+function status(after){
+  var tn=tname(),wide=L.wide,m=m4.m,M=P.M;
+  if(m4.g){
+    if(!after)return ['假如中性辐射是 gamma：光子没有质量','和它的能量比，光子的动量很小。看它能把'+tn+'推多快'];
+    return ['能量一样时，光子的动量小得多 → '+tn+(M===1?'只被推得很慢':'几乎不动'),wide?'要打出 5.7 MeV 的质子，光子要约 50 MeV，可反应最多给约 14 MeV → 不可能是 gamma':'要打出 5.7 MeV 的质子，光子要约 50 MeV'];
+  }
+  var nn=iname();
+  if(!after)return [nn+'不带电，看不见 → 只能看它撞出来的'+tn,'弹性正碰：撞完以后，动量和动能怎么分？'];
+  var d=m-M,pc=fp(P.kt),l1;
+  if(Math.abs(d)<1e-6)l1='质量一样 → 中子停下，'+tn+'拿走全部动能';
+  else if(M===14&&Math.abs(m-1)<1e-6)l1='氮核重 14 倍 → 中子弹回来，氮核只拿到约四分之一的动能';
+  else if(M===1&&Math.abs(d)<=0.2+1e-6)l1='质量差不多 → 中子几乎停下，质子拿走 '+pc+' 的动能';
+  else if(d<0)l1=nn+'比'+tn+'轻 → '+nn+'弹回来，'+tn+'拿到 '+pc+' 的动能';
+  else l1=nn+'比'+tn+'重 → '+nn+'继续往前，'+tn+'拿到 '+pc+' 的动能';
+  var l2=Math.abs(m-1.15)<1e-6?(wide?'m = 1.15 u：Chadwick 用两种靶子算出的结果，约等于质子的质量':'m = 1.15 u：Chadwick 的结果 ≈ 质子质量'):'碰前碰后：总动量一样，总动能也一样（弹性碰撞）';
+  return [l1,l2];
+}
+
+/* ---------- 上面的流程图 ---------- */
+function drawFlow(ctx,W,ph,t){
+  var wide=L.wide,F=wide?FW:FN,nodes=[F.n0,F.n1,F[m4.tgt],F.n3];
+  var fs=wide?12:11,pad=wide?16:10,y0=wide?12:10,bh=wide?40:30,ay=y0+bh/2,x0=L.xL,x1=W-L.xL,tot=0,i,j,w;
+  for(i=0;i<4;i++){w=0;for(j=0;j<nodes[i].length;j++){ctx.font=(j?500:600)+' '+fs+'px '+FONT;w=Math.max(w,ctx.measureText(nodes[i][j]).width);}BW[i]=w+pad;tot+=BW[i];}
+  var gap=(x1-x0-tot)/3,x=x0;
+  for(i=0;i<4;i++){BX[i]=x;x+=BW[i]+gap;}
+  for(i=0;i<4;i++){
+    var act=(ph===0&&i<2)||(ph===1&&(i===1||i===2))||(ph===2&&i>=2)||(ph===3&&i===3);
+    rrect(ctx,BX[i],y0,BW[i],bh,6);ctx.fillStyle=(ph===3&&i===3)?rgba(C.copper,0.16):rgba(C.muted,0.07);ctx.fill();
+    ctx.strokeStyle=act?C.copper:C.line;ctx.lineWidth=act?1.8:1.2;ctx.stroke();
+    var n=nodes[i].length,cx=BX[i]+BW[i]/2;
+    for(j=0;j<n;j++)txt(ctx,nodes[i][j],cx,n===1?ay+1:ay+(j?8:-7),act?C.ink:C.muted,j?fs-0.5:fs,j?500:600,'center','middle');
+  }
+  var labs=wide?['α 粒子',m4.g?'假如是 γ':'中性辐射',m4.tgt==='p'?'质子':'氮核']:['α',m4.g?'γ?':'中性',m4.tgt==='p'?'p':'N'];
+  var pr=ph===0?t/TA:(ph===1?(t-TA)/T1:(ph===2?(t-TA-T1)/TREC:0));pr=clamp(pr,0,1);
+  for(var k=0;k<3;k++){
+    var xa=BX[k]+BW[k]+4,xb=BX[k+1]-4,on=ph===k,pc=k===1?(m4.g?C.light:C.muted):C.north,col=on?pc:rgba(C.muted,0.4),lw=on?2.4:1.3;
+    if(k===1){seg(ctx,xa,ay,xb-8,ay,col,lw,[5,4]);arrow(ctx,xb-12,ay,xb,ay,col,lw,7);}else arrow(ctx,xa,ay,xb,ay,col,lw,7);
+    txt(ctx,labs[k],(xa+xb)/2,ay-7,on?C.ink:C.muted,wide?12:11,on?600:500,'center');
+    if(on)dot(ctx,xa+pr*(xb-xa-8),ay,4.2,pc);
+  }
+}
+
+/* ---------- 中间的碰撞 ---------- */
+function packet(ctx,xc,y,hp,a){ctx.beginPath();for(var k=0;k<=40;k++){var s=-1+k/20,e=Math.exp(-s*s*3),yy=y-Math.sin(s*hp*0.78)*7*e;if(k)ctx.lineTo(xc+s*hp,yy);else ctx.moveTo(xc+s*hp,yy);}ctx.strokeStyle=rgba(C.light,a);ctx.lineWidth=2.4;ctx.stroke();}
+function drawTrack(ctx,W,t,after,tau){
+  var wide=L.wide,yT=L.yT,yU=yT-56,yD=yT-34,rN=L.rN,rT=L.rT,tn=tname(),fs=wide?12.5:12,vcol=rgba(C.ink,0.7);
+  seg(ctx,L.xL,yT,L.xR,yT,rgba(C.muted,0.35),1,[2,5]);
+  var vT=0,xt=L.xc;
+  if(after){vT=m4.g?(P.M===1?0.25:0.05):P.vt;xt=L.xc+vT*L.uPx*tau;}
+  var rmax=m4.g?rT:Math.max(rN,rT),yb1=yT+rmax+16,yb2=yb1+17;
+  /* 撞到的一瞬间 */
+  var ft=t-TA-T1;
+  if(after&&ft<0.35){var a=1-ft/0.35;ring(ctx,L.xc-rT,yT,5+46*ft,rgba(m4.g?C.light:C.ink,0.5*a),2);}
+  /* 入射：中子或光子 */
+  if(!m4.g){
+    var xn=t<TA?L.xs:(!after?L.xs+L.uPx*(t-TA):L.xcn+P.vn*L.uPx*tau),fa=t<TA?t/TA:1;
+    dot(ctx,xn,yT,rN,rgba(C.muted,fa));
+    if(!after){arrow(ctx,xn,yD,xn+L.Lv,yD,rgba(C.ink,0.7*fa),2.4,8);vlab(ctx,wide?[[iname()+'：速度 ',C.muted,fs,600],['u',C.muted,fs+1.5,'italic 600',MATH]]:[['u',C.muted,fs+1.5,'italic 600',MATH]],xn,xn+L.Lv,yD,W);}
+    else if(Math.abs(P.vn)<0.005)clab(ctx,wide?iname()+'停下':'停下',xn,yD+4,C.muted,fs,W);
+    else{arrow(ctx,xn,yD,xn+P.vn*L.Lv,yD,vcol,2.4,8);vlab(ctx,vp(wide?iname()+' v′ = ':'v′ = ',fv(P.vn),C.muted,fs),xn,xn+P.vn*L.Lv,yD,W);}
+    clab(ctx,iname()+' '+m4.m.toFixed(2)+' u',xn,yb1,C.muted,wide?12:11.5,W);
+  }else{
+    var hp=L.hp,tg0=TA+0.35*T1,xcg=L.xc-rT-hp,gp=(xcg-(L.xL-hp))/(TA+T1-tg0),xg=null,ga=1;
+    if(after){xg=xcg-gp*tau;ga=clamp((xg-L.xL)/(2.5*hp),0,1);}
+    else if(t>=tg0)xg=L.xL-hp+gp*(t-tg0);
+    if(xg!==null&&ga>0.02){packet(ctx,xg,yT,hp,ga);clab(ctx,wide?'γ 光子（假如）':'γ 光子',xg,yb1,rgba(C.ink,Math.max(0.35,ga)),wide?12:11.5,W);}
+  }
+  /* 靶子 */
+  dot(ctx,xt,yT,rT,C.north);
+  if(P.M===14)txt(ctx,'N',xt,yT+1,'#ffffff',13,700,'center','middle');
+  if(!after)clab(ctx,wide?tn+' v = 0（静止）':'静止',xt,yU+4,C.north,fs,W);
+  else if(m4.g){var gl=vT*L.Lv;if(gl>=3)arrow(ctx,xt,yU,xt+gl,yU,vcol,2.4,7);
+    var gs=P.M===1?'很慢':'几乎不动';ctx.font='600 '+fs+'px '+FONT;var gw=ctx.measureText(gs).width;
+    txt(ctx,gs,clamp(xt+Math.max(gl,0)+7,6,W-6-gw),yU+4,C.north,fs,600);}
+  else{arrow(ctx,xt,yU,xt+P.vt*L.Lv,yU,vcol,2.4,8);vlab(ctx,vp(wide?tn+' v = ':'v = ',fv(P.vt),C.north,fs),xt,xt+P.vt*L.Lv,yU,W);}
+  clab(ctx,tn+' '+P.M+' u',xt,yb2,C.north,wide?12:11.5,W);
+}
+
+/* ---------- 下面：动量、动能两组条 ---------- */
+function block(ctx,isP,x,y,w,after){
+  var tn=tname(),fs=L.wide?12.5:12,lw=34,bx=x+lw,bw=w-lw-2,bh=12,r1=y+10,r2=y+30,a=after?1:0.32;
+  txt(ctx,isP?'动量 p = mv：碰前 = 100%（向右为正）':'动能 K = ½mv²：碰前 = 100%',x,y,C.ink,L.wide?13:12.5,600);
+  txt(ctx,'碰前',x,r1+bh-1.5,C.muted,12,500);txt(ctx,'碰后',x,r2+bh-1.5,after?C.ink:C.muted,12,after?600:500);
+  ctx.fillStyle=rgba(C.muted,0.1);ctx.fillRect(bx,r1,bw,bh);ctx.fillRect(bx,r2,bw,bh);
+  var u=isP?bw/3:bw,xz=isP?bx+u:bx;
+  ctx.fillStyle=C.muted;ctx.fillRect(xz,r1,u,bh);
+  ctx.fillStyle=rgba(C.north,a);ctx.fillRect(xz,r2,(isP?P.pt:P.kt)*u,bh);
+  ctx.fillStyle=rgba(C.muted,a);
+  if(!isP)ctx.fillRect(xz+P.kt*u,r2,P.kn*u,bh);
+  else if(P.pn>=0)ctx.fillRect(xz+P.pt*u,r2,P.pn*u,bh);
+  else ctx.fillRect(xz+P.pn*u,r2,-P.pn*u,bh);
+  if(isP){seg(ctx,xz,r1-4,xz,r2+bh+4,C.ink,1.3);txt(ctx,'← 负',xz-6,r1+bh-2,C.muted,11,500,'right');}
+  seg(ctx,xz+u,r1-4,xz+u,r2+bh+4,rgba(C.ink,0.75),1.3,[3,3]);
+  var parts=[['碰后：',C.ink,fs,500],[tn+' '+fp(isP?P.pt:P.kt),C.north,fs,600],[' + ',C.ink,fs,500],[iname()+' '+fp(isP?P.pn:P.kn),C.muted,fs,600],[' = 100% → 不变',C.ink,fs,600]];
+  rich(ctx,parts,x,y+60);
+}
+function drawBars(ctx,W,after){
+  var y0=L.yT+(L.wide?80:78);
+  if(L.wide){var cw=(W-2*L.xL-28)/2;block(ctx,true,L.xL,y0,cw,after);block(ctx,false,L.xL+cw+28,y0,cw,after);}
+  else{block(ctx,true,L.xL,y0,W-2*L.xL,after);block(ctx,false,L.xL,y0+88,W-2*L.xL,after);}
+}
+function drawRead(ctx,W){
+  var wide=L.wide,tn=tname(),x=L.xL,fs=wide?13:12.5,y=L.yT+(wide?170:256);
+  var p1=[[tn+'反冲速度 v = '+(wide?'2mu/(m + M)':'2mu/(m+M)')+' = ',C.ink,fs,500],[P.vt.toFixed(2),C.ink,fs,700,MONO],['u',C.ink,fs+1.5,'italic 600',MATH]];
+  if(wide)p1.push(['（u = 中子的入射速度，示意）',C.muted,12,500]);
+  rich(ctx,p1,x,y);
+  var p2=[[wide?'质子 ÷ 氮核 的反冲速度 = (m + 14)/(m + 1) = ':'质子 ÷ 氮核 反冲速度 = (m+14)/(m+1) = ',C.ink,fs,500],[P.ratio.toFixed(2),C.ink,fs,700,MONO]];
+  if(wide)p2.push([' → u 约掉了，只剩 m',C.muted,12.5,500]);
+  rich(ctx,p2,x,y+22);
+  if(!wide)txt(ctx,'u 约掉了，只剩 m（u = 中子的入射速度，示意）',x,y+42,C.muted,12,500);
+}
+/* ---------- gamma 模式：能量对比（booklet 的数） ---------- */
+function drawGamma(ctx,W){
+  var wide=L.wide,x=L.xL,y=L.yT+(wide?80:78),lw=wide?150:74,vw=wide?84:72,bx=x+lw,bw=W-2*x-lw-vw,EM=55,rg=wide?22:26;
+  txt(ctx,'能量对比（booklet 的数）',x,y,C.ink,13,600);
+  var rows=[[wide?'质子最快（测到的）':'质子最快',5.7,C.north,'5.7 MeV'],[wide?'光子至少要有':'光子要有',50,C.light,'约 50 MeV'],[wide?'beryllium 反应最多给':'反应最多给',14,rgba(C.ink,0.5),'约 14 MeV']];
+  for(var i=0;i<3;i++){var r=rows[i],ry=y+14+i*rg,e=bx+bw*r[1]/EM;
+    txt(ctx,r[0],x,ry+10,C.ink,12,500);
+    ctx.fillStyle=rgba(C.muted,0.1);ctx.fillRect(bx,ry,bw,12);ctx.fillStyle=r[2];ctx.fillRect(bx,ry,e-bx,12);
+    txt(ctx,r[3],W-x,ry+10.5,C.ink,12,600,'right','alphabetic',MONO);}
+  var xl=bx+bw*14/EM;seg(ctx,xl,y+8,xl,y+14+2*rg+16,C.ink,1.4,[4,3]);
+  var fy=y+14+3*rg+(wide?14:18);
+  if(wide){txt(ctx,'光子要约 50 MeV，可 beryllium 反应最多只给约 14 MeV → 不可能是 gamma',x,fy,C.ink,13,600);
+    txt(ctx,'氮核的反冲也对不上：没有一个 gamma 能量能同时解释质子和氮核的结果',x,fy+20,C.muted,12.5,500);}
+  else{txt(ctx,'光子要约 50 MeV，反应最多给约 14 MeV',x,fy,C.ink,13,600);txt(ctx,'→ 不可能是 gamma',x,fy+20,C.ink,13,600);
+    txt(ctx,'氮核也对不上：没有一个 gamma 能量',x,fy+44,C.muted,12,500);txt(ctx,'能同时解释质子和氮核的结果',x,fy+62,C.muted,12,500);}
+}
+
+var St=makeStage('sim4',{
+  height:function(w){return w>=640?394:464;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    phys();geo(W);
+    var t=m4.t,tc=TA+T1,after=t>=tc,tau=after?Math.min(t-tc,L.T2):0;
+    var ph=t<TA?0:(!after?1:(t-tc<TREC?2:3));
+    drawFlow(ctx,W,ph,t);
+    var s=status(after),wide=L.wide;
+    fit(ctx,s[0],L.xL,wide?82:66,C.ink,wide?15:13.5,600,W-2*L.xL);
+    fit(ctx,s[1],L.xL,wide?103:85,C.muted,wide?13:12.5,500,W-2*L.xL);
+    drawTrack(ctx,W,t,after,tau);
+    if(m4.g)drawGamma(ctx,W);else{drawBars(ctx,W,after);drawRead(ctx,W);}
+  }
+});
+for(var q=0;q<78;q++)step(1/60); /* 第一帧：中子正飞向质子（碰后的条先淡淡地显示出来） */
+St.render();
+
+var bTp=document.getElementById('s4-tp'),bTn=document.getElementById('s4-tn'),bPn=document.getElementById('s4-pn'),bPg=document.getElementById('s4-pg');
+var rM=document.getElementById('s4-m'),oM=document.getElementById('s4-m-out'),lM=document.getElementById('s4-m-lab');
+function sync(){press(bTp,m4.tgt==='p');press(bTn,m4.tgt==='N');press(bPn,!m4.g);press(bPg,m4.g);
+  rM.disabled=m4.g;lM.style.opacity=m4.g?'0.5':'';
+  oM.textContent=m4.m.toFixed(2)+' u';}
+function restart(){m4.t=St.playing?0:TA+0.8;}
+bTp.addEventListener('click',function(){m4.tgt='p';sync();restart();St.render();});
+bTn.addEventListener('click',function(){m4.tgt='N';sync();restart();St.render();});
+bPn.addEventListener('click',function(){m4.g=false;sync();restart();St.render();});
+bPg.addEventListener('click',function(){m4.g=true;sync();restart();St.render();});
+rM.addEventListener('input',function(){m4.m=Math.round(parseFloat(rM.value)*100)/100;sync();St.render();});
+document.getElementById('s4-again').addEventListener('click',function(){m4.t=0;St.setPlaying(true);St.render();});
+/* 一下跳到 Chadwick 的结果 m = 1.15 u（拖滑条很难正好停在 1.15） */
+document.getElementById('s4-115').addEventListener('click',function(){m4.g=false;m4.m=1.15;rM.value='1.15';sync();restart();St.render();});
+sync();
+})();
+</script>
+</body>
+</html>

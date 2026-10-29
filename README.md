@@ -8,6 +8,14 @@
 > worked answers. Download the PDFs from [Releases](https://github.com/OrientalDaitou/hsc-physics-revision/releases/latest).
 > This is an independent, unofficial project. It is not affiliated with or endorsed by NESA or any school.
 
+## 🎬 动画讲解网站
+
+**在线打开：https://orientaldaitou.github.io/hsc-physics-revision/** （手机、电脑都能用，不用安装）
+
+根据 Essentials 精简版做的中文讲解网站（专业词保留英文）：每个 topic 一页，共 19 页、93 个可以动手调参数的动画，另有一个 670 个专业词的中英词汇表。每页的顺序是：规则 → 各节讲解和动画 → 公式 → 必背 → 常见错误 → 本章专业词 → 快问快答。
+
+网站文件在 [`docs/`](docs/) 文件夹里。想离线用的话，下载整个 `docs` 文件夹，双击 `index.html` 就能打开。
+
 ## 适用范围
 
 - **考纲：** Physics Stage 6 Syllabus (2017) 的 Year 12 部分（Module 5–8）。
@@ -70,6 +78,7 @@ src/
   m5_short_answer …  简答题册（questions.tex 题目，answers.tex 评分标准）
   m5t3_booklet, m5t3_quiz   M5 引力专题
   m6_hsc_index …     真题题号索引
+docs/                动画讲解网站（GitHub Pages 直接发布这个文件夹）
 checks/              题册的数值核对脚本
 build.sh             一键编译
 ```
@@ -83,5 +92,5 @@ build.sh             一键编译
 
 ## 授权
 
-- **文字内容和 PDF**：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)（见 [LICENSE](LICENSE)）。可以免费使用、打印、分享和修改，但要**注明出处**、**不能用于商业用途**，修改后的版本也要用同样的授权。
-- **代码**（`build.sh`、`.py` 脚本、`.sty` 排版模板）：[MIT](LICENSE-CODE)。
+- **文字内容、PDF 和网站上的讲解文字**：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)（见 [LICENSE](LICENSE)）。可以免费使用、打印、分享和修改，但要**注明出处**、**不能用于商业用途**，修改后的版本也要用同样的授权。
+- **代码**（`build.sh`、`.py` 脚本、`.sty` 排版模板、网站的 CSS 和动画 JavaScript）：[MIT](LICENSE-CODE)。

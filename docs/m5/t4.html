@@ -1,0 +1,1625 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M5 T4 引力与卫星轨道</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m5">Module 5</a><span class="sep">/</span><span aria-current="page">Topic 4</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 5 · Topic 4</div>
+  <h1>Gravity, Orbits and Kepler's Laws</h1>
+  <p class="h1-sub">万有引力、卫星轨道和开普勒定律 · 零基础讲解</p>
+  <p class="lead">这一章讲天上的东西为什么会转圈：月亮、卫星、行星。公式看着多，其实都来自<b>两条规则</b>。先把这两条讲清楚，后面的公式自己就能推出来。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Newton's law of universal gravitation</div>
+    <p>任何两个有质量的东西都互相吸引。距离 × 2，力 ÷ 4。r 从中心量到中心。</p>
+    <div class="eqs"><i>F</i> = <i>GMm</i> / <i>r</i>²</div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Gravity provides the centripetal force</div>
+    <p>卫星一直在往下掉。但它横着跑得够快，地面弯下去的速度和它掉的速度一样，所以永远落不了地。</p>
+    <div class="eqs"><i>GMm</i> / <i>r</i>² = <i>mv</i>² / <i>r</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章内容">
+  <div class="map-row head"><span>部分</span><span>核心公式</span><span>用到的规则</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">4.1</span><span class="t">Newton's law of gravitation</span></span><span><span class="m"><i>F</i> = <i>GMm</i>/<i>r</i>²</span></span><span>① 两个质量互相吸引，距离 × 2，力 ÷ 4</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">4.1</span><span class="t">Field strength g</span></span><span><span class="m"><i>g</i> = <i>GM</i>/<i>r</i>²</span></span><span>① 每 1 kg 受的力；r 从地心量</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">4.2</span><span class="t">Circular orbits</span></span><span><span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span></span><span>② 引力当向心力；越高越慢</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">4.2</span><span class="t">Period</span></span><span><span class="m"><i>r</i>³/<i>T</i>² = <i>GM</i>/4π²</span></span><span>② 再加上 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span></span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">4.3</span><span class="t">Kepler's laws</span></span><span><span class="m"><i>T</i>² ∝ <i>r</i>³</span></span><span>① 椭圆、相等面积、周期，都能用引力解释</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">4.4</span><span class="t">LEO &amp; geostationary</span></span><span><span class="m"><i>r</i> = 4.23 × 10<sup>7</sup> m</span></span><span>② 高度决定速度和周期</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">4.5</span><span class="t">Key experiments</span></span><span><span class="m"><i>G</i></span> · 木星质量 · 5817 s</span><span>三个实验都在检验上面的公式</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是 km → m 和开立方。</li>
+    <li>按 4.1 → 4.4 讲。每节先读“一句话”，再开动画，让学生自己说看到了什么。</li>
+    <li>最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li><span class="t">Centripetal force</span>（向心力）<span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>：要做圆周运动，需要一个指向圆心的合力（第 2 章，在 sheet 上）。</li>
+    <li><span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>：走一圈的路是 2π<i>r</i>，用的时间是 <span class="t">period</span>（周期）<span class="m"><i>T</i></span>（第 2 章，在 sheet 上）。</li>
+    <li><span class="t">Free fall</span>（自由下落（只受引力））：只有引力时，加速度就是 <span class="m"><i>g</i></span>，和物体自己的质量没关系。</li>
+    <li>单位和计算器：km × 1000 → m；hours × 3600、days × 86 400 → s。会算平方、开平方和开立方（<span class="t">cube root</span>，∛）。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">4.1</div>
+  <h2>万有引力定律<span class="en">Newton's law of gravitation</span></h2>
+  <p class="big"><span class="lbl">一句话</span>所有有质量的东西都互相吸引。距离一变大，这个拉力就变小得很快。</p>
+  <ul class="pts">
+    <li><span class="t">Gravitational force</span>（引力（万有引力））：任何两个有质量的东西之间的拉力。单位是牛顿（N）。</li>
+    <li>两边受的力一样大、方向相反。地球拉你多大的力，你就用多大的力拉地球。</li>
+    <li><span class="t">Inverse-square law</span>（平方反比定律）：距离 × 2，力变成 ¼；距离 × 3，力变成 ⅑。因为公式里是 <span class="m"><i>r</i>²</span>。</li>
+    <li>这条定律是 <span class="t">universal</span>（普适的）：到处都成立，苹果、月亮、行星都一样。算的时候，把物体当成一个点，或者一个球。</li>
+    <li><span class="m"><i>G</i></span> 是 <span class="t">universal gravitational constant</span>（引力常量），一个固定的数：6.67 × 10<sup>−11</sup> N m² kg<sup>−2</sup>。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Newton's law of universal gravitation · 万有引力定律</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>F</i> = <i>GMm</i> / <i>r</i>²</div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>每个物体受的力，一样大、方向相反 (N)</dd></div>
+      <div><dt>G</dt><dd>引力常量，6.67 × 10<sup>−11</sup> (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M, m</dt><dd>两个物体的质量 (kg)</dd></div>
+      <div><dt>r</dt><dd>两个物体中心（质心）之间的距离 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>任何两个有质量的东西，把它们当成点或球，比如行星和月亮。<br><b>陷阱：</b>r 是中心到中心，不是表面到表面。整个 r 都要平方。</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">4.1</div>
+  <h2>引力场强度 g<span class="en">Gravitational field strength</span></h2>
+  <p class="big"><span class="lbl">一句话</span>g 就是每 1 kg 在这里受多大的引力。离行星中心越远，g 越小：距离 × 2，g ÷ 4。</p>
+  <ul class="pts">
+    <li><span class="t">Gravitational field</span>（引力场）：任何质量放进去都会受到引力的区域。</li>
+    <li><span class="t">Field strength</span>（引力场强度，<span class="m"><i>g</i></span>）：每 1 kg 受的引力，<span class="m"><i>g</i> = <i>F</i>/<i>m</i></span>。单位 N kg<sup>−1</sup>，也就是 m s<sup>−2</sup>，两个是一回事。</li>
+    <li>在 free fall 里（只有引力），<span class="m"><i>g</i></span> 就是物体的加速度。</li>
+    <li>行星的场是 <span class="t">radial field</span>（径向场）：<span class="t">field lines</span>（场线）都指向中心，像车轮的辐条。越往外，线散得越开，所以场越弱。</li>
+    <li>在地面附近，场几乎是 <span class="t">uniform field</span>（匀强场）：每一点的大小和方向都一样，<span class="m"><i>g</i> = 9.8 m s<sup>−2</sup></span>。</li>
+    <li><span class="t">Altitude</span>（离地高度，<span class="m"><i>h</i></span>）：离地面有多高。引力公式要的是离<b>地心</b>的距离：<span class="m"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></span>。</li>
+    <li>Data sheet 上的数：<span class="m"><i>r</i><sub>E</sub> = 6.371 × 10<sup>6</sup> m</span>，<span class="m"><i>M</i><sub>E</sub> = 6.0 × 10<sup>24</sup> kg</span>。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Gravitational field strength · 引力场强度</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>g</i> = <i>GM</i> / <i>r</i>²</div>
+    <dl class="sym">
+      <div><dt>g</dt><dd>引力场强度，也就是自由下落的加速度 (N kg<sup>−1</sup> = m s<sup>−2</sup>)</dd></div>
+      <div><dt>G</dt><dd>引力常量 (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M</dt><dd>行星（或月亮、恒星）的质量 (kg)</dd></div>
+      <div><dt>r</dt><dd>从行星<b>中心</b>到这一点的距离 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>在行星表面（r = 行星的半径），或者表面上方（<span class="m"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></span>）。<br><b>也可以自己推导：</b>同一个力写两遍：<span class="m"><i>mg</i> = <i>GMm</i>/<i>r</i>²</span>。两边都除以 m。<br><b>陷阱：</b>不能把高度 h 直接当 r 用。km 要换成 m。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Distance from the centre · 离地心的距离</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></div>
+    <dl class="sym">
+      <div><dt>r</dt><dd>离地心的距离 (m)</dd></div>
+      <div><dt>r<sub>E</sub></dt><dd>地球半径，6.371 × 10<sup>6</sup> (m)</dd></div>
+      <div><dt>h</dt><dd>altitude，离地面的高度 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b><span class="t">ISS</span>（International Space Station，国际空间站）离地 <span class="m"><i>h</i> = 420 km = 4.2 × 10<sup>5</sup> m</span>。<span class="m"><i>r</i> = 6.371 × 10<sup>6</sup> + 4.2 × 10<sup>5</sup> = 6.791 × 10<sup>6</sup> m</span>。<br><b>注意：</b>这是一个定义，不在 sheet 上。</p>
+  </div>
+
+  <h3>什么会改变 g？</h3>
+  <ul class="pts">
+    <li>只有两样：行星的质量（<span class="m"><i>g</i> ∝ <i>M</i></span>）和离行星中心的距离（<span class="m"><i>g</i> ∝ 1/<i>r</i>²</span>）。<span class="m"><i>r</i> × 2 ⇒ <i>g</i> ÷ 4</span>。</li>
+    <li>掉下去的东西自己的质量消掉了。所以（空气阻力小到可以不管时）所有东西掉下去的加速度都一样。</li>
+    <li>用 data sheet 的数：<span class="m"><i>GM</i><sub>E</sub> = 4.0 × 10<sup>14</sup>&nbsp;m³&nbsp;s<sup>−2</sup></span>，算出地面的 <span class="m"><i>g</i> = 9.86 m s<sup>−2</sup></span>。sheet 上写 9.8，只是因为 <span class="m"><i>M</i><sub>E</sub></span> 取整了。平时用 9.8；题目要你自己算 g 时，才会得到 9.86。</li>
+    <li>真实的地球：赤道上 <span class="m"><i>g</i> ≈ 9.78 m s<sup>−2</sup></span>，两极 9.83&nbsp;m&nbsp;s<sup>−2</sup>。因为赤道鼓出来一点，而且地球自转让赤道上测到的 g 变小。山和密度大的岩石也会让 g 稍微变一点。</li>
+    <li><span class="m"><i>g</i></span> 是 <span class="t">vector</span>（矢量），指向质量。两个天体的场，要按 vector 相加。</li>
+  </ul>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · g 随距离变小：r 从地心量</span><span class="sim-tag">两图横轴对齐 · data sheet · 两倍质量：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="地球周围是指向地心的引力场线，越往外越稀。地球右边有一个 1 kg 的物体，图上标出从地面量的高度 h 和从地心量的 r = rE + h，紫色的 g 箭头指向地心。下面是 g–r 曲线，横轴和上图对齐，曲线上的点就在物体正下方；旁边一步一步算出 g，也算出错把 h 当 r 的结果。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range"><i>h</i> <input type="range" id="s1-h" min="0" max="20000" step="10" value="6371" aria-label="高度 h"><output id="s1-h-out" for="s1-h" style="min-width:5.4em">6371 km</output></label>
+      <span class="seg" role="group" aria-label="快捷位置">
+        <button class="btn" type="button" id="s1-p0" aria-pressed="false">地面 h = 0</button>
+        <button class="btn" type="button" id="s1-p1" aria-pressed="false">ISS h = 420 km</button>
+        <button class="btn" type="button" id="s1-p2" aria-pressed="true"><i>r</i> = 2<i>r</i><sub>E</sub></button>
+      </span>
+      <span class="seg" role="group" aria-label="中心天体的质量">
+        <button class="btn" type="button" id="s1-m1" aria-pressed="true"><i>M</i> = <i>M</i><sub>E</sub></button>
+        <button class="btn" type="button" id="s1-m2" aria-pressed="false"><i>M</i> = 2<i>M</i><sub>E</sub>（示意）</button>
+      </span>
+    </div>
+    <p class="try"><b>试一试：</b>① 依次按“地面”“ISS”“<i>r</i> = 2<i>r</i><sub>E</sub>”：ISS 那里 <i>g</i> 还有 8.7 m s<sup>−2</sup>；<i>r</i> 变成 2 倍时，<i>g</i> 变成 ¼（9.86 ÷ 4 ≈ 2.46 m s<sup>−2</sup>），不是 ½。② 看画面里的计算：<i>r</i> 永远是 <i>r</i><sub>E</sub> + <i>h</i>。错把 <i>h</i> 当 <i>r</i>，ISS 会算出 2.3 × 10<sup>3</sup> m s<sup>−2</sup>。③ 换成 2<i>M</i><sub>E</sub>：同一个位置，<i>g</i> 变成 2 倍。④ 按播放或拖 <i>h</i>：越往外，场线越稀，<i>g</i> 箭头越短。2<i>M</i><sub>E</sub> 和往外飞的动作是示意。</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">4.2</div>
+  <h2>圆轨道上的卫星<span class="en">Satellites in circular orbits</span></h2>
+  <p class="big"><span class="lbl">一句话</span>卫星一直在往下掉，但它横着跑得太快，地面弯下去的速度和它往下掉一样快。引力就是它的向心力。</p>
+
+  <h3>Newton 的大炮</h3>
+  <p>Newton 想象：在一座很高很高的山上放一门大炮，水平开炮，没有空气。（下面动画 2 里的山也画得太高了，只是为了看清楚。）</p>
+  <ol class="pts">
+    <li><b>A：</b>球打得慢，很快落到地上。</li>
+    <li><b>B：</b>打得快一点，落得更远。球还是一直在往下掉。</li>
+    <li><b>C：</b>地面附近大约 7.9 km s<sup>−1</sup> 时，地面弯下去的速度和球往下掉一样快。球永远落不了地：它进入了 <span class="t">orbit</span>（轨道）。</li>
+    <li><b>D：</b>再快一点，轨道变成一个 <span class="t">oval</span>（椭圆）。超过 11.2&nbsp;km&nbsp;s<sup>−1</sup>，球就 <span class="t">escape</span>（逃逸）：飞走了，不再回来。</li>
+  </ol>
+  <ul class="pts">
+    <li>所以 orbit 就是一个永远不结束的 <span class="t">projectile motion</span>（抛体运动）。卫星一直在 free fall。</li>
+    <li>引力指向地心，也就是圆心。所以 <b><span class="t">gravity provides the centripetal force</span></b>（引力提供向心力）：<span class="m"><i>F</i> = <i>F</i><sub>c</sub></span>。</li>
+    <li>在圆轨道 C 上，引力 F 和速度 v 一直成 90°。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Orbital speed (circular orbit) · 圆轨道的速度</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>v</i> = √(<i>GM</i> / <i>r</i>)</div>
+    <dl class="sym">
+      <div><dt>v</dt><dd><span class="t">orbital speed</span>（环绕速度（轨道速度））：走圆轨道需要的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>G</dt><dd>引力常量 (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M</dt><dd>中心天体的质量，<b>不是</b>卫星的 (kg)</dd></div>
+      <div><dt>r</dt><dd>轨道半径，从中心天体的中心量 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>绕行星、月亮或恒星的任何圆轨道。<br><b>也可以自己推导：</b><span class="m"><i>GMm</i>/<i>r</i>² = <i>mv</i>²/<i>r</i></span>（两个都在 sheet 上）。两边除以 m，再乘 r：<span class="m"><i>v</i>² = <i>GM</i>/<i>r</i></span>。再开平方。<br><b>例子：</b>ISS，<span class="m"><i>r</i> = 6.791 × 10<sup>6</sup> m</span>：<span class="m"><i>v</i> = √(4.0 × 10<sup>14</sup> / 6.791 × 10<sup>6</sup>) ≈ 7.7 × 10<sup>3</sup> m s<sup>−1</sup></span>，也就是约 7.7&nbsp;km&nbsp;s<sup>−1</sup>。<br><b>陷阱：</b>M 是行星的质量，不是卫星的。r 不是高度。</p>
+  </div>
+
+  <ul class="pts">
+    <li><b>卫星的质量消掉了：</b>同一高度的东西，不管多重，速度一样，周期也一样（4.5 的轨道模拟实验就是这样）。</li>
+    <li><b>轨道越高，越慢：</b><span class="m"><i>v</i> ∝ 1/√<i>r</i></span>。</li>
+    <li>卫星的加速度 <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i> = <i>GM</i>/<i>r</i>²</span>，正好就是那个高度的 g。</li>
+    <li>轨道上的速度沿着 <span class="t">tangent</span>（切线），和半径成 90°。</li>
+    <li><span class="t">Apparent weightlessness</span>（完全失重）：在 free fall 里感觉不到自己的重量。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">引力：还在</div><p>ISS 离地 420 km，那里 <span class="m"><i>g</i> = 8.7 m s<sup>−2</sup></span>，只比地面小一点。引力<b>没有</b>消失，它正好当向心力。</p></div>
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">地板的推力：没了</div><p>宇航员和空间站一起往下掉，地板不推人：<span class="t">normal force</span>（支持力（法向力））<b>= 0</b>。所以人感觉不到重量。</p></div>
+  </div>
+  <p>类比：电梯的绳子断了，你和电梯一起往下掉。脚下的体重秤不用撑着你，读数就是 0。但地球还在拉你。</p>
+
+<figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">动画 2 · Newton's cannonball：一直在掉，却落不了地</span><span class="sim-tag">山顶水平往右发射 · 没有空气 · 山高和比例：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="地球上有一座画得太高的山，山顶的大炮水平往右发射，球顺时针绕地心飞。旧的轨迹变淡，标成 A、B、C：慢的球很快落地，快一点的落得更远，7.9 km s⁻¹ 时球绕地球一圈也落不了地，这是圆轨道 C。球上画着指向地心的引力 F 和沿切线的速度 v。可以打开没有引力时的直线，看球掉下去多少。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">发射速度 <i>v</i> <input type="range" id="s2-v" min="4" max="7.9" step="0.1" value="7.9"><output id="s2-v-out" for="s2-v">7.9 km s<sup>−1</sup></output></label>
+      <button class="btn" type="button" id="s2-fire">Fire 发射</button>
+      <button class="btn" type="button" id="s2-line" aria-pressed="false">没有引力时的直线：关</button>
+      <button class="btn" type="button" id="s2-clear">清空轨迹</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 一打开就是三条轨迹：A、B 落地，C 绕地球一圈。看 C 上的球：<i>F</i> 一直指向地心，<i>v</i> 沿切线，两个成 90°，引力正好当向心力。② 把速度拉到 5.0，按“Fire 发射”：球很快落地。再试 6.5、7.5、7.8：一次比一次远，但都比 7.9 慢，都会落地。③ 打开“没有引力时的直线”，再发射 7.9：球一直在往下掉，可是地面也弯下去同样多，所以落不了地。④ 再快，轨道变成 oval（D）；超过 11.2 km s<sup>−1</sup> 就飞走。M5 T5 会用能量来看。</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">4.2</div>
+  <h2>周期和开普勒第三定律<span class="en">The period and Kepler's third law</span></h2>
+  <p class="big"><span class="lbl">一句话</span>把 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span> 代进 <span class="m"><i>v</i>² = <i>GM</i>/<i>r</i></span>，就得到 <span class="m"><i>r</i>³/<i>T</i>²</span> = 一个常数。这个常数只看中心天体的质量。</p>
+  <ol class="pts">
+    <li>圆轨道：<span class="m"><i>v</i>² = <i>GM</i>/<i>r</i></span>（上一节）。</li>
+    <li>sheet 上有 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>。代进去：<span class="m">4π²<i>r</i>²/<i>T</i>² = <i>GM</i>/<i>r</i></span>。</li>
+    <li>两边乘 r，再除以 4π²：<span class="m"><i>r</i>³/<i>T</i>² = <i>GM</i>/4π²</span>。</li>
+  </ol>
+  <ul class="pts">
+    <li>用它可以求三样东西：周期 T、轨道半径 r（再用 <span class="m"><i>h</i> = <i>r</i> − <i>r</i><sub>E</sub></span> 求高度）、或者中心天体的质量 M。</li>
+    <li>r 是轨道半径。如果轨道是椭圆，r 用 <span class="t">semi-major axis</span>（半长轴，4.3 会讲）。</li>
+    <li>轨道越高，周期越长：r 变成 2 倍，T 变成 2√2 ≈ 2.8 倍。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Kepler's third law (Newton's form) · 开普勒第三定律（Newton 的写法）</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>r</i>³ / <i>T</i>² = <i>GM</i> / 4π²</div>
+    <dl class="sym">
+      <div><dt>r</dt><dd>轨道半径；椭圆用 semi-major axis (m)</dd></div>
+      <div><dt>T</dt><dd>周期：走一圈的时间 (s)</dd></div>
+      <div><dt>G</dt><dd>引力常量 (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M</dt><dd>中心天体的质量 (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>求 T、r（然后 <span class="m"><i>h</i> = <i>r</i> − <i>r</i><sub>E</sub></span>）或者中心天体的质量 M。<br><b>从哪来：</b>把 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>（在 sheet 上）代进 <span class="m"><i>v</i>² = <i>GM</i>/<i>r</i></span>，再乘 r、除以 4π²。<br><b>陷阱：</b>T 要用秒。求 r 要开立方，不是开平方。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Period, radius and height · 求周期、半径和高度</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .5em"><i>T</i> = 2π√(<i>r</i>³ / <i>GM</i>)</span> <span style="display:inline-block;margin:0 .5em"><i>r</i> = ∛(<i>GMT</i>² / 4π²)</span> <span style="display:inline-block;margin:0 .5em"><i>h</i> = <i>r</i> − <i>r</i><sub>E</sub></span></div>
+    <dl class="sym">
+      <div><dt>T</dt><dd>周期 (s)</dd></div>
+      <div><dt>r</dt><dd>轨道半径，从地心量 (m)</dd></div>
+      <div><dt>h</dt><dd>离地面的高度 (m)</dd></div>
+      <div><dt>r<sub>E</sub></dt><dd>地球半径，6.371 × 10<sup>6</sup> (m)</dd></div>
+      <div><dt>G</dt><dd>引力常量 (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M</dt><dd>中心天体的质量 (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>例子 1：</b><span class="m"><i>r</i> = 7.0 × 10<sup>6</sup> m</span>，<span class="m"><i>GM</i> = 6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup></span>：<span class="m"><i>T</i> = 2π√((7.0 × 10<sup>6</sup>)³ / (6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup>)) = 5817 s</span>，约 97 min（和 4.5 的模拟实验一样）。<br><b>例子 2：</b>一天 <span class="m"><i>T</i> = 86 400 s</span>：<span class="m"><i>r</i> = ∛(4.0 × 10<sup>14</sup> × 86 400² / 4π²) = 4.23 × 10<sup>7</sup> m</span>，<span class="m"><i>h</i> = 4.23 × 10<sup>7</sup> − 6.371 × 10<sup>6</sup> ≈ 3.59 × 10<sup>7</sup> m</span>，约 36 000 km。这就是 4.4 要讲的 <span class="t">geostationary orbit</span>（地球静止轨道）。<br><b>陷阱：</b>开立方得到的是 r，不是高度。最后还要减去 <span class="m"><i>r</i><sub>E</sub></span>。</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · 轨道越高越慢；卫星质量没关系</span><span class="sim-tag">地球和轨道按比例 · 时间加快 2000 倍 · 数据：讲义 + 计算值</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="地球和两条圆轨道按比例画。淡色的参考卫星在 r = 7.0 × 10⁶ m，深色的卫星半径和质量可以调，两颗都逆时针转，越高的越慢、一圈越久。旁边是 r³ 对 T² 的图，记下的点都在一条过原点的直线上；下面是 r、v、T、v²r、F 和 a 的读数。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">轨道半径 <i>r</i> <input type="range" id="s3-r" min="7" max="40" step="0.5" value="28"><output id="s3-r-out" for="s3-r">2.80 × 10<sup>7</sup> m</output></label>
+    <span class="seg" role="group" aria-label="卫星质量">
+      <button class="btn" type="button" id="s3-m100" aria-pressed="false">100 kg</button>
+      <button class="btn" type="button" id="s3-m1000" aria-pressed="true">1000 kg</button>
+      <button class="btn" type="button" id="s3-m5000" aria-pressed="false">5000 kg</button>
+    </span>
+    <button class="btn" type="button" id="s3-rec">记下这一点</button>
+    <button class="btn" type="button" id="s3-clear">清空图</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 你的卫星轨道半径是参考卫星的 4 倍（<i>r</i> 从地心量，不是高度）：<i>v</i> 只有一半，一圈要 46&nbsp;535&nbsp;s，是 5817&nbsp;s 的 8 倍（8² = 4³）。② 把 <i>r</i> 拉到最左边 7.0 × 10<sup>6</sup> m，再换 100 kg、1000 kg、5000 kg：<i>F</i> 柱变长，<i>a</i> 柱不动，<i>T</i> 还是 5817 s，两颗卫星的间隔一直不变。卫星上的 <i>F</i> 箭头只画方向。③ 换几个 <i>r</i>，每次按“记下这一点”：所有点都在一条过原点的直线上。5817 s 和 <i>v</i>²<i>r</i> = 4.00 × 10<sup>14</sup> m³ s<sup>−2</sup> 来自讲义的实验，其他数是计算值。</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">4.3</div>
+  <h2>开普勒的三条定律<span class="en">Kepler's laws of planetary motion</span></h2>
+  <p class="big"><span class="lbl">一句话</span>Kepler 的三条定律是从观测数据里找出来的。Newton 的万有引力定律能把三条都解释清楚。</p>
+  <ul class="pts">
+    <li>Kepler 用了 Tycho Brahe 测得很准的数据。1609 年发表了前两条，1619 年发表了第三条。</li>
+    <li>它们是 <span class="t">empirical laws</span>（经验定律）：只描述行星怎么走，不解释为什么。</li>
+    <li>1687 年，Newton 证明：一个 <span class="m"><i>F</i> ∝ 1/<i>r</i>²</span> 的力，能解释全部三条。</li>
+  </ul>
+
+  <h3>第一定律：椭圆</h3>
+  <p><span class="t">Kepler's first law</span>（开普勒第一定律（轨道定律））：<b>每个行星都沿着椭圆走，太阳在一个焦点上。</b></p>
+  <ul class="pts">
+    <li><span class="t">Ellipse</span>（椭圆）：一个被拉长的圆。它的长轴上有两个固定的点，叫 <span class="t">foci</span>（焦点，单数 <span class="t">focus</span>）。太阳在其中一个上，另一个焦点是空的。</li>
+    <li>行星的轨道几乎是圆。地球的 <span class="t">eccentricity</span>（离心率（偏心率）：椭圆被拉长多少）只有 0.017，所以平时当成圆来算。</li>
+    <li>彗星的轨道拉得很长。</li>
+    <li>离太阳最近的点叫 <span class="t">perihelion</span>（近日点），最远的点叫 <span class="t">aphelion</span>（远日点）。绕地球转时，叫 <span class="t">perigee</span>（近地点）和 <span class="t">apogee</span>（远地点）。</li>
+    <li>椭圆在第三定律里的 r 用 semi-major axis（最长直径的一半）：<span class="m"><i>a</i> = (<i>r</i><sub>p</sub> + <i>r</i><sub>a</sub>)/2</span>。</li>
+  </ul>
+
+  <h3>第二定律：相等面积</h3>
+  <p><span class="t">Kepler's second law</span>（开普勒第二定律（面积定律））：<b>太阳到行星的连线，在相等的时间里扫过相等的面积。</b>下面动画 4 的“面积”模式：每块扇形用的时间一样（<span class="m">Δ<i>t</i><sub>1</sub> = Δ<i>t</i><sub>2</sub></span>），面积也一样（<span class="m"><i>A</i><sub>1</sub> = <i>A</i><sub>2</sub></span>）。</p>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">离太阳近</div><p>连线短。要扫出同样大的面积，同样的时间里要走<b>更长</b>的弧。所以在 perihelion <b>最快</b>。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">离太阳远</div><p>连线长。走一小段弧，面积就够了。所以在 aphelion <b>最慢</b>。</p></div>
+  </div>
+  <p>类比：两块一样大的三角形蛋糕。一块又长又窄，一块又短又宽。短的那块，外边的弧更长。</p>
+
+  <h3>用力来看：为什么会变快、变慢</h3>
+  <p>一个力只有一部分顺着运动方向时，才做 <span class="t">work</span>（功），也就是给物体能量。</p>
+  <ul class="pts">
+    <li><b>圆：</b>引力和 v 一直成 90°。不做功，所以速度不变。</li>
+    <li><b>靠近太阳：</b>引力有一部分顺着运动方向，所以行星越来越快。</li>
+    <li><b>远离太阳：</b>引力有一部分逆着运动方向，所以行星越来越慢。</li>
+    <li>椭圆上只有两个点 F ⟂ v：perihelion（最快）和 aphelion（最慢）。</li>
+  </ul>
+
+  <h3>用能量来看</h3>
+  <ul class="pts">
+    <li>只有引力在起作用，所以 <span class="t">total energy</span>（总能量：动能 <span class="m"><i>K</i></span> 加势能 <span class="m"><i>U</i></span>）不变。</li>
+    <li><span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span>：r 越小，U 越低（越负）。所以 U 在 perihelion 最低，<span class="m"><i>K</i> = ½<i>mv</i>²</span> 在 perihelion 最大。</li>
+    <li>圆轨道：r 不变，所以 U、K 和速度都不变。</li>
+    <li>只在 perihelion 和 aphelion 这两点：<span class="m"><i>r</i><sub>p</sub><i>v</i><sub>p</sub> = <i>r</i><sub>a</sub><i>v</i><sub>a</sub></span>（来自面积定律）。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Gravitational potential energy · 引力势能</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>U</i> = −<i>GMm</i> / <i>r</i></div>
+    <dl class="sym">
+      <div><dt>U</dt><dd><span class="t">gravitational potential energy</span>（引力势能）(J)</dd></div>
+      <div><dt>M, m</dt><dd>太阳（中心天体）和行星的质量 (kg)</dd></div>
+      <div><dt>r</dt><dd>两个中心之间的距离 (m)</dd></div>
+      <div><dt>G</dt><dd>引力常量 (N m² kg<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>这一章只用它比大小：</b>r 越小，U 越负，也就是越低。为什么带负号，第 5 章（M5 T5）细讲。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Kepler's second law (closest, farthest point) · 近日点和远日点的速度</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>r</i><sub>p</sub><i>v</i><sub>p</sub> = <i>r</i><sub>a</sub><i>v</i><sub>a</sub></div>
+    <dl class="sym">
+      <div><dt>r<sub>p</sub></dt><dd>perihelion 到太阳的距离 (m)</dd></div>
+      <div><dt>v<sub>p</sub></dt><dd>perihelion 的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r<sub>a</sub></dt><dd>aphelion 到太阳的距离 (m)</dd></div>
+      <div><dt>v<sub>a</sub></dt><dd>aphelion 的速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b>aphelion 离太阳是 perihelion 的 3 倍（<span class="m"><i>r</i><sub>a</sub> = 3<i>r</i><sub>p</sub></span>），那么 <span class="m"><i>v</i><sub>p</sub> = 3<i>v</i><sub>a</sub></span>。<br><b>陷阱：</b>只能用在 perihelion 和 aphelion 这两点。距离从太阳量，不是从椭圆的中心量。</p>
+  </div>
+
+  <h3>第三定律：周期</h3>
+  <ul class="pts">
+    <li><span class="t">Kepler's third law</span>（开普勒第三定律（周期定律））：<b>周期的平方和轨道半径（semi-major axis）的立方成正比</b>：<span class="m"><i>T</i>² ∝ <i>r</i>³</span>。</li>
+    <li>常数 <span class="m"><i>GM</i>/4π²</span> 只看中心天体的质量。太阳的所有行星共用一个值；地球的所有卫星共用另一个值。</li>
+    <li>同一个中心天体的两个轨道：<span class="m"><i>r</i><sub>1</sub>³/<i>T</i><sub>1</sub>² = <i>r</i><sub>2</sub>³/<i>T</i><sub>2</sub>²</span>。单位随便用，只要两边一样。比如年和 <span class="t">astronomical unit</span>（天文单位，AU）：1 AU = 地球到太阳的平均距离，1.50 × 10<sup>11</sup> m。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Two orbits around the same central body · 绕同一个天体的两个轨道</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>r</i><sub>1</sub>³ / <i>T</i><sub>1</sub>² = <i>r</i><sub>2</sub>³ / <i>T</i><sub>2</sub>²</div>
+    <dl class="sym">
+      <div><dt>r<sub>1</sub></dt><dd>第一个轨道的半径（或 semi-major axis）</dd></div>
+      <div><dt>T<sub>1</sub></dt><dd>第一个轨道的周期</dd></div>
+      <div><dt>r<sub>2</sub></dt><dd>第二个轨道的半径，单位和 r<sub>1</sub> 一样</dd></div>
+      <div><dt>T<sub>2</sub></dt><dd>第二个轨道的周期，单位和 T<sub>1</sub> 一样</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b>地球：1 AU，1 年。一颗行星的 semi-major axis 是 4 AU：<span class="m"><i>T</i>² = 4³ = 64</span>，<span class="m"><i>T</i> = 8</span> 年。<br><b>陷阱：</b>两个轨道必须绕<b>同一个</b>中心天体。绕太阳的和绕地球的不能放在一起比。</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">动画 4 · Kepler 第一、第二定律：椭圆、相等面积和力的方向</span><span class="sim-tag">太阳在右边的焦点 · 逆时针 · 相对单位，数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="行星沿椭圆逆时针绕太阳转，太阳在右边的焦点上，另一个焦点是空的，下面的尺子标出 r_a 和 r_p。面积模式：每隔相同时间扫出一块扇形，近日点那块 A1 和远日点那块 A2 面积一样。力和速度模式：显示速度 v、指向太阳的引力 F 和 F 沿着 v 的那部分。旁边显示离心率、距离、速度和 r_p v_p = r_a v_a。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">离心率 e <input type="range" id="s4-e" min="0" max="0.8" step="0.01" value="0.6"><output id="s4-e-out" for="s4-e">0.60</output></label>
+    <span class="seg" role="group" aria-label="显示">
+      <button class="btn" type="button" id="s4-area" aria-pressed="true">面积</button>
+      <button class="btn" type="button" id="s4-force" aria-pressed="false">力和速度</button>
+    </span>
+    <button class="btn" type="button" id="s4-apsis" aria-pressed="false">停在 perihelion</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看“面积”：每块扇形用的时间一样（Δ<i>t</i> = <i>T</i>/12），A<sub>1</sub> 和 A<sub>2</sub> 面积一样，但 A<sub>1</sub> 的弧长得多，所以 perihelion 最快。② 切到“力和速度”：下半圈靠近太阳，<i>F</i> 有一部分沿着 <i>v</i>（虚线），行星变快；上半圈远离太阳，那部分逆着 <i>v</i>，行星变慢。③ 按“停在 perihelion”，再按一次停到 aphelion：只有这两点 <i>F</i> ⟂ <i>v</i>，而且 <i>r</i><sub>p</sub><i>v</i><sub>p</sub> = <i>r</i><sub>a</sub><i>v</i><sub>a</sub>。④ 把 <i>e</i> 拉到 0：变成圆，速度不变。地球的 <i>e</i> 只有 0.017（讲义），拉到 0.02 看看，几乎就是圆。</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">4.4</div>
+  <h2>低轨道和地球静止轨道<span class="en">Low Earth orbits and geostationary orbits</span></h2>
+  <p class="big"><span class="lbl">一句话</span>轨道的高度决定了速度和周期。不同的高度，适合做不同的工作。</p>
+  <ul class="pts">
+    <li><span class="t">Low Earth orbit</span>（低地球轨道（近地轨道），LEO）：离地 200 km 到 2000 km。那里还有很稀的空气，会造成 <span class="t">orbital decay</span>（轨道衰减）：高度慢慢变低。</li>
+    <li><span class="t">Polar orbit</span>（极地轨道）：经过南北两极的 LEO。地球在它下面转，所以它能经过地球的每一个地方。</li>
+    <li><span class="t">Geostationary orbit</span>（地球静止轨道）：卫星一直停在赤道上同一点的上方。它要满足三个条件：</li>
+  </ul>
+  <ol class="pts">
+    <li>周期是一天（严格说是 23 h 56 min）。</li>
+    <li>在赤道上方的圆轨道。</li>
+    <li>从西往东转，和地球自转同一个方向。</li>
+  </ol>
+  <ul class="pts">
+    <li>有了这三个条件，Kepler 第三定律只允许一个半径：<span class="m">4.23 × 10<sup>7</sup> m</span>（6.6 个地球半径）。</li>
+    <li><span class="t">Geosynchronous orbit</span>（地球同步轨道）：周期也是一天，但轨道可能是斜的。这样卫星在天空里南北来回漂，所以不是 geostationary。</li>
+  </ul>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>性质</th><th>LEO</th><th>Geo&shy;stationary</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">高度</td><td>200&nbsp;km 到 2000&nbsp;km（ISS：420&nbsp;km）</td><td>约 36&nbsp;000&nbsp;km</td></tr>
+        <tr><td style="white-space:nowrap">速度、周期</td><td>约 7.7&nbsp;km&nbsp;s<sup>−1</sup>，约 90&nbsp;min</td><td>3.1&nbsp;km&nbsp;s<sup>−1</sup>，1 天</td></tr>
+        <tr><td style="white-space:nowrap">在天空中</td><td>几分钟就飞过天空</td><td>不动，所以地面的 dish（天线锅）永远不用转</td></tr>
+        <tr><td style="white-space:nowrap">能看到</td><td>面积小，细节清楚</td><td>约 40 % 的地球；两极附近看不好</td></tr>
+        <tr><td style="white-space:nowrap">信号延迟</td><td>几毫秒</td><td>约 0.24&nbsp;s（上去再下来）</td></tr>
+        <tr><td style="white-space:nowrap">问题</td><td>轨道衰减；需要很多颗卫星</td><td>信号弱；发射贵</td></tr>
+        <tr><td style="white-space:nowrap">用途</td><td>ISS、拍地面照片、测绘地图、极地气象卫星、互联网卫星群（<span class="t">internet constellations</span>）</td><td>电视、通信、拍整个半球的气象图</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li>每个用途都来自一个性质。比如：低轨道离地面近，<b>所以</b>能拍到细节。</li>
+    <li>0.24 s 从哪来：信号用光速（3.00 × 10<sup>8</sup>&nbsp;m&nbsp;s<sup>−1</sup>，data sheet）走，上去约 36 000 km，再下来约 36 000 km：<span class="m">7.2 × 10<sup>7</sup> / 3.00 × 10<sup>8</sup> = 0.24&nbsp;s</span>。</li>
+    <li>两种轨道都一样：引力提供向心力。</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">动画 5 · LEO 和 geostationary：从北极上方看</span><span class="sim-tag">地球和轨道半径按比例 · 倾角、时间快慢：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="从北极正上方往下看：地球逆时针自转（west → east），赤道上有一个地面 dish，铜色的线从 dish 指向卫星。geostationary 卫星在 6.6 个地球半径处，和地球一起转，dish 指向它的方向一直不变。可以换成倾斜的 geosynchronous 卫星或几乎贴着地面飞的 LEO。旁边的小圆是 dish 抬头看到的天空，显示卫星在天空中的位置和走过的路线；下面列出高度、速度、周期和信号延迟。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="卫星">
+      <button class="btn" type="button" id="s5-geo" aria-pressed="true">geostationary</button>
+      <button class="btn" type="button" id="s5-sync" aria-pressed="false" title="倾斜的地球同步轨道">geosynchronous</button>
+      <button class="btn" type="button" id="s5-leo" aria-pressed="false" title="低地球轨道，ISS 高度 420 km">LEO</button>
+    </span>
+    <button class="btn" type="button" id="s5-rev" aria-pressed="false">方向：west → east</button>
+    <label class="range">时间 <input type="range" id="s5-rate" min="10" max="120" step="10" value="60"><output id="s5-rate-out" for="s5-rate">1 s = 1 h</output></label>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看 geostationary：卫星和地面一起转，“dish 看到的天空”里它一直不动，dish 不用转。② 按“方向”改成 east → west：卫星相对地面每小时转约 30°，不到 4 h 就落到地平线下面，dish 看不到它。③ 换成 geosynchronous：也是一天一圈，但在天空里南北来回漂，所以不是 geostationary。④ 换成 LEO（时间自动放慢）：约 90 min 一圈，几分钟就飞过天空。倾斜 30°、dish 的位置、LEO 画在赤道上方都是示意；LEO 的周期用 92.6 min（计算值，讲义写约 90 min）。</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">4.5</div>
+  <h2>三个要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>什么影响 g</h3>
+    <dl>
+      <dt>目的</dt><dd>证明天体表面的 g 和 <span class="m"><i>M</i>/<i>r</i>²</span> 成正比（M：天体的质量，r：天体的半径）。</dd>
+      <dt>做法</dt><dd>用 <span class="t">secondary data</span>（二手数据：别人测好的数据）：月球、水星、火星、金星和地球。画 g 对 <span class="m"><i>M</i>/<i>r</i>²</span> 的图。</dd>
+      <dt>结果</dt><dd>一条过原点的直线，<span class="t">gradient</span>（斜率）是 6.67 × 10<sup>−11</sup> N m² kg<sup>−2</sup>。</dd>
+      <dt>结论</dt><dd><span class="m"><i>g</i> ∝ <i>M</i>/<i>r</i>²</span>，gradient 就是 G，和 <span class="m"><i>g</i> = <i>GM</i>/<i>r</i>²</span> 说的一样。</dd>
+      <dt>意义</dt><dd>用 <span class="m"><i>M</i> = <i>gr</i>²/<i>G</i></span> 可以求行星的质量。Cavendish 在 1798 年测出了 G（“weighing the Earth”，称地球）。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Kepler 第三定律和木星的卫星</h3>
+    <dl>
+      <dt>目的</dt><dd>证明木星（Jupiter）的几颗大卫星 <span class="m"><i>r</i>³/<i>T</i>²</span> 都一样，并求出木星的质量。</dd>
+      <dt>做法</dt><dd>用 Io、Europa、Ganymede、Callisto 四颗卫星的 r 和 T（T 用秒）。画 <span class="m"><i>r</i>³</span> 对 <span class="m"><i>T</i>²</span> 的图。</dd>
+      <dt>结果</dt><dd>一条过原点的直线，gradient 是 3.205 × 10<sup>15</sup> m³ s<sup>−2</sup>。</dd>
+      <dt>结论</dt><dd><span class="m"><i>r</i>³ ∝ <i>T</i>²</span>。gradient = <span class="m"><i>GM</i>/4π²</span>，所以木星的质量是 1.90 × 10<sup>27</sup> kg。</dd>
+      <dt>意义</dt><dd>Galileo（1610）第一次看到绕着另一个行星转的天体。这支持了 <span class="t">Sun-centred model</span>（日心模型：太阳在中心）。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>电脑里的轨道模拟：质量、半径、速度和周期</h3>
+    <dl>
+      <dt>目的</dt><dd>找出卫星的周期和速度，跟它自己的质量、跟轨道半径有什么关系。</dd>
+      <dt>做法</dt><dd>电脑轨道模型（行星质量 6.0 × 10<sup>24</sup> kg）。卫星和半径成 90° 发射，速度刚好走一个圆。计 5 圈的时间。先只改卫星的质量（100 kg、1000 kg、5000 kg），再只改 r（7.0 × 10<sup>6</sup> 到 4.0 × 10<sup>7</sup> m）。</dd>
+      <dt>结果</dt><dd>每个质量的周期都一样（<span class="m"><i>r</i> = 7.0 × 10<sup>6</sup> m</span> 时 <span class="m"><i>T</i> = 5817 s</span>）。r 越大，T 越长、v 越小，但每个半径都是 <span class="m"><i>v</i>²<i>r</i> = 4.00 × 10<sup>14</sup>&nbsp;m³&nbsp;s<sup>−2</sup></span>。</dd>
+      <dt>结论</dt><dd>周期和卫星的质量无关。<span class="m"><i>v</i>²<i>r</i> = <i>GM</i></span>，所以 <span class="m"><i>v</i> ∝ 1/√<i>r</i></span>，和 <span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span> 说的一样。</dd>
+      <dt>意义</dt><dd>同一高度的东西，不管多重，都一起走：宇航员能飘在空间站旁边。动画 3 就是这个实验。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>F</i> = <i>GMm</i>/<i>r</i>²</td><td>两个质量之间的引力（r 中心到中心）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></td><td>从高度 h 求离地心的距离</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>g</i> = <i>GM</i>/<i>r</i>²</td><td>行星表面或上方的 g</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>v</i> = √(<i>GM</i>/<i>r</i>)</td><td>圆轨道的速度</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>r</i>³/<i>T</i>² = <i>GM</i>/4π²</td><td>Kepler 第三定律：求 T、r 或 M</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>r</i><sub>p</sub><i>v</i><sub>p</sub> = <i>r</i><sub>a</sub><i>v</i><sub>a</sub></td><td>Kepler 第二定律（最近点、最远点）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>r</i> = ∛(<i>GMT</i>²/4π²)<br><i>h</i> = <i>r</i> − <i>r</i><sub>E</sub></td><td>从周期求轨道半径和高度</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>T</i> = 2π√(<i>r</i>³/<i>GM</i>)</td><td>圆轨道的周期</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>r</i><sub>1</sub>³/<i>T</i><sub>1</sub>² = <i>r</i><sub>2</sub>³/<i>T</i><sub>2</sub>²</td><td>绕同一个中心天体的两个轨道</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>U</i> = −<i>GMm</i>/<i>r</i></td><td>引力势能，这一章只用来比大小（总表记在 Ch. 5）</td><td><span class="badge on">有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note"><span class="m"><i>T</i> = 2π√(<i>r</i>³/<i>GM</i>)</span> 和 <span class="m"><i>r</i><sub>1</sub>³/<i>T</i><sub>1</sub>² = <i>r</i><sub>2</sub>³/<i>T</i><sub>2</sub>²</span> 在讲义总表的 “Other formulas” 里。本章还用到第 2 章的 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span> 和 <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>（都在 sheet 上）。</p>
+
+  <h3>考试前背这 8 句</h3>
+  <ol class="must">
+    <li><span class="m"><i>F</i> = <i>GMm</i>/<i>r</i>²</span>（在 sheet 上），<span class="m"><i>g</i> = <i>GM</i>/<i>r</i>²</span>（不在）。<span class="m"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></span>，用米。</li>
+    <li>引力提供向心力：<span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span>（不在 sheet 上）。</li>
+    <li>轨道越高越慢。卫星的质量会消掉。</li>
+    <li>失重的宇航员和飞船一起往下掉：是 normal force = 0，不是引力 = 0。</li>
+    <li>绕同一个天体的所有轨道：<span class="m"><i>r</i>³/<i>T</i>² = <i>GM</i>/(4π²)</span>，T 用秒。</li>
+    <li>Kepler：椭圆，太阳在一个焦点上；相等面积，所以 perihelion 最快；<span class="m"><i>T</i>² ∝ <i>r</i>³</span>。</li>
+    <li>椭圆轨道：引力会做功，但 <span class="m"><i>K</i> + <i>U</i></span> 不变（perihelion 的 K 最大）。</li>
+    <li>LEO：低，约 90 min 一圈，细节清楚。Geostationary：36 000 km，一天一圈，在赤道上方，从西往东。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>r 用两个表面之间的距离，或者只平方一部分。<br><span class="ok">对：</span>r 是中心到中心。整个 r 都要平方。</div>
+    <div><span class="x">错：</span>把高度 h 直接当 r 用；km 不换成 m。<br><span class="ok">对：</span><span class="m"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></span>，单位用 m。ISS 用 h = 420 km 当 r，会算出 g ≈ 2.3 × 10³ m s<sup>−2</sup>，明显不对。</div>
+    <div><span class="x">错：</span><span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span> 里的 M 用卫星的质量。<br><span class="ok">对：</span>M 是中心天体（行星）的质量。卫星的质量消掉了。</div>
+    <div><span class="x">错：</span>重的卫星要飞得更快，才能留在同一个轨道上。<br><span class="ok">对：</span>同一高度，速度和周期都一样，和卫星的质量无关。</div>
+    <div><span class="x">错：</span>ISS 上的宇航员飘起来，是因为那里没有引力。<br><span class="ok">对：</span>那里 g = 8.7 m s<sup>−2</sup>。宇航员和空间站一起往下掉，是 normal force = 0。</div>
+    <div><span class="x">错：</span>T 用小时或天；求 r 时开平方。<br><span class="ok">对：</span>T 先换成秒，求 r 要开立方。</div>
+    <div><span class="x">错：</span>开立方算出来的 r 就是高度。<br><span class="ok">对：</span>算出来的是离地心的距离。高度 <span class="m"><i>h</i> = <i>r</i> − <i>r</i><sub>E</sub></span>。</div>
+    <div><span class="x">错：</span>行星绕太阳，速度一直不变。<br><span class="ok">对：</span>椭圆轨道上，perihelion 最快，aphelion 最慢（相等面积）。</div>
+    <div><span class="x">错：</span>geosynchronous 就是 geostationary。<br><span class="ok">对：</span>geosynchronous 只要周期一天，可以是斜的；geostationary 还要在赤道上方、从西往东转。</div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Gravitational force</td><td>引力（万有引力）</td><td>任何两个有质量的东西之间的拉力，单位 N</td></tr>
+        <tr><td class="t">Inverse-square law</td><td>平方反比定律</td><td>距离 × 2，效果变成 ¼</td></tr>
+        <tr><td class="t">Universal gravitational constant (G)</td><td>引力常量</td><td>决定引力有多强的固定的数，6.67 × 10<sup>−11</sup> N m² kg<sup>−2</sup></td></tr>
+        <tr><td class="t">Gravitational field</td><td>引力场</td><td>任何质量放进去都会受到引力的区域</td></tr>
+        <tr><td class="t">Gravitational field strength (g)</td><td>引力场强度</td><td>每 1 kg 受的引力，N kg<sup>−1</sup> = m s<sup>−2</sup></td></tr>
+        <tr><td class="t">Radial field</td><td>径向场</td><td>场线都直直指向中心，像车轮的辐条</td></tr>
+        <tr><td class="t">Field lines</td><td>场线</td><td>画出来表示场的方向的线</td></tr>
+        <tr><td class="t">Uniform field</td><td>匀强场</td><td>每一点的大小和方向都一样</td></tr>
+        <tr><td class="t">Altitude (h)</td><td>离地高度</td><td>离行星表面有多高</td></tr>
+        <tr><td class="t">Free fall</td><td>自由下落（只受引力）</td><td>只有引力作用时的运动</td></tr>
+        <tr><td class="t">Vector</td><td>矢量</td><td>有大小、也有方向的量</td></tr>
+        <tr><td class="t">Orbit</td><td>轨道</td><td>绕着一个天体一直转的路线</td></tr>
+        <tr><td class="t">Orbital speed (v)</td><td>环绕速度（轨道速度）</td><td>走圆轨道需要的速度</td></tr>
+        <tr><td class="t">Period (T)</td><td>周期</td><td>走一圈用的时间</td></tr>
+        <tr><td class="t">Tangent</td><td>切线</td><td>只碰到圆上一点的线，和半径成 90°</td></tr>
+        <tr><td class="t">Apparent weightlessness</td><td>完全失重</td><td>自由下落时感觉不到重量，因为 normal force = 0</td></tr>
+        <tr><td class="t">Normal force (F<sub>N</sub>)</td><td>支持力（法向力）</td><td>表面推物体的力，和表面成 90°</td></tr>
+        <tr><td class="t">Empirical law</td><td>经验定律</td><td>从数据里找出来的规律，只描述，不解释</td></tr>
+        <tr><td class="t">Ellipse</td><td>椭圆</td><td>被拉长的圆</td></tr>
+        <tr><td class="t">Focus (plural: foci)</td><td>焦点</td><td>椭圆里的两个固定点，太阳在其中一个上</td></tr>
+        <tr><td class="t">Eccentricity (e)</td><td>离心率（偏心率）</td><td>椭圆被拉长多少：0 是圆，越接近 1 越扁</td></tr>
+        <tr><td class="t">Perihelion</td><td>近日点</td><td>轨道上离太阳最近的点</td></tr>
+        <tr><td class="t">Aphelion</td><td>远日点</td><td>轨道上离太阳最远的点</td></tr>
+        <tr><td class="t">Perigee</td><td>近地点</td><td>绕地球的轨道上离地球最近的点</td></tr>
+        <tr><td class="t">Apogee</td><td>远地点</td><td>绕地球的轨道上离地球最远的点</td></tr>
+        <tr><td class="t">Semi-major axis (a)</td><td>半长轴</td><td>椭圆最长直径的一半</td></tr>
+        <tr><td class="t">Kepler's first law (law of ellipses)</td><td>开普勒第一定律（轨道定律）</td><td>行星走椭圆，太阳在一个焦点上</td></tr>
+        <tr><td class="t">Kepler's second law (law of equal areas)</td><td>开普勒第二定律（面积定律）</td><td>太阳到行星的连线，相等时间扫过相等面积</td></tr>
+        <tr><td class="t">Kepler's third law (law of periods)</td><td>开普勒第三定律（周期定律）</td><td>绕同一个天体：T² ∝ r³</td></tr>
+        <tr><td class="t">Work (W)</td><td>功</td><td>物体顺着力的方向移动时，力传给它的能量</td></tr>
+        <tr><td class="t">Gravitational potential energy (U)</td><td>引力势能</td><td>在太空里 U = −GMm/r，离得越近越低</td></tr>
+        <tr><td class="t">Astronomical unit (AU)</td><td>天文单位</td><td>地球到太阳的平均距离，1.50 × 10<sup>11</sup> m</td></tr>
+        <tr><td class="t">Low Earth orbit (LEO)</td><td>低地球轨道（近地轨道）</td><td>离地约 200–2000&nbsp;km，周期约 90 分钟到 2 小时（越高越久；ISS 约 90&nbsp;min）</td></tr>
+        <tr><td class="t">Orbital decay</td><td>轨道衰减</td><td>稀薄空气的阻力让轨道慢慢变低</td></tr>
+        <tr><td class="t">Polar orbit</td><td>极地轨道</td><td>经过南北两极的轨道</td></tr>
+        <tr><td class="t">Geostationary orbit</td><td>地球静止轨道</td><td>赤道上方、周期一天的圆轨道，卫星停在一点的上方</td></tr>
+        <tr><td class="t">Geosynchronous orbit</td><td>地球同步轨道</td><td>周期一天的任何轨道，可以是斜的</td></tr>
+        <tr><td class="t">Secondary data</td><td>二手数据</td><td>别人测好的数据</td></tr>
+        <tr><td class="t">Gradient</td><td>斜率</td><td>直线有多陡</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s10" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 两个物体的距离变成原来的 3 倍，它们之间的引力变成多少？</summary><p class="ans"><b>原来的 1/9。</b>F ∝ 1/r²。距离 × 3，r² × 9，所以力 ÷ 9。</p></details>
+    <details><summary>2. ISS 离地 420 km。那里的 g 是多少？（用 data sheet 上的 G、地球质量和地球半径）</summary><p class="ans"><b>8.7 m s<sup>−2</sup>。</b>先求 r = 6.371 × 10<sup>6</sup> + 4.2 × 10<sup>5</sup> = 6.791 × 10<sup>6</sup> m。g = GM/r² = 6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup> / (6.791 × 10<sup>6</sup>)² = 8.7 m s<sup>−2</sup>。只比地面的 9.8 小一点。</p></details>
+    <details><summary><span>3. 既然 ISS 那里 g = 8.7 m s<sup>−2</sup>，宇航员为什么会飘起来？</span></summary><p class="ans"><b>因为 normal force = 0，不是引力 = 0。</b>宇航员和空间站一起在 free fall，一起往下掉，地板不用推人。引力还在，正好当向心力。</p></details>
+    <details><summary>4. 接第 2 题，ISS 的轨道速度和周期大约是多少？</summary><p class="ans"><b>v ≈ 7.7 km s<sup>−1</sup>，T ≈ 5.56 × 10³ s（约 93 min）。</b>v = √(GM/r) = √(6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup> / 6.791 × 10<sup>6</sup>) ≈ 7.68 × 10³ m s<sup>−1</sup>。T = 2πr/v = 2π × 6.791 × 10<sup>6</sup> / 7.68 × 10³ ≈ 5.56 × 10³ s ≈ 93 min，和 Table 4.1 的“约 90 min”一致。</p></details>
+    <details><summary>5. 同一个圆轨道上有两颗卫星：一颗 100 kg，一颗 5000 kg。谁跑得快？</summary><p class="ans"><b>一样快，周期也一样。</b>GMm/r² = mv²/r，两边的 m（卫星质量）消掉了，v = √(GM/r) 里只有地球的质量 M。</p></details>
+    <details><summary>6. Geostationary 卫星的周期是一天（86 400 s）。它的轨道半径和离地高度是多少？</summary><p class="ans"><b>r = 4.23 × 10<sup>7</sup> m，h ≈ 3.59 × 10<sup>7</sup> m（约 36 000 km）。</b>r³ = GMT²/4π² = 6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup> × 86 400² / 4π² ≈ 7.57 × 10<sup>22</sup> m³，开立方 r = 4.23 × 10<sup>7</sup> m。h = r − r<sub>E</sub> = 4.23 × 10<sup>7</sup> − 6.371 × 10<sup>6</sup> ≈ 3.59 × 10<sup>7</sup> m。（用严格的 23 h 56 min = 86 160 s，会得到 4.22 × 10<sup>7</sup> m。）</p></details>
+    <details><summary>7. 一颗行星绕太阳，semi-major axis 是 4 AU。它的周期是多少年？</summary><p class="ans"><b>8 年。</b>都绕太阳，用地球（1 AU，1 年）比：r<sub>1</sub>³/T<sub>1</sub>² = r<sub>2</sub>³/T<sub>2</sub>²，1³/1² = 4³/T²，T² = 64，T = 8 年。单位用 AU 和年就行，不用换成 m 和 s。</p></details>
+    <details><summary>8. 一颗彗星在 aphelion 离太阳的距离，是 perihelion 的 3 倍。它在 perihelion 的速度是 aphelion 的几倍？</summary><p class="ans"><b>3 倍。</b>r<sub>p</sub>v<sub>p</sub> = r<sub>a</sub>v<sub>a</sub>，r<sub>a</sub> = 3r<sub>p</sub>，所以 v<sub>p</sub> = 3v<sub>a</sub>。离太阳近，连线短，同样时间要走更长的弧（面积定律）。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m5/t3.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M5 T3 · Circular Motion: Angles, Energy, Work and Torque</span><span class="pg-z">圆周运动：角度、能量、功和力矩</span></a><a class="pg next" href="../m5/t5.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M5 T5 · Energy in Gravitational Fields</span><span class="pg-z">引力场中的能量：轨道、逃逸和变轨</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 5 Advanced Mechanics · Chapter 4 整理。实验数据（gradient 6.67 × 10<sup>−11</sup> N m² kg<sup>−2</sup> 和 3.205 × 10<sup>15</sup> m³ s<sup>−2</sup>，木星质量 1.90 × 10<sup>27</sup> kg，T = 5817 s，v²r = 4.00 × 10<sup>14</sup> m³ s<sup>−2</sup>）和 Table 4.1 来自讲义。快问快答里的 93 min、3.59 × 10<sup>7</sup> m 是用 data sheet 的数算出来的（计算值）。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1：g 随距离变小，r 从地心量（4.1 Gravitational field strength）
+   上图：地球（--field 浅色）+ 径向引力场线（--muted 虚线，箭头朝地心，越往外越稀）+ 1 kg 物体（--ink）；
+         标出 r_E、h（从地面量）和 r = r_E + h（从地心量）；g 箭头（--violet）指向地心，长度 ∝ g ∝ 1/r²。
+   下图：g–r 曲线（--copper）。横轴和上图同一个比例，r = 0 正好在地心正下方，所以曲线上的点就在物体正下方。
+   宽屏右边 / 手机下面：一步一步算 r 和 g，再算“错把 h 当 r”的结果（h = 0 时不算，会除以 0）。
+   数据：G = 6.67 × 10⁻¹¹ N m² kg⁻²，M_E = 6.0 × 10²⁴ kg，r_E = 6.371 × 10⁶ m（data sheet，booklet 4.1）；
+   GM 用 6.67 × 10⁻¹¹ × 6.0 × 10²⁴ = 4.002 × 10¹⁴；2M_E 是示意行星（半径不变）；播放时物体往外飞再回来是示意。 */
+var G=6.67e-11,ME=6.0e24,RE=6.371e6,HMAX=20000,RAX=2.8e7,OM=TAU/16,GE=G*ME/(RE*RE);
+var m1={km:6371,ph:0,mul:1,dir:1};
+m1.ph=Math.acos(1-2*m1.km/HMAX);
+var L={},ST={a:'',b:''},S1=null,RU=[],RS=[];
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){var s=String(n),o='',i;for(i=0;i<s.length;i++)o+=SUP[s.charAt(i)];return o;}
+function sci(x,sf){var e=Math.floor(Math.log10(Math.abs(x))+1e-9),mt=x/Math.pow(10,e);if(parseFloat(mt.toFixed(sf-1))>=10){e++;mt=x/Math.pow(10,e);}return mt.toFixed(sf-1)+' × 10'+sup(e);}
+function g3(x){return x>=1000?sci(x,3):x.toPrecision(3);}
+function g2(x){return x>=100?sci(x,2):x.toPrecision(2);}
+function gAt(r,mul){return G*ME*mul/(r*r);}
+function kmTxt(km){return km>=10000?Math.floor(km/1000)+' '+String(1000+km%1000).slice(1):String(km);}
+function hsf(km){return clamp(String(km).replace(/0+$/,'').length,3,4);}
+/* 带下标的文字："r_E" → r 加下标 E。下标字号不小于 11 px。maxW：太长就缩小字号（不小于 11 px） */
+function rtParse(s){var buf='',i,ch;RU.length=0;RS.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf);RS.push(0);buf='';}RU.push(s.charAt(i+1));RS.push(1);i++;}else buf+=ch;}
+  if(buf){RU.push(buf);RS.push(0);}}
+function rtW(ctx,size,wt,fam){var w=0,i,ss=Math.max(11,size*0.72);for(i=0;i<RU.length;i++){ctx.font=wt+' '+(RS[i]?ss:size)+'px '+fam;w+=ctx.measureText(RU[i]).width+(RS[i]?0.5:0);}return w;}
+function rtMeasure(ctx,s,size,wt,fam){rtParse(s);return rtW(ctx,size,wt||500,fam||FONT);}
+function rt(ctx,s,x,y,col,size,wt,align,fam,maxW){
+  wt=wt||500;fam=fam||FONT;rtParse(s);var w=rtW(ctx,size,wt,fam),i,sz,ss,x0;
+  while(maxW&&w>maxW&&size>11){size=Math.max(11,size-0.5);w=rtW(ctx,size,wt,fam);}
+  ss=Math.max(11,size*0.72);x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<RU.length;i++){sz=RS[i]?ss:size;txt(ctx,RU[i],x0,y+(RS[i]?size*0.24:0),col,sz,wt,'left','alphabetic',fam);ctx.font=wt+' '+sz+'px '+fam;x0+=ctx.measureText(RU[i]).width+(RS[i]?0.5:0);}
+  return w;
+}
+function brk(ctx,x1,x2,y,col,w){seg(ctx,x1,y,x2,y,col,w);seg(ctx,x1,y-4,x1,y+4,col,w);seg(ctx,x2,y-4,x2,y+4,col,w);}
+function lay(W){
+  var wide=W>=640,k;L.wide=wide;
+  if(wide){L.cw=clamp(W*0.3,220,250);L.cx0=W-16-L.cw;L.x0=16;L.ae=L.cx0-24;k=(L.ae-L.x0)/(RE+RAX);
+    L.sx=16;L.y1=26;L.y2=47;L.f1=15;L.f2=12.5;L.bt=60;L.gh=118;}
+  else{L.x0=12;k=Math.min((W-26-L.x0)/(RE+RAX),(W-56)/(2*RE+HMAX*1e3));L.ae=L.x0+(RE+RAX)*k;
+    L.sx=12;L.y1=22;L.y2=42;L.f1=13.5;L.f2=12;L.bt=52;L.gh=108;}
+  L.k=k;L.R=RE*k;L.xo=L.x0+L.R;L.cy=L.bt+L.R+26;L.bb=L.cy+L.R+18;
+  L.gy=L.bb+30;L.ay=L.gy+L.gh;
+  L.H=wide?L.ay+46:L.ay+168;
+}
+function status(two,gS,g,r){
+  var mv=S1?S1.playing:false,q=r/RE,ms='M × 2 → 同一个 r，g × 2（g ∝ M）· 2M_E 是示意行星';
+  if(mv){
+    ST.a=m1.dir>0?'往外飞：r 变大 → g 变小（g ∝ 1/r²）':'往回飞：r 变小 → g 变大（g ∝ 1/r²）';
+    ST.b=m1.dir>0?'field lines 越往外越稀 → 引力场越弱':'越靠近地球，field lines 越密 → 引力场越强';
+  }else if(m1.km===0){
+    ST.a='地面：h = 0，r = r_E → g = '+g3(g)+' m s⁻²';
+    ST.b=two?ms:'sheet 上写 9.8，只是因为 M_E 取整了';
+  }else if(m1.km===420){
+    ST.a=two?'h = 420 km：r = r_E + h → g = '+g3(g)+' m s⁻²':'ISS：h = 420 km，r = r_E + h → g = 8.68 ≈ 8.7 m s⁻²';
+    ST.b=two?ms:'错把 h 当 r，会算出 '+g2(G*ME/(4.2e5*4.2e5))+' m s⁻²，太离谱';
+  }else if(m1.km===6371){
+    ST.a='r = 2r_E：距离 × 2 → g ÷ 4：'+g3(gS)+' ÷ 4 ≈ '+g3(g)+' m s⁻²';
+    ST.b=two?ms:'是 ÷ 4，不是 ÷ 2：g ∝ 1/r²';
+  }else{
+    ST.a='r ≈ '+q.toFixed(2)+'r_E → g ≈ '+g3(gS)+' ÷ '+q.toFixed(2)+'² ≈ '+g2(g)+' m s⁻²';
+    ST.b=two?ms:'g ∝ 1/r²：field lines 越往外越稀，g 越小';
+  }
+}
+function curve(ctx,mul,col,w,dash){
+  var N=90,i,rr,x,y;ctx.beginPath();
+  for(i=0;i<=N;i++){rr=RE*Math.pow(RAX/RE,i/N);x=L.xo+rr*L.k;y=L.ay-gAt(rr,mul)/20*L.gh;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash(dash||[]);ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);
+}
+function draw1(ctx,W,H){
+  lay(W);ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  var two=m1.mul===2,mul=m1.mul,R=L.R,xo=L.xo,cy=L.cy,k=L.k,km=m1.km,h=km*1e3,r=RE+h;
+  var gS=gAt(RE,mul),g=gAt(r,mul),GM=G*ME*mul,ox=xo+r*k,i,n,a,ca,sa,j,ra,v,x,y,near;
+  status(two,gS,g,r);
+  rt(ctx,ST.a,L.sx,L.y1,C.ink,L.f1,600,'left',FONT,W-2*L.sx);
+  rt(ctx,ST.b,L.sx,L.y2,C.muted,L.f2,500,'left',FONT,W-2*L.sx);
+  /* 径向引力场线：箭头朝地心；物体走的那条线附近留空，放标注 */
+  ctx.save();ctx.beginPath();ctx.rect(0,L.bt,L.wide?L.ae+10:W,L.bb-L.bt);ctx.clip();
+  n=two?24:12;
+  for(i=0;i<n;i++){a=i*TAU/n;if(Math.min(a,TAU-a)<0.35)continue;ca=Math.cos(a);sa=-Math.sin(a);
+    seg(ctx,xo+ca*R*6,cy+sa*R*6,xo+ca*(R+2),cy+sa*(R+2),rgba(C.muted,0.5),1.2,[5,6]);
+    near=ca>0.8;  /* 靠近物体那条线的场线：箭头放远一点，不压住 h、r 的标注 */
+    for(j=0;j<2;j++){ra=R*(near?(j?3.6:2.2):(j?2.6:1.35));arrow(ctx,xo+ca*(ra+11),cy+sa*(ra+11),xo+ca*ra,cy+sa*ra,rgba(C.muted,0.85),1.4,7);}}
+  ctx.restore();
+  /* 地球 */
+  dot(ctx,xo,cy,R,rgba(C.field,two?0.38:0.22));ring(ctx,xo,cy,R,C.field,1.6);
+  dot(ctx,xo,cy,3.5,C.ink);
+  txt(ctx,'地心',xo-7,cy-7,C.ink,11.5,600,'right');
+  txt(ctx,two?'示意行星':'地球',xo-R*0.22,cy-R*0.62,C.ink,12,600,'center');
+  rt(ctx,two?'2M_E':'M_E',xo-R*0.4,cy+R*0.52,C.ink,14,600,'center',MATH);
+  /* 尺寸：上面 r_E + h，下面 r（从地心量） */
+  var yt=cy-26,yb=cy+26,xs=xo+R;
+  brk(ctx,xo,xs,yt,rgba(C.muted,0.9),1.4);rt(ctx,'r_E',(xo+xs)/2,yt-9,C.muted,14,600,'center',MATH);
+  /* h 很小（比如 ISS 420 km，只有几 px）时，两端的竖线会挤成一个“H”：只画一段线，把 h 的值写在右边 */
+  if(km>0&&ox-xs<12){seg(ctx,xs,yt,ox,yt,C.ink,2);txt(ctx,'h = '+kmTxt(km)+' km',ox+8,yt-9,C.ink,12,600,'left');}
+  else if(km>0){brk(ctx,xs,ox,yt,C.ink,1.6);txt(ctx,'h',(xs+ox)/2,yt-9,C.ink,14,'italic 600','center','alphabetic',MATH);}
+  else txt(ctx,'h = 0',xs+6,yt-9,C.ink,12,600,'left');
+  brk(ctx,xo,ox,yb,C.ink,2);rt(ctx,'r = r_E + h',(xo+ox)/2,yb+18,C.ink,14,600,'center',MATH);
+  /* 物体和 g 箭头（长度 ∝ g） */
+  seg(ctx,ox,yb+26,ox,L.ay,rgba(C.muted,0.55),1,[3,4]);
+  var Lg=Math.max(6,0.45*R*g/GE);   /* 长度 ∝ g；太远时最短画 6 px，不然看不见 */
+  arrow(ctx,ox-8,cy,ox-8-Lg,cy,C.violet,3,clamp(Lg*0.55,5,10));
+  txt(ctx,'g',Lg>=16?ox-8-Lg/2:ox-14,cy-8,C.violet,15,'italic 600','center','alphabetic',MATH);
+  dot(ctx,ox,cy,6,C.ink);
+  txt(ctx,'1 kg',ox+10,cy+4.5,C.ink,12,600,'left');
+  /* g–r 图：横轴和上图同一比例，r = 0 在地心正下方 */
+  var gy=L.gy,gh=L.gh,ay=L.ay,ae=L.ae;
+  ctx.fillStyle=rgba(C.field,0.14);ctx.fillRect(xo,gy,R,gh);
+  txt(ctx,'地球内部',xo+R/2,ay-8,C.muted,11,500,'center');
+  for(v=5;v<=20;v+=5)seg(ctx,xo,ay-v/20*gh,ae,ay-v/20*gh,C.grid,1);
+  seg(ctx,xo,gy-6,xo,ay,C.muted,1.2);seg(ctx,xo,ay,ae,ay,C.muted,1.2);
+  for(v=0;v<=20;v+=5)txt(ctx,String(v),xo-6,ay-v/20*gh+4,C.muted,11,500,'right');
+  rt(ctx,'g (m s⁻²)',L.x0,gy-12,C.muted,12,600,'left');
+  for(n=1;n<=4;n++){x=xo+n*R;seg(ctx,x,ay,x,ay+4,C.muted,1.2);rt(ctx,n===1?'r_E':n+'r_E',x,ay+17,C.muted,12.5,600,'center',MATH);}
+  txt(ctx,'地心',xo,ay+17,C.muted,11,500,'center');
+  txt(ctx,'r（从地心量）→',ae,ay+35,C.muted,12,500,'right');
+  ctx.save();ctx.beginPath();ctx.rect(xo,gy-3,ae-xo+3,gh+5);ctx.clip();
+  if(two)curve(ctx,1,rgba(C.south,0.85),1.6,[5,4]);
+  curve(ctx,mul,C.copper,2.4,null);
+  ctx.restore();
+  y=ay-gS/20*gh;dot(ctx,xs,y,3.5,C.copper);
+  if(km>0)txt(ctx,g3(gS),xs-6,y+4,C.copper,11.5,600,'right');
+  /* 图例（右上角） */
+  var l1=two?'M = 2M_E（示意）':'M = M_E',l2='M = M_E（对照）',w1=rtMeasure(ctx,l1,12,600),w2=two?rtMeasure(ctx,l2,12,600):0,lw=Math.max(w1,w2)+30,lx=ae-4;
+  ctx.fillStyle=rgba(C.stage,0.9);ctx.fillRect(lx-lw-4,gy+1,lw+6,two?36:20);
+  rt(ctx,l1,lx,gy+14,C.copper,12,600,'right');seg(ctx,lx-w1-26,gy+10,lx-w1-6,gy+10,C.copper,2.4);
+  if(two){rt(ctx,l2,lx,gy+31,C.south,12,600,'right');seg(ctx,lx-w2-26,gy+27,lx-w2-6,gy+27,C.south,1.6,[5,4]);}
+  /* 曲线上的点：就在物体正下方 */
+  y=ay-g/20*gh;dot(ctx,ox,y,5.5,C.violet);ring(ctx,ox,y,5.5,C.stage,1.5);
+  var lab='g = '+g3(g);ctx.font='700 12.5px '+FONT;var lw2=ctx.measureText(lab).width;
+  if(ox+10+lw2<=ae)txt(ctx,lab,ox+10,y-7,C.violet,12.5,700,'left');else txt(ctx,lab,ox-10,y-7,C.violet,12.5,700,'right');
+  /* 计算 */
+  var hs=sci(h||1,hsf(km)),rs=sci(r,4),gms=sci(GM,4),wrong=km>0?g2(GM/(h*h)):'',q=r/RE;
+  if(L.wide){
+    var cx=L.cx0,ix=cx+14,cw=L.cw,yy=L.bt+14;
+    var ln=function(s,xx,col,size,wt){rt(ctx,s,xx,yy,col,size,wt,'left',FONT,cx+cw-xx);};
+    ln(two?'M = 2M_E = 1.2 × 10²⁵ kg（示意）':'M = M_E = 6.0 × 10²⁴ kg',cx,C.muted,12.5,600);yy+=19;
+    ln('GM = 6.67 × 10⁻¹¹ × '+(two?'1.2 × 10²⁵':'6.0 × 10²⁴'),cx,C.muted,12.5,500);yy+=19;
+    ln('= '+gms+' m³ s⁻²',ix,C.muted,12.5,500);yy+=27;
+    ln(km>0?'h = '+kmTxt(km)+' km = '+hs+' m':'h = 0（在地面上）',cx,C.ink,13.5,700);yy+=21;
+    ln('r = r_E + h',cx,C.ink,13.5,600);yy+=19;
+    if(km>0){ln('= 6.371 × 10⁶ + '+hs,ix,C.muted,12.5,500);yy+=19;}
+    ln('= '+rs+' m',ix,C.ink,13.5,700);yy+=27;
+    ln('g = GM / r²',cx,C.ink,13.5,600);yy+=19;
+    ln('= '+gms+' ÷ ('+rs+')²',ix,C.muted,12.5,500);yy+=22;
+    ln('= '+g3(g)+' m s⁻²',ix,C.violet,16,700);yy+=19;
+    ln('1 kg 受的力 F = mg = '+g3(g)+' N',ix,C.muted,12,500);yy+=27;
+    ln('r ÷ r_E = '+q.toFixed(2)+' → g ÷ '+(q*q).toFixed(2),cx,C.ink,13,600);yy+=18;
+    ln('（和地面比：g ∝ 1/r²）',cx,C.muted,12,500);yy+=27;
+    if(km>0){ln('错把 h 当 r：GM / h²',cx,C.north,12.5,600);yy+=19;ln('= '+wrong+' m s⁻²（错）',ix,C.north,12.5,600);}
+    else{ln('陷阱：公式里的 r 从地心量，',cx,C.north,12.5,600);yy+=19;ln('不能直接用高度 h',cx,C.north,12.5,600);}
+  }else{
+    var nx=12,mw=W-24,ny=ay+50;
+    seg(ctx,nx,ny,W-12,ny,C.line,1);ny+=20;
+    rt(ctx,'GM = 6.67 × 10⁻¹¹ × '+(two?'1.2 × 10²⁵':'6.0 × 10²⁴')+' = '+gms,nx,ny,C.muted,12,500,'left',FONT,mw);ny+=20;
+    rt(ctx,(km>0?'h = '+kmTxt(km)+' km → ':'h = 0 → ')+'r = r_E + h = '+rs+' m',nx,ny,C.ink,13,700,'left',FONT,mw);ny+=20;
+    rt(ctx,'g = GM / r² = '+gms+' ÷ ('+rs+')²',nx,ny,C.muted,12.5,500,'left',FONT,mw);ny+=22;
+    var wv=rt(ctx,'= '+g3(g)+' m s⁻²',nx+14,ny,C.violet,15,700,'left',FONT);
+    rt(ctx,'（1 kg 受力 F = '+g3(g)+' N）',nx+14+wv+4,ny,C.muted,12,500,'left',FONT,mw-18-wv);ny+=22;
+    if(km>0)rt(ctx,'错把 h 当 r：GM / h² = '+wrong+' m s⁻²（错）',nx,ny,C.north,12.5,600,'left',FONT,mw);
+    else rt(ctx,'陷阱：公式里的 r 从地心量，不能直接用高度 h',nx,ny,C.north,12.5,600,'left',FONT,mw);
+  }
+}
+var r1=document.getElementById('s1-h'),o1=document.getElementById('s1-h-out');
+var bP=[document.getElementById('s1-p0'),document.getElementById('s1-p1'),document.getElementById('s1-p2')],PK=[0,420,6371];
+var bM1=document.getElementById('s1-m1'),bM2=document.getElementById('s1-m2');
+function sync1(){r1.value=String(m1.km);o1.textContent=kmTxt(m1.km)+' km';for(var i=0;i<3;i++)press(bP[i],m1.km===PK[i]);press(bM1,m1.mul===1);press(bM2,m1.mul===2);}
+function step1(dt){
+  m1.ph+=OM*dt;if(m1.ph>=TAU)m1.ph-=TAU;
+  m1.dir=Math.sin(m1.ph)>1e-6?1:-1;
+  var km=Math.round(HMAX*(1-Math.cos(m1.ph))/2/10)*10;
+  if(km!==m1.km){m1.km=km;sync1();}
+}
+S1=makeStage('sim1',{height:function(w){lay(w);return L.H;},step:step1,draw:draw1});
+function setH(km){m1.km=km;m1.ph=Math.acos(clamp(1-2*km/HMAX,-1,1));m1.dir=1;S1.setPlaying(false);sync1();S1.render();}
+r1.addEventListener('input',function(){setH(parseInt(r1.value,10));});
+bP.forEach(function(b,i){b.addEventListener('click',function(){setH(PK[i]);});});
+bM1.addEventListener('click',function(){m1.mul=1;sync1();S1.render();});
+bM2.addEventListener('click',function(){m1.mul=2;sync1();S1.render();});
+S1.fig.querySelector('[data-play]').addEventListener('click',function(){S1.render();});
+sync1();S1.render();
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2：Newton's cannonball（Figure 4.1）。高山顶上的大炮水平往右发射，球顺时针绕地心飞。
+   用真实的 1/r² 引力（RK4）算轨迹。单位：GM = 1，炮口到地心 r0 = 1，炮口处的圆轨道速度 = 1。
+   轨道形状只看 u = v ÷ 圆轨道速度，所以 slider 的 v 换成 u = v / 7.9（圆轨道速度按 booklet 标成 7.9 km s⁻¹）。
+   山高 = 0.05 个地球半径（示意，比真的山高得多；山再高的话 7.8 km s⁻¹ 也会擦过地球不落地）。
+   发射点是离地心最远的点：比 7.9 慢的球都往里掉，最后落地；7.9 时 F 一直 ⟂ v，是圆。 */
+var VC=7.9,RG=1/1.05,DT=0.002,DS=0.01,RATE=0.5;   /* RATE：画面 1 s = 0.5 个时间单位（圆轨道一圈约 12.6 s） */
+var AX=0,AY=0,BX=0,BY=0,BVX=0,BVY=0;
+var m2={cur:null,fired:false,t:0,done:false,old:[],line:false,v:7.9};
+var Lo={},ST=['','',''],RD=['',''],LT=[],LL=[],BOX=[],NB=0;
+function acc(x,y){var r2=x*x+y*y,r3=r2*Math.sqrt(r2);AX=-x/r3;AY=-y/r3;}
+/* 从炮口 (0, 1) 以 (u, 0) 发射，算到落地（r = RG）。P 每 DS 存一个点 [x, y, vx, vy]，最后一个点是落地点 */
+function shoot(v){
+  var u=v/VC,tr={v:v,u:u,circ:Math.abs(v-VC)<1e-6,P:[0,1,u,0],tl:Infinity,la:0,ang:90,lt:''};
+  if(tr.circ)return tr;
+  var x=0,y=1,vx=u,vy=0,t=0,k=0,per=Math.round(DS/DT),P=tr.P,h=DT,px,py,pvx,pvy,a1x,a1y,a2x,a2y,a3x,a3y,a4x,a4y,r,r1,f;
+  while(t<30){
+    px=x;py=y;pvx=vx;pvy=vy;
+    acc(x,y);a1x=AX;a1y=AY;
+    acc(x+h/2*vx,y+h/2*vy);a2x=AX;a2y=AY;
+    acc(x+h/2*(vx+h/2*a1x),y+h/2*(vy+h/2*a1y));a3x=AX;a3y=AY;
+    acc(x+h*(vx+h/2*a2x),y+h*(vy+h/2*a2y));a4x=AX;a4y=AY;
+    x+=h*(vx+h/6*(a1x+a2x+a3x));y+=h*(vy+h/6*(a1y+a2y+a3y));
+    vx+=h/6*(a1x+2*a2x+2*a3x+a4x);vy+=h/6*(a1y+2*a2y+2*a3y+a4y);
+    t+=h;k++;r=Math.sqrt(x*x+y*y);
+    if(r<=RG){
+      r1=Math.sqrt(px*px+py*py);f=(r1-RG)/Math.max(1e-12,r1-r);
+      x=px+(x-px)*f;y=py+(y-py)*f;vx=pvx+(vx-pvx)*f;vy=pvy+(vy-pvy)*f;t=t-h+h*f;
+      P.push(x,y,vx,vy);tr.tl=t;tr.la=Math.atan2(x,y);
+      tr.ang=Math.acos(clamp(-(x*vx+y*vy)/(RG*Math.sqrt(vx*vx+vy*vy)),-1,1))*180/Math.PI;
+      break;
+    }
+    if(k%per===0)P.push(x,y,vx,vy);
+  }
+  return tr;
+}
+/* 时刻 t 的位置和速度 → BX BY BVX BVY（y 向上） */
+function at(tr,t){
+  if(tr.circ){var c=Math.cos(t),s=Math.sin(t);BX=s;BY=c;BVX=c;BVY=-s;return;}
+  var P=tr.P,n=P.length/4,i,t0,t1,f,j;
+  if(t>=tr.tl||n<2){j=(n-1)*4;BX=P[j];BY=P[j+1];BVX=P[j+2];BVY=P[j+3];return;}
+  i=clamp(Math.floor(t/DS),0,n-2);t0=i*DS;t1=(i+1===n-1)?tr.tl:(i+1)*DS;f=clamp((t-t0)/Math.max(1e-9,t1-t0),0,1);j=i*4;
+  BX=P[j]+(P[j+4]-P[j])*f;BY=P[j+1]+(P[j+5]-P[j+1])*f;BVX=P[j+2]+(P[j+6]-P[j+2])*f;BVY=P[j+3]+(P[j+7]-P[j+3])*f;
+}
+function landed(){return m2.fired&&!m2.cur.circ&&m2.t>=m2.cur.tl;}
+function bySpeed(a,b){return a.v-b.v;}
+function byAngle(a,b){return a.la-b.la;}
+/* 字母：圆轨道 C；落地的轨迹按速度排，最慢的 A，其余 B（快一点，落得更远） */
+function letters(){
+  var i,o;LT.length=0;
+  for(i=0;i<m2.old.length;i++){o=m2.old[i];if(o.circ)o.lt='C';else LT.push(o);}
+  if(m2.cur.circ)m2.cur.lt='C';else{m2.cur.lt='';if(landed())LT.push(m2.cur);}
+  LT.sort(bySpeed);
+  for(i=0;i<LT.length;i++)LT[i].lt=i?'B':'A';
+}
+function dropSame(v){for(var i=m2.old.length-1;i>=0;i--)if(Math.abs(m2.old[i].v-v)<1e-6)m2.old.splice(i,1);}
+function pushOld(tr){dropSame(tr.v);m2.old.push(tr);while(m2.old.length>3)m2.old.shift();}   /* 连同当前的，最多 4 条 */
+function load(v){if(m2.fired)pushOld(m2.cur);m2.v=v;m2.cur=shoot(v);m2.fired=false;m2.t=0;m2.done=false;letters();}
+function fire(){if(m2.fired)pushOld(m2.cur);dropSame(m2.v);m2.cur=shoot(m2.v);m2.fired=true;m2.t=0;m2.done=false;letters();}
+function step2(dt){
+  if(!m2.fired)return;
+  var c=m2.cur;m2.t+=dt*RATE;
+  if(c.circ){if(m2.t>2*TAU)m2.t-=TAU;}
+  else if(m2.t>=c.tl){m2.t=c.tl;if(!m2.done){m2.done=true;letters();}}
+}
+/* 第一帧就像 Figure 4.1：A（5.0）、B（6.5）已经落地，C（7.9）已经绕了一圈多 */
+m2.old=[shoot(5.0),shoot(6.5)];m2.cur=shoot(7.9);m2.fired=true;m2.t=TAU+0.9;letters();
+
+/* 两个画面：VM = 整个地球；VI = 山顶附近放大 3 倍（同样的轨迹，只是比例不同） */
+var VM={},VI={},LB=[0,0,0,0],MAG=3,SANG=90;
+function lay(W){
+  var L=Lo,M=VM,I=VI;L.wide=W>=640;L.W=W;
+  if(L.wide){
+    M.k=clamp((W-382)/2,120,170);M.cx=26+M.k;M.cy=50+M.k;L.px=M.cx+M.k+40;L.pw=W-16-L.px;
+    L.H=Math.max(400,Math.round(50+2*M.k+34));M.x0=0;M.y0=0;M.x1=L.px-8;M.y1=L.H;M.end=L.px-14;
+    I.x0=L.px;I.x1=W-16;I.y0=130;I.y1=296;
+  }else{
+    M.k=Math.min(164,(W-28)/2);M.cx=W/2;M.cy=96+M.k;M.x0=0;M.y0=70;M.x1=W;M.end=W-8;
+    I.x0=12;I.x1=W-12;I.y0=Math.round(M.cy+M.k+22);I.y1=I.y0+142;L.by=I.y1+26;L.H=L.by+56;
+    M.y1=I.y0-2;
+  }
+  I.k=MAG*M.k;I.cx=I.x0+0.1*I.k;I.cy=I.y0+30+I.k;I.end=I.x1-6;
+}
+/* 文字框：放之前先看有没有和别的字挤在一起、在不在自己的画面里（中心对齐） */
+function boxFree(x0,y0,x1,y1){for(var i=0;i<NB;i++){var j=i*4;if(x0<BOX[j+2]&&x1>BOX[j]&&y0<BOX[j+3]&&y1>BOX[j+1])return false;}return true;}
+function lab(ctx,s,x,y,col,size,weight,family,force){
+  ctx.font=weight+' '+size+'px '+(family||FONT);
+  var w=ctx.measureText(s).width/2+2,h=size/2+1,j;
+  if(force)x=clamp(x,LB[0]+w+1,LB[2]-w-1);
+  else if(x-w<LB[0]+1||x+w>LB[2]-1||y-h<LB[1]+1||y+h>LB[3]-1||!boxFree(x-w,y-h,x+w,y+h))return false;
+  j=NB*4;BOX[j]=x-w;BOX[j+1]=y-h;BOX[j+2]=x+w;BOX[j+3]=y+h;NB++;
+  txt(ctx,s,x,y,col,size,weight,'center','middle',family);return true;
+}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW){
+  if(!s)return;ctx.font=weight+' '+size+'px '+FONT;var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11.5,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight);
+}
+function track(ctx,V,tr,t,col,w){
+  var k=V.k,cx=V.cx,cy=V.cy,P,n,i,m;
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash([]);ctx.beginPath();
+  if(tr.circ){ctx.arc(cx,cy,k,-Math.PI/2,-Math.PI/2+Math.min(t,TAU),false);ctx.stroke();return;}
+  P=tr.P;n=P.length/4;m=t>=tr.tl?n-1:Math.min(n-1,Math.floor(t/DS));
+  ctx.moveTo(cx+k*P[0],cy-k*P[1]);
+  for(i=1;i<=m;i++)ctx.lineTo(cx+k*P[i*4],cy-k*P[i*4+1]);
+  if(t<tr.tl){at(tr,t);ctx.lineTo(cx+k*BX,cy-k*BY);}
+  ctx.stroke();
+}
+/* 一个画面：地球、山、轨迹、大炮、直线、球和箭头。返回“没有引力”的小圈有没有画出来 */
+function scene(ctx,V,main,fl){
+  var k=V.k,cx=V.cx,cy=V.cy,R=k*RG,y0=cy-k,c=m2.cur,i,j,o,s,w,sn,cs,rr,gv=false,gx=0,tg;
+  LB[0]=V.x0;LB[1]=V.y0;LB[2]=V.x1;LB[3]=V.y1;
+  ctx.save();
+  if(!main){rrect(ctx,V.x0,V.y0,V.x1-V.x0,V.y1-V.y0,8);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();ctx.clip();}
+  dot(ctx,cx,cy,R,rgba(C.field,0.16));ring(ctx,cx,cy,R,rgba(C.field,0.9),1.5);
+  var ma=0.07;   /* 山（画得太高：示意） */
+  ctx.beginPath();ctx.moveTo(cx-R*Math.sin(ma),cy-R*Math.cos(ma));ctx.lineTo(cx,y0+1);ctx.lineTo(cx+R*Math.sin(ma),cy-R*Math.cos(ma));
+  ctx.arc(cx,cy,R,-Math.PI/2+ma,-Math.PI/2-ma,true);ctx.closePath();ctx.fillStyle=rgba(C.muted,0.55);ctx.fill();
+  for(i=0;i<m2.old.length;i++)track(ctx,V,m2.old[i],Infinity,rgba(C.copper,0.42),2);   /* 旧的变淡 */
+  if(m2.fired)track(ctx,V,c,m2.t,C.copper,2.6);
+  rrect(ctx,cx-18,y0-3.5,15,7,2);ctx.fillStyle=C.ink;ctx.fill();dot(ctx,cx-12,y0+4,3.2,C.muted);   /* 大炮 */
+  if(m2.line){
+    seg(ctx,cx,y0,V.end,y0,rgba(C.muted,0.95),1.4,[6,5]);
+    if(m2.fired&&!fl){tg=c.circ?(m2.t%TAU):m2.t;gx=cx+k*c.u*tg;gv=tg>0.02&&gx<=V.end-6;}
+  }
+  LL.length=0;   /* 落地点 */
+  for(i=0;i<m2.old.length;i++)if(!m2.old[i].circ)LL.push(m2.old[i]);
+  if(fl)LL.push(c);
+  LL.sort(byAngle);
+  for(i=0;i<LL.length;i++){o=LL[i];dot(ctx,cx+R*Math.sin(o.la),cy-R*Math.cos(o.la),main?3:3.5,o===c?C.copper:rgba(C.copper,0.6));}
+  at(c,m2.fired?m2.t:0);
+  var bx=cx+k*BX,by=cy-k*BY,r=Math.sqrt(BX*BX+BY*BY),sp=Math.sqrt(BVX*BVX+BVY*BVY);
+  var fx=-BX/r,fy=BY/r,vx=BVX/sp,vy=-BVY/sp,ang=Math.acos(clamp(fx*vx+fy*vy,-1,1))*180/Math.PI;
+  var st=7,Lv=(Lo.wide?46:40)*sp,LF=(Lo.wide?34:30)/(r*r),gl=gv?Math.hypot(gx-bx,y0-by):0;
+  if(gv){ring(ctx,gx,y0,5,C.muted,1.6);if(gl>4)seg(ctx,gx,y0,bx,by,rgba(C.ink,0.85),1.5);}
+  if(!fl){
+    arrow(ctx,bx+fx*st,by+fy*st,bx+fx*(st+LF),by+fy*(st+LF),C.force,2.6,8);
+    arrow(ctx,bx+vx*st,by+vy*st,bx+vx*(st+Lv),by+vy*(st+Lv),rgba(C.ink,0.7),2.6,9);
+    if(Math.abs(ang-90)<0.6){var q=11;ctx.beginPath();ctx.moveTo(bx+fx*q,by+fy*q);ctx.lineTo(bx+fx*q+vx*q,by+fy*q+vy*q);ctx.lineTo(bx+vx*q,by+vy*q);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();}
+  }
+  dot(ctx,bx,by,5,C.ink);
+  ctx.restore();
+  /* 文字：先放不动的，再放跟着球走的（挤的话就不画） */
+  if(main){
+    lab(ctx,'Earth 地球',cx,cy,C.muted,13,600,FONT,true);
+    ctx.font='600 11.5px '+FONT;w=ctx.measureText('高山上的大炮').width;
+    lab(ctx,'高山上的大炮',cx-22-w/2,y0-13,C.muted,11.5,600,FONT,true);
+  }else{
+    txt(ctx,'山顶附近放大 '+MAG+' 倍',V.x0+10,V.y0+17,C.muted,11.5,600);
+    ctx.font='600 11.5px '+FONT;w=ctx.measureText('山顶附近放大 '+MAG+' 倍').width;
+    j=NB*4;BOX[j]=V.x0+8;BOX[j+1]=V.y0+5;BOX[j+2]=V.x0+12+w;BOX[j+3]=V.y0+22;NB++;
+  }
+  if(m2.line){ctx.font='600 11.5px '+FONT;w=ctx.measureText('没有引力时的直线').width;lab(ctx,'没有引力时的直线',V.end-w/2-2,y0-17,C.muted,11.5,600,FONT,main);}
+  for(i=0;i<LL.length;i++){   /* 字母放在地球里面，互相不挤 */
+    o=LL[i];sn=Math.sin(o.la);cs=Math.cos(o.la);
+    s=o.lt+' '+o.v.toFixed(1);ctx.font='700 12px '+FONT;w=ctx.measureText(s).width;
+    for(j=0;j<6;j++){rr=R-10-Math.abs(sn)*w/2-Math.abs(cs)*7-j*15;if(lab(ctx,s,cx+rr*sn,cy-rr*cs,C.copper,12,700,FONT,main&&j===5))break;}
+  }
+  if(main){   /* C 的字母：轨迹画到那里才标 */
+    var showC=m2.fired&&c.circ&&m2.t>=1.25*Math.PI;
+    for(i=0;i<m2.old.length;i++)if(m2.old[i].circ)showC=true;
+    if(showC)lab(ctx,'C 7.9',cx-(k+18)*Math.SQRT1_2,cy+(k+18)*Math.SQRT1_2,C.copper,12.5,700,FONT,true);
+  }
+  if(!fl){
+    lab(ctx,'v',bx+vx*(st+Lv+10),by+vy*(st+Lv+10),rgba(C.ink,0.85),14,'italic 700',MATH);
+    lab(ctx,'F',bx+fx*(st+LF+10),by+fy*(st+LF+10),C.force,14,'italic 700',MATH);
+  }
+  if(!main&&gv&&gl>=16){
+    var mx=(gx+bx)/2,my=(y0+by)/2;
+    ctx.font='600 11.5px '+FONT;w=ctx.measureText('掉下去的距离').width;
+    if(!lab(ctx,'掉下去的距离',mx+10+w/2,my,C.ink,11.5,600))lab(ctx,'掉下去的距离',mx-10-w/2,my,C.ink,11.5,600);
+  }
+  SANG=ang;
+  return gv;
+}
+/* 角度：接近 90° 时多给一位小数（7.8 km s⁻¹ 落地时是 89.5°，不要显示成 90°） */
+function dg(a){var d=Math.abs(a-90);return (d<1&&d>=0.05?a.toFixed(1):String(Math.round(a)))+'°';}
+function status2(fl,ang,gv){
+  var c=m2.cur,v=c.v.toFixed(1),vs='v = '+v+' km s⁻¹：',deg=Math.round(c.la*180/Math.PI);
+  RD[0]='发射速度 v = '+v+' km s⁻¹'+(c.circ?'（= 圆轨道速度）':'（比圆轨道速度 7.9 慢）');
+  if(!m2.fired){
+    ST[0]=vs+'装好了，还没发射';ST[1]='按 “Fire 发射”，看它'+(c.circ?'能不能落地':'落在哪里');
+    ST[2]=m2.line?'虚线：没有引力时，球会沿这条直线飞':'';RD[1]='水平发射：F 和 v 成 90°';
+  }else if(c.circ){
+    ST[0]=vs+'球往下掉多少，地面就弯下去多少';ST[1]='→ 永远落不了地 → 圆轨道 C';
+    ST[2]=gv?'球和虚线的距离 = 它掉下去的距离':'F 和 v 一直成 90°：引力正好当向心力';
+    RD[1]='F 和 v 一直成 90° → 速度大小不变';
+  }else if(!fl){
+    ST[0]=vs+'一边往前飞，一边往下掉';ST[1]='引力 F 一直指向地心，把路线拉弯';
+    ST[2]=gv?'球和虚线的距离 = 它掉下去的距离':'';
+    RD[1]='F 和 v 的夹角 = '+dg(ang)+(ang<89.95?'（< 90° → 越掉越快）':'');
+  }else{
+    if(c.lt==='A'){ST[0]=vs+'太慢。';ST[1]='球掉得比地面弯得快 → 落地（A）';}
+    else{ST[0]=vs+'快一点，落得更远（B）';ST[1]=deg>60?'飞得很远，但还是掉得比地面弯得快':'球还是一直在往下掉 → 还是落地';}
+    ST[2]='拉到 7.9 km s⁻¹ 再发射试试';
+    RD[1]='落地：绕地心转了 '+deg+'°；F 和 v 的夹角 90° → '+dg(c.ang);
+  }
+}
+function draw2(ctx,W,H){
+  lay(W);
+  var L=Lo,fl=landed(),gv,ang;
+  NB=0;
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  gv=scene(ctx,VM,true,fl);ang=SANG;
+  gv=scene(ctx,VI,false,fl)||gv;
+  status2(fl,ang,gv);
+  if(L.wide){
+    var px=L.px,pw=L.pw;
+    fitTxt(ctx,ST[0],px,66,C.ink,14.5,700,pw);
+    fitTxt(ctx,ST[1],px,90,C.ink,14.5,600,pw);
+    fitTxt(ctx,ST[2],px,114,C.muted,13.5,600,pw);
+    fitTxt(ctx,RD[0],px,VI.y1+28,C.ink,13,600,pw);
+    fitTxt(ctx,RD[1],px,VI.y1+51,C.ink,13,500,pw);
+    fitTxt(ctx,'山高和画面比例：示意（山画得太高）',px,H-16,C.muted,11.5,500,pw);
+  }else{
+    var bw=W-24,b0=L.by;
+    fitTxt(ctx,ST[0],12,22,C.ink,13.5,700,bw);
+    fitTxt(ctx,ST[1],12,42,C.ink,13.5,600,bw);
+    fitTxt(ctx,ST[2],12,62,C.muted,12.5,600,bw);
+    fitTxt(ctx,RD[0],12,b0,C.ink,12.5,600,bw);
+    fitTxt(ctx,RD[1],12,b0+20,C.ink,12.5,500,bw);
+    fitTxt(ctx,'山高和画面比例：示意（山画得太高）',12,H-10,C.muted,11.5,500,bw);
+  }
+}
+var S2=makeStage('sim2',{height:function(w){lay(w);return Lo.H;},step:step2,draw:draw2});
+var r2=document.getElementById('s2-v'),o2=document.getElementById('s2-v-out'),b2l=document.getElementById('s2-line');
+r2.addEventListener('input',function(){var v=Math.round(parseFloat(r2.value)*10)/10;o2.textContent=v.toFixed(1)+' km s⁻¹';load(v);S2.render();});
+document.getElementById('s2-fire').addEventListener('click',function(){fire();S2.setPlaying(true);S2.render();});
+b2l.addEventListener('click',function(){m2.line=!m2.line;press(b2l,m2.line);b2l.textContent='没有引力时的直线：'+(m2.line?'开':'关');S2.render();});
+document.getElementById('s2-clear').addEventListener('click',function(){m2.old.length=0;m2.cur=shoot(m2.v);m2.fired=false;m2.t=0;m2.done=false;letters();S2.render();});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 轨道越高越慢；卫星质量没关系（4.2 The period and Kepler's third law）
+   真实物理：圆轨道 v = √(GM/r)，T = 2π√(r³/GM)。GM = 6.67 × 10⁻¹¹ × 6.0 × 10²⁴ = 4.002 × 10¹⁴（不先取整，
+   这样 r = 7.0 × 10⁶ m 时 T = 5817 s，和讲义实验一样）。卫星按角速度 2π/T 走圆（解析解，不会漂），质量不进入运动。
+   地球和轨道按比例画；画面 1 s = 2000 s。卫星上的 F 箭头只画方向（F 从 25 N 到 4.08 × 10⁴ N，差 1600 倍，画不下），
+   F 和 a 的大小看下面同一比例尺的柱：F 柱最长 = 5000 kg 在 r = 7.0 × 10⁶ m，a 柱最长 = r = 7.0 × 10⁶ m 的 a。 */
+var GM=6.67e-11*6.0e24,RE=6.371e6,R0=7.0e6,RMAX=4.0e7,TS=2000,TRAIL=2000,K4=GM/(4*Math.PI*Math.PI);
+var XM=7,YM=7,KG=K4*1e9/1e22; /* 图：T² 用 10⁹ s²，r³ 用 10²² m³；KG = 图上的斜率 */
+var MS=[100,1000,5000],MRAD={100:3.5,1000:5,5000:7};
+var FMAX=GM*5000/(R0*R0),AMAX=GM/(R0*R0);
+function vOf(r){return Math.sqrt(GM/r);}
+function TOf(r){return TAU*Math.sqrt(r*r*r/GM);}
+
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x,d){var e=Math.floor(Math.log(x)/Math.LN10+1e-9),m=x/Math.pow(10,e);if(+m.toFixed(d)>=10){m/=10;e++;}return m.toFixed(d)+' × 10'+sup(e);}
+function grp(n){var s=String(Math.round(n));return s.length>4?s.replace(/\B(?=(\d{3})+(?!\d))/g,' '):s;}
+function rfmt(r){return sci(r,r<9.995e6?1:2);}
+function ffmt(x){return x>=1000?sci(x,2):x.toPrecision(3);}
+
+var rr=document.getElementById('s3-r'),ro=document.getElementById('s3-r-out');
+var mb=MS.map(function(m){return document.getElementById('s3-m'+m);});
+var m3={r:(parseFloat(rr.value)||28)*1e6,m:1000,pm:1000,th:0.9,thR:3.6,act:'r',dup:false,pts:[14,28,56]};
+/* pts 里存 r ÷ (0.5 × 10⁶ m)，和 slider 的步长一样，方便判断“记过了” */
+
+/* 柱：按真实比例画，没有 hbar 那种最短一截（不然 1000 kg 和 5000 kg 在高轨道上看起来一样长） */
+function bar(ctx,x,y,w,h,frac,col){rrect(ctx,x,y,w,h,h/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  var fw=w*clamp(frac,0,1);if(fw>0.3){ctx.save();rrect(ctx,x,y,w,h,h/2);ctx.clip();ctx.fillStyle=col;ctx.fillRect(x,y,fw,h);ctx.restore();}}
+function fitTxt(ctx,s,x,y,col,size,weight,align,maxW,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）左边轨道、右边图和读数；手机上下排 ---------- */
+function lay(W){
+  var o={};
+  if(W>=640){o.wide=true;o.R=Math.min(165,Math.floor((W-390)/2));o.cx=24+o.R;o.cy=o.R+74;o.s1=26;o.s2=48;
+    o.lx=14;o.ly=o.cy+o.R+34;o.H=o.ly+46;
+    o.px0=o.cx+o.R+30;o.gx=o.px0+30;o.gw=W-16-o.gx;o.gy=88;o.gh=o.H-o.gy-146;}
+  else{o.wide=false;o.R=Math.min(130,Math.floor((W-44)/2));o.cx=W/2;o.cy=o.R+66;o.s1=21;o.s2=40;
+    o.lx=16;o.ly=o.cy+o.R+34;o.px0=16;o.gx=44;o.gw=W-16-o.gx;o.gy=o.ly+74;o.gh=112;o.H=o.gy+o.gh+146;}
+  return o;
+}
+
+/* 状态提示：这一刻发生了什么、为什么 */
+function status(wide){
+  var k=m3.r/R0,same=Math.abs(k-1)<1e-9,T=TOf(m3.r),a,b;
+  if(m3.act==='mass'){var f=m3.m/m3.pm;
+    a='质量 '+m3.pm+' kg → '+m3.m+' kg：F = GMm/r² 变成 '+(f>1?Math.round(f)+' 倍':'1/'+Math.round(1/f));
+    b='但 a = F/m 一点没变 → T 还是 '+grp(T)+' s'+(same?'，两颗间隔不变':'');}
+  else if(m3.act==='rec'){
+    if(m3.dup){a='这个 r 已经记过了';b='换一个 r，再按“记下这一点”';}
+    else{a='记下 (T², r³)：每个点都在一条过原点的直线上';
+      b=wide?'斜率 r³/T² = GM/4π² = '+sci(K4,2)+' m³ s⁻²，只看地球的质量':'r³/T² = GM/4π²：只看地球的质量';}}
+  else if(m3.act==='clear'){a='图清空了：拖 r，再按“记下这一点”';b='看每个新点是不是落在过原点的直线上';}
+  else if(same){a='r 一样 → v、T 都一样 → 两颗卫星的间隔一直不变';b='T = '+grp(T)+' s：周期只看 r，和卫星质量无关';}
+  else{a='你的轨道比参考卫星高 → 更慢，一圈更久';
+    b=Math.abs(k-2)<1e-9?'r 变成 2 倍：v 变成 1/√2 倍，T 变成 2√2 ≈ 2.8 倍':
+      Math.abs(k-4)<1e-9?'r 变成 4 倍：v 变成 1/2 倍，T 变成 8 倍（8² = 4³）':
+      ('r 变成 '+k.toFixed(2)+' 倍：v 变成 '+(1/Math.sqrt(k)).toFixed(2)+' 倍，T 变成 '+Math.pow(k,1.5).toFixed(2)+' 倍');}
+  return [a,b];
+}
+
+/* 尾巴：最近 TRAIL 秒走过的弧，越旧越淡 */
+function trail(ctx,cx,cy,rp,th,span,col){
+  var n=10;ctx.lineCap='round';ctx.lineWidth=3;
+  for(var i=0;i<n;i++){var a0=th-span*(1-i/n),a1=th-span*(1-(i+1)/n);ctx.beginPath();
+    for(var j=0;j<=4;j++){var a=a0+(a1-a0)*j/4,x=cx+rp*Math.cos(a),y=cy-rp*Math.sin(a);if(j)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+    ctx.strokeStyle=rgba(col,0.06+0.6*(i+1)/n);ctx.stroke();}
+  ctx.lineCap='butt';
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){var h=dt*TS;m3.th=(m3.th+TAU*h/TOf(m3.r))%TAU;m3.thR=(m3.thR+TAU*h/TOf(R0))%TAU;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),wide=L.wide,st=status(wide);
+    fitTxt(ctx,st[0],16,L.s1,C.ink,wide?15:13.5,600,'left',W-32);
+    fitTxt(ctx,st[1],16,L.s2,C.muted,wide?13.5:12.5,500,'left',W-32);
+
+    /* ---- 轨道图（按比例） ---- */
+    var cx=L.cx,cy=L.cy,sc=L.R/RMAX,re=RE*sc,rR=R0*sc,rY=m3.r*sc;
+    var vR=vOf(R0),vY=vOf(m3.r),TR=TOf(R0),TY=TOf(m3.r),kv=(wide?34:30)/vR;
+    for(var g=1;g<=4;g++)ring(ctx,cx,cy,g*1e7*sc,C.grid,1);
+    dot(ctx,cx,cy,re,rgba(C.field,0.32));ring(ctx,cx,cy,re,C.field,1.5);
+    ctx.setLineDash([4,5]);ring(ctx,cx,cy,rR,rgba(C.muted,0.6),1.2);ctx.setLineDash([]);
+    ring(ctx,cx,cy,rY,rgba(C.copper,0.4),1.4);
+    trail(ctx,cx,cy,rR,m3.thR,TAU*TRAIL/TR,C.muted);
+    trail(ctx,cx,cy,rY,m3.th,TAU*TRAIL/TY,C.copper);
+    /* 参考卫星：只画 v */
+    var c=Math.cos(m3.thR),s=Math.sin(m3.thR),px=cx+rR*c,py=cy-rR*s,tx=-s,ty=-c;
+    arrow(ctx,px+tx*6,py+ty*6,px+tx*(6+vR*kv),py+ty*(6+vR*kv),rgba(C.muted,0.85),2,7);
+    dot(ctx,px,py,4.5,C.muted);
+    /* 你的卫星：r 线、直角记号、F（指向地心，只画方向）、v（沿切线，长度 ∝ v） */
+    c=Math.cos(m3.th);s=Math.sin(m3.th);
+    var qx=cx+rY*c,qy=cy-rY*s,ux=c,uy=-s,rad=MRAD[m3.m],Lv=vY*kv,LF=Math.min(18,rY-rad-4);
+    tx=-s;ty=-c;
+    seg(ctx,cx,cy,qx,qy,rgba(C.ink,0.45),1,[3,3]);
+    if(rY>=50)txt(ctx,'r',cx+ux*rY*0.5+tx*10,cy+uy*rY*0.5+ty*10,C.ink,14,'italic 500','center','middle',MATH);
+    var q=rad+5;ctx.beginPath();ctx.moveTo(qx+tx*q,qy+ty*q);ctx.lineTo(qx+(tx-ux)*q,qy+(ty-uy)*q);ctx.lineTo(qx-ux*q,qy-uy*q);
+    ctx.strokeStyle=rgba(C.muted,0.85);ctx.lineWidth=1;ctx.stroke();
+    if(LF>5){arrow(ctx,qx-ux*(rad+1),qy-uy*(rad+1),qx-ux*(rad+1+LF),qy-uy*(rad+1+LF),C.force,2.4,7);
+      txt(ctx,'F',qx-ux*(rad+1+LF*0.5)-tx*11,qy-uy*(rad+1+LF*0.5)-ty*11,C.force,12.5,700,'center','middle');}
+    arrow(ctx,qx+tx*(rad+1),qy+ty*(rad+1),qx+tx*(rad+1+Lv),qy+ty*(rad+1+Lv),rgba(C.ink,0.7),2.4,8);
+    txt(ctx,'v',qx+tx*(rad+1+Lv)+ux*11,qy+ty*(rad+1+Lv)+uy*11,C.ink,14,'italic 500','center','middle',MATH);
+    dot(ctx,qx,qy,rad,C.ink);
+    dot(ctx,cx,cy,2.5,C.ink);
+
+    /* ---- 图例 ---- */
+    var lx=L.lx,ly=L.ly,s1='你的卫星 m = '+m3.m+' kg';
+    dot(ctx,lx+5,ly-4,5,C.ink);txt(ctx,s1,lx+15,ly,C.ink,12,600);
+    var w1=ctx.measureText(s1).width,lx2=lx+15+w1+(wide?22:14);
+    dot(ctx,lx2+4,ly-4,4.5,C.muted);txt(ctx,'参考卫星 r = 7.0 × 10⁶ m',lx2+13,ly,C.muted,12,500);
+    txt(ctx,'地球 M = 6.0 × 10²⁴ kg · 按比例画，灰圈每格 1 × 10⁷ m',lx,ly+18,C.muted,11.5,500);
+    txt(ctx,'尾巴 = 最近 2000 s 走过的路 · 画面 1 s = 2000 s',lx,ly+36,C.muted,11.5,500);
+
+    /* ---- r³–T² 图 ---- */
+    var gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,i,X,Y;
+    function GX(t2){return gx+t2/XM*gw;}
+    function GY(r3){return gy+gh-r3/YM*gh;}
+    txt(ctx,'r³ (× 10²² m³)',L.px0,gy-10,C.muted,12,600);
+    txt(ctx,'现在',gx+gw,gy-10,C.muted,11.5,500,'right');
+    var wn=ctx.measureText('现在').width;ring(ctx,gx+gw-wn-9,gy-14,4.5,C.ink,1.6);
+    var sp='记下的点 ('+m3.pts.length+')';txt(ctx,sp,gx+gw-wn-22,gy-10,C.muted,11.5,500,'right');
+    var wp=ctx.measureText(sp).width;dot(ctx,gx+gw-wn-wp-31,gy-14,4,C.copper);
+    for(i=1;i<=XM;i++){X=GX(i);seg(ctx,X,gy,X,gy+gh,C.grid,1);}
+    for(i=1;i<=YM;i++){Y=GY(i);seg(ctx,gx,Y,gx+gw,Y,C.grid,1);}
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+    for(i=0;i<=6;i+=2){txt(ctx,String(i),gx-10,GY(i)+4,C.muted,11,500,'right');if(i)txt(ctx,String(i),GX(i),gy+gh+15,C.muted,11,500,'center');}
+    txt(ctx,'T² (× 10⁹ s²)',gx+gw-4,gy+gh-8,C.muted,11.5,600,'right');
+    if(m3.pts.length){
+      var xe=Math.min(XM,YM/KG);seg(ctx,GX(0),GY(0),GX(xe),GY(xe*KG),C.copper,2);
+      fitTxt(ctx,'斜率 r³/T² = '+sci(K4,2)+' m³ s⁻²',gx+8,gy+16,C.copper,12,600,'left',gw-16);
+      txt(ctx,'= GM/4π²（只看地球的质量）',gx+8,gy+33,C.muted,11.5,500);
+      for(i=0;i<m3.pts.length;i++){var rp=m3.pts[i]*5e5,Tp=TOf(rp);dot(ctx,GX(Tp*Tp/1e9),GY(rp*rp*rp/1e22),4,C.copper);}
+    }else{fitTxt(ctx,'按“记下这一点”，把 (T², r³) 画上来',gx+8,gy+16,C.muted,12,500,'left',gw-16);}
+    ring(ctx,GX(TY*TY/1e9),GY(m3.r*m3.r*m3.r/1e22),6,C.ink,1.8);
+
+    /* ---- 读数 ---- */
+    var x0=L.px0,x1=W-16,y0=gy+gh+40;
+    txt(ctx,'r = '+rfmt(m3.r)+' m',x0,y0,C.ink,12.5,500,'left','alphabetic',FONT);
+    txt(ctx,'T = '+grp(TY)+' s（'+(TY/3600).toFixed(2)+' h）',x1,y0,C.ink,12.5,600,'right','alphabetic',FONT);
+    txt(ctx,'v = √(GM/r) = '+sci(vY,2)+' m s⁻¹',x0,y0+23,C.ink,12.5,500,'left','alphabetic',FONT);
+    txt(ctx,'v²r = '+sci(vY*vY*m3.r,2)+' m³ s⁻²',x0,y0+46,C.ink,12.5,500,'left','alphabetic',FONT);
+    txt(ctx,'= GM，每个 r 都一样',x1,y0+46,C.muted,12,500,'right');
+    var Fv=GM*m3.m/(m3.r*m3.r),av=GM/(m3.r*m3.r),bx=x0+184;
+    txt(ctx,'F = GMm/r²',x0,y0+72,C.force,12.5,700);
+    txt(ctx,ffmt(Fv)+' N',x0+80,y0+72,C.ink,12.5,500,'left','alphabetic',FONT);
+    bar(ctx,bx,y0+63,x1-bx,10,Fv/FMAX,C.force);
+    txt(ctx,'a = F/m',x0,y0+96,C.violet,12.5,700);
+    txt(ctx,ffmt(av)+' m s⁻²',x0+80,y0+96,C.ink,12.5,500,'left','alphabetic',FONT);
+    bar(ctx,bx,y0+87,x1-bx,10,av/AMAX,C.violet);
+  }
+});
+
+rr.addEventListener('input',function(){m3.r=parseFloat(rr.value)*1e6;ro.textContent=rfmt(m3.r)+' m';m3.act='r';S3.render();});
+mb.forEach(function(b,i){b.addEventListener('click',function(){
+  if(MS[i]===m3.m)return;m3.pm=m3.m;m3.m=MS[i];m3.act='mass';
+  mb.forEach(function(x,j){press(x,j===i);});S3.render();});});
+document.getElementById('s3-rec').addEventListener('click',function(){
+  var k=Math.round(m3.r/5e5);m3.dup=m3.pts.indexOf(k)>=0;if(!m3.dup)m3.pts.push(k);m3.act='rec';S3.render();});
+document.getElementById('s3-clear').addEventListener('click',function(){m3.pts=[];m3.act='clear';S3.render();});
+ro.textContent=rfmt(m3.r)+' m';
+S3.render();
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* Kepler 第一、第二定律：行星沿椭圆绕太阳（右边的焦点）逆时针转，perihelion 在右边（和 booklet Figure 4.3 一样）。
+   运动用 Kepler 方程 E − e sin E = M 算（M 随时间均匀增加），这就是真实的 1/r² 引力运动，
+   所以“相等时间扫过相等面积”是算出来的，不是画上去的。
+   相对单位（示意）：半长轴 a = 1，GM = 1，速度以 e = 0 的圆轨道速度为 1。改 e 时 a 不变，所以周期 T 不变。
+   v = √((1 + e cos E)/(1 − e cos E))（vis-viva），r = 1 − e cos E；r_p = 1 − e，r_a = 1 + e，r_p v_p = r_a v_a = √(1 − e²)。 */
+var TP=14,NS=12,KS=32,NA=400,EMAX=0.8,RMAX=1+EMAX,VMAX=Math.sqrt((1+EMAX)/(1-EMAX));
+var m4={e:0.6,ph:0.72,mode:'area',stop:null,hold:0,ev:null};
+var P={x:0,y:0,vx:0,vy:0,r:1,v:1},Q={x:0,y:0,vx:0,vy:0,r:1,v:1};
+/* ph = 走过的周期比例（0 = perihelion，0.5 = aphelion）。坐标以太阳为原点，y 向上；逆时针 = E 增大。 */
+function kep(ph,e,o){
+  var f=ph-Math.floor(ph),M=TAU*(f>0.5?f-1:f),E=M+0.85*e*(M<0?-1:1),i,d;
+  for(i=0;i<20;i++){d=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));E-=d;if(Math.abs(d)<1e-12)break;}
+  var c=Math.cos(E),s=Math.sin(E),b=Math.sqrt(1-e*e),q=1-e*c;
+  o.x=c-e;o.y=b*s;o.r=q;o.vx=-s/q;o.vy=b*c/q;o.v=Math.sqrt((1+e*c)/q);return o;
+}
+/* 每次改 e：预先算好 12 块扇形的边（相等时间），以及 A1（perihelion 那块）、A2（aphelion 那块）的面积和弧长 */
+var K={e:-1,b:1,pts:new Float64Array(NS*(KS+1)*2),pct:[0,0],arc:[0,0]};
+function build(){
+  var e=m4.e,k,j,i,h;if(K.e===e)return;K.e=e;K.b=Math.sqrt(1-e*e);
+  for(k=0;k<NS;k++){for(j=0;j<=KS;j++){kep((k-0.5)/NS+j/(KS*NS),e,Q);i=(k*(KS+1)+j)*2;K.pts[i]=Q.x;K.pts[i+1]=Q.y;}}
+  for(h=0;h<2;h++){var p0=(h*6-0.5)/NS,ar=0,s=0,px=0,py=0;
+    for(j=0;j<=NA;j++){kep(p0+j/(NA*NS),e,Q);if(j){ar+=px*Q.y-Q.x*py;s+=Math.hypot(Q.x-px,Q.y-py);}px=Q.x;py=Q.y;}
+    K.pct[h]=ar/2/(Math.PI*K.b)*100;K.arc[h]=s;}
+}
+build();
+
+/* 文字小工具：htxt 先描一圈背景色（压在扇形上也看得清）；rich 把 _X 画成下标（不小于 11 px） */
+function htxt(ctx,s,x,y,col,size,weight,align,base,family){ctx.font=(weight||500)+' '+size+'px '+(family||FONT);ctx.textAlign=align||'left';ctx.textBaseline=base||'alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align,base,family);}
+var WS=[];
+function rich(ctx,s,x,y,col,size,weight,align,family,halo){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=0,i;WS.length=0;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+(family||FONT);WS.push(ctx.measureText(p[i]).width);w+=WS[i];}
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){if(p[i]){var yy=y+(i%2?size*0.26:0),sz=i%2?ss:size;if(halo)htxt(ctx,p[i],cx,yy,col,sz,weight,'left','alphabetic',family);else txt(ctx,p[i],cx,yy,col,sz,weight,'left','alphabetic',family);}cx+=WS[i];}
+  return w;
+}
+function darrow(ctx,x1,y1,x2,y2,col,w){
+  var dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<3)return;
+  var ux=dx/len,uy=dy/len;
+  if(len>14){seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,w,[5,4]);arrow(ctx,x2-ux*11,y2-uy*11,x2,y2,col,w,8);}
+  else seg(ctx,x1,y1,x2,y2,col,w,[3,3]);
+}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.px0=W-16-330;o.A=Math.min(145,Math.floor((o.px0-100)/2));o.cx=50+o.A;o.cy=80+o.A;o.k=o.A*0.29;o.Lf=48;o.sr=10;
+    o.f1=15;o.f2=13;o.y1=26;o.y2=47;o.py=88;o.g=22;o.fs=13.5;o.fs2=13;o.H=Math.round(Math.max(o.cy+o.A+22+32,o.py+292));}
+  else{o.A=Math.min(124,Math.floor((W-108)/2));o.cx=Math.round(W/2);o.cy=72+o.A;o.k=o.A*0.22;o.Lf=38;o.sr=8;
+    o.f1=13.5;o.f2=12.5;o.y1=22;o.y2=42;o.px0=16;o.py=o.cy+o.A+22+17+32;o.g=20;o.fs=13;o.fs2=12.5;o.H=Math.round(o.py+222);}
+  LY=o;return o;
+}
+
+/* ---------- 状态提示（两行：现在发生什么 / 为什么） ---------- */
+function f2(v){return v.toFixed(2);}
+function status(){
+  var e=m4.e,ar=m4.mode==='area';
+  if(e<0.005)return ['e = 0：圆，太阳在圆心（两个焦点合在一起）',ar?'每块扇形一样大，弧也一样长 → 速度不变':'F 一直 ⟂ v → 引力不做功 → 速度不变'];
+  if(e<=0.02)return ['e = '+f2(e)+'，和地球的 0.017 差不多：几乎是圆',ar?'每块扇形几乎一样 → 平时把行星轨道当成圆':'F 和 v 几乎一直成 90° → 速度几乎不变'];
+  var rp=1-e,ra=1+e,vp=Math.sqrt(ra/rp),va=Math.sqrt(rp/ra);
+  if(m4.stop==='peri')return ['perihelion：离太阳最近、最快，F ⟂ v','r_p v_p = '+f2(rp)+' × '+f2(vp)+' = '+f2(rp*vp)+' = r_a v_a'];
+  if(m4.stop==='aph')return ['aphelion：离太阳最远、最慢，F ⟂ v','r_a v_a = '+f2(ra)+' × '+f2(va)+' = '+f2(ra*va)+' = r_p v_p'];
+  /* 正在 apsis（±0.1 rad）：说“现在”；刚经过（hold 还没完）：说“刚过”，第二行说现在的情况 */
+  var nu=Math.atan2(P.y,P.x),ap=null,just=false;
+  if(Math.abs(nu)<0.1)ap='peri';else if(Math.abs(nu)>Math.PI-0.1)ap='aph';
+  else if(m4.hold>0){ap=m4.ev;just=true;}
+  if(ap==='peri'){
+    if(just)return ar?['刚过 perihelion：那里连线最短、最快','现在远离太阳 → 连线变长、弧变短 → 开始变慢']:['刚过 perihelion：那里 F ⟂ v、最快','现在远离太阳：F 有一部分逆着 v → 开始减速'];
+    return ar?['perihelion：离太阳最近，连线最短','同样的 Δt 扫同样的面积 → 弧最长 → 最快']:['perihelion：离太阳最近，F ⟂ v','速度最快：U 最低（最负），K 最大'];}
+  if(ap==='aph'){
+    if(just)return ar?['刚过 aphelion：那里连线最长、最慢','现在靠近太阳 → 连线变短、弧变长 → 开始变快']:['刚过 aphelion：那里 F ⟂ v、最慢','现在靠近太阳：F 有一部分沿着 v → 开始加速'];
+    return ar?['aphelion：离太阳最远，连线最长','同样的 Δt 扫同样的面积 → 弧最短 → 最慢']:['aphelion：离太阳最远，F ⟂ v','速度最慢：U 最高（最接近 0），K 最小'];}
+  var closer=(-P.x*P.vx-P.y*P.vy)>0;
+  if(ar)return ['相等时间 Δt，扫过相等面积（A_1 = A_2）',closer?'正在靠近太阳：连线变短 → 弧变长 → 越来越快':'正在远离太阳：连线变长 → 弧变短 → 越来越慢'];
+  return closer?['靠近太阳：F 有一部分沿着 v（虚线）','→ 引力做功，给它能量 → 越来越快']:['远离太阳：F 有一部分逆着 v（虚线）','→ 引力拿走能量 → 越来越慢'];
+}
+
+/* ---------- 读数 ---------- */
+function panel(ctx,o){
+  var x0=o.px0,x1=o.W-16,y=o.py,g=o.g,e=m4.e,fs=o.fs,fs2=o.fs2,rp=1-e,ra=1+e,vp=Math.sqrt(ra/rp),va=Math.sqrt(rp/ra);
+  txt(ctx,'离心率 e = '+f2(e)+'（地球只有 0.017）',x0,y,C.muted,fs2,600);y+=g+6;
+  if(m4.mode==='area'){
+    txt(ctx,'每块扇形用的时间一样：Δt = T/12',x0,y,C.ink,fs,600);y+=g;
+    rich(ctx,'A_1 = '+f2(K.pct[0])+'%    A_2 = '+f2(K.pct[1])+'%（占整个椭圆）',x0,y,C.copper,fs2,600);y+=g;
+    rich(ctx,e<0.005?'弧长 s_1 = s_2：速度处处一样':'弧长 s_1 是 s_2 的 '+((K.arc[0]/K.arc[1])<1.2?(K.arc[0]/K.arc[1]).toFixed(2):(K.arc[0]/K.arc[1]).toFixed(1))+' 倍 → 近处走得快',x0,y,C.muted,fs2,500);
+  }else{
+    var ct=(-P.x*P.vx-P.y*P.vy)/(P.r*P.v),th=Math.acos(clamp(ct,-1,1))*180/Math.PI,s2;
+    txt(ctx,'F 和 v 的夹角 θ = '+Math.round(th)+'°',x0,y,C.ink,fs,600);y+=g;
+    if(Math.abs(th-90)<0.5)s2='θ = 90° → F ⟂ v → 不加速也不减速';
+    else s2=th<90?'θ < 90° → F 有一部分沿着 v → 加速':'θ > 90° → F 有一部分逆着 v → 减速';
+    txt(ctx,s2,x0,y,C.ink,fs2,500);y+=g;
+    txt(ctx,'F 只画方向；虚线 = F 沿着（或逆着）v 的部分',x0,y,C.muted,o.wide?12:11.5,500);
+  }
+  y+=o.wide?36:30;
+  var bx0=x0+(o.wide?112:98),bx1=x1-(o.wide?60:54);
+  function row(yy,label,val,max,lo,hi,col,vs){
+    txt(ctx,label,x0,yy,C.ink,fs2,600);hbar(ctx,bx0,yy-9,bx1-bx0,10,val/max,col);
+    [lo,hi].forEach(function(t){var tx=bx0+(bx1-bx0)*t/max;seg(ctx,tx,yy-13,tx,yy+5,rgba(C.ink,0.55),1.4);});
+    txt(ctx,vs,x1,yy,C.ink,fs2,600,'right','alphabetic',MONO);
+  }
+  row(y,'到太阳的距离 r',P.r,RMAX,rp,ra,C.muted,f2(P.r)+' a');
+  row(y+g+6,'速度 v',P.v,VMAX,va,vp,rgba(C.ink,0.7),f2(P.v));
+  y+=g*2+6+(o.wide?16:12);
+  rich(ctx,'a（半长轴）= (r_p + r_a)/2 = ('+f2(rp)+' + '+f2(ra)+')/2 = 1.00',x0,y,C.ink,fs2,500);y+=g;
+  rich(ctx,(m4.stop==='peri'?'→ ':'')+'r_p v_p = '+f2(rp)+' × '+f2(vp)+' = '+f2(rp*vp),x0,y,m4.stop==='peri'?C.ink:C.muted,fs2,m4.stop==='peri'?700:600);y+=g;
+  rich(ctx,(m4.stop==='aph'?'→ ':'')+'r_a v_a = '+f2(ra)+' × '+f2(va)+' = '+f2(ra*va),x0,y,m4.stop==='aph'?C.ink:C.muted,fs2,m4.stop==='aph'?700:600);y+=g+(o.wide?6:4);
+  txt(ctx,o.wide?'相对单位（示意）：距离以 a 为 1，速度以 e = 0 的圆为 1':'相对单位（示意）：a = 1，e = 0 的圆速度 = 1',x0,y,C.muted,o.wide?12:11.5,500);
+}
+
+/* ---------- 画面 ---------- */
+function slicePath(ctx,k,sx,cy,A){var i0=k*(KS+1)*2;ctx.beginPath();ctx.moveTo(sx,cy);for(var j=0;j<=KS;j++){var i=i0+j*2;ctx.lineTo(sx+K.pts[i]*A,cy-K.pts[i+1]*A);}ctx.closePath();}
+function draw4(ctx,W,H){
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  build();
+  var o=lay(W),e=m4.e,A=o.A,cx=o.cx,cy=o.cy,b=K.b*A,sx=cx+e*A,area=m4.mode==='area',j,k;
+  kep(m4.ph,e,P);
+  var pxp=sx+P.x*A,pyp=cy-P.y*A;
+  /* 状态 */
+  var st=status();
+  rich(ctx,st[0],16,o.y1,C.ink,o.f1,600);
+  rich(ctx,st[1],16,o.y2,C.muted,o.f2,500);
+  /* 面积：12 块相等时间的扇形（交替两种颜色），A1、A2 深一点，正在扫的那块最深 */
+  if(area){
+    for(k=0;k<NS;k++){slicePath(ctx,k,sx,cy,A);ctx.fillStyle=rgba(k%2?C.south:C.copper,(k===0||k===6)?0.3:0.12);ctx.fill();}
+    var f=m4.ph-Math.floor(m4.ph),kc=Math.floor(f*NS+0.5),p0=(kc-0.5)/NS;
+    ctx.beginPath();ctx.moveTo(sx,cy);for(j=0;j<=KS;j++){kep(p0+(f-p0)*j/KS,e,Q);ctx.lineTo(sx+Q.x*A,cy-Q.y*A);}ctx.closePath();
+    ctx.fillStyle=rgba(kc%2?C.south:C.copper,0.5);ctx.fill();
+    for(k=0;k<NS;k++){var i=k*(KS+1)*2;seg(ctx,sx,cy,sx+K.pts[i]*A,cy-K.pts[i+1]*A,rgba(C.muted,0.35),1);}
+  }
+  /* 轨道、长轴、半长轴 a、两个焦点 */
+  ctx.beginPath();ctx.ellipse(cx,cy,A,b,0,0,TAU);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.stroke();
+  arrow(ctx,cx+12,cy-b,cx-12,cy-b,C.copper,2,9);
+  seg(ctx,cx,cy,cx+A,cy,rgba(C.muted,0.7),1.2,[4,4]);
+  seg(ctx,cx-A,cy,cx,cy,C.muted,2);seg(ctx,cx,cy-5,cx,cy+5,C.muted,1.5);
+  htxt(ctx,'a',cx-A/2,cy-8,C.muted,14,700,'center','alphabetic',MATH);
+  if(e>=0.005){ring(ctx,cx-e*A,cy,4.5,C.muted,1.6);if(2*e*A>=56)htxt(ctx,'空焦点',cx-e*A,cy+19,C.muted,11.5,500,'center');}
+  dot(ctx,sx,cy,o.sr+5,rgba(C.light,0.25));dot(ctx,sx,cy,o.sr,C.light);
+  /* 行星在下半圈、离太阳很近时，Sun 标签放到上面，免得和 F 箭头挤在一起 */
+  var sunUp=!area&&P.y<0&&P.r*A<o.Lf+o.sr+40;
+  htxt(ctx,'Sun',sx,sunUp?cy-o.sr-9:cy+o.sr+16,C.muted,12,600,'center');
+  if(area){
+    seg(ctx,sx,cy,pxp,pyp,rgba(C.ink,0.6),1.5);
+    rich(ctx,'A_1',cx+A+8,cy+5,C.copper,13.5,700,'left',FONT,true);
+    rich(ctx,'A_2',cx-A-8,cy+5,C.copper,13.5,700,'right',FONT,true);
+  }else{
+    /* 椭圆里面的两句提示：先记下位置和占位框，等箭头画完再带底色描边画上去（箭头从字后面穿过） */
+    var HN=e<0.005?[['F 一直 ⟂ v，速度不变',cx,cy-b/2]]:[['上半圈：远离太阳 → 减速',cx,cy-b*0.42],['下半圈：靠近太阳 → 加速',cx,cy+b*0.42+9]],HB=[],hi,hw;
+    ctx.font='500 12px '+FONT;
+    for(hi=0;hi<HN.length;hi++){hw=ctx.measureText(HN[hi][0]).width;HB.push([HN[hi][1]-hw/2-2,HN[hi][2]-11,HN[hi][1]+hw/2+2,HN[hi][2]+3]);}
+    if(e>=0.005&&2*e*A>=56)HB.push([cx-e*A-20,cy+8,cx-e*A+20,cy+23]);
+    HB.push([sx-16,sunUp?cy-o.sr-21:cy+o.sr+4,sx+16,sunUp?cy-o.sr-6:cy+o.sr+19]);
+    /* v（长度 = 速度）、F（只画方向，指向太阳；最短 12 px，e 大时在 perihelion 也看得见）、F 沿 v 的部分（虚线） */
+    var ux=P.vx/P.v,uy=-P.vy/P.v,rpx=P.r*A,Lf=Math.max(12,Math.min(o.Lf,rpx-o.sr-12)),fx=(sx-pxp)/rpx,fy=(cy-pyp)/rpx;
+    var ct=fx*ux+fy*uy,vl=o.k*P.v;
+    if(Math.abs(ct)<0.035||m4.stop){var q=13;ctx.strokeStyle=C.muted;ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(pxp+ux*q,pyp+uy*q);ctx.lineTo(pxp+ux*q+fx*q,pyp+uy*q+fy*q);ctx.lineTo(pxp+fx*q,pyp+fy*q);ctx.stroke();}
+    else{var a1=Math.atan2(uy,ux),a2=Math.atan2(fy,fx),da=a2-a1;while(da>Math.PI)da-=TAU;while(da<-Math.PI)da+=TAU;ctx.beginPath();ctx.arc(pxp,pyp,15,a1,a1+da,da<0);ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.2;ctx.stroke();}
+    arrow(ctx,pxp+fx*7,pyp+fy*7,pxp+fx*(Lf+7),pyp+fy*(Lf+7),C.force,2.6,9);
+    if(Math.abs(ct)>=0.06){var ox=-uy,oy=ux;if(ox*fx+oy*fy>0){ox=-ox;oy=-oy;}var pl=Lf*ct;
+      darrow(ctx,pxp+ox*8,pyp+oy*8,pxp+ox*8+ux*pl,pyp+oy*8+uy*pl,C.force,2.2);}
+    /* 箭头从行星边上开始画，短的 v（aphelion）也看得见 */
+    arrow(ctx,pxp+ux*7,pyp+uy*7,pxp+ux*(vl+7),pyp+uy*(vl+7),rgba(C.ink,0.7),2.5,9);
+    txt(ctx,'v',clamp(pxp+ux*(vl+18),8,W-8),pyp+uy*(vl+18),C.muted,13,700,'center','middle');
+    for(hi=0;hi<HN.length;hi++)htxt(ctx,HN[hi][0],HN[hi][1],HN[hi][2],C.muted,12,500,'center');
+    /* “F” 标签：先放在 F 箭头背着 v 的一边；压到提示、空焦点或 Sun 的字，就换另一边，再沿箭头挪一挪 */
+    var nx=-fy,ny=fx;if(nx*ux+ny*uy>0){nx=-nx;ny=-ny;}
+    var FC=[[0.55,1],[0.55,-1],[0.85,1],[0.85,-1],[0.25,1],[0.25,-1]],fl=null,fi,lxx,lyy,ok,bi;
+    for(fi=0;fi<FC.length&&!fl;fi++){lxx=pxp+fx*(7+Lf*FC[fi][0])+nx*12*FC[fi][1];lyy=pyp+fy*(7+Lf*FC[fi][0])+ny*12*FC[fi][1];ok=true;
+      for(bi=0;bi<HB.length;bi++){if(lxx-6<HB[bi][2]&&lxx+6>HB[bi][0]&&lyy-8<HB[bi][3]&&lyy+8>HB[bi][1]){ok=false;break;}}
+      if(ok)fl=[lxx,lyy];}
+    if(!fl)fl=[pxp+fx*(7+Lf*0.55)+nx*12,pyp+fy*(7+Lf*0.55)+ny*12];
+    htxt(ctx,'F',fl[0],fl[1],C.force,13,700,'center','middle');
+  }
+  if(m4.stop&&area)ring(ctx,pxp,pyp,11,rgba(C.ink,0.5),1.5);
+  dot(ctx,pxp,pyp,6.5,C.ink);
+  /* 尺子：r_a（aphelion 到太阳）和 r_p（太阳到 perihelion） */
+  var yr=cy+b+22,xa=cx-A,xp=cx+A;
+  seg(ctx,xa,yr,xp,yr,C.muted,1.3);
+  [xa,sx,xp].forEach(function(x){seg(ctx,x,yr-5,x,yr+5,C.muted,1.5);});
+  rich(ctx,e<0.005?'r':'r_a',(xa+sx)/2,yr-6,C.ink,13,600,'center');
+  rich(ctx,e<0.005?'r':'r_p',(sx+xp)/2,yr-6,C.ink,13,600,'center');
+  if(e<0.005)txt(ctx,'圆：到太阳的距离处处一样',cx,yr+18,C.muted,12,500,'center');
+  else{txt(ctx,'aphelion · 最慢',xa,yr+18,C.muted,12,600,'left');txt(ctx,'perihelion · 最快',xp,yr+18,C.muted,12,600,'right');}
+  panel(ctx,o);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){
+    var a=m4.ph,b2=a+dt/TP,fa=a-Math.floor(a);
+    if(Math.floor(b2)>Math.floor(a)){m4.ev='peri';m4.hold=1.6;}
+    else if(fa<0.5&&fa+dt/TP>=0.5){m4.ev='aph';m4.hold=1.6;}
+    else if(m4.hold>0)m4.hold-=dt;
+    m4.ph=b2-Math.floor(b2);
+    if(m4.stop){m4.stop=null;sync4();}
+  },
+  draw:draw4
+});
+
+/* ---------- 控件 ---------- */
+var r4=document.getElementById('s4-e'),o4=document.getElementById('s4-e-out');
+var b4a=document.getElementById('s4-area'),b4f=document.getElementById('s4-force'),b4s=document.getElementById('s4-apsis');
+function sync4(){press(b4a,m4.mode==='area');press(b4f,m4.mode==='force');press(b4s,!!m4.stop);b4s.textContent=m4.stop==='peri'?'停在 aphelion':'停在 perihelion';}
+r4.addEventListener('input',function(){m4.e=parseFloat(r4.value);o4.textContent=f2(m4.e);build();S4.render();});
+b4a.addEventListener('click',function(){m4.mode='area';sync4();S4.render();});
+b4f.addEventListener('click',function(){m4.mode='force';sync4();S4.render();});
+b4s.addEventListener('click',function(){m4.stop=m4.stop==='peri'?'aph':'peri';m4.ph=m4.stop==='peri'?0:0.5;m4.hold=0;S4.setPlaying(false);sync4();S4.render();});
+sync4();
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · LEO 和 geostationary：从北极上方看（4.4）
+   从北极正上方往下看：地球逆时针自转（west → east）。屏幕角 φ 从 +x 逆时针量，点 = (cx + R cos φ, cy − R sin φ)（canvas 的 y 向下）。
+   惯性坐标（单位 r_E）：X 右、Y 上、Z 朝北（朝着看的人）。dish 在赤道上：up = (cos a, sin a, 0)，east = (−sin a, cos a, 0)，north = (0,0,1)。
+   数据（booklet）：geostationary r = 4.23 × 10⁷ m（6.6 Earth radii），约 36 000 km，3.1 km s⁻¹，1 day（严格 23 h 56 min），信号延迟约 0.24 s；
+   LEO 200–2000 km，ISS 420 km，约 7.7 km s⁻¹，约 90 min，信号延迟几 ms。
+   运动：地球自转和 geostationary / geosynchronous 周期都用 23 h 56 min；LEO 周期 = 2π√(r³/GM)，r = r_E + 420 km，
+   GM = 6.67 × 10⁻¹¹ × 6.0 × 10²⁴（计算值 5558 s = 92.6 min）。位置是时间的解析式（不用积分），所以任何时间步长都稳定。
+   示意：geosynchronous 倾角 30°（交点线在屏幕 x 方向），dish 在卫星西边 30°，LEO 画在赤道平面上。 */
+var RE=6.371e6,GM=6.67e-11*6.0e24,RL=RE+4.2e5,KG=4.23e7/RE,KL=RL/RE;
+var TD=23+56/60,TL=TAU*Math.sqrt(RL*RL*RL/GM)/3600,WE=TAU/TD,WL=TAU/TL;
+var INC=30*Math.PI/180,CI=Math.cos(INC),SI=Math.sin(INC);
+var DG=30*Math.PI/180,DL=-18*Math.PI/180,PH0=1.55,VG=Math.sqrt(GM/4.23e7),VL=Math.sqrt(GM/RL);
+var m5={tau:3,t0:0,since:-Infinity,type:'geo',rev:false,mpm:60};  /* since：换卫星或换方向的时刻；“2 h 前”和天空里的路线只画这之后的 */
+var P5={x:0,y:0,z:0},Q5={x:0,y:0,z:0},K5={vis:false,e:0,n:0,el:0,ns:0},G5={vis:false,e:0,n:0,el:0,ns:0};
+
+function dishA(tau){return PH0+WE*tau;}
+/* 卫星的轨道角（t0 时：geo 类在 dish 东边 30°，LEO 在 dish 西边 18°，刚升起） */
+function phase(tau){var s=m5.rev?-1:1,a=dishA(m5.t0),dt=tau-m5.t0;return m5.type==='leo'?a+DL+s*WL*dt:a+DG+s*WE*dt;}
+function satAt(tau,o){var p=phase(tau),r=m5.type==='leo'?KL:KG;
+  o.x=r*Math.cos(p);if(m5.type==='sync'){o.y=r*Math.sin(p)*CI;o.z=r*Math.sin(p)*SI;}else{o.y=r*Math.sin(p);o.z=0;}return o;}
+/* dish（赤道上，角 a）看卫星 p：e、n = 方向在 east、north 上的分量（单位向量），el = 仰角 */
+function skyOf(a,p,o){var c=Math.cos(a),s=Math.sin(a),du=p.x*c+p.y*s-1,de=-p.x*s+p.y*c,dn=p.z,L=Math.sqrt(du*du+de*de+dn*dn);
+  o.vis=du>0;o.e=de/L;o.n=dn/L;o.el=Math.asin(du/L)*180/Math.PI;o.ns=Math.asin(dn/L)*180/Math.PI;return o;}
+
+/* 带下标的文字："r_E" → r + 下标 E */
+var RUNS={};
+function runs(s){var r=RUNS[s];if(r)return r;r=[];var re=/_(.)/g,last=0,mm;
+  while((mm=re.exec(s))){if(mm.index>last)r.push([s.slice(last,mm.index),0]);r.push([mm[1],1]);last=re.lastIndex;}
+  if(last<s.length)r.push([s.slice(last),0]);RUNS[s]=r;return r;}
+function runFont(r,z,wt){return wt+' '+(r[1]?Math.max(11,z*0.78):z)+'px '+FONT;}
+function mw(ctx,s,z,wt){var r=runs(s),w=0;for(var i=0;i<r.length;i++){ctx.font=runFont(r[i],z,wt);w+=ctx.measureText(r[i][0]).width+(r[i][1]?1:0);}return w;}
+function mt(ctx,s,x,y,col,z,wt,align){var r=runs(s),w=mw(ctx,s,z,wt),xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(var i=0;i<r.length;i++){var sb=r[i][1];if(sb)xx+=0.5;ctx.font=runFont(r[i],z,wt);ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.fillStyle=col;ctx.fillText(r[i][0],xx,y+(sb?z*0.3:0));xx+=ctx.measureText(r[i][0]).width+(sb?0.5:0);}
+  return w;}
+function fitTxt(ctx,s,x,y,col,z,wt,maxW){var w=mw(ctx,s,z,wt);if(w>maxW)z=Math.max(11.5,Math.floor(z*maxW/w*2)/2);mt(ctx,s,x,y,col,z,wt,'left');}
+
+/* 画面上标签的占位框：避免卫星标签压到别的字 */
+var BX=[];
+function addBox(l,t,r,b){BX.push(l,t,r,b);}
+function hitBox(l,t,r,b){for(var i=0;i<BX.length;i+=4){if(l<BX[i+2]&&r>BX[i]&&t<BX[i+3]&&b>BX[i+1])return true;}return false;}
+function halo(ctx,s,x,y,col,z,wt,align){ctx.font=wt+' '+z+'px '+FONT;ctx.textAlign=align;ctx.textBaseline='middle';ctx.lineWidth=4;ctx.lineJoin='round';ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,z,wt,align,'middle');}
+/* 标签放在点 (px,py) 沿方向 (ux,uy) 外面 d 像素处；撞到别的字就换下一个距离 */
+/* skip = true：每个距离都撞到别的字时就不画（不硬压在字上）；负的距离 = 往中心那边 */
+function placeLabel(ctx,s,px,py,ux,uy,ds,col,z,wt,W,H,skip){
+  ctx.font=wt+' '+z+'px '+FONT;var w=ctx.measureText(s).width,h=z+2,x=px,y=py,ok=false;
+  for(var i=0;i<ds.length;i++){x=clamp(px+ux*(ds[i]+w/2*Math.abs(ux)),w/2+4,W-w/2-4);y=clamp(py+uy*(ds[i]+h/2*Math.abs(uy)),h/2+4,H-h/2-4);
+    if(!hitBox(x-w/2,y-h/2,x+w/2,y+h/2)){ok=true;break;}}
+  if(!ok&&skip)return;
+  halo(ctx,s,x,y,col,z,wt,'center');addBox(x-w/2,y-h/2,x+w/2,y+h/2);
+}
+
+var L5={};
+function lay5(W,H){
+  var L=L5;L.wide=W>=640;
+  if(L.wide){L.Rg=162;L.cx=26+L.Rg+10;L.cy=70+L.Rg+8;L.ny=L.cy+L.Rg+36;
+    L.x0=400;L.Rs=58;L.scx=L.x0+32+L.Rs;L.ys=78;L.cx2=L.scx+L.Rs+46;L.cw=W-16-L.cx2;L.ty=L.ys+2*L.Rs+66;L.tx=L.x0;L.tw=W-16-L.x0;L.lw=86;L.rh=24;}
+  else{L.Rg=Math.min(146,(W-44)/2);L.cx=W/2;L.cy=60+L.Rg;L.ny=L.cy+L.Rg+30;
+    L.x0=14;L.Rs=50;L.scx=L.x0+30+L.Rs;L.ys=L.ny+38;L.cx2=L.scx+L.Rs+44;L.cw=W-12-L.cx2;L.ty=L.ys+2*L.Rs+78;L.tx=14;L.tw=W-28;L.lw=80;L.rh=21;}
+  L.scy=L.ys+7+L.Rs;L.k=L.Rg/KG;
+  return L;
+}
+
+/* 地面 dish：底座沿当地“向上”，碗（半圆）的平面朝着卫星，中间伸出接收头；F5 = 接收头的位置 */
+var F5={x:0,y:0};
+function dishSym(ctx,x,y,upx,upy,ux,uy){
+  var bx=x+upx*5,by=y+upy*5,a=Math.atan2(uy,ux);
+  seg(ctx,x,y,bx,by,C.copper,2.4);
+  ctx.beginPath();ctx.arc(bx,by,7.5,a+Math.PI/2,a+Math.PI*1.5);ctx.closePath();ctx.fillStyle=C.copper;ctx.fill();
+  F5.x=bx+ux*9;F5.y=by+uy*9;seg(ctx,bx,by,F5.x,F5.y,C.copper,1.6);dot(ctx,F5.x,F5.y,2,C.copper);
+}
+
+function status5(){
+  var T=m5.type,R=m5.rev,v=K5.vis,t=m5.tau-m5.t0;
+  if(T==='geo'&&!R)return ['geostationary：一天一圈、赤道上方、从西往东','→ 和地面一起转 → dish 永远不用动'];
+  if(T==='geo')return ['方向反了：卫星往西，地面往东',v?'→ 相对地面每小时转约 30° → dish 要一直跟着转':(t>5.5&&t<8.5?'约 7 h：转到地球另一边 → dish 看不到它':'卫星在地平线下面 → dish 看不到它')];
+  if(T==='sync'){
+    if(R)return ['geosynchronous，方向反了：卫星往西',v?'→ 相对地面每小时转约 30°，还在南北漂':'卫星在地平线下面 → dish 看不到它'];
+    return ['geosynchronous：也是一天一圈，但轨道是斜的',(K5.ns>2?'现在偏北':(K5.ns<-2?'现在偏南':'正在穿过赤道上方'))+' → 南北来回漂 → 不是 geostationary'];
+  }
+  return [R?'LEO 反着转（east → west）：还是约 90 min 一圈':'LEO：约 90 min 一圈，比地面转得快很多',v?'正在飞过 dish 的天空 → 几分钟就过去':'在地平线下面 → dish 看不到，要等下一圈'];
+}
+
+function drawMain(ctx,L,W,H){
+  var k=L.k,cx=L.cx,cy=L.cy,re=k,a=dishA(m5.tau),T=m5.type,i;
+  /* 轨道（轨迹色 copper） */
+  if(T==='leo'){ring(ctx,cx,cy,KL*k,rgba(C.copper,0.85),1.3);
+    ctx.setLineDash([4,6]);ring(ctx,cx,cy,KG*k,rgba(C.muted,0.5),1.2);ctx.setLineDash([]);
+    txt(ctx,'geostationary 轨道（对比）',cx,cy-KG*k+40,C.muted,11.5,500,'center');addBox(cx-80,cy-KG*k+26,cx+80,cy-KG*k+44);}
+  else if(T==='geo')ring(ctx,cx,cy,KG*k,rgba(C.copper,0.55),1.6);
+  else{ctx.strokeStyle=rgba(C.copper,0.7);ctx.lineWidth=1.6;ctx.beginPath();ctx.ellipse(cx,cy,KG*k,KG*k*CI,0,Math.PI,TAU);ctx.stroke();
+    ctx.setLineDash([5,6]);ctx.beginPath();ctx.ellipse(cx,cy,KG*k,KG*k*CI,0,0,Math.PI);ctx.stroke();ctx.setLineDash([]);}
+  /* 地球：浅色填充 + 跟着转的经线 + 自转箭头 */
+  dot(ctx,cx,cy,re,rgba(C.field,0.25));
+  for(i=0;i<6;i++){var mg=a+Math.PI+i*TAU/6;seg(ctx,cx,cy,cx+Math.cos(mg)*re,cy-Math.sin(mg)*re,rgba(C.field,0.55),1);}
+  ring(ctx,cx,cy,re,C.field,1.5);
+  var rr=re*0.6,e1=0.5,e2=e1+4.2;
+  ctx.beginPath();ctx.arc(cx,cy,rr,-e1,-(e2-0.25),true);ctx.strokeStyle=C.muted;ctx.lineWidth=1.8;ctx.stroke();
+  arrow(ctx,cx+Math.cos(e2-0.5)*rr,cy-Math.sin(e2-0.5)*rr,cx+Math.cos(e2)*rr,cy-Math.sin(e2)*rr,C.muted,1.8,6);
+  dot(ctx,cx,cy,2,C.muted);
+  /* dish 的地平线（切线） */
+  var dx=cx+Math.cos(a)*re,dy=cy-Math.sin(a)*re,ex=-Math.sin(a),ey=-Math.cos(a),hl=re+16;
+  seg(ctx,dx-ex*hl,dy-ey*hl,dx+ex*hl,dy+ey*hl,rgba(C.muted,0.75),1,[3,4]);
+  /* 2 h 前、4 h 前（淡色） */
+  if(T!=='leo'){
+    for(var g=4;g>=2;g-=2){var tg=m5.tau-g,ag=dishA(tg);if(tg<m5.since)continue;satAt(tg,Q5);skyOf(ag,Q5,G5);
+      var gx=cx+Q5.x*k,gy=cy-Q5.y*k,hx=cx+Math.cos(ag)*re,hy=cy-Math.sin(ag)*re;
+      if(G5.vis)seg(ctx,hx,hy,gx,gy,rgba(C.copper,0.28),1.6);
+      dot(ctx,hx,hy,2.6,rgba(C.copper,0.5));dot(ctx,gx,gy,4.2,rgba(C.ink,0.28));
+      var gr=Math.hypot(gx-cx,gy-cy)||1;placeLabel(ctx,g+' h 前',gx,gy,(gx-cx)/gr,(gy-cy)/gr,[8,22,-30],rgba(C.muted,0.95),11,500,W,H);
+    }
+  }
+  /* 现在 */
+  satAt(m5.tau,P5);skyOf(a,P5,K5);
+  var sx=cx+P5.x*k,sy=cy-P5.y*k;
+  var upx=Math.cos(a),upy=-Math.sin(a),ux=upx,uy=upy;
+  if(K5.vis){var dl=Math.hypot(sx-dx,sy-dy)||1;ux=(sx-dx)/dl;uy=(sy-dy)/dl;}
+  dishSym(ctx,dx,dy,upx,upy,ux,uy);
+  /* 指向线（LEO 太贴地面，线比 dish 还短，就不画） */
+  if(K5.vis&&T!=='leo')seg(ctx,F5.x,F5.y,sx,sy,C.copper,2.2);
+  /* v 沿轨道切线（长度 ∝ 速度；投影后的长度） */
+  var p=phase(m5.tau),s=m5.rev?-1:1,vx=-Math.sin(p)*s,vy=Math.cos(p)*s*(T==='sync'?CI:1);
+  var vl=(T==='leo'?VL/VG:1)*(L.wide?26:22),vx2=sx+vx*vl,vy2=sy-vy*vl;
+  arrow(ctx,sx,sy,vx2,vy2,rgba(C.ink,0.7),2.2,8);
+  dot(ctx,sx,sy,7.5,C.stage);dot(ctx,sx,sy,5.5,C.ink);
+  /* 标签 */
+  var dlx=Math.cos(a-0.75),dly=-Math.sin(a-0.75);
+  placeLabel(ctx,'dish',dx,dy,dlx,dly,[24,40],C.copper,12,700,W,H);
+  var vn=Math.hypot(vx,vy)||1;placeLabel(ctx,'v',vx2,vy2,vx/vn,-vy/vn,[6],C.muted,12,700,W,H);
+  var sr=Math.hypot(sx-cx,sy-cy)||1;placeLabel(ctx,'卫星',sx,sy,(sx-cx)/sr,(sy-cy)/sr,[10,26,44,-34,-50],C.ink,12,700,W,H,true);
+  /* 下面的说明 */
+  var z=L.wide?12.5:12,mx=L.wide?16:14,mwid=L.wide?L.x0-30:W-28;
+  fitTxt(ctx,'从北极正上方看：地球逆时针自转（west → east）',mx,L.ny,C.muted,z,500,mwid);
+  var n2=T==='geo'?'按比例：geostationary 轨道 r = 6.6 r_E':(T==='sync'?'倾斜 30°（示意）：实线在赤道北边，虚线在南边':'LEO 离地 420 km：按比例几乎贴着地面');
+  fitTxt(ctx,n2,mx,L.ny+(L.wide?21:19),C.muted,z,500,mwid);
+}
+
+function drawSky(ctx,L){
+  var x=L.scx,y=L.scy,R=L.Rs,T=m5.type,i;
+  dot(ctx,x,y,R,rgba(C.field,0.1));ring(ctx,x,y,R,C.muted,1.2);
+  seg(ctx,x-5,y,x+5,y,rgba(C.muted,0.7),1);seg(ctx,x,y-5,x,y+5,rgba(C.muted,0.7),1);
+  txt(ctx,'北 N',x,y-R-7,C.muted,11.5,600,'center');txt(ctx,'南 S',x,y+R+17,C.muted,11.5,600,'center');
+  txt(ctx,'东 E',x-R-7,y+4,C.muted,11.5,600,'right');txt(ctx,'西 W',x+R+7,y+4,C.muted,11.5,600,'left');
+  /* 走过的路线：geo 类画最近一天，LEO 画最近一圈 */
+  var span=T==='leo'?TL:TD,N=T==='leo'?180:144,pen=false;
+  ctx.beginPath();
+  for(i=0;i<=N;i++){var tg=m5.tau-span+span*i/N;if(tg<m5.since){pen=false;continue;}satAt(tg,Q5);skyOf(dishA(tg),Q5,G5);
+    if(G5.vis){var px=x-G5.e*R,py=y-G5.n*R;if(pen)ctx.lineTo(px,py);else{ctx.moveTo(px,py);pen=true;}}else pen=false;}
+  ctx.strokeStyle=rgba(C.copper,0.6);ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+  if(K5.vis){txt(ctx,'头顶',x,y+18,C.muted,11,500,'center');dot(ctx,x-K5.e*R,y-K5.n*R,7,C.stage);dot(ctx,x-K5.e*R,y-K5.n*R,5.5,C.ink);}
+  else txt(ctx,'看不到',x,y+20,C.muted,12.5,700,'center');
+  /* 右边：读数 */
+  var cx2=L.cx2,cw=L.cw,yy=L.ys+12,wd=L.wide;
+  fitTxt(ctx,'dish 看到的天空',cx2,yy,C.ink,13,700,cw);
+  fitTxt(ctx,'（抬头看，北在上）',cx2,yy+18,C.muted,11.5,500,cw);
+  var A,B,Cc,col=C.ink;
+  if(K5.vis){A='仰角 '+Math.round(K5.el)+'°';B=Math.abs(K5.ns)<0.5?'南北 0°（赤道正上方）':(K5.ns>0?'偏北 ':'偏南 ')+Math.abs(K5.ns).toFixed(0)+'°';
+    Cc=(T==='geo'&&!m5.rev)?'dish 永远不用动':'dish 要跟着转';}
+  else{A='在地平线下面';B='dish 收不到信号';Cc='';col=C.muted;}
+  fitTxt(ctx,A,cx2,yy+42,col,12.5,600,cw);fitTxt(ctx,B,cx2,yy+60,col,12.5,500,cw);
+  if(Cc)fitTxt(ctx,Cc,cx2,yy+78,C.copper,12.5,700,cw);
+  var t=m5.tau-m5.t0,hh=Math.floor(t+1e-9),mm=Math.floor((t-hh)*60+1e-6);
+  var fe=t/TD,fs=t/(T==='leo'?TL:TD);
+  fitTxt(ctx,'t = '+hh+' h '+(mm<10?'0':'')+mm+' min',cx2,yy+104,C.ink,12.5,600,cw);
+  fitTxt(ctx,'地球转了 '+fe.toFixed(2)+' 圈',cx2,yy+122,C.muted,12,500,cw);
+  fitTxt(ctx,'卫星'+(m5.rev?'反着':'')+'转了 '+fs.toFixed(2)+' 圈',cx2,yy+140,C.muted,12,500,cw);
+}
+
+var ROWS={
+  geo:['geostationary（地球静止轨道）',['高度 h','约 36 000 km'],['轨道半径 r','4.23 × 10⁷ m = 6.6 r_E'],['速度、周期','3.1 km s⁻¹，1 天'],['信号延迟','约 0.24 s（上去再下来）']],
+  sync:['geosynchronous（地球同步轨道）',['高度 h','约 36 000 km（一样高）'],['轨道半径 r','4.23 × 10⁷ m = 6.6 r_E'],['速度、周期','3.1 km s⁻¹，1 天'],['区别','和 geostationary 只差在轨道是斜的']],
+  leo:['LEO（低地球轨道）· ISS',['高度 h','420 km（LEO：200–2000 km）'],['轨道半径 r','r_E + h = 6.79 × 10⁶ m'],['速度、周期','约 7.7 km s⁻¹，约 90 min'],['信号延迟','几 ms']]
+};
+function drawTable(ctx,L){
+  var R=ROWS[m5.type],x=L.tx,y=L.ty,z=L.wide?13:12.5,i;
+  seg(ctx,x,y-22,x+L.tw,y-22,C.line,1);
+  fitTxt(ctx,R[0],x,y,C.ink,z+0.5,700,L.tw);
+  for(i=1;i<R.length;i++){var yy=y+L.rh*i;
+    mt(ctx,R[i][0],x,yy,C.muted,z,600,'left');fitTxt(ctx,R[i][1],x+L.lw,yy,C.ink,z,500,L.tw-L.lw);}
+}
+
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?470:Math.round(Math.min(146,(w-44)/2)*2+400);},
+  step:function(dt){m5.tau+=dt*m5.mpm/60;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    BX.length=0;
+    var L=lay5(W,H),st;
+    /* 状态行、下面的说明、右边的天空先放进占位框，画面里的标签不会压上去 */
+    if(L.wide){addBox(0,8,W,58);addBox(0,L.ny-16,L.x0-14,L.ny+26);addBox(L.x0-40,L.ys-14,W,H);}
+    else{addBox(0,6,W,50);addBox(0,L.ny-16,W,L.ny+24);}
+    drawMain(ctx,L,W,H);
+    st=status5();
+    if(L.wide){fitTxt(ctx,st[0],16,28,C.ink,15,600,W-32);fitTxt(ctx,st[1],16,52,C.ink,14,500,W-32);}
+    else{fitTxt(ctx,st[0],14,22,C.ink,13.5,600,W-28);fitTxt(ctx,st[1],14,42,C.ink,13,500,W-28);}
+    drawSky(ctx,L);
+    drawTable(ctx,L);
+  }
+});
+
+var b5g=document.getElementById('s5-geo'),b5y=document.getElementById('s5-sync'),b5l=document.getElementById('s5-leo'),b5r=document.getElementById('s5-rev');
+var r5=document.getElementById('s5-rate'),o5=document.getElementById('s5-rate-out');
+function rateTxt(v){return '1 s = '+(v%60===0?(v/60)+' h':(v>60?'1 h '+(v-60)+' min':v+' min'));}
+function setRate(v){m5.mpm=v;r5.value=String(v);o5.textContent=rateTxt(v);}
+function setType(t){var was=m5.type;m5.type=t;m5.t0=m5.tau;m5.since=m5.tau;press(b5g,t==='geo');press(b5y,t==='sync');press(b5l,t==='leo');
+  if(t==='leo'&&was!=='leo')setRate(10);else if(t!=='leo'&&was==='leo')setRate(60);S5.render();}
+b5g.addEventListener('click',function(){setType('geo');});
+b5y.addEventListener('click',function(){setType('sync');});
+b5l.addEventListener('click',function(){setType('leo');});
+b5r.addEventListener('click',function(){m5.rev=!m5.rev;m5.t0=m5.tau;m5.since=m5.tau;press(b5r,m5.rev);b5r.textContent=m5.rev?'方向反了：east → west':'方向：west → east';S5.render();});
+r5.addEventListener('input',function(){setRate(parseInt(r5.value,10));S5.render();});
+})();
+</script>
+</body>
+</html>

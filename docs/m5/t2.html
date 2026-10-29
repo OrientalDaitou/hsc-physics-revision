@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M5 T2 圆周运动与向心力</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m5">Module 5</a><span class="sep">/</span><span aria-current="page">Topic 2</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 5 · Topic 2</div>
+  <h1>Circular Motion: Forces</h1>
+  <p class="h1-sub">圆周运动：受力与真实情境 · 零基础讲解</p>
+  <p class="lead">这一章讲东西转圈时受什么力。核心其实只有一句：<b>指向圆心的合力 = <span class="m"><i>mv</i>²/<i>r</i></span></b>。难的只是每个情境里，找出是哪个真实的力在做这件事。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Uniform circular motion</div>
+    <p>匀速转圈也在加速：速度大小不变，但方向一直在变。加速度指向圆心。</p>
+    <div class="eqs"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Centripetal force</div>
+    <p>向心力不是一种新的力，是指向圆心的<b>合力</b>。只画真实的力：指向圆心的部分加起来 = <span class="m"><i>mv</i>²/<i>r</i></span>，竖直的部分（水平的圆）加起来 = 0。</p>
+    <div class="eqs"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">No centrifugal force</div>
+    <p>没有往外推的力。往外甩的感觉是 <span class="t">inertia</span>（惯性）。绳子一断，球沿切线直着飞走，不是往外飞。</p>
+    <div class="eqs"><i>F</i><sub>net</sub> = 0 → 走直线</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章六个部分">
+  <div class="map-row head"><span>部分</span><span>谁提供 F<sub>c</sub></span><span>要记住的</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">2.1</span><span class="t">Uniform circular motion</span></span><span>合力（例：绳子拉力）</span><span>速度方向在变，所以在加速，<i>a</i><sub>c</sub> 指向圆心</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">2.1</span><span class="t">f, ω &amp; “centrifugal force”</span></span><span>一定是真实的力</span><span><i>f</i> = 1/<i>T</i>，<i>ω</i> = 2π/<i>T</i>；没有离心力</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">2.2</span><span class="t">Strings</span></span><span>拉力 <i>F</i><sub>T</sub></span><span>圆锥摆：<i>r</i> = <i>L</i> sin <i>θ</i>，<i>F</i><sub>T</sub> &gt; <i>mg</i></span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">2.2</span><span class="t">Banked tracks &amp; bowls</span></span><span>支持力 <i>F</i><sub>N</sub></span><span>设计速度不用摩擦：tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">2.2</span><span class="t">Flat bends &amp; rotor</span></span><span>摩擦 <i>F</i><sub>f</sub>；旋转圆筒里是 <i>F</i><sub>N</sub></span><span>平路有最高速度，旋转圆筒有最低速度</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">2.3</span><span class="t">Whirling stopper</span></span><span>挂的重物 <i>Mg</i></span><span><i>F</i><sub>c</sub> 对 <i>v</i>² 是过原点的直线</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是把一个力分成竖直和水平两部分。</li>
+    <li>按 2.1 → 2.3 讲。每个情境先让学生自己画受力图，说出哪个力指向圆心，再开动画对照。</li>
+    <li>最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li><span class="t">Velocity</span>（速度）是 <span class="t">vector</span>（矢量）：有大小（就是 <span class="t">speed</span>，速率），也有方向。只改方向，velocity 也算变了。</li>
+    <li><span class="t">Newton</span> 第一、第二定律：没有合力，物体就走直线、速度不变。<span class="m"><i>F</i><sub>net</sub> = <i>ma</i></span>：合力朝哪，加速度就朝哪。</li>
+    <li>分解一个力：力和竖直方向成 <span class="m"><i>θ</i></span> 时，竖直部分是 <span class="m"><i>F</i> cos <i>θ</i></span>，水平部分是 <span class="m"><i>F</i> sin <i>θ</i></span>。水平部分 ÷ 竖直部分 = <span class="m">sin <i>θ</i>/cos <i>θ</i> = tan <i>θ</i></span>。</li>
+    <li>单位：<span class="m">km h<sup>−1</sup> ÷ 3.6 = m s<sup>−1</sup></span>（例：72 km h<sup>−1</sup> = 20 m s<sup>−1</sup>）；rpm（每分钟转几圈）÷ 60 = <span class="m"><i>f</i></span>；<span class="m"><i>g</i> = 9.8 m s<sup>−2</sup></span>。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">2.1</div>
+  <h2>匀速转圈，其实在加速<span class="en">Uniform circular motion and centripetal force</span></h2>
+  <p class="big"><span class="lbl">一句话</span>东西匀速转圈，其实一直在加速，因为它的方向一直在变。加速度指向圆心。让它加速的，是一个指向圆心的合力，叫向心力。</p>
+  <ul class="pts">
+    <li><span class="t">Uniform circular motion</span>（匀速圆周运动）：绕着圆走，速度的大小不变。</li>
+    <li>velocity 是 vector，方向一直在变，所以 velocity 一直在变：物体在加速。就像开车绕圈：速度表上的数字不变，但车头一直在转。</li>
+    <li>velocity 永远沿着 <span class="t">tangent</span>（切线）。切线只碰圆一个点，和半径成 90°。</li>
+    <li>把前后两个速度 <span class="m"><i>v</i><sub>1</sub></span>（前一刻）和 <span class="m"><i>v</i><sub>2</sub></span>（后一刻）尾对尾放在一起，它们的差 <span class="m">Δ<i>v</i></span> 指向圆心。</li>
+    <li>所以加速度也指向圆心，叫 <span class="t">centripetal acceleration</span>（向心加速度）<span class="m"><i>a</i><sub>c</sub></span>。“centripetal” 的意思就是“找圆心”。</li>
+    <li>走一圈的路程是 <span class="t">circumference</span>（周长）<span class="m">2π<i>r</i></span>，用的时间是一个 <span class="t">period</span>（周期）<span class="m"><i>T</i></span>：转一圈的时间，单位 s。所以 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>。</li>
+    <li><span class="m"><i>a</i><sub>c</sub></span> 随 <span class="m"><i>v</i>²</span> 变大：转得快，速度箭头转得更快，<b>而且</b>箭头更长。两样都变大，所以是平方。</li>
+    <li>同样的速度，<span class="m"><i>r</i></span> 越小，<span class="m"><i>a</i><sub>c</sub></span> 越大。急弯比大弯难转。</li>
+    <li>Newton 第二定律：<span class="t">net force</span>（合力，所有力加起来）也指向圆心：<span class="m"><i>F</i><sub>net</sub> = <i>ma</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>。这个指向圆心的合力，叫 <span class="t">centripetal force</span>（向心力）<span class="m"><i>F</i><sub>c</sub></span>。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Newton's second law · 牛顿第二定律</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>F</i><sub>net</sub> = <i>ma</i></div>
+    <dl class="sym">
+      <div><dt>F<sub>net</sub></dt><dd>合力：所有力加起来 (N)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>a</dt><dd>加速度 (m s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b><span class="m"><i>F</i><sub>net</sub></span> 和 <span class="m"><i>a</i></span> 都是 vector，方向相同。转圈时 <span class="m"><i>a</i></span> 指向圆心，所以合力也指向圆心。总表把这一条记在 Ch. 1 和 Ch. 2。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed, acceleration and force in a circle · 圆周运动的速度、加速度和力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i> = 2π<i>r</i>/<i>T</i></span><span style="display:inline-block;margin:0 .6em"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span><span style="display:inline-block;margin:0 .6em"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>物体的速度，沿切线 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+      <div><dt>T</dt><dd>周期：转一圈的时间 (s)</dd></div>
+      <div><dt>a<sub>c</sub></dt><dd>向心加速度，指向圆心 (m s<sup>−2</sup>)</dd></div>
+      <div><dt>F<sub>c</sub></dt><dd>向心力：指向圆心的合力 (N)</dd></div>
+      <div><dt>m</dt><dd>物体的质量 (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>任何匀速转圈的物体。<br><b>陷阱：</b><span class="m"><i>T</i></span> 是周期，不是拉力（tension）。用半径，不用直径。<span class="m"><i>F</i><sub>c</sub></span> 是合力：受力图上千万不要再多画一支 <span class="m"><i>F</i><sub>c</sub></span> 箭头。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · 转圈的球：<i>v</i> 沿切线，<i>a</i><sub>c</sub> 指向圆心</span><span class="sim-tag">俯视 · 逆时针 · 数据：示意（只看倍数）</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="俯视图：球被绳子拉着，绕圆心逆时针匀速转圈。速度 v 沿切线；拉力 F_T 和向心加速度 a_c 都指向圆心。旁边的小图把前一刻和后一刻的速度尾对尾放，Δv 指向圆心。下面两根条显示 a_c 和 F_c 是开始时的几倍。剪断绳子后，球沿切线直线飞走。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <button class="btn" type="button" id="s1-cut" aria-pressed="false">剪断绳子</button>
+      <label class="range">速度 <i>v</i> <input type="range" id="s1-v" min="0.5" max="2" step="0.25" value="1"><output id="s1-v-out" for="s1-v">× 1</output></label>
+      <label class="range">半径 <i>r</i> <input type="range" id="s1-r" min="0.5" max="2" step="0.25" value="1"><output id="s1-r-out" for="s1-r">× 1</output></label>
+      <button class="btn" type="button" id="s1-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先按暂停：圆上淡淡地多画出球在另外两个时刻的样子。每一处 <i>v</i> 都沿切线（和绳子垂直），<i>a</i><sub>c</sub>（紫）都指向圆心；拉力 <i>F</i><sub>T</sub>（绿）也指向圆心。画面上没有往外的箭头；<i>F</i><sub>c</sub> 就是 <i>F</i><sub>T</sub>，不另画一支。② 看小图：前一刻的 <i>v</i><sub>1</sub> 和后一刻的 <i>v</i><sub>2</sub> 尾对尾放，Δ<i>v</i> 也指向圆心。③ 按“剪断绳子”：球从那一点沿切线直线飞走，不是往外飞；小图里 Δ<i>v</i> = 0。④ 把 <i>v</i> 拉到 × 2：<i>a</i><sub>c</sub> 和 <i>F</i><sub>c</sub> 变成 4 倍；把 <i>r</i> 拉到 × 2：变成原来的 ½。倍数看下面的条；箭头太长画不下时，箭头中间会出现两道小斜线。数字都是示意，只看倍数。</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">2.1</div>
+  <h2>转得多快：f 和 ω；没有“离心力”<span class="en">Frequency, angular velocity and “centrifugal force”</span></h2>
+  <p class="big"><span class="lbl">一句话</span>向心力不是一种新的力，总是由真实的力来做。转弯时往外甩的感觉，不是有力在推你，是你的身体想走直线。</p>
+  <h3>F<sub>c</sub> 跟什么有关</h3>
+  <ul class="pts">
+    <li><span class="m"><i>F</i><sub>c</sub> ∝ <i>m</i></span>，<span class="m"><i>F</i><sub>c</sub> ∝ <i>v</i>²</span>，<span class="m"><i>F</i><sub>c</sub> ∝ 1/<i>r</i></span>。∝ 读作“成正比”（<span class="t">proportional</span>）。</li>
+    <li><b><span class="m"><i>v</i></span> 变 2 倍，<span class="m"><i>F</i><sub>c</sub></span> 变 4 倍</b>（2² = 4）。<b><span class="m"><i>v</i></span> 不变时</b>，<span class="m"><i>r</i></span> 变 2 倍，<span class="m"><i>F</i><sub>c</sub></span> 变成一半。</li>
+    <li>用周期 <span class="m"><i>T</i></span> 也能算 <span class="m"><i>a</i><sub>c</sub></span>：<span class="m"><i>a</i><sub>c</sub> = 4π²<i>r</i>/<i>T</i>²</span>（把 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span> 代进 <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span>）。注意：<span class="m"><i>T</i></span> 不变时，<span class="m"><i>r</i></span> 越大，<span class="m"><i>a</i><sub>c</sub></span> 反而越大。这和上一条不矛盾：这时 <span class="m"><i>v</i></span> 也跟着变大了。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Centripetal acceleration from the period · 用周期算向心加速度</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>a</i><sub>c</sub> = 4π²<i>r</i>/<i>T</i>²</div>
+    <dl class="sym">
+      <div><dt>a<sub>c</sub></dt><dd>向心加速度 (m s<sup>−2</sup>)</dd></div>
+      <div><dt>r</dt><dd>半径 (m)</dd></div>
+      <div><dt>T</dt><dd>周期 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么组合：</b><span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i> = (2π<i>r</i>/<i>T</i>)²/<i>r</i> = 4π²<i>r</i>/<i>T</i>²</span>。题目给周期、不给速度时用它。</p>
+  </div>
+
+  <h3>频率和角速度</h3>
+  <ul class="pts">
+    <li><span class="t">Frequency</span>（频率）<span class="m"><i>f</i></span>：每秒转几圈，单位 Hz。<span class="m"><i>f</i> = 1/<i>T</i></span>（在 sheet 上）。</li>
+    <li>先换单位：km h<sup>−1</sup> ÷ 3.6 得到 m s<sup>−1</sup>；rpm（<span class="t">revolutions per minute</span>，每分钟转几圈）÷ 60 得到 <span class="m"><i>f</i></span>。</li>
+    <li><span class="t">Angular velocity</span>（角速度）<span class="m"><i>ω</i></span>：每秒转过的角度。<span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span>（在 sheet 上），单位 rad s<sup>−1</sup>。</li>
+    <li>一圈 = 2π <span class="t">radians</span>（弧度，rad）= 360°。所以 <span class="m"><i>ω</i> = 2π/<i>T</i></span>（不在 sheet 上）。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Frequency and angular velocity · 频率和角速度</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>f</i> = 1/<i>T</i></span><span style="display:inline-block;margin:0 .6em"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span></div>
+    <dl class="sym">
+      <div><dt>f</dt><dd>频率：每秒转几圈 (Hz)</dd></div>
+      <div><dt>T</dt><dd>周期 (s)</dd></div>
+      <div><dt>ω</dt><dd>角速度 (rad s<sup>−1</sup>)</dd></div>
+      <div><dt>Δθ</dt><dd>转过的角度 (rad)</dd></div>
+      <div><dt>t</dt><dd>用的时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b>转盘每分钟转 30 圈（30 rpm）：<span class="m"><i>f</i> = 30 ÷ 60 = 0.5 Hz</span>，<span class="m"><i>T</i> = 1/0.5 = 2 s</span>。<br><b>陷阱：</b><span class="m">Δ<i>θ</i></span> 要用 rad，不用度。总表把 <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span> 记在 Ch. 3。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Angular velocity from the period · 用周期算角速度</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>ω</i> = 2π/<i>T</i></div>
+    <dl class="sym">
+      <div><dt>ω</dt><dd>角速度 (rad s<sup>−1</sup>)</dd></div>
+      <div><dt>T</dt><dd>周期 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>转一圈 <span class="m">Δ<i>θ</i> = 2π rad</span>，用时 <span class="m"><i>t</i> = <i>T</i></span>，代进 <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span>。上面的转盘：<span class="m"><i>ω</i> = 2π/2 = π ≈ 3.14 rad s<sup>−1</sup></span>。<br><b>注意：</b>总表写成 <span class="m"><i>ω</i> = 2π/<i>T</i> = 2π<i>f</i></span>，记在 Ch. 3。</p>
+  </div>
+
+  <h3>向心力由真实的力来做</h3>
+  <p>向心力不是一种新的力。它更像一个“岗位”，由真实的力来做。常见的是下面这几种，有时是几个力加起来：</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>情境</th><th>谁提供向心力</th></tr></thead>
+      <tbody>
+        <tr><td>绳子拉着转的球</td><td><span class="t">Tension</span>（拉力）</td></tr>
+        <tr><td>平路转弯的车</td><td><span class="t">Friction</span>（摩擦力）</td></tr>
+        <tr><td>倾斜弯道、旋转圆筒</td><td><span class="t">Normal force</span>（支持力）</td></tr>
+        <tr><td>月亮、卫星绕地球</td><td><span class="t">Gravity</span>（引力）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>没有“离心力”</h3>
+  <ul class="pts">
+    <li>转弯时，<b>没有</b>力把你往外推。</li>
+    <li>因为 <span class="t">inertia</span>（惯性：想一直走直线的倾向），你的身体想继续直着走。是座椅、安全带和车门把你<b>往里</b>推，你才跟着车转弯。</li>
+    <li>坐车急转弯时，你觉得被“甩”向车门。其实是车往里拐了，你还想直着走，车门就顶上来，把你往里推。</li>
+    <li>所以 <span class="t">“centrifugal force”</span>（离心力）不是真实的力。受力图上不能画它。</li>
+    <li>绳子断了：往里拉的力没了。按 Newton 第一定律，球沿切线走直线飞走，<b>不是</b>沿半径往外飞。可以在动画 1 里剪断绳子看看。</li>
+  </ul>
+</section>
+
+<section id="s3">
+  <div class="secnum">2.2</div>
+  <h2>绳子提供向心力：圆锥摆和秋千<span class="en">Real situations: the forces that provide F<sub>c</sub> · Strings</span></h2>
+  <p class="big"><span class="lbl">一句话</span>每个情境都一样：找出真实的力，把它们分成“指向圆心”和“竖直”两部分。指向圆心的部分加起来 = <span class="m"><i>mv</i>²/<i>r</i></span>。</p>
+  <ul class="pts">
+    <li><span class="t">Tension</span>（拉力（张力））<span class="m"><i>F</i><sub>T</sub></span>：绳子、绳索、链条的拉力，沿着绳子。</li>
+    <li><span class="t">Normal force</span>（支持力（法向力））<span class="m"><i>F</i><sub>N</sub></span>：一个面对物体的推力，和这个面成 90°。</li>
+    <li><span class="t">Component</span>（分量（分力））：一个力在某一个方向上的那一部分。</li>
+  </ul>
+
+  <h3>方法：每道题都这样做</h3>
+  <ol class="pts">
+    <li>画 <span class="t">free-body diagram</span>（受力分析图）：只画这个物体，每个真实的力画一支箭头。<b>不画 <span class="m"><i>F</i><sub>c</sub></span> 箭头。</b></li>
+    <li>把每个力分成两部分。<span class="m"><i>θ</i></span> 从<b>竖直</b>方向量时：竖直部分 <span class="m"><i>F</i> cos <i>θ</i></span>，水平部分 <span class="m"><i>F</i> sin <i>θ</i></span>。</li>
+    <li>指向圆心的部分加起来 = <span class="m"><i>mv</i>²/<i>r</i></span>。竖直的部分（水平的圆）加起来 = 0。</li>
+  </ol>
+
+  <h3>圆锥摆</h3>
+  <ul class="pts">
+    <li><span class="t">Conical pendulum</span>（圆锥摆）：绳子下面挂一个球，球在水平面上转圈。绳子扫出一个圆锥。</li>
+    <li>球上只有两个力：<span class="m"><i>F</i><sub>T</sub></span> 和 <span class="m"><i>mg</i></span>。</li>
+    <li>圆心在 <span class="t">pivot</span>（支点（悬点）：固定不动、挂绳子的那个点）的<b>正下方</b>，不在 pivot 上。所以半径 <span class="m"><i>r</i> = <i>L</i> sin <i>θ</i></span>（<span class="m"><i>L</i></span> 是绳长）。</li>
+    <li>指向圆心：<span class="m"><i>F</i><sub>T</sub> sin <i>θ</i> = <i>mv</i>²/<i>r</i></span>。</li>
+    <li>竖直：<span class="m"><i>F</i><sub>T</sub> cos <i>θ</i> = <i>mg</i></span>，所以 <span class="m"><i>F</i><sub>T</sub> = <i>mg</i>/cos <i>θ</i> &gt; <i>mg</i></span>。拉力永远比重力大。</li>
+    <li>它也用下一节的公式 <span class="m">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span>：转得越快，<span class="m"><i>θ</i></span> 越大，球甩得越高。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Conical pendulum</div><p>圆心在 pivot 正下方：<span class="m"><i>r</i> = <i>L</i> sin <i>θ</i></span>。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Swing-ride chair</div><p>飞椅挂在一个转动的架子上：<span class="m"><i>r</i> = <i>d</i> + <i>L</i> sin <i>θ</i></span>，<span class="m"><i>d</i></span> = 转轴到链条顶端的距离。</p></div>
+  </div>
+
+  <h3>竖直的圆：秋千</h3>
+  <ul class="pts">
+    <li><span class="t">Vertical circle</span>（竖直平面内的圆周）：立起来的圆，比如秋千。它<b>不是</b>匀速的，速度一直在变。</li>
+    <li>但在每一点，指向圆心的合力还是 <span class="m"><i>mv</i>²/<i>r</i></span>。</li>
+    <li>秋千最低点：<span class="m"><i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span>。拉力比重力大，所以你觉得自己变重了。</li>
+    <li>绳子拉着转到最高点：<span class="m"><i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span>。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Vertical circle: top and bottom · 竖直平面内圆周的最高点和最低点</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em">最高点：<i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span><span style="display:inline-block;margin:0 .6em">最低点：<i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>F<sub>T</sub></dt><dd>绳子的拉力 (N)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>v</dt><dd>这一点的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>指向圆心的力算正，加起来 = <span class="m"><i>mv</i>²/<i>r</i></span>。最低点圆心在上面：<span class="m"><i>F</i><sub>T</sub></span> 朝上指向圆心，<span class="m"><i>mg</i></span> 朝下背着圆心，所以相减。最高点两个力都朝下，都指向圆心，所以相加。<br><b>注意：</b>两条都不在 sheet 上。总表把它们记在 Ch. 3，第 3 章会细讲。</p>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · 圆锥摆和飞椅：转得越快，θ 越大</span><span class="sim-tag">侧视 + 受力图 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边是侧视图：球挂在绳下转一个水平圆，绳子扫出一个圆锥，标出绳长 L、角度 θ 和半径 r，圆心在 pivot 正下方。右边是球的受力图：只有拉力 F_T 和重力 mg，F_T 用虚线分成指向圆心的 F_T sin θ 和竖直的 F_T cos θ。下方显示 θ、r、tan θ 和 v²/(rg)，以及 F_T 和 mg 的大小。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">速度 v <input type="range" id="s2-v" min="0.8" max="5" step="0.1" value="2.5"><output id="s2-v-out" for="s2-v">2.5 m s<sup>−1</sup></output></label>
+    <span class="seg" role="group" aria-label="装置">
+      <button class="btn" type="button" id="s2-cone" aria-pressed="true">圆锥摆</button>
+      <button class="btn" type="button" id="s2-swing" aria-pressed="false">飞椅 swing ride</button>
+    </span>
+    <span class="seg" role="group" aria-label="质量">
+      <button class="btn" type="button" id="s2-m1" aria-pressed="true">质量 m</button>
+      <button class="btn" type="button" id="s2-m2" aria-pressed="false">质量 2m</button>
+    </span>
+  </div>
+  <p class="try"><b>试一试：</b>① 把速度 v 往右拉：圆锥张开，θ 变大，r 变大，F<sub>T</sub> 也变大；拉到最右边，θ 也到不了 90°。② 看读数：tan θ 和 v²/(rg) 永远一样，F<sub>T</sub> 永远比 mg 大（F<sub>T</sub> = mg/cos θ）。③ 按“质量 2m”：受力图的箭头和两根条都变 2 倍，θ 一点不变。④ 切到“飞椅”：同样的 v，r = d + L sin θ 更大，θ 比圆锥摆小。L&nbsp;=&nbsp;1.0&nbsp;m、d&nbsp;=&nbsp;0.5&nbsp;m、m&nbsp;=&nbsp;0.50&nbsp;kg 都是示意值，g&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>；θ、r、F<sub>T</sub> 是用这些值算出来的。</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">2.2</div>
+  <h2>倾斜弯道和碗<span class="en">Tilted surfaces: bowls and banked tracks</span></h2>
+  <p class="big"><span class="lbl">一句话</span>弯道做成外高内低，路面的支持力就斜向圆心。到了设计速度，它的水平部分正好够做向心力，一点摩擦都不用。</p>
+  <ul class="pts">
+    <li><span class="t">Banked track</span>（倾斜弯道（外高内低））：弯道外边高、里边低。像自行车赛场的弯道。</li>
+    <li><span class="t">Bank angle</span>（倾角）<span class="m"><i>θ</i></span>：路面和水平面的夹角。</li>
+    <li><span class="m"><i>F</i><sub>N</sub></span> 和路面成 90°，所以它也从竖直方向偏了同样的 <span class="m"><i>θ</i></span>，偏向圆心。</li>
+    <li><span class="t">Design speed</span>（设计速度（规定速度））：在这个速度，不需要摩擦。</li>
+  </ul>
+  <p>下面三种情况，都是从车后面看，弯道圆心在左边：</p>
+  <div class="duo">
+    <div class="state hot" style="grid-column:1 / -1"><div class="state-h" style="font-family:var(--body);font-size:17px">正好是设计速度</div><p><b>不需要摩擦。</b>只有 <span class="m"><i>F</i><sub>N</sub></span> 和 <span class="m"><i>mg</i></span>，<span class="m"><i>F</i><sub>N</sub></span> 的水平部分正好够做向心力。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">比设计速度慢</div><p>车想往下滑，所以摩擦沿斜面<b>向上</b>。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">比设计速度快</div><p>车想往上滑，所以摩擦沿斜面<b>向下</b>。</p></div>
+  </div>
+  <ul class="pts">
+    <li>设计速度时：<span class="m"><i>F</i><sub>N</sub> sin <i>θ</i> = <i>mv</i>²/<i>r</i></span>，<span class="m"><i>F</i><sub>N</sub> cos <i>θ</i> = <i>mg</i></span>，所以 <span class="m"><i>F</i><sub>N</sub> = <i>mg</i>/cos <i>θ</i> &gt; <i>mg</i></span>。</li>
+    <li>弯道倾斜以后，需要的摩擦变少了（只要车不是开得很慢）。所以下雨路滑时，倾斜的弯道更安全。车开得很慢时，倾斜路反而要更多摩擦，可以在动画 3 里看到。</li>
+    <li>碗里转圈的弹珠：分析完全一样。<span class="m"><i>F</i><sub>N</sub></span> 指向碗的球心。<span class="m"><i>r</i></span> 是弹珠到中心竖线的<b>水平</b>距离，不是碗的半径。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Tilted string or surface · 斜的绳子或斜面</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</div>
+    <dl class="sym">
+      <div><dt>θ</dt><dd><i>F</i><sub>T</sub> 或 <i>F</i><sub>N</sub> 和竖直方向的夹角（倾角）(°)</dd></div>
+      <div><dt>v</dt><dd>速度；倾斜路面就是设计速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>水平圆的半径 (m)</dd></div>
+      <div><dt>g</dt><dd>重力加速度，取 9.8 (m s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>圆锥摆；倾斜路面在设计速度时；没有摩擦的碗。<br><b>怎么来的（也可以自己推导）：</b>用两条分量式（<span class="m"><i>F</i></span> 是 <span class="m"><i>F</i><sub>T</sub></span> 或 <span class="m"><i>F</i><sub>N</sub></span>）：<br>水平，合力指向圆心：<span class="m"><i>F</i> sin <i>θ</i> = <i>mv</i>²/<i>r</i></span><br>竖直，力平衡：<span class="m"><i>F</i> cos <i>θ</i> = <i>mg</i></span><br>第一式 ÷ 第二式，<span class="m"><i>F</i></span> 和 <span class="m"><i>m</i></span> 都约掉：<span class="m">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span><br><b>陷阱：</b>绳子的 <span class="m"><i>r</i></span> 不是绳长：<span class="m"><i>r</i> = <i>L</i> sin <i>θ</i></span>。不要沿斜面分解力：加速度是水平的。</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · 倾斜弯道：太慢、设计速度、太快</span><span class="sim-tag">从车后面看，圆心在左 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="从车后面看，一辆车在外高内低的倾斜弯道上，弯道圆心在左边。车上画着重力 mg、垂直路面的支持力 F_N 和沿斜面的摩擦力 F_f，F_N 用虚线分成水平和竖直两部分。旁边的小图是俯视的弯道，车在上面转圈；下方两根条比较这条倾斜路和平路需要的摩擦。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">速度 v <input type="range" id="s3-v" min="0" max="30" step="0.1" value="13.4"><output id="s3-v-out" for="s3-v">13.4 m s<sup>−1</sup></output></label>
+    <label class="range">倾角 θ <input type="range" id="s3-th" min="5" max="40" step="1" value="20"><output id="s3-th-out" for="s3-th">20°</output></label>
+    <button class="btn" type="button" id="s3-design">回到设计速度</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 一打开就是设计速度：没有摩擦箭头，F<sub>N</sub> 的竖直虚线和 mg 一样长（F<sub>N</sub> cos θ = mg）。② 把 v 往左拉：车想往下滑，摩擦沿斜面向上；往右拉：车想往上滑，摩擦沿斜面向下。③ 换一个倾角 θ，再按“回到设计速度”：θ 越大，设计速度越高（v = √(rg tan θ)）。④ 看下面两根条：在设计速度附近，倾斜路要的摩擦比平路少；可是车快停下时，倾斜路反而要更多。r&nbsp;=&nbsp;50&nbsp;m 是示意值，g&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>；力都写成 mg 的几倍，质量约掉了。</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">2.2</div>
+  <h2>摩擦：平路转弯和旋转圆筒<span class="en">Friction: flat bends and the rotor ride</span></h2>
+  <p class="big"><span class="lbl">一句话</span>平路转弯靠摩擦做向心力，摩擦有上限，所以有一个最高速度。旋转圆筒里墙的支持力做向心力，摩擦只负责托住人，所以有一个最低速度。</p>
+  <ul class="pts">
+    <li><span class="t">Static friction</span>（静摩擦力）<span class="m"><i>F</i><sub>f</sub></span>：不让两个面滑动的摩擦。需要多少就给多少，但有上限：<span class="m"><i>F</i><sub>f</sub> ≤ <i>μF</i><sub>N</sub></span>（不在 sheet 上）。</li>
+    <li><span class="t">Coefficient of friction</span>（摩擦因数）<span class="m"><i>μ</i></span>：没有单位，说的是两个面“抓”得有多紧。干的路面约 0.8，冰上约 0.1。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Static friction limit · 静摩擦的上限</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>F</i><sub>f</sub> ≤ <i>μF</i><sub>N</sub></div>
+    <dl class="sym">
+      <div><dt>F<sub>f</sub></dt><dd>静摩擦力 (N)</dd></div>
+      <div><dt>μ</dt><dd>摩擦因数（没有单位）</dd></div>
+      <div><dt>F<sub>N</sub></dt><dd>支持力 (N)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>“≤” 的意思是：静摩擦只给需要的那么多，最多到 <span class="m"><i>μF</i><sub>N</sub></span>。需要的比这个多，就开始滑。</p>
+  </div>
+
+  <h3>平路转弯</h3>
+  <ul class="pts">
+    <li>轮胎把路面往外推。按 Newton 第三定律，路面把轮胎<b>往里</b>推。</li>
+    <li>这个摩擦就是向心力：<span class="m"><i>F</i><sub>f</sub> = <i>mv</i>²/<i>r</i></span>。竖直方向：<span class="m"><i>F</i><sub>N</sub> = <i>mg</i></span>。</li>
+    <li>受力图（从车后面看，圆心在左）：<span class="m"><i>F</i><sub>N</sub></span> 朝上，<span class="m"><i>mg</i></span> 朝下，<span class="m"><i>F</i><sub>f</sub></span> 朝左，指向圆心。</li>
+    <li>路面最多给 <span class="m"><i>μmg</i></span>。弯道需要的比这个多，车就向<b>外侧</b>打滑。冰上 <span class="m"><i>μ</i></span> 小，所以特别容易滑。</li>
+  </ul>
+
+  <h3>旋转圆筒</h3>
+  <ul class="pts">
+    <li><span class="t">Rotor</span>（旋转圆筒（转筒））：一个大圆筒转起来，然后地板掉下去，人贴在墙上不掉。像洗衣机甩干时，衣服贴在桶壁上。</li>
+    <li>墙的 normal force 是水平的，指向转轴。它就是向心力：<span class="m"><i>F</i><sub>N</sub> = <i>mv</i>²/<i>r</i></span>。</li>
+    <li>静摩擦沿墙<b>向上</b>，托住体重：<span class="m"><i>F</i><sub>f</sub> = <i>mg</i></span>。</li>
+    <li>只有 <span class="m"><i>mg</i> ≤ <i>μF</i><sub>N</sub></span>，人才不往下滑。所以有一个最慢的安全速度。</li>
+    <li>转得更快：摩擦的<b>上限</b>变大，但实际的摩擦还是 <span class="m"><i>mg</i></span>。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">平路转弯</div><p>摩擦 = 向心力。越快，需要的摩擦越大。所以有<b>最高</b>速度 <span class="m"><i>v</i><sub>max</sub></span>。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">旋转圆筒</div><p><span class="m"><i>F</i><sub>N</sub></span> = 向心力，摩擦 = <span class="m"><i>mg</i></span>。越快，摩擦的上限越大。所以有<b>最低</b>速度 <span class="m"><i>v</i><sub>min</sub></span>。</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Friction limits: flat bend and rotor · 摩擦的极限：平路转弯和旋转圆筒</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i><sub>max</sub> = √(<i>μgr</i>)</span><span style="display:inline-block;margin:0 .6em"><i>v</i><sub>min</sub> = √(<i>gr</i>/<i>μ</i>)</span></div>
+    <dl class="sym">
+      <div><dt>v<sub>max</sub></dt><dd>平路转弯不打滑的最高速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>min</sub></dt><dd>旋转圆筒里人不往下滑的最低速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>μ</dt><dd>摩擦因数：轮胎和路面；人和墙（没有单位）</dd></div>
+      <div><dt>g</dt><dd>重力加速度，取 9.8 (m s<sup>−2</sup>)</dd></div>
+      <div><dt>r</dt><dd>弯道的半径，或圆筒的半径 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>平路转弯用 <span class="m"><i>v</i><sub>max</sub></span>；旋转圆筒（地板拿走以后）用 <span class="m"><i>v</i><sub>min</sub></span>。<b>质量没有影响。</b><br><b>怎么来的（也可以自己推导）：</b>在极限速度，需要的摩擦 = 最大的摩擦。平路：<span class="m"><i>mv</i><sub>max</sub>²/<i>r</i> = <i>μmg</i></span>，所以 <span class="m"><i>v</i><sub>max</sub>² = <i>μgr</i></span>。旋转圆筒：<span class="m"><i>mg</i> = <i>μF</i><sub>N</sub> = <i>μmv</i><sub>min</sub>²/<i>r</i></span>，所以 <span class="m"><i>v</i><sub>min</sub>² = <i>gr</i>/<i>μ</i></span>。<br><b>陷阱：</b><span class="m"><i>μF</i><sub>N</sub></span> 是<b>最大</b>的摩擦，不是实际的摩擦。</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">动画 4 · 摩擦够不够？平路转弯 vs rotor</span><span class="sim-tag">摩擦因数来自讲义 · 半径示意 · 极限速度是计算值</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="两种情况可以切换。平路转弯：俯视一辆车在圆形弯道上转，摩擦指向圆心；速度超过 v_max 时车沿更大的弧线滑向外侧。rotor：侧视旋转圆筒，人贴在墙上，墙的支持力指向转轴，摩擦向上，重力向下；速度低于 v_min 时人沿墙往下滑。右边或下方用条形对比“需要的摩擦”和“最多能给的摩擦”。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="情况">
+      <button class="btn" type="button" id="s4-flat" aria-pressed="true">平路转弯</button>
+      <button class="btn" type="button" id="s4-rotor" aria-pressed="false">rotor 旋转圆筒</button>
+    </span>
+    <label class="range">速度 v <input type="range" id="s4-v" min="0" max="25" step="0.5" value="15"><output id="s4-v-out" for="s4-v">15.0 m s<sup>−1</sup></output></label>
+    <label class="range">摩擦因数 μ <input type="range" id="s4-mu" min="0.1" max="0.8" step="0.05" value="0.8"><output id="s4-mu-out" for="s4-mu">0.80 干路</output></label>
+  </div>
+  <p class="try"><b>试一试：</b>① 平路转弯：把 v 慢慢拉过 19.8&nbsp;m&nbsp;s<sup>−1</sup>（μ&nbsp;=&nbsp;0.8 时的 <i>v</i><sub>max</sub>）。需要的摩擦 mv²/r 超过 μmg，车沿更大的弧线滑向外侧，不是被“甩”出去。② 把 μ 调到 0.1（冰）：<i>v</i><sub>max</sub> 只剩 7.0&nbsp;m&nbsp;s<sup>−1</sup>。③ 切到 rotor，μ 调回 0.8：把 v 降到 4.95&nbsp;m&nbsp;s<sup>−1</sup> 以下，μ<i>F</i><sub>N</sub> 托不住 mg，人往下滑；再调快，上限 μ<i>F</i><sub>N</sub> 变大，但实际摩擦一直是 mg。注意：平路的极限是“最快”，rotor 的极限是“最慢”。所有力都是 mg 的几倍，m 约掉了，所以质量不影响 <i>v</i><sub>max</sub> 和 <i>v</i><sub>min</sub>。（r&nbsp;=&nbsp;50&nbsp;m、2.0&nbsp;m 是示意值。）</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">2.3</div>
+  <h2>一个要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>旋转塞子：验证 <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span></h3>
+    <dl>
+      <dt>目的</dt><dd>看 <span class="m"><i>F</i><sub>c</sub></span> 怎样随速度（Part A）、半径（Part B）和质量（Part C）变化。这是 syllabus 要求的实验。</dd>
+      <dt>做法</dt><dd>手握一根竖直的管子，绳子穿过管子。上端拴一个 <span class="t">stopper</span>（橡皮塞，质量 <span class="m"><i>m</i></span>），在水平面上转圈。下端挂一个重物（质量 <span class="m"><i>M</i></span>）。重物不动，所以拉力提供向心力：<span class="m"><i>F</i><sub>c</sub> = <i>Mg</i></span>。管子下面的 <span class="t">paper clip</span>（回形针）让半径 <span class="m"><i>r</i> = <i>L</i></span> 不变。计时 20 圈（减少反应时间带来的误差），做三次取平均。<span class="m"><i>T</i> = 时间 ÷ 20</span>；<span class="m"><i>v</i> = 2π<i>L</i>/<i>T</i></span>。</dd>
+      <dt>结果</dt><dd>Part A：<span class="m"><i>F</i><sub>c</sub></span> 对 <span class="m"><i>v</i>²</span> 是一条过 <span class="t">origin</span>（原点）(0, 0) 的直线。<span class="t">Line of best fit</span>（最佳拟合直线：离所有点最近的那条直线）的斜率，和 <span class="m"><i>m</i>/<i>r</i></span> 相差在 1 % 以内。Part B 和 C（按理论预期）：<span class="m"><i>v</i>²</span> 对 <span class="m"><i>r</i></span>、<span class="m"><i>v</i>²</span> 对 <span class="m">1/<i>m</i></span> 也应该是过原点的直线。</dd>
+      <dt>结论</dt><dd>Part A：<span class="m"><i>F</i><sub>c</sub> ∝ <i>v</i>²</span>，支持 <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>。如果 Part B、C 的图也是直线，那么在同样的速度下 <span class="m"><i>F</i><sub>c</sub> ∝ 1/<i>r</i></span>，<span class="m"><i>F</i><sub>c</sub> ∝ <i>m</i></span>。（<span class="m"><i>F</i><sub>c</sub></span> 对 <span class="m">1/<i>T</i>²</span> 也是直线；<span class="m"><i>F</i><sub>c</sub></span> 对 <span class="m"><i>v</i></span> 是曲线。）</dd>
+      <dt>意义</dt><dd>用一个能测出来的力（挂的重物）验证了 <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>。工程师用同一个模型设计弯道、倾斜弯道、游乐设施和卫星轨道。</dd>
+    </dl>
+  </div>
+
+  <h3>三个 Part 各改什么</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>改什么（不变的）</th><th>画什么图 → 为什么是直线</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td><span class="m"><i>M</i></span>，所以改 <span class="m"><i>F</i><sub>c</sub></span>（<span class="m"><i>m</i></span>、<span class="m"><i>L</i></span> 不变）</td><td><span class="m"><i>F</i><sub>c</sub></span> 对 <span class="m"><i>v</i>²</span>：<span class="m"><i>F</i><sub>c</sub> = (<i>m</i>/<i>r</i>) × <i>v</i>²</span>，斜率 <span class="m"><i>m</i>/<i>r</i></span></td></tr>
+        <tr><td>B</td><td><span class="m"><i>L</i></span>，就是 <span class="m"><i>r</i></span>（<span class="m"><i>M</i></span>、<span class="m"><i>m</i></span> 不变）</td><td><span class="m"><i>v</i>²</span> 对 <span class="m"><i>r</i></span>：<span class="m"><i>v</i>² = (<i>Mg</i>/<i>m</i>) × <i>r</i></span></td></tr>
+        <tr><td>C</td><td>用 1、2、3、4 个一样的塞子（<span class="m"><i>M</i></span>、<span class="m"><i>L</i></span> 不变）</td><td><span class="m"><i>v</i>²</span> 对 <span class="m">1/<i>m</i></span>：<span class="m"><i>v</i>² = <i>MgL</i> × (1/<i>m</i>)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Part A 的三种变量：</p>
+  <ul class="pts">
+    <li><span class="t">Independent variable</span>（自变量，故意改的）：<span class="m"><i>M</i></span>。</li>
+    <li><span class="t">Dependent variable</span>（因变量，测出来的）：转 20 圈的时间。</li>
+    <li><span class="t">Controlled variables</span>（控制变量，保持不变的）：<span class="m"><i>m</i></span>、<span class="m"><i>L</i></span>，还有圆要保持水平。</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">动画 5 · 旋转塞子实验：F<sub>c</sub> 和 v² 是直线</span><span class="sim-tag">侧视装置 + 图像 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边是旋转塞子实验装置的侧视图：手握竖管，塞子在管口上方转一个水平圆，半径是 L；管下面是回形针和挂着的质量 M，拉力 F_T 指向管，M 受到向下的 Mg 和向上的 F_T。下方显示计时 20 圈、周期 T 和速度 v。右边是图像：Part A 画 F_c 对 v²，Part B 画 v² 对 r，Part C 画 v² 对 1/m，记下的点落在一条过原点的直线上。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="实验部分">
+      <button class="btn" type="button" id="s5-pa" aria-pressed="true">Part A</button>
+      <button class="btn" type="button" id="s5-pb" aria-pressed="false">Part B</button>
+      <button class="btn" type="button" id="s5-pc" aria-pressed="false">Part C</button>
+    </span>
+    <button class="btn" type="button" id="s5-time">计时 20 圈，记一个点</button>
+    <button class="btn" type="button" id="s5-clear">清空这张图</button>
+    <label class="range"><span id="s5-var-lbl">挂的质量 M</span> <input type="range" id="s5-var" min="0.05" max="0.3" step="0.05" value="0.15"><output id="s5-var-out" for="s5-var">0.15 kg</output></label>
+  </div>
+  <p class="try"><b>试一试：</b>① Part A：按“计时 20 圈，记一个点”，再把 M 换成别的值，每换一次记一个点。点越多，越能看出它们在一条过原点的直线上，斜率和 m/r 几乎一样。② 同一个 M 多按几次：图上的点用平均时间（讲义里也是测三次取平均）。③ 看左边：M 越大，塞子要转得越快，M 才不会动。④ 切到 Part B（改半径 L）和 Part C（改塞子个数），v² 对 r、v² 对 1/m 也都是过原点的直线。塞子 m&nbsp;=&nbsp;25&nbsp;g、L&nbsp;=&nbsp;0.80&nbsp;m、M&nbsp;=&nbsp;0.15&nbsp;kg（Part B、C）都是示意值，g&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>。图上的点是模拟数据（示意）：用 F<sub>c</sub> = mv²/r 算出来，再加一点小误差（v² 约 ±0.5&nbsp;%），不是真的测量。</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>v</i> = 2π<i>r</i>/<i>T</i></td><td>转圈的速度</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></td><td>指向圆心的加速度</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></td><td>指向圆心的合力（由真实的力提供）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</td><td>圆锥摆；倾斜路面在设计速度；碗</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>v</i><sub>max</sub> = √(<i>μgr</i>)</td><td>平路转弯的最高速度</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>v</i><sub>min</sub> = √(<i>gr</i>/<i>μ</i>)</td><td>旋转圆筒里最慢的安全速度</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>net</sub> = <i>ma</i></td><td>Newton 第二定律（总表记在 Ch. 1、2）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>f</i> = 1/<i>T</i></td><td>由周期算频率</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>f</sub> ≤ <i>μF</i><sub>N</sub></td><td>静摩擦最多是 <i>μF</i><sub>N</sub></td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>a</i><sub>c</sub> = 4π²<i>r</i>/<i>T</i>²</td><td>由周期算向心加速度</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>ω</i> = Δ<i>θ</i>/<i>t</i></td><td>角速度，Δθ 用 rad（总表记在 Ch. 3）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>ω</i> = 2π/<i>T</i> = 2π<i>f</i></td><td>由 <i>T</i> 或 <i>f</i> 算角速度（总表记在 Ch. 3）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f">最高点 <i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i><br>最低点 <i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></td><td>竖直圆周最高点、最低点的拉力（总表记在 Ch. 3）</td><td><span class="badge learn">要背</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>匀速转圈也在加速，因为方向在变。<span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span>，指向圆心。还有 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>，<span class="m"><i>f</i> = 1/<i>T</i></span>，<span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span>。</li>
+    <li><span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> 是指向圆心的合力，由真实的力提供：拉力、支持力、摩擦力、引力。没有离心力。</li>
+    <li>只画真实的力。指向圆心的部分加起来 = <span class="m"><i>mv</i>²/<i>r</i></span>；竖直的部分（水平的圆）加起来 = 0。</li>
+    <li>圆锥摆、倾斜路面（设计速度）：<span class="m">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span>。</li>
+    <li>平路转弯：<span class="m"><i>v</i><sub>max</sub> = √(<i>μgr</i>)</span>。旋转圆筒：<span class="m"><i>v</i><sub>min</sub> = √(<i>gr</i>/<i>μ</i>)</span>。</li>
+    <li>旋转塞子实验：<span class="m"><i>F</i><sub>c</sub> = <i>Mg</i></span>；<span class="m"><i>F</i><sub>c</sub></span> 对 <span class="m"><i>v</i>²</span> 是过原点的直线，斜率 <span class="m"><i>m</i>/<i>r</i></span>。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>公式里的 T 是拉力（tension）。<br><span class="ok">对：</span>T 是周期。拉力写成 F<sub>T</sub>。</div>
+    <div><span class="x">错：</span>用直径算。<br><span class="ok">对：</span>用半径 r。</div>
+    <div><span class="x">错：</span>受力图上再多画一支 F<sub>c</sub> 箭头。<br><span class="ok">对：</span>F<sub>c</sub> 是合力，只画真实的力。</div>
+    <div><span class="x">错：</span>转弯时有离心力把人往外推。<br><span class="ok">对：</span>没有离心力。往外的感觉是 inertia，座椅和车门把你往里推。</div>
+    <div><span class="x">错：</span>绳子断了，球沿半径往外飞。<br><span class="ok">对：</span>球沿切线走直线（Newton 第一定律）。</div>
+    <div><span class="x">错：</span>v 变 2 倍，F<sub>c</sub> 也变 2 倍。<br><span class="ok">对：</span>F<sub>c</sub> ∝ v²，变 4 倍。</div>
+    <div><span class="x">错：</span>圆锥摆的半径就是绳长 L；碗里弹珠的半径就是碗的半径。<br><span class="ok">对：</span>r 是水平圆的半径：圆锥摆 r = L sin θ；碗里的弹珠，r 是它到中心竖线的水平距离。</div>
+    <div><span class="x">错：</span>沿斜面分解力。<br><span class="ok">对：</span>按水平和竖直分解，因为加速度是水平的。</div>
+    <div><span class="x">错：</span>μF<sub>N</sub> 就是实际的摩擦。<br><span class="ok">对：</span>μF<sub>N</sub> 是最大的摩擦。实际只给需要的那么多，旋转圆筒里实际摩擦一直是 mg。</div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Uniform circular motion</td><td>匀速圆周运动</td><td>绕着圆走，速度大小不变</td></tr>
+        <tr><td class="t">Period (T)</td><td>周期</td><td>转一圈的时间，单位 s</td></tr>
+        <tr><td class="t">Tangent</td><td>切线</td><td>只碰圆一个点、和半径成 90° 的线</td></tr>
+        <tr><td class="t">Centripetal acceleration (a<sub>c</sub>)</td><td>向心加速度</td><td>指向圆心的加速度：v²/r</td></tr>
+        <tr><td class="t">Centripetal force (F<sub>c</sub>)</td><td>向心力</td><td>指向圆心的合力，让物体转圈</td></tr>
+        <tr><td class="t">Vector</td><td>矢量</td><td>有大小也有方向的量，画成箭头</td></tr>
+        <tr><td class="t">Net force</td><td>合力</td><td>所有力连方向一起加起来</td></tr>
+        <tr><td class="t">Circumference</td><td>周长</td><td>绕圆一圈的长度 2πr</td></tr>
+        <tr><td class="t">Proportional (∝)</td><td>成正比</td><td>一个变 2 倍，另一个也变 2 倍</td></tr>
+        <tr><td class="t">Frequency (f)</td><td>频率</td><td>每秒转几圈，单位 Hz</td></tr>
+        <tr><td class="t">Angular velocity (ω)</td><td>角速度</td><td>每秒转过的角度，单位 rad s<sup>−1</sup></td></tr>
+        <tr><td class="t">Radian (rad)</td><td>弧度</td><td>角的单位：一圈 = 2π rad = 360°</td></tr>
+        <tr><td class="t">Inertia</td><td>惯性</td><td>物体想一直走直线、速度不变的倾向</td></tr>
+        <tr><td class="t">Centrifugal force</td><td>离心力</td><td>编出来的“往外的力”，不要用</td></tr>
+        <tr><td class="t">Tension (F<sub>T</sub>)</td><td>拉力（张力）</td><td>绳子、链条沿着自己的拉力</td></tr>
+        <tr><td class="t">Normal force (F<sub>N</sub>)</td><td>支持力（法向力）</td><td>面对物体的推力，和面成 90°</td></tr>
+        <tr><td class="t">Component</td><td>分量（分力）</td><td>力在某一个方向上的那一部分</td></tr>
+        <tr><td class="t">Free-body diagram</td><td>受力分析图</td><td>一个物体 + 每个真实的力一支箭头</td></tr>
+        <tr><td class="t">Conical pendulum</td><td>圆锥摆</td><td>挂在绳下、在水平面上转圈的球</td></tr>
+        <tr><td class="t">Pivot</td><td>支点（转轴；悬点）</td><td>固定不动的点，绳子挂在这里</td></tr>
+        <tr><td class="t">Swing ride</td><td>飞椅</td><td>挂在转动架子上的椅子，<i>r</i> = <i>d</i> + <i>L</i> sin <i>θ</i></td></tr>
+        <tr><td class="t">Vertical circle</td><td>竖直平面内的圆周</td><td>立起来的圆，比如秋千，速度会变</td></tr>
+        <tr><td class="t">Banked track</td><td>倾斜弯道（外高内低）</td><td>外边高、里边低的弯道</td></tr>
+        <tr><td class="t">Bank angle</td><td>倾角</td><td>路面和水平面的夹角</td></tr>
+        <tr><td class="t">Design speed</td><td>设计速度（规定速度）</td><td>倾斜弯道不需要摩擦的那个速度</td></tr>
+        <tr><td class="t">Static friction (F<sub>f</sub>)</td><td>静摩擦力</td><td>不让两个面滑动，最多 μF<sub>N</sub></td></tr>
+        <tr><td class="t">Coefficient of friction (μ)</td><td>摩擦因数</td><td>没有单位，表示两个面抓得多紧</td></tr>
+        <tr><td class="t">Rotor (ride)</td><td>旋转圆筒（转筒）</td><td>转起来以后地板掉下去，人贴在墙上不掉</td></tr>
+        <tr><td class="t">Independent variable</td><td>自变量</td><td>实验里故意改的量</td></tr>
+        <tr><td class="t">Dependent variable</td><td>因变量</td><td>实验里测出来的量</td></tr>
+        <tr><td class="t">Controlled variable</td><td>控制变量</td><td>保持不变的量，让实验公平</td></tr>
+        <tr><td class="t">Origin</td><td>原点</td><td>图上的 (0, 0)</td></tr>
+        <tr><td class="t">Line of best fit</td><td>最佳拟合直线</td><td>离所有数据点最近的那条直线</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 一个球匀速转圈，速度大小一直不变。它在加速吗？</summary><p class="ans"><b>在加速。</b>velocity 是 vector，方向一直在变，所以 velocity 在变。加速度 a<sub>c</sub> 指向圆心。</p></details>
+    <details><summary>2. 甩着转的球，绳子突然断了。球往哪飞？</summary><p class="ans"><b>沿断开那一刻的切线，走直线。</b>往里拉的力没了，按 Newton 第一定律走直线。不是沿半径往外飞，因为根本没有往外的力。</p></details>
+    <details><summary><span>3. 0.5 kg 的球，半径 2 m，速度 4 m s<sup>−1</sup>。向心加速度和向心力是多少？速度变成 8 m s<sup>−1</sup> 呢？</span></summary><p class="ans"><b>a<sub>c</sub> = 8 m s<sup>−2</sup>，F<sub>c</sub> = 4 N；速度加倍后 F<sub>c</sub> = 16 N。</b>a<sub>c</sub> = v²/r = 4²/2 = 8 m s<sup>−2</sup>。F<sub>c</sub> = ma<sub>c</sub> = 0.5 × 8 = 4 N。v 变 2 倍，F<sub>c</sub> 变 4 倍：0.5 × 8²/2 = 16 N。</p></details>
+    <details><summary>4. 圆锥摆：2 kg 的球，绳子和竖直方向成 60°。拉力多大？</summary><p class="ans"><b>F<sub>T</sub> = 39.2 N。</b>竖直方向平衡：F<sub>T</sub> cos 60° = mg，F<sub>T</sub> = 2 × 9.8 / 0.5 = 39.2 N。是 mg = 19.6 N 的 2 倍，拉力永远比 mg 大。</p></details>
+    <details><summary>5. 倾斜弯道上，车正好开在设计速度，需要摩擦吗？开得比设计速度快呢？</summary><p class="ans"><b>设计速度不需要摩擦；更快时摩擦沿斜面向下。</b>设计速度时 F<sub>N</sub> 的水平部分正好够做向心力。开得更快，车想往上滑，摩擦就沿斜面向下。</p></details>
+    <details><summary>6. 平路弯道半径 50 m，干路 μ = 0.8。最高速度多少？结冰（μ = 0.1）呢？</summary><p class="ans"><b>干路约 19.8 m s<sup>−1</sup>，冰上 7.0 m s<sup>−1</sup>。</b>v<sub>max</sub> = √(μgr) = √(0.8 × 9.8 × 50) = √392 ≈ 19.8 m s<sup>−1</sup>（约 71 km h<sup>−1</sup>）。冰上：√(0.1 × 9.8 × 50) = √49 = 7.0 m s<sup>−1</sup>。</p></details>
+    <details><summary>7. 旋转圆筒半径 2 m，人和墙的 μ = 0.5。最低速度多少？体重更大的人要转得更快吗？</summary><p class="ans"><b>约 6.3 m s<sup>−1</sup>；不用，质量没有影响。</b>v<sub>min</sub> = √(gr/μ) = √(9.8 × 2 / 0.5) = √39.2 ≈ 6.3 m s<sup>−1</sup>。推导时 m 约掉了：需要的摩擦 mg 和最大摩擦 μmv²/r 都和 m 成正比。</p></details>
+    <details><summary>8. 旋转塞子实验里，向心力等于什么？为什么要计时 20 圈？</summary><p class="ans"><b>F<sub>c</sub> = Mg（挂的重物的重力）。</b>重物不动，所以绳子的拉力等于 Mg，这个拉力就是塞子的向心力。计时 20 圈再除以 20，是为了减少反应时间带来的误差。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m5/t1.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M5 T1 · Projectile Motion</span><span class="pg-z">抛体运动</span></a><a class="pg next" href="../m5/t3.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M5 T3 · Circular Motion: Angles, Energy, Work and Torque</span><span class="pg-z">圆周运动：角度、能量、功和力矩</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 5 Advanced Mechanics · Chapter 2 整理。用到的讲义数值：<i>g</i>&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>；干路 μ 约 0.8、冰上约 0.1；塞子实验计时 20 圈、测三次取平均，斜率和 <i>m</i>/<i>r</i> 相差在 1&nbsp;% 以内。例子和快问快答里的其他数字（如 30&nbsp;rpm、72&nbsp;km&nbsp;h<sup>−1</sup>、0.5&nbsp;kg）是为了练习选的简单数。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1：俯视，绳子拉着球逆时针匀速转（和 Figure 2.1 一样）。v 沿切线，F_T 和 a_c 沿绳子指向圆心；
+   小图把前一刻 v1、后一刻 v2 尾对尾放，Δv 指向圆心。剪断绳子 → 沿切线匀速直线飞走（第一定律）。
+   数据全是示意：只用倍数。ω = v/r，a_c = v²/r，F_c = mv²/r（m 不变）。 */
+var W0=TAU/3.2;                         /* × 1 时的角速度（示意）：3.2 s 转一圈 */
+var m1={ph:0.6,vm:1,rm:1,cut:false,cph:0,s:0};
+var RU=[],RW=[],ST=['','',''],Lo={};
+function fd(x){return String(parseFloat(x.toFixed(x<1?3:2)));}
+function fr(x){return x===0.5?'½':x===0.25?'¼':x===0.75?'¾':x===0.125?'⅛':fd(x);}
+function chg(x){return x>1.0001?'变成 '+fr(x)+' 倍':(x<0.9999?'变成原来的 '+fr(x):'不变');}
+/* 带下标的文字："F_T" → F 加下标 T。ital：主字母用斜体（物理量） */
+function rt(ctx,s,x,y,col,size,weight,align,family,ital,base){
+  var ss=Math.max(11,size*0.74),i,ch,buf='',w=0,n,sub,wt=weight||500,fam=family||FONT;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}RU.push(s.charAt(i+1),1);i++;}else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sub=RU[2*i+1];ctx.font=(sub||!ital?'':'italic ')+wt+' '+(sub?ss:size)+'px '+fam;
+    RW[i]=ctx.measureText(RU[2*i]).width+(sub?1:(ital&&i+1<n?1.5:0));w+=RW[i];}
+  var x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sub=RU[2*i+1];
+    txt(ctx,RU[2*i],x0,y+(sub?size*0.28:0),col,sub?ss:size,(sub||!ital?'':'italic ')+wt,'left',base||'alphabetic',fam);x0+=RW[i];}
+  return w;
+}
+/* 箭头太长画不下：断开，画两道小斜线（放在箭头 40 % 处，短箭头也放得下） */
+function brk(ctx,x1,y1,x2,y2,col){
+  var dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy)||1,px,py,i,cx,cy,mx,my,h=Math.min(5,l/5);dx/=l;dy/=l;px=-dy;py=dx;mx=x1+dx*l*0.4;my=y1+dy*l*0.4;
+  seg(ctx,mx-dx*2,my-dy*2,mx+dx*2,my+dy*2,C.stage,6);
+  for(i=-1;i<=1;i+=2){cx=mx+dx*i*3;cy=my+dy*i*3;seg(ctx,cx-px*h-dx*2,cy-py*h-dy*2,cx+px*h+dx*2,cy+py*h+dy*2,col,1.5);}
+}
+/* v 的标签：箭头尖外面放不下时，放在箭头中间的外侧（不丢标签） */
+function vlab(ctx,bx,by,tx,ty,nx,ny,st,Lv,fs){
+  var L=Lo,lx=bx+tx*(st+Lv+10)-nx*6,ly=by+ty*(st+Lv+10)-ny*6;
+  if(!(lx>8&&lx<L.right-8&&ly>L.top+10&&ly<L.bot-8)){lx=clamp(bx+tx*(st+Lv/2)-nx*12,8,L.right-8);ly=clamp(by+ty*(st+Lv/2)-ny*12,L.top+10,L.bot-8);}
+  rt(ctx,'v',lx,ly,rgba(C.ink,0.85),fs,600,'center',MATH,true,'middle');
+}
+function lay(W){
+  var L=Lo,e;L.wide=W>=640;
+  if(L.wide){
+    L.R0=Math.min(74,(W-356)/4.54);L.bR=8;e=Math.hypot(2*L.R0,L.R0+L.bR+2)+16;   /* e：r × 2、v × 2 时球加 v 箭头离圆心最远 */
+    L.cx=e+6;L.cy=254;L.top=60;L.bot=446;L.right=L.cx+e+4;
+    L.bx=L.right+10;L.by=66;L.bw=W-16-L.bx;L.bh=228;L.Vin=48;L.tx=L.bx+Math.min(210,L.bw-110);L.ox=(L.bx+L.tx)/2+1;L.oy=L.by+26+(L.bh-26)/2;
+    L.rx=L.bx;L.rw=L.bw;L.ry=316;L.fs=13;L.lab=16;
+  }else{
+    L.R0=Math.min(66,(W-60)/4);L.bR=7;e=Math.hypot(2*L.R0,L.R0+L.bR+2)+8;
+    L.cx=W/2;L.top=66;L.cy=L.top+e;L.bot=L.cy+e;L.right=W;
+    L.bx=12;L.by=L.bot+10;L.bw=Math.min(172,W/2-6);L.bh=194;L.Vin=38;L.ox=L.bx+L.bw/2;L.oy=L.by+26+(L.bh-26)/2;
+    L.rx=L.bx+L.bw+14;L.rw=W-12-L.rx;L.ry=L.by+20;L.fs=12.5;L.lab=15;
+  }
+  L.H=L.wide?446:L.by+L.bh+36;
+}
+function step1(dt){
+  if(m1.cut)m1.s=Math.min(8,m1.s+W0*m1.vm*dt);          /* 匀速直线：屏幕速度 = R0·ω0·v 倍数 */
+  else m1.ph=(m1.ph+W0*m1.vm/m1.rm*dt)%TAU;              /* ω = v/r */
+}
+/* 圆周部分（在裁剪区里画）。返回 true = 剪断后球已经飞出画面 */
+function drawCircle(ctx,k){
+  var L=Lo,R0=L.R0,cx=L.cx,cy=L.cy,R=R0*m1.rm,bR=L.bR,fs=L.lab;
+  var a=m1.cut?m1.cph:m1.ph,c=Math.cos(a),s=Math.sin(a),nx=-c,ny=s,tx=-s,ty=-c;   /* n：指向圆心；t：逆时针切线 */
+  var x0=cx+R*c,y0=cy-R*s,Lv=R0*0.5*m1.vm,st=bR+2,bx=x0,by=y0,out=false;
+  ctx.beginPath();ctx.arc(cx,cy,R,0,TAU);ctx.strokeStyle=rgba(C.muted,0.7);ctx.lineWidth=1.4;ctx.setLineDash([5,6]);ctx.stroke();ctx.setLineDash([]);
+  if(!m1.cut){
+    var room=R-bR-7,La=R0*0.28*k,cap=La>room,hd,j,ga,gx,gy,gc,gs;La=clamp(La,6,room);hd=cap?7:(La<16?Math.max(5,Math.min(7,La*0.8)):9);   /* × 1 的箭头比 r × 0.5 时的空间短 → 截短的箭头不会比 × 1 短 */
+    if(S1?!S1.playing:S.reduce){              /* 暂停时：淡淡画出球在另外两个时刻的位置（像 Figure 2.1a） */
+      for(j=1;j<3;j++){ga=a-j*TAU/3;gc=Math.cos(ga);gs=Math.sin(ga);gx=cx+R*gc;gy=cy-R*gs;
+        arrow(ctx,gx-gc*st,gy+gs*st,gx-gc*(st+La),gy+gs*(st+La),rgba(C.violet,0.55),2.4,hd);
+        if(cap)brk(ctx,gx-gc*st,gy+gs*st,gx-gc*(st+La),gy+gs*(st+La),rgba(C.violet,0.55));
+        arrow(ctx,gx-gs*st,gy-gc*st,gx-gs*(st+Lv),gy-gc*(st+Lv),rgba(C.ink,0.45),2.4,9);
+        dot(ctx,gx,gy,bR-1,C.stage);ring(ctx,gx,gy,bR-1,rgba(C.ink,0.5),1.6);}
+    }
+    seg(ctx,cx,cy,bx,by,rgba(C.muted,0.95),1.6);
+    var fx1=bx+nx*st,fy1=by+ny*st,fx2=fx1+nx*La,fy2=fy1+ny*La;
+    var ax1=fx1-tx*10,ay1=fy1-ty*10,ax2=ax1+nx*La,ay2=ay1+ny*La;
+    arrow(ctx,fx1,fy1,fx2,fy2,C.force,3,hd);
+    arrow(ctx,ax1,ay1,ax2,ay2,C.violet,2.6,hd);
+    if(cap){brk(ctx,fx1,fy1,fx2,fy2,C.force);brk(ctx,ax1,ay1,ax2,ay2,C.violet);}   /* 截短了就画断口，倍数看条 */
+    dot(ctx,cx,cy,4,C.ink);
+    txt(ctx,'圆心',cx+nx*20,cy+ny*20,C.muted,11.5,600,'center','middle');
+    arrow(ctx,bx+tx*st,by+ty*st,bx+tx*(st+Lv),by+ty*(st+Lv),rgba(C.ink,0.7),2.6,9);
+    dot(ctx,bx,by,bR,C.surface);ring(ctx,bx,by,bR,C.ink,2);
+    vlab(ctx,bx,by,tx,ty,nx,ny,st,Lv,fs);
+    var md=st+Math.max(La/2,12);
+    rt(ctx,'F_T',bx+nx*md+tx*16,by+ny*md+ty*16,C.force,fs,600,'center',MATH,true,'middle');
+    rt(ctx,'a_c',bx+nx*md-tx*27,by+ny*md-ty*27,C.violet,fs,600,'center',MATH,true,'middle');
+  }else{
+    var d=m1.s*R0;bx=x0+tx*d;by=y0+ty*d;
+    seg(ctx,x0,y0,x0+tx*1400,y0+ty*1400,rgba(C.copper,0.85),1.8,[6,6]);
+    dot(ctx,x0,y0,3,C.copper);
+    seg(ctx,cx,cy,cx+c*R*0.3,cy-s*R*0.3,rgba(C.muted,0.95),1.6);
+    dot(ctx,cx,cy,4,C.ink);
+    txt(ctx,'圆心',cx+nx*20,cy+ny*20,C.muted,11.5,600,'center','middle');
+    out=bx<-bR||bx>L.right+bR||by<L.top-bR||by>L.bot+bR;
+    if(!out){
+      arrow(ctx,bx+tx*st,by+ty*st,bx+tx*(st+Lv),by+ty*(st+Lv),rgba(C.ink,0.7),2.6,9);
+      dot(ctx,bx,by,bR,C.surface);ring(ctx,bx,by,bR,C.ink,2);
+      vlab(ctx,bx,by,tx,ty,nx,ny,st,Lv,fs);
+    }
+  }
+  return out;
+}
+function status1(out,k){
+  var wide=Lo.wide,vm=m1.vm,rm=m1.rm;
+  if(m1.cut){
+    if(out){ST[0]='球飞出画面了';ST[1]='→ 一直沿那条切线匀速直线走';ST[2]='按“接回绳子”，球回到圆上接着转';}
+    else{ST[0]='绳子断了 → 没有指向圆心的力';ST[1]='→ 沿切线直线飞走，不是往外飞';ST[2]='合力 = 0 → 速度不变（Newton 第一定律）';}
+  }else if(vm===1&&rm===1){
+    ST[0]='绳子把球往圆心拉 → 速度方向一直在变';ST[1]='→ 球在加速，a_c 指向圆心';
+    if(S1?!S1.playing:S.reduce)ST[2]=wide?'v 沿切线（和半径垂直）；F_T 和 a_c 都指向圆心；淡色 = 球在另外两个时刻':'淡色 = 球在另外两个时刻的 v 和 a_c';
+    else ST[2]=wide?'v 沿切线（和半径垂直）；F_T 和 a_c 都指向圆心；没有往外的力':'v 沿切线；F_T 和 a_c 都指向圆心';
+  }else{
+    ST[0]=rm===1?('v '+chg(vm)):(vm===1?('r '+chg(rm)):('v × '+fd(vm)+'、r × '+fd(rm)));
+    ST[1]='→ a_c 和 F_c '+chg(k);
+    ST[2]='a_c = v²/r：'+fd(vm)+'² ÷ '+fd(rm)+' = '+fd(k)+(wide?'；F_c = ma_c，m 不变 → 一样的倍数':'');
+  }
+}
+function drawInset(ctx){
+  var L=Lo,x=L.bx,y=L.by,w=L.bw,h=L.bh,ox=L.ox,oy=L.oy,fs=L.lab-1,wide=L.wide;
+  rrect(ctx,x,y,w,h,10);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  var a=m1.cut?m1.cph:m1.ph,Lv=L.Vin*m1.vm,hd=Lv<20?7:9;
+  if(!m1.cut){
+    var dth=clamp(0.6*m1.vm/m1.rm,0.12,1.7),a1=a-dth/2,a2=a+dth/2;   /* 同样一小段时间里转过的角 = ω Δt（示意） */
+    var d1x=-Math.sin(a1),d1y=-Math.cos(a1),d2x=-Math.sin(a2),d2y=-Math.cos(a2);
+    var hh=Lv*Math.cos(dth/2)/2;ox+=Math.sin(a)*hh;oy+=Math.cos(a)*hh;   /* 整个图放在框中间：尾巴退后半个高度 */
+    var t1x=ox+d1x*Lv,t1y=oy+d1y*Lv,t2x=ox+d2x*Lv,t2y=oy+d2y*Lv,dvl=Math.hypot(t2x-t1x,t2y-t1y);
+    arrow(ctx,ox,oy,t1x,t1y,rgba(C.ink,0.38),2.4,hd);
+    arrow(ctx,ox,oy,t2x,t2y,rgba(C.ink,0.7),2.4,hd);
+    if(dvl>3)arrow(ctx,t1x,t1y,t2x,t2y,C.violet,2.4,Math.min(9,Math.max(5,dvl*0.5)));
+    dot(ctx,ox,oy,2.5,C.ink);
+    var sx=d1x-d2x,sy=d1y-d2y,sl=Math.hypot(sx,sy)||1,bxs=d1x+d2x,bys=d1y+d2y,bl=Math.hypot(bxs,bys)||1;sx/=sl;sy/=sl;
+    rt(ctx,'v_1',t1x+sx*16-d1x*9,t1y+sy*16-d1y*9,rgba(C.ink,0.6),fs,600,'center',MATH,true,'middle');
+    rt(ctx,'v_2',t2x-sx*16-d2x*9,t2y-sy*16-d2y*9,rgba(C.ink,0.85),fs,600,'center',MATH,true,'middle');
+    if(dvl>3)rt(ctx,'Δv',(t1x+t2x)/2+bxs/bl*16,(t1y+t2y)/2+bys/bl*16,C.violet,fs,700,'center',MATH,true,'middle');
+    else txt(ctx,'Δv 很小（转得很慢）',wide?L.ox:x+w/2,y+h-14,C.violet,12,600,'center');
+  }else{
+    var dx=-Math.sin(a),dy=-Math.cos(a);ox-=dx*Lv/2;oy-=dy*Lv/2;
+    arrow(ctx,ox,oy,ox+dx*Lv,oy+dy*Lv,rgba(C.ink,0.7),2.4,hd);dot(ctx,ox,oy,2.5,C.ink);
+    rt(ctx,'v',ox+dx*Lv*0.5-dy*14,oy+dy*Lv*0.5+dx*14,rgba(C.ink,0.85),fs,600,'center',MATH,true,'middle');
+  }
+  if(wide){
+    txt(ctx,'前后两个 v 尾对尾放',x+12,y+19,C.muted,12.5,600);
+    var tx=L.tx,ty=y+48,f=12.5;
+    if(!m1.cut){
+      rt(ctx,'v_1：前一刻',tx,ty,rgba(C.ink,0.6),f,600,'left');
+      rt(ctx,'v_2：后一刻',tx,ty+22,rgba(C.ink,0.85),f,600,'left');
+      rt(ctx,'Δv = v_2 − v_1',tx,ty+50,C.violet,f,700,'left');
+      txt(ctx,'指向圆心，',tx,ty+72,C.ink,f,600);
+      rt(ctx,'和 a_c 同方向',tx,ty+94,C.ink,f,600,'left');
+      txt(ctx,'转得越快，',tx,ty+124,C.muted,12,500);
+      txt(ctx,'Δv 越大',tx,ty+143,C.muted,12,500);
+    }else{
+      txt(ctx,'绳子断了：',tx,ty,C.ink,f,600);
+      txt(ctx,'没有力',tx,ty+22,C.ink,f,600);
+      txt(ctx,'→ 没有加速度',tx,ty+44,C.ink,f,600);
+      txt(ctx,'v 不再变',tx,ty+72,C.ink,f,600);
+      rt(ctx,'v_1 = v_2',tx,ty+94,C.violet,f,700,'left');
+      txt(ctx,'Δv = 0',tx,ty+116,C.violet,f,700);
+    }
+  }else{
+    if(!m1.cut)rt(ctx,'v_1 前一刻 · v_2 后一刻',x+10,y+19,C.muted,11.5,600,'left');
+    else txt(ctx,'绳子断了：v 不变，Δv = 0',x+10,y+19,C.muted,11.5,600);
+    if(!m1.cut)rt(ctx,'Δv = v_2 − v_1：指向圆心，和 a_c 同方向',x,y+h+22,C.violet,12,600,'left');
+    else txt(ctx,'没有力 → 没有加速度 → v 不变',x,y+h+22,C.ink,12,600);
+  }
+}
+function drawRead(ctx,k){
+  var L=Lo,x=L.rx,w=L.rw,y=L.ry,fs=L.fs,wide=L.wide;
+  var y1=y+30,y2=y1+(wide?42:44),val=m1.cut?'0':'× '+fd(k),f=m1.cut?0:k/8,xt=x+w/8;
+  txt(ctx,'v × '+fd(m1.vm),x,y,rgba(C.ink,0.85),fs,600,'left','alphabetic',MONO);
+  txt(ctx,'r × '+fd(m1.rm),wide?x+130:x+w,y,C.ink,fs,600,wide?'left':'right','alphabetic',MONO);
+  if(wide)txt(ctx,'m 不变',x+w,y,C.muted,12.5,500,'right');
+  rt(ctx,'a_c = v²/r',x,y1,C.violet,fs,700,'left');
+  txt(ctx,val,x+w,y1,C.violet,fs,700,'right','alphabetic',MONO);
+  hbar(ctx,x,y1+8,w,10,f,C.violet);seg(ctx,xt,y1+4,xt,y1+22,rgba(C.ink,0.75),1.5);
+  rt(ctx,wide?'F_c = F_T = mv²/r':'F_c = F_T',x,y2,C.force,fs,700,'left');
+  txt(ctx,val,x+w,y2,C.force,fs,700,'right','alphabetic',MONO);
+  hbar(ctx,x,y2+8,w,10,f,C.force);seg(ctx,xt,y2+4,xt,y2+22,rgba(C.ink,0.75),1.5);
+  if(wide)txt(ctx,'竖线 = 开始时（× 1） · 条满 = × 8',x,y2+44,C.muted,11.5,500);
+  else{txt(ctx,'竖线 = 开始时（× 1）',x,y2+40,C.muted,11.5,500);rt(ctx,'m 不变，F_c 和 a_c 同倍数',x,y2+58,C.muted,11.5,500,'left');}
+}
+var S1=makeStage('sim1',{
+  height:function(w){lay(w);return Lo.H;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    lay(W);var L=Lo,k=m1.vm*m1.vm/m1.rm,out;
+    ctx.save();ctx.beginPath();ctx.rect(0,L.top,L.right,L.bot-L.top+4);ctx.clip();out=drawCircle(ctx,k);ctx.restore();
+    if(L.wide)seg(ctx,L.right+4,L.top+4,L.right+4,H-12,C.line,1);else seg(ctx,12,L.bot+5,W-12,L.bot+5,C.line,1);
+    status1(out,k);
+    if(L.wide){rt(ctx,ST[0]+' '+ST[1],16,30,C.ink,15,600,'left');rt(ctx,ST[2],16,51,C.muted,13,500,'left');}
+    else{rt(ctx,ST[0],14,22,C.ink,13.5,600,'left');rt(ctx,ST[1],14,41,C.ink,13.5,600,'left');rt(ctx,ST[2],14,60,C.muted,12,500,'left');}
+    drawInset(ctx);
+    drawRead(ctx,k);
+  }
+});
+var b1c=document.getElementById('s1-cut'),r1v=document.getElementById('s1-v'),o1v=document.getElementById('s1-v-out'),r1r=document.getElementById('s1-r'),o1r=document.getElementById('s1-r-out');
+function sync1(){press(b1c,m1.cut);b1c.textContent=m1.cut?'接回绳子':'剪断绳子';o1v.textContent='× '+fd(m1.vm);o1r.textContent='× '+fd(m1.rm);}
+b1c.addEventListener('click',function(){
+  if(m1.cut){m1.cut=false;m1.ph=m1.cph;}else{m1.cut=true;m1.cph=m1.ph;}
+  m1.s=0;sync1();S1.setPlaying(true);S1.render();
+});
+r1v.addEventListener('input',function(){m1.vm=parseFloat(r1v.value);sync1();S1.render();});
+r1r.addEventListener('input',function(){m1.rm=parseFloat(r1r.value);sync1();S1.render();});
+document.getElementById('s1-reset').addEventListener('click',function(){
+  m1.vm=1;m1.rm=1;m1.cut=false;m1.ph=0.6;m1.s=0;r1v.value='1';r1r.value='1';sync1();S1.setPlaying(true);S1.render();
+});
+S1.fig.querySelector('[data-play]').addEventListener('click',function(){S1.render();});   /* 暂停时马上画出淡色位置 */
+sync1();S1.render();
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 圆锥摆 / 飞椅：给定 v，用 tan θ = v²/(rg) 和 r = L sin θ（飞椅 r = d + L sin θ）一起解 θ。
+   L、d、m 是示意值；g = 9.8 m s⁻²（booklet）。受力图画球在最右边那一刻（圆心在左边）。 */
+var G=9.8,L=1.0,D=0.5,M0=0.5,VMAX=5.0,FMAX=30,EL=0.3;
+function solve(v,mode){
+  if(mode==='cone'){var K=v*v/(G*L);return Math.acos((-K+Math.sqrt(K*K+4))/2);}
+  var lo=0,hi=Math.PI/2-1e-6;
+  for(var i=0;i<60;i++){var t=(lo+hi)/2;if(G*Math.tan(t)*(D+L*Math.sin(t))>v*v)hi=t;else lo=t;}
+  return (lo+hi)/2;
+}
+var RMAX=D+L*Math.sin(solve(VMAX,'swing')),TMAX=Math.tan(solve(VMAX,'cone')),FTOP=2*M0*G;
+var m2={v:2.5,mode:'cone',mm:1,phi:5.75,th:0,r:0,msg:null,age:0,thc:0};
+function update(){m2.th=solve(m2.v,m2.mode);m2.r=(m2.mode==='swing'?D:0)+L*Math.sin(m2.th);}
+update();
+function deg(a){return (a*180/Math.PI).toFixed(1);}
+
+/* 文字里的 _X 画成下标（F_T → F 加小号 T），下标不小于 11 px */
+function rich(ctx,s,x,y,col,size,weight,align,family){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=0,ws=[],i;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+(family||FONT);ws.push(ctx.measureText(p[i]).width);w+=ws[i];}
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){if(p[i])txt(ctx,p[i],cx,y+(i%2?size*0.26:0),col,i%2?ss:size,weight,'left','alphabetic',family);cx+=ws[i];}
+  return w;
+}
+/* 侧视图里的标签：先描一圈背景色，压在虚线上也看得清 */
+function htxt(ctx,s,x,y,col,size,weight,align,base,family){ctx.font=(weight||500)+' '+size+'px '+(family||FONT);ctx.textAlign=align||'left';ctx.textBaseline=base||'alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align,base,family);}
+function darrow(ctx,x1,y1,x2,y2,col,w){
+  var dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<3)return;
+  var ux=dx/len,uy=dy/len;
+  if(len>14){seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,w,[5,4]);arrow(ctx,x2-ux*11,y2-uy*11,x2,y2,col,w,8);}
+  else seg(ctx,x1,y1,x2,y2,col,w,[3,3]);
+}
+function dim(ctx,x1,y,x2,col){var mx=(x1+x2)/2;if(Math.abs(x2-x1)<16){seg(ctx,x1,y,x2,y,col,1.3);return;}arrow(ctx,mx,y,x2,y,col,1.3,6);arrow(ctx,mx,y,x1,y,col,1.3,6);}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.x0=16;o.x1=Math.round(W*0.5);o.fx0=Math.round(W*0.53);o.fx1=W-16;o.s1=26;o.s2=48;o.f1=15;o.f2=13.5;o.ym=76;o.yt=118;}
+  else{o.x0=16;o.x1=W-16;o.fx0=16;o.fx1=W-16;o.s1=22;o.s2=43;o.f1=13.5;o.f2=12.5;o.ym=72;o.yt=106;}
+  o.ax=(o.x0+o.x1)/2;
+  o.s=Math.min(150,((o.x1-o.x0)/2-16)/RMAX);
+  o.base=o.yt+L*o.s+28;
+  o.ya=o.base+30;
+  o.Ox=o.fx1-76;
+  o.k=Math.min(o.wide?8.5:7.6,(o.Ox-o.fx0-8)/(FTOP*TMAX));
+  var bm=FTOP*o.k;
+  o.ft=o.wide?o.ym:o.ya+48+32;
+  o.Oy=o.ft+18+bm+12;
+  o.yb=o.wide?Math.max(o.ya,o.Oy+bm+38):o.Oy+bm+34;
+  if(o.wide)o.ya=o.yb;
+  o.H=Math.round(Math.max(o.ya+48,o.yb+54)+22);
+  LY=o;return o;
+}
+
+/* ---------- 状态提示（两行） ---------- */
+function status(){
+  var e=m2.msg;
+  if(e==='up')return ['转快一点 → 需要更大的 mv²/r → θ 变大','F_T = mg/cos θ 也变大，一直比 mg 大'];
+  if(e==='down')return ['转慢一点 → 需要的 mv²/r 变小 → θ 变小','F_T = mg/cos θ 变小，但还是比 mg 大'];
+  if(e==='m2')return ['质量变 2 倍 → θ 不变（F 和 m 约掉）','只是 F_T 和 mg 都变 2 倍'];
+  if(e==='m1')return ['质量变回 m → θ 还是不变','F_T 和 mg 都变回一半'];
+  if(e==='swing')return ['飞椅：r = d + L sin θ，比圆锥摆的 r 大','同样的 v → θ 更小（圆锥摆是 '+deg(m2.thc)+'°）'];
+  if(e==='cone')return ['圆锥摆：圆心在 pivot 正下方','r = L sin θ（水平圆的半径，不是绳长 L）'];
+  if(m2.th>62*Math.PI/180)return ['θ 很大，但到不了 90°：绳子不会变水平','竖直方向总要 F_T cos θ = mg，所以 cos θ ≠ 0'];
+  return ['竖直：F_T cos θ = mg（和重力抵消）','水平：F_T sin θ 指向圆心 = mv²/r'];
+}
+
+/* ---------- 侧视图 ---------- */
+function drawSide(ctx,o){
+  var sw=m2.mode==='swing',s=o.s,ax=o.ax,yt=o.yt,th=m2.th,sn=Math.sin(th),cs=Math.cos(th);
+  var dd=sw?D*s:0,R=m2.r*s,yc=yt+L*cs*s,eR=EL*R,px=ax+dd;
+  txt(ctx,sw?'侧视 · 飞椅 swing ride':'侧视 · 圆锥摆 conical pendulum',o.x0,o.ym,C.muted,12,600);
+  /* 绳子扫出的圆锥（飞椅：圆台） */
+  ctx.beginPath();ctx.moveTo(ax-dd,yt);ctx.lineTo(ax+dd,yt);ctx.lineTo(ax+R,yc);ctx.lineTo(ax-R,yc);ctx.closePath();
+  ctx.fillStyle=rgba(C.muted,0.08);ctx.fill();
+  seg(ctx,ax+dd,yt,ax+R,yc,rgba(C.muted,0.8),1,[4,4]);seg(ctx,ax-dd,yt,ax-R,yc,rgba(C.muted,0.8),1,[4,4]);
+  if(!sw)seg(ctx,ax,yt,ax,yc+eR+14,rgba(C.muted,0.9),1.2,[4,4]);
+  else seg(ctx,px,yt,px,yt+Math.min(58,L*cs*s),rgba(C.muted,0.9),1.2,[4,4]);
+  /* 球的位置：phi 从上往下看逆时针；sin phi > 0 在后面 */
+  var c=Math.cos(m2.phi),si=Math.sin(m2.phi),back=si>0;
+  var bx=ax+R*c,by=yc-eR*si,tx=ax+dd*c,ty=yt-EL*dd*si,br=(m2.mm>1?9:7)*(1-0.1*si);
+  function bob(){
+    if(sw)seg(ctx,ax,yt,tx,ty,back?rgba(C.muted,0.6):C.muted,3);
+    seg(ctx,tx,ty,bx,by,back?rgba(C.ink,0.45):C.ink,2,sw?[3,2]:null);
+    dot(ctx,bx,by,br,back?rgba(C.muted,0.35):rgba(C.muted,0.6));ring(ctx,bx,by,br,back?rgba(C.ink,0.45):C.ink,1.6);
+  }
+  if(back)bob();
+  /* 支架 */
+  if(sw){
+    var rr=dd+6,rt=yt-EL*rr;
+    seg(ctx,ax,rt-10,ax,o.base,C.muted,4);
+    seg(ctx,ax-44,o.base,ax+44,o.base,C.muted,2);
+    ctx.beginPath();ctx.ellipse(ax,yt,rr,EL*rr,0,0,TAU);ctx.fillStyle=rgba(C.muted,0.18);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.4;ctx.stroke();
+    dim(ctx,ax,rt-8,px,C.ink);
+    txt(ctx,'d = 0.5 m',ax+dd/2,rt-14,C.ink,11.5,600,'center');
+  }else{
+    for(var hx=ax-50;hx<ax+50;hx+=9)seg(ctx,hx,yt,hx+6,yt-7,C.muted,1);
+    seg(ctx,ax-52,yt,ax+52,yt,C.ink,2);
+    txt(ctx,'pivot',ax-58,yt+4,C.muted,12,600,'right');
+  }
+  /* 水平圆（轨迹） */
+  ctx.beginPath();ctx.ellipse(ax,yc,Math.max(R,1),Math.max(eR,0.5),0,0,TAU);ctx.strokeStyle=rgba(C.copper,0.85);ctx.lineWidth=1.6;ctx.setLineDash([5,4]);ctx.stroke();ctx.setLineDash([]);
+  /* r、圆心、L、θ */
+  dim(ctx,ax,yc,ax+R,C.ink);
+  dot(ctx,ax,yc,3,C.ink);
+  var small=R<50;
+  htxt(ctx,'r',ax+R/2,small?yc+eR+16:yc+16,C.ink,15,500,'center','alphabetic',MATH);
+  htxt(ctx,'圆心',small?ax-R-6:ax-8,yc+4,C.muted,11.5,600,'right');
+  var f=sw?0.5:0.62,mx=px+(ax+R-px)*f,my=yt+(yc-yt)*f;
+  htxt(ctx,'L = 1.0 m',mx+cs*12,my-sn*12,C.ink,11.5,600,'left','middle');
+  ctx.beginPath();ctx.arc(px,yt,22,Math.PI/2-th,Math.PI/2,false);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+  if(th>0.5)htxt(ctx,'θ',px+36*Math.sin(th/2),yt+36*Math.cos(th/2),C.ink,15,500,'center','middle',MATH);
+  else htxt(ctx,'θ',px+30*sn+9,yt+30*cs,C.ink,15,500,'left','middle',MATH);
+  if(!back)bob();
+}
+
+/* ---------- 受力图 ---------- */
+function drawFBD(ctx,o){
+  var th=m2.th,mg=M0*m2.mm*G,FT=mg/Math.cos(th),k=o.k,Ox=o.Ox,Oy=o.Oy;
+  var a=FT*Math.sin(th)*k,b=mg*k,tx=Ox-a,ty=Oy-b,cf=C.force,cd=rgba(C.force,0.8);
+  rich(ctx,'受力图（球在最右边时）：只有 F_T 和 mg',o.fx0,o.ft,C.muted,12,600);
+  seg(ctx,tx,Oy,tx,ty,rgba(C.force,0.35),1,[2,3]);seg(ctx,Ox,ty,tx,ty,rgba(C.force,0.35),1,[2,3]);
+  darrow(ctx,Ox,Oy,tx,Oy,cd,2);
+  darrow(ctx,Ox,Oy,Ox,ty,cd,2);
+  ctx.beginPath();ctx.arc(Ox,Oy,20,-Math.PI/2-th,-Math.PI/2,false);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+  arrow(ctx,Ox,Oy,tx,ty,cf,3,11);
+  arrow(ctx,Ox,Oy,Ox,Oy+b,cf,3,11);
+  var br=m2.mm>1?9:7;dot(ctx,Ox,Oy,br,rgba(C.muted,0.6));ring(ctx,Ox,Oy,br,C.ink,1.6);
+  var tr=Math.max(28,Math.min(34,b-4));
+  if(th>0.5)txt(ctx,'θ',Ox-tr*Math.sin(th/2),Oy-tr*Math.cos(th/2),C.ink,14,500,'center','middle',MATH);
+  else txt(ctx,'θ',Ox-tr*Math.sin(th)-7,Oy-tr*Math.cos(th)+6,C.ink,14,500,'right','middle',MATH);
+  rich(ctx,'F_T',tx,ty-10,cf,14,700,'center');
+  rich(ctx,'F_T cos θ',Ox+12,Oy-b/2-3,cf,12.5,600,'left');
+  txt(ctx,'= mg',Ox+12,Oy-b/2+13,cf,12.5,600);
+  txt(ctx,'mg',Ox+12,Oy+Math.max(b/2+5,30),cf,14,700);
+  rich(ctx,'F_T sin θ = mv²/r',Ox-12,Oy+20,cf,12.5,600,'right');
+  txt(ctx,'← 指向圆心',Ox-12,Oy+37,C.muted,11.5,600,'right');
+}
+
+/* ---------- 读数 ---------- */
+function drawRead(ctx,o){
+  var sw=m2.mode==='swing',th=m2.th,y=o.ya,x0=o.x0;
+  txt(ctx,'θ = '+deg(th)+'°',x0,y,C.ink,15,700,'left','alphabetic',MONO);
+  ctx.font='700 15px '+MONO;var w=ctx.measureText('θ = '+deg(th)+'°').width;
+  txt(ctx,'从竖直量',x0+w+8,y,C.muted,12,500);
+  txt(ctx,'转一圈 T = '+(TAU*m2.r/m2.v).toFixed(2)+' s',o.x1,y,C.muted,12.5,500,'right');
+  txt(ctx,(sw?'r = d + L sin θ = ':'r = L sin θ = ')+m2.r.toFixed(2)+' m',x0,y+24,C.ink,13,600,'left','alphabetic',MONO);
+  var s1='tan θ = '+Math.tan(th).toFixed(3);
+  txt(ctx,s1,x0,y+48,C.ink,13,600,'left','alphabetic',MONO);
+  ctx.font='600 13px '+MONO;var w1=ctx.measureText(s1).width;
+  var s2='v²/(rg) = '+(m2.v*m2.v/(m2.r*G)).toFixed(3);
+  txt(ctx,s2,x0+w1+16,y+48,C.ink,13,600,'left','alphabetic',MONO);
+  ctx.font='600 13px '+MONO;var w2=ctx.measureText(s2).width;
+  txt(ctx,'一样',x0+w1+16+w2+8,y+48,C.muted,12,500);
+  /* 两个力的大小 */
+  var mg=M0*m2.mm*G,FT=mg/Math.cos(th),yb=o.yb,bx0=o.fx0+38,bx1=o.fx1-66;
+  rich(ctx,'F_T',o.fx0,yb,C.force,13.5,700);
+  hbar(ctx,bx0,yb-10,bx1-bx0,11,FT/FMAX,C.force);
+  txt(ctx,FT.toFixed(2)+' N',o.fx1,yb,C.ink,13,600,'right','alphabetic',MONO);
+  txt(ctx,'mg',o.fx0,yb+26,C.force,13.5,700);
+  hbar(ctx,bx0,yb+16,bx1-bx0,11,mg/FMAX,rgba(C.force,0.5));
+  txt(ctx,mg.toFixed(2)+' N',o.fx1,yb+26,C.ink,13,600,'right','alphabetic',MONO);
+  var w3=rich(ctx,'F_T / mg = 1/cos θ = '+(1/Math.cos(th)).toFixed(2),o.fx0,yb+54,C.ink,12.5,600,'left',MONO);
+  rich(ctx,'F_T 一直比 mg 大',o.fx0+w3+10,yb+54,C.muted,12,500,'left');
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){
+    var n=4,h=dt/n;for(var i=0;i<n;i++){m2.phi+=(m2.v/m2.r)*h;}
+    m2.phi=m2.phi%TAU;
+    if(m2.msg){m2.age+=dt;if(m2.age>5)m2.msg=null;}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),st=status();
+    rich(ctx,st[0],16,o.s1,C.ink,o.f1,600);
+    rich(ctx,st[1],16,o.s2,C.ink,o.f2,500);
+    drawSide(ctx,o);
+    drawFBD(ctx,o);
+    drawRead(ctx,o);
+  }
+});
+
+function say(e){m2.msg=e;m2.age=0;}
+var r2=document.getElementById('s2-v'),o2=document.getElementById('s2-v-out');
+var b2c=document.getElementById('s2-cone'),b2s=document.getElementById('s2-swing');
+var b2m1=document.getElementById('s2-m1'),b2m2=document.getElementById('s2-m2');
+r2.addEventListener('input',function(){var v=parseFloat(r2.value);if(v!==m2.v)say(v>m2.v?'up':'down');m2.v=v;o2.textContent=v.toFixed(1)+' m s⁻¹';update();S2.render();});
+function setMode(md){m2.mode=md;press(b2c,md==='cone');press(b2s,md==='swing');m2.thc=solve(m2.v,'cone');update();say(md);S2.render();}
+b2c.addEventListener('click',function(){setMode('cone');});
+b2s.addEventListener('click',function(){setMode('swing');});
+function setMass(n){m2.mm=n;press(b2m1,n===1);press(b2m2,n===2);say(n===2?'m2':'m1');S2.render();}
+b2m1.addEventListener('click',function(){setMass(1);});
+b2m2.addEventListener('click',function(){setMass(2);});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 倾斜弯道：从车后面看，圆心在左，路面向右升高（外高内低）。r = 50 m 示意，g = 9.8 m s⁻²（booklet）。
+   按水平 / 竖直分解（加速度是水平的），摩擦取“沿斜面向上”为正：
+     水平（指向圆心）：F_N sin θ − F_f cos θ = mv²/r
+     竖直：           F_N cos θ + F_f sin θ = mg
+   → F_N = m(g cos θ + (v²/r) sin θ)，F_f = m(g sin θ − (v²/r) cos θ)。所有力都用 mg 的倍数表示。 */
+var G=9.8,RR=50,DEG=Math.PI/180;
+function vDes(td){return Math.sqrt(RR*G*Math.tan(td*DEG));}
+var m3={th:20,v:vDes(20),phi:0,ch:0.35};
+function step3(dt){var n=4,h=dt/n;for(var i=0;i<n;i++){m3.phi+=2*m3.v/RR*h;m3.ch+=1.2*h;}m3.phi%=TAU;m3.ch%=1;}
+
+/* 文字里的 _X 画成下标（F_N → F 加小号 N），下标不小于 11 px */
+function rich(ctx,s,x,y,col,size,weight,align,base,doDraw){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=0,i,cx;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+FONT;w+=ctx.measureText(p[i]).width;}
+  if(doDraw===false)return w;
+  cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+FONT;var pw=ctx.measureText(p[i]).width;
+    if(p[i])txt(ctx,p[i],cx,y+(i%2?size*0.3:0),col,i%2?ss:size,weight,'left',base||'alphabetic');cx+=pw;}
+  return w;
+}
+/* 状态提示按 “→” 分段换行 */
+function wrap(ctx,segs,join,cont,maxW,size,weight){
+  var out=[],cur='',i,t;
+  for(i=0;i<segs.length;i++){t=cur?cur+join+segs[i]:segs[i];
+    if(cur&&rich(ctx,t,0,0,null,size,weight,'left','alphabetic',false)>maxW){out.push(cur);cur=cont+segs[i];}else cur=t;}
+  out.push(cur);return out;
+}
+/* 标签底下先描一圈舞台色（像动画 2 的 htxt），压在车身线、路面线上也看得清 */
+function halo(ctx,s,x,y,size,weight){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=rich(ctx,s,0,0,null,size,weight,'left','middle',false),cx=x-w/2,i,pw;
+  ctx.save();ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.textAlign='left';ctx.textBaseline='middle';
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+FONT;pw=ctx.measureText(p[i]).width;if(p[i])ctx.strokeText(p[i],cx,y+(i%2?size*0.3:0));cx+=pw;}
+  ctx.restore();
+}
+/* 标签放置：按候选位置依次试，避开已经放好的标签 */
+var BX=[],nb=0,LB=[0,0,0,0];
+function free(l,t,r,b){if(l<LB[0]||t<LB[1]||r>LB[2]||b>LB[3])return false;for(var i=0;i<nb;i++){var q=BX[i];if(l<q[2]&&r>q[0]&&t<q[3]&&b>q[1])return false;}return true;}
+function addb(l,t,r,b){if(nb>=BX.length)BX.push([0,0,0,0]);var q=BX[nb++];q[0]=l;q[1]=t;q[2]=r;q[3]=b;}
+function place(ctx,s,col,size,weight,cands){
+  var w=rich(ctx,s,0,0,null,size,weight,'left','middle',false),n=cands.length/2,sub=s.indexOf('_')>=0;
+  for(var i=0;i<n;i++){var x=cands[2*i],y=cands[2*i+1],l=x-w/2-2,t=y-size*0.62-1,r=x+w/2+2,b=y+size*(sub?0.85:0.5)+1;
+    if(i===n-1||free(l,t,r,b)){halo(ctx,s,x,y,size,weight);rich(ctx,s,x,y,col,size,weight,'center','middle');addb(l,t,r,b);return;}}
+}
+function darrow(ctx,x1,y1,x2,y2,col,w){
+  var dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<3)return;var ux=dx/len,uy=dy/len;
+  if(len>14){seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,w,[5,4]);arrow(ctx,x2-ux*11,y2-uy*11,x2,y2,col,w,8);}else seg(ctx,x1,y1,x2,y2,col,w,[3,3]);
+}
+
+var ST=[['车停着','想往下滑','摩擦沿斜面向上'],['v 比设计速度慢','车想往下滑','摩擦沿斜面向上'],
+  ['v = 设计速度','不需要摩擦：tan θ = v²/(rg)'],['v 比设计速度快','车想往上滑','摩擦沿斜面向下']];
+var SUB={stop:['停着时平路不要摩擦，','倾斜路反而要 mg sin θ'],design:['F_N 的竖直部分 = mg，','水平部分 = mv²/r，正好够转弯'],
+  near:['在设计速度附近，','倾斜路要的摩擦比平路少'],more:['太慢了：','这时倾斜路要的摩擦反而比平路多'],
+  fast:['倾斜路要的摩擦比平路少：','F_N 已经给了一部分 mv²/r']};
+
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?380:540;},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i,y;
+    var th=m3.th*DEG,c=Math.cos(th),s=Math.sin(th),v=m3.v,vd=vDes(m3.th);
+    var acc=v*v/RR,FN=c+acc/G*s,Ff=s-acc/G*c,flat=acc/G;          /* 单位：mg */
+    var st=v<0.05?0:(Math.abs(v-vd)<0.051?2:(v<vd?1:3));
+    var sub=st===0?SUB.stop:(st===2?SUB.design:(st===3?SUB.fast:(Math.abs(Ff)<flat?SUB.near:SUB.more)));
+    /* ---- layout ---- */
+    var px,sx0=0,sx1,sy0,sy1,L,ox,oy,cw,bh,cab,wb,ww,f1,f2,lh1,lh2,lf,sAmax;
+    if(wide){px=W-262;sx1=px-14;sy0=66;sy1=H-6;L=72;ox=sx0+(sx1-sx0)*0.54;oy=sy0+142;cw=84;bh=30;cab=18;wb=9;ww=14;f1=15;f2=12.5;lh1=21;lh2=18;lf=13.5;sAmax=190;}
+    else{sx1=W;sy0=88;oy=sy0+110;sy1=oy+118;L=58;ox=W*0.56;cw=56;bh=20;cab=12;wb=6;ww=10;f1=13.5;f2=12;lh1=19;lh2=16;lf=12.5;sAmax=170;}
+    /* ---- status ---- */
+    var L1=wrap(ctx,ST[st],' → ','→ ',W-32,f1,600);y=wide?28:24;
+    for(i=0;i<L1.length;i++){rich(ctx,L1[i],16,y,C.ink,f1,600);y+=lh1;}
+    y-=2;var L2=wrap(ctx,sub,'','',W-32,f2,500);
+    for(i=0;i<L2.length;i++){rich(ctx,L2[i],16,y,C.muted,f2,500);y+=lh2;}
+    /* ---- road and ground (clipped to the scene) ---- */
+    var d=bh/2+wb,R0x=ox+d*s,R0y=oy+d*c,tn=s/c;
+    var xl=sx0-4,xr=sx1+4,yl=R0y+(R0x-xl)*tn,yr=R0y-(xr-R0x)*tn;
+    ctx.save();ctx.beginPath();ctx.rect(sx0,sy0,sx1-sx0,sy1-sy0);ctx.clip();
+    ctx.beginPath();ctx.moveTo(xl,yl);ctx.lineTo(xr,yr);ctx.lineTo(xr,sy1+4);ctx.lineTo(xl,sy1+4);ctx.closePath();
+    ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+    seg(ctx,xl,yl,xr,yr,C.ink,2);
+    /* bank angle θ at a point down the slope */
+    var sA=Math.min(sAmax,(sy1-16-R0y)/Math.max(s,0.01),(R0x-sx0-14)/c),Ax=R0x-sA*c,Ay=R0y+sA*s,ar=wide?32:27;
+    seg(ctx,Ax,Ay,Ax+ar+28,Ay,rgba(C.muted,0.9),1.2,[4,4]);
+    ctx.beginPath();ctx.arc(Ax,Ay,ar,-th,0);ctx.strokeStyle=C.ink;ctx.lineWidth=1.3;ctx.stroke();
+    ctx.restore();
+    nb=0;LB[0]=sx0+2;LB[1]=sy0;LB[2]=sx1-2;LB[3]=sy1;
+    rich(ctx,'← 圆心在左（内侧低）',sx0+14,sy0+14,C.muted,12,500,'left','middle');
+    addb(sx0+12,sy0+5,sx0+16+rich(ctx,'← 圆心在左（内侧低）',0,0,null,12,500,'left','middle',false),sy0+23);
+    /* ---- car, seen from behind, tilted with the road ---- */
+    ctx.save();ctx.translate(ox,oy);ctx.rotate(-th);ctx.globalAlpha=0.45;   /* 车画淡一点：受力图在上面看得清 */
+    ctx.fillStyle=C.muted;rrect(ctx,-cw/2+3,bh/2-6,ww,wb+6,3);ctx.fill();rrect(ctx,cw/2-3-ww,bh/2-6,ww,wb+6,3);ctx.fill();
+    ctx.beginPath();ctx.moveTo(-cw*0.4,-bh/2+1);ctx.lineTo(-cw*0.3,-bh/2-cab);ctx.lineTo(cw*0.3,-bh/2-cab);ctx.lineTo(cw*0.4,-bh/2+1);ctx.closePath();
+    ctx.fillStyle=C.surface;ctx.fill();ctx.fillStyle=rgba(C.field,0.22);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.5;ctx.stroke();
+    rrect(ctx,-cw/2,-bh/2,cw,bh,6);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.5;ctx.stroke();
+    ctx.restore();
+    /* ---- “想往上 / 下滑” chevrons on the road ---- */
+    if(st!==2){
+      var sg=st===3?1:-1,ex=c*sg,ey=-s*sg,nx=-s,ny=-c;
+      for(var k=0;k<3;k++){var ph=(k+m3.ch)/3,sp=cw/2+10+ph*42,cx0=R0x+ex*sp+nx*8,cy0=R0y+ey*sp+ny*8,al=Math.sin(ph*Math.PI);
+        ctx.strokeStyle=rgba(C.muted,0.2+0.8*al);ctx.lineWidth=2;ctx.lineCap='round';ctx.beginPath();
+        ctx.moveTo(cx0-ex*5+nx*5,cy0-ey*5+ny*5);ctx.lineTo(cx0,cy0);ctx.lineTo(cx0-ex*5-nx*5,cy0-ey*5-ny*5);ctx.stroke();ctx.lineCap='butt';}
+    }
+    /* ---- forces (to scale: mg = L px) ---- */
+    var ux=-s,uy=-c,fl=FN*L,tx=ox+ux*fl,ty=oy+uy*fl,hx=tx,vy=ty;
+    seg(ctx,tx,ty,hx,oy,rgba(C.force,0.4),1,[2,3]);seg(ctx,tx,ty,ox,vy,rgba(C.force,0.4),1,[2,3]);
+    darrow(ctx,ox,oy,hx,oy,C.force,1.8);darrow(ctx,ox,oy,ox,vy,C.force,1.8);
+    var ra=wide?27:23;ctx.beginPath();ctx.arc(ox,oy,ra,-Math.PI/2-th,-Math.PI/2);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+    arrow(ctx,ox,oy,ox,oy+L,C.force,3,11);
+    arrow(ctx,ox,oy,tx,ty,C.force,3,11);
+    var fx=ox+Ff*L*c,fy=oy-Ff*L*s,hasF=st!==2&&Math.abs(Ff)*L>=3;
+    if(hasF)arrow(ctx,ox,oy,fx,fy,C.force,3,Math.min(11,Math.abs(Ff)*L*0.8));
+    dot(ctx,ox,oy,3.5,C.ink);
+    /* ---- labels ---- */
+    var carTop=(bh/2+cab)*c+cw*0.3*s+6;
+    place(ctx,'mg',C.force,lf+1,700,[ox+18,oy+L-8,ox-18,oy+L-8]);
+    place(ctx,'F_N',C.force,lf+1,700,[tx+ux*15,ty+uy*15-2,tx-16,ty-4,tx+16,ty-10]);
+    var wh=rich(ctx,'F_N sin θ',0,0,null,lf,600,'left','middle',false),hl=hx-6-wh/2;
+    if(FN*s*L>=8)place(ctx,'F_N sin θ',C.force,lf,600,[hl,oy-11,hl,oy+12,hl-14,oy-26]);
+    var wv=rich(ctx,'F_N cos θ',0,0,null,lf,600,'left','middle',false),vl=ox+8+wv/2,vyl=Math.min(vy+9,oy-carTop-2);
+    place(ctx,'F_N cos θ',C.force,lf,600,[vl,vyl,vl,vy-10,vl,vyl-18,vl,vyl+16]);
+    var tb=-Math.PI/2-(m3.th>=16?th/2:th+11*DEG),tr=ra+11;
+    place(ctx,'θ',C.ink,lf,600,[ox+Math.cos(tb)*tr,oy+Math.sin(tb)*tr,ox+Math.cos(tb)*(tr+9),oy+Math.sin(tb)*(tr+9)]);
+    var ta=-th/2,tR=ar+12;
+    place(ctx,'θ',C.ink,lf,600,m3.th>=16?[Ax+Math.cos(ta)*tR,Ay+Math.sin(ta)*tR-1,Ax+ar+40,Ay+12]:[Ax+ar+7,Ay+11,Ax+ar+28,Ay+12,Ax-14,Ay+10]);
+    if(hasF){var fdx=fx-ox,fdy=fy-oy,fln=Math.hypot(fdx,fdy),fux=fdx/fln,fuy=fdy/fln;
+      place(ctx,'F_f',C.force,lf+1,700,[fx+fux*15,fy+fuy*15,fx+fux*8+s*16,fy+fuy*8+c*16,fx+fux*8-s*16,fy+fuy*8-c*16,fx+fux*30,fy+fuy*30,fx+fux*30+s*22,fy+fuy*30+c*22]);}
+    if(st!==2){var sm=cw/2+31,lx=R0x+ex*sm,ly=R0y+ey*sm,tl=st===3?'想往上滑':'想往下滑',lo=rich(ctx,tl,0,0,null,12,500,'left','middle',false)/2*s+7*c+4;
+      place(ctx,tl,C.muted,12,500,[lx+s*lo,ly+c*lo,lx+s*(lo+14),ly+c*(lo+14),lx-s*(lo+8),ly-c*(lo+8),lx+ex*30+s*lo,ly+ey*30+c*lo]);}
+    /* ---- panel: top view, readouts, bars ---- */
+    var icx,icy,iR,rx,ry,rs,bx0,bx1,by;
+    if(wide){seg(ctx,px-12,sy0-4,px-12,H-12,C.line,1);icx=px+50;icy=126;iR=42;rx=px;ry=206;rs=22;bx0=px;bx1=W-16;by=306;
+      txt(ctx,'俯视（示意）',px+108,98,C.ink,12.5,600);txt(ctx,'车逆时针转，',px+108,118,C.muted,12,500);txt(ctx,'圆心在车的左边',px+108,136,C.muted,12,500);
+      txt(ctx,'r = 50 m（示意）',px+108,158,C.muted,12,500);}
+    else{seg(ctx,0,sy1,W,sy1,C.line,1);icx=60;icy=sy1+70;iR=38;rx=122;ry=sy1+30;rs=21;bx0=16;bx1=W-16;by=sy1+160;
+      txt(ctx,'俯视（示意）',icx,sy1+20,C.ink,12,600,'center');txt(ctx,'r = 50 m（示意）',icx,sy1+128,C.muted,11,500,'center');}
+    ring(ctx,icx,icy,iR,rgba(C.muted,0.2),10);
+    ctx.setLineDash([3,4]);ring(ctx,icx,icy,iR,rgba(C.muted,0.7),1);ctx.setLineDash([]);
+    dot(ctx,icx,icy,3,C.ink);txt(ctx,'圆心',icx,icy+16,C.muted,11,500,'center');
+    var cph=Math.cos(m3.phi),sph=Math.sin(m3.phi),qx=icx+iR*cph,qy=icy-iR*sph,qtx=-sph,qty=-cph;
+    if(v>0.05)arrow(ctx,qx+qtx*9,qy+qty*9,qx+qtx*(14+v*0.45),qy+qty*(14+v*0.45),rgba(C.ink,0.7),2,7);
+    ctx.save();ctx.translate(qx,qy);ctx.rotate(Math.atan2(qty,qtx));rrect(ctx,-8,-5,16,10,3);ctx.fillStyle=C.ink;ctx.fill();ctx.restore();
+    txt(ctx,'v = '+v.toFixed(1)+' m s⁻¹',rx,ry,C.ink,14,700,'left','alphabetic',MONO);
+    txt(ctx,(wide?'设计速度 √(rg tan θ) = ':'设计速度 = ')+vd.toFixed(1)+' m s⁻¹',rx,ry+rs,C.muted,12.5,500,'left','alphabetic',MONO);
+    rich(ctx,'F_N = '+FN.toFixed(2)+' mg',rx,ry+2*rs,C.force,13,700);
+    var t1='tan θ = '+tn.toFixed(3),t2='v²/(rg) = '+(v*v/(RR*G)).toFixed(3),tc=st===2?C.ink:C.muted;
+    if(wide)txt(ctx,t1+'   '+t2,rx,ry+3*rs,tc,12.5,500,'left','alphabetic',MONO);
+    else{txt(ctx,t1,rx,ry+3*rs,tc,12.5,500,'left','alphabetic',MONO);txt(ctx,t2,rx,ry+4*rs,tc,12.5,500,'left','alphabetic',MONO);}
+    var aF=Math.abs(Ff),dirT=st===2?'（不要）':(Ff>0?'（沿斜面向上）':'（沿斜面向下）');
+    txt(ctx,'倾斜路要的摩擦'+dirT,bx0,by,C.ink,12.5,600);
+    txt(ctx,st===2?'0':(aF<0.005?'< 0.01 mg':aF.toFixed(2)+' mg'),bx1,by,C.force,12.5,700,'right','alphabetic',MONO);
+    hbar(ctx,bx0,by+7,bx1-bx0,10,st===2?0:aF/2,C.force);
+    txt(ctx,'如果是平路：要的摩擦 = mv²/r',bx0,by+38,C.ink,12.5,600);
+    txt(ctx,flat.toFixed(2)+' mg',bx1,by+38,C.south,12.5,700,'right','alphabetic',MONO);
+    hbar(ctx,bx0,by+45,bx1-bx0,10,flat/2,C.south);
+  }
+});
+var rv=document.getElementById('s3-v'),ov=document.getElementById('s3-v-out'),rt=document.getElementById('s3-th'),ot=document.getElementById('s3-th-out');
+function sync3(){ov.textContent=m3.v.toFixed(1)+' m s⁻¹';ot.textContent=m3.th+'°';}
+function snap3(v){var vd=vDes(m3.th);return Math.abs(v-vd)<0.051?vd:v;}   /* 滑块停在设计速度旁边 → 就当设计速度，读数 tan θ = v²/(rg) 才对得上 */
+rv.addEventListener('input',function(){m3.v=snap3(parseFloat(rv.value));sync3();S3.render();});
+rt.addEventListener('input',function(){m3.th=parseInt(rt.value,10);m3.v=snap3(m3.v);sync3();S3.render();});
+document.getElementById('s3-design').addEventListener('click',function(){m3.v=vDes(m3.th);rv.value=m3.v.toFixed(1);sync3();S3.render();});
+rv.value=m3.v.toFixed(1);sync3();
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4：摩擦够不够？平路转弯（俯视）vs rotor（侧视）
+   力都用 mg 的倍数表示（m 约掉）。g = 9.8、μ 0.8/0.1 来自讲义；r = 50 m（平路）、2.0 m（rotor）示意。
+   平路打滑的弧线、rotor 下滑的快慢只是示意（时间放慢/加快）；打滑时的弧线按摩擦约 0.7 μmg 画（示意）。 */
+var G4=9.8,RF=50,RR=2.0,KF=3,KR=0.35,TSR=0.6,DROP=1.5,ROAD=10,OFF=68;
+var m4={mode:'flat',vf:15,vr:8,mu:0.8,ph:-0.75,sk:0,px:0,py:0,hx:0,hy:1,wait:0,tr:new Float32Array(600),tn:0,rs:0,d:0,vy:0,ra:0.6};
+var Q4={flat:true,v:0,need:0,lim:0,fn:0,act:0,vl:0,bad:false};
+function q4(){var f=m4.mode==='flat',v=f?m4.vf:m4.vr,q=Q4;q.flat=f;q.v=v;
+  if(f){q.need=v*v/(RF*G4);q.lim=m4.mu;q.fn=1;q.vl=Math.sqrt(m4.mu*G4*RF);q.bad=q.need>q.lim+1e-9;q.act=q.bad?q.lim:q.need;}
+  else{q.need=1;q.fn=v*v/(RR*G4);q.lim=m4.mu*q.fn;q.vl=Math.sqrt(G4*RR/m4.mu);q.bad=q.lim<1-1e-9;q.act=q.bad?q.lim:1;}
+  return q;}
+function rec4(){if(m4.tn<300){m4.tr[2*m4.tn]=m4.px;m4.tr[2*m4.tn+1]=m4.py;m4.tn++;}}
+/* 控件一改就先按新的物理量“落位”：摩擦又够了 → 车回到车道 / 人回到原来的高度 */
+function settle4(){var q=q4();
+  if(q.flat){if(m4.sk>0&&!q.bad){m4.sk=0;m4.ph=Math.atan2(m4.py,m4.px);m4.tn=0;}}
+  else if(!q.bad){m4.rs=0;m4.d=0;m4.vy=0;}}
+function step4(dt){var q=q4(),n=4,h=dt/n,i;
+  if(q.flat){
+    if(m4.sk===2){if(!q.bad){settle4();return;}m4.wait-=dt;if(m4.wait<=0){m4.sk=0;m4.ph=-2.2;m4.tn=0;}return;}
+    if(m4.sk===1&&!q.bad)settle4();
+    if(m4.sk===0){
+      if(!q.bad){m4.ph+=KF*q.v/RF*dt;if(m4.ph>Math.PI)m4.ph-=TAU;return;}
+      /* 需要的摩擦 > μmg：从这一点开始打滑 */
+      m4.sk=1;m4.px=RF*Math.cos(m4.ph);m4.py=RF*Math.sin(m4.ph);m4.hx=-Math.sin(m4.ph);m4.hy=Math.cos(m4.ph);m4.tn=0;rec4();
+    }
+    /* 打滑（示意）：摩擦不够，弯得比车道平缓 → 半径更大的弧线，越走离圆心越远 */
+    var u=KF*q.v,Rk=q.v*q.v/(0.7*m4.mu*G4);
+    for(i=0;i<n;i++){var a=u*h/Rk,c=Math.cos(a),s=Math.sin(a),hx=m4.hx*c-m4.hy*s;m4.hy=m4.hx*s+m4.hy*c;m4.hx=hx;m4.px+=m4.hx*u*h;m4.py+=m4.hy*u*h;}
+    rec4();
+    if(Math.sqrt(m4.px*m4.px+m4.py*m4.py)>OFF){m4.sk=2;m4.wait=1.1;}
+  }else{
+    m4.ra+=KR*q.v/RR*dt;if(m4.ra>TAU)m4.ra-=TAU;
+    if(!q.bad){m4.rs=0;m4.d=0;m4.vy=0;return;}
+    if(m4.rs===0){m4.rs=1;m4.d=0;m4.vy=0;}
+    if(m4.rs===2){m4.wait-=dt;if(m4.wait<=0){m4.rs=1;m4.d=0;m4.vy=0;}return;}
+    /* μF_N < mg：合力向下 = mg − μF_N（示意，动画放慢） */
+    var ac=G4*(1-q.lim);
+    for(i=0;i<n;i++){m4.vy+=ac*h*TSR;m4.d+=m4.vy*h*TSR;}
+    if(m4.d>=DROP){m4.d=DROP;m4.vy=0;m4.rs=2;m4.wait=1.0;}
+  }
+}
+for(var i4=0;i4<30;i4++)step4(1/60);
+
+/* 文字里的 _X 画成下标：F_N → F 加小号 N，v_max → v 加小号 max；下标不小于 11 px */
+function rich(ctx,s,x,y,col,size,weight,align,base,family,doDraw){
+  var p=s.split(/_(max|min|.)/),ss=Math.max(11,size*0.74),fam=family||FONT,wt=weight||500,w=0,i,cx,pw;
+  for(i=0;i<p.length;i++){ctx.font=wt+' '+(i%2?ss:size)+'px '+fam;w+=ctx.measureText(p[i]).width+(i%2?1:0);}
+  if(doDraw===false)return w;
+  cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){ctx.font=wt+' '+(i%2?ss:size)+'px '+fam;pw=ctx.measureText(p[i]).width+(i%2?1:0);
+    if(p[i])txt(ctx,p[i],cx+(i%2?0.5:0),y+(i%2?size*0.3:0),col,i%2?ss:size,wt,'left',base||'alphabetic',fam);cx+=pw;}
+  return w;
+}
+function wrap4(ctx,s,x,y,maxW,col,size,weight,lh){
+  var parts=s.replace(/ → /g,' →\u0001 ').replace(/；/g,'；\u0001').replace(/，/g,'，\u0001').split('\u0001'),line='',n=0;
+  for(var i=0;i<parts.length;i++){var t=line+parts[i];
+    if(line&&rich(ctx,t,0,0,null,size,weight,'left','alphabetic',FONT,false)>maxW){rich(ctx,line.replace(/\s+$/,''),x,y+n*lh,col,size,weight);n++;line=parts[i].replace(/^\s+/,'');}
+    else line=t;}
+  if(line){rich(ctx,line,x,y+n*lh,col,size,weight);n++;}
+  return n;}
+function status4(q){
+  if(q.flat){
+    if(q.v===0)return ['v = 0 → 不转弯 → 不需要摩擦','把 v 拉大：需要的摩擦 mv²/r 跟着 v² 变大',C.ink];
+    if(q.bad)return ['v > v_max → 需要的摩擦 > μmg → 车向外侧打滑','摩擦不够做向心力 → 车走半径更大的弧线，不是被往外推',C.north];
+    if(q.need>0.85*q.lim)return ['需要的摩擦 < μmg → 摩擦够 → 安全转弯','快到 v_max 了：再快一点，需要的摩擦就超过 μmg',C.ink];
+    return ['需要的摩擦 < μmg → 摩擦够 → 安全转弯','静摩擦只给需要的那么多：F_f = mv²/r，指向圆心',C.ink];
+  }
+  if(q.v===0)return ['v = 0 → F_N = 0 → 没有摩擦 → 人往下掉','旋转圆筒要转起来，墙才会推人',C.north];
+  if(q.bad)return ['v < v_min → μF_N < mg → 人往下滑','转得太慢 → F_N = mv²/r 太小 → 摩擦上限托不住体重',C.north];
+  return ['v ≥ v_min → 实际摩擦 = mg，人不掉','再快，上限 μF_N 变大，实际摩擦还是 mg',C.ink];
+}
+function inset4(ctx,x,y,w,h){rrect(ctx,x,y,w,h,8);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();}
+
+function flat4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih){
+  var thr=Math.min((sw-iw-12)/2,sh/2-4),k=thr/OFF,cx=sx+thr+2,cy=sy+sh/2,rl=RF*k,ri=(RF-ROAD)*k,ro=(RF+ROAD)*k;
+  txt(ctx,'俯视 top view',sx+2,sy+14,C.muted,12,600);
+  ctx.save();ctx.beginPath();ctx.rect(sx,sy,ix-sx-4,sh);ctx.clip();
+  ctx.beginPath();ctx.arc(cx,cy,ro,0,TAU);ctx.arc(cx,cy,ri,0,TAU,true);ctx.fillStyle=rgba(C.muted,0.13);ctx.fill();
+  ring(ctx,cx,cy,ro,rgba(C.muted,0.6),1.2);ring(ctx,cx,cy,ri,rgba(C.muted,0.6),1.2);
+  ctx.setLineDash([4,6]);ring(ctx,cx,cy,rl,rgba(C.muted,0.5),1);ctx.setLineDash([]);
+  dot(ctx,cx,cy,3,C.ink);txt(ctx,'圆心',cx,cy+17,C.muted,11.5,500,'center');
+  var X,Y,hx,hy,fx,fy;
+  if(m4.sk===0){var c=Math.cos(m4.ph),s=Math.sin(m4.ph);X=cx+rl*c;Y=cy-rl*s;hx=-s;hy=-c;fx=-c;fy=s;
+    seg(ctx,cx,cy,X,Y,rgba(C.muted,0.5),1,[3,4]);}
+  else{X=cx+m4.px*k;Y=cy-m4.py*k;hx=m4.hx;hy=-m4.hy;fx=-m4.hy;fy=-m4.hx;
+    if(m4.tn>1){ctx.beginPath();ctx.moveTo(cx+m4.tr[0]*k,cy-m4.tr[1]*k);for(var j=1;j<m4.tn;j++)ctx.lineTo(cx+m4.tr[2*j]*k,cy-m4.tr[2*j+1]*k);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();}}
+  ctx.save();ctx.translate(X,Y);ctx.rotate(Math.atan2(hy,hx));rrect(ctx,-13,-7,26,14,4);ctx.fillStyle=C.surface;ctx.fill();
+  ctx.strokeStyle=q.bad?C.north:C.ink;ctx.lineWidth=1.8;ctx.stroke();seg(ctx,4,-5,4,5,q.bad?C.north:C.ink,1.5);ctx.restore();
+  if(q.v>0){var vl=1.8*q.v,vx0=X+hx*15,vy0=Y+hy*15;arrow(ctx,vx0,vy0,vx0+hx*vl,vy0+hy*vl,rgba(C.ink,0.7),2.2,8);
+    var lvx=vx0+hx*(vl+9),lvy=vy0+hy*(vl+9);   /* 箭头尖出了画面：标签放到箭头中间的旁边 */
+    if(lvx<sx+6||lvx>ix-12||lvy<sy+8||lvy>sy+sh-6){lvx=vx0+hx*vl*0.5-hy*11;lvy=vy0+hy*vl*0.5+hx*11;}
+    txt(ctx,'v',clamp(lvx,sx+6,ix-12),clamp(lvy,sy+8,sy+sh-6),C.muted,12,700,'center','middle');}
+  var fl=50*q.act;
+  if(fl>3){var f0x=X+fx*10,f0y=Y+fy*10;arrow(ctx,f0x,f0y,f0x+fx*fl,f0y+fy*fl,C.force,2.6,8);
+    var fo=10+Math.max(fl*0.5,7);rich(ctx,'F_f',X+fx*fo-hx*17,Y+fy*fo-hy*17,C.force,12,700,'center','middle');}
+  ctx.restore();
+  /* 小图：从车后面看（圆心在左） */
+  inset4(ctx,ix,iy,iw,ih);
+  txt(ctx,'从车后面看',ix+iw/2,iy+17,C.muted,11.5,600,'center');
+  txt(ctx,'圆心在左边',ix+iw/2,iy+32,C.muted,11,500,'center');
+  var bx=ix+iw/2+12,by=iy+80,u=26;
+  arrow(ctx,bx,by-8,bx,by-8-u,C.force,2.4,7);rich(ctx,'F_N',bx+6,by-8-u+9,C.force,11.5,700);
+  arrow(ctx,bx,by+8,bx,by+8+u,C.force,2.4,7);txt(ctx,'mg',bx+6,by+8+u,C.force,11.5,700);
+  var lf=u*q.act;if(lf>2.5){arrow(ctx,bx-8,by,bx-8-lf,by,C.force,2.4,7);rich(ctx,'F_f',bx-8-Math.max(lf,12)/2,by-10,C.force,11.5,700,'center');}
+  dot(ctx,bx,by,6,C.surface);ring(ctx,bx,by,6,q.bad?C.north:C.ink,1.8);
+}
+
+function rotor4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih){
+  var Rd=Math.min((sw-iw-12)/2-6,100),dcx=sx+6+Rd,yT=sy+48,yWB=sy+sh-46,yFl=yWB+16,yF0=yWB-30,ppm=(yFl-yF0)/DROP,i;
+  txt(ctx,'侧视 side view',sx+2,sy+14,C.muted,12,600);
+  txt(ctx,'转轴',dcx+6,sy+14,C.muted,11.5,500);
+  seg(ctx,dcx,yT-30,dcx,yFl+2,rgba(C.muted,0.75),1.2,[4,4]);
+  if(q.v>0){var t=0.18*Math.PI,ex=dcx+34*Math.cos(t),ey=yT-18+7*Math.sin(t),ux=34*Math.sin(t),uy=-7*Math.cos(t),ul=Math.sqrt(ux*ux+uy*uy);ux/=ul;uy/=ul;
+    ctx.beginPath();ctx.ellipse(dcx,yT-18,34,7,0,0.82*Math.PI,t,true);ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.4;ctx.stroke();
+    arrow(ctx,ex-ux*6,ey-uy*6,ex+ux*3,ey+uy*3,rgba(C.muted,0.9),1.4,7);}
+  ctx.beginPath();ctx.ellipse(dcx,yT,Rd,11,0,0,TAU);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.2;ctx.stroke();
+  seg(ctx,dcx-Rd,yT,dcx-Rd,yWB,C.ink,2.4);seg(ctx,dcx+Rd,yT,dcx+Rd,yWB,C.ink,2.4);
+  seg(ctx,dcx-Rd+6,yFl,dcx+Rd-6,yFl,C.ink,1.6);
+  for(i=dcx-Rd+14;i<=dcx+Rd-6;i+=10)seg(ctx,i,yFl+1,i-6,yFl+8,rgba(C.muted,0.6),1);
+  txt(ctx,'地板已降下',dcx,yFl+24,C.muted,11,500,'center');
+  var ry=yT+30;arrow(ctx,dcx-Rd/2,ry,dcx-3,ry,C.muted,1.2,6);arrow(ctx,dcx-Rd/2,ry,dcx-Rd+3,ry,C.muted,1.2,6);
+  txt(ctx,'r = 2.0 m',dcx-Rd/2,ry-6,C.muted,11.5,500,'center');
+  /* 人贴在右边的墙上（和讲义 Figure 2.5 一样） */
+  var xw=dcx+Rd-1.2,yf=yF0+m4.d*ppm,col=rgba(C.ink,0.2),edge=rgba(C.ink,0.6);
+  rrect(ctx,xw-13,yf-40,12,40,4);ctx.fillStyle=col;ctx.fill();ctx.strokeStyle=edge;ctx.lineWidth=1.2;ctx.stroke();
+  dot(ctx,xw-7,yf-48,7,col);ring(ctx,xw-7,yf-48,7,edge,1.2);
+  if(m4.rs!==2){
+    var Rx=xw-7,Ry=yf-32,u=30,fn=q.fn*u,maxN=2*Rd-34,lenN=Math.min(fn,maxN),af=u*q.act;   /* mg 的箭头尖在脚上面 2 px：落到地板也不穿过地板 */
+    arrow(ctx,Rx,Ry,Rx,Ry+u,C.force,2.6,8);txt(ctx,'mg',Rx-8,Ry+u-2,C.force,12,700,'right');
+    if(af>3){arrow(ctx,Rx,Ry,Rx,Ry-af,C.force,2.6,8);rich(ctx,'F_f',Rx-10,Ry-Math.max(af,18)-6,C.force,12,700,'right');}
+    if(lenN>3){arrow(ctx,Rx,Ry,Rx-lenN,Ry,C.force,2.6,8);
+      if(fn>maxN){var bk=Rx-lenN*0.45;ctx.fillStyle=C.stage;ctx.fillRect(bk-2,Ry-3,7,6);seg(ctx,bk-3,Ry+6,bk+1,Ry-6,C.force,1.6);seg(ctx,bk+3,Ry+6,bk+7,Ry-6,C.force,1.6);}
+      rich(ctx,'F_N',Rx-Math.max(lenN*(fn>maxN?0.75:0.5),22),Ry-7,C.force,12,700,'center');}
+    dot(ctx,Rx,Ry,2.6,C.ink);
+  }
+  /* 小图：俯视，人跟着墙转，F_N 指向转轴 */
+  inset4(ctx,ix,iy,iw,ih);
+  txt(ctx,'俯视',ix+iw/2,iy+17,C.muted,11.5,600,'center');
+  var icx=ix+iw/2,icy=iy+66,R=28,a=m4.ra,ca=Math.cos(a),sa=Math.sin(a),px=icx+R*ca,py=icy-R*sa;
+  ring(ctx,icx,icy,R,rgba(C.ink,0.75),2);dot(ctx,icx,icy,2.5,C.ink);
+  if(q.v>0){arrow(ctx,px,py,px-ca*20,py+sa*20,C.force,2.2,7);var lv=Math.min(18,4+q.v);arrow(ctx,px,py,px-sa*lv,py-ca*lv,rgba(C.ink,0.7),1.8,6);}
+  dot(ctx,px,py,4,C.ink);
+  rich(ctx,'F_N 指向转轴',icx,iy+ih-14,C.force,11.5,600,'center');
+}
+
+function panel4(ctx,q,x0,x1,y0,wide){
+  var f=q.flat,vmax=f?25:16,vl=q.vl,lab,lw;
+  rich(ctx,(f?'v_max = √(μgr) = ':'v_min = √(gr/μ) = ')+vl.toPrecision(3)+' m s⁻¹',x0,y0+16,C.ink,wide?15:14,700,'left','alphabetic',MONO);
+  txt(ctx,'μ = '+m4.mu.toFixed(2)+'，g = 9.8 m s⁻²，r = '+(f?'50 m':'2.0 m')+'（示意）→ 计算值',x0,y0+34,C.muted,11.5,500);
+  /* 速度轴：哪一段安全 */
+  var bx0=x0+12,bx1=x1-56,bw=bx1-bx0,by=y0+72,bh=18,xl=bx0+Math.min(1,vl/vmax)*bw,xv=bx0+q.v/vmax*bw;
+  var sL=f?bx0:xl,sR=f?xl:bx1,dL=f?xl:bx0,dR=f?bx1:xl,zs=f?['安全','打滑']:['不掉','往下滑'];
+  ctx.fillStyle=rgba(C.force,0.2);ctx.fillRect(sL,by,sR-sL,bh);ctx.fillStyle=rgba(C.north,0.16);ctx.fillRect(dL,by,dR-dL,bh);
+  ctx.font='600 11px '+FONT;
+  if(sR-sL>ctx.measureText(zs[0]).width+10)txt(ctx,zs[0],(sL+sR)/2,by+bh/2+0.5,C.force,11,600,'center','middle');
+  ctx.font='600 11px '+FONT;
+  if(dR-dL>ctx.measureText(zs[1]).width+10)txt(ctx,zs[1],(dL+dR)/2,by+bh/2+0.5,C.north,11,600,'center','middle');
+  seg(ctx,xl,by-3,xl,by+bh+3,C.ink,1.6);
+  txt(ctx,'0',bx0-5,by+bh/2+0.5,C.muted,11,500,'right','middle');
+  txt(ctx,vmax+' m s⁻¹',bx1+5,by+bh/2+0.5,C.muted,11,500,'left','middle');
+  ctx.beginPath();ctx.moveTo(xv-6,by-9);ctx.lineTo(xv+6,by-9);ctx.lineTo(xv,by-1);ctx.closePath();ctx.fillStyle=C.ink;ctx.fill();
+  lab='v = '+q.v.toFixed(1)+' m s⁻¹';ctx.font='600 12.5px '+FONT;lw=ctx.measureText(lab).width;
+  txt(ctx,lab,clamp(xv,x0+lw/2,x1-lw/2),by-13,C.ink,12.5,600,'center');
+  lab=(f?'v_max = ':'v_min = ')+vl.toPrecision(3);lw=rich(ctx,lab,0,0,null,12,600,'left','alphabetic',FONT,false);
+  rich(ctx,lab,clamp(xl,x0+lw/2,x1-lw/2),by+bh+16,C.ink,12,600,'center');
+  /* 两根条：需要的摩擦 / 实际摩擦，虚线 = 最多能给的摩擦 */
+  var full=f?1.4:3,W2=x1-x0,b1=y0+137,b2=y0+175,h2=12;
+  function fx(v){return x0+Math.min(1,Math.max(0,v/full))*W2;}
+  var xn=fx(q.need),xm=fx(q.lim),xa=fx(q.act);
+  txt(ctx,f?'需要的摩擦 mv²/r':'需要的摩擦 = mg（托住体重）',x0,b1-6,C.ink,12,600);
+  txt(ctx,q.need.toFixed(2)+' mg',x1,b1-6,C.ink,12,600,'right','alphabetic',MONO);
+  rrect(ctx,x0,b1,W2,h2,h2/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  ctx.save();rrect(ctx,x0,b1,W2,h2,h2/2);ctx.clip();
+  ctx.fillStyle=rgba(C.ink,0.42);ctx.fillRect(x0,b1,Math.min(xn,xm)-x0,h2);
+  if(xn>xm){ctx.fillStyle=C.north;ctx.fillRect(xm,b1,xn-xm,h2);}
+  ctx.restore();
+  rich(ctx,f?(q.bad?'实际摩擦 F_f（已经在滑，示意）':'实际摩擦 F_f（静摩擦）'):'实际摩擦 F_f',x0,b2-6,C.ink,12,600);
+  txt(ctx,q.act.toFixed(2)+' mg',x1,b2-6,C.force,12,600,'right','alphabetic',MONO);
+  rrect(ctx,x0,b2,W2,h2,h2/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  ctx.save();rrect(ctx,x0,b2,W2,h2,h2/2);ctx.clip();ctx.fillStyle=C.force;ctx.fillRect(x0,b2,xa-x0,h2);ctx.restore();
+  seg(ctx,xm,b1-4,xm,b1+h2+4,C.muted,1.6,[3,3]);seg(ctx,xm,b2-4,xm,b2+h2+6,C.muted,1.6,[3,3]);
+  lab=(f?'最多 μmg = ':'最多 μF_N = ')+q.lim.toFixed(2)+' mg'+(q.lim>full?' →':'');lw=rich(ctx,lab,0,0,null,12,600,'left','alphabetic',FONT,false);
+  rich(ctx,lab,clamp(xm,x0+lw/2,x1-lw/2),b2+h2+17,C.muted,12,600,'center');
+  /* 向心力从哪里来、上限为什么变或不变 */
+  rich(ctx,f?'向心力由摩擦 F_f 提供':'向心力 = F_N = mv²/r = '+q.fn.toFixed(2)+' mg',x0,y0+230,C.ink,12.5,600);
+  rich(ctx,f?'F_N = mg（不变）→ 上限 μmg 也不变':'F_N 随 v² 变大 → 上限 μF_N 也变大',x0,y0+248,C.ink,12.5,500);
+  rich(ctx,'力都写成 mg 的几倍 → m 约掉 → 质量不影响 '+(f?'v_max':'v_min'),x0,y0+266,C.muted,11.5,500);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?352:614;},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,q=q4(),st=status4(q),y0=wide?26:22,l1=wide?20:18;
+    var n1=wrap4(ctx,st[0],16,y0,W-32,st[2],wide?15:13.5,600,l1);
+    wrap4(ctx,st[1],16,y0+n1*l1+(wide?1:2),W-32,C.muted,wide?12.5:12,500,wide?17:16);
+    var sx=16,sy,sw,sh,px0,px1,py0;
+    if(wide){sy=64;sw=Math.round(W*0.5)-16;sh=H-sy-12;px0=sx+sw+28;px1=W-20;py0=66;}
+    else{sy=74;sw=W-32;sh=240;px0=16;px1=W-16;py0=sy+sh+18;}
+    var iw=wide?88:80,ih=128,ix=sx+sw-iw,iy=sy+2;
+    if(q.flat)flat4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih);else rotor4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih);
+    if(wide)seg(ctx,px0-14,sy+4,px0-14,H-16,C.line,1);else seg(ctx,16,py0-8,W-16,py0-8,C.line,1);
+    panel4(ctx,q,px0,px1,py0,wide);
+  }
+});
+var b4f=document.getElementById('s4-flat'),b4r=document.getElementById('s4-rotor'),r4v=document.getElementById('s4-v'),o4v=document.getElementById('s4-v-out'),r4m=document.getElementById('s4-mu'),o4m=document.getElementById('s4-mu-out');
+function out4(){var f=m4.mode==='flat',v=f?m4.vf:m4.vr,mu=m4.mu;o4v.textContent=v.toFixed(1)+' m s⁻¹';o4m.textContent=mu.toFixed(2)+(f&&mu<0.101?' 冰':(f&&mu>0.799?' 干路':''));}
+function mode4(m){m4.mode=m;var f=m==='flat';press(b4f,f);press(b4r,!f);r4v.max=f?'25':'16';r4v.value=String(f?m4.vf:m4.vr);if(!f){m4.rs=0;m4.d=0;m4.vy=0;}settle4();out4();S4.render();}
+b4f.addEventListener('click',function(){mode4('flat');});
+b4r.addEventListener('click',function(){mode4('rotor');});
+r4v.addEventListener('input',function(){var v=parseFloat(r4v.value);if(m4.mode==='flat')m4.vf=v;else m4.vr=v;settle4();out4();S4.render();});
+r4m.addEventListener('input',function(){m4.mu=parseFloat(r4m.value);settle4();out4();S4.render();});
+out4();
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 旋转塞子实验（booklet Figure 2.6 + Part A/B/C）。理想模型：挂的 M 不动 → F_T = Mg = F_c = mv²/L，r = L。
+   m、L、M 都是示意值；g = 9.8 m s⁻²（booklet）。每次“计时 20 圈”的时间 = 20T × (1 ± 0.25 %)，所以 v² 有约 ±0.5 % 小误差（示意），全部点的斜率和理论值相差在 1 % 以内（booklet）。
+   同一个设置测几次（最多 3 次）取平均时间。line of best fit 过原点（正比关系）：斜率 b = Σxy/Σx²。 */
+var G=9.8,M0=0.025,LA=0.80,MB=0.15,KE=0.19,DUR=5.5,NT=20;
+function mkVars(a,b){return [['自变量（改它）：',a],['因变量（测它）：','20 圈的时间 → T → v²'],['控制变量（不变）：',b]];}
+var CFG={
+  A:{lbl:'挂的质量 M',min:0.05,max:0.30,step:0.05,title:'Part A：F_c 对 v²',xl:'v² (m² s⁻²)',yl:'F_c (N)',
+     xmax:100,xt:[0,20,40,60,80,100],ymax:3,yt:[0,1,2,3],th:M0/LA,thl:'m/r',su:'kg m⁻¹',dp:4,
+     n1:'这个 M',n2:'换一个 M',pt:'(v², F_c)',vars:mkVars('M，所以 F_c = Mg 跟着变','m、L、水平的圆')},
+  B:{lbl:'半径 L',min:0.40,max:1.00,step:0.10,title:'Part B：v² 对 r',xl:'r (m)',yl:'v² (m² s⁻²)',
+     xmax:1,xt:[0,0.2,0.4,0.6,0.8,1],ymax:60,yt:[0,20,40,60],th:MB*G/M0,thl:'Mg/m',su:'m s⁻²',dp:1,
+     n1:'这个 L',n2:'换一个 L',pt:'(r, v²)',vars:mkVars('L，也就是半径 r','M、m、水平的圆')},
+  C:{lbl:'塞子个数',min:1,max:4,step:1,title:'Part C：v² 对 1/m',xl:'1/m (kg⁻¹)',yl:'v² (m² s⁻²)',
+     xmax:40,xt:[0,10,20,30,40],ymax:60,yt:[0,20,40,60],th:MB*G*LA,thl:'MgL',su:'N m',dp:3,
+     n1:'这几个塞子',n2:'换一个塞子个数',pt:'(1/m, v²)',vars:mkVars('塞子个数，也就是 m','M、L、水平的圆')}
+};
+function setup(p,v){if(p==='A')return {M:v,L:LA,m:M0,n:1};if(p==='B')return {M:MB,L:v,m:M0,n:1};var n=Math.round(v);return {M:MB,L:LA,m:M0*n,n:n};}
+function per(o){return TAU*Math.sqrt(o.m*o.L/(o.M*G));}
+function kOf(v){return v.toFixed(2);}
+function mean(a){var s=0;for(var i=0;i<a.length;i++)s+=a[i];return s/a.length;}
+var seed=20261;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+function trial(o){return NT*per(o)*(1+(rnd()*2-1)*0.0025);}
+
+var m5={part:'A',val:{A:0.15,B:0.8,C:1},ph:5.75,w:0,tm:null,msg:{k:'idle',t:9,d:0},pts:{A:{},B:{},C:{}},flash:null};
+function cur(){return setup(m5.part,m5.val[m5.part]);}
+function meas(p,v){var e=m5.pts[p][kOf(v)];if(!e)return null;var o=setup(p,v),t=mean(e.ts),T=t/NT,vv=TAU*o.L/T;return {t:t,T:T,v:vv,v2:vv*vv,n:e.ts.length,o:o};}
+function npts(p){var n=0,k;for(k in m5.pts[p])n++;return n;}
+function record(p,v,t){var P=m5.pts[p],k=kOf(v);if(!P[k])P[k]={v:v,ts:[]};P[k].ts.push(t);if(P[k].ts.length>3)P[k].ts.shift();m5.flash={p:p,k:k,t:0};}
+/* 第一帧：Part A，M = 0.15 kg，图上已经有这一点 */
+record('A',0.15,trial(setup('A',0.15)));m5.flash=null;
+m5.w=TAU/per(cur());
+
+function finish(){var p=m5.part;record(p,m5.val[p],m5.tm.t20);m5.ph=m5.tm.ph0;m5.tm=null;m5.msg={k:'rec',t:0,d:0};syncCtl();}
+function step5(dt){
+  m5.msg.t+=dt;if(m5.flash)m5.flash.t+=dt;
+  var wt=TAU/per(cur());
+  if(m5.tm){m5.tm.f+=dt/DUR;m5.w=wt;if(m5.tm.f>=1)finish();else m5.ph=m5.tm.ph0+m5.tm.f*NT*TAU;}
+  else{m5.w+=(wt-m5.w)*(1-Math.exp(-dt/0.4));m5.ph=(m5.ph+m5.w*dt)%TAU;}
+}
+
+/* 文字里的 _X 画成下标（F_c → F 加小号 c），下标不小于 11 px */
+function rt(ctx,s,x,y,col,size,weight,align,family){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.76),w=0,i;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+(family||FONT);w+=ctx.measureText(p[i]).width+(i%2?1.5:0);}
+  var xx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){
+    if(i%2){txt(ctx,p[i],xx+0.5,y+size*0.27,col,ss,weight,'left','alphabetic',family);xx+=ctx.measureText(p[i]).width+1.5;}
+    else if(p[i]){txt(ctx,p[i],xx,y,col,size,weight,'left','alphabetic',family);xx+=ctx.measureText(p[i]).width;}
+  }
+  return w;
+}
+
+/* ---------- layout ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){var cw=Math.round(W*0.46);
+    o.s1=28;o.s2=50;o.f1=15;o.f2=12.5;o.cx=16+Math.round(cw/2);o.ty=126;o.sc=Math.min(140,cw/2-34);o.tubeH=92;o.gapM=52;
+    o.ry=[372,394,416];o.rf=13;o.x0=cw+40;o.gx=o.x0+34;o.gw=W-16-o.gx-8;o.tt=76;o.gt=108;o.gh=212;o.vy=[384,404,424];o.vf=12;o.H=436;}
+  else{
+    o.s1=22;o.s2=42;o.f1=13.5;o.f2=12;o.cx=Math.round(W/2);o.ty=118;o.sc=Math.min(140,W/2-44);o.tubeH=80;o.gapM=50;
+    o.ry=[346,366,386];o.rf=12.5;o.x0=16;o.gx=50;o.gw=W-16-o.gx-8;o.tt=418;o.gt=446;o.gh=144;o.vy=[650,668,686];o.vf=11.5;o.H=696;}
+  LY=o;return o;
+}
+
+/* ---------- status ---------- */
+var ST=['',''];
+function status(){
+  var p=m5.part,c=CFG[p],np=npts(p),k=m5.msg.k,fresh=m5.msg.t<3.5,up=m5.msg.d>0;
+  if(m5.tm){ST[0]='计时中：数 20 圈（画面快进）';ST[1]='T = 时间 ÷ 20，v = 2πL/T';return ST;}
+  if(fresh&&k==='var'){
+    if(p==='A'){ST[0]=up?'M 变大 → F_c 变大 → 要转得更快，M 才不动':'M 变小 → F_c 变小 → 转慢一点，M 才不动';ST[1]='F_c = Mg = mv²/r，m 和 r 不变';}
+    else if(p==='B'){ST[0]=up?'L 变大 → r 变大，F_c 不变 → v² 变大':'L 变小 → r 变小，F_c 不变 → v² 变小';ST[1]='v² = F_c r/m，所以 v² ∝ r';}
+    else{ST[0]=up?'塞子变多 → m 变大，F_c 不变 → v² 变小':'塞子变少 → m 变小，F_c 不变 → v² 变大';ST[1]='v² = F_c r/m，所以 v² ∝ 1/m';}
+    return ST;}
+  if(fresh&&k==='rec'){var e=meas(p,m5.val[p]);ST[0]='记下一个点：'+c.pt;
+    ST[1]=(e&&e.n>1)?(c.n1+' 测了 '+e.n+' 次 → 用平均时间（误差更小）'):(np<3?c.n2+'，再记一个点':'点越多，直线越看得清楚');return ST;}
+  if(fresh&&k==='clear'){ST[0]='图清空了：重新一个一个记点';ST[1]=c.n2+' → 按“计时 20 圈” → 点出现在图上';return ST;}
+  if(np>=3){
+    if(p==='A'){ST[0]='F_c–v²：过原点的直线，斜率 = m/r';ST[1]='所以 F_c ∝ v²，支持 F_c = mv²/r';}
+    else if(p==='B'){ST[0]='v²–r：过原点的直线，斜率 = Mg/m';ST[1]='所以同样的速度下，F_c ∝ 1/r';}
+    else{ST[0]='v²–1/m：过原点的直线，斜率 = MgL';ST[1]='所以同样的速度下，F_c ∝ m';}
+    return ST;}
+  ST[0]='挂的 M 不动 → 拉力 F_T = Mg = F_c';
+  ST[1]=np===0?'按“计时 20 圈”，记下第一个点':c.n2+'，多记几个点（至少 3 个）';
+  return ST;
+}
+
+/* ---------- apparatus (side view) ---------- */
+function drawApp(ctx,o){
+  var oo=cur(),R=oo.L*o.sc,ey=R*KE,cx=o.cx,ty=o.ty,Fp=12+10*oo.M*G;
+  var tb=ty+o.tubeH,cy=tb+8,mT=cy+o.gapM,yL=ty-ey-24;
+  /* axis + L */
+  seg(ctx,cx,yL-8,cx,ty,rgba(C.muted,0.7),1,[3,4]);
+  arrow(ctx,cx+R/2,yL,cx+1,yL,C.muted,1.3,6);arrow(ctx,cx+R/2,yL,cx+R-1,yL,C.muted,1.3,6);
+  txt(ctx,'L = '+oo.L.toFixed(2)+' m',cx+R/2,yL-7,C.muted,12,600,'center');
+  /* back half of the circle */
+  ctx.setLineDash([5,5]);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.3;
+  ctx.beginPath();ctx.ellipse(cx,ty,R,ey,0,Math.PI,TAU);ctx.stroke();ctx.setLineDash([]);
+  /* string below the tube, tube, hand, paper clip */
+  seg(ctx,cx,tb,cx,mT,C.ink,1.3);
+  ctx.fillStyle=rgba(C.muted,0.22);ctx.fillRect(cx-5,ty,10,o.tubeH);ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.strokeRect(cx-5,ty,10,o.tubeH);
+  var hy=ty+Math.round(o.tubeH*0.38);
+  rrect(ctx,cx-15,hy,30,34,10);ctx.fillStyle=rgba(C.muted,0.3);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.2;ctx.stroke();
+  txt(ctx,'手握竖管',cx+24,hy+21,C.muted,12,500);
+  rrect(ctx,cx-8,cy,16,5,1.5);ctx.fillStyle=C.muted;ctx.fill();
+  txt(ctx,'回形针：L 不变',cx+16,cy+6,C.muted,12,500);
+  /* hanging mass M: F_T up, Mg down, same length (M stays still) */
+  rrect(ctx,cx-16,mT,32,24,3);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.stroke();
+  txt(ctx,'M',cx,mT+13,C.ink,13,700,'center','middle');
+  txt(ctx,'挂的质量',cx+24,mT+17,C.muted,12,500);
+  arrow(ctx,cx,mT,cx,mT-Fp,C.force,2.6,8);rt(ctx,'F_T',cx-8,mT-Fp*0.5+4,C.force,12.5,700,'right');
+  arrow(ctx,cx,mT+24,cx,mT+24+Fp,C.force,2.6,8);rt(ctx,'Mg',cx+8,mT+24+Fp*0.55+4,C.force,12.5,700);
+  /* front half of the circle (in front of the tube) */
+  ctx.setLineDash([5,5]);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.3;
+  ctx.beginPath();ctx.ellipse(cx,ty,R,ey,0,0,Math.PI);ctx.stroke();ctx.setLineDash([]);
+  /* stopper */
+  var ph=m5.ph,cs=Math.cos(ph),sn=Math.sin(ph),sx=cx+R*cs,sy=ty-ey*sn,k;
+  if(m5.tm){var p0=m5.tm.ph0;seg(ctx,cx+R*Math.cos(p0),ty-ey*Math.sin(p0)-7,cx+R*Math.cos(p0),ty-ey*Math.sin(p0)+7,C.copper,2);
+    for(k=4;k>=1;k--){var pk=ph-k*0.3;dot(ctx,cx+R*Math.cos(pk),ty-ey*Math.sin(pk),5.5,rgba(C.ink,0.06+0.05*(4-k)));}}
+  seg(ctx,cx,ty,sx,sy,C.ink,1.3);
+  var dx=cx-sx,dy=ty-sy,dl=Math.hypot(dx,dy);
+  if(dl>40){var ux=dx/dl,uy=dy/dl,al=Math.min(Fp,dl-20);
+    if(al>=14){var x1=sx+ux*10,y1=sy+uy*10;arrow(ctx,x1,y1,x1+ux*al,y1+uy*al,C.force,2.6,8);rt(ctx,'F_T',x1+ux*al*0.5,y1+uy*al*0.5+17,C.force,12.5,700,'center');}}
+  for(k=0;k<oo.n;k++){var yk=sy-k*6;dot(ctx,sx,yk,7.8,C.stage);dot(ctx,sx,yk,6.6,C.ink);}
+  txt(ctx,'m',sx+(cs>=0?13:-13),sy+4,C.ink,13.5,700,cs>=0?'left':'right','alphabetic',MATH);
+}
+
+/* ---------- readouts under the apparatus ---------- */
+function drawRead(ctx,o){
+  var p=m5.part,oo=cur(),f=o.rf,x=16,e=meas(p,m5.val[p]),s1;
+  if(p==='A')s1='F_c = Mg = '+oo.M.toFixed(2)+' × 9.8 = '+(oo.M*G).toFixed(2)+' N';
+  else if(p==='B')s1='r = L = '+oo.L.toFixed(2)+' m · F_c = Mg = '+(oo.M*G).toFixed(2)+' N（不变）';
+  else s1='m = '+oo.n+' × 0.025 = '+oo.m.toFixed(3)+' kg · 1/m = '+(1/oo.m).toFixed(1)+' kg⁻¹';
+  rt(ctx,s1,x,o.ry[0],C.ink,f,600);
+  if(m5.tm){var nn=Math.min(NT,Math.floor(m5.tm.f*NT));
+    rt(ctx,'计时 '+(m5.tm.f*m5.tm.t20).toFixed(2)+' s · 第 '+nn+' / 20 圈',x,o.ry[1],C.copper,f,700);
+    rt(ctx,'v = 2πL/T = ?',x,o.ry[2],C.muted,f,500);}
+  else if(e){rt(ctx,'20 圈 = '+e.t.toFixed(2)+' s → T = '+e.T.toFixed(3)+' s'+(e.n>1?'（'+e.n+' 次平均）':''),x,o.ry[1],C.ink,f,600);
+    rt(ctx,'v = 2πL/T = '+e.v.toFixed(2)+' m s⁻¹ → v² = '+e.v2.toFixed(1),x,o.ry[2],C.ink,f,600);}
+  else{rt(ctx,'20 圈 = ?  按“计时 20 圈”',x,o.ry[1],C.muted,f,500);rt(ctx,'v = 2πL/T = ?',x,o.ry[2],C.muted,f,500);}
+}
+
+/* ---------- graph ---------- */
+var PX=[],PY=[],PK=[];
+function drawGraph(ctx,o){
+  var p=m5.part,c=CFG[p],gx=o.gx,gy=o.gt,gw=o.gw,gh=o.gh,W=o.W,i,v,k;
+  rt(ctx,c.title,o.x0,o.tt,C.ink,o.wide?14:13.5,700);
+  txt(ctx,'数据：示意',W-16,o.tt,C.muted,11.5,500,'right');
+  rt(ctx,c.yl,o.x0,gy-11,C.muted,12,600);
+  for(i=0;i<c.yt.length;i++){v=c.yt[i];var yy=gy+gh-v/c.ymax*gh;if(v>0)seg(ctx,gx,yy,gx+gw,yy,C.grid,1);txt(ctx,String(v),gx-7,yy+4,C.muted,11,500,'right');}
+  for(i=0;i<c.xt.length;i++){v=c.xt[i];var xx=gx+v/c.xmax*gw;if(v>0)seg(ctx,xx,gy,xx,gy+gh,C.grid,1);txt(ctx,p==='B'&&v>0?v.toFixed(1):String(v),xx,gy+gh+16,C.muted,11,500,'center');}
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1.2);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1.2);
+  rt(ctx,c.xl,gx+gw,gy+gh+34,C.muted,12,600,'right');
+  /* points */
+  PX.length=0;PY.length=0;PK.length=0;
+  for(k in m5.pts[p]){var en=m5.pts[p][k],e=meas(p,en.v);
+    if(p==='A'){PX.push(e.v2);PY.push(e.o.M*G);}else if(p==='B'){PX.push(e.o.L);PY.push(e.v2);}else{PX.push(1/e.o.m);PY.push(e.v2);}PK.push(k);}
+  var n=PX.length,sxx=0,sxy=0;
+  for(i=0;i<n;i++){sxx+=PX[i]*PX[i];sxy+=PX[i]*PY[i];}
+  var fit=n>=2&&sxx>0;
+  function X(x){return gx+x/c.xmax*gw;}function Y(y){return gy+gh-y/c.ymax*gh;}
+  if(fit){var b=sxy/sxx;   /* 过原点的 line of best fit（理论上就是正比） */
+    ctx.save();ctx.beginPath();ctx.rect(gx,gy,gw,gh);ctx.clip();seg(ctx,X(0),Y(0),X(c.xmax),Y(b*c.xmax),rgba(C.copper,0.85),2);ctx.restore();
+    var dev=Math.abs(b-c.th)/c.th*100;
+    rt(ctx,'斜率 = '+b.toFixed(c.dp)+' '+c.su,gx+10,gy+17,C.ink,12,600);
+    rt(ctx,'理论 '+c.thl+' = '+c.th.toFixed(c.dp)+' · 相差 '+dev.toFixed(1)+' %',gx+10,gy+35,C.muted,12,500);}
+  else txt(ctx,n?'再记一个点，就能画 line of best fit':'还没有点',gx+10,gy+17,C.muted,12,500);
+  var ck=kOf(m5.val[p]);
+  for(i=0;i<n;i++){var px=X(PX[i]),py=Y(PY[i]);dot(ctx,px,py,6.2,C.stage);dot(ctx,px,py,5,C.copper);
+    if(PK[i]===ck)ring(ctx,px,py,9.5,rgba(C.copper,0.6),1.5);
+    if(m5.flash&&m5.flash.p===p&&m5.flash.k===PK[i]&&m5.flash.t<1){var ft=m5.flash.t;ring(ctx,px,py,7+16*ft,rgba(C.copper,0.9*(1-ft)),2);}}
+  /* variables */
+  for(i=0;i<3;i++){var vv=c.vars[i],wl;txt(ctx,vv[0],o.x0,o.vy[i],C.ink,o.vf,600);wl=ctx.measureText(vv[0]).width;rt(ctx,vv[1],o.x0+wl,o.vy[i],C.muted,o.vf,500);}
+}
+
+var S5=makeStage('sim5',{
+  height:function(w){return lay(w).H;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),s=status();
+    rt(ctx,s[0],16,o.s1,C.ink,o.f1,600);
+    rt(ctx,s[1],16,o.s2,C.muted,o.f2,500);
+    drawApp(ctx,o);drawRead(ctx,o);drawGraph(ctx,o);
+  }
+});
+
+/* ---------- controls ---------- */
+var bA=document.getElementById('s5-pa'),bB=document.getElementById('s5-pb'),bC=document.getElementById('s5-pc');
+var rg=document.getElementById('s5-var'),ro=document.getElementById('s5-var-out'),rl=document.getElementById('s5-var-lbl');
+var bT=document.getElementById('s5-time'),bX=document.getElementById('s5-clear');
+function fmtV(p,v){return p==='A'?v.toFixed(2)+' kg':(p==='B'?v.toFixed(2)+' m':Math.round(v)+' 个');}
+function syncCtl(){var p=m5.part,c=CFG[p];press(bA,p==='A');press(bB,p==='B');press(bC,p==='C');
+  rl.textContent=c.lbl;rg.min=c.min;rg.max=c.max;rg.step=c.step;rg.value=m5.val[p];ro.textContent=fmtV(p,m5.val[p]);
+  bT.textContent=m5.tm?'计时中…':'计时 20 圈，记一个点';}
+function setPart(p){m5.tm=null;m5.part=p;m5.msg={k:'part',t:0,d:0};m5.flash=null;syncCtl();S5.render();}
+bA.addEventListener('click',function(){setPart('A');});
+bB.addEventListener('click',function(){setPart('B');});
+bC.addEventListener('click',function(){setPart('C');});
+rg.addEventListener('input',function(){var p=m5.part,v=parseFloat(rg.value);if(p==='C')v=Math.round(v);else v=Math.round(v*100)/100;
+  var old=m5.val[p];if(Math.abs(v-old)<1e-9)return;m5.val[p]=v;m5.tm=null;m5.msg={k:'var',t:0,d:v>old?1:-1};syncCtl();S5.render();});
+bT.addEventListener('click',function(){if(m5.tm)return;var o=cur();m5.w=TAU/per(o);m5.ph=m5.ph%TAU;m5.tm={f:0,ph0:m5.ph,t20:trial(o)};m5.flash=null;syncCtl();S5.setPlaying(true);S5.render();});
+bX.addEventListener('click',function(){m5.pts[m5.part]={};m5.tm=null;m5.flash=null;m5.msg={k:'clear',t:0,d:0};syncCtl();S5.render();});
+syncCtl();
+})();
+</script>
+</body>
+</html>

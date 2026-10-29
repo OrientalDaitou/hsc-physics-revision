@@ -1,0 +1,1524 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T2 磁场对电流的作用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 2</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 2</div>
+  <h1>The Motor Effect</h1>
+  <p class="h1-sub">电流的磁场、安培力和平行导线 · <span style="white-space:nowrap">零基础讲解</span></p>
+  <p class="lead">这一章讲两件事：电流会产生磁场；有电流的导线放在别的磁场里，会被推。方向全靠右手：<b>握拳</b>找磁场，<b>伸平</b>找力。两个手势练熟了，这一章就简单了。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Currents make magnetic fields</div>
+    <p>有电流，就有磁场。方向用 <span class="t">right-hand grip rule</span>（右手螺旋定则）：右手握住导线，大拇指顺着电流，四指弯的方向就是磁场。</p>
+    <div class="eqs"><i>B</i> = <i>μ</i><sub>0</sub><i>I</i> / (2π<i>r</i>)</div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Motor effect</div>
+    <p>有电流的导线放在<b>别的东西</b>产生的磁场里，会被推（受力）。方向用 <span class="t">right-hand palm rule</span>（右手掌定则）。</p>
+    <div class="eqs"><i>F</i> = <i>lIB</i> sin <i>θ</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章六个部分">
+  <div class="map-row head"><span>部分</span><span>学什么</span><span>用到的规则</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">2.1</span><span class="t">Fields made by currents</span></span><span>直导线、线圈、螺线管的磁场</span><span>① grip rule 找磁场方向</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">2.2</span><span class="t">Force on a wire: size</span></span><span>力有多大：<i>F</i>&nbsp;=&nbsp;<i>lIB</i>&nbsp;sin&nbsp;<i>θ</i></span><span>② 只有和 <i>B</i> 垂直的电流算数</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">2.2</span><span class="t">Force on a wire: direction</span></span><span>力往哪边推</span><span>② palm rule</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">2.3</span><span class="t">Parallel wires</span></span><span>同向相吸，反向相斥</span><span>先 ① 再 ②：wire 1 的磁场推 wire 2</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">2.3</span><span class="t">Newton's third law &amp; the ampere</span></span><span>两个力一样大；安培的定义</span><span>Newton 第三定律</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">2.4</span><span class="t">Key experiments</span></span><span>用电子秤测导线受的力</span><span>② 和 ① + ②</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是 ⊙ 和 ⊗。</li>
+    <li>按 2.1 → 2.4 讲。每道方向题都让学生真的举起右手做一遍，再开动画对照。</li>
+    <li>最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li>⊙ = 出纸面，像一支箭朝你飞来，你看到箭尖。⊗ = 进纸面，像箭离你飞走，你看到箭尾的羽毛。</li>
+    <li><span class="t">Conventional current</span>（规定的电流方向）：正电荷流动的方向。从电源 + 极出来，绕电路一圈，回到 − 极。电子真正走的方向叫 <span class="t">electron flow</span>（电子的定向移动方向），和它正好相反。</li>
+    <li>Chapter 1 学过：运动的电荷在磁场里受力 <span class="m"><i>F</i>&nbsp;=&nbsp;<i>qv</i><sub>⊥</sub><i>B</i></span>。这一章的力，就是导线里很多电荷一起受力。</li>
+    <li><span class="m">sin&nbsp;0°&nbsp;=&nbsp;0</span>，<span class="m">sin&nbsp;30°&nbsp;=&nbsp;0.5</span>，<span class="m">sin&nbsp;90°&nbsp;=&nbsp;1</span>。公式里的 sin <i>θ</i> 就像“打几折”：90° 不打折，0° 打成 0。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">2.1</div>
+  <h2>电流会产生磁场<span class="en">Magnetic fields made by currents (Year 11 refresher)</span></h2>
+  <p class="big"><span class="lbl">一句话</span>每个电流都会产生磁场。直导线周围的磁感线是一个个圆圈。一圈线圈或一个螺线管产生的磁场，像一根条形磁铁。</p>
+  <ul class="pts">
+    <li><span class="t">Magnetic field</span>（磁场，符号 <span class="m"><i>B</i></span>）：磁铁或运动的电荷在这里会受力。单位是 <span class="t">tesla</span>（特斯拉，T）。</li>
+    <li><span class="t">Field lines</span>（磁感线）：线上的箭头 = 小 <span class="t">compass</span>（指南针）的 N 端指的方向。线越密，磁场越强。</li>
+    <li><span class="t">Uniform field</span>（匀强场）：每个地方大小一样、方向也一样。画出来是间距相等的平行线。</li>
+    <li><span class="t">Solenoid</span>（螺线管）：绕了很多圈的长线圈。</li>
+    <li><span class="t">Permeability constant</span> <span class="m"><i>μ</i><sub>0</sub></span>（真空磁导率）：一个常数，把电流和它在真空里产生的磁场连起来。<span class="m"><i>μ</i><sub>0</sub>&nbsp;=&nbsp;4π&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;N&nbsp;A<sup>−2</sup></span>。</li>
+  </ul>
+
+  <h3>三种形状，三种磁场</h3>
+  <ul class="pts">
+    <li><b>直导线：</b>用 grip rule。右手握住导线，像握住一根棍子：大拇指顺着 conventional current，弯着的四指就是磁场的方向。磁感线是一圈圈的圆，越靠近导线越密（越强）。</li>
+    <li><b>从导线一头看（端视）：</b>电流出纸面 ⊙，磁感线是逆时针的圆圈。电流进纸面 ⊗，就是顺时针。</li>
+    <li><b>从侧面看：</b>电流沿纸面向上，导线左边的磁场出纸面 ⊙，右边的磁场进纸面 ⊗。</li>
+    <li><b>一圈线圈（<span class="t">current loop</span>，环形电流）：</b>右手四指顺着电流弯，大拇指指出的那一面是 N 面（<span class="t">N face</span>）。正面看：电流逆时针 = N 面，顺时针 = S 面。</li>
+    <li><b>螺线管：</b>每一圈的磁场加在一起。就像很多块扁磁铁排成一排，变成一根条形磁铁。里面的磁场强而均匀，从 S 指向 N；外面像条形磁铁。四指顺着电流，大拇指指的那一头是 N 端。</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h">逆时针 = N face</div><p>正面看，线圈里电流逆时针走。圈里面的磁场<b>出纸面</b> ⊙，朝着你的这一面是 <b>N</b>。</p></div>
+    <div class="state"><div class="state-h">顺时针 = S face</div><p>正面看，线圈里电流顺时针走。圈里面的磁场<b>进纸面</b> ⊗，朝着你的这一面是 <b>S</b>。</p></div>
+  </div>
+  <p>螺线管从中间剖开看：上面一排电流出纸面 ⊙，下面一排进纸面 ⊗。里面的磁场向右，所以右端是 N，左端是 S。</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Fields of a long straight wire and a solenoid · 长直导线和螺线管的磁场</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>B</i> = <i>μ</i><sub>0</sub><i>I</i> / (2π<i>r</i>)</span><span style="display:inline-block;margin:0 .6em"><i>B</i> = <i>μ</i><sub>0</sub><i>NI</i> / <i>L</i></span></div>
+    <dl class="sym">
+      <div><dt>B</dt><dd>磁感应强度 (T)</dd></div>
+      <div><dt>μ<sub>0</sub></dt><dd>真空磁导率，4π × 10<sup>−7</sup> (N A<sup>−2</sup>)</dd></div>
+      <div><dt>I</dt><dd>电流 (A)</dd></div>
+      <div><dt>r</dt><dd>直导线：到导线中心的最短距离 (m)</dd></div>
+      <div><dt>N</dt><dd>螺线管的圈数（没有单位）</dd></div>
+      <div><dt>L</dt><dd>螺线管的长度 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>第一个用于长直导线。第二个用于长的空心（<span class="t">air-core</span>）螺线管的里面。<br><b>例子：</b><span class="m"><i>I</i>&nbsp;=&nbsp;5.0&nbsp;A</span>，<span class="m"><i>r</i>&nbsp;=&nbsp;1.0&nbsp;cm&nbsp;=&nbsp;0.010&nbsp;m</span>：<span class="m"><i>B</i>&nbsp;= (4π&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;×&nbsp;5.0)/(2π&nbsp;×&nbsp;0.010)&nbsp;= 1.0&nbsp;×&nbsp;10<sup>−4</sup>&nbsp;T</span>。离远一倍（2.0 cm）：<span class="m"><i>B</i>&nbsp;=&nbsp;5.0&nbsp;×&nbsp;10<sup>−5</sup>&nbsp;T</span>，只剩一半。<br><b>陷阱：</b>直导线 <span class="m"><i>B</i>&nbsp;∝&nbsp;1/<i>r</i></span>，不是 <span class="m">1/<i>r</i><sup>2</sup></span>。螺线管的 <span class="m"><i>L</i></span> 是线圈本身的长度，不是导线的长度。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · 电流的磁场：直导线、线圈、螺线管</span><span class="sim-tag">⊙ 出纸面 · ⊗ 进纸面 · 数据：示意 · B：计算值</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="电流周围的磁场，可以切换直导线、一圈线圈、螺线管三种情况。灰蓝色虚线是磁感线，上面的小箭头沿磁场方向流动；几个小 compass 的红色 N 端顺着磁场指。直导线的磁感线是同心圆，离导线越近越密；线圈和螺线管像条形磁铁，旁边标出 N 和 S。读数区显示用公式算出的 B。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="电流的形状">
+        <button class="btn" type="button" id="s1-wire" aria-pressed="true">直导线</button>
+        <button class="btn" type="button" id="s1-loop" aria-pressed="false">线圈</button>
+        <button class="btn" type="button" id="s1-sol" aria-pressed="false">螺线管</button>
+      </span>
+      <button class="btn" type="button" id="s1-rev" aria-pressed="false">电流反向</button>
+      <label class="range">电流 <i>I</i> <input type="range" id="s1-I" min="0" max="10" step="0.5" value="5"><output id="s1-I-out" for="s1-I">5.0 A</output></label>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看直导线：compass 红的一头是 N，它们都顺着磁感线指，绕成一圈。按“电流反向”，⊙ 变成 ⊗，所有 compass 一起掉头。② 把 <i>I</i> 拉到 10 A：圈变多、变密；读数里 1 cm 处的 <i>B</i> 总是 2 cm 处的两倍（<i>B</i> ∝ 1/<i>r</i>）。③ 切到“线圈”和“螺线管”：右手四指顺着电流弯，大拇指指的就是 N。螺线管里面的线又直又均匀，从 S 指向 N。<i>I</i>、距离、<i>N</i>、<i>L</i> 都是示意值，<i>B</i> 是按公式算的。</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">2.2</div>
+  <h2>导线在磁场里会被推<span class="en">The motor effect: force on a wire</span></h2>
+  <p class="big"><span class="lbl">一句话</span>有电流的导线放在外磁场里，会受力。导线和磁场成 90° 时，力最大。导线和磁场平行时，没有力。</p>
+  <ul class="pts">
+    <li><span class="t">Motor effect</span>（磁场对电流的作用，也叫安培力）：有电流的导线在<b>外</b>磁场里受的力。</li>
+    <li><span class="t">External field</span>（外磁场）：别的东西（比如磁铁）产生的磁场，不是导线自己的磁场。</li>
+    <li><b>为什么会受力：</b>电流就是一串运动的电荷。运动的电荷在磁场里受力（<span class="m"><i>F</i>&nbsp;=&nbsp;<i>qv</i><sub>⊥</sub><i>B</i></span>）。电荷跑不出导线，所以整根导线被推。像一袋弹珠：每颗都被往同一边推，弹珠出不了袋子，整个袋子就被推走了。</li>
+    <li><span class="m"><i>F</i></span> 随三样东西变大：<span class="m"><i>l</i></span>（导线在磁场里的那一段长度）、电流 <span class="m"><i>I</i></span>、磁场 <span class="m"><i>B</i></span>。</li>
+    <li>只有和 <span class="m"><i>B</i></span> 垂直（90°）的那部分电流算数：<span class="m"><i>I</i><sub>⊥</sub>&nbsp;=&nbsp;<i>I</i>&nbsp;sin&nbsp;<i>θ</i></span>。<span class="m"><i>θ</i></span> 是导线和 <span class="m"><i>B</i></span> 的夹角。顺着 <span class="m"><i>B</i></span> 的那部分（<span class="m"><i>I</i><sub>∥</sub>&nbsp;=&nbsp;<i>I</i>&nbsp;cos&nbsp;<i>θ</i></span>）不产生力。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>导线和 <i>B</i>（<i>B</i> 向右）</th><th>哪部分电流算数</th><th>力</th></tr></thead>
+      <tbody>
+        <tr><td>垂直，<span class="m"><i>θ</i>&nbsp;=&nbsp;90°</span></td><td>全部，<span class="m"><i>I</i><sub>⊥</sub>&nbsp;=&nbsp;<i>I</i></span></td><td><b>最大</b>，<span class="m"><i>F</i>&nbsp;=&nbsp;<i>lIB</i></span>。电流向上时，力进纸面 ⊗。</td></tr>
+        <tr><td>平行，<span class="m"><i>θ</i>&nbsp;=&nbsp;0°</span></td><td>没有，<span class="m"><i>I</i><sub>⊥</sub>&nbsp;=&nbsp;0</span></td><td><b>0</b>，没有力</td></tr>
+        <tr><td>斜着，角度 <span class="m"><i>θ</i></span></td><td>只有 <span class="m"><i>I</i><sub>⊥</sub>&nbsp;=&nbsp;<i>I</i>&nbsp;sin&nbsp;<i>θ</i></span></td><td><span class="m"><i>F</i>&nbsp;=&nbsp;<i>lIB</i>&nbsp;sin&nbsp;<i>θ</i></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li><b>力最大：</b>导线和 <span class="m"><i>B</i></span> 成 90°（<span class="m">sin&nbsp;90°&nbsp;=&nbsp;1</span>），<span class="m"><i>F</i>&nbsp;=&nbsp;<i>lIB</i></span>。角度在中间时，<span class="m"><i>F</i></span> 跟着 sin <i>θ</i> 变。</li>
+    <li><b>没有力的三种情况：</b>导线和 <span class="m"><i>B</i></span> 平行（<span class="m"><i>θ</i>&nbsp;=&nbsp;0°</span> 或 180°）；没有电流；导线在磁场外面。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Force on a current-carrying wire · 有电流的导线受的力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>F</i> = <i>lI</i><sub>⊥</sub><i>B</i> = <i>lIB</i> sin <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>导线受的力的大小 (N)</dd></div>
+      <div><dt>l</dt><dd>在磁场里的那段导线的长度 (m)</dd></div>
+      <div><dt>I</dt><dd>导线里的电流；<i>I</i><sub>⊥</sub> = <i>I</i> sin <i>θ</i> 是和 <i>B</i> 垂直的部分 (A)</dd></div>
+      <div><dt>B</dt><dd>外磁场的磁感应强度 (T，= N A<sup>−1</sup> m<sup>−1</sup>)</dd></div>
+      <div><dt>θ</dt><dd>导线（电流）和磁场的夹角 (°)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>一根直导线，有电流，放在匀强的外磁场里。<br><b>陷阱：</b>题目给的角，如果是从“和 <i>B</i> 垂直的那条线”量的，<span class="m"><i>θ</i>&nbsp;=&nbsp;90°&nbsp;−（那个角）</span>。例：导线和“垂直于 <i>B</i> 的线”成 30°，那 <span class="m"><i>θ</i>&nbsp;=&nbsp;60°</span>。</p>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · 导线和 <i>B</i> 的夹角 <i>θ</i></span><span class="sim-tag">B 在纸面里 · 力只看相对大小 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="匀强磁场 B 从 N 极指向 S 极，一根有电流的铜色导线在纸面里转动，θ 是电流和 B 的夹角。电流分成顺着 B 的 I∥ 和垂直 B 的 I⊥，绿色 ⊗ 或 ⊙ 表示力进纸面或出纸面，大小随 sin θ 变。旁边是 F/(lIB) 随 θ 变化的 sin 曲线，下面有一行陷阱提示：从竖直虚线量的角 α，θ = 90° − α。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range"><i>θ</i> <input type="range" id="s2-th" min="0" max="180" step="1" value="60"><output id="s2-th-out" for="s2-th">60°</output></label>
+    <button class="btn" type="button" id="s2-fi" aria-pressed="false">反转 <i>I</i></button>
+    <button class="btn" type="button" id="s2-fb" aria-pressed="false">反转 <i>B</i></button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看导线自己转：<i>θ</i> = 90° 时绿色的 ⊗ 最大（<i>F</i> = <i>lIB</i>）；<i>θ</i> = 0° 和 180° 时没有力。② 拖 <i>θ</i> 到 30°：<i>F</i> = 0.50 <i>lIB</i>。只有铜色的 <i>I</i><sub>⊥</sub> 算数。③ 按“反转 <i>I</i>”：⊗ 变成 ⊙；再按“反转 <i>B</i>”：又回到 ⊗。④ 看最下面的陷阱：从竖直虚线量的角 <i>α</i>，要先算 <i>θ</i> = 90° − <i>α</i>。力都写成 <i>lIB</i> 的几倍。</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">2.2</div>
+  <h2>力往哪边推：palm rule<span class="en">The motor effect: force on a wire · Direction</span></h2>
+  <p class="big"><span class="lbl">一句话</span>力同时和电流、磁场都成 90°。用右手掌定则找方向：四指指 <i>B</i>，大拇指指 <i>I</i>，手掌推的方向就是 <i>F</i>。</p>
+  <ol class="pts">
+    <li>右手伸平。</li>
+    <li><b>四指</b>沿磁场 <span class="m"><i>B</i></span>（从 N 指向 S）。</li>
+    <li><b>大拇指</b>沿 conventional current <span class="m"><i>I</i></span>（不是电子流的方向）。</li>
+    <li><b>手掌</b>朝的方向，就是力 <span class="m"><i>F</i></span>。像用手掌推门：手掌朝哪，门就往哪走。</li>
+  </ol>
+  <ul class="pts">
+    <li><b>例子（讲义的图）：</b><span class="m"><i>B</i></span> 向上，电流向右。四指朝上，大拇指朝右，手掌朝着你，所以 <span class="m"><i>F</i></span> 出纸面 ⊙。</li>
+    <li><b>反过来：</b>只反转 <span class="m"><i>I</i></span>，或只反转 <span class="m"><i>B</i></span>：力反向。两个都反转：力不变。</li>
+    <li><b>题目给的是电子流：</b>先把方向反过来，得到 conventional current，再让大拇指指它。</li>
+    <li><b>特殊情况：<span class="m"><i>B</i></span> 进纸面或出纸面。</b>这时纸面里的任何一根导线都和 <span class="m"><i>B</i></span> 成 90°。所以力总是最大值 <span class="m"><i>lIB</i></span>，方向在纸面里，和导线垂直。</li>
+    <li>例：<span class="m"><i>B</i></span> 进纸面 ⊗，电流向右。四指指进纸里，大拇指指右，手掌朝上，所以 <span class="m"><i>F</i></span> 向上。</li>
+  </ul>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · Palm rule：<i>B</i> 垂直纸面时力的方向</span><span class="sim-tag">只看方向 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="满屏的 ⊗ 表示磁场 B 进纸面。一根铜色导线在中间慢慢转一整圈，红色正电荷沿 conventional current 流动，每个电荷上有一个绿色小箭头。导线中间的绿色大箭头是力 F，永远和导线垂直、长度不变。旁边的提示框写着 palm rule：四指指 B，大拇指指 I，手掌朝 F。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="B 的方向">
+      <button class="btn" type="button" id="s3-bin" aria-pressed="true"><i>B</i> 进纸面 ⊗</button>
+      <button class="btn" type="button" id="s3-bout" aria-pressed="false"><i>B</i> 出纸面 ⊙</button>
+    </span>
+    <button class="btn" type="button" id="s3-revi">反转 <i>I</i></button>
+    <button class="btn" type="button" id="s3-elec" aria-pressed="false">显示电子流：关</button>
+  </div>
+  <p class="try"><b>试一试：</b>① <i>I</i> 向右时：四指指进纸面，大拇指指右，手掌朝上，所以 <i>F</i> 向上。用自己的右手比一比。② 看导线转一圈：<i>F</i> 一直一样长（<i>F</i> = <i>lIB</i>），一直和导线垂直。③ 按“反转 <i>I</i>”或“<i>B</i> 出纸面”：<i>F</i> 反向；两个都反转，<i>F</i> 不变。④ 打开“显示电子流”：电子往反方向走，大拇指还是沿 conventional current。</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">2.3</div>
+  <h2>两根平行导线：相吸还是相斥<span class="en">Forces between parallel wires</span></h2>
+  <p class="big"><span class="lbl">一句话</span>两根平行导线，每根都在对方的磁场里，所以每根都受 motor effect 的力。电流同向就相吸，电流反向就相斥。</p>
+  <ul class="pts">
+    <li><span class="t">Force per unit length</span> <span class="m"><i>F</i>/<i>l</i></span>（单位长度导线受的力）：每 1 米导线受的力，单位 N m<sup>−1</sup>。</li>
+    <li><span class="t">Newton's third law</span>（牛顿第三定律）：wire 1 推 wire 2，wire 2 就用一样大的力推回 wire 1。</li>
+  </ul>
+  <h3>判断方向的三步</h3>
+  <ol class="pts">
+    <li><b>Grip rule：</b>找 wire 1 在 wire 2 那里产生的磁场 <span class="m"><i>B</i><sub>1</sub></span>。</li>
+    <li><b>Palm rule：</b>找 wire 2 受的力。</li>
+    <li><b>Newton's third law：</b>wire 1 受的力一样大，方向相反。</li>
+  </ol>
+  <div class="duo">
+    <div class="state hot"><div class="state-h">同向电流 · 相吸</div><p>两根都出纸面 ⊙（wire 1 是 2.0 A，wire 2 是 6.0 A）。<i>B</i><sub>1</sub> 在 wire 2 那里向上，<i>B</i><sub>2</sub> 在 wire 1 那里向下。两个力互相指向对方：<b>相吸</b>。电流不一样大，两个力却<b>一样大</b>。</p></div>
+    <div class="state"><div class="state-h">反向电流 · 相斥</div><p>wire 1 出纸面 ⊙，wire 2 进纸面 ⊗。<i>B</i><sub>1</sub> 和 <i>B</i><sub>2</sub> 在对方那里都向上。两个力互相背离：<b>相斥</b>。</p></div>
+  </div>
+  <ul class="pts">
+    <li><b>和电荷正好相反：</b>电荷是同号相斥；电流是同向相吸。</li>
+    <li><b>为什么：</b>wire 2 和 wire 1 的磁场成 90°。<span class="m"><i>B</i><sub>1</sub>&nbsp;=&nbsp;<i>μ</i><sub>0</sub><i>I</i><sub>1</sub>/(2π<i>r</i>)</span>，所以 <span class="m"><i>F</i>&nbsp;=&nbsp;<i>lI</i><sub>2</sub><i>B</i><sub>1</sub></span>。<span class="m"><i>F</i></span> 随 <span class="m"><i>I</i><sub>1</sub></span> 和 <span class="m"><i>I</i><sub>2</sub></span> 变大，随距离 <span class="m"><i>r</i></span> 变大而变小。</li>
+    <li>把 <span class="m"><i>B</i><sub>1</sub></span> 代进去，两边除以 <span class="m"><i>l</i></span>，就得到下面的公式。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Force between two parallel wires · 两根平行导线之间的力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>F</i>/<i>l</i> = (<i>μ</i><sub>0</sub>/2π)(<i>I</i><sub>1</sub><i>I</i><sub>2</sub>/<i>r</i>)</div>
+    <dl class="sym">
+      <div><dt>F</dt><dd><b>每一根</b>导线受的力 (N)</dd></div>
+      <div><dt>l</dt><dd>两根导线并排的那段长度 (m)</dd></div>
+      <div><dt>μ<sub>0</sub></dt><dd>真空磁导率；<i>μ</i><sub>0</sub>/2π = 2 × 10<sup>−7</sup> (N A<sup>−2</sup>)</dd></div>
+      <div><dt>I<sub>1</sub>, I<sub>2</sub></dt><dd>两根导线里的电流 (A)</dd></div>
+      <div><dt>r</dt><dd>两根导线的距离，中心到中心 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>两根又长又直的平行导线（比距离 <i>r</i> 长得多）。<br><b>例子：</b>2.0 A 和 6.0 A，相距 0.10 m：<span class="m"><i>F</i>/<i>l</i>&nbsp;= 2&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;×&nbsp;2.0&nbsp;×&nbsp;6.0&nbsp;/&nbsp;0.10&nbsp;= 2.4&nbsp;×&nbsp;10<sup>−5</sup>&nbsp;N&nbsp;m<sup>−1</sup></span>。<br><b>陷阱：</b><span class="m"><i>F</i>/<i>l</i></span> 的单位是 N m<sup>−1</sup>，要乘 <span class="m"><i>l</i></span> 才是力。分母是 <span class="m"><i>r</i></span>，不是 <span class="m"><i>r</i><sup>2</sup></span>。</p>
+  </div>
+
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">动画 4 · 两根平行导线：相吸还是相斥</span><span class="sim-tag">端视 · 电流：讲义 · 距离：示意 · 读数：计算值</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="两根导线从端头看过去：左边 wire 1 电流出纸面，周围的磁感线圆圈逆时针流动，越靠近导线越密；右边 wire 2 电流出纸面或进纸面。wire 2 处画着 wire 1 的磁场 B1 箭头，wire 1 处画着 B2 箭头，两根导线上各有一个一样长的绿色力箭头。上方的状态提示按三步轮流讲：grip rule 找 B1，palm rule 找 wire 2 受的力，Newton's third law 找 wire 1 受的力。下方是每米受力 F/l 的计算。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="两根导线的电流方向">
+        <button class="btn" type="button" id="s4-same" aria-pressed="true">同向 ⊙ ⊙</button>
+        <button class="btn" type="button" id="s4-opp" aria-pressed="false">反向 ⊙ ⊗</button>
+      </span>
+      <label class="range"><span><i>I</i><sub>2</sub></span><input type="range" id="s4-i2" min="1" max="10" step="0.5" value="6"><output id="s4-i2-out" for="s4-i2">6.0 A</output></label>
+      <label class="range"><i>r</i><input type="range" id="s4-r" min="0.05" max="0.2" step="0.01" value="0.1"><output id="s4-r-out" for="s4-r">0.10 m</output></label>
+    </div>
+    <p class="try"><b>试一试：</b>① 跟着状态提示走三步：grip rule 找 <i>B</i><sub>1</sub> → palm rule 找 wire 2 的力 → Newton's third law 找 wire 1 的力。“④ 小结”用 <i>B</i><sub>2</sub> 再查一遍。点画面上的 ①–④ 可以直接跳过去。② 按“反向”：两个力一起反向，相吸变成相斥。③ 拖 <i>I</i><sub>2</sub>：两个绿色箭头一起变长，因为 <i>I</i><sub>1</sub><i>I</i><sub>2</sub> 对两根是同一个数。④ 拖 <i>r</i>：<i>r</i> 加倍，力减半。<i>I</i><sub>1</sub>、<i>I</i><sub>2</sub> 来自讲义 Figure 2.5，<i>r</i> 是示意。</p>
+  </figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">2.3</div>
+  <h2>两个力一样大，和安培的定义<span class="en">Newton's third law and the SI ampere</span></h2>
+  <p class="big"><span class="lbl">一句话</span>两根导线受的力永远一样大、方向相反。这个力曾经用来定义电流的单位：安培。</p>
+  <ul class="pts">
+    <li>两根导线受的力<b>一样大</b>，就算电流不一样。因为 <span class="m"><i>I</i><sub>1</sub><i>I</i><sub>2</sub></span> 对两根是同一个数（2.0 × 6.0 = 6.0 × 2.0）。</li>
+    <li>它们是一对 <span class="t">action–reaction pair</span>（作用力与反作用力）：两个物体互相施加的、一样大、方向相反的力。</li>
+    <li><span class="t">Ampere</span>（安培，A）是电流的 <span class="t">SI</span> 单位（国际单位制，全世界通用的单位）。1 A = 每秒通过 1 C 的电荷。</li>
+    <li>1948 年到 2019 年，安培是用平行导线之间的这个力来定义的。2019 年以后，改用电子电荷的大小来定义。</li>
+    <li><b>和 Newton's third law 的关系：</b>定义里只说“两根导线<b>之间</b>”的一个力，没说是哪一根受的。因为第三定律保证两个力一样大、方向相反，所以一个数对两根导线都成立。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Learn the wording · 安培的定义（要背原句）</span></div>
+    <p lang="en" style="font-family:var(--math);font-style:italic;font-size:17px;line-height:1.6;margin:10px 0">one ampere is the constant current that, flowing in each of two straight, parallel wires of infinite length and negligible circular cross-section, placed 1 m apart in a vacuum, produces <b>between</b> these wires a force of 2 × 10<sup>−7</sup> newton per metre of length.</p>
+    <p class="trap"><b>验算：</b>代进公式，<span class="m"><i>F</i>/<i>l</i>&nbsp;= 2&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;×&nbsp;1&nbsp;×&nbsp;1&nbsp;/&nbsp;1&nbsp;= 2&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;N&nbsp;m<sup>−1</sup></span>。正好对上。</p>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>原句的一段</th><th>意思</th></tr></thead>
+      <tbody>
+        <tr><td class="t">one ampere is the constant current that,</td><td>1 A 就是这样一个不变的电流：</td></tr>
+        <tr><td class="t">flowing in each of two straight, parallel wires</td><td>两根直的、平行的导线，每根都通这个电流</td></tr>
+        <tr><td class="t">of infinite length</td><td>导线无限长</td></tr>
+        <tr><td class="t">and negligible circular cross-section,</td><td>横截面是圆的，而且细到可以不管（很细）</td></tr>
+        <tr><td class="t">placed 1 m apart in a vacuum,</td><td>两根相距 1 m，放在真空里（什么都没有的空间）</td></tr>
+        <tr><td class="t">produces <b>between</b> these wires a force of 2 × 10<sup>−7</sup> newton per metre of length.</td><td>两根导线<b>之间</b>的力，是每米 2 × 10<sup>−7</sup> N</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Current · 电流</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>I</i> = <i>q</i> / <i>t</i></div>
+    <dl class="sym">
+      <div><dt>I</dt><dd>电流 (A)</dd></div>
+      <div><dt>q</dt><dd>通过的电荷 (C)</dd></div>
+      <div><dt>t</dt><dd>时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>意思：</b>电流就是每秒通过的电荷。所以 1 A = 每秒 1 C。</p>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="secnum">2.4</div>
+  <h2>两个要知道的实验<span class="en">Key experiments</span></h2>
+  <p>两个实验都用 <span class="t">electronic balance</span>（电子天平，就是电子秤）。秤其实测的是压在它上面的力，只是显示成质量。读数多了 <span class="m">Δ<i>m</i></span>，就是多了 <span class="m">Δ<i>m&nbsp;g</i></span> 的力。</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Force from a balance reading · 秤的读数换成力</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>F</i> = Δ<i>m</i> <i>g</i></div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>力 (N)</dd></div>
+      <div><dt>Δm</dt><dd>读数的变化 (kg)</dd></div>
+      <div><dt>g</dt><dd>重力加速度，9.8 (m s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>陷阱：</b>秤显示的是 g（克）。先换成 kg（÷ 1000）再代进去。例：读数增加 1.00 g = 0.00100 kg，<span class="m"><i>F</i>&nbsp;= 0.00100&nbsp;×&nbsp;9.8&nbsp;= 9.8&nbsp;×&nbsp;10<sup>−3</sup>&nbsp;N</span>。</p>
+  </div>
+
+  <div class="exp">
+    <h3>电流天平：导线受的力<span class="t" style="font-weight:400"> · The force on a wire (current balance)</span></h3>
+    <dl>
+      <dt>目的</dt><dd>看导线受的力怎样随电流和角度变化。</dd>
+      <dt>做法</dt><dd>一块磁铁放在电子秤上。一根导线用夹子（<span class="t">clamp</span>）夹住，穿过磁铁中间的缝，和 <span class="m"><i>B</i></span> 成 90°，不碰到磁铁。DC 电源、<span class="t">ammeter</span>（电流表）、<span class="t">rheostat</span>（滑动变阻器，可以调的电阻）、开关和导线串联。先 <span class="t">tare</span>（去皮：把读数调成 0）。改变 <span class="m"><i>I</i></span>（<span class="m"><i>l</i></span>、<span class="m"><i>B</i></span>、<span class="m"><i>θ</i></span> 不变）。再反转 <span class="m"><i>I</i></span>，再反转 <span class="m"><i>B</i></span>。最后改变 <span class="m"><i>θ</i></span>。</dd>
+      <dt>为什么</dt><dd>讲义的图：N 在左、S 在右，<span class="m"><i>B</i></span> 向右；导线的电流出纸面 ⊙。palm rule：导线被往<b>上</b>推。Newton's third law：磁铁被往<b>下</b>推。所以读数增加 <span class="m">Δ<i>m</i></span>，<span class="m"><i>F</i>&nbsp;=&nbsp;Δ<i>m&nbsp;g</i></span>（<span class="m">Δ<i>m</i></span> 用 kg）。</dd>
+      <dt>结果</dt><dd><span class="m"><i>F</i></span> 对 <span class="m"><i>I</i></span> 是一条过原点的直线：<span class="m"><i>F</i>&nbsp;∝&nbsp;<i>I</i></span>，斜率（<span class="t">gradient</span>）= <span class="m"><i>lB</i></span>。<span class="m"><i>F</i></span> 在 90° 最大，导线和 <span class="m"><i>B</i></span> 平行时为 0（跟着 sin <i>θ</i> 变）。只反转 <span class="m"><i>I</i></span> 或只反转 <span class="m"><i>B</i></span>，<span class="m"><i>F</i></span> 反向；两个都反转，不变。</dd>
+      <dt>结论</dt><dd>符合 <span class="m"><i>F</i>&nbsp;=&nbsp;<i>lIB</i>&nbsp;sin&nbsp;<i>θ</i></span> 和 palm rule。还能算出 <span class="m"><i>B</i>&nbsp;=&nbsp;斜率&nbsp;÷&nbsp;<i>l</i></span>。</dd>
+      <dt>意义</dt><dd>电动机、扬声器（<span class="t">loudspeakers</span>）、指针式电表（<span class="t">analogue meters</span>）都用这个效应。</dd>
+    </dl>
+  </div>
+
+  <div class="exp">
+    <h3>两根平行导线（必做实验）<span class="t" style="font-weight:400"> · Two parallel wires (required investigation)</span></h3>
+    <dl>
+      <dt>目的</dt><dd>证明平行的电流会相吸或相斥，并检验 <span class="m"><i>F</i>/<i>l</i>&nbsp;=&nbsp;(<i>μ</i><sub>0</sub>/2π)(<i>I</i><sub>1</sub><i>I</i><sub>2</sub>/<i>r</i>)</span>。</dd>
+      <dt>做法</dt><dd>下面的杆放在电子秤的绝缘块上；上面的杆用绝缘夹（<span class="t">insulated clamp</span>）夹在它上方。两根杆长 <span class="m"><i>l</i>&nbsp;=&nbsp;0.50&nbsp;m</span>。一根软导线（<span class="t">flexible link</span>）把两根杆连起来，所以电流一样大、方向相反：<span class="m"><i>I</i><sub>1</sub><i>I</i><sub>2</sub>&nbsp;=&nbsp;<i>I</i><sup>2</sup></span>。先 tare，把读数调成 0。低电压、大电流的 DC 电源、ammeter、rheostat、开关和两根杆串联。电流每次只通一小下（<span class="t">short bursts</span>）。</dd>
+      <dt>量 <i>r</i></dt><dd><span class="m"><i>r</i></span>（中心到中心）= 用 <span class="t">vernier calipers</span>（游标卡尺，量很短长度的工具）量出的缝隙 + 一根杆的直径。</dd>
+      <dt>改什么</dt><dd>改变 <span class="m"><i>I</i></span>，<span class="m"><i>l</i></span> 和 <span class="m"><i>r</i></span> 不变。画 <span class="m"><i>F</i>&nbsp;=&nbsp;Δ<i>m&nbsp;g</i></span> 对 <span class="m"><i>I</i><sup>2</sup></span> 的图。再用垫片（<span class="t">spacers</span>）改变 <span class="m"><i>r</i></span>，检验 <span class="m"><i>F</i>&nbsp;∝&nbsp;1/<i>r</i></span>。去掉 link，两根杆可以通同向的电流。</dd>
+      <dt>结果</dt><dd>反向电流：读数<b>上升</b>（相斥，下面的杆被往下推）。同向电流：读数<b>掉到 0 以下</b>（相吸，下面的杆被往上拉）。挂起来的两条金属箔（<span class="t">hanging foil strips</span>）也能看到一样的结果。<span class="m"><i>F</i></span> 对 <span class="m"><i>I</i><sup>2</sup></span> 是一条过原点的直线：<span class="m"><i>F</i>&nbsp;∝&nbsp;<i>I</i><sub>1</sub><i>I</i><sub>2</sub></span>，斜率 = <span class="m"><i>μ</i><sub>0</sub><i>l</i>/(2π<i>r</i>)</span>。用斜率算出的 <span class="m"><i>μ</i><sub>0</sub></span> 很接近 <span class="m">4π&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;N&nbsp;A<sup>−2</sup></span>。</dd>
+      <dt>结论</dt><dd>同向电流相吸，反向电流相斥，<span class="m"><i>F</i>&nbsp;∝&nbsp;<i>I</i><sub>1</sub><i>I</i><sub>2</sub></span>，和预测一样。</dd>
+      <dt>意义</dt><dd><span class="t">Ampère</span>（安培）在 1820 年发现了这个力。1948–2019 年用它来定义安培这个单位。</dd>
+    </dl>
+  </div>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">动画 5 · 电子秤上的两根平行杆（required investigation）</span><span class="sim-tag">侧面看 · 杆长来自讲义 · 电流、间距和读数：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="侧面看的实验装置：两根铜杆一上一下，下面的杆放在电子秤的绝缘块上，上面的杆夹在 insulated clamp 上，右端的 flexible link 把两根串起来，所以电流一去一回。电流一阵一阵地通，每通一次，电子秤显示读数，绿色箭头是两根杆受的力。右边的图把每一次的 F = Δm g 对 I² 记成一个点，点在过原点的直线上。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">电流 <i>I</i> <input type="range" id="s5-I" min="0" max="20" step="1" value="10"><output id="s5-I-out" for="s5-I">10 A</output></label>
+    <span class="seg" role="group" aria-label="flexible link">
+      <button class="btn" type="button" id="s5-link-on" aria-pressed="true">link 接上（反向）</button>
+      <button class="btn" type="button" id="s5-link-off" aria-pressed="false">去掉（同向）</button>
+    </span>
+    <span class="seg" role="group" aria-label="spacer：两杆中心的距离 r">
+      <button class="btn" type="button" id="s5-r5" aria-pressed="true">spacer：r = 5.0 mm</button>
+      <button class="btn" type="button" id="s5-r10" aria-pressed="false">10.0 mm</button>
+    </span>
+    <button class="btn" type="button" id="s5-reset">重来</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看它自己做：每一阵电流换一个 <i>I</i>。link 接上，两杆电流反向，相斥，读数上升（10 A 时 +0.204 g）。图上的点连成过原点的直线：<i>F</i> ∝ <i>I</i>²。② 按“去掉（同向）”：两杆相吸，读数掉到 0 以下。③ 按“10.0 mm”：同样的 <i>I</i>，读数只有一半（<i>F</i> ∝ 1/<i>r</i>）。<i>l</i> = 0.50 m 来自讲义；<i>I</i>、<i>r</i> 和读数是示意。</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>B</i> = <i>μ</i><sub>0</sub><i>I</i>/(2π<i>r</i>)</td><td>长直导线旁边的磁场</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>B</i> = <i>μ</i><sub>0</sub><i>NI</i>/<i>L</i></td><td>螺线管里面的磁场（<i>L</i> = 螺线管的长度）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i> = <i>lI</i><sub>⊥</sub><i>B</i> = <i>lIB</i> sin <i>θ</i></td><td>有电流的导线受的力</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i>/<i>l</i> = (<i>μ</i><sub>0</sub>/2π)(<i>I</i><sub>1</sub><i>I</i><sub>2</sub>/<i>r</i>)</td><td>两根平行导线之间每米的力</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>I</i> = <i>q</i>/<i>t</i></td><td>电流 = 每秒通过的电荷</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i> = Δ<i>m g</i></td><td>电流天平：读数（Δ<i>m</i> 用 kg）换成力</td><td><span class="badge comb">组合</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>直导线：磁感线是圆圈，<span class="m"><i>B</i>&nbsp;=&nbsp;<i>μ</i><sub>0</sub><i>I</i>/(2π<i>r</i>)</span>。螺线管：里面均匀，<span class="m"><i>B</i>&nbsp;=&nbsp;<i>μ</i><sub>0</sub><i>NI</i>/<i>L</i></span>。</li>
+    <li>Grip rule。直导线：大拇指 = conventional <i>I</i>，弯的四指 = <i>B</i>。线圈：弯的四指 = 电流，大拇指指 N 端。</li>
+    <li>Motor effect：<span class="m"><i>F</i>&nbsp;=&nbsp;<i>lIB</i>&nbsp;sin&nbsp;<i>θ</i></span>，只在<b>外</b>磁场里。90° 最大，平行时为 0。</li>
+    <li>Palm rule：四指 <i>B</i>，大拇指 conventional <i>I</i>，手掌 <i>F</i>（和两个都成 90°）。</li>
+    <li>平行导线：同向相吸，反向相斥；<span class="m"><i>F</i>/<i>l</i>&nbsp;=&nbsp;(<i>μ</i><sub>0</sub>/2π)(<i>I</i><sub>1</sub><i>I</i><sub>2</sub>/<i>r</i>)</span>。</li>
+    <li>两个力一样大、方向相反（Newton's third law）。这个力曾经用来定义安培。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>直导线的 B ∝ 1/r²。<br><span class="ok">对：</span>B ∝ 1/r。离远一倍，B 变成一半，不是四分之一。</div>
+    <div><span class="x">错：</span>螺线管公式里的 L 是导线有多长。<br><span class="ok">对：</span>L 是螺线管本身的长度。</div>
+    <div><span class="x">错：</span>大拇指指电子流的方向。<br><span class="ok">对：</span>大拇指指 conventional current。电子流的方向正好相反，要先反过来。</div>
+    <div><span class="x">错：</span>导线和 B 平行时力最大。<br><span class="ok">对：</span>平行时 F = 0。导线和 B 成 90° 时力最大。</div>
+    <div><span class="x">错：</span>题目给的角直接当 θ 用。<br><span class="ok">对：</span>θ 是导线和 B 的夹角。从“垂直于 B 的线”量的角，要先算 θ = 90° − 那个角。</div>
+    <div><span class="x">错：</span>导线自己的磁场也会推它。<br><span class="ok">对：</span>Motor effect 只算外磁场（比如磁铁的磁场）。</div>
+    <div><span class="x">错：</span>同向电流像同号电荷一样，互相排斥。<br><span class="ok">对：</span>同向电流相吸，反向电流相斥，和电荷正好相反。</div>
+    <div><span class="x">错：</span>电流大的那根导线受的力更大。<br><span class="ok">对：</span>两根受的力一样大（Newton's third law），I<sub>1</sub>I<sub>2</sub> 对两根是同一个数。</div>
+    <div><span class="x">错：</span>F/l 算出来就是力。<br><span class="ok">对：</span>F/l 的单位是 N m<sup>−1</sup>，乘 l 才是力 F。</div>
+    <div><span class="x">错：</span>秤的读数直接用克代进 F = Δm g。<br><span class="ok">对：</span>先把 Δm 换成 kg。</div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Magnetic field (B)</td><td>磁场</td><td>磁铁或运动的电荷会受力的地方</td></tr>
+        <tr><td class="t">Magnetic field strength (B)</td><td>磁感应强度</td><td>磁场有多强，单位 T</td></tr>
+        <tr><td class="t">Tesla (T)</td><td>特斯拉</td><td>B 的单位：1 T = 1 N A<sup>−1</sup> m<sup>−1</sup></td></tr>
+        <tr><td class="t">Field lines</td><td>磁感线</td><td>箭头 = compass N 端指的方向；越密越强</td></tr>
+        <tr><td class="t">Compass</td><td>指南针</td><td>小磁针，N 端顺着磁场指</td></tr>
+        <tr><td class="t">Conventional current</td><td>（规定的）电流方向</td><td>正电荷流的方向：从 + 出发，绕一圈回到 −</td></tr>
+        <tr><td class="t">Electron flow</td><td>电子的定向移动方向</td><td>电子真正走的方向，和 conventional current 相反</td></tr>
+        <tr><td class="t">Uniform field</td><td>匀强场</td><td>每个地方大小、方向都一样</td></tr>
+        <tr><td class="t">Solenoid</td><td>螺线管</td><td>绕了很多圈的长线圈，里面磁场均匀</td></tr>
+        <tr><td class="t">Current loop</td><td>环形电流</td><td>一圈有电流的导线，像一块扁磁铁</td></tr>
+        <tr><td class="t">Permeability constant (μ<sub>0</sub>)</td><td>真空磁导率</td><td>4π × 10<sup>−7</sup> N A<sup>−2</sup>，把电流和它的磁场连起来</td></tr>
+        <tr><td class="t">Right-hand grip rule</td><td>右手螺旋定则（安培定则）</td><td>大拇指沿电流，弯的四指 = 磁场</td></tr>
+        <tr><td class="t">Motor effect</td><td>磁场对电流的作用（安培力）</td><td>有电流的导线在外磁场里受的力</td></tr>
+        <tr><td class="t">External magnetic field</td><td>外磁场</td><td>别的东西产生的磁场，不是导线自己的</td></tr>
+        <tr><td class="t">Right-hand palm rule</td><td>右手掌定则（结果同左手定则）</td><td>四指 B，大拇指 I，手掌推 F。国内课本用左手定则，结果一样</td></tr>
+        <tr><td class="t">Force per unit length (F/l)</td><td>单位长度导线受的力</td><td>每米导线受的力，单位 N m<sup>−1</sup></td></tr>
+        <tr><td class="t">Newton's third law</td><td>牛顿第三定律</td><td>A 推 B，B 就用一样大的力推回 A</td></tr>
+        <tr><td class="t">Action–reaction pair</td><td>作用力与反作用力</td><td>两个物体互相施加的、一样大、方向相反的力</td></tr>
+        <tr><td class="t">Ampere (A)</td><td>安培</td><td>电流的 SI 单位：每秒通过 1 C</td></tr>
+        <tr><td class="t">SI</td><td>国际单位制</td><td>全世界科学家都用的一套单位</td></tr>
+        <tr><td class="t">Electronic balance</td><td>电子天平</td><td>电子秤：把盘上受的力显示成质量</td></tr>
+        <tr><td class="t">Current balance</td><td>电流天平</td><td>用电子秤测导线受力的实验</td></tr>
+        <tr><td class="t">Ammeter</td><td>电流表</td><td>测电流的表，和电路串联</td></tr>
+        <tr><td class="t">Rheostat</td><td>滑动变阻器</td><td>可以调的电阻，用来调电流</td></tr>
+        <tr><td class="t">In series</td><td>串联</td><td>一个接一个连成一圈，电流都一样</td></tr>
+        <tr><td class="t">Tare</td><td>去皮（清零）</td><td>测量前把秤的读数调成 0</td></tr>
+        <tr><td class="t">Vernier calipers</td><td>游标卡尺</td><td>量很短长度的工具</td></tr>
+        <tr><td class="t">Flexible link</td><td>软导线连接</td><td>把两根杆连起来，让电流一去一回</td></tr>
+        <tr><td class="t">Gradient</td><td>斜率</td><td>直线有多陡：竖直变化 ÷ 水平变化</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 一根竖直导线，电流向上。导线右边的磁场是出纸面还是进纸面？</summary><p class="ans"><b>进纸面 ⊗。</b>右手握住导线，大拇指朝上，四指绕着导线弯：在导线右边，四指往纸里走；在左边，往纸外走。</p></details>
+    <details><summary>2. 长直导线电流 5.0 A。离导线 1.0 cm 处 B 多大？2.0 cm 处呢？</summary><p class="ans"><b>1.0 × 10<sup>−4</sup> T；5.0 × 10<sup>−5</sup> T。</b>先把 cm 换成 m：r = 0.010 m。B = μ<sub>0</sub>I/(2πr) = 2 × 10<sup>−7</sup> × 5.0 / 0.010 = 1.0 × 10<sup>−4</sup> T。r 加倍，B 减半（B ∝ 1/r）：5.0 × 10<sup>−5</sup> T。</p></details>
+    <details><summary>3. 0.50 m 长的导线，电流 4.0 A，放在 0.20 T 的磁场里，导线和 B 成 30°。力多大？导线转到和 B 平行呢？</summary><p class="ans"><b>0.20 N；0。</b>F = lIB sin θ = 0.50 × 4.0 × 0.20 × sin 30° = 0.40 × 0.5 = 0.20 N。平行时 sin 0° = 0，没有力。</p></details>
+    <details><summary>4. B 进纸面 ⊗，导线里电流向右。力往哪边？把电流和 B 都反过来呢？</summary><p class="ans"><b>向上；还是向上。</b>四指指进纸里，大拇指指右，手掌朝上。I 和 B 都反转，力的方向不变。</p></details>
+    <details><summary>5. 两根平行长直导线，电流 2.0 A 和 6.0 A，同向，相距 0.10 m。相吸还是相斥？每米受力多大？哪一根受的力大？</summary><p class="ans"><b>相吸；2.4 × 10<sup>−5</sup> N m<sup>−1</sup>；一样大。</b>F/l = 2 × 10<sup>−7</sup> × 2.0 × 6.0 / 0.10 = 2.4 × 10<sup>−5</sup> N m<sup>−1</sup>。I<sub>1</sub>I<sub>2</sub> = 12 对两根是同一个数，两个力又是一对 action–reaction pair，所以一样大。</p></details>
+    <details><summary>6. 安培的定义里，为什么只说“两根导线之间”有一个力，不说是哪一根受的？</summary><p class="ans"><b>因为 Newton's third law：两根受的力一样大、方向相反。</b>所以一个数（每米 2 × 10<sup>−7</sup> N）对两根都成立。验算：F/l = 2 × 10<sup>−7</sup> × 1 × 1 / 1 = 2 × 10<sup>−7</sup> N m<sup>−1</sup>。</p></details>
+    <details><summary>7. 电流天平实验里，通电后读数增加了 0.50&nbsp;g。导线受的力多大？往哪边？</summary><p class="ans"><b>4.9 × 10<sup>−3</sup> N，向上。</b>Δm = 0.50 g = 0.00050 kg。F = Δm g = 0.00050 × 9.8 = 4.9 × 10<sup>−3</sup> N。读数增加，说明磁铁被往下推；按 Newton's third law，导线被往上推。</p></details>
+    <details><summary>8. 两根平行杆实验里，为什么画 F 对 I² 的图？读数掉到 0 以下说明什么？</summary><p class="ans"><b>因为两根杆串联，I<sub>1</sub>I<sub>2</sub> = I²；读数变负说明两根杆相吸（电流同向）。</b>F = (μ<sub>0</sub>l/(2πr)) × I²，所以 F 对 I² 是过原点的直线，斜率 μ<sub>0</sub>l/(2πr)。相吸时下面的杆被往上拉，压在秤上的力变小，读数就掉到 0 以下。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m6/t1.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M6 T1 · Charged Particles in Electric and Magnetic Fields</span><span class="pg-z">带电粒子在电场和磁场中的运动</span></a><a class="pg next" href="../m6/t3.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M6 T3 · Electromagnetic Induction: Flux, Faraday and Lenz</span><span class="pg-z">电磁感应：磁通量、法拉第电磁感应定律和楞次定律</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 6 Electromagnetism · Chapter 2 整理。讲义的数据：两根导线 2.0 A 和 6.0 A（Figure 2.5）；平行杆长 <i>l</i> = 0.50 m（Figure 2.6）；<i>μ</i><sub>0</sub>&nbsp;=&nbsp;4π&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;N&nbsp;A<sup>−2</sup>，<i>g</i>&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>（data sheet）。例子和快问快答里的其他数字是为了练习选的简单数。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1：电流的磁场（直导线 / 一圈线圈 / 螺线管），Figure 2.1 的会动版本。
+   直导线（端视）：磁感线是同心圆。半径按等比排（r_k = r_ref·q^k），相邻两圈的间距 ∝ r，
+     所以“单位长度里的线数” ∝ 1/r ∝ B —— 这才是 booklet 说的“线越密 = B 越强”。
+     （按“相邻两圈 B 差一样”排，密度会 ∝ 1/r²，看起来像 1/r²，所以不用。）ln q ∝ 1/I，画面里的圈数 ∝ I。
+   线圈侧视、螺线管剖面：每个导线截面当成垂直纸面的长直导线，B 叠加（二维模型，形状同 Figure 2.1(c)(d)）；
+     磁感线 = ψ = Σ s·ln r 的等值线，取等间隔的 ψ（以轴线 ψ = 0 为起点）→ 线的密度 ∝ B，条数 ∝ I。
+   compass 的 N 端指向那一点的 B（同一个模型算）。I = 0 时只剩地磁场，compass 都指北（设北在画面上方）。
+   方向：⊙ 出纸面 → 逆时针（grip rule）；正面看逆时针 = N face；螺线管上 ⊙ 下 ⊗ → 里面 B 向右 → 右端 N。
+   数据：I、距离、N = 200、L = 0.10 m 都是示意；B = μ0 I/(2πr)、B = μ0 N I/L 的读数是计算值。 */
+var MU0=4e-7*Math.PI,SUPD='⁰¹²³⁴⁵⁶⁷⁸⁹',V1=24;         /* V1：磁感线虚线流动的速度 (px/s)，只表示方向 */
+var m1={mode:0,rev:false,I:5,t:4,ang:[],msg:'',msgT:-1};
+var Lo={key:'',W:-1,mode:-1,lines:[],circ:[],kx:[],ky:[],ws:[]};
+var BV=[0,0],PT=[0,0,0,0],DA=[6,5],ST=['',''];
+
+/* ---------- 二维模型：一排排垂直纸面的长直导线 ws = [x, y, s, …]（s = +1 ⊙，−1 ⊗；画布坐标，y 向下） ---------- */
+function bAt(ws,x,y,out){var bx=0,by=0,i,dx,dy,r2,s;for(i=0;i<ws.length;i+=3){dx=x-ws[i];dy=y-ws[i+1];r2=dx*dx+dy*dy+1e-6;s=ws[i+2];bx+=s*dy/r2;by-=s*dx/r2;}out[0]=bx;out[1]=by;}
+function psi(ws,x,y){var p=0,i,dx,dy;for(i=0;i<ws.length;i+=3){dx=x-ws[i];dy=y-ws[i+1];p+=ws[i+2]*0.5*Math.log(dx*dx+dy*dy+1e-6);}return p;}
+function mkLine(P,closed){var n=P.length/2,c=new Float32Array(n),i,len=0;for(i=1;i<n;i++){len+=Math.hypot(P[2*i]-P[2*i-2],P[2*i+1]-P[2*i-1]);c[i]=len;}return {p:P,c:c,n:n,len:len,closed:closed};}
+/* 从轴线和上排导线之间的中线上一点出发，顺着 B 走（向右），直到在上排外面回到中线（闭合）或出框 */
+function trace(ws,x,y,xc,box){
+  var pts=[x,y],h=1.5,k,l,nx,ny,f,closed=false;
+  for(k=0;k<3600;k++){
+    bAt(ws,x,y,BV);l=Math.hypot(BV[0],BV[1])||1;nx=x+BV[0]/l*h*0.5;ny=y+BV[1]/l*h*0.5;
+    bAt(ws,nx,ny,BV);l=Math.hypot(BV[0],BV[1])||1;nx=x+BV[0]/l*h;ny=y+BV[1]/l*h;
+    if(k>3&&x>=xc&&nx<xc){f=(x-xc)/(x-nx);pts.push(xc,y+(ny-y)*f);closed=true;break;}
+    x=nx;y=ny;
+    if(x<box[0]||x>box[2]||y<box[1]||y>box[3]){pts.push(x,y);break;}
+    if(k&1)pts.push(x,y);
+  }
+  return {pts:pts,closed:closed};
+}
+/* 上半边的磁感线：ψ = −jΔ（j = 1, 2, …），Δ ∝ 1/I；左右镜像拼成整条，再上下镜像得到下半边；加上轴线 */
+function buildSide(L,xc,cy,a,dmin,d5,box){
+  var ws=L.ws,del,yB,pB,j,c,lo,hi,k,R,n,P,Q,i,q;
+  L.lines.length=0;if(m1.I<=0)return;
+  L.lines.push(mkLine(new Float32Array([box[0],cy,box[2],cy]),false));
+  del=d5*5/m1.I;yB=cy-a+dmin;pB=psi(ws,xc,yB);
+  for(j=1;j<60;j++){
+    c=-j*del;if(c<=pB)break;
+    lo=yB;hi=cy;for(k=0;k<36;k++){if(psi(ws,xc,(lo+hi)/2)<c)lo=(lo+hi)/2;else hi=(lo+hi)/2;}
+    R=trace(ws,xc,(lo+hi)/2,xc,box);n=R.pts.length/2;P=new Float32Array((2*n-1)*2);q=0;
+    for(i=n-1;i>=0;i--){P[q++]=2*xc-R.pts[2*i];P[q++]=R.pts[2*i+1];}
+    for(i=1;i<n;i++){P[q++]=R.pts[2*i];P[q++]=R.pts[2*i+1];}
+    Q=new Float32Array(P.length);for(i=0;i<P.length;i+=2){Q[i]=P[i];Q[i+1]=2*cy-P[i+1];}
+    L.lines.push(mkLine(P,R.closed),mkLine(Q,R.closed));
+  }
+}
+
+/* ---------- 版面（宽：左边画图、右边读数；窄：上面画图、下面读数）和磁感线，只在宽度 / 模式 / I 变化时重算 ---------- */
+function geo(W,H){
+  var L=Lo,key=W+'|'+m1.mode+'|'+m1.I,moved,i,k5,lnq,j0,j1,rr,xs,cy,a,p,box;
+  if(key===L.key)return L;
+  moved=(L.W!==W||L.mode!==m1.mode);L.key=key;L.W=W;L.mode=m1.mode;L.wide=W>=640;
+  if(L.wide){L.x0=0;L.x1=W-262;L.y0=66;L.y1=H-8;L.px=L.x1+18;L.pw=W-16-L.px;L.py=98;}
+  else{L.x0=0;L.x1=W;L.y0=60;L.y1=424;L.px=16;L.pw=W-32;L.py=460;}
+  L.cx=(L.x0+L.x1)/2;L.cy=(L.y0+L.y1)/2;L.cr=L.wide?15:14;
+  L.kx.length=0;L.ky.length=0;L.circ.length=0;L.lines.length=0;
+  if(m1.mode===0){
+    L.wr=14;L.rmax=Math.min((L.x1-L.x0)/2-6,(L.y1-L.y0)/2-4);L.pcm=62;L.rin=27;   /* 62 px = 1 cm（示意） */
+    L.ws=[L.cx,L.cy,1];
+    rr=2*L.pcm;
+    L.kx.push(L.cx+rr,L.cx,L.cx-rr,L.cx,L.cx+L.pcm);L.ky.push(L.cy,L.cy-rr,L.cy,L.cy+rr,L.cy);
+    if(m1.I>0){k5=m1.I/5;lnq=0.27/k5;j0=Math.ceil(Math.log(L.rin/rr)/lnq);j1=Math.floor(Math.log(L.rmax/rr)/lnq);
+      for(i=j0;i<=j1;i++)L.circ.push(rr*Math.exp(i*lnq));}
+  }else if(m1.mode===1){
+    if(L.wide){L.fx=L.x0+100;L.fy=L.cy+8;L.fr=64;L.sx0=L.x0+212;L.sy0=L.y0+28;a=60;L.sw=10;}
+    else{L.fx=L.cx;L.fy=L.y0+80;L.fr=50;L.sx0=L.x0;L.sy0=L.y0+198;a=42;L.sw=10;}
+    xs=(L.sx0+L.x1)/2;cy=L.wide?L.cy+8:(L.sy0+L.y1)/2+2;L.xs=xs;L.scy=cy;L.sa=a;
+    L.ws=[xs,cy-a,1,xs,cy+a,-1];
+    L.clip=[L.sx0,L.sy0,L.x1,L.y1];box=[L.sx0-30,L.sy0-30,L.x1+30,L.y1+30];
+    buildSide(L,xs,cy,a,L.sw+7,0.36,box);
+    rr=L.wide?100:96;L.kx.push(xs,xs-rr,xs+rr);L.ky.push(cy,cy,cy);
+    if(L.wide){L.kx.push(xs);L.ky.push(cy-a-54);}
+  }else{
+    xs=L.cx;cy=L.cy+(L.wide?8:6);p=L.wide?26:23;a=L.wide?56:48;L.sw=L.wide?9.5:8.5;L.xs=xs;L.scy=cy;L.sa=a;L.sp=p;
+    L.ws=[];for(i=0;i<6;i++){L.ws.push(xs+(i-2.5)*p,cy-a,1,xs+(i-2.5)*p,cy+a,-1);}
+    L.sy0=L.y0+26;L.clip=[L.x0,L.sy0,L.x1,L.y1];box=[L.x0-30,L.sy0-30,L.x1+30,L.y1+30];
+    buildSide(L,xs,cy,a,L.sw+7,1.45,box);
+    rr=2.5*p+(L.wide?62:54);L.kx.push(xs,xs-rr,xs+rr,xs);L.ky.push(cy,cy,cy,cy-a-(L.wide?58:52));
+  }
+  if(moved||m1.ang.length!==L.kx.length)snap();
+  return L;
+}
+/* compass 该指的方向：那一点的 B；I = 0 → 只剩地磁场 → 指北（画面上方） */
+function tgt(i){var L=Lo,d=m1.rev?-1:1;if(m1.I<=0)return -Math.PI/2;bAt(L.ws,L.kx[i],L.ky[i],BV);return Math.atan2(d*BV[1],d*BV[0]);}
+function snap(){m1.ang.length=Lo.kx.length;for(var i=0;i<Lo.kx.length;i++)m1.ang[i]=tgt(i);}
+function wrapPi(x){while(x>Math.PI)x-=TAU;while(x<-Math.PI)x+=TAU;return x;}
+
+/* ---------- 画图小工具 ---------- */
+function head(ctx,x,y,ux,uy,sz,col){ctx.beginPath();ctx.moveTo(x+ux*sz,y+uy*sz);ctx.lineTo(x-ux*sz*0.7-uy*sz*0.72,y-uy*sz*0.7+ux*sz*0.72);ctx.lineTo(x-ux*sz*0.7+uy*sz*0.72,y-uy*sz*0.7-ux*sz*0.72);ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+function compass(ctx,x,y,a,R){
+  var l=R-3,w=3.8,c=Math.cos(a),s=Math.sin(a);
+  dot(ctx,x,y,R,C.surface);ring(ctx,x,y,R,rgba(C.muted,0.7),1.3);
+  ctx.beginPath();ctx.moveTo(x+c*l,y+s*l);ctx.lineTo(x-s*w,y+c*w);ctx.lineTo(x+s*w,y-c*w);ctx.closePath();ctx.fillStyle=C.north;ctx.fill();
+  ctx.beginPath();ctx.moveTo(x-c*l,y-s*l);ctx.lineTo(x-s*w,y+c*w);ctx.lineTo(x+s*w,y-c*w);ctx.closePath();ctx.fillStyle=C.south;ctx.fill();
+  dot(ctx,x,y,1.8,C.surface);
+}
+function fsym(ctx,x,y,s,r,col){ring(ctx,x,y,r,col,1.4);if(s>0)dot(ctx,x,y,r*0.34,col);else{var d=r*0.5;seg(ctx,x-d,y-d,x+d,y+d,col,1.4);seg(ctx,x-d,y+d,x+d,y-d,col,1.4);}}
+function badge(ctx,s,x,y,col){ctx.font='700 12px '+FONT;var w=ctx.measureText(s).width+10;rrect(ctx,x-w/2,y-9.5,w,19,5);ctx.fillStyle=col;ctx.fill();txt(ctx,s,x,y+0.5,'#ffffff',12,700,'center','middle');}
+/* 压在磁感线上的文字：先垫一块底色 */
+function lab(ctx,s,x,y,col,size,weight,align){ctx.font=(weight||500)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  ctx.fillStyle=rgba(C.stage,0.9);ctx.fillRect(x0-4,y-size*0.95,w+8,size*1.3);txt(ctx,s,x,y,col,size,weight,align);}
+function sup(n){var s=String(n),o='',i,ch;for(i=0;i<s.length;i++){ch=s.charAt(i);o+=ch==='-'?'⁻':SUPD.charAt(+ch);}return o;}
+function sci(v,d){if(v<=0)return '0';var e=Math.floor(Math.log10(v)+1e-9),ms=(v/Math.pow(10,e)).toFixed(d);if(parseFloat(ms)>=10){e++;ms=(v/Math.pow(10,e)).toFixed(d);}return ms+' × 10'+sup(e);}
+/* 一条磁感线：虚线沿 B 的方向流动，再加几个流动的小箭头 */
+function flowLine(ctx,Ln,dir,off){
+  var per,n,sp,k,u,P=Ln.p,i;if(Ln.len<4)return;
+  per=Ln.closed?Ln.len/Math.max(1,Math.round(Ln.len/11)):11;DA[0]=per*0.55;DA[1]=per*0.45;
+  ctx.setLineDash(DA);ctx.lineDashOffset=-dir*((V1*m1.t)%per);ctx.strokeStyle=C.field;ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(P[0],P[1]);for(i=1;i<Ln.n;i++)ctx.lineTo(P[2*i],P[2*i+1]);ctx.stroke();
+  ctx.setLineDash([]);ctx.lineDashOffset=0;
+  /* 线数 ∝ I；I 大于 5 A 时每条线上的小箭头按比例变稀，总数不变，免得挤成一片 */
+  var asp=84*Math.max(1,m1.I/5);
+  if(Ln.closed){n=Math.max(1,Math.round(Ln.len/asp));sp=Ln.len/n;}else{sp=asp;n=Math.floor(Ln.len/sp)+1;}
+  for(k=0;k<n;k++){u=((dir*V1*m1.t+off+k*sp)%Ln.len+Ln.len)%Ln.len;at(Ln,u);head(ctx,PT[0],PT[1],dir*PT[2],dir*PT[3],5,C.field);}
+}
+function at(Ln,u){var c=Ln.c,lo=0,hi=Ln.n-1,mid,P=Ln.p,sl,f;while(hi-lo>1){mid=(lo+hi)>>1;if(c[mid]<=u)lo=mid;else hi=mid;}
+  sl=(c[hi]-c[lo])||1;f=(u-c[lo])/sl;PT[0]=P[2*lo]+(P[2*hi]-P[2*lo])*f;PT[1]=P[2*lo+1]+(P[2*hi+1]-P[2*lo+1])*f;PT[2]=(P[2*hi]-P[2*lo])/sl;PT[3]=(P[2*hi+1]-P[2*lo+1])/sl;}
+
+/* ---------- 三种情况 ---------- */
+function drawWire(ctx,L,dir,on){
+  var cx=L.cx,cy=L.cy,i,r,per,n,k,th,ca,sa;
+  seg(ctx,cx+L.wr+3,cy,cx+2*L.pcm-L.cr,cy,rgba(C.muted,0.55),1.2,[2,3]);
+  if(on){
+    ctx.strokeStyle=C.field;ctx.lineWidth=1.5;
+    for(i=0;i<L.circ.length;i++){r=L.circ[i];per=TAU*r/Math.max(1,Math.round(TAU*r/11));DA[0]=per*0.55;DA[1]=per*0.45;
+      ctx.setLineDash(DA);ctx.lineDashOffset=-dir*((V1*m1.t)%per);ctx.beginPath();ctx.arc(cx,cy,r,0,-TAU,true);ctx.stroke();}
+    ctx.setLineDash([]);ctx.lineDashOffset=0;
+    for(i=0;i<L.circ.length;i++){r=L.circ[i];n=Math.max(3,Math.round(TAU*r/74));
+      for(k=0;k<n;k++){th=-dir*(V1*m1.t+k*TAU*r/n)/r;ca=Math.cos(th);sa=Math.sin(th);head(ctx,cx+r*ca,cy+r*sa,dir*sa,-dir*ca,5.5,C.field);}}
+    lab(ctx,'B',cx-(L.rmax+16)*0.71,cy-(L.rmax+16)*0.71+6,C.muted,15,700,'center');   /* 放在最外圈外面，不盖住磁感线上的箭头 */
+  }
+  wire(ctx,cx,cy,on?dir:0,L.wr);
+  lab(ctx,on?(dir>0?'导线端视 · I 出纸面 ⊙':'导线端视 · I 进纸面 ⊗'):'导线端视 · I = 0',L.x0+14,L.y0+12,C.muted,12,600,'left');
+}
+function drawLoop(ctx,L,dir,on){
+  var fx=L.fx,fy=L.fy,R=L.fr,g,i,j,x,y,n=6,k,th,ca,sa,o,xs=L.xs,cy=L.scy,a=L.sa,dd;
+  /* 正面看 */
+  txt(ctx,'正面看',fx,fy-R-(L.wide?40:22),C.ink,12.5,600,'center');
+  if(on){
+    g=clamp(26*Math.sqrt(5/m1.I),15,90);
+    for(i=-6;i<=6;i++)for(j=-6;j<=6;j++){x=fx+i*g;y=fy+j*g;if(Math.hypot(x-fx,y-fy)<=R-12)fsym(ctx,x,y,dir,5,C.field);}
+    o=(R+22)*0.7071;fsym(ctx,fx+o,fy-o,-dir,4.5,rgba(C.field,0.6));fsym(ctx,fx-o,fy-o,-dir,4.5,rgba(C.field,0.6));
+    fsym(ctx,fx+o,fy+o,-dir,4.5,rgba(C.field,0.6));fsym(ctx,fx-o,fy+o,-dir,4.5,rgba(C.field,0.6));
+  }
+  ring(ctx,fx,fy,R,C.copper,4);
+  if(on){for(k=0;k<n;k++){th=-dir*(1.6*V1*m1.t/R+k*TAU/n);ca=Math.cos(th);sa=Math.sin(th);head(ctx,fx+R*ca,fy+R*sa,dir*sa,-dir*ca,8,C.copper);}
+    badge(ctx,dir>0?'N face':'S face',fx,fy+R+(L.wide?30:20),dir>0?C.north:C.south);}
+  if(L.wide)seg(ctx,L.sx0-6,L.y0+8,L.sx0-6,L.y1-8,C.line,1,[3,4]);
+  else seg(ctx,16,L.sy0-30,L.x1-16,L.sy0-30,C.line,1,[3,4]);
+  /* 侧面剖开看 */
+  ctx.save();ctx.beginPath();ctx.rect(L.clip[0],L.clip[1],L.clip[2]-L.clip[0],L.clip[3]-L.clip[1]);ctx.clip();
+  for(i=0;i<L.lines.length;i++)flowLine(ctx,L.lines[i],dir,(i>>1)*31);
+  ctx.restore();
+  seg(ctx,xs,cy-a+L.sw,xs,cy+a-L.sw,rgba(C.copper,0.45),1.5,[3,4]);
+  wire(ctx,xs,cy-a,on?dir:0,L.sw);wire(ctx,xs,cy+a,on?-dir:0,L.sw);
+  if(on){dd=L.wide?28:27;badge(ctx,'N',xs+dir*dd,cy,C.north);badge(ctx,'S',xs-dir*dd,cy,C.south);}
+  txt(ctx,L.wide?'侧面剖开看（从右边看过来 = 左图）':'侧面剖开看（从右边看过来 = 上图）',L.wide?(L.sx0+L.x1)/2:L.cx,L.sy0-12,C.ink,12.5,600,'center');
+}
+function drawSol(ctx,L,dir,on){
+  var xs=L.xs,cy=L.scy,a=L.sa,p=L.sp,i,x,dd;
+  ctx.save();ctx.beginPath();ctx.rect(L.clip[0],L.clip[1],L.clip[2]-L.clip[0],L.clip[3]-L.clip[1]);ctx.clip();
+  for(i=0;i<L.lines.length;i++)flowLine(ctx,L.lines[i],dir,(i>>1)*31);
+  ctx.restore();
+  for(i=0;i<6;i++){x=xs+(i-2.5)*p;wire(ctx,x,cy-a,on?dir:0,L.sw);wire(ctx,x,cy+a,on?-dir:0,L.sw);}
+  if(on){dd=2.5*p+L.sw+(L.wide?22:18);badge(ctx,'N',xs+dir*dd,cy,C.north);badge(ctx,'S',xs-dir*dd,cy,C.south);}
+  lab(ctx,on?(dir>0?'螺线管剖开看 · 上 ⊙ 下 ⊗':'螺线管剖开看 · 上 ⊗ 下 ⊙'):'螺线管剖开看 · I = 0',L.x0+14,L.y0+12,C.muted,12,600,'left');
+}
+
+/* ---------- 读数区 ---------- */
+/* 公式：0 = 正体，1 = 斜体（物理量），2 = 下标 */
+var FW=[['B',1],[' = ',0],['μ',1],['0',2],['I',1],[' / (2π',0],['r',1],[')',0]],FS=[['B',1],[' = ',0],['μ',1],['0',2],['NI',1],[' / ',0],['L',1]];
+function formula(ctx,F,x,y,size){var i,k,sz,wt;for(i=0;i<F.length;i++){k=F[i][1];sz=k===2?size*0.68:size;wt=k===1?'italic 500':'500';
+  ctx.font=wt+' '+sz+'px '+MATH;txt(ctx,F[i][0],x,y+(k===2?size*0.22:0),C.ink,sz,wt,'left','alphabetic',MATH);x+=ctx.measureText(F[i][0]).width+(k===1?1:0)+(k===2?2:0);}}
+function prow(ctx,L,y,label,val,frac,col){txt(ctx,label,L.px,y,C.ink,12.5,600);txt(ctx,val,L.px+L.pw,y,C.ink,12.5,600,'right','alphabetic',MONO);hbar(ctx,L.px,y+7,L.pw,8,frac,col);}
+function legend(ctx,L,y){
+  var x=L.px;
+  seg(ctx,x,y-4,x+26,y-4,C.field,1.5,[6,5]);head(ctx,x+30,y-4,1,0,5.5,C.field);
+  txt(ctx,'磁感线 B',x+42,y,C.muted,12,500);
+  if(L.wide){y+=24;compass(ctx,x+12,y-4,0,10);txt(ctx,'compass：红的一头是 N',x+30,y,C.muted,12,500);}
+  else{compass(ctx,x+138,y-4,0,10);txt(ctx,'compass：红的一头是 N',x+156,y,C.muted,12,500);}
+}
+function panel(ctx,L,dir,on){
+  var x=L.px,y=L.py,B1,B2,Bs,act;
+  if(L.wide)seg(ctx,L.x1+4,L.y0,L.x1+4,L.y1,C.line,1);else seg(ctx,0,L.py-28,L.x1,L.py-28,C.line,1);
+  if(m1.mode===0){
+    B1=MU0*m1.I/(TAU*0.010);B2=MU0*m1.I/(TAU*0.020);
+    formula(ctx,FW,x,y,18);
+    y+=30;prow(ctx,L,y,'r = 1.0 cm',sci(B1,1)+' T',B1/2e-4,C.field);
+    y+=36;prow(ctx,L,y,'r = 2.0 cm',sci(B2,1)+' T',B2/2e-4,C.field);
+    y+=38;txt(ctx,'远一倍 → B 变成一半',x,y,C.ink,13,600);
+    y+=20;txt(ctx,'B ∝ 1/r，不是 1/r²',x,y,C.muted,12.5,500);
+    y+=(L.wide?44:30);legend(ctx,L,y);
+  }else if(m1.mode===1){
+    act=on?dir:0;
+    txt(ctx,'一圈线圈 ≈ 一块很薄的磁铁',x,y,C.ink,13.5,600);
+    y+=28;txt(ctx,'正面看电流逆时针 → N face',x,y,act>0?C.north:C.muted,13,act>0?700:500);
+    y+=22;txt(ctx,'正面看电流顺时针 → S face',x,y,act<0?C.south:C.muted,13,act<0?700:500);
+    y+=28;txt(ctx,'N face：磁感线从这面出来',x,y,C.muted,12.5,500);
+    y+=20;txt(ctx,'S face：磁感线从这面进去',x,y,C.muted,12.5,500);
+    y+=(L.wide?44:30);legend(ctx,L,y);
+  }else{
+    Bs=MU0*200*m1.I/0.10;
+    formula(ctx,FS,x,y,18);
+    y+=24;txt(ctx,'N = 200 圈，L = 0.10 m（示意）',x,y,C.muted,12.5,500);
+    y+=28;prow(ctx,L,y,'里面的 B',sci(Bs,2)+' T',Bs/0.0252,C.field);
+    y+=38;txt(ctx,'里面：强、均匀、从 S 指向 N',x,y,C.ink,13,600);
+    y+=20;txt(ctx,'外面：像条形磁铁（画面只画 6 圈）',x,y,C.muted,12.5,500);
+    y+=(L.wide?44:30);legend(ctx,L,y);
+  }
+}
+
+/* ---------- 状态提示 ---------- */
+function status(dir){
+  var r=ST;
+  if(m1.I<=0){r[0]='I = 0 → 没有电流，就没有电流的磁场';r[1]='compass 只剩地磁场，都指北（设北在上方）';return r;}
+  if(m1.mode===0){r[0]=dir>0?'电流出纸面 ⊙ → 大拇指朝你 → 四指逆时针':'电流进纸面 ⊗ → 大拇指背对你 → 四指顺时针';
+    r[1]=dir>0?'→ 磁感线逆时针；离导线越近，线越密':'→ 磁感线顺时针；离导线越近，线越密';}
+  else if(m1.mode===1){r[0]=dir>0?'正面看电流逆时针 → 大拇指朝你 → N face':'正面看电流顺时针 → 大拇指背对你 → S face';
+    r[1]=dir>0?'侧面看：B 从左往右穿过线圈 → 右边是 N':'侧面看：B 从右往左穿过线圈 → 左边是 N';}
+  else{r[0]=dir>0?'上 ⊙ 下 ⊗ → 右手四指顺着电流 → 大拇指指右':'上 ⊗ 下 ⊙ → 右手四指顺着电流 → 大拇指指左';
+    r[1]=dir>0?'→ 右端是 N；里面 B 均匀，从 S 指向 N':'→ 左端是 N；里面 B 均匀，从 S 指向 N';}
+  if(m1.t<m1.msgT)r[1]=m1.msg;
+  return r;
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return w>=640?436:626;},
+  step:function(dt){
+    var i,f=1-Math.exp(-6*dt);m1.t+=dt;
+    for(i=0;i<m1.ang.length;i++)m1.ang[i]+=wrapPi(tgt(i)-m1.ang[i])*f;
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=geo(W,H),wide=L.wide,dir=m1.rev?-1:1,on=m1.I>0,st=status(dir),i;
+    txt(ctx,st[0],16,wide?28:24,C.ink,wide?15:13.5,600);
+    txt(ctx,st[1],16,wide?50:44,C.muted,wide?13.5:12.5,500);
+    if(m1.mode===0)drawWire(ctx,L,dir,on);else if(m1.mode===1)drawLoop(ctx,L,dir,on);else drawSol(ctx,L,dir,on);
+    for(i=0;i<L.kx.length;i++)compass(ctx,L.kx[i],L.ky[i],m1.ang[i],L.cr);
+    if(m1.mode===0){lab(ctx,'1 cm',L.cx+L.pcm,L.cy+L.cr+17,C.muted,12,600,'center');lab(ctx,'2 cm',L.cx+2*L.pcm,L.cy+L.cr+17,C.muted,12,600,'center');}
+    panel(ctx,L,dir,on);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bM=[document.getElementById('s1-wire'),document.getElementById('s1-loop'),document.getElementById('s1-sol')],
+    bR=document.getElementById('s1-rev'),rI=document.getElementById('s1-I'),oI=document.getElementById('s1-I-out');
+function after(){geo(S1.W,S1.H);if(!S1.playing)snap();S1.render();}
+bM.forEach(function(b,k){b.addEventListener('click',function(){m1.mode=k;m1.msgT=-1;for(var i=0;i<3;i++)press(bM[i],i===k);after();});});
+bR.addEventListener('click',function(){m1.rev=!m1.rev;m1.msgT=-1;press(bR,m1.rev);bR.textContent=m1.rev?'电流反向：开':'电流反向';after();});
+rI.addEventListener('input',function(){var v=parseFloat(rI.value);
+  if(v>0&&m1.I>0){m1.msg=v>m1.I?'I 变大 → 磁感线变多、变密 → B 变强':'I 变小 → 磁感线变少、变疏 → B 变弱';m1.msgT=m1.t+3;}
+  m1.I=v;oI.textContent=v.toFixed(1)+' A';after();});
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 导线和 B 的夹角 θ：F = lIB sin θ（B 在纸面里；力只写成 lIB 的几倍，示意）
+   物理：F = I l × B。B = sB·(1,0)，电流方向 u = sI·(cos φ, sin φ)，φ 是导线在纸面里的角度（0–180°）。
+   θ = 电流和 B 的夹角：sI·sB = +1 时 θ = φ，否则 θ = 180° − φ；F_z = −sI·sB·sin θ（负 = 进纸面 ⊗）。
+   B 向右、电流有向上的分量 → 进纸面，和 booklet Figure 2.3(a) 一样。 */
+var KEYS2=[0,30,90,150,180],SPD=22,D2R=Math.PI/180;
+var rt=document.getElementById('s2-th'),ot=document.getElementById('s2-th-out'),bI=document.getElementById('s2-fi'),bB=document.getElementById('s2-fb');
+var m={th:60,dir:1,hold:0,sI:1,sB:1,flipT:0,old:60,shown:60};
+var G={ux:0,uy:0,s:0,c:0,Fz:0};
+function geo(){var t=m.th*D2R,ph=(m.sI*m.sB>0)?t:Math.PI-t;G.ux=m.sI*Math.cos(ph);G.uy=m.sI*Math.sin(ph);G.s=Math.sin(t);G.c=Math.cos(t);G.Fz=-m.sI*m.sB*G.s;}
+function syncSlider(){var d=Math.round(m.th);if(d!==m.shown){m.shown=d;rt.value=d;ot.textContent=d+'°';}}
+
+/* 自动扫角：0° → 180° → 0°，在 0°、30°、90°、150°、180° 停一下 */
+function step(dt){
+  if(m.flipT>0)m.flipT=Math.max(0,m.flipT-dt);
+  if(m.hold>0){m.hold-=dt;return;}
+  if(m.th>=180&&m.dir>0)m.dir=-1;else if(m.th<=0&&m.dir<0)m.dir=1;
+  var b=m.th,a=b+m.dir*SPD*dt;
+  for(var i=0;i<KEYS2.length;i++){var k=KEYS2[i];
+    if((m.dir>0&&b<k&&a>=k)||(m.dir<0&&b>k&&a<=k)){a=k;m.hold=(k===0||k===180)?1.3:1.0;if(k===180)m.dir=-1;else if(k===0)m.dir=1;break;}}
+  m.th=clamp(a,0,180);syncSlider();
+}
+
+/* ---------- 小工具 ---------- */
+function lab(ctx,s,x,y,col,size,weight,align,family){
+  ctx.font=(weight||600)+' '+size+'px '+(family||FONT);ctx.textAlign=align||'center';ctx.textBaseline='middle';
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);
+  txt(ctx,s,x,y,col,size,weight||600,align||'center','middle',family);
+}
+/* 压在磁感线箭头上的标签：先垫一块不透明的底色 */
+function labB(ctx,s,x,y,col,size,weight,family){
+  ctx.font=(weight||600)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  rrect(ctx,x-w/2-3,y-size/2-2,w+6,size+4,4);ctx.fillStyle=C.stage;ctx.fill();
+  lab(ctx,s,x,y,col,size,weight,'center',family);
+}
+/* 物理角度（逆时针为正，y 向上）画圆弧：从 a0 转 d */
+function arcP(ctx,cx,cy,r,a0,d,col,w,dash){ctx.beginPath();ctx.arc(cx,cy,r,-a0,-(a0+d),d>0);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);}
+/* 力的符号：⊗ 进纸面 / ⊙ 出纸面（绿色） */
+function fsym(ctx,x,y,r,out){dot(ctx,x,y,r+3,C.stage);ring(ctx,x,y,r,C.force,2.4);
+  if(out)dot(ctx,x,y,Math.max(2.2,r*0.3),C.force);else{var d=r*0.55;seg(ctx,x-d,y-d,x+d,y+d,C.force,2.4);seg(ctx,x-d,y+d,x+d,y-d,C.force,2.4);}}
+/* 导线上的电流箭头（实心三角） */
+function head(ctx,x,y,ux,uy,sz,col){var bx=x-ux*sz*0.6,by=y+uy*sz*0.6,w=sz*0.62;/* 屏幕方向 (ux,−uy)，垂线 (uy,ux) */
+  ctx.beginPath();ctx.moveTo(x+ux*sz,y-uy*sz);ctx.lineTo(bx+uy*w,by+ux*w);ctx.lineTo(bx-uy*w,by-ux*w);ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+function nrm(a){while(a>Math.PI)a-=TAU;while(a<=-Math.PI)a+=TAU;return a;}
+function dirW(){var d=Math.round(m.th);return (d<=0||d>=180)?'':(G.Fz<0?'进纸面 ⊗':'出纸面 ⊙');}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var L;
+  if(W>=640){var fx1=Math.round(W*0.57),rx=fx1+34;
+    L={wide:true,st:[28,50],stF:[15,13],x0:14,x1:fx1,y0:68,y1:390,pw:30,gap:46,rT:30,rA:54,fr:20,
+       gx:rx+28,gw:W-18-rx-28,gy:100,gh:118,rx:rx,rw:W-18-rx,ry:[270,296,320,350,370],sep:332};}
+  else L={wide:false,st:[24,44],stF:[13.5,12.5],x0:8,x1:W-8,y0:58,y1:328,pw:24,gap:44,rT:26,rA:46,fr:18,
+       gx:44,gw:W-44-18,gy:374,gh:92,rx:16,rw:W-32,ry:[510,536,560,590,610],sep:574};
+  L.cx=(L.x0+L.x1)/2;L.cy=(L.y0+L.y1)/2;
+  L.R=Math.min(L.wide?122:104,(L.x1-L.x0)/2-L.pw-44,(L.y1-L.y0)/2-30);
+  return L;
+}
+
+/* ---------- 状态提示：[现在发生什么, 为什么] ---------- */
+function status(){
+  var d=Math.round(m.th),f=Math.sin(d*D2R).toFixed(2),dw=dirW();
+  if(m.flipT>0){
+    var sI=m.sI,sB=m.sB,pre=(sI<0&&sB<0)?'I 和 B 都反转':(sI<0?'只反转 I':(sB<0?'只反转 B':'I 和 B 都是原方向'));
+    var eff=(sI*sB<0)?'F 反向':(sI<0?'F 方向不变':'F 回到原方向');
+    var a=dw?pre+' → '+eff+'：'+dw:pre+' → 这里本来就没有力';
+    var o=Math.round(m.old),b;
+    if(d===0||d===180)b='θ：'+o+'° → '+d+'°，还是和 B 平行 → F = 0';
+    else if(d===90)b='θ 还是 90°，F 的大小不变（= lIB）';
+    else b='θ：'+o+'° → 180° − '+o+'° = '+d+'°，sin 不变 → 大小不变';
+    return [a,b];
+  }
+  if(d===0)return ['θ = 0°：导线顺着 B → 没有力','I⊥ = I sin 0° = 0，电流全部和 B 平行'];
+  if(d===180)return ['θ = 180°：导线和 B 反向平行 → 没有力','I⊥ = I sin 180° = 0'];
+  if(d===90)return ['θ = 90°：导线和 B 垂直 → F 最大 = lIB','I⊥ = I，整个电流都算数，F '+dw];
+  if(d===30)return ['θ = 30°：F = lIB sin 30° = 0.50 lIB','只有一半电流（I⊥ = 0.5 I）算数，F '+dw];
+  if(d===150)return ['θ = 150°：F = lIB sin 150° = 0.50 lIB','sin 150° = sin 30° → 和 30° 一样大'];
+  if(d<90)return ['θ = '+d+'°：只有 I⊥ = I sin θ 算数','I∥ 顺着 B，不产生力 → F = '+f+' lIB'];
+  return ['θ = '+d+'°：过了 90°，I⊥ 又变小','sin '+d+'° = sin '+(180-d)+'° → F = '+f+' lIB'];
+}
+
+/* ---------- 磁场 + 导线 ---------- */
+function scene(ctx,L){
+  var cx=L.cx,cy=L.cy,R=L.R,sB=m.sB,i,k;
+  var fx0=L.x0+L.pw+4,fx1=L.x1-L.pw-4,fl=fx1-fx0,half=(L.y1-L.y0)/2;
+  var n=Math.floor((half-14)/L.gap+0.5);
+  /* 匀强磁场：横的虚线，箭头从 N 指向 S */
+  for(k=-n;k<n;k++){var y=cy+(k+0.5)*L.gap;
+    seg(ctx,fx0,y,fx1,y,rgba(C.field,0.6),1.2,[5,6]);
+    for(i=0;i<2;i++){var ax=fx0+fl*(i?0.88:0.12);arrow(ctx,ax-sB*9,y,ax+sB*9,y,C.field,1.4,7);}}
+  var ytop=cy-(n-0.5)*L.gap;
+  lab(ctx,'B',sB>0?fx1-4:fx0+4,ytop-11,C.field,15,'italic 700',sB>0?'right':'left',MATH);
+  var ph=L.y1-L.y0-16;
+  pole(ctx,L.x0,cy-ph/2,L.pw,ph,sB>0?'N':'S',sB>0?C.north:C.south);
+  pole(ctx,L.x1-L.pw,cy-ph/2,L.pw,ph,sB>0?'S':'N',sB>0?C.south:C.north);
+  /* 竖直虚线：和 B 垂直的线（陷阱里的 α 从这里量） */
+  seg(ctx,cx,L.y0+8,cx,L.y1-8,rgba(C.muted,0.75),1.2,[3,5]);
+
+  var ux=G.ux,uy=G.uy,tx=cx+R*ux,ty=cy-R*uy,dg=Math.round(m.th);
+  var aB=sB>0?0:Math.PI,aU=Math.atan2(uy,ux),dT=m.sI*m.sB*m.th*D2R;
+  /* B 方向的参考短线 + θ 圆弧 */
+  seg(ctx,cx,cy,cx+sB*(L.rT+16),cy,rgba(C.field,0.9),1.4,[3,3]);
+  if(dg>0)arcP(ctx,cx,cy,L.rT,aB,dT,C.ink,1.6);
+  if(dg>=14&&dg<=176){var bt=aB+dT/2;lab(ctx,'θ',cx+Math.cos(bt)*(L.rT+12),cy-Math.sin(bt)*(L.rT+12),C.ink,14,'italic 600',null,MATH);}
+  /* α：从竖直虚线量到导线 */
+  var aV=m.sI>0?Math.PI/2:-Math.PI/2,dA=nrm(aU-aV),al=Math.abs(90-dg);
+  if(al>=1)arcP(ctx,cx,cy,L.rA,aV,dA,rgba(C.muted,0.95),1.3,[3,3]);
+  if(al>=12){var ba=aV+dA/2;lab(ctx,'α',cx+Math.cos(ba)*(L.rA+11),cy-Math.sin(ba)*(L.rA+11),C.muted,13.5,'italic 600',null,MATH);}
+  /* 电流的两个分量：I∥（顺着 B，不算）和 I⊥（垂直 B，算数） */
+  var side=uy>=0?1:-1;
+  /* 分量太短时只画箭头、不写字（免得和导线端的 I 挤在一起） */
+  if(Math.abs(ux)>0.08){arrow(ctx,cx,cy,tx,cy,rgba(C.muted,0.95),2.4,9);
+    if(R*Math.abs(ux)>=30)labB(ctx,'I∥',(cx+tx)/2,cy+side*15,C.muted,13.5,'italic 600',MATH);}
+  if(Math.abs(uy)>0.08){arrow(ctx,tx,cy,tx,ty,C.copper,2.6,10);
+    var sx=ux>=0?1:-1;if(R*Math.abs(uy)>=30)labB(ctx,'I⊥',tx+sx*(Math.abs(ux)>0.08?16:20),(cy+ty)/2,C.copper,13.5,'italic 600',MATH);}
+  /* 导线 */
+  ctx.lineCap='round';seg(ctx,cx-R*ux,cy+R*uy,tx,ty,C.copper,6);ctx.lineCap='butt';
+  head(ctx,cx+0.62*R*ux,cy-0.62*R*uy,ux,uy,11,C.copper);
+  head(ctx,cx-0.45*R*ux,cy+0.45*R*uy,ux,uy,11,C.copper);
+  dot(ctx,cx,cy,4,C.ink);
+  labB(ctx,'I',tx+ux*17,ty-uy*17,C.copper,16,'italic 700',MATH);
+  /* 力：垂直纸面，符号大小 ∝ sin θ；画在导线后半段旁边 */
+  var nx=uy,ny=-ux,off=L.wide?30:26,kF=0.55;
+  var fx=cx-kF*R*ux+off*nx,fy=cy+kF*R*uy-off*ny;
+  /* 和读数、状态提示用同一个判断（取整后的 θ）：只有 θ = 0° 或 180° 才写 F = 0；最小半径 8 px，小角度时 ⊗ / ⊙ 也认得出 */
+  if(dg>0&&dg<180){var rF=Math.max(8,L.fr*G.s);fsym(ctx,fx,fy,rF,G.Fz>0);
+    labB(ctx,'F',fx+nx*(rF+11),fy-ny*(rF+11),C.force,15,'italic 700',MATH);}
+  else labB(ctx,'F = 0',fx,fy,C.force,13,700);
+}
+
+/* ---------- F/(lIB)–θ 图 ---------- */
+function graph(ctx,L){
+  var gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,yb=gy+gh,i;
+  function X(d){return gx+d/180*gw;}
+  function Y(v){return yb-v*(gh-12);}
+  txt(ctx,'F / lIB',gx-30,gy-14,C.force,14,'italic 700','left','alphabetic',MATH);
+  txt(ctx,'F = lIB sin θ',gx+gw,gy-14,C.muted,12,500,'right');
+  [0.5,1].forEach(function(v){seg(ctx,gx,Y(v),gx+gw,Y(v),C.grid,1);});
+  [[0,'0'],[0.5,'0.5'],[1,'1']].forEach(function(p){txt(ctx,p[1],gx-6,Y(p[0])+4,C.muted,11,500,'right');});
+  seg(ctx,X(90),gy+4,X(90),yb,C.grid,1,[3,4]);
+  seg(ctx,gx,gy,gx,yb,C.muted,1);seg(ctx,gx,yb,gx+gw,yb,C.muted,1);
+  KEYS2.forEach(function(d){seg(ctx,X(d),yb,X(d),yb+4,C.muted,1);txt(ctx,d+'°',X(d),yb+16,C.muted,11,500,'center');});
+  ctx.beginPath();for(i=0;i<=60;i++){var d=i*3,x=X(d),y=Y(Math.sin(d*D2R));if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=C.force;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+  var px=X(m.th),py=Y(G.s),dg=Math.round(m.th);
+  seg(ctx,px,py,px,yb,rgba(C.muted,0.8),1,[3,3]);seg(ctx,gx,py,px,py,rgba(C.muted,0.8),1,[3,3]);
+  dot(ctx,px,py,5.5,C.force);
+  /* 数值写在曲线外侧：θ ≤ 90° 写在点的左上，θ > 90° 写在右上（两头靠近坐标轴时换边，字有底色描边） */
+  var rt2=(dg>90&&dg<160)||dg<15;
+  lab(ctx,Math.sin(dg*D2R).toFixed(2),px+(rt2?8:-8),py-11,C.force,12,600,rt2?'left':'right',MONO);
+}
+
+/* ---------- 读数 + 陷阱 ---------- */
+function readouts(ctx,L){
+  var x=L.rx,w=L.rw,r=L.ry,dg=Math.round(m.th),sv=Math.sin(dg*D2R),dw=dirW();
+  txt(ctx,'θ = '+dg+'°   sin θ = '+sv.toFixed(2),x,r[0],C.ink,13,500,'left','alphabetic',MONO);
+  txt(ctx,'F',x,r[1]+1,C.force,15,'italic 700','left','alphabetic',MATH);
+  hbar(ctx,x+20,r[1]-9,w-20-92,10,sv,C.force);
+  txt(ctx,sv.toFixed(2)+' lIB',x+w,r[1],C.force,13,600,'right','alphabetic',MONO);
+  if(dw)txt(ctx,'方向（palm rule）：'+dw,x,r[2],C.ink,12.5,600);
+  else txt(ctx,'方向：没有力，也就没有方向',x,r[2],C.muted,12.5,500);
+  seg(ctx,x,L.sep,x+w,L.sep,C.line,1);
+  var al=Math.abs(90-dg);
+  txt(ctx,'陷阱：从竖直虚线量的角 α = '+al+'°',x,r[3],C.muted,12,600);
+  txt(ctx,dg<=90?('→ θ = 90° − α = '+dg+'°，不能直接用 α'):('→ 90° − α = '+(180-dg)+'°，sin '+(180-dg)+'° = sin '+dg+'°'),x,r[4],C.muted,12,500);
+}
+
+var LW=-1,LY=null;
+geo();
+var S2=makeStage('sim2',{
+  height:function(w){return w>=640?396:628;},
+  step:function(dt){step(dt);geo();},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    if(W!==LW){LY=lay(W);LW=W;}
+    var L=LY,st=status();
+    txt(ctx,st[0],16,L.st[0],C.ink,L.stF[0],600);
+    txt(ctx,st[1],16,L.st[1],C.muted,L.stF[1],500);
+    scene(ctx,L);graph(ctx,L);readouts(ctx,L);
+  }
+});
+
+/* ---------- 控件 ---------- */
+function syncBtns(){press(bI,m.sI<0);bI.innerHTML=m.sI<0?'<i>I</i> 已反转':'反转 <i>I</i>';
+  press(bB,m.sB<0);bB.innerHTML=m.sB<0?'<i>B</i> 已反转（向左）':'反转 <i>B</i>';}
+function flip(which){
+  var d=Math.round(m.th);m.old=d;
+  if(which==='I')m.sI=-m.sI;else m.sB=-m.sB;
+  m.th=180-d;m.dir=-m.dir;m.hold=Math.max(m.hold,1.4);m.flipT=3.5;
+  syncSlider();geo();syncBtns();S2.render();
+}
+bI.addEventListener('click',function(){flip('I');});
+bB.addEventListener('click',function(){flip('B');});
+rt.addEventListener('input',function(){m.th=clamp(parseFloat(rt.value)||0,0,180);m.shown=Math.round(m.th);ot.textContent=m.shown+'°';
+  m.hold=0;m.flipT=0;S2.setPlaying(false);geo();S2.render();});
+syncBtns();
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · Palm rule：B 垂直纸面时力的方向（数据：示意，只看方向，F 的大小固定为 lIB）。
+   角度用数学坐标：从 +x（向右）逆时针量，向上 = 90°；画到 canvas 上 y 要取负：(cx + r cos a, cy − r sin a)。
+   phi = conventional current I 的方向。F = I l × B：
+     B 进纸面（−z）：x̂ × (−ẑ) = +ŷ → I 向右时 F 向上；F 的方向 = phi + 90°（I 逆时针转 90°）
+       I 向上：ŷ × (−ẑ) = −x̂ → F 向左；I 向左 → F 向下；I 向下 → F 向右
+     B 出纸面（+z）：x̂ × ẑ = −ŷ → I 向右时 F 向下；F 的方向 = phi − 90°（顺时针）
+   导线一直在纸面里，和 B 成 90°，所以 F = lIB sin 90° = lIB，大小不变。
+   电子：q < 0，又和 I 反着走 → (−q)(−v) × B = qv × B，受力方向和正电荷一样。 */
+var DEG=Math.PI/180,HOLD=2.4,MOVE=2.2;
+var m3={p0:0,u:0.6,bIn:true,revI:false,elec:false,flow:0,flash:0,fmsg:1};
+function ease3(t){t=clamp(t,0,1);return t*t*(3-2*t);}
+/* 每到一个正方向（右、上、左、下）停 HOLD 秒，再用 MOVE 秒平滑地逆时针转 90° */
+function phi3(){return m3.p0+90*ease3((m3.u-HOLD)/MOVE);}
+function step3(dt){
+  var n=4,h=dt/n;
+  for(var i=0;i<n;i++){
+    m3.u+=h;if(m3.u>=HOLD+MOVE){m3.u-=HOLD+MOVE;m3.p0=(m3.p0+90)%360;}
+    m3.flow=(m3.flow+h*1.1)%1;
+    if(m3.flash>0)m3.flash=Math.max(0,m3.flash-h);
+  }
+}
+for(var q3=0;q3<40;q3++)step3(1/60);
+
+var NM3=['右','右上','上','左上','左','左下','下','右下'];
+function dn3(a){a=((a%360)+360)%360;
+  if(a<=10||a>=350)return NM3[0];if(a<80)return NM3[1];if(a<=100)return NM3[2];if(a<170)return NM3[3];
+  if(a<=190)return NM3[4];if(a<260)return NM3[5];if(a<=280)return NM3[6];return NM3[7];}
+/* ⊗（进纸面）/ ⊙（出纸面） */
+function bsym3(ctx,x,y,r,bIn,col,w){ring(ctx,x,y,r,col,w);if(bIn){var d=r*0.62;seg(ctx,x-d,y-d,x+d,y+d,col,w);seg(ctx,x-d,y+d,x+d,y-d,col,w);}else dot(ctx,x,y,r*0.34,col);}
+/* 满屏的 B 符号（一次描完，少开路径） */
+function grid3(ctx,x0,y0,w,h,g,bIn,ax,ay,bx,by,rc){
+  var nx=Math.max(1,Math.floor(w/g)),ny=Math.max(1,Math.floor(h/g)),ox=x0+(w-(nx-1)*g)/2,oy=y0+(h-(ny-1)*g)/2,r=5.5,d=r*0.62,i,j,x,y;
+  ctx.strokeStyle=rgba(C.field,0.9);ctx.lineWidth=1.3;ctx.setLineDash([]);ctx.beginPath();
+  for(i=0;i<nx;i++)for(j=0;j<ny;j++){x=ox+i*g;y=oy+j*g;if(near3(x,y,ax,ay)||near3(x,y,bx,by)||inR3(x,y,rc))continue;ctx.moveTo(x+r,y);ctx.arc(x,y,r,0,TAU);
+    if(bIn){ctx.moveTo(x-d,y-d);ctx.lineTo(x+d,y+d);ctx.moveTo(x-d,y+d);ctx.lineTo(x+d,y-d);}}
+  ctx.stroke();
+  if(!bIn){ctx.fillStyle=C.field;ctx.beginPath();for(i=0;i<nx;i++)for(j=0;j<ny;j++){x=ox+i*g;y=oy+j*g;if(near3(x,y,ax,ay)||near3(x,y,bx,by)||inR3(x,y,rc))continue;ctx.moveTo(x+1.9,y);ctx.arc(x,y,1.9,0,TAU);}ctx.fill();}
+}
+function near3(x,y,a,b){return Math.abs(x-a)<20&&Math.abs(y-b)<21;}
+/* 符号（半径 5.5）碰到左上角 “B 进纸面” 标签的矩形 rc = [x, y, w, h]：不画，免得被切成半个 */
+function inR3(x,y,rc){return x+7>rc[0]&&x-7<rc[0]+rc[2]&&y+7>rc[1]&&y-7<rc[1]+rc[3];}
+/* 状态提示按 “→” 分段换行 */
+function wrap3(ctx,segs,maxW,size,weight){var out=[],cur='',i,t;ctx.font=weight+' '+size+'px '+FONT;
+  for(i=0;i<segs.length;i++){t=cur?cur+' → '+segs[i]:segs[i];if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur='→ '+segs[i];}else cur=t;}
+  out.push(cur);return out;}
+/* 画在磁场网格上的标签：先垫一块底色 */
+function tag3(ctx,s,x,y,col,size){ctx.font='700 '+size+'px '+FONT;var w=ctx.measureText(s).width;rrect(ctx,x-w/2-7,y-size/2-5,w+14,size+10,6);ctx.fillStyle=rgba(C.stage,0.94);ctx.fill();txt(ctx,s,x,y+0.5,col,size,700,'center','middle');}
+function darrow3(ctx,x1,y1,x2,y2,col,w){var dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<3)return;var ux=dx/len,uy=dy/len;
+  seg(ctx,x1,y1,x2-ux*10,y2-uy*10,col,w,[6,5]);arrow(ctx,x2-ux*12,y2-uy*12,x2,y2,col,w,11);}
+/* 一个电荷：正电荷红底白“+”，电子蓝底白“−” */
+function charge3(ctx,x,y,neg){dot(ctx,x,y,5.5,neg?C.south:C.north);seg(ctx,x-2.8,y,x+2.8,y,'#ffffff',1.6);if(!neg)seg(ctx,x,y-2.8,x,y+2.8,'#ffffff',1.6);}
+
+function status3(phi,fa){
+  var bt=m3.bIn?'进纸面':'出纸面',iN=dn3(phi),fN=dn3(fa);
+  if(m3.flash>0)return [[(m3.fmsg===1?'反转 I（B 不变）':'反转 B（I 不变）'),'F 反向（虚线 = 原来的 F）'],
+    (m3.revI&&!m3.bIn)?['现在 I 和 B 都反过来了','和最开始比，F 的方向不变']:['只反转一个：F 反向；两个都反转：F 不变']];
+  if(m3.u<HOLD)return [['B '+bt+'、I 向'+iN,'手掌朝'+fN,'F 向'+fN],
+    m3.elec?['电子往'+dn3(phi+180)+'走 = conventional current 往'+iN,'大拇指指'+iN]:['F 和导线垂直，大小 = lIB（θ = 90°）']];
+  return [['导线在转，但一直和 B 成 90°','F 一直 = lIB'],
+    m3.elec?['电子和 I 反着走；大拇指仍沿 conventional current']:['F 的方向跟着导线转：永远和导线垂直']];
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?400:(w>=350?604:630);},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,f1,f2,lh1,lh2,fx,fy,fw,fh,px,py,pw,i,y;
+    if(wide){f1=15;f2=13;lh1=21;lh2=19;fx=16;fy=70;fw=W-316;fh=H-fy-16;px=fx+fw+20;py=fy;pw=W-16-px;}
+    else{f1=13.5;f2=12;lh1=19;lh2=17;fx=12;fy=W>=350?70:96;fw=W-24;fh=Math.min(270,fw);px=12;py=fy+fh+12;pw=W-24;}
+    var phi=phi3(),fa=phi+(m3.bIn?90:-90),ia=phi*DEG,fr=fa*DEG;
+    var ix=Math.cos(ia),iy=-Math.sin(ia),fxu=Math.cos(fr),fyu=-Math.sin(fr);
+    /* ---- status ---- */
+    var st=status3(phi,fa),L1=wrap3(ctx,st[0],W-32,f1,600),L2=wrap3(ctx,st[1],W-32,f2,500);
+    y=wide?28:22;
+    for(i=0;i<L1.length;i++){txt(ctx,L1[i],16,y,C.ink,f1,600);y+=lh1;}
+    if(!wide)y+=1;
+    for(i=0;i<L2.length;i++){txt(ctx,L2[i],16,y,C.muted,f2,500);y+=lh2;}
+    /* ---- field region: B into / out of the page ---- */
+    rrect(ctx,fx,fy,fw,fh,10);ctx.fillStyle=rgba(C.field,0.07);ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+    var cx=fx+fw/2,cy=fy+fh/2,Lh=Math.min(fw,fh)/2-22,LF=wide?76:62;
+    var tIx=cx+ix*Lh*0.51-fxu*36,tIy=cy+iy*Lh*0.51-fyu*36,tFx=cx+fxu*(LF+24),tFy=cy+fyu*(LF+24);
+    var bl='B '+(m3.bIn?'进纸面':'出纸面');ctx.font='600 12.5px '+FONT;var bw=ctx.measureText(bl).width+38;
+    grid3(ctx,fx+4,fy+4,fw-8,fh-8,wide?38:36,m3.bIn,tIx,tIy,tFx,tFy,[fx+8,fy+8,bw,26]);
+    ctx.beginPath();ctx.arc(cx,cy,Lh,0,TAU);ctx.strokeStyle=rgba(C.muted,0.3);ctx.lineWidth=1;ctx.setLineDash([3,6]);ctx.stroke();ctx.setLineDash([]);
+    rrect(ctx,fx+8,fy+8,bw,26,13);ctx.fillStyle=C.stage;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+    bsym3(ctx,fx+23,fy+21,6.5,m3.bIn,C.muted,1.6);
+    txt(ctx,bl,fx+35,fy+25.5,C.muted,12.5,600);
+    /* ---- wire + charges ---- */
+    ctx.lineCap='round';seg(ctx,cx-ix*Lh,cy-iy*Lh,cx+ix*Lh,cy+iy*Lh,C.copper,7);ctx.lineCap='butt';
+    var n=Math.max(4,Math.round(2*Lh/30)),gp=2*Lh/n,k,s,a,qx,qy;
+    for(k=0;k<n;k++){
+      s=(k+m3.flow)*gp;s=m3.elec?Lh-s:s-Lh;           /* 正电荷沿 I 走，电子反着走 */
+      a=clamp(Math.min(s+Lh,Lh-s)/14,0,1);if(a<0.03)continue;
+      qx=cx+ix*s;qy=cy+iy*s;ctx.globalAlpha=a;
+      arrow(ctx,qx+fxu*8,qy+fyu*8,qx+fxu*22,qy+fyu*22,rgba(C.force,0.8),1.6,5);
+      charge3(ctx,qx,qy,m3.elec);ctx.globalAlpha=1;
+    }
+    /* conventional current I：铜色箭头，画在 F 的另一侧 */
+    var s0=Lh*0.3,s1=Lh*0.72,off=-17;
+    arrow(ctx,cx+ix*s0+fxu*off,cy+iy*s0+fyu*off,cx+ix*s1+fxu*off,cy+iy*s1+fyu*off,C.copper,2.6,10);
+    tag3(ctx,'I',tIx,tIy,C.copper,14);
+    /* total force F on the wire */
+    if(m3.flash>0)darrow3(ctx,cx-fxu*8,cy-fyu*8,cx-fxu*(8+LF),cy-fyu*(8+LF),rgba(C.force,0.3+0.4*Math.min(1,m3.flash)),2.4);
+    arrow(ctx,cx+fxu*8,cy+fyu*8,cx+fxu*(8+LF),cy+fyu*(8+LF),C.force,3.6,13);
+    tag3(ctx,'F',tFx,tFy,C.force,15);
+    dot(ctx,cx,cy,4,C.ink);
+    /* ---- palm rule card ---- */
+    var bh=150,rx=px+12,vx=px+92;
+    rrect(ctx,px,py,pw,bh,10);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+    txt(ctx,'Right-hand palm rule',rx,py+23,C.ink,13,700);
+    txt(ctx,'四指 → B',rx,py+51,C.ink,12.5,600);txt(ctx,m3.bIn?'进纸面':'出纸面',vx,py+51,C.muted,12.5,700);
+    txt(ctx,'大拇指 → I',rx,py+76,C.ink,12.5,600);txt(ctx,'向'+dn3(phi),vx,py+76,C.copper,12.5,700);
+    txt(ctx,'手掌 → F',rx,py+101,C.ink,12.5,600);txt(ctx,'向'+dn3(fa),vx,py+101,C.force,12.5,700);
+    txt(ctx,m3.bIn?'B 进纸面：F = I 逆时针转 90°':'B 出纸面：F = I 顺时针转 90°',rx,py+137,C.muted,12,500);
+    /* dial: I and F from one point, the turn from I to F */
+    var dx=px+pw-52,dy=py+74,dr=27;
+    ring(ctx,dx,dy,dr+5,rgba(C.muted,0.25),1);
+    bsym3(ctx,dx,dy,4.5,m3.bIn,C.muted,1.2);
+    ctx.beginPath();ctx.arc(dx,dy,16,-ia,-fr,m3.bIn);ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+    var ex=dx+fxu*16,ey=dy+fyu*16,tx=m3.bIn?-Math.sin(fr):Math.sin(fr),ty=m3.bIn?-Math.cos(fr):Math.cos(fr);
+    arrow(ctx,ex-tx*6,ey-ty*6,ex,ey,C.muted,1.3,5);
+    arrow(ctx,dx+ix*8,dy+iy*8,dx+ix*dr,dy+iy*dr,C.copper,2.4,8);
+    arrow(ctx,dx+fxu*8,dy+fyu*8,dx+fxu*dr,dy+fyu*dr,C.force,2.4,8);
+    txt(ctx,'I',dx+ix*(dr+12),dy+iy*(dr+12),C.copper,12.5,700,'center','middle');
+    txt(ctx,'F',dx+fxu*(dr+12),dy+fyu*(dr+12),C.force,12.5,700,'center','middle');
+    /* ---- readouts + legend ---- */
+    y=py+bh+(wide?28:24);
+    txt(ctx,'F = lIB sin 90° = lIB',px+2,y,C.ink,13,600);
+    txt(ctx,'导线在纸面里，和 B 永远成 90° → 大小不变',px+2,y+19,C.muted,12,500);
+    var ly=y+46;
+    charge3(ctx,px+8,ly-4,m3.elec);
+    txt(ctx,m3.elec?'电子（−）和 I 反着走':'正电荷（+）沿 conventional current 走',px+20,ly,C.ink,12,500);
+    arrow(ctx,px+8,ly+27,px+8,ly+12,C.force,1.6,5);
+    txt(ctx,m3.elec?'电子受的力也和 F 同向':'绿色小箭头 = 每个电荷受的力',px+20,ly+22,C.muted,12,500);
+  }
+});
+var b3in=document.getElementById('s3-bin'),b3out=document.getElementById('s3-bout'),b3el=document.getElementById('s3-elec');
+function setB3(v){if(m3.bIn===v)return;m3.bIn=v;press(b3in,v);press(b3out,!v);m3.flash=2.6;m3.fmsg=2;S3.render();}
+b3in.addEventListener('click',function(){setB3(true);});
+b3out.addEventListener('click',function(){setB3(false);});
+document.getElementById('s3-revi').addEventListener('click',function(){m3.p0=(m3.p0+180)%360;m3.revI=!m3.revI;m3.flash=2.6;m3.fmsg=1;S3.render();});
+b3el.addEventListener('click',function(){m3.elec=!m3.elec;press(b3el,m3.elec);b3el.textContent='显示电子流：'+(m3.elec?'开':'关');S3.render();});
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 两根平行导线：相吸还是相斥（讲义 Figure 2.5，端视）。
+   wire 1 在左，电流一直出纸面 ⊙，I₁ = 2.0 A；wire 2 在右，⊙（同向）或 ⊗（反向），I₂ 默认 6.0 A（两个电流来自讲义）。r 是示意值。
+   B = μ₀I/(2πr)，F/l = (μ₀/2π)(I₁I₂/r)，μ₀/2π = 2 × 10⁻⁷（计算值）。默认 F/l = 2 × 10⁻⁷ × 2.0 × 6.0 / 0.10 = 2.4 × 10⁻⁵ N m⁻¹。
+   方向（x 向右，y 向上，z 出纸面；canvas 的 y 朝下，“向上”要用 −y）：
+     ⊙ 的磁感线从纸前看逆时针 → wire 1 右边 wire 2 处 B₁ = +y（向上）
+     wire 2 ⊙：F = I l × B ∝ ẑ × ŷ = −x̂ → 向左，指向 wire 1（相吸）；B₂ 在 wire 1 处 = −y，F₁ ∝ ẑ × (−ŷ) = +x̂（向右）
+     wire 2 ⊗：F ∝ (−ẑ) × ŷ = +x̂ → 向右，背离 wire 1（相斥）；B₂ 在 wire 1 处 = +y，F₁ ∝ ẑ × ŷ = −x̂（向左）
+   磁感线圆圈按等比画：半径 0.20 m × 0.74^(k−1)，相邻两圈的间距 ∝ r，所以线的密度 ∝ 1/r ∝ B（和动画 1 一样）。
+   力箭头长度 ∝ F/l；太长画不下时截短，太短（< 18 px）时放长，两种情况都在画面左下角说明，读数下面的条一直按比例。
+   ④ 小结里 B₁、B₂ 两个箭头按 B 的比例画（短的最少 12 px）。第一帧是 ④ 小结，5 s 后从 ① 开始按顺序轮流。 */
+var K4=2e-7,I1=2.0,PH4=5,FMAX4=K4*I1*10/0.05;
+var m4={same:true,i2:6,r:0.10,t:2,phase:3,pt:0,hint:'',hintT:0};
+var pills4=[{x:0,y:0,w:0,h:0},{x:0,y:0,w:0,h:0},{x:0,y:0,w:0,h:0},{x:0,y:0,w:0,h:0}];
+var PNW4=['① grip rule','② palm rule','③ Newton\'s third law','④ 小结'],PNN4=['① grip','② palm','③ 3rd law','④ 小结'];
+var SUP4={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci4(v){var e=Math.floor(Math.log(v)/Math.LN10+1e-9),mm=Math.round(v/Math.pow(10,e)*10)/10,s='',es;
+  if(mm>=10){mm=1;e++;}es=String(e);for(var i=0;i<es.length;i++)s+=SUP4[es.charAt(i)];return mm.toFixed(1)+' × 10'+s;}
+function step4(dt){
+  m4.t+=dt;m4.pt+=dt;
+  if(m4.pt>=PH4){m4.pt-=PH4;m4.phase=(m4.phase+1)%4;}
+  if(m4.hintT>0)m4.hintT=Math.max(0,m4.hintT-dt);
+}
+/* 状态提示：'|' 是可以换行的地方 */
+function status4(){
+  var s=m4.same,a=I1.toFixed(1)+' A',b=m4.i2.toFixed(1)+' A',L1,L2;
+  if(m4.phase===0){
+    L1='① grip rule：|wire 1 电流出纸面 ⊙ →| 磁感线逆时针 →| 在 wire 2 处 B₁ 向上';
+    L2='右手大拇指朝你，|四指弯的方向就是磁感线；|wire 2 就在这个磁场里';
+  }else if(m4.phase===1){
+    L1='② palm rule：|wire 2 电流'+(s?'出':'进')+'纸面，|B₁ 向上 →| 手掌朝'+(s?'左':'右')+' →| F '+(s?'指向':'背离')+' wire 1 →| '+(s?'相吸':'相斥');
+    L2='四指沿 B₁（向上），|大拇指沿 I₂（'+(s?'⊙ 朝你':'⊗ 背对你')+'），|手掌朝的方向就是 F';
+  }else if(m4.phase===2){
+    L1='③ Newton\'s third law：|wire 1 受一样大、|方向相反的力 →| 向'+(s?'右，|指向':'左，|背离')+' wire 2';
+    L2=Math.abs(m4.i2-I1)<1e-6?('I₁ = I₂ = '+a+'；|就算电流不一样，|两个力也一样长'):(a+' 和 '+b+' 不一样，|但两个力一样长：|I₁I₂ 对两根导线是同一个数');
+  }else{
+    L1=s?'同向电流 → 相吸。|和电荷正好相反：|同号电荷相斥':'反向电流 → 相斥。|和电荷正好相反：|异号电荷相吸';
+    L2='检查：|B₂ 在 wire 1 处向'+(s?'下':'上')+'，|palm rule 给 wire 1 的力|也是向'+(s?'右':'左');
+  }
+  return [L1,L2];
+}
+function wrap4(ctx,s,maxW,font){
+  var parts=s.split('|'),out=[],cur='',t;ctx.font=font;
+  for(var i=0;i<parts.length;i++){t=cur+parts[i];
+    if(cur&&ctx.measureText(t).width>maxW){out.push(cur.replace(/\s+$/,''));cur=parts[i].replace(/^\s+/,'');}else cur=t;}
+  if(cur)out.push(cur.replace(/\s+$/,''));return out;
+}
+/* 带底色描边的标签：压在磁感线上也看得清 */
+function lab4(ctx,s,x,y,col,size,weight,align,family){
+  ctx.font=weight+' '+size+'px '+(family||FONT);ctx.textAlign=align;ctx.textBaseline='alphabetic';
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);
+  txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);
+}
+/* 磁感线上的小箭头（ux, uy = 磁场方向，canvas 坐标） */
+function chev4(ctx,x,y,ux,uy,col){var z=4.5;ctx.beginPath();ctx.moveTo(x-ux*z-uy*z*0.8,y-uy*z+ux*z*0.8);ctx.lineTo(x,y);ctx.lineTo(x-ux*z+uy*z*0.8,y-uy*z-ux*z*0.8);
+  ctx.strokeStyle=col;ctx.lineWidth=1.6;ctx.stroke();}
+/* 高亮的箭头：下面垫一层淡色宽箭头 */
+/* 斜体符号 + 下标（B₁、B₂）：下标单独画，字号不小于 11 px */
+function blab4(ctx,sym,sub,x,y,col,size){lab4(ctx,sym,x,y,col,size,'italic 700','left',MATH);ctx.font='italic 700 '+size+'px '+MATH;
+  lab4(ctx,sub,x+ctx.measureText(sym).width+2,y+4,col,Math.max(11,Math.round(size*0.75)),600,'left',FONT);}
+function harrow4(ctx,x1,y1,x2,y2,col,w,head,hi){if(hi)arrow(ctx,x1,y1,x2,y2,rgba(col,0.22),w+7,head+5);arrow(ctx,x1,y1,x2,y2,col,w,head);}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?420:(w<340?540:502);},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,s=m4.same,ph=m4.phase,i2=m4.i2,r=m4.r,i,k;
+    var sc=wide?Math.min(2600,(W/2-110)*10):(W/2-62)*10;/* px per m */
+    var ex=!wide&&W<340?38:0;/* 很窄的手机：状态提示可能要 3 行，整体往下挪 */
+    var Rw=wide?13:10,top=(wide?96:130)+ex,bot=(wide?318:330)+ex,cy=Math.round((top+bot)/2);
+    var kF=wide?2.2e6:1.4e6,Lmax=wide?150:110,LB=wide?34:30,fs=wide?15:14;
+    var d=r*sc,x1=W/2-d/2,x2=W/2+d/2,sg2=s?1:-1;
+    var B1=K4*I1/r,B2=K4*i2/r,Fl=K4*I1*i2/r;
+
+    /* ---- status ---- */
+    var st=status4(),f1=wide?15:13.5,f2=wide?13:12,lh1=wide?22:19,lh2=wide?20:17,mw=W-32;
+    var l1=wrap4(ctx,st[0],mw,'600 '+f1+'px '+FONT),y0=wide?28:22;
+    for(i=0;i<l1.length;i++)txt(ctx,l1[i],16,y0+i*lh1,C.ink,f1,600);
+    var hint=m4.hintT>0,l2=wrap4(ctx,hint?m4.hint:st[1],mw,(hint?600:500)+' '+f2+'px '+FONT),y2=wide?52:y0+l1.length*lh1+2;
+    for(i=0;i<l2.length;i++)txt(ctx,l2[i],16,y2+i*lh2,hint?C.ink:C.muted,f2,hint?600:500);
+
+    /* ---- step pills ---- */
+    var py=wide?66:94+ex,phh=wide?24:30,pf=12.5,px=16,gap=wide?8:6,pw=(W-32-3*gap)/4;/* 手机上按钮高 30 px，手指好点 */
+    ctx.font='600 '+pf+'px '+FONT;
+    for(i=0;i<4;i++){
+      var lbl=wide?PNW4[i]:PNN4[i],w=wide?ctx.measureText(lbl).width+24:pw,on=i===ph,p=pills4[i];
+      p.x=px;p.y=py;p.w=w;p.h=phh;
+      rrect(ctx,px,py,w,phh,phh/2);
+      if(on){ctx.fillStyle=C.ink;ctx.fill();}else{ctx.strokeStyle=C.line;ctx.lineWidth=1.2;ctx.stroke();}
+      txt(ctx,lbl,px+w/2,py+phh/2+1,on?C.stage:(i<ph?C.ink:C.muted),pf,600,'center','middle');
+      if(on){var fr=clamp(m4.pt/PH4,0,1);if(fr>0.01){rrect(ctx,px+phh/2,py+phh+2,(w-phh)*fr,2.5,1.25);ctx.fillStyle=rgba(C.ink,0.4);ctx.fill();}}
+      px+=w+gap;
+    }
+
+    /* ---- scene: field of wire 1 (⊙ → 逆时针) ---- */
+    ctx.save();ctx.beginPath();ctx.rect(0,top,W,bot-top);ctx.clip();
+    var c1=0.2*sc,a1=[0.85,0.65,0.6,0.4][ph],R,n,v,om,ang,qx,qy,j;
+    for(k=1;k<=14;k++){
+      R=c1*Math.pow(0.74,k-1);if(R<3.2*Rw)break;   /* 等比：间距 ∝ r → 密度 ∝ 1/r ∝ B */
+      ctx.setLineDash([5,6]);ctx.beginPath();ctx.arc(x1,cy,R,0,TAU);ctx.strokeStyle=rgba(C.field,a1);ctx.lineWidth=1.3;ctx.stroke();ctx.setLineDash([]);
+      for(j=0;j<4;j++){ang=Math.PI/4+j*Math.PI/2+k*0.21;qx=x1+R*Math.cos(ang);qy=cy-R*Math.sin(ang);
+        if(qy<top+6||qy>bot-6||qx<6||qx>W-6)continue;if(Math.abs(qx-x2)<Rw+14&&Math.abs(qy-cy)<Rw+14)continue;
+        chev4(ctx,qx,qy,-Math.sin(ang),-Math.cos(ang),rgba(C.field,Math.min(1,a1+0.2)));}
+      if(ph<3){n=Math.max(5,Math.round(TAU*R/46));v=clamp(30*(0.1*sc)/R,10,90);om=v/R;
+        for(j=0;j<n;j++){ang=TAU*j/n+om*m4.t+k*0.37;qx=x1+R*Math.cos(ang);qy=cy-R*Math.sin(ang);
+          if(qy<top-3||qy>bot+3||qx<-3||qx>W+3)continue;dot(ctx,qx,qy,2.3,rgba(C.field,Math.min(1,a1+0.15)));}}
+    }
+    /* 经过 wire 2 的那一圈：wire 2 处的 B₁ 就是它的切线 */
+    if(ph<2){if(ph===0)ring(ctx,x1,cy,d,rgba(C.field,0.2),7);ring(ctx,x1,cy,d,rgba(C.field,ph===0?0.95:0.55),ph===0?2.2:1.5);}
+    /* ④：wire 2 的磁场经过 wire 1 的那一段 */
+    if(ph===3){
+      var span=0.6;
+      ctx.beginPath();ctx.arc(x2,cy,d,Math.PI-span,Math.PI+span);ctx.strokeStyle=rgba(C.field,0.2);ctx.lineWidth=7;ctx.stroke();
+      ctx.beginPath();ctx.arc(x2,cy,d,Math.PI-span,Math.PI+span);ctx.strokeStyle=rgba(C.field,0.95);ctx.lineWidth=2.2;ctx.stroke();
+      n=Math.max(3,Math.round(2*span*d/46));om=clamp(30*(0.1*sc)/d,10,90)/d;
+      for(j=0;j<n;j++){var u=((om*m4.t/(2*span)+j/n)%1+1)%1;ang=Math.PI-span+2*span*(sg2>0?u:1-u);
+        qx=x2+d*Math.cos(ang);qy=cy-d*Math.sin(ang);if(qy<top-3||qy>bot+3)continue;dot(ctx,qx,qy,2.3,C.field);}
+    }
+    ctx.restore();
+
+    /* ---- r ---- */
+    var ry=cy+60;
+    seg(ctx,x1,ry,x2,ry,C.muted,1.2);seg(ctx,x1,ry-6,x1,ry+6,C.muted,1.2);seg(ctx,x2,ry-6,x2,ry+6,C.muted,1.2);
+    lab4(ctx,'r = '+r.toFixed(2)+' m',W/2,ry+18,C.ink,wide?13:12,600,'center');
+
+    /* ---- B arrows ---- */
+    var bA=ph===3?0.55:1,yb0=cy-Rw-3,LB1=LB,LB2=LB;
+    if(ph===3){var Bm=Math.max(B1,B2);LB1=Math.max(12,LB*B1/Bm);LB2=Math.max(12,LB*B2/Bm);}/* ④：两个 B 箭头按比例 */
+    harrow4(ctx,x2,yb0,x2,yb0-LB1,rgba(C.field,bA),3,Math.min(10,LB1*0.75),ph===0);
+    var bx1=x2+7;
+    if(ph===3&&!s&&LB1<LB*0.6){/* 反向时 wire 2 的 F 在右边：B₁ 箭头很短时，标签放到左边，不和 F 挤在一起 */
+      ctx.font='italic 700 '+fs+'px '+MATH;var wb=ctx.measureText('B').width;ctx.font='600 '+Math.max(11,Math.round(fs*0.75))+'px '+FONT;bx1=x2-7-wb-2-ctx.measureText('1').width;}
+    blab4(ctx,'B','1',bx1,yb0-LB1+11,C.ink,fs);
+    if(ph===3){var bd=s?1:-1,yb2=cy+bd*(Rw+3);
+      harrow4(ctx,x1,yb2,x1,yb2+bd*LB2,C.field,3,Math.min(10,LB2*0.75),true);
+      blab4(ctx,'B','2',x1+7,bd>0?yb2+LB2-4:yb2-LB2+11,C.ink,fs);}
+
+    /* ---- forces (equal and opposite) ---- */
+    var Lf=kF*Fl,cap=s?(d/2-Rw-8):Math.min(x1-Rw-10,W-10-(x2+Rw+4)),capped,L,dir2=s?-1:1;
+    cap=Math.min(cap,Lmax);L=Math.min(cap,Math.max(18,Lf));capped=Lf>L+0.5;var longer=Lf<L-0.5;/* 最短 18 px，箭头尖（10 px）前面还有一段 */
+    if(ph>=1){var a2=x2+dir2*(Rw+4);harrow4(ctx,a2,cy,a2+dir2*L,cy,C.force,3.2,10,ph===1);
+      lab4(ctx,'F',a2+dir2*L/2,s&&d/2-Rw-4<16?cy+24:cy-9,C.force,fs,'italic 700','center',MATH);}/* 两根贴得很近时，wire 2 的 F 写在下面 */
+    if(ph>=2){var a1x=x1-dir2*(Rw+4);harrow4(ctx,a1x,cy,a1x-dir2*L,cy,C.force,3.2,10,ph===2);
+      lab4(ctx,'F',a1x-dir2*L/2,cy-9,C.force,fs,'italic 700','center',MATH);}
+    if(ph>=1&&capped)lab4(ctx,'力箭头太长，画短了',16,bot-6,C.muted,11.5,500,'left');
+    else if(ph>=1&&longer)lab4(ctx,'力很小，箭头画长了',16,bot-6,C.muted,11.5,500,'left');
+
+    /* ---- wires ---- */
+    wire(ctx,x1,cy,1,Rw);wire(ctx,x2,cy,sg2,Rw);
+    var wf=wide?13:12;
+    lab4(ctx,'wire 1',x1-Rw-5,cy-44,C.ink,wf,600,'right');lab4(ctx,I1.toFixed(1)+' A',x1-Rw-5,cy-28,C.copper,wf,700,'right');
+    lab4(ctx,'wire 2',x2+Rw+5,cy+32,C.ink,wf,600,'left');lab4(ctx,i2.toFixed(1)+' A',x2+Rw+5,cy+48,C.copper,wf,700,'left');
+    if(ph>=1)lab4(ctx,s?'相吸 attract':'相斥 repel',W/2,cy-78,C.force,wide?16:15,700,'center');
+    else lab4(ctx,'相吸还是相斥？',W/2,cy-78,C.muted,wide?14:13,600,'center');
+
+    /* ---- readout ---- */
+    var sy=bot+8,val='= '+sci4(Fl)+' N m⁻¹',fx='2 × 10⁻⁷ × '+I1.toFixed(1)+' × '+i2.toFixed(1)+' / '+r.toFixed(2);
+    seg(ctx,0,sy,W,sy,C.line,1);
+    var eq=Math.abs(i2-I1)<1e-6,bt=eq?'I₁ = I₂，所以 B₁ = B₂，两个力一样大':'B 不一样，但 lI₂B₁ = lI₁B₂：两个力一样大';
+    var bw0,bw1,yy;
+    if(wide){
+      var head='F/l = (μ₀/2π)(I₁I₂/r) = '+fx+' ';
+      txt(ctx,head,16,sy+26,C.ink,14,600);ctx.font='600 14px '+FONT;
+      txt(ctx,val,16+ctx.measureText(head).width,sy+26,C.force,15,700);
+      yy=sy+52;bw0=104;bw1=W/2-24;
+      txt(ctx,'wire 1 受的力',16,yy,C.ink,12.5,600);hbar(ctx,bw0,yy-10,bw1-bw0,11,Fl/FMAX4,C.force);
+      txt(ctx,'wire 2 受的力',W/2+4,yy,C.ink,12.5,600);hbar(ctx,W/2+92,yy-10,W-16-(W/2+92),11,Fl/FMAX4,C.force);
+      txt(ctx,'B₁ = '+sci4(B1)+' T（在 wire 2 处），B₂ = '+sci4(B2)+' T（在 wire 1 处）：'+bt,16,sy+80,C.muted,12.5,500);
+    }else{
+      txt(ctx,'F/l = (μ₀/2π)(I₁I₂/r)',16,sy+22,C.ink,13,600);
+      txt(ctx,'= '+fx,16,sy+42,C.ink,13,500);
+      txt(ctx,val,16,sy+64,C.force,15,700);
+      yy=sy+88;bw0=96;bw1=W-16;
+      txt(ctx,'wire 1 受的力',16,yy,C.ink,11.5,600);hbar(ctx,bw0,yy-9,bw1-bw0,10,Fl/FMAX4,C.force);
+      txt(ctx,'wire 2 受的力',16,yy+20,C.ink,11.5,600);hbar(ctx,bw0,yy+11,bw1-bw0,10,Fl/FMAX4,C.force);
+      txt(ctx,'B₁ = '+sci4(B1)+' T，B₂ = '+sci4(B2)+' T',16,sy+134,C.muted,12,500);
+      txt(ctx,bt,16,sy+152,C.muted,12,500);
+    }
+  }
+});
+
+/* ---- controls ---- */
+var b4s=document.getElementById('s4-same'),b4o=document.getElementById('s4-opp');
+var r4i=document.getElementById('s4-i2'),o4i=document.getElementById('s4-i2-out'),r4r=document.getElementById('s4-r'),o4r=document.getElementById('s4-r-out');
+function hint4(h){m4.hint=h;m4.hintT=4.5;}
+function setDir4(same){
+  if(same!==m4.same){m4.same=same;hint4(same?'I₂ 和 I₁ 同向了 →| 两个力都反向 →| 从相斥变成相吸':'只把 I₂ 反过来 →| 两个力都反向 →| 从相吸变成相斥');}
+  press(b4s,same);press(b4o,!same);S4.render();
+}
+b4s.addEventListener('click',function(){setDir4(true);});
+b4o.addEventListener('click',function(){setDir4(false);});
+r4i.addEventListener('input',function(){
+  var v=Math.round(parseFloat(r4i.value)*10)/10;
+  if(v>m4.i2)hint4('I₂ 变大 →| 两个力一起变大；|wire 1 的力也变大，|因为 I₁I₂ 变大了');
+  else if(v<m4.i2)hint4('I₂ 变小 →| 两个力一起变小；|两个力永远一样大');
+  m4.i2=v;o4i.textContent=v.toFixed(1)+' A';S4.render();
+});
+r4r.addEventListener('input',function(){
+  var v=Math.round(parseFloat(r4r.value)*100)/100;
+  if(v>m4.r)hint4('r 变大 →| B₁ 变小 →| 两个力都变小：|F/l ∝ 1/r，|r 加倍力减半');
+  else if(v<m4.r)hint4('r 变小 →| B₁ 变大 →| 两个力都变大：|F/l ∝ 1/r，|是 r 不是 r²');
+  m4.r=v;o4r.textContent=v.toFixed(2)+' m';S4.render();
+});
+/* 点画面上的 ①–④ 跳到那一步 */
+function pill4(e){var rc=S4.cv.getBoundingClientRect(),x=e.clientX-rc.left,y=e.clientY-rc.top;
+  for(var i=0;i<4;i++){var p=pills4[i];if(x>=p.x&&x<=p.x+p.w&&y>=p.y-6&&y<=p.y+p.h+6)return i;}return -1;}
+S4.cv.addEventListener('click',function(e){var i=pill4(e);if(i<0)return;m4.phase=i;m4.pt=0;m4.hintT=0;S4.render();});
+S4.cv.addEventListener('mousemove',function(e){S4.cv.style.cursor=pill4(e)<0?'':'pointer';});
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 电子秤上的两根平行杆（2.4 Key experiments · Two parallel wires, required investigation）
+   照 Figure 2.6(b) 的侧视图：下杆放在电子秤的绝缘块上，上杆夹在 insulated clamp 上，右端 flexible link 把两根串起来。
+   数据：l = 0.50 m（讲义 Figure 2.6(b)）；g = 9.8 m s⁻²、μ₀/2π = 2 × 10⁻⁷ N A⁻²（data sheet）；I 和 r 是示意。
+   读数按公式算：F = (μ₀/2π)(I₁I₂/r) l，I₁ = I₂ = I；Δm = F/g（kg，显示时换成 g）。
+     I = 10 A、r = 5.0 mm → F = 2.0 × 10⁻³ N，Δm = 0.204 g；I = 20 A → 8.0 × 10⁻³ N，0.816 g；r = 10.0 mm 都减半。
+     F–I² 直线斜率 = μ₀l/(2πr) = 2.0 × 10⁻⁵ N A⁻²（5.0 mm）或 1.0 × 10⁻⁵ N A⁻²（10.0 mm）。
+   方向（x 向右，y 向上，z 出纸面）：上杆电流 +x，它在下杆处的磁场 ∝ (+x) × (−y) = −z（进纸面）。
+     link 接上：下杆电流 −x → F = I l × B ∝ (−x) × (−z) = −y，向下 → 相斥 → 读数为正。
+     link 去掉：下杆电流 +x → (+x) × (−z) = +y，向上 → 相吸 → 读数为负。
+     上杆受的力一样大、方向相反（Newton's third law），被夹子夹住。
+   画面：间距放大了（示意，没按比例，r 加倍时画面间距也加倍）；力箭头只表示方向和“变大变小”，
+   长度 = 12 + 20 × F/(8.0 × 10⁻³ N)（最长 32 px，放得进 48 px 的间距）。canvas 的 y 轴朝下，“向上”= −y。 */
+var L5=0.50,G5=9.8,K5=2e-7,FMX=K5*400*L5/0.005,SEQ=[4,8,10,12,16,20],CYC=2.6,ON0=0.8,ON1=2.2;
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x,d){if(x===0)return '0';var neg=x<0;x=Math.abs(x);var e=Math.floor(Math.log(x)/Math.LN10+1e-9),m=x/Math.pow(10,e);if(+m.toFixed(d)>=10){m/=10;e++;}return (neg?'−':'')+m.toFixed(d)+' × 10'+sup(e);}
+function gfmt(v,plus){if(Math.abs(v)<0.0005)return '0.000 g';return (v<0?'−':(plus?'+':''))+Math.abs(v).toFixed(3)+' g';}
+function fitTxt(ctx,s,x,y,col,size,weight,align,maxW,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align,'alphabetic',family);
+}
+function dim(ctx,x1,y1,x2,y2,col){var mx=(x1+x2)/2,my=(y1+y2)/2;arrow(ctx,mx,my,x1,y1,col,1.2,6);arrow(ctx,mx,my,x2,y2,col,1.2,6);}
+/* 杆上流动的小 “>”：沿 conventional current 的方向走 */
+function flowRod(ctx,x0,x1,y,dir,off){
+  var len=x1-x0,nC=Math.max(1,Math.round(len/22)),sp=len/nC;
+  ctx.strokeStyle=C.surface;ctx.lineWidth=1.6;ctx.setLineDash([]);ctx.beginPath();
+  for(var k=0;k<nC;k++){var u=((k*sp+dir*off)%len+len)%len,x=x0+u;if(x<x0+5||x>x1-5)continue;
+    ctx.moveTo(x-2.5*dir,y-2.6);ctx.lineTo(x+1.5*dir,y);ctx.lineTo(x-2.5*dir,y+2.6);}
+  ctx.stroke();
+}
+
+var ri=document.getElementById('s5-I'),ro=document.getElementById('s5-I-out');
+var bLon=document.getElementById('s5-link-on'),bLoff=document.getElementById('s5-link-off');
+var bR5=document.getElementById('s5-r5'),bR10=document.getElementById('s5-r10');
+var m5=null;
+function Fnow(){return K5*m5.I*m5.I*L5/m5.r*(m5.link?1:-1);}   /* N；正 = 下杆被往下推（读数上升） */
+function isOn(){return m5.t>=ON0&&m5.t<ON1;}
+function tgt(){return isOn()?Fnow()/G5*1000:0;}                  /* 电子秤应该显示的读数（g） */
+function setI(v){m5.I=v;ri.value=String(v);ro.textContent=v+' A';}
+function addPt(){
+  if(!isOn()||m5.rec)return;m5.rec=true;
+  var x=m5.I*m5.I,y=Fnow()*1000;                                 /* 图：x = I²（A²），y = F（× 10⁻³ N） */
+  for(var i=0;i<m5.pts.length;i++){var p=m5.pts[i];if(p.x===x&&p.r===m5.r&&p.k===m5.link)return;}
+  m5.pts.push({x:x,y:y,r:m5.r,k:m5.link});
+}
+function sync5(){press(bLon,m5.link);press(bLoff,!m5.link);press(bR5,m5.r<0.0075);press(bR10,m5.r>0.0075);}
+function reset5(){
+  var old=m5;
+  m5={t:0,I:SEQ[0],idx:0,auto:true,link:old?old.link:true,r:old?old.r:0.005,read:0,rec:false,since:0,flow:0,pts:[],hint:null,hintT:0};
+  setI(SEQ[0]);sync5();
+}
+function step5(dt){
+  var n=4,h=dt/n;
+  for(var i=0;i<n;i++){
+    var was=isOn();m5.t+=h;
+    if(m5.t>=CYC){m5.t-=CYC;m5.rec=false;if(m5.auto){m5.idx=(m5.idx+1)%SEQ.length;setI(SEQ[m5.idx]);}}
+    var on=isOn();if(on&&!was){m5.since=0;m5.rec=false;}
+    m5.since+=h;
+    var tg=tgt();m5.read+=(tg-m5.read)*(1-Math.exp(-h/0.08));if(Math.abs(tg-m5.read)<2e-4)m5.read=tg;
+    if(on){m5.flow+=h*(12+3*m5.I);if(m5.since>0.7)addPt();}
+  }
+  if(m5.hintT>0){m5.hintT-=dt;if(m5.hintT<=0){m5.hintT=0;m5.hint=null;}}
+}
+reset5();
+/* 先做两阵（4 A、8 A），停在 10 A 这一阵的中间：第一帧就有读数 0.204 g 和图上的三个点 */
+for(var q5=0;q5<Math.round((2*CYC+1.95)*60);q5++)step5(1/60);
+
+function lay5(W){
+  var o={wide:W>=640};
+  if(o.wide){var ax1=Math.round(W*0.56);
+    o.p=16;o.rl=86;o.rr=ax1-74;o.lY=74;o.top=84;o.yl=216;o.s1=26;o.s2=50;o.cA=348;o.cB=369;
+    o.gx=ax1+58;o.gw=W-18-o.gx;o.gy=88;o.gh=200;o.lg=[330,351];o.nt=373;o.fs=12;}
+  else{o.p=12;o.rl=66;o.rr=W-84;o.lY=80;o.top=88;o.yl=226;o.s1=22;o.s1b=42;o.s2=62;o.cA=356;o.cB=376;
+    o.gx=42;o.gw=W-42-14;o.gy=420;o.gh=168;o.lg=[630,651];o.nt=673;o.fs=11.5;}
+  return o;
+}
+function status5(){
+  var tg=Fnow()/G5*1000;
+  if(!isOn())return ['两阵电流之间：没有电流 → 没有力','→ 读数回到 0.000 g（开始前已经 tare 清零）'];
+  if(m5.I===0)return ['I = 0 → 没有磁场，也没有力','→ 读数一直是 0.000 g'];
+  if(m5.link)return ['反向电流 → 两杆相斥 → 下杆被往下推','→ 读数上升 '+gfmt(tg,true)];
+  return ['同向电流 → 两杆相吸 → 下杆被往上拉','→ 读数掉到 0 以下：'+gfmt(tg)];
+}
+function line2(wide){
+  if(m5.hint)return [m5.hint[wide?0:1],C.ink,600];
+  if(m5.auto)return [wide?'自动：每一阵换一个 I（4 → 8 → 10 → 12 → 16 → 20 A），l 和 r 不变':'自动：每一阵换一个 I，l 和 r 不变',C.muted,500];
+  return [wide?'手动：每一阵都用 slider 上的 I = '+m5.I+' A（按“重来”恢复自动）':'手动：每一阵都用你选的 I = '+m5.I+' A',C.muted,500];
+}
+
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?386:684;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay5(W),fs=o.fs,on=isOn(),full=W-2*o.p;
+    /* ---- 状态提示 ---- */
+    var st=status5(),l2=line2(o.wide);
+    if(o.wide){fitTxt(ctx,st[0]+' '+st[1],o.p,o.s1,C.ink,15,600,'left',full);fitTxt(ctx,l2[0],o.p,o.s2,l2[1],13,l2[2],'left',full);}
+    else{fitTxt(ctx,st[0],o.p,o.s1,C.ink,13.5,600,'left',full);fitTxt(ctx,st[1],o.p,o.s1b,C.ink,13.5,600,'left',full);fitTxt(ctx,l2[0],o.p,o.s2,l2[1],12,l2[2],'left',full);}
+    /* ---- 装置几何 ---- */
+    var rl=o.rl,rr=o.rr,len=rr-rl,yl=o.yl,gap=m5.r<0.0075?48:96,yu=yl-gap;
+    function X(f){return rl+f*len;}
+    var dirL=m5.link?-1:1;
+    /* l 的标尺 */
+    dim(ctx,rl,o.lY,rr,o.lY,C.muted);
+    var ls='长度 l = 0.50 m';ctx.font='500 '+fs+'px '+FONT;var lw=ctx.measureText(ls).width;
+    rrect(ctx,(rl+rr)/2-lw/2-6,o.lY-9,lw+12,18,4);ctx.fillStyle=C.stage;ctx.fill();
+    txt(ctx,ls,(rl+rr)/2,o.lY+1,C.muted,fs,500,'center','middle');
+    /* insulated clamp */
+    var px=X(0.2);
+    seg(ctx,px,o.top,px,yu-6,C.muted,4);
+    rrect(ctx,px-7,yu-7,14,14,3);ctx.strokeStyle=C.muted;ctx.lineWidth=2;ctx.stroke();
+    txt(ctx,'insulated clamp',px-8,o.top+13,C.muted,fs,500,'right');
+    /* 电子秤：绝缘块、秤盘、秤身 */
+    [[0.04,0.14],[0.86,0.96]].forEach(function(b){ctx.fillStyle=rgba(C.muted,0.25);ctx.fillRect(X(b[0]),yl+4,X(b[1])-X(b[0]),44);ctx.strokeStyle=C.muted;ctx.lineWidth=1;ctx.strokeRect(X(b[0]),yl+4,X(b[1])-X(b[0]),44);});
+    ctx.fillStyle=rgba(C.muted,0.45);ctx.fillRect(rl,yl+48,len,6);
+    var bx0=rl-14,bt=yl+54;
+    rrect(ctx,bx0,bt,len+28,52,8);ctx.fillStyle=rgba(C.muted,0.1);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    var dw=o.wide?96:90,dx=bx0+10,dy=bt+12;
+    rrect(ctx,dx,dy,dw,28,4);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+    txt(ctx,gfmt(m5.read),dx+dw/2,dy+15,C.ink,17,600,'center','middle',MONO);
+    txt(ctx,'electronic balance',dx+dw+10,bt+22,C.ink,12,600);
+    txt(ctx,'电子秤 · 已 tare 清零',dx+dw+10,bt+40,C.muted,fs,500);
+    /* 导线、电源、flexible link */
+    var tx=rl-20;
+    seg(ctx,tx,yu,rl,yu,C.copper,2);seg(ctx,tx,yl,rl,yl,C.copper,2);dot(ctx,tx,yu,3.2,C.ink);dot(ctx,tx,yl,3.2,C.ink);
+    txt(ctx,'接电源',tx-6,(yu+yl)/2,C.muted,fs,500,'right','middle');
+    if(m5.link){
+      ctx.beginPath();ctx.moveTo(rr,yu);ctx.bezierCurveTo(rr+32,yu,rr+32,yl,rr,yl);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.stroke();
+      txt(ctx,'flexible',rr+32,(yu+yl)/2-8,C.muted,fs,500,'left','middle');txt(ctx,'link',rr+32,(yu+yl)/2+8,C.muted,fs,500,'left','middle');
+    }else{
+      var tr=rr+20;seg(ctx,rr,yu,tr,yu,C.copper,2);seg(ctx,rr,yl,tr,yl,C.copper,2);dot(ctx,tr,yu,3.2,C.ink);dot(ctx,tr,yl,3.2,C.ink);
+      txt(ctx,'接电源',tr,yu-15,C.muted,fs,500,'center','middle');
+    }
+    /* 两根杆（铜色 = 有电流的导体） */
+    ctx.lineCap='round';seg(ctx,rl,yu,rr,yu,C.copper,7);seg(ctx,rl,yl,rr,yl,C.copper,7);ctx.lineCap='butt';
+    if(on&&m5.I>0){
+      flowRod(ctx,rl,rr,yu,1,m5.flow);flowRod(ctx,rl,rr,yl,dirL,m5.flow);
+      arrow(ctx,X(0.30),yu-11,X(0.46),yu-11,C.copper,2,8);
+      txt(ctx,'I',X(0.46)+6,yu-11,C.copper,15,600,'left','middle',MATH);
+      if(dirL<0){arrow(ctx,X(0.80),yl+13,X(0.62),yl+13,C.copper,2,8);txt(ctx,'I',X(0.62)-6,yl+13,C.copper,15,600,'right','middle',MATH);}
+      else{arrow(ctx,X(0.62),yl+13,X(0.80),yl+13,C.copper,2,8);txt(ctx,'I',X(0.80)+6,yl+13,C.copper,15,600,'left','middle',MATH);}
+    }
+    /* r：中心到中心 */
+    var rx=X(0.70);
+    dim(ctx,rx,yu+5,rx,yl-5,C.muted);
+    txt(ctx,'r = '+(m5.r*1000).toFixed(1)+' mm',rx+6,(yu+yl)/2,C.muted,fs,500,'left','middle');
+    /* 力：下杆（电子秤量的就是它）和上杆（一样大、方向相反） */
+    var Fd=on?Fnow():0;                                           /* 下杆受的力（N），正 = 向下；断电就没有力 */
+    if(Math.abs(Fd)>1e-6){
+      var Lf=12+20*Math.min(1,Math.abs(Fd)/FMX),dn=Fd>0,xf=X(0.40),xu=X(0.58),fu=rgba(C.force,0.6);
+      if(dn){arrow(ctx,xf,yl+6,xf,yl+6+Lf,C.force,3,9);arrow(ctx,xu,yu-6,xu,yu-6-Lf,fu,2.6,8);}
+      else{arrow(ctx,xf,yl-6,xf,yl-6-Lf,C.force,3,9);arrow(ctx,xu,yu+6,xu,yu+6+Lf,fu,2.6,8);}
+      txt(ctx,'F',xf+8,dn?yl+6+Lf/2:yl-6-Lf/2,C.force,15,600,'left','middle',MATH);
+      txt(ctx,'F',xu+7,dn?yu-6-Lf/2:yu+6+Lf/2,fu,14,600,'left','middle',MATH);
+    }
+    /* 读数 → 力 */
+    var rd=Math.abs(m5.read)<0.0005?0:Math.round(m5.read*1000)/1000,cA,cB;
+    if(!on){cA='电流关着：I = 0 → 读数回到 0.000 g';cB='F = 0（没有力）';}
+    else{var ar=Math.abs(rd),kg=rd/1000;
+      cA='I = '+m5.I+' A → Δm = '+gfmt(rd)+' = '+(rd===0?'0':sci(kg,ar>=0.1?2:(ar>=0.01?1:0)))+' kg';
+      cB='F = Δm g = '+(rd===0?'0':sci(kg*G5,1))+' N'+(rd>0?'（下杆被往下推）':(rd<0?'（负号：下杆被往上拉）':''));}
+    var cw=o.wide?(o.gx-40-o.p):full;
+    fitTxt(ctx,cA,o.p,o.cA,C.ink,13,600,'left',cw);
+    fitTxt(ctx,cB,o.p,o.cB,C.ink,13,600,'left',cw);
+    /* ---- F–I² 图 ---- */
+    var gx=o.gx,gy=o.gy,gw=o.gw,gh=o.gh,YM=9,zy=gy+gh/2;
+    function GX(v){return gx+v/400*gw;}
+    function GY(v){return zy-v/YM*(gh/2);}
+    [-8,-4,4,8].forEach(function(v){seg(ctx,gx,GY(v),gx+gw,GY(v),C.grid,1);});
+    [100,200,300,400].forEach(function(v){seg(ctx,GX(v),gy,GX(v),gy+gh,C.grid,1);});
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1.2);seg(ctx,gx,zy,gx+gw,zy,C.muted,1.2);
+    [8,4,0,-4,-8].forEach(function(v){txt(ctx,(v<0?'−':'')+Math.abs(v),gx-6,GY(v)+4,C.muted,11,500,'right');});
+    [0,100,200,300,400].forEach(function(v){txt(ctx,String(v),GX(v),gy+gh+15,C.muted,11,500,'center');});
+    txt(ctx,'F = Δm g（× 10⁻³ N）',gx-28,gy-12,C.muted,12,600);
+    txt(ctx,'斜率 = μ₀l/(2πr)',gx+gw,gy-12,C.ink,12,600,'right');
+    txt(ctx,'相斥：读数上升',gx+6,gy+15,C.muted,12,500);
+    txt(ctx,'相吸：读数在 0 以下',gx+6,gy+gh-7,C.muted,12,500);
+    txt(ctx,'I²（A²）',gx+gw-3,zy+15,C.muted,11,500,'right');
+    ctx.save();ctx.beginPath();ctx.rect(gx-6,gy-6,gw+12,gh+12);ctx.clip();
+    [0.005,0.01].forEach(function(r){var col=r<0.0075?C.copper:C.violet;
+      [true,false].forEach(function(k){var nP=0;m5.pts.forEach(function(p){if(p.r===r&&p.k===k)nP++;});
+        if(nP>=2){var sl=(k?1:-1)*K5*L5/r*1000;seg(ctx,GX(0),GY(0),GX(400),GY(sl*400),rgba(col,0.75),1.8);}});});
+    m5.pts.forEach(function(p){dot(ctx,GX(p.x),GY(p.y),4.2,p.r<0.0075?C.copper:C.violet);});
+    if(on)ring(ctx,GX(m5.I*m5.I),GY(m5.read*G5),7,rgba(C.ink,0.7),1.6);
+    ctx.restore();
+    /* 图例：两种 r 的斜率 */
+    [0.005,0.01].forEach(function(r,i){var cur=Math.abs(m5.r-r)<1e-9,y=o.lg[i];
+      dot(ctx,gx-23,y-4,4.5,r<0.0075?C.copper:C.violet);
+      fitTxt(ctx,r<0.0075?'r = 5.0 mm：斜率 = 2.0 × 10⁻⁵ N A⁻²':'r = 10.0 mm：斜率 = 1.0 × 10⁻⁵ N A⁻²（减半）',gx-13,y,cur?C.ink:C.muted,12,cur?600:500,'left',W-o.p-(gx-13));});
+    fitTxt(ctx,'读数是按公式算的示意值，不是讲义的实验数据',gx-28,o.nt,C.muted,11.5,500,'left',W-o.p-(gx-28));
+  }
+});
+
+/* ---------- 控件 ---------- */
+/* 动了控件就马上通一阵电，立刻看到结果；暂停时直接显示稳定的读数并记点 */
+function poke(){m5.t=ON0;m5.since=0;m5.rec=false;if(!S5.playing){m5.read=tgt();addPt();}S5.render();}
+ri.addEventListener('input',function(){m5.auto=false;m5.hint=null;m5.hintT=0;setI(parseInt(ri.value,10)||0);poke();});
+function setLink(v){if(m5.link===v)return;m5.link=v;sync5();
+  m5.hint=v?['接上 flexible link：两根杆串联，电流一去一回（反向）→ 相斥','接上 link：电流一去一回 → 相斥']
+           :['去掉 flexible link：两根杆各接电源，电流同向 → 相吸','去掉 link：两杆电流同向 → 相吸'];
+  m5.hintT=4;poke();}
+function setR(v){if(Math.abs(m5.r-v)<1e-9)return;m5.r=v;sync5();
+  m5.hint=v>0.0075?['r 加倍 → 同样的 I，力只有一半 → 新直线的斜率减半（F ∝ 1/r）','r 加倍 → 力减半 → 斜率减半（F ∝ 1/r）']
+                  :['r 减半 → 同样的 I，力加倍 → 斜率加倍（F ∝ 1/r）','r 减半 → 力加倍 → 斜率加倍（F ∝ 1/r）'];
+  m5.hintT=4;poke();}
+bLon.addEventListener('click',function(){setLink(true);});
+bLoff.addEventListener('click',function(){setLink(false);});
+bR5.addEventListener('click',function(){setR(0.005);});
+bR10.addEventListener('click',function(){setR(0.01);});
+document.getElementById('s5-reset').addEventListener('click',function(){reset5();S5.setPlaying(true);S5.render();});
+})();
+</script>
+</body>
+</html>

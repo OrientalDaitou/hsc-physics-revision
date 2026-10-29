@@ -1,0 +1,1968 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M7 T3 光的粒子性</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m7">Module 7</a><span class="sep">/</span><span aria-current="page">Topic 3</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 7 · Topic 3</div>
+  <h1>Light as a Particle: Black Bodies and the Photoelectric Effect</h1>
+  <p class="h1-sub">光的粒子性：黑体辐射和光电效应 · <span style="white-space:nowrap">零基础讲解</span></p>
+  <p class="lead">这一章讲两件波动模型解释不了的事：热的东西怎样发光（黑体曲线），光怎样把电子从金属里打出来（光电效应）。答案是同一个想法：光的能量一份一份地来，一份是 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span>。记住下面<b>三条规则</b>，后面的公式都从这三条来。光电效应的那几个公式，都只是能量守恒。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Wien's displacement law</div>
+    <p><span class="t">Black body</span>（黑体）发的光只看温度。越热，曲线越高，峰越往短波走。</p>
+    <div class="eqs"><i>λ</i><sub>max</sub> = <i>b</i> / <i>T</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Planck's quanta</div>
+    <p>能量一份一份地给，一份叫 <span class="t">quantum</span>（量子）。频率决定一份有多大，亮度只决定有多少份。</p>
+    <div class="eqs"><i>E</i> = <i>hf</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">One photon → one electron</div>
+    <p>一个 <span class="t">photon</span>（光子）只把能量给一个电子。能量守恒：进来的 = 逃出来要的 + 剩下的动能。</p>
+    <div class="eqs"><i>hf</i> = <i>ϕ</i> + <i>K</i><sub>max</sub></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章内容">
+  <div class="map-row head"><span>部分</span><span>核心公式</span><span>一句话</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">3.1</span><span class="t">Black body curves</span></span><span><span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span></span><span>① 越热，曲线越高，峰越往短波走</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">3.1</span><span class="t">Ultraviolet catastrophe</span></span><span><span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span></span><span>② 能量一份一份；短波的一份太大，很少放出来</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">3.2</span><span class="t">Photoelectric effect</span></span><span><span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span></span><span>光打出电子；反向电压量出最快电子的动能</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">3.2</span><span class="t">Wave model fails</span></span><span>表 3.1</span><span>波动模型的预测，错了三条</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">3.3</span><span class="t">Einstein's photons</span></span><span><span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span></span><span>③ 一个 photon 只给一个电子</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">3.3</span><span class="t">Photoelectric graphs</span></span><span>gradient = <span class="m"><i>h</i></span></span><span>直线：斜率 <i>h</i>，截距 <i>f</i><sub>0</sub> 和 −<i>ϕ</i></span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">3.4</span><span class="t">Key experiments</span></span><span>2 个实验</span><span>测黑体曲线；测 <i>h</i> 和 <i>ϕ</i></span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是 kelvin 和 eV。</li>
+    <li>按 3.1 → 3.3 讲。每节先读“一句话”，再开动画，让学生自己说：变的是“一份有多大”（频率），还是“有多少份”（亮度）？</li>
+    <li>最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li><span class="t">EM spectrum</span>（电磁波谱）的顺序：radio → microwaves → <span class="t">infrared</span>（红外线）→ <span class="t">visible</span>（可见光，红到紫）→ <span class="t">UV</span>（ultraviolet，紫外线）→ X-rays → gamma。越往后，<span class="m"><i>f</i></span> 越高，<span class="m"><i>λ</i></span> 越短。真空里 <span class="m"><i>c</i>&nbsp;=&nbsp;<i>fλ</i></span>，<span class="m"><i>c</i>&nbsp;=&nbsp;3.00&nbsp;×&nbsp;10<sup>8</sup>&nbsp;m&nbsp;s<sup>−1</sup></span>（第 1 章）。</li>
+    <li>温度要换成 <span class="t">kelvin</span>（开尔文，K）：<span class="m"><i>T</i>(K)&nbsp;=&nbsp;<i>T</i>(°C)&nbsp;+&nbsp;273</span>。例如 27 °C = 300 K。</li>
+    <li>电压做功 <span class="m"><i>W</i>&nbsp;=&nbsp;<i>qV</i></span>。电子电荷的大小 <span class="m"><i>q</i>&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C</span>。一个电子走过 1 V，得到的能量是 1 <span class="t">electron volt</span>（电子伏特，eV）：<span class="m">1&nbsp;eV&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;J</span>。动能 <span class="m"><i>K</i>&nbsp;=&nbsp;½<i>mv</i>²</span>。</li>
+    <li>第 2 章的结论：干涉和衍射说明光是波。在 <span class="t">wave model</span>（波动模型）里，光越亮 = <span class="t">amplitude</span>（振幅）越大 = 能量越多。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">3.1</div>
+  <h2>热的东西怎样发光<span class="en">Black body radiation: the black body curve and Wien's law</span></h2>
+  <p class="big"><span class="lbl">一句话</span>黑体发出的光只看它的温度。1900 年 Planck 解释了曲线为什么是这个形状：能量一份一份地放出去，一份是 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span>。</p>
+  <ul class="pts">
+    <li>所有物体都因为自己的温度，向外发出 EM 波，叫 <span class="t">thermal radiation</span>（热辐射）。原因：物体里的电荷在振动，振动的电荷发出 EM 波。不太热的东西，发的大多是看不见的 infrared。</li>
+    <li>Black body：一个理想的物体。照到它上面的辐射，它<b>全部</b>吸收。它也是最好的发射体（<span class="t">perfect emitter</span>）。</li>
+    <li>一个空心盒子开一个很小的孔，就差不多是 black body：光从小孔进去，就出不来了。恒星也差不多是 black body。</li>
+    <li>例子：<span class="t">lava</span>（熔岩，约 1000 K 到 1500 K）的峰在 infrared，发暗红光。<span class="t">Sun</span>（太阳，5800 K）看起来是白的。更热的恒星看起来蓝白。</li>
+    <li>Wien（1893）：<span class="m"><i>λ</i><sub>max</sub></span> 和 <span class="m"><i>T</i></span> 成<b>反比</b>（<span class="t">inversely proportional</span>）。<span class="m"><i>T</i></span> 翻倍，<span class="m"><i>λ</i><sub>max</sub></span> 减半。</li>
+    <li><span class="t">Intensity</span>（光强，也叫强度）：每秒落在每平方米上的辐射能量。黑体曲线的纵轴就是它，横轴是波长。</li>
+  </ul>
+
+  <h3>黑体曲线的四个特点</h3>
+  <ol class="pts">
+    <li>只有一个峰，在 <span class="t">peak wavelength</span>（峰值波长）<span class="m"><i>λ</i><sub>max</sub></span>：曲线最高的那个波长。短波一侧爬得很陡，长波一侧拖着一条长尾巴。</li>
+    <li>越热的物体，在<b>每一个</b>波长上都更高。两条曲线永远不相交。</li>
+    <li>越热，峰越往短波走。</li>
+    <li>曲线只看温度，不看是什么材料。</li>
+  </ol>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>温度</th><th>峰值波长（讲义图 3.1）</th><th>峰值波长 × 温度（计算值）</th></tr></thead>
+      <tbody>
+        <tr><td>6500&nbsp;K</td><td>446&nbsp;nm</td><td>≈ 2.90 × 10<sup>−3</sup>&nbsp;m&nbsp;K</td></tr>
+        <tr><td>5500&nbsp;K</td><td>527&nbsp;nm</td><td>≈ 2.90 × 10<sup>−3</sup>&nbsp;m&nbsp;K</td></tr>
+        <tr><td>4500&nbsp;K</td><td>644&nbsp;nm</td><td>≈ 2.90 × 10<sup>−3</sup>&nbsp;m&nbsp;K</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>越热，峰越靠左。<span class="m"><i>λ</i><sub>max</sub>&nbsp;×&nbsp;<i>T</i></span> 每次都差不多一样，这就是 Wien's law。</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Wien's displacement law · 维恩位移定律</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>λ</i><sub>max</sub> = <i>b</i> / <i>T</i></div>
+    <dl class="sym">
+      <div><dt>λ<sub>max</sub></dt><dd>黑体曲线的峰值波长 (m)</dd></div>
+      <div><dt>b</dt><dd>Wien's displacement constant（维恩位移常量），2.898 × 10<sup>−3</sup> m K (m K)</dd></div>
+      <div><dt>T</dt><dd>物体的热力学温度 (K)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>black body 或差不多是 black body 的东西：恒星、lava、烧热的金属、人。<br><b>例子：</b>Sun，<span class="m"><i>T</i>&nbsp;=&nbsp;5800&nbsp;K</span>：<span class="m"><i>λ</i><sub>max</sub> = 2.898 × 10<sup>−3</sup> / 5800 = 5.00 × 10<sup>−7</sup> m = 500 nm</span>。<br><b>陷阱：</b><span class="m"><i>T</i></span> 一定用 kelvin（°C 加 273）。<span class="m"><i>λ</i><sub>max</sub></span> 算出来是 m（1 nm = 10<sup>−9</sup> m）。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Celsius to kelvin · 摄氏度换成开尔文</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>T</i>(K) = <i>T</i>(°C) + 273</div>
+    <dl class="sym">
+      <div><dt>T(K)</dt><dd><span class="t">absolute temperature</span>（热力学温度）(K)</dd></div>
+      <div><dt>T(°C)</dt><dd>摄氏温度 (°C)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b>25 °C = 25 + 273 = 298 K。<br><b>陷阱：</b>只要公式里的 <span class="m"><i>T</i></span> 是温度（比如 <span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span>），就先换成 K。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · 黑体曲线随温度移动</span><span class="sim-tag">曲线按 Planck 公式画 · 峰的位置：计算值 · 1200&nbsp;K、10&nbsp;000&nbsp;K、物体颜色：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边是一个在暗处发光的热物体，不断向四周放出小波包：看得见的波包是它真实的颜色，看不见的 IR 和 UV 波包是琥珀色虚线。右边是它的黑体曲线（相对强度对波长，0 到 3000 nm），visible 那一段有彩色底，峰上标着 λmax。温度升高，峰往短波（左边）移动，物体从暗红变成白，再变成蓝白。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">温度 <i>T</i> <input type="range" id="s1-T" min="1000" max="10000" step="100" value="5800"><output id="s1-T-out" for="s1-T">5800 K</output></label>
+      <span class="seg" role="group" aria-label="快捷温度：lava 1200 K、Sun 5800 K、蓝白恒星 10 000 K">
+        <button class="btn" type="button" id="s1-lava" aria-pressed="false" aria-label="lava 1200 K">lava</button>
+        <button class="btn" type="button" id="s1-sun" aria-pressed="true" aria-label="Sun 5800 K">Sun</button>
+        <button class="btn" type="button" id="s1-star" aria-pressed="false" aria-label="蓝白恒星 10 000 K">蓝白恒星</button>
+      </span>
+      <button class="btn" type="button" id="s1-book" aria-pressed="false">讲义三条曲线：关</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看播放：温度在 1000 K 和 10 000 K 之间来回慢慢变。越热，峰（<i>λ</i><sub>max</sub>）越往左边（短波）走，左边的物体从暗红变成白，再变成蓝白。拖一下 <i>T</i>，扫动就停下；再按“播放”接着扫。② 按“lava”（1200 K）：峰在 infrared，彩色的 visible 那一段下面几乎没有面积，几乎全是琥珀色虚线的 IR 波包，所以只发暗红光。再按“Sun”（5800 K）：峰落在 visible 里，各种颜色都很多，所以看起来发白。③ 把 <i>T</i> 从 3000 K 拖到 6000 K：<i>λ</i><sub>max</sub> 从 966 nm 变成 483 nm，正好减半（<i>λ</i><sub>max</sub> = <i>b</i>/<i>T</i>，成反比，不是平移）。④ 打开“讲义三条曲线”：4500、5500、6500 K 用同一把尺画（6500 K 的峰 = 1），越热的曲线在每个波长都更高，永远不相交。只看一条曲线时 y 轴会自动放大，右上角的“放大 × N”越大，说明这条曲线其实越矮（10 000 K 时 × 1）。曲线形状按 Planck 公式算，<i>λ</i><sub>max</sub> 按 <i>b</i> = 2.898 × 10<sup>−3</sup> m K 算；1200 K（讲义：lava 约 1000–1500 K）、10 000 K、物体的颜色和波包的多少是示意。</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">3.1</div>
+  <h2>紫外灾难和 Planck 的能量台阶<span class="en">The ultraviolet catastrophe · Planck's idea: energy comes in packets</span></h2>
+  <p class="big"><span class="lbl">一句话</span>老的物理预测：波长越短，光越多，一直到无穷大。真实曲线却掉到 0。Planck 说：能量只能一份一份地给，短波的那一份太大，很少给得出来。</p>
+
+  <h3>老的物理错在哪</h3>
+  <ul class="pts">
+    <li><span class="t">Classical physics</span>（经典物理学，1900 年以前的物理）：光是波，能量可以是<b>任何</b>大小。</li>
+    <li>它对黑体曲线的预测叫 <span class="t">Rayleigh–Jeans law</span>（瑞利–金斯公式）。在长波一侧，它和测量曲线对得上；波长越长，两条线靠得越近。</li>
+    <li>在短波一侧，它一直往上涨，没有尽头。加起来，总能量会是无穷大。真实的曲线却掉到 0。</li>
+    <li>这个错误的预测叫 <span class="t">ultraviolet catastrophe</span>（紫外灾难）：1900 年以前的物理预测，在短波（UV 那边）intensity 无穷大。</li>
+    <li>讲义图 3.2 画的是 <span class="m"><i>T</i>&nbsp;=&nbsp;5000&nbsp;K</span>：经典预测冲向无穷大，测量曲线（Planck 的公式对得上它）有一个峰，再落下来。</li>
+  </ul>
+  <p><b>为什么错：</b>热盒子里，波长越短，能放下的驻波样式（<span class="t">standing-wave patterns</span>）越多。经典物理给每个样式分一样多的能量。样式越来越多，总能量就是无穷大。就像每个小朋友都要分一样多的糖，小朋友无穷多，糖就要无穷多。</p>
+
+  <h3>Planck 的想法：能量一份一份地来</h3>
+  <ul class="pts">
+    <li>Planck（1900）：墙里振动的电荷叫 <span class="t">oscillators</span>（振子）。它们的能量是 <span class="t">quantised</span>（量子化的）：像台阶，只能是 <span class="m">0,&nbsp;<i>hf</i>,&nbsp;2<i>hf</i>,&nbsp;3<i>hf</i>,&nbsp;…</span>，不能停在两级中间。</li>
+    <li>所以它们放出或吸收能量，只能一份一份地来，一份 <span class="m"><i>hf</i></span>。一份叫一个 quantum（复数 <span class="t">quanta</span>）。<span class="m"><i>h</i></span> 是 <span class="t">Planck's constant</span>（普朗克常量），6.626 × 10<sup>−34</sup> J s。</li>
+    <li>经典物理像一个斜坡：能量可以停在任何高度。Planck 像楼梯：只能站在某一级上。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">低 <i>f</i>（长波）</div><p>每级台阶 <span class="m"><i>hf</i></span> 很小，小到像斜坡。所以在这里，Planck 和经典物理的结果一样。</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">高 <i>f</i>（短波）</div><p>一级台阶 <span class="m"><i>hf</i></span> 比 oscillator 平时有的热能还大。它很难爬上第一级，<b>很少放出 quanta</b>，所以曲线掉到 0。</p></div>
+  </div>
+  <ul class="pts">
+    <li>类比：一台游戏机一次要投 10 个币，你平时手里只有两三个币，几乎玩不了。短波的一份 <span class="m"><i>hf</i></span> 就是这“10 个币”。</li>
+    <li>Planck 的公式在每个波长都和测量曲线对得上。他自己觉得 quanta 只是一个数学技巧（<span class="t">maths trick</span>）。但它开启了光的 <span class="t">quantum model</span>（量子模型）。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy of one quantum (photon) · 一份量子（一个光子）的能量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>E</i> = <i>hf</i></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>一份 quantum（一个 photon）的能量 (J)</dd></div>
+      <div><dt>h</dt><dd>Planck's constant，6.626 × 10<sup>−34</sup> J s，data sheet 上有 (J s)</dd></div>
+      <div><dt>f</dt><dd>辐射的频率 (Hz)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>任何 EM 辐射，求一份 quantum 或一个 photon 的能量。<br><b>例子：</b><span class="m"><i>f</i>&nbsp;=&nbsp;10&nbsp;×&nbsp;10<sup>14</sup>&nbsp;Hz</span>：<span class="m"><i>E</i> = 6.626 × 10<sup>−34</sup> × 1.0 × 10<sup>15</sup> = 6.626 × 10<sup>−19</sup> J</span>，除以 1.602 × 10<sup>−19</sup>，约 4.14 eV。<br><b>陷阱：</b><span class="m"><i>E</i></span> 算出来是 J。1 eV = 1.602 × 10<sup>−19</sup> J（data sheet）。J → eV：除以 1.602 × 10<sup>−19</sup>。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Photon energy from the wavelength · 用波长求光子能量</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>E</i> = <i>hc</i> / <i>λ</i></div>
+    <dl class="sym">
+      <div><dt>c</dt><dd>光速，3.00 × 10<sup>8</sup> m s<sup>−1</sup> (m s<sup>−1</sup>)</dd></div>
+      <div><dt>λ</dt><dd>波长 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b>sheet 上印的是 <span class="m"><i>v</i>&nbsp;=&nbsp;<i>fλ</i></span>，不是 <span class="m"><i>c</i>&nbsp;=&nbsp;<i>fλ</i></span>。光在真空里，放 <span class="m"><i>v</i>&nbsp;=&nbsp;<i>c</i></span>：<span class="m"><i>f</i>&nbsp;=&nbsp;<i>c</i>/<i>λ</i></span>，代进 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span>，就是 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hc</i>/<i>λ</i></span>。<br><b>例子：</b><span class="m"><i>λ</i>&nbsp;=&nbsp;500&nbsp;nm</span>：<span class="m"><i>E</i> = 6.626 × 10<sup>−34</sup> × 3.00 × 10<sup>8</sup> / (500 × 10<sup>−9</sup>) = 3.98 × 10<sup>−19</sup> J</span>，约 2.48 eV。<br><b>陷阱：</b><span class="m"><i>λ</i></span> 先从 nm 换成 m。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Planck's energy steps · Planck 的能量台阶</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq">0, <i>hf</i>, 2<i>hf</i>, 3<i>hf</i>, …</div>
+    <dl class="sym">
+      <div><dt>f</dt><dd>oscillator 的振动频率 (Hz)</dd></div>
+      <div><dt>h</dt><dd>Planck's constant (J s)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>这只是一个想法，不用来计算。要会说：oscillator 的能量只能是这些台阶，所以一次只能放出或吸收一份 <span class="m"><i>hf</i></span>。</p>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · 紫外灾难和 Planck 的能量台阶</span><span class="sim-tag">T = 5000 K（讲义图 3.2）· 台阶高度：计算值 · <span style="white-space:nowrap">样式数</span>、热能线：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左图：5000 K 时测量的黑体曲线（实线）和经典预测（虚线）。经典预测在短波一侧冲出图顶，冲向无穷大；一条竖线指着选中的波长。右边：经典模式画一个热盒子，里面的 standing-wave patterns 随波长变短越来越多，每个分一样多的能量，这个波长的能量柱冲出顶部；Planck 模式画能量台阶 0、hf、2hf……，一个 oscillator 小球被热运动踢，爬上一级再掉下来，就放出一份 quantum。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">波长 <i>λ</i> <input type="range" id="s2-lam" min="100" max="4000" step="10" value="300"><output id="s2-lam-out" for="s2-lam">300 nm</output></label>
+    <span class="seg" role="group" aria-label="用哪种物理">
+      <button class="btn" type="button" id="s2-cl" aria-pressed="true">经典 classical</button>
+      <button class="btn" type="button" id="s2-pl" aria-pressed="false">Planck 台阶</button>
+    </span>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看“经典”：λ = 300 nm 在图的左边（短波 = 高 <i>f</i>）。盒子里的 standing-wave patterns 很多，每个分一样多的能量，这个 λ 的能量柱冲出顶部。λ 越短越高，没有尽头，加起来总能量 = ∞；可是实线（测量曲线）在往 0 掉。② 把 λ 拖到 4000 nm（长波 = 低 <i>f</i>）：样式变少，两条曲线靠得很近：波长越长，经典预测越准。③ 换成“Planck 台阶”：4000 nm 时一级台阶 <i>hf</i> = 0.310 eV，比热能虚线还矮，小球常被踢上去、再掉下来，每掉一级放出一份 quantum。④ 把 λ 拖回 200 nm：第一级 <i>hf</i> = 6.20 eV，远远高过热能，小球一直待在 0 级，几乎不放 quanta，所以曲线掉到 0。<i>hf</i> = <i>hc</i>/<i>λ</i> 是用讲义常数算的计算值；样式的数目、热能虚线（按 5000 K 的真实比例画）和“踢”的节奏都是示意。</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">3.2</div>
+  <h2>光把电子打出来<span class="en">The photoelectric effect: evidence against the wave model · Stopping voltage</span></h2>
+  <p class="big"><span class="lbl">一句话</span>光能把电子从金属里打出来。实验发现，wave model 的三个预测都是错的。</p>
+  <ul class="pts">
+    <li><span class="t">Photoelectric effect</span>（光电效应）：光照在金属表面上，电子被放出来。</li>
+    <li>Hertz 最早看到它（1887）：UV 帮火花跳过 <span class="t">spark gap</span>（火花隙：两个金属球之间的一小段空气）。Lenard 用真空管测量了它（1902）。</li>
+  </ul>
+
+  <h3>装置（讲义图 3.3）</h3>
+  <ul class="pts">
+    <li>光照在金属 <span class="t">cathode</span>（阴极）上，打出电子，叫 <span class="t">photoelectrons</span>（光电子）。它们飞过真空，到 <span class="t">anode</span>（阳极）。</li>
+    <li><span class="t">Microammeter</span>（微安表：测很小电流的表）测 <span class="t">photocurrent</span>（光电流）。电流大 = 每秒的电子<b>多</b>，不是电子<b>快</b>。</li>
+    <li>管子里是真空：电子不会撞到空气分子。窗子是 <span class="t">quartz</span>（石英）做的，让 UV 进来（玻璃会吸收 UV）。</li>
+    <li>电路里有一个能反过来接的电源和一个电压表（<span class="t">reversible supply and voltmeter</span>）。讲义图 3.3 里 anode 是负的，这是用来找 <span class="m"><i>V</i><sub>0</sub></span> 的接法。</li>
+    <li><b><span class="t">Electroscope</span>（验电器）演示：</b>electroscope 里有一片很薄的金箔，带电时金箔张开。把一块带负电的锌板放在上面。用 UV 照，金箔落下：电子离开了锌板。用很亮的可见光照，金箔不动。</li>
+  </ul>
+
+  <h3>Stopping voltage（遏止电压）</h3>
+  <ul class="pts">
+    <li>让 anode 变成负的。它把电子往回推。</li>
+    <li>电子出来时速度有快有慢。最快的那些有 <span class="t">maximum kinetic energy</span>（最大初动能）<span class="m"><i>K</i><sub>max</sub></span>。</li>
+    <li>反向电压慢慢加大。到 <span class="m"><i>V</i><sub>0</sub></span> 时，连最快的电子也刚好停在 anode 前面，所以 <span class="m"><i>I</i>&nbsp;=&nbsp;0</span>。<span class="m"><i>V</i><sub>0</sub></span> 叫 <span class="t">stopping voltage</span>：让每个 photoelectron 都停下来、电流为 0 的最小反向电压。</li>
+    <li>类比：往坡上滚球。坡（反向电压）越高，球要越快才翻得过去。<span class="m"><i>V</i><sub>0</sub></span> 就是连最快的球也刚好翻不过去的那个高度。</li>
+    <li><span class="m"><i>V</i><sub>0</sub></span> 是电压（V）；<span class="m"><i>K</i><sub>max</sub></span> 是能量（J 或 eV）。用 eV 时，<span class="m"><i>K</i><sub>max</sub></span> 的数字和 <span class="m"><i>V</i><sub>0</sub></span> 的伏特数一样。例如 <span class="m"><i>V</i><sub>0</sub>&nbsp;=&nbsp;2.04&nbsp;V</span>，<span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;2.04&nbsp;eV</span>。</li>
+    <li><b>最快电子的速度：</b>把 <span class="m"><i>K</i><sub>max</sub></span>（用 J）代进 <span class="m"><i>K</i>&nbsp;=&nbsp;½<i>mv</i>²</span>（在 sheet 上），<span class="m"><i>m</i></span> = 电子的质量。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Work done by a voltage · 电压做的功</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>W</i> = <i>qV</i></div>
+    <dl class="sym">
+      <div><dt>W</dt><dd>电压对电荷做的功 (J)</dd></div>
+      <div><dt>q</dt><dd>电荷的大小；电子是 1.602 × 10<sup>−19</sup> C (C)</dd></div>
+      <div><dt>V</dt><dd>电压 (V)</dd></div>
+    </dl>
+    <p class="trap"><b>这里怎么用：</b>一个电子走过 1 V：<span class="m"><i>W</i> = 1.602 × 10<sup>−19</sup> × 1 = 1.602 × 10<sup>−19</sup> J</span>，这就是 1 eV。反向电压对最快的电子做功 <span class="m"><i>W</i>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span>，就得到下面的 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span>。<br><b>陷阱：</b><span class="m"><i>q</i></span> 用大小，不带负号。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Stopping voltage to maximum kinetic energy · 遏止电压和最大初动能</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><i>K</i><sub>max</sub> = <i>qV</i><sub>0</sub></div>
+    <dl class="sym">
+      <div><dt>K<sub>max</sub></dt><dd>最快 photoelectron 的动能 (J)</dd></div>
+      <div><dt>q</dt><dd>电子电荷的<b>大小</b>，1.602 × 10<sup>−19</sup> C (C)</dd></div>
+      <div><dt>V<sub>0</sub></dt><dd>stopping voltage (V)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么来的：</b><span class="m"><i>W</i>&nbsp;=&nbsp;<i>qV</i></span> 在 sheet 上。反向电压对最快的电子做功 <span class="m"><i>W</i>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span>，把它的动能全部拿走。<br><b>陷阱：</b>data sheet 印的是 <span class="m"><i>q</i><sub>e</sub>&nbsp;=&nbsp;−1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C</span>。代进公式时用它的大小 1.602 × 10<sup>−19</sup> C。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Kinetic energy · 动能</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>K</i> = ½<i>mv</i>²</div>
+    <dl class="sym">
+      <div><dt>K</dt><dd>动能 (J)</dd></div>
+      <div><dt>m</dt><dd>电子质量，9.109 × 10<sup>−31</sup> kg (kg)</dd></div>
+      <div><dt>v</dt><dd>速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b><span class="m"><i>V</i><sub>0</sub>&nbsp;=&nbsp;2.0&nbsp;V</span>，所以 <span class="m"><i>K</i><sub>max</sub> = 2.0 eV = 2.0 × 1.602 × 10<sup>−19</sup> = 3.20 × 10<sup>−19</sup> J</span>。<span class="m"><i>v</i> = √(2 × 3.20 × 10<sup>−19</sup> / (9.109 × 10<sup>−31</sup>)) ≈ 8.4 × 10<sup>5</sup> m s<sup>−1</sup></span>。<br><b>陷阱：</b><span class="m"><i>K</i></span> 一定先换成 J，不能直接用 eV。</p>
+  </div>
+
+<figure class="sim" id="sim3">
+    <figcaption class="sim-head"><span class="sim-title">动画 3 · 遏止电压和 <i>I</i>–<i>V</i> 图</span><span class="sim-tag">caesium 阴极 · 最大初动能、遏止电压：计算值 · <span style="white-space:nowrap">电流、速度分布：示意</span>（照讲义图&nbsp;3.5 理想化）</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边是真空管：光从 quartz 窗照到 caesium cathode 上，打出的电子以不同的速度飞向 anode。anode 变负时，紫色的电场线从 cathode 指向 anode，电子受的绿色力指回 cathode，慢的电子半路掉头；下面的 microammeter 指针显示电流。右边是 photocurrent 对管电压的 I–V 图：拖电压，曲线跟着画出来，横轴上标出 −V0。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">管电压 <i>V</i> <input type="range" id="s3-V" min="-3" max="2" step="0.01" value="-1"><output id="s3-V-out" for="s3-V">−1.00 V</output></label>
+      <label class="range">频率 <i>f</i> <input type="range" id="s3-f" min="6" max="12" step="0.1" value="10"><output id="s3-f-out" for="s3-f">10.0 × 10<sup>14</sup> Hz</output></label>
+      <span class="seg" role="group" aria-label="亮度（每秒的 photon 数）">
+        <button class="btn" type="button" id="s3-b1" aria-pressed="true">亮度 × 1</button>
+        <button class="btn" type="button" id="s3-b2" aria-pressed="false">亮度 × 2</button>
+      </span>
+      <button class="btn" type="button" id="s3-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 第一帧 <i>V</i> = −1.00 V：anode 是负的，紫色的电场把电子往回推（绿色的力指回 cathode），慢的电子半路掉头，只有一部分到得了 anode。② 把 <i>V</i> 慢慢往左拖到 −2.04 V：连最快的电子（<i>K</i><sub>max</sub> = 2.04 eV）也刚好停在 anode 前，电流 = 0。这个电压的大小就是 stopping voltage <i>V</i><sub>0</sub>，所以 <i>K</i><sub>max</sub> = <i>qV</i><sub>0</sub>。③ 再往右拖到正的：所有电子都被收走，曲线变平，这一段叫 saturation current（饱和电流），再加电压也不变。④ 按“亮度 × 2”：平的部分 × 2，但 −<i>V</i><sub>0</sub> 不动（和虚线的旧曲线比）。⑤ 把 <i>f</i> 拖到 12 × 10<sup>14</sup> Hz：电子更快，−<i>V</i><sub>0</sub> 往左移到 −2.86 V。这里的“亮度”指每秒的 photon 数。<i>K</i><sub>max</sub> 用讲义的 caesium <i>ϕ</i> = 2.1 eV 和 <i>h</i> = 4.136 × 10<sup>−15</sup> eV s 按 <i>K</i><sub>max</sub> = <i>hf</i> − <i>ϕ</i>（3.3 节会讲）算出，是计算值；电子速度的分布和电流的大小照讲义图 3.5（理想化）画，是示意。</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">3.2</div>
+  <h2>Wave model 的预测，错了三条<span class="en">What the wave model predicted</span></h2>
+  <p class="big"><span class="lbl">一句话</span>按 wave model，光的能量看亮度，不看频率，而且慢慢地、均匀地铺在整个金属表面上。实验一看，四条预测错了三条。</p>
+  <p>在 wave model 里，光的能量看亮度（amplitude），不看频率。能量平平地铺开，洒在整个表面上（表 3.1）。像毛毛雨：均匀地落在整块地上，每一处慢慢变湿。</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Wave model 预测</th><th>实验看到</th><th style="white-space:nowrap">对吗</th></tr></thead>
+      <tbody>
+        <tr><td>光越亮，每秒电子越多（电流越大）。</td><td>光越亮，电流越大（在 <span class="m"><i>f</i>&nbsp;≥&nbsp;<i>f</i><sub>0</sub></span> 时）。</td><td>对</td></tr>
+        <tr><td>只要够亮，任何频率都行。</td><td>有 <span class="t">threshold frequency</span>（截止频率）<span class="m"><i>f</i><sub>0</sub></span>：低于它，再亮也没有电子。</td><td><b>错</b></td></tr>
+        <tr><td>光很暗时，要等一会儿，电子先攒够能量。</td><td>没有延迟：电子马上出来（不到 10<sup>−9</sup> s）。</td><td><b>错</b></td></tr>
+        <tr><td>光越亮，电子越快（<span class="m"><i>V</i><sub>0</sub></span> 越大）。</td><td><span class="m"><i>V</i><sub>0</sub></span> 和亮度无关。它随 <span class="m"><i>f</i></span> 直线上升。</td><td><b>错</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Threshold frequency：能从一种金属里打出电子的最低频率。</p>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Wave model：能量铺开</div><p>能量看亮度，均匀地洒在整个表面。每个电子只分到一点点，要慢慢攒。像毛毛雨。</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">实验：能量一包一包</div><p>能量集中在一包一包里，每包 <span class="m"><i>hf</i></span>。一包打中一个电子，马上给完。像冰雹，一颗打一个地方。</p></div>
+  </div>
+  <p><b>结论：</b>光的能量不可能像波一样铺开来。它一定是一包一包、集中地来，每包 <span class="m"><i>hf</i></span>。</p>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">动画 4 · Wave model 的预测 vs 实验（photon）</span><span class="sim-tag">同一块锌板演两遍 · 能量：计算值 · 波长、亮度、<span style="white-space:nowrap">等待时间</span>：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="同一块锌板、同一束光，演两遍。一格按 wave model：光是连续的波，能量均匀铺在所有电子上，每个电子下面的能量条一起慢慢涨，涨到 ϕ = 4.3 eV 才飞出。另一格按实验（photon model）：光是一个个分开的 photon，每个只打一个电子：hf 够大，电子马上飞出；不够大，能量变成热，不会攒。两格都有“开灯后第一个电子”的计时。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="光的颜色：可见光 500 nm 或 UV 250 nm（示意）">
+      <button class="btn" type="button" id="s4-vis" aria-pressed="false">可见光 500 nm</button>
+      <button class="btn" type="button" id="s4-uv" aria-pressed="true">UV 250 nm</button>
+    </span>
+    <label class="range">亮度 <input type="range" id="s4-bright" min="1" max="10" step="1" value="2"><output id="s4-bright-out" for="s4-bright">2</output></label>
+    <button class="btn" type="button" id="s4-reset">重新开灯</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看暗的 UV（亮度 2）：wave model 那一格，所有电子的能量条一起慢慢涨，要涨到 <i>ϕ</i> = 4.3 eV 那条线才一起飞出，要等好几秒；实验那一格，第一个 photon 一到，电子马上飞出（讲义：不到 10<sup>−9</sup> s），只是电子少。② 按“可见光 500 nm”，把亮度拉到 10：wave model 说够亮就行，1 s 就攒够了；实验里 photon 反而更多：这里的亮度 = 每秒照来的光能，同样的光能，500 nm 的 photon 个数是 250 nm 的两倍（<i>N</i>/<i>t</i> = <i>P</i>/<i>hf</i>）。可是每个只有 <i>hf</i> = 2.48 eV。能量条跳到一半，就变成热掉回 0。两个 photon 的能量不会加起来，所以一个电子也不出来。这就是讲义的验电器演示：亮的可见光不行，UV 可以。③ 换回 UV，把亮度从 1 拉到 10：实验那一格电子越来越多，但 <i>K</i><sub>max</sub> 一直是 4.96 − 4.3 = 0.66 eV（铜色那一小截）；wave model 却说电子会飞得更快（箭头更长）。改亮度会重新开灯、重新计时。<i>hf</i> = <i>hc</i>/<i>λ</i> 用讲义常数算（计算值）；<i>ϕ</i> = 4.3 eV 和“不到 10<sup>−9</sup> s”来自讲义；500 nm、250 nm、亮度档、wave model 的等待时间、画面上 photon 的多少和快慢都是示意（真实的光每秒有极多的 photon）。</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">3.3</div>
+  <h2>Einstein：光就是一个个 photon<span class="en">Einstein's photon model</span></h2>
+  <p class="big"><span class="lbl">一句话</span>1905 年 Einstein 说：光本身就是一串 photon，每个的能量是 <span class="m"><i>hf</i></span>。一个 photon 把全部能量给一个电子，用能量守恒就得到 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span>。</p>
+  <ul class="pts">
+    <li>Photon：一包（一个 quantum）光，能量 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span>。</li>
+    <li>同一种颜色，更亮 = 每秒的 photon <b>更多</b>。每个 photon 的能量还是 <span class="m"><i>hf</i></span>，不变。</li>
+    <li><b>一个 photon 只和一个电子作用</b>，一次就把全部能量给它。两个 photon 的能量永远不会加起来。像一台只收一枚硬币的机器：要 5 元，你投 1 元的硬币，投一百枚也没用。</li>
+    <li>每种金属有自己的 <span class="t">work function</span>（逸出功）<span class="m"><i>ϕ</i></span>：从金属表面拿出一个电子，最少要的能量。例如 <span class="t">caesium</span>（铯）2.1 eV，<span class="t">zinc</span>（锌）4.3 eV。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Einstein's photoelectric equation · 爱因斯坦光电效应方程</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>K</i><sub>max</sub> = <i>hf</i> − <i>ϕ</i></div>
+    <dl class="sym">
+      <div><dt>K<sub>max</sub></dt><dd>photoelectrons 的最大初动能 (J 或 eV)</dd></div>
+      <div><dt>h</dt><dd>Planck's constant，6.626 × 10<sup>−34</sup> J s (J s)</dd></div>
+      <div><dt>f</dt><dd>光的频率 (Hz)</dd></div>
+      <div><dt>ϕ</dt><dd>金属的 work function (J 或 eV)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>光照在金属上，而且 <span class="m"><i>hf</i>&nbsp;≥&nbsp;<i>ϕ</i></span>。如果 <span class="m"><i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span> 是负的，就没有电子出来。<br><b>怎么来的：</b>一个 photon 和 <span class="t">least-bound electron</span>（束缚最弱的电子：最容易拿出来的那个）之间的能量守恒：进来的能量 = 逃出来要的能量 + 剩下的。所以 <span class="m"><i>hf</i>&nbsp;=&nbsp;<i>ϕ</i>&nbsp;+&nbsp;<i>K</i><sub>max</sub></span>，<span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span>。更深的电子要的能量比 <span class="m"><i>ϕ</i></span> 多，所以出来更慢。<br><b>陷阱：</b>每一项用同一个单位：全用 J，或全用 eV。<span class="m"><i>ϕ</i></span> 是小写的 phi；sheet 上大写的 Φ 是磁通量。</p>
+  </div>
+
+  <h3>Photon model（光子模型）解释了表 3.1 的每一条</h3>
+  <ul class="pts">
+    <li><b>电流更大：</b>每秒 photon 更多，每秒放出的电子就更多。</li>
+    <li><b>Threshold：</b>一个 photon 至少要给 <span class="m"><i>ϕ</i></span>，所以要 <span class="m"><i>hf</i>&nbsp;≥&nbsp;<i>ϕ</i></span>。</li>
+    <li><b>没有延迟：</b>每个 photon 一次就把全部能量给完。</li>
+    <li><b><span class="m"><i>K</i><sub>max</sub></span> 只看 <span class="m"><i>f</i></span>（和金属），不看亮度：</b>亮度改变的是 photon 的个数，不是 <span class="m"><i>hf</i></span>。</li>
+  </ul>
+
+  <h3>刚好打得出电子：threshold</h3>
+  <ul class="pts">
+    <li>在 threshold <span class="m"><i>f</i><sub>0</sub></span>，最快的电子也什么都不剩。把 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;0</span> 放进 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span>，就得到 <span class="m"><i>ϕ</i>&nbsp;=&nbsp;<i>hf</i><sub>0</sub></span>。</li>
+    <li><span class="t">Threshold wavelength</span>（截止波长）<span class="m"><i>λ</i><sub>0</sub></span>：能打出电子的最长波长。只有 <span class="m"><i>f</i>&nbsp;≥&nbsp;<i>f</i><sub>0</sub></span>（<span class="m"><i>λ</i>&nbsp;≤&nbsp;<i>λ</i><sub>0</sub></span>）才有电子，光再亮也没用。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Threshold frequency and wavelength · 截止频率和截止波长</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>ϕ</i> = <i>hf</i><sub>0</sub><br><i>λ</i><sub>0</sub> = <i>c</i> / <i>f</i><sub>0</sub> = <i>hc</i> / <i>ϕ</i></div>
+    <dl class="sym">
+      <div><dt>f<sub>0</sub></dt><dd>threshold frequency (Hz)</dd></div>
+      <div><dt>λ<sub>0</sub></dt><dd>threshold wavelength (m)</dd></div>
+      <div><dt>ϕ</dt><dd>work function (J)</dd></div>
+      <div><dt>c</dt><dd>光速 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>在 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span> 里放 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;0</span>，得 <span class="m"><i>ϕ</i>&nbsp;=&nbsp;<i>hf</i><sub>0</sub></span>；再用 <span class="m"><i>c</i>&nbsp;=&nbsp;<i>fλ</i></span>。<br><b>例子：</b>zinc，<span class="m"><i>ϕ</i> = 4.3 eV = 4.3 × 1.602 × 10<sup>−19</sup> = 6.89 × 10<sup>−19</sup> J</span>。<span class="m"><i>f</i><sub>0</sub>&nbsp;=&nbsp;<i>ϕ</i>/<i>h</i>&nbsp;≈&nbsp;1.04&nbsp;×&nbsp;10<sup>15</sup>&nbsp;Hz</span>，<span class="m"><i>λ</i><sub>0</sub>&nbsp;=&nbsp;<i>hc</i>/<i>ϕ</i>&nbsp;≈&nbsp;2.89&nbsp;×&nbsp;10<sup>−7</sup>&nbsp;m&nbsp;=&nbsp;289&nbsp;nm</span>（计算值）。<br><b>陷阱：</b><span class="m"><i>h</i></span> 用 J s 时，<span class="m"><i>ϕ</i></span> 要先换成 J。</p>
+  </div>
+
+  <h3>每秒有多少个 photon</h3>
+  <ul class="pts">
+    <li>功率 <span class="m"><i>P</i></span> 的光源，每秒发出的 photon 数 = 每秒的能量 ÷ 一个 photon 的能量：<span class="m"><i>N</i>/<i>t</i>&nbsp;=&nbsp;<i>P</i>/<i>hf</i></span>。</li>
+    <li>同样的功率，红光的 photon 比蓝光多：红光的 <span class="m"><i>f</i></span> 低，每个 photon 的能量小，要更多个才凑够同样的能量。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Photons each second · 每秒的光子数</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>N</i> / <i>t</i> = <i>P</i> / <i>hf</i> = <i>Pλ</i> / <i>hc</i></div>
+    <dl class="sym">
+      <div><dt>N</dt><dd>photon 的个数</dd></div>
+      <div><dt>t</dt><dd>时间 (s)</dd></div>
+      <div><dt>P</dt><dd>光源的功率 (W)</dd></div>
+      <div><dt>f</dt><dd>频率 (Hz)</dd></div>
+      <div><dt>λ</dt><dd>波长 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>每秒的能量是 <span class="m"><i>P</i></span>，一个 photon 的能量是 <span class="m"><i>hf</i></span>（或 <span class="m"><i>hc</i>/<i>λ</i></span>），两个一除。<br><b>陷阱：</b>用 SI 单位：mW 换成 W，nm 换成 m。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Power · 功率</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>P</i> = Δ<i>E</i> / Δ<i>t</i></div>
+    <dl class="sym">
+      <div><dt>P</dt><dd>功率 (W)</dd></div>
+      <div><dt>ΔE</dt><dd>放出的能量 (J)</dd></div>
+      <div><dt>Δt</dt><dd>时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>这里怎么用：</b><span class="m"><i>P</i></span> 就是光源每秒放出的能量。<span class="m"><i>N</i>/<i>t</i>&nbsp;=&nbsp;<i>P</i>/<i>hf</i></span> 就是从它来的。</p>
+  </div>
+
+  <h3>Planck、Einstein 和光的新模型</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Planck（1900）</div><p>量子化的是墙里的 oscillators。他当它是数学技巧。它解释了黑体曲线。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Einstein（1905）</div><p>量子化的是光本身：photon 是真的。它解释了光电效应。</p></div>
+  </div>
+  <ul class="pts">
+    <li>两个人用的都是 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span>。</li>
+    <li>光仍然有干涉和衍射。但它发出来和被吸收的时候，都是一个一个的 photon。这叫 <span class="t">wave–particle duality</span>（波粒二象性）：光在有些实验里像波，在另一些实验里像粒子。</li>
+    <li>注意：photon <b>不是</b> Newton 说的 <span class="t">corpuscles</span>（微粒）。</li>
+  </ul>
+</section>
+
+<section id="s6">
+  <div class="secnum">3.3</div>
+  <h2>光电效应的图像<span class="en">Photoelectric graphs</span></h2>
+  <p class="big"><span class="lbl">一句话</span><span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span> 就是一条直线：斜率是 <span class="m"><i>h</i></span>，和横轴交在 <span class="m"><i>f</i><sub>0</sub></span>，往左延长，和纵轴交在 <span class="m">−<i>ϕ</i></span>。</p>
+
+  <h3><i>K</i><sub>max</sub>–<i>f</i> 图（讲义图 3.4）</h3>
+  <ul class="pts">
+    <li>它和 <span class="m"><i>y</i>&nbsp;=&nbsp;<i>mx</i>&nbsp;+&nbsp;<i>c</i></span> 一样：<span class="m"><i>y</i></span> 是 <span class="m"><i>K</i><sub>max</sub></span>，<span class="m"><i>x</i></span> 是 <span class="m"><i>f</i></span>，斜率是 <span class="m"><i>h</i></span>，截距是 −<span class="m"><i>ϕ</i></span>。</li>
+    <li><b><span class="t">Gradient</span>（斜率）= <span class="m"><i>h</i></span></b>，每种金属都一样，所以几条线互相平行。<span class="m"><i>K</i><sub>max</sub></span> 用 eV 时，gradient = 4.136 × 10<sup>−15</sup> eV s。</li>
+    <li><b><span class="m"><i>f</i></span>-<span class="t">intercept</span>（截距）= <span class="m"><i>f</i><sub>0</sub></span></b>：线和横轴交的地方。</li>
+    <li><b><span class="m"><i>K</i><sub>max</sub></span>-intercept = −<span class="m"><i>ϕ</i></span></b>：要 <span class="t">extrapolate</span>（外推）：把线用虚线延长到 <span class="m"><i>f</i>&nbsp;=&nbsp;0</span>，读出截距，再改符号。虚线那段没有电子，只是延长出来的。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>金属</th><th>逸出功</th><th>截止频率（计算值）</th><th>纵轴截距</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Caesium</td><td>2.1&nbsp;eV</td><td>5.08 × 10<sup>14</sup>&nbsp;Hz</td><td>−2.10&nbsp;eV</td></tr>
+        <tr><td class="t">Zinc</td><td>4.3&nbsp;eV</td><td>10.4 × 10<sup>14</sup>&nbsp;Hz</td><td>−4.30&nbsp;eV</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>两条线一样斜（都是 <span class="m"><i>h</i></span>）。<span class="m"><i>ϕ</i></span> 大的 zinc 整条线往右下移。</p>
+
+  <h3>实验测的是 <i>V</i><sub>0</sub></h3>
+  <p>实验直接测到的是 <span class="m"><i>V</i><sub>0</sub></span>，不是 <span class="m"><i>K</i><sub>max</sub></span>。把 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span> 放进去，两边除以 <span class="m"><i>q</i></span>：</p>
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Stopping voltage against frequency · 遏止电压和频率</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>V</i><sub>0</sub> = (<i>h</i> / <i>q</i>) <i>f</i> − <i>ϕ</i> / <i>q</i></div>
+    <dl class="sym">
+      <div><dt>V<sub>0</sub></dt><dd>stopping voltage (V)</dd></div>
+      <div><dt>q</dt><dd>电子电荷的大小，1.602 × 10<sup>−19</sup> C (C)</dd></div>
+      <div><dt>h</dt><dd>Planck's constant (J s)</dd></div>
+      <div><dt>f</dt><dd>光的频率 (Hz)</dd></div>
+      <div><dt>ϕ</dt><dd>work function (J)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>把 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span> 代进 <span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span>，两边除以 <span class="m"><i>q</i></span>。<br><b>读图：</b>gradient = <span class="m"><i>h</i>/<i>q</i></span>，所以 <span class="m"><i>h</i>&nbsp;=&nbsp;<i>q</i>&nbsp;×&nbsp;gradient</span>。<span class="m"><i>f</i></span>-intercept = <span class="m"><i>f</i><sub>0</sub></span>。<span class="m"><i>V</i><sub>0</sub></span>-intercept = −<span class="m"><i>ϕ</i>/<i>q</i></span>。</p>
+  </div>
+
+  <h3><i>I</i>–<i>V</i> 图（讲义图 3.5，理想化）</h3>
+  <p>横轴是管子的电压 <span class="m"><i>V</i></span>，纵轴是 photocurrent <span class="m"><i>I</i></span>。右边 anode 正，左边 anode 负（把电子往回推）。<a href="#sim3">动画 3</a> 的右图画的就是它。</p>
+  <ul class="pts">
+    <li><b>Anode 正：</b>所有电子都被收走。平的那一段叫 <span class="t">saturation current</span>（饱和电流）：最大的 photocurrent，每个放出来的电子都到了 anode。它的高度由每秒的 photon 数决定。</li>
+    <li><b>Anode 负：</b>电子被往回推，电流变小。到 −<span class="m"><i>V</i><sub>0</sub></span> 时，电流 = 0。</li>
+    <li>图里 beam A（光束 A）比 beam B 每秒的 photon 多（平的部分更高），<span class="m"><i>f</i></span> 也更高（<span class="m"><i>V</i><sub>0</sub></span> 更大）。</li>
+    <li><b>同一个 <span class="m"><i>f</i></span>，光更亮：</b>只有平的部分升高。</li>
+    <li><b><span class="m"><i>ϕ</i></span> 更大，光不变：</b><span class="m"><i>V</i><sub>0</sub></span> 更小。</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+    <figcaption class="sim-head"><span class="sim-title">动画 5 · 一个 photon 打出一个电子，<i>K</i><sub>max</sub>–<i>f</i> 图</span><span class="sim-tag">逸出功：讲义 · 能量、速度、截止频率、截止波长：计算值 · 亮度、电流：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左边：光一个一个 photon 从左上方打到金属板上，每个 photon 一到，就有一个电子带着速度箭头飞出来，最快的那个标着 Kmax；下面的能量条把一个 photon 的能量 hf 分成逃出来要的 ϕ 和剩下的 Kmax，再下面是 Kmax（eV 和 J）、最快电子的速度和 microammeter 的读数。右边：caesium 和 zinc 的 Kmax 对 f 的图，两条平行的直线，f0 以下是虚线（外推），当前的点随 f 在线上滑。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">频率 <i>f</i> <input type="range" id="s5-f" min="2" max="14" step="0.1" value="10"><output id="s5-f-out" for="s5-f">10.0 × 10<sup>14</sup> Hz</output></label>
+      <label class="range">亮度 <input type="range" id="s5-b" min="1" max="5" step="1" value="2"><output id="s5-b-out" for="s5-b">× 2</output></label>
+      <span class="seg" role="group" aria-label="金属板用哪种金属">
+        <button class="btn" type="button" id="s5-cs" aria-pressed="true">caesium <i>ϕ</i> = 2.1 eV</button>
+        <button class="btn" type="button" id="s5-zn" aria-pressed="false">zinc <i>ϕ</i> = 4.3 eV</button>
+      </span>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看 caesium、<i>f</i> = 10 × 10<sup>14</sup> Hz：每个 photon 一到，马上有一个电子飞出来。能量条：一个 photon 的 <i>hf</i> = 4.14 eV，先付 <i>ϕ</i> = 2.10 eV 逃出来，剩下 <i>K</i><sub>max</sub> = 2.04 eV 是动能。标着 <i>K</i><sub>max</sub> 的是最快的电子（最表面的）；更深的电子要的能量比 <i>ϕ</i> 多，所以出来更慢，箭头更短。② 把 <i>f</i> 往左拖：右图的点沿直线往下滑，到 <i>f</i><sub>0</sub> = 5.08 × 10<sup>14</sup> Hz（<i>λ</i><sub>0</sub> = 591 nm）停在横轴上；再往左，一个电子也没有。③ 把亮度从 × 1 拖到 × 5：每秒 photon 更多，电子更多，电流变大；可是 <i>K</i><sub>max</sub> 和图上的点一动不动。在 <i>f</i><sub>0</sub> 以下，再亮也没有电子。④ 换成 zinc：线整条往下移，<i>f</i><sub>0</sub> 变成 10.4 × 10<sup>14</sup> Hz（<i>λ</i><sub>0</sub> = 289 nm），但斜率一样，都是 <i>h</i> = 4.136 × 10<sup>−15</sup> eV s，所以两条线平行。<i>f</i> = 8 × 10<sup>14</sup> Hz 时 <i>hf</i> = 3.31 eV &lt; 4.3 eV，zinc 一个电子也没有，caesium 却有。<i>ϕ</i> 是讲义的数；<i>hf</i>、<i>K</i><sub>max</sub>、<i>v</i>、<i>f</i><sub>0</sub>、<i>λ</i><sub>0</sub> 是用讲义常数算的计算值；亮度档、电流大小、电子快慢的分布是示意。</p>
+  </figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">3.4</div>
+  <h2>两个关键实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>测黑体辐射（1899–1900）</h3>
+    <dl>
+      <dt>目的</dt><dd>测几个温度下的黑体曲线（Lummer 和 Pringsheim）。</dd>
+      <dt>做法</dt><dd>热炉子上开一个小孔，辐射从小孔出来（这就是 black body）。用 <span class="t">thermocouple</span>（热电偶，一种温度计）测炉子的温度。辐射穿过一条 <span class="t">slit</span>（狭缝）和一个 <span class="t">prism</span>（棱镜）：长波弯得少，短波弯得多（讲义图 3.6）。<span class="t">Bolometer</span>（测辐射热计：被辐射加热的探测器）沿着光谱一点点移动。换几个温度，再做一遍。</dd>
+      <dt>结果</dt><dd>曲线和图 3.1 一样。每个温度都有 <span class="m"><i>λ</i><sub>max</sub><i>T</i>&nbsp;≈&nbsp;2.9&nbsp;×&nbsp;10<sup>−3</sup>&nbsp;m&nbsp;K</span>。</dd>
+      <dt>结论</dt><dd>Wien's law。经典理论只对得上长波一侧。</dd>
+      <dt>意义</dt><dd>Planck 的公式对得上整条曲线。这让他想到了 quanta（1900）。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>光电效应：测 <i>h</i> 和 <i>ϕ</i></h3>
+    <dl>
+      <dt>目的</dt><dd>看 <span class="m"><i>V</i><sub>0</sub></span> 怎样随频率和亮度变化（Lenard 1902，Millikan 1914–1916，或学校的 <span class="t">photocell</span>（光电管））。</dd>
+      <dt>做法</dt><dd>用图 3.3 的电路，把反向电压慢慢加大，直到电流刚好为 0（这就是 <span class="m"><i>V</i><sub>0</sub></span>）。换几个频率和亮度，再做一遍。</dd>
+      <dt>结果</dt><dd><span class="m"><i>V</i><sub>0</sub></span> 随 <span class="m"><i>f</i></span> 直线上升。<span class="m"><i>f</i><sub>0</sub></span> 以下没有电流。亮度只改变电流，不改变 <span class="m"><i>V</i><sub>0</sub></span>。</dd>
+      <dt>结论</dt><dd><span class="m"><i>qV</i><sub>0</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span>，所以 <span class="m"><i>h</i>&nbsp;=&nbsp;<i>q</i>&nbsp;×&nbsp;gradient</span>；两个截距给出 <span class="m"><i>f</i><sub>0</sub></span> 和 <span class="m"><i>ϕ</i></span>。这支持 photon model。</dd>
+      <dt>意义</dt><dd>Millikan（1914–1916）本来想证明 Einstein 错了。结果他证实了这个规律，测出的 <span class="m"><i>h</i></span> 和今天的值只差约 1 %。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>c</i> = <i>fλ</i></td><td>真空或空气里的 EM 波</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>λ</i><sub>max</sub> = <i>b</i>/<i>T</i></td><td>Wien's law：从峰求温度（<i>T</i> 用 K）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>T</i>(K) = <i>T</i>(°C) + 273</td><td>°C 换成 kelvin</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>hf</i></td><td>一份 quantum（一个 photon）的能量</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>hc</i>/<i>λ</i></td><td>用波长求 photon 的能量</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f">0, <i>hf</i>, 2<i>hf</i>, 3<i>hf</i>, …</td><td>Planck 的能量台阶（只是一个想法）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>qV</i></td><td>电压做的功；eV 就是这样定义的</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>K</i><sub>max</sub> = <i>qV</i><sub>0</sub></td><td>从 stopping voltage 求 <i>K</i><sub>max</sub></td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>K</i><sub>max</sub> = <i>hf</i> − <i>ϕ</i></td><td>Einstein 的光电效应方程（<i>hf</i> ≥ <i>ϕ</i>）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>ϕ</i> = <i>hf</i><sub>0</sub>　<i>λ</i><sub>0</sub> = <i>hc</i>/<i>ϕ</i></td><td>threshold frequency 和 threshold wavelength</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>V</i><sub>0</sub> = (<i>h</i>/<i>q</i>)<i>f</i> − <i>ϕ</i>/<i>q</i></td><td><i>V</i><sub>0</sub>–<i>f</i> 图：gradient <i>h</i>/<i>q</i>，<i>f</i>-intercept <i>f</i><sub>0</sub></td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>N</i>/<i>t</i> = <i>P</i>/<i>hf</i> = <i>Pλ</i>/<i>hc</i></td><td>每秒的 photon 数（功率 <i>P</i>）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>P</i> = Δ<i>E</i>/Δ<i>t</i></td><td>功率：每秒放出的能量</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>最快 photoelectron 的速度</td><td><span class="badge on">有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>越热的黑体，在每个波长都更高，峰在更短的波长：<span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span>，<span class="m"><i>T</i></span> 用 kelvin。</li>
+    <li>经典物理预测了 ultraviolet catastrophe。Planck：能量一份一份地来，<span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span>；高 <span class="m"><i>f</i></span> 的一份太大，很少放出来。</li>
+    <li>Planck 量子化的是 oscillators；Einstein 量子化的是光本身（photon）。</li>
+    <li>Wave model 错了三条：有 threshold frequency，没有延迟，<span class="m"><i>K</i><sub>max</sub></span> 和亮度无关。</li>
+    <li>一个 photon → 一个电子：<span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i>&nbsp;=&nbsp;<i>qV</i><sub>0</sub></span>。光更亮，电子更多，不是更快。</li>
+    <li><span class="m"><i>K</i><sub>max</sub></span>–<span class="m"><i>f</i></span> 图：gradient = <span class="m"><i>h</i></span>，<span class="m"><i>f</i></span>-intercept = <span class="m"><i>f</i><sub>0</sub></span>，纵轴截距 = −<span class="m"><i>ϕ</i></span>。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span><span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span> 里直接用 °C。<br><span class="ok">对：</span><span class="m"><i>T</i></span> 用 kelvin，°C 先加 273。</div>
+    <div><span class="x">错：</span><span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span> 算出来的数是 nm。<br><span class="ok">对：</span>算出来是 m，再换成 nm（1 nm = 10<sup>−9</sup> m）。</div>
+    <div><span class="x">错：</span><span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span> 算出来就是 eV。<br><span class="ok">对：</span>算出来是 J。J → eV 要除以 1.602 × 10<sup>−19</sup>。</div>
+    <div><span class="x">错：</span><span class="m"><i>K</i><sub>max</sub>&nbsp;=&nbsp;<i>hf</i>&nbsp;−&nbsp;<i>ϕ</i></span> 里，<span class="m"><i>hf</i></span> 用 J，<span class="m"><i>ϕ</i></span> 用 eV。<br><span class="ok">对：</span>全部用 J，或者全部用 eV。</div>
+    <div><span class="x">错：</span><span class="m"><i>ϕ</i></span> 就是 sheet 上的 Φ。<br><span class="ok">对：</span>小写 <span class="m"><i>ϕ</i></span> 是 work function；大写 Φ 是磁通量。同样，<span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span> 里的 <span class="m"><i>T</i></span> 是温度，不是周期。</div>
+    <div><span class="x">错：</span>光更亮，电子更快，<span class="m"><i>V</i><sub>0</sub></span> 更大。<br><span class="ok">对：</span>光更亮 = photon 更多 = 电子更多（电流更大）。<span class="m"><i>K</i><sub>max</sub></span> 和 <span class="m"><i>V</i><sub>0</sub></span> 只看 <span class="m"><i>f</i></span> 和金属。</div>
+    <div><span class="x">错：</span>把 eV 直接代进 <span class="m"><i>K</i>&nbsp;=&nbsp;½<i>mv</i>²</span>，或者用带负号的 <span class="m"><i>q</i><sub>e</sub></span>。<br><span class="ok">对：</span><span class="m"><i>K</i><sub>max</sub></span> 先换成 J；<span class="m"><i>q</i></span> 用大小 1.602 × 10<sup>−19</sup> C。</div>
+    <div><span class="x">错：</span><span class="m"><i>K</i><sub>max</sub></span>–<span class="m"><i>f</i></span> 图的纵轴截距就是 <span class="m"><i>ϕ</i></span>。<br><span class="ok">对：</span>截距是 −<span class="m"><i>ϕ</i></span>。要外推到 <span class="m"><i>f</i>&nbsp;=&nbsp;0</span>，再改符号。</div>
+    <div><span class="x">错：</span>Planck 发现了 photon。<br><span class="ok">对：</span>Planck 量子化的是 oscillators，他当它是数学技巧。Einstein 才说光本身就是 photon。</div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Thermal radiation</td><td>热辐射</td><td>物体因为自己的温度发出的 EM 辐射</td></tr>
+        <tr><td class="t">Black body</td><td>黑体</td><td>照到的辐射全部吸收，也是最好的发射体；光谱只看温度</td></tr>
+        <tr><td class="t">Peak wavelength (λ<sub>max</sub>)</td><td>峰值波长</td><td>黑体曲线最高的那个波长</td></tr>
+        <tr><td class="t">Wien's displacement law</td><td>维恩位移定律</td><td>λ<sub>max</sub> 和热力学温度成反比：<span class="m"><i>λ</i><sub>max</sub>&nbsp;=&nbsp;<i>b</i>/<i>T</i></span></td></tr>
+        <tr><td class="t">Intensity</td><td>光强（强度）</td><td>每秒落在每平方米上的辐射能量</td></tr>
+        <tr><td class="t">Absolute temperature</td><td>热力学温度</td><td>用 kelvin 的温度：<span class="m"><i>T</i>(K)&nbsp;=&nbsp;<i>T</i>(°C)&nbsp;+&nbsp;273</span></td></tr>
+        <tr><td class="t">Classical physics</td><td>经典物理学</td><td>1900 年以前的物理：光是波，能量可以是任何大小</td></tr>
+        <tr><td class="t">Rayleigh–Jeans law</td><td>瑞利–金斯公式</td><td>经典物理对黑体曲线的预测，只在长波对</td></tr>
+        <tr><td class="t">Ultraviolet catastrophe</td><td>紫外灾难</td><td>1900 年以前的错误预测：短波 intensity 无穷大</td></tr>
+        <tr><td class="t">Oscillator</td><td>振子</td><td>黑体墙里振动的带电粒子（Planck 的模型）</td></tr>
+        <tr><td class="t">Quantised</td><td>量子化的</td><td>只能取一级一级分开的值，像台阶</td></tr>
+        <tr><td class="t">Quantum (quanta)</td><td>量子</td><td>一份能量，大小 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span></td></tr>
+        <tr><td class="t">Planck's constant (h)</td><td>普朗克常量</td><td>6.626 × 10<sup>−34</sup> J s，把一份能量和频率连起来</td></tr>
+        <tr><td class="t">Electron volt (eV)</td><td>电子伏特</td><td>一个电子走过 1 V 得到的能量：1 eV = 1.602 × 10<sup>−19</sup> J</td></tr>
+        <tr><td class="t">Photoelectric effect</td><td>光电效应</td><td>光照在金属上，电子被放出来</td></tr>
+        <tr><td class="t">Spark gap</td><td>火花隙</td><td>两个金属球之间的一小段空气，火花从这里跳过去</td></tr>
+        <tr><td class="t">Cathode</td><td>阴极</td><td>被光照的金属板，放出电子</td></tr>
+        <tr><td class="t">Anode</td><td>阳极</td><td>收集电子的那块板</td></tr>
+        <tr><td class="t">Photoelectron</td><td>光电子</td><td>被光从金属里打出来的电子</td></tr>
+        <tr><td class="t">Photocurrent</td><td>光电流</td><td>photoelectrons 形成的电流</td></tr>
+        <tr><td class="t">Microammeter</td><td>微安表</td><td>测很小电流的表</td></tr>
+        <tr><td class="t">Photocell</td><td>光电管</td><td>做光电效应实验用的真空管：金属 cathode + anode</td></tr>
+        <tr><td class="t">Electroscope</td><td>验电器</td><td>有一片薄金箔，带电时金箔张开</td></tr>
+        <tr><td class="t">Threshold frequency (f<sub>0</sub>)</td><td>截止频率</td><td>能从金属里打出电子的最低频率</td></tr>
+        <tr><td class="t">Threshold wavelength (λ<sub>0</sub>)</td><td>截止波长</td><td>能从金属里打出电子的最长波长</td></tr>
+        <tr><td class="t">Stopping voltage (V<sub>0</sub>)</td><td>遏止电压</td><td>让每个 photoelectron 都停下、电流为 0 的最小反向电压</td></tr>
+        <tr><td class="t">Maximum kinetic energy (K<sub>max</sub>)</td><td>最大初动能</td><td>最快的 photoelectrons 的动能</td></tr>
+        <tr><td class="t">Photon</td><td>光子</td><td>一包（一个 quantum）光，能量 <span class="m"><i>E</i>&nbsp;=&nbsp;<i>hf</i></span></td></tr>
+        <tr><td class="t">Work function (ϕ)</td><td>逸出功</td><td>从金属表面拿出一个电子最少要的能量</td></tr>
+        <tr><td class="t">Least-bound electron</td><td>束缚最弱的电子</td><td>最容易拿出来的电子，刚好要 <span class="m"><i>ϕ</i></span></td></tr>
+        <tr><td class="t">Saturation current</td><td>饱和电流</td><td>最大的 photocurrent：放出的电子全部到达 anode</td></tr>
+        <tr><td class="t">Gradient</td><td>斜率</td><td>直线有多陡：竖着变多少 ÷ 横着变多少</td></tr>
+        <tr><td class="t">Intercept</td><td>截距</td><td>直线和坐标轴交的地方的值</td></tr>
+        <tr><td class="t">Extrapolate</td><td>外推</td><td>把图上的线延长到测量点外面</td></tr>
+        <tr><td class="t">Wave–particle duality</td><td>波粒二象性</td><td>光在有些实验里像波，在另一些实验里像粒子</td></tr>
+        <tr><td class="t">Corpuscle</td><td>微粒</td><td>Newton 说的光的小颗粒；photon 不是它</td></tr>
+        <tr><td class="t">Bolometer</td><td>测辐射热计</td><td>被辐射加热的探测器，用来测光谱</td></tr>
+        <tr><td class="t">Thermocouple</td><td>热电偶</td><td>一种温度计，用来测炉子的温度</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s10" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary><span>1. 一块金属加热到 727 °C。它的 λ<sub>max</sub> 是多少？峰在哪一段？</span></summary><p class="ans"><b>2.90 × 10<sup>−6</sup> m（约 2898 nm），在 infrared。</b>先换成 kelvin：727 + 273 = 1000 K。<i>λ</i><sub>max</sub> = 2.898 × 10<sup>−3</sup> / 1000 = 2.898 × 10<sup>−6</sup> m。和 lava 一样，峰在 infrared，只发一点暗红光。</p></details>
+    <details><summary>2. 经典物理为什么预测出 ultraviolet catastrophe？Planck 怎样解决？</summary><p class="ans"><b>经典物理给每个驻波样式一样多的能量；Planck 让能量一份一份地给。</b>波长越短，样式越多，总能量就无穷大。Planck：oscillator 一次只能放出 <i>hf</i>。短波的 <i>hf</i> 比平时的热能大，很少放得出来，所以曲线掉到 0。</p></details>
+    <details><summary><span>3. f = 10 × 10<sup>14</sup> Hz 的光照在 caesium（ϕ = 2.1 eV）上。一个 photon 的能量是多少 eV？K<sub>max</sub> 和 V<sub>0</sub> 呢？</span></summary><p class="ans"><b><i>hf</i> ≈ 4.14 eV；<i>K</i><sub>max</sub> ≈ 2.04 eV；<i>V</i><sub>0</sub> ≈ 2.04 V。</b><i>E</i> = 6.626 × 10<sup>−34</sup> × 1.0 × 10<sup>15</sup> = 6.626 × 10<sup>−19</sup> J，除以 1.602 × 10<sup>−19</sup> = 4.136 eV。<i>K</i><sub>max</sub> = 4.136 − 2.1 = 2.04 eV。用 eV 时，<i>V</i><sub>0</sub> 的数字一样：2.04 V。</p></details>
+    <details><summary>4. 很亮的可见光照锌板，金箔不动；用 UV 一照，金箔就落下。为什么？</summary><p class="ans"><b>看的是每个 photon 的能量，不是亮度。</b>可见光的 <i>f</i> 低，每个 photon 的 <i>hf</i> 比 zinc 的 <i>ϕ</i> = 4.3 eV 小（例如 500 nm 的 photon 只有 2.48 eV）。一个 photon 只给一个电子，两个 photon 不能加起来，所以再亮也打不出电子。UV 的 <i>f</i> 高，<i>hf</i> 够大，一个 photon 就能打出一个电子，马上出来。</p></details>
+    <details><summary><span>5. 同一个 f，光的亮度变成 2 倍。saturation current、K<sub>max</sub>、V<sub>0</sub> 各怎么变？</span></summary><p class="ans"><b>saturation current × 2；<i>K</i><sub>max</sub> 和 <i>V</i><sub>0</sub> 不变。</b>更亮 = 每秒 photon 多一倍 = 每秒电子多一倍。每个 photon 还是 <i>hf</i>，所以最快电子的能量不变。</p></details>
+    <details><summary>6. zinc 的 ϕ = 4.3 eV。它的 threshold wavelength 是多少？</summary><p class="ans"><b>约 289 nm（UV）。</b><i>ϕ</i> = 4.3 × 1.602 × 10<sup>−19</sup> = 6.89 × 10<sup>−19</sup> J。<i>λ</i><sub>0</sub> = <i>hc</i>/<i>ϕ</i> = 6.626 × 10<sup>−34</sup> × 3.00 × 10<sup>8</sup> / (6.89 × 10<sup>−19</sup>) ≈ 2.89 × 10<sup>−7</sup> m = 289 nm。波长比它长的光，打不出电子。</p></details>
+    <details><summary><span>7. 一个 1 W 的光源，发出 f = 5 × 10<sup>14</sup> Hz 的光。每秒发出多少个 photon？</span></summary><p class="ans"><b>约 3.0 × 10<sup>18</sup> 个。</b>一个 photon：<i>hf</i> = 6.626 × 10<sup>−34</sup> × 5 × 10<sup>14</sup> = 3.313 × 10<sup>−19</sup> J。<i>N</i>/<i>t</i> = <i>P</i>/<i>hf</i> = 1 / (3.313 × 10<sup>−19</sup>) ≈ 3.0 × 10<sup>18</sup> 个每秒。</p></details>
+    <details><summary><span>8. K<sub>max</sub>–f 图上，caesium 和 zinc 的线为什么平行？和纵轴交在哪？</span></summary><p class="ans"><b>斜率都是 <i>h</i>；分别交在 −2.10 eV 和 −4.30 eV。</b><i>K</i><sub>max</sub> = <i>hf</i> − <i>ϕ</i>，斜率 <i>h</i> 和金属无关。纵轴截距 = −<i>ϕ</i>，要把虚线外推到 <i>f</i> = 0 才读得到。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m7/t2.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M7 T2 · Light as a Wave: Diffraction, Interference and Polarisation</span><span class="pg-z">光的波动性：衍射、干涉和偏振</span></a><a class="pg next" href="../m7/t4.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M7 T4 · Light and Special Relativity</span><span class="pg-z">光与狭义相对论</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 7 The Nature of Light · Chapter 3 整理。实验数据（<i>λ</i><sub>max</sub><i>T</i> ≈ 2.9 × 10<sup>−3</sup> m K；Millikan 的 <i>h</i> 差约 1 %）和其他数据（图 3.1 的 446 nm / 527 nm / 644 nm，图 3.2 的 5000 K，lava 约 1000 K 到 1500 K，Sun 5800 K，caesium 2.1 eV，zinc 4.3 eV，不到 10<sup>−9</sup> s，gradient 4.136 × 10<sup>−15</sup> eV s）来自讲义。<i>f</i><sub>0</sub>、<i>λ</i><sub>0</sub> 和 <i>λ</i><sub>max</sub><i>T</i> 的计算值是用讲义的数算出来的。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · 黑体曲线随温度移动（3.1 The black body curve and Wien's law）
+   曲线形状：Planck 公式 B(λ,T) ∝ λ⁻⁵ / (e^(c₂/λT) − 1)，c₂ = hc/k = 1.4388 × 10⁻² m K（只用来画形状，不显示公式）。
+   峰的位置和读数：λmax = b/T，b = 2.898 × 10⁻³ m K（booklet）。Planck 曲线自己的峰在 c₂/(4.965T) = 2.898 × 10⁻³/T，两者一致。
+   visible = 400–700 nm（booklet Ch1）。booklet 三条曲线 6500 / 5500 / 4500 K，刻度：6500 K 的峰 = 1（峰高 ∝ T⁵ → 0.43、0.16）。
+   单条曲线：y 轴自动缩放，峰放在图高的 82%；“放大 × N”，N = (10 000/T)⁵ = 10 000 K 的峰 ÷ 这条曲线的峰。
+   示意：lava 预设 1200 K（booklet：约 1000–1500 K）、10 000 K 蓝白恒星、物体的颜色和亮度（色温近似公式）、波包的数量和速度。
+   波包：λ 按当前曲线随机抽（u 均匀 → 曲线的累积分布）；每个波包记住自己的 u，手动改 T 时按新曲线重算 λ，画面不会乱跳。
+   播放：T = 1000 × 10^(0.5 − 0.5 cos θ)，在 1000 K 和 10 000 K 之间来回（按 log T 均匀），θ 每 28 s 一圈。 */
+/* 带下标的文字：'K_max' 画成 K 加小一号、往下一点的 max（下标不小于 11 px），和页面上的 K<sub>max</sub> 一样。
+   这个动画里的 txt 换成会画下标的版本（字里没有 '_' 时和原来一样）；tw() 量带下标的字有多宽。 */
+var SUBRE=/([A-Za-zλ])_([a-z0-9]+)/g,RTP=[],txt0=txt;
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';size=size||13;
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt0(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+txt=function(ctx,s,x,y,col,size,weight,align,base,family){s=String(s);if(s.indexOf('_')<0)txt0(ctx,s,x,y,col,size,weight,align,base,family);else rt(ctx,s,x,y,col,size,weight,align,base,family);};
+function tw(ctx,s,size,weight,family){return rt(ctx,String(s),0,0,null,size,weight,'left',null,family,true);}
+var BW=2.898e-3,C2=14388,LMAX=3000,VIS0=400,VIS1=700,TMIN=1000,TMAX=10000,OM=TAU/32,VEL=70;
+var BOOKT=[6500,5500,4500];
+var PRE=[{id:'s1-lava',T:1200},{id:'s1-sun',T:5800},{id:'s1-star',T:10000}];
+var m1={T:5800,th:0,book:false,acc:0,maxD:200};
+
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x){var e=Math.floor(Math.log(x)/Math.LN10+1e-9),mm=x/Math.pow(10,e);if(+mm.toFixed(2)>=10){mm/=10;e++;}return mm.toFixed(2)+' × 10'+sup(e);}
+function grp(v){var s=String(v),o='';while(s.length>3){o=' '+s.slice(-3)+o;s=s.slice(0,-3);}return s+o;}
+function fmtT(T){return T>=10000?grp(T):String(T);}
+function fmtN(n){if(n<9.95)return n.toFixed(1);if(n<99.5)return String(Math.round(n));var p=Math.pow(10,Math.floor(Math.log(n)/Math.LN10+1e-9)-2);return grp(Math.round(Math.round(n/p)*p));}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW,align,family){
+  var w=tw(ctx,s,size,weight||500,family);
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+/* 居中写字，但不超出 [lo, hi] */
+function cTxt(ctx,s,x,y,col,size,weight,lo,hi,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  txt(ctx,s,clamp(x,lo+w/2,hi-w/2),y,col,size,weight,'center','alphabetic',family);
+}
+
+/* ---------- 物理 ---------- */
+function planck(nm,T){if(nm<=0)return 0;var l=nm/1000,x=C2/(l*T);if(x>700)return 0;return 1/(l*l*l*l*l*(Math.exp(x)-1));}
+function peakNm(T){return BW/T*1e9;}
+function bpk(T){return planck(peakNm(T),T);}
+function Tof(th){return clamp(Math.round(TMIN*Math.pow(10,0.5-0.5*Math.cos(th))/10)*10,TMIN,TMAX);}
+function thOf(T,up){var a=Math.acos(clamp(1-2*Math.log(T/TMIN)/Math.LN10,-1,1));return up?a:TAU-a;}
+function nameOf(T,longName){if(T<=1500)return longName?'lava（约 1000–1500 K）':'lava';if(T===5800)return longName?'Sun（太阳）':'Sun';if(T===10000)return longName?'蓝白恒星（示意）':'蓝白恒星';return '';}
+function why(T){
+  var l=peakNm(T),nm=nameOf(T,false),hd=(nm?nm+' ':'')+fmtT(T)+' K：';
+  if(l>VIS1){
+    if(T<=1500)return [hd+'峰在 infrared（看不见）','只有一点点红光进到 visible → 暗红色'];
+    if(T<3000)return [hd+'峰在 infrared','visible 里红、橙光多，蓝光很少 → 橙色'];
+    return [hd+'峰在 infrared，但靠近 visible','红、黄光比蓝光多 → 偏橙黄的白色'];
+  }
+  if(l>600)return [hd+'峰在 visible 的红端','红、黄光比蓝光多 → 偏黄的白色'];
+  if(l>=VIS0)return [hd+'峰在 visible 里','各种颜色都很多 → 看起来发白'];
+  return [hd+'峰在 UV（看不见）','visible 里蓝光比红光多 → 蓝白色'];
+}
+
+/* ---------- 波包：λ 按曲线抽样 ---------- */
+var NB=240,GL=new Float64Array(NB+1),CDF=new Float64Array(NB+1),cdfT=-1;
+for(var g0=0;g0<=NB;g0++)GL[g0]=50*Math.pow(160,g0/NB); /* 50 nm … 8000 nm，对数间隔 */
+function buildCdf(T){var s=0,pa=planck(GL[0],T);CDF[0]=0;for(var i=1;i<=NB;i++){var pb=planck(GL[i],T);s+=0.5*(pa+pb)*(GL[i]-GL[i-1]);CDF[i]=s;pa=pb;}for(var j=1;j<=NB;j++)CDF[j]/=s;cdfT=T;}
+function sampleNm(u){if(cdfT!==m1.T)buildCdf(m1.T);var lo=0,hi=NB;while(hi-lo>1){var md=(lo+hi)>>1;if(CDF[md]<u)lo=md;else hi=md;}
+  var f=(u-CDF[lo])/Math.max(1e-12,CDF[hi]-CDF[lo]);return GL[lo]+(GL[hi]-GL[lo])*clamp(f,0,1);}
+var NP=48,PK=[];for(var p0=0;p0<NP;p0++)PK.push({on:false,a:0,d:0,u:0,nm:500});
+function spawn(off){for(var i=0;i<NP;i++){var p=PK[i];if(!p.on){p.on=true;p.a=Math.random()*TAU;p.d=off;p.u=Math.random();p.nm=sampleNm(p.u);return;}}}
+function stepPk(dt){
+  m1.acc+=(6+6*Math.log(m1.T/TMIN)/Math.LN10)*dt; /* 每秒 6–12 个（示意）：越热放得越多 */
+  while(m1.acc>=1){m1.acc-=1;spawn(Math.random()*VEL*dt);}
+  for(var i=0;i<NP;i++){var p=PK[i];if(p.on){p.d+=VEL*dt;if(p.d>m1.maxD)p.on=false;}}
+}
+function remap(){for(var i=0;i<NP;i++){var p=PK[i];if(p.on)p.nm=sampleNm(p.u);}}
+function step1(dt){m1.th=(m1.th+OM*dt)%TAU;m1.T=Tof(m1.th);stepPk(dt);syncUI();}
+
+/* ---------- 颜色 ---------- */
+var RGB=[0,0,0];
+/* 热物体的颜色（色温近似公式，示意）+ 亮度：1000 K 暗，约 3200 K 以上全亮 */
+function bbRGB(T){var t=T/100,r,g,b;
+  if(t<=66){r=255;g=99.4708025861*Math.log(t)-161.1195681661;b=t<=19?0:138.5177312231*Math.log(t-10)-305.0447927307;}
+  else{r=329.698727446*Math.pow(t-60,-0.1332047592);g=288.1221695283*Math.pow(t-60,-0.0755148492);b=255;}
+  var k=clamp(0.42+0.58*(T-1000)/2200,0.42,1);
+  RGB[0]=Math.round(clamp(r,0,255)*k);RGB[1]=Math.round(clamp(g,0,255)*k);RGB[2]=Math.round(clamp(b,0,255)*k);return k;}
+function rgbS(a){return 'rgba('+RGB[0]+','+RGB[1]+','+RGB[2]+','+a+')';}
+function lum(c){var h=String(c).replace('#','').trim();if(h.length===3)h=h.split('').map(function(x){return x+x;}).join('');var n=parseInt(h,16);
+  if(isNaN(n)||h.length!==6)return 0.5;return (0.2126*((n>>16)&255)+0.7152*((n>>8)&255)+0.0722*(n&255))/255;}
+
+/* ---------- 左边：暗处的热物体 + 波包 ---------- */
+var LB=new Float64Array(4*NP);
+function drawPk(ctx,ox,oy,r){
+  for(var i=0;i<NP;i++){var p=PK[i];if(!p.on)continue;
+    var ux=Math.cos(p.a),uy=Math.sin(p.a),R=r+p.d,cx=ox+ux*R,cy=oy+uy*R;
+    var vw=clamp(3+p.nm/75,4.5,40),Lh=clamp(vw*1.1,8,26),A=3.6,first=true;
+    ctx.beginPath();
+    for(var s=-Lh;s<=Lh+0.01;s+=1.5){var e=Math.cos(Math.PI*s/(2*Lh));e*=e;var off=A*e*Math.sin(TAU*s/vw);
+      var x=cx+ux*s-uy*off,y=cy+uy*s+ux*off;if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+    if(p.nm>=VIS0&&p.nm<=VIS1){ctx.strokeStyle=lambdaColor(p.nm);ctx.lineWidth=2;ctx.setLineDash([]);}
+    else{ctx.strokeStyle=C.light;ctx.lineWidth=1.8;ctx.setLineDash([3,2.5]);}
+    ctx.stroke();
+  }
+  ctx.setLineDash([]);
+}
+function pkLabels(ctx,ox,oy,r,x0,y0,x1,y1){
+  ctx.font='600 11px '+FONT;var hw=ctx.measureText('IR').width/2+3,n=0;
+  for(var i=0;i<NP;i++){var p=PK[i];if(!p.on||p.d<32||(p.nm>=VIS0&&p.nm<=VIS1))continue;
+    var R=r+p.d,lx=ox+Math.cos(p.a)*R,ly=oy+Math.sin(p.a)*R-9;
+    var a0=lx-hw,a1=lx+hw,b0=ly-11,b1=ly+3;
+    if(a0<x0+3||a1>x1-3||b0<y0+3||b1>y1-3)continue;
+    var ok=true;for(var k=0;k<n;k++){if(a0<LB[4*k+2]&&a1>LB[4*k]&&b0<LB[4*k+3]&&b1>LB[4*k+1]){ok=false;break;}}
+    if(!ok)continue;
+    LB[4*n]=a0;LB[4*n+1]=b0;LB[4*n+2]=a1;LB[4*n+3]=b1;n++;
+    txt(ctx,p.nm<VIS0?'UV':'IR',lx,ly,C.light,11,600,'center');
+  }
+}
+function panel(ctx,x0,y0,pw,ph,ay1,wide){
+  var dk=lum(C.ink)<lum(C.bg)?C.ink:C.bg,lt=dk===C.ink?C.bg:C.ink,T=m1.T;
+  rrect(ctx,x0,y0,pw,ph,10);ctx.fillStyle=dk;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  var ox=x0+pw/2,oy=(y0+ay1)/2,r=wide?34:25;
+  m1.maxD=Math.hypot(pw/2,(ay1-y0)/2)-r+30;
+  ctx.save();ctx.beginPath();ctx.rect(x0+1,y0+1,pw-2,ay1-y0-1);ctx.clip();
+  drawPk(ctx,ox,oy,r);
+  var k=bbRGB(T);
+  dot(ctx,ox,oy,r*1.9,rgbS(0.10*k));dot(ctx,ox,oy,r*1.35,rgbS(0.22*k));
+  ctx.save();ctx.shadowColor=rgbS(1);ctx.shadowBlur=10+28*k;dot(ctx,ox,oy,r,rgbS(1));ctx.restore();
+  ring(ctx,ox,oy,r,rgba(lt,0.25),1);
+  ctx.restore();
+  pkLabels(ctx,ox,oy,r,x0,y0,x0+pw,ay1);
+  seg(ctx,x0+10,ay1,x0+pw-10,ay1,rgba(lt,0.18),1);
+  var tx=x0+12,dim=rgba(lt,0.72),tc=fmtT(T)+' K = '+(T-273)+' °C';
+  if(wide){
+    fitTxt(ctx,nameOf(T,true)||'热物体',tx,ay1+18,lt,13.5,700,pw-24);
+    fitTxt(ctx,'T = '+tc,tx,ay1+36,lt,12.5,500,pw-24,'left',MONO);
+    txt(ctx,'代入公式要用 K · 颜色是示意',tx,ay1+53,dim,11,500);
+    txt(ctx,'虚线 = IR / UV（看不见）',tx,ay1+70,C.light,11,600);
+  }else{
+    var nm=nameOf(T,true);
+    fitTxt(ctx,(nm?nm+' · ':'')+'T = '+tc,tx,ay1+19,lt,12.5,700,pw-24);
+    txt(ctx,'代入公式用 K · 颜色示意',tx,ay1+35,dim,11,500);
+    txt(ctx,'虚线 = IR / UV（看不见）',x0+pw-12,ay1+35,C.light,11,600,'right');
+  }
+}
+
+/* ---------- 右边：黑体曲线 ---------- */
+function graph(ctx,wide,gx,gy,gw,gh){
+  var T=m1.T,lp=peakNm(T),bk=m1.book,fs=wide?11.5:11,yb=gy+gh,i,x,nm,v;
+  function X(n){return gx+n/LMAX*gw;}
+  var norm=bk?bpk(6500):bpk(T),sc=bk?gh/1.1:0.82*gh;
+  function curve(Tc,col,w,dash){ctx.beginPath();for(var px=0;px<=gw;px++){var n=px/gw*LMAX,y=Math.max(gy-20,yb-planck(n,Tc)/norm*sc);if(px)ctx.lineTo(gx+px,y);else ctx.moveTo(gx+px,y);}
+    ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([]);}
+  /* 标题行 */
+  txt(ctx,wide?'相对强度 intensity':'相对强度',gx,gy-26,C.muted,12,600);
+  var zN=fmtN(Math.pow(TMAX/T,5));
+  var hr=bk?(wide?'讲义刻度：6500 K 的峰 = 1':'讲义刻度：6500 K 峰 = 1'):(wide?'y 轴自动放大 × '+zN+'（10 000 K 时 × 1）':'y 轴放大 × '+zN);
+  txt(ctx,hr,gx+gw,gy-26,bk?C.muted:C.copper,12,600,'right');
+  txt(ctx,'UV',X(200),gy-8,C.muted,fs,600,'center');
+  txt(ctx,'visible',X(550),gy-8,C.muted,fs,600,'center');
+  txt(ctx,'infrared',X(1850),gy-8,C.muted,fs,600,'center');
+  /* visible 彩色底 */
+  for(x=Math.ceil(X(VIS0));x<X(VIS1);x++){ctx.fillStyle=lambdaColor((x+0.5-gx)/gw*LMAX,0.14);ctx.fillRect(x,gy,1,gh);}
+  /* 网格和轴 */
+  for(nm=500;nm<=LMAX;nm+=500)seg(ctx,X(nm),gy,X(nm),yb,C.grid,1);
+  var ticks=[0.25,0.5,0.75,1];
+  for(i=0;i<4;i++){var yv=bk?yb-ticks[i]*sc:yb-ticks[i]*sc;seg(ctx,gx,yv,gx+gw,yv,C.grid,1);if(bk)txt(ctx,ticks[i].toFixed(2),gx-6,yv+4,C.muted,fs,500,'right');}
+  txt(ctx,'0',gx-6,yb+4,C.muted,fs,500,'right');
+  seg(ctx,X(VIS0),gy,X(VIS0),yb,rgba(C.muted,0.45),1,[2,3]);seg(ctx,X(VIS1),gy,X(VIS1),yb,rgba(C.muted,0.45),1,[2,3]);
+  seg(ctx,gx,gy,gx,yb,C.muted,1);seg(ctx,gx,yb,gx+gw,yb,C.muted,1);
+  var stepL=wide?500:1000;for(nm=0;nm<=LMAX;nm+=stepL)txt(ctx,String(nm),X(nm),yb+16,C.muted,fs,500,'center');
+  txt(ctx,'波长 λ (nm)',gx+gw,yb+34,C.muted,fs,600,'right');
+  /* 曲线（剪在图框里） */
+  ctx.save();ctx.beginPath();ctx.rect(gx,gy-1,gw+1,gh+1);ctx.clip();
+  var BC=[C.south,C.violet,C.muted],BD=[[],[7,5],[2,4]];
+  /* visible 段的彩色面积先画（讲义三条曲线时淡一点），三条曲线和峰点画在它上面，不会被盖住 */
+  for(x=Math.ceil(X(VIS0));x<X(VIS1);x++){nm=(x+0.5-gx)/gw*LMAX;v=Math.min(gh+2,planck(nm,T)/norm*sc);if(v>0.3){ctx.fillStyle=lambdaColor(nm,bk?0.3:0.55);ctx.fillRect(x,yb-v,1,v);}}
+  if(bk){for(i=0;i<3;i++){var Tb=BOOKT[i],xb=X(peakNm(Tb)),ybk=yb-bpk(Tb)/norm*sc;
+    curve(Tb,BC[i],2,BD[i]);seg(ctx,xb,ybk,xb,yb,rgba(BC[i],0.6),1,[2,3]);dot(ctx,xb,ybk,5,C.stage);dot(ctx,xb,ybk,3.5,BC[i]);}}
+  curve(T,C.copper,2.6,[]);
+  ctx.restore();
+  /* 峰：单条曲线时标在峰的右上方；booklet 模式时数值写进图例（避免压在别的曲线上） */
+  var xp=X(lp),ypk=yb-bpk(T)/norm*sc,lab='λ_max = '+Math.round(lp)+' nm',off=ypk<gy+6;
+  if(!off){seg(ctx,xp,ypk,xp,yb,rgba(C.copper,0.75),1.3,[4,3]);dot(ctx,xp,ypk,4.5,C.copper);
+    if(!bk){var fl=wide?13:12;var wl=tw(ctx,lab,fl,700); /* 曲线往右是往下走的，不会压到字 */
+      if(xp+9+wl<=gx+gw)txt(ctx,lab,xp+9,ypk-8,C.copper,fl,700);else txt(ctx,lab,xp-9,ypk-8,C.copper,fl,700,'right');}}
+  else{seg(ctx,xp,gy,xp,yb,rgba(C.copper,0.75),1.3,[4,3]);arrow(ctx,xp,gy+26,xp,gy+3,C.copper,2.2,8);}
+  /* booklet 图例：第一行是现在这条（铜色） */
+  if(bk){var lx=gx+gw*(wide?0.5:0.46),ly=gy+(wide?30:34),dy=wide?18:16,yy;
+    var cur=fmtT(T)+' K · '+(off?(wide?'峰 '+Math.round(lp)+' nm（太高，在图外 ↑）':'峰在图外 ↑'):'峰 '+Math.round(lp)+' nm');
+    if(off&&wide&&tw(ctx,cur,fs,700)>gx+gw-lx-26)cur=fmtT(T)+' K · 峰在图外 ↑'; /* 图窄时用短的说法，不出画布 */
+    seg(ctx,lx,ly-4,lx+18,ly-4,C.copper,2.6);txt(ctx,cur,lx+24,ly,C.copper,fs,700);
+    for(i=0;i<3;i++){yy=ly+(i+1)*dy;seg(ctx,lx,yy-4,lx+18,yy-4,BC[i],2,BD[i]);txt(ctx,BOOKT[i]+' K · 峰 '+Math.round(peakNm(BOOKT[i]))+' nm',lx+24,yy,BC[i],fs,600);}
+    var nt=wide?'越热：每个波长都更高 → 曲线永远不相交':'越热：每个波长都更高，不相交';
+    ctx.font='600 '+fs+'px '+FONT;txt(ctx,nt,Math.min(lx,gx+gw-2-ctx.measureText(nt).width),ly+4*dy+(wide?8:6),C.ink,fs,600);
+  }
+}
+
+function draw1(ctx,W,H){
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  var wide=W>=640,T=m1.T,wy=why(T);
+  var c1='λ_max = b/T = 2.898 × 10⁻³ ÷ '+fmtT(T),c2='= '+sci(BW/T)+' m = '+Math.round(peakNm(T))+' nm';
+  if(wide){fitTxt(ctx,wy[0]+'，'+wy[1],16,28,C.ink,15,600,W-32);fitTxt(ctx,c1+' '+c2,16,50,C.copper,13,500,W-32,'left',MONO);}
+  else{fitTxt(ctx,wy[0],16,22,C.ink,13.5,600,W-32);fitTxt(ctx,wy[1],16,41,C.ink,13.5,600,W-32);
+    fitTxt(ctx,c1,16,61,C.copper,12,500,W-32,'left',MONO);fitTxt(ctx,c2,16,77,C.copper,12,500,W-32,'left',MONO);}
+  if(wide){var ph=H-68-12;panel(ctx,16,68,228,ph,68+ph-78,true);graph(ctx,true,300,114,W-320,246);}
+  else{panel(ctx,16,90,W-32,166,90+166-42,false);graph(ctx,false,46,304,W-64,160);}
+}
+
+/* 第一帧：Sun 5800 K，先放 3 s 的波包 */
+m1.th=thOf(5800,true);m1.T=5800;
+for(var q=0;q<180;q++)stepPk(1/60);
+var S1=makeStage('sim1',{height:function(w){return w>=640?416:508;},step:step1,draw:draw1});
+
+/* ---------- 控件 ---------- */
+var rT=document.getElementById('s1-T'),oT=document.getElementById('s1-T-out'),bBk=document.getElementById('s1-book');
+var pBtn=PRE.map(function(p){return document.getElementById(p.id);});
+var lastSync=-1;
+function syncUI(){if(m1.T===lastSync)return;lastSync=m1.T;var v=Math.round(m1.T/100)*100;if(+rT.value!==v)rT.value=String(v);
+  oT.textContent=fmtT(m1.T)+' K';for(var i=0;i<PRE.length;i++)press(pBtn[i],m1.T===PRE[i].T);}
+function setT(T){var up=(m1.th%TAU)<Math.PI;m1.T=clamp(Math.round(T/10)*10,TMIN,TMAX);m1.th=thOf(m1.T,up);remap();syncUI();S1.setPlaying(false);S1.render();}
+rT.addEventListener('input',function(){setT(parseInt(rT.value,10));});
+PRE.forEach(function(p,i){pBtn[i].addEventListener('click',function(){setT(p.T);});});
+bBk.addEventListener('click',function(){m1.book=!m1.book;press(bBk,m1.book);bBk.textContent='讲义三条曲线：'+(m1.book?'开':'关');S1.render();});
+syncUI();
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 紫外灾难和 Planck 的能量台阶
+   左图：T = 5000 K（booklet Figure 3.2）。实线 = 测量曲线（用 Planck 的公式画），虚线 = 经典预测（Rayleigh–Jeans），
+   两条都按测量曲线的峰 = 1 归一，和 booklet 的图一样（y 轴 0–2.5，x 轴 0–4000 nm）。
+   右边：经典 = 热盒子里的 standing-wave patterns（数目示意），每个样式分一样多的能量，总能量柱 = 虚线在这个 λ 的高度；
+   Planck = 能量台阶 0, hf, 2hf, …，hf = hc/λ（h = 6.626e-34 J s，c = 3.00e8 m/s，1 eV = 1.602e-19 J，计算值）。
+   热能虚线 = 5000 K 时 oscillator 平时的热能 kT ≈ 0.43 eV（真实比例，只画不标数，示意）。
+   “踢”：每次给的能量按平均值 kT 的指数分布随机抽；够一级 hf 才爬上一级（一次只吸收一份），
+   掉一级就放出一份 hf。这样小球停在第 n 级的机会 ∝ e^(−n·hf/kT)，和 Planck 的想法一致；节奏是示意。 */
+/* 浅色主题：真实颜色的可见光（黄、绿、青在白底上几乎看不见）先描一圈深色边，再画本色。深色主题不用。 */
+function isLightBg(){var h=String(C.stage).replace('#','').trim();if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);
+  return h.length===6&&!isNaN(n)&&(0.2126*(n>>16&255)+0.7152*(n>>8&255)+0.0722*(n&255))>128;}
+function edge(ctx,a){if(!isLightBg())return;var ss=ctx.strokeStyle,lw=ctx.lineWidth;ctx.strokeStyle=rgba(C.ink,0.4*(a==null?1:a));ctx.lineWidth=lw+1.6;ctx.stroke();ctx.strokeStyle=ss;ctx.lineWidth=lw;}
+var HP=6.626e-34,CL=3.00e8,EV=1.602e-19,KB=1.381e-23,TK=5000;
+var KT=KB*TK/EV,EMAX=2.5,LMAX=4000,YMAX=2.5,PSPD=130;
+function hfEV(nm){return HP*CL/(nm*1e-9)/EV;}
+function planckRaw(nm){var l=nm*1e-9,x=HP*CL/(l*KB*TK);return x>600?0:1/(Math.pow(l,5)*(Math.exp(x)-1));}
+var PEAK=planckRaw(2.898e-3/TK*1e9);
+function pl(nm){return planckRaw(nm)/PEAK;}
+function rj(nm){var l=nm*1e-9;return KB*TK/(HP*CL*Math.pow(l,4))/PEAK;}
+var LEX=Math.pow(rj(1)/YMAX,0.25); /* 经典预测在这个 λ（约 1070 nm）冲出图顶 */
+var NP=400,LA=new Float64Array(NP+1),PV=new Float64Array(NP+1),RV=new Float64Array(NP+1);
+(function(){for(var i=0;i<=NP;i++){var nm=10+i*(LMAX-10)/NP;LA[i]=nm;PV[i]=pl(nm);RV[i]=rj(nm);}})();
+
+/* 固定种子的随机数：第一帧每次都一样 */
+var seed=20261030;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+
+var rl=document.getElementById('s2-lam'),ro=document.getElementById('s2-lam-out'),bc=document.getElementById('s2-cl'),bp=document.getElementById('s2-pl');
+var m={lam:parseFloat(rl.value)||300,mode:'cl',t:0,since:0,n:0,ey:0,act:0,at:0,wait:0.3,kick:0,ok:false,from:0};
+var PN=14,PK=[],EM=new Float64Array(64),emN=0,emI=0;
+for(var q=0;q<PN;q++)PK.push({on:false,d:0,e:0,lam:0});
+
+function evWait(){return 0.02+rnd()*0.1;}
+function emit(e){for(var i=0;i<PN;i++){var p=PK[i];if(!p.on){p.on=true;p.d=0;p.e=e;p.lam=m.lam;return;}}}
+function sub(h){
+  var hf=hfEV(m.lam),i,p;
+  m.t+=h;m.since+=h;
+  for(i=0;i<PN;i++){p=PK[i];if(p.on){p.d+=PSPD*h;if(p.d>400)p.on=false;}}
+  if(m.act===0){
+    m.wait-=h;
+    if(m.wait<=0){
+      if(rnd()<0.5){m.act=1;m.at=0;m.from=m.n;m.kick=-KT*Math.log(1-rnd());m.ok=m.kick>=hf&&(m.n+1)*hf<=EMAX;}
+      else if(m.n>0){m.act=2;m.at=0;m.from=m.n;m.n-=1;emit((m.from-0.5)*hf);EM[emI]=m.t;emI=(emI+1)%EM.length;if(emN<EM.length)emN++;}
+      else m.wait=evWait();
+    }
+  }else{
+    m.at+=h;
+    if(m.act===1&&m.ok&&m.n===m.from&&m.at>=0.13)m.n=m.from+1;
+    if(m.at>=(m.act===1?0.34:0.2)){m.act=0;m.wait=evWait();}
+  }
+  var tg=m.n*hf;m.ey+=(tg-m.ey)*Math.min(1,h*16);
+}
+function step(dt){var n=4,h=dt/n;for(var i=0;i<n;i++)sub(h);}
+for(var q2=0;q2<300;q2++)step(1/60);
+
+/* ---------- 小工具 ---------- */
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sci(v){var e=Math.floor(Math.log(v)/Math.LN10+1e-9),mn=v/Math.pow(10,e);if(mn>=9.995){mn/=10;e++;}var s=String(e),o='';for(var i=0;i<s.length;i++)o+=SUP[s.charAt(i)];return mn.toFixed(2)+' × 10'+o;}
+function f3(v){return v>=100?v.toFixed(0):(v>=10?v.toFixed(1):(v>=1?v.toFixed(2):v.toFixed(3)));}
+function band(nm){return nm<400?'UV':(nm<=700?'visible':'IR');}
+function isVis(nm){return nm>=400&&nm<=700;}
+function lightCol(nm,a){return (nm>=400&&nm<=700)?lambdaColor(nm,a==null?1:a):rgba(C.light,a==null?1:a);}
+function recent(){var c=0;for(var i=0;i<emN;i++)if(m.t-EM[i]<=10)c++;return c;}
+/* 按“块”换行：只在块和块之间断开（块太长时再按字断开） */
+function wrap(ctx,chunks,maxW,out){
+  var line='',i,t;
+  for(i=0;i<chunks.length;i++){
+    t=line+chunks[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=chunks[i].replace(/^\s+/,'');}
+    else line=t;
+    while(ctx.measureText(line).width>maxW&&line.length>1){var k=line.length-1;while(k>1&&ctx.measureText(line.slice(0,k)).width>maxW)k--;out.push(line.slice(0,k));line=line.slice(k);}
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var nm=Math.round(m.lam),hf=hfEV(m.lam),x=hf/KT,vr=rj(m.lam),A,B;
+  var side=nm<1000?'，图的左边 = 高 f':(nm>=2500?'，图的右边 = 低 f':'');
+  if(m.mode==='cl'){
+    var hd='经典 · λ = '+nm+' nm（'+band(nm)+side+'）：';
+    if(vr>YMAX&&nm<400){A=[hd,'样式非常多，','每个分一样多的能量 ','→ 这个 λ 的能量冲出图顶'];B=['λ 越短越高，','加起来总能量 = ∞；','测量曲线却往 0 掉：','这就是 ultraviolet catastrophe（紫外灾难）'];}
+    else if(vr>YMAX){A=[hd,'λ 越短，盒子里的样式越多 ','→ 经典预测越高，','已经冲出图顶'];B=['测量曲线在这里低得多：','短波一侧经典预测是错的'];}
+    else if(nm<2500){A=[hd,'λ 越短，样式越多 ','→ 经典预测比测量曲线高'];B=['往左（短波）两条线越分越开，','往右（长波）越靠越近'];}
+    else{A=[hd,'样式少 ','→ 两条线靠得很近'];B=['波长越长，经典预测越准（长波一侧对得上）'];}
+  }else{
+    var hp='Planck · λ = '+nm+' nm（'+band(nm)+side+'）：',hv='一份 hf = '+f3(hf)+' eV，';
+    if(x>=7){A=[hp,hv,'比 oscillator 平时的热能大很多'];B=['→ 几乎爬不上第一级 ','→ 很少放出 quanta ','→ 曲线掉向 0（经典却冲向 ∞）'];}
+    else if(x>=2){A=[hp,hv,'是平时热能的好几倍'];B=['→ 很少爬上第一级 ','→ 放出的 quanta 少 ','→ 测量曲线比经典预测低很多'];}
+    else if(x>=1){A=[hp,hv,'比平时的热能大一点'];B=['→ 有时爬上一级 ','→ 放出一些 quanta ','→ 测量曲线比经典预测低一些'];}
+    else{A=[hp,hv,'比平时的热能还小'];B=['→ 台阶小，像斜坡 ','→ 常常放出小 quanta ','→ 测量曲线向经典预测靠近'];}
+  }
+  return [A,B];
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+function lay(W){
+  if(W>=640){var gx1=Math.round(W*0.5),px=Math.round(W*0.56);
+    return {wide:true,gx0:52,gx1:gx1,gy0:44,gy1:262,hy:26,tky:279,axy:298,px:px,pw:W-16-px,py:14,ph:290,sep:318,st:342,lh:22,stF:14.5,stMax:2,lab:12.5,lw:124};}
+  return {wide:false,gx0:40,gx1:W-14,gy0:38,gy1:202,hy:22,tky:218,axy:236,px:16,pw:W-32,py:258,ph:262,sep:532,st:553,lh:19,stF:13.5,stMax:4,lab:12,lw:110};
+}
+
+function graph(ctx,L){
+  var x0=L.gx0,x1=L.gx1,y0=L.gy0,y1=L.gy1,i,v,x,y,nm,first;
+  function X(n){return x0+n/LMAX*(x1-x0);}
+  function Y(u){return y1-u/YMAX*(y1-y0);}
+  txt(ctx,'intensity（相对）',L.wide?14:8,L.hy,C.muted,12,600);
+  txt(ctx,'T = 5000 K',x1,L.hy,C.ink,12.5,700,'right');
+  /* UV 段和 visible 段 */
+  ctx.fillStyle=rgba(C.light,0.14);ctx.fillRect(X(0),y0,X(400)-X(0),y1-y0);
+  for(nm=400;nm<700;nm+=10){ctx.fillStyle=lambdaColor(nm+5,0.13);ctx.fillRect(X(nm),y0,X(nm+10)-X(nm)+0.5,y1-y0);}
+  for(v=0.5;v<=YMAX+1e-9;v+=0.5)seg(ctx,x0,Y(v),x1,Y(v),C.grid,1);
+  for(nm=1000;nm<=LMAX;nm+=1000)seg(ctx,X(nm),y0,X(nm),y1,C.grid,1);
+  seg(ctx,x0,y0,x0,y1,C.muted,1.2);seg(ctx,x0,y1,x1,y1,C.muted,1.2);
+  for(nm=0;nm<=LMAX;nm+=1000)txt(ctx,String(nm),X(nm),L.tky,C.muted,11,500,'center');
+  for(v=0;v<=YMAX+1e-9;v+=(L.wide?0.5:1))txt(ctx,v.toFixed(1),x0-6,Y(v)+4,C.muted,11,500,'right');
+  txt(ctx,'← 短波 = 高 f',x0,L.axy,C.muted,11.5,600);
+  txt(ctx,'λ (nm)',(x0+x1)/2,L.axy,C.muted,12,600,'center');
+  txt(ctx,'长波 = 低 f →',x1,L.axy,C.muted,11.5,600,'right');
+  /* 两条曲线 */
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0-2,x1-x0,y1-y0+4);ctx.clip();
+  ctx.beginPath();for(i=0;i<=NP;i++){x=X(LA[i]);y=Y(PV[i]);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.lineJoin='round';ctx.stroke();
+  ctx.beginPath();first=true;
+  for(i=NP;i>=0;i--){if(RV[i]>YMAX)break;x=X(LA[i]);y=Y(RV[i]);if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+  ctx.lineTo(X(LEX),y0);ctx.strokeStyle=C.south;ctx.lineWidth=2.2;ctx.setLineDash([7,5]);ctx.stroke();ctx.setLineDash([]);
+  ctx.restore();
+  var l2=Math.pow(rj(1)/2.2,0.25);
+  arrow(ctx,X(l2),Y(2.2),X(LEX)-0.3,y0-4,C.south,2.2,9);
+  txt(ctx,'经典预测 → ∞',X(LEX)+10,y0+15,C.south,L.lab,700);
+  txt(ctx,'（Rayleigh–Jeans）',X(LEX)+4,y0+31,C.south,11.5,500);
+  var lx=X(1600),ly=Y(0.95);
+  seg(ctx,lx-5,ly-4,X(1060)+3,Y(pl(1060))-3,rgba(C.copper,0.7),1.2);
+  txt(ctx,'测量曲线',lx,ly,C.copper,L.lab,700);
+  txt(ctx,'（Planck 的公式）',lx-5,ly+16,C.copper,11.5,500);
+  /* 竖线 + 当前模式的点 */
+  var xl=X(m.lam),vp=pl(m.lam),vr=rj(m.lam),pm=m.mode==='pl';
+  seg(ctx,xl,y0,xl,y1,rgba(C.ink,0.55),1.3,[4,4]);
+  if(pm){
+    if(vr<=YMAX)ring(ctx,xl,Y(vr),4,C.south,1.8);
+    dot(ctx,xl,Y(vp),7.5,C.stage);dot(ctx,xl,Y(vp),5.5,C.copper);
+  }else{
+    ring(ctx,xl,Y(vp),4,C.copper,1.8);
+    if(vr<=YMAX){dot(ctx,xl,Y(vr),7.5,C.stage);dot(ctx,xl,Y(vr),5.5,C.south);}
+    else arrow(ctx,xl,y0+30,xl,y0+3,C.south,2.8,10);
+  }
+  /* “UV” 放在中间高度、靠左，最后画并垫一块底色：选中波长的竖线（λ ≈ 100–240 nm）不会穿过字 */
+  ctx.font='700 11.5px '+FONT;var uw=ctx.measureText('UV').width;ctx.fillStyle=rgba(C.stage,0.85);ctx.fillRect(x0+2,Y(1.75)-11,uw+4,14);
+  txt(ctx,'UV',x0+4,Y(1.75),C.light,11.5,700);
+}
+
+function classic(ctx,L){
+  var px=L.px,py=L.py,pw=L.pw,ph=L.ph,nm=Math.round(m.lam),i,k;
+  txt(ctx,'经典：能量可以是任何值，每个样式分一样多',px,py+12,C.muted,12,600);
+  txt(ctx,'λ = '+nm+' nm（'+band(nm)+'）· f = c/λ = '+sci(CL/(m.lam*1e-9))+' Hz',px,py+32,C.ink,12.5,600);
+  var bx=px,by=py+46,bw=pw-68,bh=ph-46-44;
+  rrect(ctx,bx,by,bw,bh,8);ctx.fillStyle=rgba(C.heat,0.06);ctx.fill();ctx.strokeStyle=rgba(C.heat,0.85);ctx.lineWidth=2.5;ctx.stroke();
+  txt(ctx,'热盒子',bx+10,by+15,C.heat,11.5,700);
+  txt(ctx,'每个一份',bx+bw-8,by+15,C.heat,11.5,700,'right');
+  var s=clamp(Math.log(LMAX/m.lam)/Math.log(40),0,1),n=1+Math.round(7*s),m0=1+Math.round(9*s);
+  var top=by+22,rowH=(bh-28)/n,wx0=bx+12,wx1=bx+bw-44,col=lightCol(m.lam),NS=72;
+  for(i=0;i<n;i++){
+    var yc=top+rowH*(i+0.5),A=Math.min(rowH*0.36,22),mm=m0+i,amp=Math.cos(TAU*(0.45+0.07*mm)*m.t+i*1.7);
+    seg(ctx,wx0,yc,wx1,yc,rgba(C.muted,0.3),1);
+    ctx.beginPath();
+    for(k=0;k<=NS;k++){var u=k/NS,x=wx0+u*(wx1-wx0),y=yc-A*Math.sin(mm*Math.PI*u)*amp;if(k)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+    ctx.strokeStyle=col;ctx.lineWidth=2;ctx.lineJoin='round';if(isVis(m.lam))edge(ctx);ctx.stroke();
+    rrect(ctx,bx+bw-34,yc-4,24,8,4);ctx.fillStyle=C.heat;ctx.fill();
+  }
+  /* 能量柱：这个 λ 上的能量 = 左图虚线在这个 λ 的值（同一个 0–2.5 的刻度）；冲出顶部只画箭头（一个 λ 上是有限的数，加起来才是 ∞） */
+  var cw=28,cx0=px+pw-cw-10,ct=by+28,cb=by+bh,vr=rj(m.lam),fr=Math.min(1,vr/YMAX);
+  rrect(ctx,cx0,ct,cw,cb-ct,4);ctx.fillStyle=rgba(C.muted,0.1);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+  if(fr>0.004){var hh=Math.max(2,fr*(cb-ct));rrect(ctx,cx0,cb-hh,cw,hh,4);ctx.fillStyle=C.ink;ctx.fill();}
+  if(vr>YMAX)arrow(ctx,cx0+cw/2,ct-2,cx0+cw/2,by-4,C.ink,2.6,9);
+  txt(ctx,'这个 λ',cx0+cw/2,cb+16,C.ink,11.5,700,'center');
+  txt(ctx,'λ 越短 → 样式越多（只画出几个，示意）',px,cb+16,C.muted,11.5,600);
+  txt(ctx,'一份 × 样式数 = 这个 λ 的能量（= 虚线高度）',px,cb+34,C.muted,11.5,600);
+}
+
+function planck(ctx,L){
+  var px=L.px,py=L.py,pw=L.pw,ph=L.ph,nm=Math.round(m.lam),hf=hfEV(m.lam),i,j,y;
+  txt(ctx,'Planck：能量只能是 0, hf, 2hf, 3hf, …',px,py+12,C.muted,12,600);
+  txt(ctx,'λ = '+nm+' nm（'+band(nm)+'）→ 一份 hf = hc/λ = '+f3(hf)+' eV',px,py+32,C.ink,12.5,600);
+  var lt=py+56,lb=py+ph-50,ax=px+24,l0=px+32,lw=L.lw,bxC=l0+lw/2,k=(lb-lt)/EMAX,xEnd=px+pw-6;
+  function EY(e){return lb-e*k;}
+  /* eV 刻度 */
+  seg(ctx,ax,lt,ax,lb,C.muted,1);
+  for(j=0;j<=2;j++){y=EY(j);seg(ctx,ax-3,y,ax,y,C.muted,1);txt(ctx,String(j),ax-6,y+4,C.muted,11,500,'right');}
+  txt(ctx,'eV',ax,lt-7,C.muted,11,600,'center');
+  /* 热能虚线（示意） */
+  seg(ctx,l0-4,EY(KT),xEnd,EY(KT),rgba(C.heat,0.9),1.8,[6,4]);
+  /* 放出的 quanta（先画，台阶的字压在上面） */
+  for(i=0;i<PN;i++){var p=PK[i];if(!p.on)continue;var x0=bxC+22+p.d;if(x0>xEnd-30)continue;
+    var py0=EY(p.e),wl=clamp(4+22*p.lam/LMAX,4,26),al=clamp((xEnd-30-x0)/40,0,1);
+    ctx.beginPath();for(var u=0;u<=30;u+=1.5){var yy=py0-5*Math.sin(Math.PI*u/30)*Math.sin(TAU*u/wl);if(u)ctx.lineTo(x0+u,yy);else ctx.moveTo(x0,yy);}
+    ctx.strokeStyle=lightCol(p.lam,al);ctx.lineWidth=2.2;if(isVis(p.lam))edge(ctx,al);ctx.stroke();}
+  /* 台阶 0, hf, 2hf, … */
+  var gap=hf*k;
+  for(j=0;j*hf<=EMAX+1e-9;j++){y=EY(j*hf);seg(ctx,l0,y,l0+lw,y,C.ink,j===0?2.4:1.8);
+    if(j>0&&(gap>=15||j===1))txt(ctx,j===1?'hf':j+'hf',l0+lw+5,y+4,C.muted,11,700);}
+  if(hf>EMAX){arrow(ctx,l0+14,lt+24,l0+14,lt-2,C.ink,2.2,8);txt(ctx,hf>4?'第 1 级 hf 在图上面很远':'第 1 级 hf 在图的上面',l0+26,lt+8,C.ink,11.5,700);txt(ctx,'（'+f3(hf)+' eV，2.5 eV 以上）',l0+22,lt+24,C.muted,11,600);}
+  /* 一次“踢”：从现在的台阶往上，高度 = 这次给的能量 */
+  if(m.act===1){var a=m.at,gr=clamp(a/0.12,0,1),fd=a<0.22?1:clamp(1-(a-0.22)/0.12,0,1),e0=m.from*hf,yt=Math.max(lt-4,EY(e0+m.kick*gr));
+    ctx.fillStyle=rgba(C.heat,0.9*fd);ctx.fillRect(bxC-30,yt,6,EY(e0)-yt);}
+  /* oscillator 小球：高度 = 能量，左右振动的幅度随能量变大（示意） */
+  var E=Math.max(0,m.ey),amp=Math.min(12,9*Math.sqrt(E)),bx=bxC+amp*Math.sin(TAU*2.5*m.t),by=Math.max(lt+2,EY(E)-7);
+  dot(ctx,bx,by,7,C.stage);dot(ctx,bx,by,6,C.ink);
+  /* 图例 + 计数 */
+  var y1=lb+22,y2=lb+40;
+  seg(ctx,px,y1-4,px+18,y1-4,C.heat,1.8,[5,3]);
+  txt(ctx,'oscillator 平时的热能（示意）',px+24,y1,C.heat,11,600);
+  txt(ctx,'最近 '+Math.max(1,Math.floor(Math.min(10,m.since)))+' s：'+recent()+' 份 quanta',px+pw,y1,C.ink,11,700,'right'); /* 改 λ 以后重新数 */
+  ctx.fillStyle=C.heat;ctx.fillRect(px+6,y2-10,5,11);
+  txt(ctx,'热运动“踢”一下',px+16,y2,C.muted,11,600);
+  var sx=px+122;ctx.beginPath();for(var uu=0;uu<=18;uu+=1){var y3=y2-4-3.5*Math.sin(TAU*uu/6);if(uu)ctx.lineTo(sx+uu,y3);else ctx.moveTo(sx,y3);}
+  ctx.strokeStyle=lightCol(m.lam);ctx.lineWidth=2;if(isVis(m.lam))edge(ctx);ctx.stroke();
+  var dl='掉一级 = 放出一份 hf（'+band(nm)+'）';ctx.font='600 11px '+FONT;if(sx+24+ctx.measureText(dl).width>px+pw)dl='掉一级 = 放出一份 hf'; /* 放不下就不写波段 */
+  txt(ctx,dl,sx+24,y2,C.muted,11,600);
+}
+
+var LINES=[];
+var ST=makeStage('sim2',{
+  height:function(w){return w>=640?380:622;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    graph(ctx,L);
+    if(m.mode==='cl')classic(ctx,L);else planck(ctx,L);
+    seg(ctx,0,L.sep,W,L.sep,C.line,1);
+    /* 状态提示：A 是“现在怎样”，B 是“所以”；放不下就把字缩小一点 */
+    var sb=status(),fs=L.stF,i,maxW=W-32;
+    for(;;){LINES.length=0;ctx.font='600 '+fs+'px '+FONT;wrap(ctx,sb[0],maxW,LINES);var na=LINES.length;ctx.font='500 '+fs+'px '+FONT;wrap(ctx,sb[1],maxW,LINES);
+      if(LINES.length<=L.stMax||fs<=12.5)break;fs-=0.5;}
+    for(i=0;i<LINES.length;i++)txt(ctx,LINES[i],16,L.st+i*L.lh,i<na?C.ink:C.muted,fs,i<na?600:500);
+  }
+});
+
+function setLam(v){
+  m.lam=v;ro.textContent=Math.round(v)+' nm';
+  m.n=0; /* 新的 λ 从 0 级开始（最可能的状态），不会一换 λ 就从高台阶掉下来、放出一串 quanta */
+  m.ey=0;m.act=0;m.wait=0.25;emN=0;emI=0;m.since=0;ST.render();
+}
+rl.addEventListener('input',function(){setLam(parseFloat(rl.value));});
+function setMode(md){m.mode=md;press(bc,md==='cl');press(bp,md==='pl');ST.render();}
+bc.addEventListener('click',function(){setMode('cl');});
+bp.addEventListener('click',function(){setMode('pl');});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 遏止电压和 I–V 图
+   真空管：光照 caesium cathode（ϕ = 2.1 eV，booklet），打出的电子以不同的动能 K 飞向 anode。
+   Kmax = hf − ϕ，h = 4.136e-15 eV s（booklet）：f = 10 × 10¹⁴ Hz 时 Kmax = 2.04 eV，V0 = 2.04 V（计算值）。
+   理想化（booklet 图 3.5）：电子都正对着 anode 飞出；K = Kmax × s，s 按 Beta(2,2) 分布（三个随机数取中间那个）。
+   这样 V < 0 时到得了 anode 的比例 = 1 − 3w² + 2w³（w = |V|/Kmax）：从 −V0 平滑升到 V = 0，V ≥ 0 时是平的，
+   和 booklet 图 3.5 的形状一样，而且和管子里飞的电子一一对得上。电流大小、电子数目、速度比例尺是示意。
+   均匀电场：K(x) = K0 + V·x/d（eV，x/d 从 0 到 1）→ 加速度不变；V < 0 时 K0 < |V| 的电子在 x = d·K0/|V| 处掉头。 */
+/* 带下标的文字：'K_max' 画成 K 加小一号、往下一点的 max（下标不小于 11 px），和页面上的 K<sub>max</sub> 一样。
+   这个动画里的 txt 换成会画下标的版本（字里没有 '_' 时和原来一样）；tw() 量带下标的字有多宽。 */
+var SUBRE=/([A-Za-zλ])_([a-z0-9]+)/g,RTP=[],txt0=txt;
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';size=size||13;
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt0(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+txt=function(ctx,s,x,y,col,size,weight,align,base,family){s=String(s);if(s.indexOf('_')<0)txt0(ctx,s,x,y,col,size,weight,align,base,family);else rt(ctx,s,x,y,col,size,weight,align,base,family);};
+function tw(ctx,s,size,weight,family){return rt(ctx,String(s),0,0,null,size,weight,'left',null,family,true);}
+/* 浅色主题：真实颜色的可见光（黄、绿、青在白底上几乎看不见）先描一圈深色边，再画本色。深色主题不用。 */
+function isLightBg(){var h=String(C.stage).replace('#','').trim();if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);
+  return h.length===6&&!isNaN(n)&&(0.2126*(n>>16&255)+0.7152*(n>>8&255)+0.0722*(n&255))>128;}
+function edge(ctx,a){if(!isLightBg())return;var ss=ctx.strokeStyle,lw=ctx.lineWidth;ctx.strokeStyle=rgba(C.ink,0.4*(a==null?1:a));ctx.lineWidth=lw+1.6;ctx.stroke();ctx.strokeStyle=ss;ctx.lineWidth=lw;}
+var HEV=4.136e-15,PHI=2.1,KAP=0.42,RATE=5,VMIN=-3,VMAX=2,NB=501,IMAX=2.3;
+function kmax(f){return HEV*f*1e14-PHI;}
+function frac(V,K){if(V>=0)return 1;if(K<=0)return 0;var w=-V/K;return w>=1?0:1-3*w*w+2*w*w*w;}
+function binOf(v){return clamp(Math.round((v-VMIN)*100),0,NB-1);}
+
+/* 固定种子的随机数：第一帧每次都一样 */
+var seed=7310305;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+
+var rv=document.getElementById('s3-V'),ov=document.getElementById('s3-V-out'),rf=document.getElementById('s3-f'),of=document.getElementById('s3-f-out');
+var bb1=document.getElementById('s3-b1'),bb2=document.getElementById('s3-b2');
+var m={V:-1,f:10,b:1,t:0,next:0.1,note:null,gh:null};
+rv.value='-1';rf.value='10'; /* 第一帧固定：f = 10 × 10¹⁴ Hz，V = −1.00 V */
+var vis=new Uint8Array(NB),ghVis=new Uint8Array(NB);
+var NE=200,EX=new Float64Array(NE),EV=new Float64Array(NE),EY=new Float64Array(NE),EA=new Float64Array(NE),EON=new Uint8Array(NE);
+var NF=16,FY=new Float64Array(NF),FT=new Float64Array(NF),FON=new Uint8Array(NF);
+
+function mark(a,b){var i,lo=Math.min(a,b),hi=Math.max(a,b);for(i=lo;i<=hi;i++)vis[i]=1;}
+function emit(){
+  for(var i=0;i<NE;i++){if(EON[i])continue;
+    var a=rnd(),b=rnd(),c=rnd(),s=Math.max(Math.min(a,b),Math.min(Math.max(a,b),c)); /* 三个取中间 → Beta(2,2) */
+    EON[i]=1;EX[i]=0;EV[i]=KAP*Math.sqrt(Math.max(0,kmax(m.f))*s);EY[i]=0.04+0.92*rnd();EA[i]=0;return;}
+}
+function flash(y){for(var i=0;i<NF;i++){if(!FON[i]){FON[i]=1;FY[i]=y;FT[i]=0;return;}}}
+function sub(h){
+  var i,a=KAP*KAP*m.V/2;
+  m.t+=h;m.next-=h;
+  while(m.next<=0){emit();m.next+=-Math.log(1-rnd())/(RATE*m.b);}
+  for(i=0;i<NE;i++){if(!EON[i])continue;
+    EX[i]+=EV[i]*h+0.5*a*h*h;EV[i]+=a*h;EA[i]+=h;
+    if(EX[i]>=1){EON[i]=0;flash(EY[i]);}
+    else if((EX[i]<=0&&EV[i]<=0&&EA[i]>0.05)||EA[i]>40)EON[i]=0;}
+  for(i=0;i<NF;i++){if(FON[i]){FT[i]+=h;if(FT[i]>0.45)FON[i]=0;}}
+}
+function step(dt){var n=4,h=dt/n;for(var i=0;i<n;i++)sub(h);}
+function prime(){for(var i=0;i<NE;i++)EON[i]=0;for(var j=0;j<NF;j++)FON[j]=0;m.next=0.05;for(var q=0;q<300;q++)step(1/60);}
+mark(binOf(-1),binOf(VMAX));
+prime();
+
+/* ---------- 小工具 ---------- */
+function fmtV(v){return (v<-0.004?'−':(v>0.004?'+':''))+Math.abs(v).toFixed(2)+' V';}
+function lamNm(f){return 3000/f;}
+function band(nm){return nm<400?'UV':'visible';}
+function lightCol(nm,a){return (nm>=400&&nm<=700)?lambdaColor(nm,a==null?1:a):rgba(C.light,a==null?1:a);}
+function pct(x){var p=x*100;return p<1?'不到 1%':(p>99?'几乎 100%':Math.round(p)+'%');}
+/* 按“块”换行：只在块和块之间断开（块太长时再按字断开） */
+function wrap(ctx,chunks,maxW,out){
+  var line='',i,t;
+  for(i=0;i<chunks.length;i++){
+    t=line+chunks[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=chunks[i].replace(/^\s+/,'');}
+    else line=t;
+    while(ctx.measureText(line).width>maxW&&line.length>1){var k=line.length-1;while(k>1&&ctx.measureText(line.slice(0,k)).width>maxW)k--;out.push(line.slice(0,k));line=line.slice(k);}
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+
+/* ---------- 状态提示：A = 现在怎样，B = 所以 ---------- */
+function status(){
+  var V=m.V,K=kmax(m.f),k2=K.toFixed(2),av=Math.abs(V).toFixed(2),g=m.gh,A,B;
+  if(m.note==='b'&&g&&g.b!==m.b){
+    if(m.b===2){A=['亮度 × 2：每秒的 photon 多一倍 ','→ 电子多一倍 ','→ saturation current × 2。'];
+      B=['每个电子的能量不变 ','→ −V_0 不动（新旧两条线都在 −'+k2+' V 落到 0）。'];}
+    else{A=['亮度 × 1：每秒的电子少一半 ','→ saturation current 减半。'];
+      B=['K_max 只看 f，不看亮度 ','→ −V_0 不动（还是 −'+k2+' V）。'];}
+    return [A,B];
+  }
+  if(m.note==='f'&&g&&Math.abs(g.f-m.f)>0.05){
+    var up=m.f>g.f;
+    A=['f 变'+(up?'大':'小')+'（'+g.f.toFixed(1)+' → '+m.f.toFixed(1)+' × 10¹⁴ Hz）：','每个 photon 的能量 hf 更'+(up?'大':'小')+' ','→ K_max 变成 '+k2+' eV'];
+    B=['→ −V_0 往'+(up?'左':'右')+'移到 −'+k2+' V。','每秒的 photon 数没变 → 平的部分一样高。'];
+    return [A,B];
+  }
+  if(V>0.004){A=['V = '+fmtV(V)+'：anode 是正的，','电场把电子拉过去 ','→ 所有电子都被收走 ','→ 电流到顶（saturation current）。'];
+    B=['再加电压，电流也不变：','每秒能收的电子就这么多（由每秒的 photon 数决定）。'];}
+  else if(V>=-0.004){A=['V = 0：没有电场。','电子靠自己的动能飞到 anode ','→ 全部收到 ','→ 已经是 saturation current（理想化）。'];
+    B=['往左拖（anode 变负），','看电子怎样被推回去。'];}
+  else if(Math.abs(V+(+k2))<0.005){A=['V = −'+k2+' V = −V_0：','连最快的电子（K_max = '+k2+' eV）','也刚好停在 anode 前 ','→ I = 0。'];
+    B=['所以 K_max = qV_0：','用 eV 做单位，K_max 的数字就是 V_0 的数字。'];}
+  else if(-V>K){A=['V = '+fmtV(V)+'，比 −V_0 = −'+k2+' V 还负：','所有电子都在半路掉头 ','→ I = 0。'];
+    B=['V_0 是刚好让 I = 0 的最小反向电压：','这里 V_0 = '+k2+' V。'];}
+  else{A=['V = '+fmtV(V)+'：anode 是负的，','电场把电子往回推。','每个电子要花掉 q|V| = '+av+' eV 的动能才到得了 anode。'];
+    B=['只有 K > '+av+' eV 的电子到得了（'+pct(frac(V,K))+'）','→ 电流比 saturation current（饱和电流）小。'];}
+  return [A,B];
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+function lay(W){
+  if(W>=640){var lw=Math.round(W*0.5);
+    return {wide:true,hx:16,h1:22,h2:42,tx0:16,tx1:lw-10,ty0:76,ty1:228,wy:268,mR:21,
+      gx0:lw+58,gx1:W-24,ghx:lw+22,gh:22,gr:44,gy0:62,gy1:246,sep:322,st:346,lh:21,stF:14.5,stMax:3};}
+  return {wide:false,hx:16,h1:20,h2:39,tx0:12,tx1:W-12,ty0:72,ty1:222,wy:260,mR:20,
+    gx0:42,gx1:W-18,ghx:16,gh:324,gr:346,gy0:362,gy1:500,sep:570,st:592,lh:19,stF:13.5,stMax:4};
+}
+
+function tube(ctx,L){
+  var K=kmax(m.f),lam=lamNm(m.f),V=m.V,i,k;
+  var tx0=L.tx0,tx1=L.tx1,ty0=L.ty0,ty1=L.ty1;
+  var cxp=tx0+16,cf=cxp+7,af=tx1-16-7,d=af-cf,mid=(cf+af)/2;
+  var bt=ty0+50,bb=ty1-34,eRow=ty0+22,lRow=ty0+40,fRow=ty1-14;
+  /* 标题两行 */
+  txt(ctx,'光：f = '+m.f.toFixed(1)+' × 10¹⁴ Hz，λ = c/f = '+Math.round(lam)+' nm（'+band(lam)+'）',L.hx,L.h1,C.ink,L.wide?13:12.5,700);
+  txt(ctx,'caesium cathode · 最快的电子 K_max = '+K.toFixed(2)+' eV',L.hx,L.h2,C.muted,12,600);
+  /* 玻璃管（真空） */
+  rrect(ctx,tx0,ty0,tx1-tx0,ty1-ty0,18);ctx.fillStyle=rgba(C.muted,0.06);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.5;ctx.stroke();
+  /* 光：3 条光路，60° 斜着从上面穿过 quartz 窗，打在 cathode 表面；一个个小波包往下走（亮度 × 2 = 波包多一倍） */
+  var nl=3,sp=m.b===2?34:68,ys=L.h2+14,sx=0.5,sy=0.866,wl=7+lam/40,yh,Lr,q,s,u,xw0=1e9,xw1=-1e9;
+  for(k=0;k<nl;k++){yh=bt+(k+0.5)*(bb-bt)/nl;var xc=cf+sx*(yh-ty0)/sy;xw0=Math.min(xw0,xc);xw1=Math.max(xw1,xc);}
+  seg(ctx,xw0-8,ty0,xw1+8,ty0,rgba(C.muted,0.9),5);
+  for(k=0;k<nl;k++){
+    yh=bt+(k+0.5)*(bb-bt)/nl;Lr=(yh-ys)/sy;
+    seg(ctx,cf,yh,cf+sx*Lr,yh-sy*Lr,lightCol(lam,0.25),1.2);
+    var ph=(m.t*70+k*sp*0.41)%sp;
+    for(q=ph;q<Lr+12;q+=sp){
+      s=Lr-q;ctx.beginPath();var pen=false;
+      for(u=-11;u<=11;u+=1.5){var ss=s+u;if(ss<0||ss>Lr)continue;var env=0.5+0.5*Math.cos(Math.PI*u/11),off=3.2*env*Math.sin(TAU*u/wl),px=cf+sx*ss+sy*off,py=yh-sy*ss+sx*off;
+        if(pen)ctx.lineTo(px,py);else{ctx.moveTo(px,py);pen=true;}}
+      ctx.strokeStyle=lightCol(lam,1);ctx.lineWidth=2;if(lam>=400&&lam<=700)edge(ctx);ctx.stroke();
+    }
+  }
+  var qx=xw1+22;
+  if(lam<400){txt(ctx,'UV 光',qx,ty0-6,C.light,11.5,700);ctx.font='700 11.5px '+FONT;qx+=ctx.measureText('UV 光').width+6;}
+  txt(ctx,'quartz 窗（让 UV 进来）',qx,ty0-6,C.muted,11,600);
+  /* 极板：颜色和 + − 跟着电压走（正极板红，负极板蓝） */
+  var cc=V<-0.004?C.north:(V>0.004?C.south:C.muted),ac=V<-0.004?C.south:(V>0.004?C.north:C.muted);
+  ctx.fillStyle=cc;ctx.fillRect(cxp,bt-8,7,bb-bt+16);ctx.fillStyle=ac;ctx.fillRect(af,bt-8,7,bb-bt+16);
+  if(Math.abs(V)>0.004){txt(ctx,V<0?'+':'−',cxp+3.5,lRow,cc,14,700,'center');txt(ctx,V<0?'−':'+',af+3.5,lRow,ac,14,700,'center');}
+  /* 电场线 E：从高电势指向低电势 */
+  if(Math.abs(V)>0.004){
+    var ea=0.45+0.55*Math.min(1,Math.abs(V)/2),ec=rgba(C.violet,ea),dir=V<0?1:-1;
+    seg(ctx,cf+6,eRow,af-6,eRow,ec,1.6);
+    for(var xa=cf+40;xa<af-20;xa+=62)arrow(ctx,xa-dir*6,eRow,xa+dir*6,eRow,ec,1.6,8);
+    txt(ctx,'E',af-12,eRow-6,C.violet,12.5,700,'right');
+  }
+  /* 最快的电子在哪里掉头（|V| ≥ Kmax 时才在管子里） */
+  var atV0=Math.abs(V+(+K.toFixed(2)))<0.005;
+  if(V<-0.004&&(atV0||-V>K)){
+    var xt=atV0?af-3:cf+d*K/(-V);
+    seg(ctx,xt,bt-4,xt,bb+4,rgba(C.south,0.85),1.4,[4,3]);
+    var tl=atV0?'最快的电子刚好停在 anode 前':'最快的电子在这里掉头';
+    if(xt<mid)txt(ctx,tl,xt+5,lRow,C.south,11,600);else txt(ctx,tl,xt-5,lRow,C.south,11,600,'right');
+  }
+  /* 电子（蓝点）和速度箭头（ink 70%） */
+  var bh=bb-bt-8;
+  for(i=0;i<NE;i++){if(!EON[i])continue;
+    var x=cf+EX[i]*d,y=bt+4+EY[i]*bh,v=EV[i];
+    if(Math.abs(v)>0.025){var ln=5+15*Math.min(1,Math.abs(v)/0.8),sg=v>0?1:-1;arrow(ctx,x+sg*5,y,x+sg*(5+ln),y,rgba(C.ink,0.7),1.5,5);}
+    dot(ctx,x,y,4,C.south);}
+  for(i=0;i<NF;i++){if(!FON[i])continue;var fa=1-FT[i]/0.45;ring(ctx,af-2,bt+4+FY[i]*bh,3+9*(1-fa),rgba(C.south,fa),1.6);}
+  /* 每个电子受的力 F（绿）：方向和 E 相反 */
+  if(Math.abs(V)>0.004){
+    var Lf=16+44*Math.abs(V)/3,fd=V<0?-1:1,x0=mid+8,x1=mid+8+Lf;
+    if(fd<0)arrow(ctx,x1,fRow-4,x0,fRow-4,C.force,2.6,9);else arrow(ctx,x0,fRow-4,x1,fRow-4,C.force,2.6,9);
+    txt(ctx,'电子受的力 F',mid-4,fRow,C.force,11.5,700,'right');
+  }else txt(ctx,'V = 0：没有电场，电子不受力',mid,fRow,C.muted,11.5,600,'center');
+  /* 电路：导线、可调电源、microammeter */
+  var cwx=cxp+3.5,awx=af+3.5,wy=L.wy,xs=cwx+0.42*(awx-cwx),xm=cwx+0.8*(awx-cwx),R=L.mR;
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(cwx,bb+8);ctx.lineTo(cwx,wy);ctx.lineTo(awx,wy);ctx.lineTo(awx,bb+8);ctx.stroke();
+  txt(ctx,'cathode（阴极）',cwx+8,ty1+16,C.ink,11.5,600);
+  txt(ctx,'anode（阳极）',awx-8,ty1+16,C.ink,11.5,600,'right');
+  ctx.fillStyle=C.stage;ctx.fillRect(xs-9,wy-4,18,8);
+  var pos=V>=0?1:-1; /* 右边（接 anode 那边）是 + 吗 */
+  seg(ctx,xs-5,wy-(pos>0?6:13),xs-5,wy+(pos>0?6:13),C.ink,2.4);
+  seg(ctx,xs+5,wy-(pos>0?13:6),xs+5,wy+(pos>0?13:6),C.ink,2.4);
+  txt(ctx,pos>0?'−':'+',xs-20,wy-8,C.ink,12,700,'center');txt(ctx,pos>0?'+':'−',xs+20,wy-8,C.ink,12,700,'center');
+  arrow(ctx,xs-11,wy+11,xs+11,wy-12,C.muted,1.3,6);
+  txt(ctx,'V = '+fmtV(V),xs,wy+31,C.ink,13,700,'center','alphabetic',MONO);
+  var I=m.b*frac(V,K),th=Math.PI*(-5/6)+(Math.PI*2/3)*Math.min(1,I/IMAX),pyv=wy+5;
+  dot(ctx,xm,wy,R,C.surface);ring(ctx,xm,wy,R,C.ink,1.5);
+  ctx.beginPath();ctx.arc(xm,pyv,R-6,Math.PI*(-5/6),Math.PI*(-1/6));ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+  seg(ctx,xm,pyv,xm+Math.cos(th)*(R-4),pyv+Math.sin(th)*(R-4),C.copper,2.2);dot(ctx,xm,pyv,2.4,C.ink);
+  txt(ctx,'µA',xm,wy+R-4,C.ink,11,700,'center');
+  txt(ctx,'microammeter',xm,wy+R+14,C.muted,11,600,'center');
+}
+
+function graph(ctx,L){
+  var x0=L.gx0,x1=L.gx1,y0=L.gy0,y1=L.gy1,K=kmax(m.f),v,i;
+  function X(u){return x0+(u-VMIN)/(VMAX-VMIN)*(x1-x0);}
+  function Y(u){return y1-u/IMAX*(y1-y0);}
+  var xz=X(0);
+  txt(ctx,'I–V 图：photocurrent 对管电压（理想化）',L.ghx,L.gh,C.ink,L.wide?13:12.5,700);
+  ctx.fillStyle=rgba(C.south,0.05);ctx.fillRect(x0,y0,xz-x0,y1-y0);
+  txt(ctx,'anode 负（把电子推回去）',(x0+xz)/2,L.gr,C.muted,11.5,600,'center');
+  txt(ctx,'anode 正',(xz+x1)/2,L.gr,C.muted,11.5,600,'center');
+  for(v=VMIN;v<=VMAX;v++)if(v)seg(ctx,X(v),y0,X(v),y1,C.grid,1);
+  seg(ctx,x0,Y(1),x1,Y(1),C.grid,1,[3,4]);seg(ctx,x0,Y(2),x1,Y(2),C.grid,1,[3,4]);
+  seg(ctx,x0,y1,x1,y1,C.muted,1.2);
+  arrow(ctx,xz,y1,xz,y0-6,C.muted,1.2,7);
+  txt(ctx,'I',xz-7,y0+4,C.ink,13,700,'right','alphabetic',MATH);
+  for(v=VMIN;v<=VMAX;v++)txt(ctx,v===0?'0':(v<0?'−'+(-v):'+'+v),X(v),y1+15,C.muted,11,500,'center');
+  txt(ctx,'管电压 V (V)',x1,y1+32,C.muted,11.5,600,'right');
+  /* 曲线：只画已经扫过的 V */
+  function curve(f,b,vv,col,w,dash){
+    var Kc=kmax(f),pen=false;ctx.beginPath();
+    for(var j=0;j<NB;j++){if(!vv[j]){pen=false;continue;}var u=VMIN+j*0.01,px=X(u),py=Y(b*frac(u,Kc));if(pen)ctx.lineTo(px,py);else{ctx.moveTo(px,py);pen=true;}}
+    ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash(dash||[]);ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);
+  }
+  var g=m.gh,showG=g&&(g.b!==m.b||Math.abs(g.f-m.f)>0.05);
+  if(showG){curve(g.f,g.b,ghVis,C.muted,2,[6,4]);
+    var Kg=kmax(g.f);if(Math.abs(Kg-K)>0.004)seg(ctx,X(-Kg),y1-5,X(-Kg),y1+5,C.muted,2);}
+  curve(m.f,m.b,vis,C.copper,2.6);
+  if(vis[binOf(1)])txt(ctx,'saturation current',X(1.05),Y(m.b)+16,C.copper,11.5,600,'center');
+  /* −V0 标在横轴上 */
+  var xk=X(-K);seg(ctx,xk,y1-6,xk,y1+5,C.copper,2.2);
+  var lab='−V_0 = −'+K.toFixed(2)+' V',hw=tw(ctx,lab,12,700)/2;
+  txt(ctx,lab,Math.max(x0-26+hw,xk),y1+32,C.copper,12,700,'center');
+  /* 现在的点 */
+  var I=m.b*frac(m.V,K),xp=X(m.V),yp=Y(I);
+  seg(ctx,xp,yp,xp,y1,rgba(C.ink,0.45),1.2,[3,3]);
+  dot(ctx,xp,yp,7.5,C.stage);dot(ctx,xp,yp,5.5,C.copper);
+  var lg=showG?('虚线 = 之前：f = '+g.f.toFixed(1)+' × 10¹⁴ Hz，亮度 × '+g.b):'拖 V：扫过的地方曲线就画出来';
+  txt(ctx,lg,L.ghx,y1+50,C.muted,11,600);
+}
+
+var LINES=[];
+var ST=makeStage('sim3',{
+  height:function(w){return w>=640?400:666;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    tube(ctx,L);graph(ctx,L);
+    seg(ctx,0,L.sep,W,L.sep,C.line,1);
+    var sb=status(),fs=L.stF,i,maxW=W-32,na;
+    for(;;){LINES.length=0;ctx.font='600 '+fs+'px '+FONT;wrap(ctx,sb[0],maxW,LINES);na=LINES.length;ctx.font='500 '+fs+'px '+FONT;wrap(ctx,sb[1],maxW,LINES);
+      if(LINES.length<=L.stMax||fs<=12.5)break;fs-=0.5;}
+    for(i=0;i<LINES.length;i++)txt(ctx,LINES[i],16,L.st+i*L.lh,i<na?C.ink:C.muted,fs,i<na?600:500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+/* 暂停时改了控件：让电子在新条件下先跑 3 s，画面和新的电压/频率对得上 */
+function settle(){if(!ST.playing){for(var q=0;q<180;q++)step(1/60);}}
+function snap(){m.gh={f:m.f,b:m.b};ghVis.set(vis);}
+function outs(){ov.textContent=fmtV(m.V);of.textContent=m.f.toFixed(1)+' × 10¹⁴ Hz';press(bb1,m.b===1);press(bb2,m.b===2);}
+rv.addEventListener('input',function(){var v=parseFloat(rv.value);mark(binOf(m.V),binOf(v));m.V=v;m.note=null;outs();settle();ST.render();});
+var lastF=0;
+rf.addEventListener('input',function(){var now=Date.now();if(now-lastF>800||m.note!=='f'){snap();m.note='f';}lastF=now;m.f=parseFloat(rf.value);outs();settle();ST.render();});
+function setB(b){if(b===m.b)return;snap();m.b=b;m.note='b';outs();settle();ST.render();}
+bb1.addEventListener('click',function(){setB(1);});
+bb2.addEventListener('click',function(){setB(2);});
+document.getElementById('s3-reset').addEventListener('click',function(){
+  m.V=-1;m.f=10;m.b=1;m.note=null;m.gh=null;rv.value='-1';rf.value='10';
+  for(var i=0;i<NB;i++)vis[i]=0;mark(binOf(-1),binOf(VMAX));seed=7310305;prime();outs();ST.setPlaying(true);ST.render();
+});
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · Wave model 的预测 vs 实验（photon）
+   同一块锌板（booklet：zinc ϕ = 4.3 eV），同一束光，演两遍：
+   wave model：能量看亮度、不看颜色，均匀铺在所有电子上。每个电子每秒攒 0.43 × 亮度 eV（示意），
+     攒到 ϕ 才飞出，所以要等 10 / 亮度 秒（示意）；它还预测越亮电子越快（箭头长度 ∝ 亮度）。
+   实验（photon model）：每个 photon 只打一个电子，一次给完 hf：hf ≥ ϕ 马上飞出，Kmax = hf − ϕ；
+     hf < ϕ 就变成热，两个 photon 的能量不会加起来（第二个打来时能量条重新从 hf 开始，不是叠加）。
+   hf = hc/λ（h = 6.626e-34 J s，c = 3.00e8 m/s，1 eV = 1.602e-19 J）：500 nm → 2.48 eV，250 nm → 4.96 eV（计算值）。
+   亮度 = 功率：每秒 photon 数 N/t = P/hf ∝ λ，所以同样亮度 500 nm 的 photon 是 250 nm 的两倍；具体个数是示意。
+   计时从“光到达锌板”开始；第一个 photon 正好和光一起到。 */
+/* 带下标的文字：'K_max' 画成 K 加小一号、往下一点的 max（下标不小于 11 px），和页面上的 K<sub>max</sub> 一样。
+   这个动画里的 txt 换成会画下标的版本（字里没有 '_' 时和原来一样）；tw() 量带下标的字有多宽。 */
+var SUBRE=/([A-Za-zλ])_([a-z0-9]+)/g,RTP=[],txt0=txt;
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';size=size||13;
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt0(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+txt=function(ctx,s,x,y,col,size,weight,align,base,family){s=String(s);if(s.indexOf('_')<0)txt0(ctx,s,x,y,col,size,weight,align,base,family);else rt(ctx,s,x,y,col,size,weight,align,base,family);};
+function tw(ctx,s,size,weight,family){return rt(ctx,String(s),0,0,null,size,weight,'left',null,family,true);}
+/* 浅色主题：真实颜色的可见光（黄、绿、青在白底上几乎看不见）先描一圈深色边，再画本色。深色主题不用。 */
+function isLightBg(){var h=String(C.stage).replace('#','').trim();if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);
+  return h.length===6&&!isNaN(n)&&(0.2126*(n>>16&255)+0.7152*(n>>8&255)+0.0722*(n&255))>128;}
+function edge(ctx,a){if(!isLightBg())return;var ss=ctx.strokeStyle,lw=ctx.lineWidth;ctx.strokeStyle=rgba(C.ink,0.4*(a==null?1:a));ctx.lineWidth=lw+1.6;ctx.stroke();ctx.strokeStyle=ss;ctx.lineWidth=lw;}
+var HP=6.626e-34,CL=3.00e8,EV=1.602e-19,PHI=4.3,EMAX=5.5,NS=6;
+var HF_VIS=HP*CL/500e-9/EV,HF_UV=HP*CL/250e-9/EV;
+var TRAV=0.65,REF=0.32,HEAT=0.5,FLASH=0.8;
+/* 面板里的位置（相对面板顶部） */
+var P_TITLE=20,P_LT=28,P_LB=44,P_EY=132,P_PT=139,P_PB=197,P_BB=193,P_BH=46,P_R1=215,P_R2=232,P_R3=249,P_H=258,GUT=72;
+
+/* 固定种子的随机数：第一帧每次都一样 */
+var seed=20261104;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+
+var m={uv:true,B:2,t:0,tw1:-1,tp1:-1,nw:0,np:0,nextArr:0};
+function mkSlots(){var a=[];for(var i=0;i<NS;i++)a.push({st:0,e:0,k:0,fk:9});return a;}
+var SW=mkSlots(),SP=mkSlots();
+var NPK=40,PK=[],NFE=48,FE=[];
+for(var q=0;q<NPK;q++)PK.push({on:false,slot:0,xf:0,arr:0});
+for(var q1=0;q1<NFE;q1++)FE.push({on:false,side:0,slot:0,y:0,dx:0,vx:0,vy:0,L:0});
+
+function hf(){return m.uv?HF_UV:HF_VIS;}
+function rateW(){return 0.43*m.B;}                 /* wave model：每个电子每秒攒的能量（eV/s，示意） */
+function rateP(){return (m.uv?0.9:1.8)*m.B;}       /* 每秒到达的 photon 数（示意，∝ λ） */
+
+function restart(){
+  m.t=-TRAV;m.tw1=-1;m.tp1=-1;m.nw=0;m.np=0;m.nextArr=0;
+  var i;for(i=0;i<NS;i++){SW[i].st=0;SW[i].e=0;SW[i].k=0;SP[i].st=0;SP[i].e=0;SP[i].k=0;SP[i].fk=9;}
+  for(i=0;i<NPK;i++)PK[i].on=false;for(i=0;i<NFE;i++)FE[i].on=false;
+}
+function fly(side,slot,vy,L){for(var i=0;i<NFE;i++){var f=FE[i];if(!f.on){f.on=true;f.side=side;f.slot=slot;f.y=0;f.dx=0;f.vx=(rnd()-0.5)*36;f.vy=vy;f.L=L;return;}}}
+function spawnPk(arr){for(var i=0;i<NPK;i++){var p=PK[i];if(!p.on){p.on=true;p.arr=arr;p.slot=Math.floor(rnd()*NS);p.xf=rnd()-0.5;return;}}}
+
+/* 一个 photon 打中一个电子 */
+function hit(i){
+  var s=SP[i],E=hf();
+  if(E>=PHI){s.st=2;s.k=0;s.fk=0;s.e=E;m.np++;if(m.tp1<0)m.tp1=Math.max(0,m.t);fly(1,i,140,17);}
+  else{s.st=1;s.k=0;s.e=E;}   /* 不加到原来的能量上：重新从 hf 开始，然后变成热 */
+}
+
+function sub(h){
+  var i,s;
+  m.t+=h;
+  /* wave model：光到了以后，所有电子一起慢慢攒 */
+  for(i=0;i<NS;i++){s=SW[i];
+    if(s.st===0){if(m.t>=0){s.e+=rateW()*h;if(s.e>=PHI){s.e=PHI;s.st=2;s.k=0;m.nw++;if(m.tw1<0)m.tw1=m.t;fly(0,i,70+13*m.B,6+2.2*m.B);}}}
+    else{s.k+=h;if(s.k>=REF){s.st=0;s.e=0;s.k=0;}}
+  }
+  /* 实验：photon 一个个来（泊松过程），每个飞 TRAV 秒到锌板 */
+  while(m.nextArr-TRAV<=m.t){spawnPk(m.nextArr);m.nextArr+=-Math.log(1-rnd())/rateP();}
+  for(i=0;i<NPK;i++){var p=PK[i];if(p.on&&m.t>=p.arr){p.on=false;hit(p.slot);}}
+  for(i=0;i<NS;i++){s=SP[i];
+    if(s.st===1){s.k+=h;if(s.k>=HEAT){s.st=0;s.e=0;s.k=0;}}
+    else if(s.st===2){s.k+=h;if(s.k>=REF){s.st=0;s.k=0;}}
+    s.fk+=h;
+  }
+  for(i=0;i<NFE;i++){var f=FE[i];if(!f.on)continue;f.y+=f.vy*h;f.dx+=f.vx*h;if(f.y>P_EY-P_LB+6)f.on=false;}
+}
+function step(dt){var n=3,h=dt/n;for(var i=0;i<n;i++)sub(h);}
+restart();
+for(var q2=0;q2<240;q2++)step(1/60);   /* 第一帧：暗的 UV，光到了 3.35 s：右边已经出来几个电子，左边还在攒 */
+
+/* ---------- 小工具 ---------- */
+function f1(v){return v.toFixed(1);}
+function lightCol(a){return m.uv?rgba(C.light,a):lambdaColor(500,a);}
+/* 一行里几段不同颜色的字；太长就缩小字号（最小 11 px） */
+function parts(ctx,ps,x,y,size,maxW,align){
+  var sz=size,w,i;
+  for(;;){w=0;for(i=0;i<ps.length;i++){ctx.font=(ps[i][2]||500)+' '+sz+'px '+FONT;w+=ctx.measureText(ps[i][0]).width;}
+    if(w<=maxW||sz<=11)break;sz-=0.5;}
+  var cx=align==='right'?x-w:x;
+  for(i=0;i<ps.length;i++){txt(ctx,ps[i][0],cx,y,ps[i][1],sz,ps[i][2]||500);ctx.font=(ps[i][2]||500)+' '+sz+'px '+FONT;cx+=ctx.measureText(ps[i][0]).width;}
+}
+/* 按“块”换行：只在块和块之间断开 */
+function wrap(ctx,chunks,maxW,out){
+  var line='',i,t;
+  for(i=0;i<chunks.length;i++){
+    t=line+chunks[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=chunks[i].replace(/^\s+/,'');}
+    else line=t;
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var A,B,b=m.B,e=SW[0].e;
+  var pre=m.uv?'wave model 预测：':'wave model 预测：颜色无所谓，';
+  if(m.t<0)A=['wave model 预测：','光一到，','能量就均匀铺在','所有电子上'];
+  else if(m.tw1<0){var rem=Math.max(0,(PHI-e)/rateW());A=[pre,'每个电子','慢慢攒能量','（'+f1(e)+' / 4.3 eV）','→ 还要等 '+f1(rem)+' s'];}
+  else A=[pre,'攒够 4.3 eV ','才飞出 ','→ 第一个等了 '+f1(m.tw1)+' s','（'+(b<=3?'越暗等得越久':(b>=7?'够亮就等得短':'亮度决定要等多久'))+'）'];
+  if(m.uv){
+    if(b<=3)B=['实验：','第一个电子马上出来','（不到 10⁻⁹ s）。','暗 → photon 少 ','→ 电子少，','但不用等。'];
+    else B=['实验：马上出来。','越亮 → photon 越多 ','→ 电子越多；','K_max 不变：','4.96 − 4.3 = 0.66 eV。'];
+  }else{
+    if(b>=7)B=['实验：','再亮也一个都不出来：','hf = 2.48 eV < ϕ = 4.3 eV，','两个 photon 的能量','不会加起来。'];
+    else B=['实验：','一个都不出来：','每个 photon 只有 ','hf = 2.48 eV < ϕ = 4.3 eV，','变成热。'];
+  }
+  return [A,B];
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）左右排，手机上下排 ---------- */
+function lay(W){
+  if(W>=640){var pw=Math.floor((W-12*2-16)/2);
+    return {wide:true,stX:16,stY:26,lh:22,stF:14.5,stW:W-32,P:[{x:12,y:84,w:pw},{x:12+pw+16,y:84,w:pw}]};}
+  return {wide:false,stX:14,stY:22,lh:19,stF:13.5,stW:W-28,P:[{x:6,y:110,w:W-12},{x:6,y:110+P_H+10,w:W-12}]};
+}
+
+function slotX(P,i){var x0=P.x+GUT,x1=P.x+P.w-8;return x0+(i+0.5)*(x1-x0)/NS;}
+function EY(P,e){return P.y+P_BB-e/EMAX*P_BH;}
+
+function packet(ctx,x,y,ux,uy,vw,col,dashed){
+  var Lh=12,A=4,first=true;
+  ctx.beginPath();
+  for(var s=-Lh;s<=Lh+0.01;s+=1.2){var en=Math.cos(Math.PI*s/(2*Lh));en*=en;var off=A*en*Math.sin(TAU*s/vw);
+    var px=x+ux*s-uy*off,py=y+uy*s+ux*off;if(first){ctx.moveTo(px,py);first=false;}else ctx.lineTo(px,py);}
+  ctx.strokeStyle=col;ctx.lineWidth=2.4;ctx.setLineDash(dashed?[5,2]:[]);if(!m.uv)edge(ctx);ctx.stroke();ctx.setLineDash([]);
+}
+
+function panel(ctx,P,side){
+  var x=P.x,y=P.y,w=P.w,i,s;
+  rrect(ctx,x,y,w,P_H,10);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1.2;ctx.stroke();
+  var px0=x+GUT,px1=x+w-8,pcx=(px0+px1)/2;
+  /* 标题 + 计数 */
+  var n=side?m.np:m.nw,cnt='飞出 '+n+' 个电子',ttl=side?'② 实验（photon model，光子模型）':'① wave model 的预测';
+  ctx.font='600 12px '+FONT;var cw=ctx.measureText(cnt).width;
+  if(side&&x+12+tw(ctx,ttl,13,700)+10>x+w-12-cw)ttl='② 实验（photon model）'; /* 格子窄时不写中文，不压到右边的计数 */
+  txt(ctx,ttl,x+12,y+P_TITLE,C.ink,13,700);
+  txt(ctx,cnt,x+w-12,y+P_TITLE,n?C.south:C.muted,12,600,'right');
+  /* 灯 */
+  var lw=116,lx=pcx-lw/2,on=m.t>-TRAV;
+  rrect(ctx,lx,y+P_LT,lw,P_LB-P_LT,5);ctx.fillStyle=lightCol(0.16+0.05*m.B);ctx.fill();ctx.strokeStyle=lightCol(1);ctx.lineWidth=1.5;ctx.stroke();
+  txt(ctx,m.uv?'UV 250 nm':'可见光 500 nm',pcx,y+P_LB-4.5,C.ink,11.5,700,'center');
+  txt(ctx,side?'一个个 photon':'连续的波',lx-8,y+P_LB-4.5,C.muted,11,600,'right');
+  /* 光束（梯形） */
+  var yT=y+P_LB,yB=y+P_EY-8;
+  function xl(yy){return lerp(lx+4,px0,(yy-yT)/(yB-yT));}
+  function xr(yy){return lerp(lx+lw-4,px1,(yy-yT)/(yB-yT));}
+  if(side===0){
+    var front=Math.min(yB,yT+(m.t+TRAV)/TRAV*(yB-yT));
+    if(front>yT){
+      ctx.beginPath();ctx.moveTo(xl(yT),yT);ctx.lineTo(xr(yT),yT);ctx.lineTo(xr(front),front);ctx.lineTo(xl(front),front);ctx.closePath();
+      ctx.fillStyle=lightCol(0.04+0.016*m.B);ctx.fill();
+      var spc=m.uv?10:20,v=(yB-yT)/TRAV,off=((m.t+TRAV)*v)%spc,al=0.35+0.065*m.B,lwid=1.1+0.17*m.B;
+      var lb=isLightBg()&&!m.uv;
+      for(var yy=yT+off;yy<=front;yy+=spc){if(lb)seg(ctx,xl(yy),yy,xr(yy),yy,rgba(C.ink,0.35),lwid+1.6,null);seg(ctx,xl(yy),yy,xr(yy),yy,lightCol(al),lwid,m.uv?[5,3]:null);}
+    }
+  }else{
+    for(i=0;i<NPK;i++){var p=PK[i];if(!p.on)continue;
+      var f=clamp(1-(p.arr-m.t)/TRAV,0,1),sx=lx+lw/2+p.xf*(lw-16),ex=slotX(P,p.slot),ey=y+P_EY-7;
+      var dx=ex-sx,dy=ey-yT,dl=Math.hypot(dx,dy),cx=sx+dx*f,cy=yT+dy*f;
+      if(cy<yT+8)continue;
+      packet(ctx,cx,cy,dx/dl,dy/dl,m.uv?5:10,lightCol(1),m.uv);
+    }
+  }
+  /* 锌板 + 每个电子的能量条 */
+  rrect(ctx,px0,y+P_PT,px1-px0,P_PB-P_PT,5);ctx.fillStyle=rgba(C.muted,0.14);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+  var S=side?SP:SW,yb=y+P_BB,yphi=EY(P,PHI),bw=10;
+  for(i=0;i<NS;i++){s=S[i];var bx=slotX(P,i)-bw/2;
+    ctx.fillStyle=rgba(C.muted,0.16);ctx.fillRect(bx,yb-P_BH,bw,P_BH);
+    if(side===0){
+      if(s.st===0&&s.e>0){ctx.fillStyle=rgba(C.ink,0.72);ctx.fillRect(bx,EY(P,s.e),bw,yb-EY(P,s.e));}
+      else if(s.st===2){var a0=1-s.k/REF;ctx.fillStyle=rgba(C.ink,0.72*a0);ctx.fillRect(bx,yphi,bw,yb-yphi);}
+    }else{
+      if(s.st!==1&&s.fk<FLASH){var a2=s.fk<FLASH*0.6?1:clamp(1-(s.fk-FLASH*0.6)/(FLASH*0.4),0,1);
+        ctx.fillStyle=rgba(C.ink,0.72*a2);ctx.fillRect(bx,yphi,bw,yb-yphi);
+        ctx.fillStyle=rgba(C.copper,a2);ctx.fillRect(bx,EY(P,s.e),bw,yphi-EY(P,s.e));}
+      else if(s.st===1){var kk=s.k,ee=kk<0.12?s.e:s.e*clamp(1-(kk-0.12)/(HEAT-0.12),0,1);
+        if(ee>0.01){ctx.fillStyle=kk<0.12?rgba(C.ink,0.72):C.heat;ctx.fillRect(bx,EY(P,ee),bw,yb-EY(P,ee));}
+        dot(ctx,slotX(P,i),y+P_PT+5,6.5,rgba(C.heat,0.4*(1-kk/HEAT)));}
+    }
+  }
+  seg(ctx,px0+3,yphi,px1-3,yphi,C.ink,1.3,[5,4]);
+  /* 左边小字 */
+  txt(ctx,'电子',x+10,y+P_EY+4,C.south,11,600);
+  txt(ctx,'ϕ = 4.3 eV',x+10,yphi+4,C.ink,11,700);
+  txt(ctx,'zinc 锌',x+10,yb,C.muted,11,600);
+  /* 板上的电子 */
+  for(i=0;i<NS;i++){s=S[i];var ex2=slotX(P,i),ey2=y+P_EY,al2=1;
+    if(s.st===2){var g=s.k/REF;al2=g;ey2+=6*(1-g);}
+    else if(side===0&&s.st===0)ex2+=2.2*(s.e/PHI)*Math.sin(TAU*7*m.t+i*1.3);
+    else if(side===1&&s.st===1)ex2+=2.6*(1-s.k/HEAT)*Math.sin(TAU*9*m.t+i);
+    if(al2>0.02)dot(ctx,ex2,ey2,5.5,rgba(C.south,al2));
+  }
+  /* 飞出去的电子：速度箭头 --ink 70% */
+  for(i=0;i<NFE;i++){var fe=FE[i];if(!fe.on||fe.side!==side)continue;
+    var fx=slotX(P,fe.slot)+fe.dx,fy=y+P_EY-fe.y,fa=clamp((fy-fe.L-7-(y+P_LB+4))/22,0,1);
+    if(fa<=0)continue;
+    arrow(ctx,fx,fy-7,fx+fe.vx/fe.vy*fe.L,fy-7-fe.L,rgba(C.ink,0.7*fa),1.8,6);
+    dot(ctx,fx,fy,4.8,rgba(C.south,fa));
+  }
+  /* 读数 */
+  var rw=w-24,R1=y+P_R1,R2=y+P_R2,R3=y+P_R3,lab='开灯后第一个电子：',val;
+  if(side===0){
+    val=m.t<0?'光还在路上…':(m.tw1<0?'还在等… '+f1(m.t)+' s':'等了 '+f1(m.tw1)+' s');
+    parts(ctx,[[lab,C.muted,600],[val,C.ink,700]],x+12,R1,12,rw);
+    parts(ctx,[['能量均匀铺开：每个电子每秒 +'+(rateW()).toFixed(2)+' eV',C.ink,600],['（示意）',C.muted,500]],x+12,R2,12,rw);
+    parts(ctx,[['预测：越亮 → 攒得越快、电子飞得越快',C.muted,600]],x+12,R3,12,rw);
+  }else{
+    val=m.t<0?'光还在路上…':(m.tp1>=0?'马上（< 10⁻⁹ s）':'已经 '+f1(m.t)+' s，一个也没有');
+    parts(ctx,[[lab,C.muted,600],[val,C.ink,700]],x+12,R1,12,rw);
+    if(m.uv)parts(ctx,[['每个 photon：hf = '+HF_UV.toFixed(2)+' eV ≥ ϕ → ',C.ink,600],['K_max = '+(HF_UV-PHI).toFixed(2)+' eV',C.copper,700]],x+12,R2,12,rw);
+    else parts(ctx,[['每个 photon：hf = '+HF_VIS.toFixed(2)+' eV < ϕ → ',C.ink,600],['变成热，不会攒',C.heat,700]],x+12,R2,12,rw);
+    parts(ctx,[['亮度 '+m.B+' → 每秒约 '+f1(rateP())+' 个 photon',C.muted,600],['（示意）',C.muted,500]],x+12,R3,12,rw);
+  }
+}
+
+var ST=makeStage('sim4',{
+  height:function(w){return w>=640?84+P_H+10:110+2*P_H+10+8;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),sts=status(),k,j,lines,yy=L.stY,sz=L.stF;
+    ctx.font='600 '+sz+'px '+FONT;
+    for(k=0;k<2;k++){lines=[];wrap(ctx,sts[k],L.stW,lines);for(j=0;j<lines.length;j++){txt(ctx,lines[j],L.stX,yy,C.ink,sz,600);yy+=L.lh;}}
+    panel(ctx,L.P[0],0);panel(ctx,L.P[1],1);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bv=document.getElementById('s4-vis'),bu=document.getElementById('s4-uv'),rb=document.getElementById('s4-bright'),ob=document.getElementById('s4-bright-out');
+function setUV(v){if(m.uv!==v){m.uv=v;restart();}press(bu,m.uv);press(bv,!m.uv);ST.render();}
+bv.addEventListener('click',function(){setUV(false);});
+bu.addEventListener('click',function(){setUV(true);});
+/* 改亮度 = 重新开灯：两格都从头计时，“第一个等了 … s”永远是现在这个亮度的等待时间 */
+rb.addEventListener('input',function(){m.B=parseInt(rb.value,10)||1;ob.textContent=String(m.B);restart();ST.render();});
+document.getElementById('s4-reset').addEventListener('click',function(){restart();ST.setPlaying(true);ST.render();});
+m.B=parseInt(rb.value,10)||2;ob.textContent=String(m.B);
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 一个 photon 打出一个电子，和 Kmax–f 图（3.3 Photoelectric graphs）
+   数据：caesium ϕ = 2.1 eV、zinc ϕ = 4.3 eV（booklet；图上 −ϕ = −2.10 eV、−4.30 eV，和 booklet Figure 3.4 一样）；
+   gradient h = 4.136 × 10⁻¹⁵ eV s；h = 6.626 × 10⁻³⁴ J s；1 eV = 1.602 × 10⁻¹⁹ J；mₑ = 9.109 × 10⁻³¹ kg；c = 3.00 × 10⁸ m s⁻¹。
+   计算值：hf = 4.136 × 10⁻¹⁵ × f；Kmax = hf − ϕ；Kmax(J) = Kmax(eV) × 1.602 × 10⁻¹⁹；v = √(2Kmax/m)；
+   f₀ = ϕ/h（caesium 5.08 × 10¹⁴ Hz、zinc 10.4 × 10¹⁴ Hz）；λ₀ = hc/ϕ = c/f₀（591 nm、289 nm）；λ = c/f。
+   图的坐标照 booklet Figure 3.4：f 0–14.5（× 10¹⁴ Hz），Kmax −5 到 4.2 eV（下面多留一点地方写字）。
+   示意：每秒 photon 数（亮度 × 1 … × 5）、电流的大小、更深的电子拿到多少（表面的电子 = Kmax，更深的更慢）、
+   photon 和电子在画面上的速度（电子的速度箭头长度 ∝ v，是按比例的）。
+   visible = 400–700 nm：可见光 photon 用按波长算出的颜色，IR / UV 用 --light 并在文字里写出来。 */
+/* 带下标的文字：'K_max' 画成 K 加小一号、往下一点的 max（下标不小于 11 px），和页面上的 K<sub>max</sub> 一样。
+   这个动画里的 txt 换成会画下标的版本（字里没有 '_' 时和原来一样）；tw() 量带下标的字有多宽。 */
+var SUBRE=/([A-Za-zλ])_([a-z0-9]+)/g,RTP=[],txt0=txt;
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';size=size||13;
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt0(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+txt=function(ctx,s,x,y,col,size,weight,align,base,family){s=String(s);if(s.indexOf('_')<0)txt0(ctx,s,x,y,col,size,weight,align,base,family);else rt(ctx,s,x,y,col,size,weight,align,base,family);};
+function tw(ctx,s,size,weight,family){return rt(ctx,String(s),0,0,null,size,weight,'left',null,family,true);}
+/* 浅色主题：真实颜色的可见光（黄、绿、青在白底上几乎看不见）先描一圈深色边，再画本色。深色主题不用。 */
+function isLightBg(){var h=String(C.stage).replace('#','').trim();if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);
+  return h.length===6&&!isNaN(n)&&(0.2126*(n>>16&255)+0.7152*(n>>8&255)+0.0722*(n&255))>128;}
+function edge(ctx,a){if(!isLightBg())return;var ss=ctx.strokeStyle,lw=ctx.lineWidth;ctx.strokeStyle=rgba(C.ink,0.4*(a==null?1:a));ctx.lineWidth=lw+1.6;ctx.stroke();ctx.strokeStyle=ss;ctx.lineWidth=lw;}
+var HEV=4.136e-15,QE=1.602e-19,ME=9.109e-31,CL=3.00e8;
+var MET={cs:{name:'caesium',phi:2.1,phiS:'2.1',col:'copper'},zn:{name:'zinc',phi:4.3,phiS:'4.3',col:'violet'}};
+var XMAX=14.5,KTOP=4.2,KBOT=-5.3,EBAR=6,NC=18,NR=3,TFLY=0.75,LIFE=2.1,RATE=1.6;
+var ANG=62*Math.PI/180,DX=Math.cos(ANG),DY=Math.sin(ANG);
+function hfEV(f){return HEV*f*1e14;}
+function lamNM(f){return CL/(f*1e14)*1e9;}
+function f0Of(k){return MET[k].phi/HEV/1e14;}
+function vOf(K){return Math.sqrt(2*Math.max(0,K)*QE/ME);}
+var VREF=vOf(hfEV(14)-2.1); /* 最快的情况：caesium、f = 14 × 10¹⁴ Hz */
+function band(nm){return nm<400?'UV':(nm<=700?'visible':'IR');}
+function lightCol(nm,a){return (nm>=400&&nm<=700)?lambdaColor(nm,a==null?1:a):rgba(C.light,a==null?1:a);}
+
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x,d){if(d==null)d=2;var e=Math.floor(Math.log(x)/Math.LN10+1e-9),mm=x/Math.pow(10,e);if(+mm.toFixed(d)>=10){mm/=10;e++;}return mm.toFixed(d)+' × 10'+sup(e);}
+function f0S(k){var v=f0Of(k);return v<10?v.toFixed(2):v.toFixed(1);}
+function lam0S(k){return String(Math.round(lamNM(f0Of(k))));}
+function kS(K){return K<0.1?K.toFixed(3):K.toFixed(2);}
+function k4(K){return K.toPrecision(4);} /* 换成 J 时多留一位，乘出来的数和屏幕上的数对得上 */
+
+/* 固定种子的随机数：第一帧每次都一样 */
+var seed=1;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+
+var rf=document.getElementById('s5-f'),of=document.getElementById('s5-f-out'),rb=document.getElementById('s5-b'),ob=document.getElementById('s5-b-out');
+var bcs=document.getElementById('s5-cs'),bzn=document.getElementById('s5-zn');
+var m={f:parseFloat(rf.value)||10,b:parseInt(rb.value,10)||2,met:'cs',last:'f',t:0,next:0,born:0};
+var NPH=24,NEL=28,NHT=12,PH=[],EL=[],HT=[],DIM=new Float64Array(NC*NR),JIG=new Float64Array(NC*NR),i0;
+for(i0=0;i0<NPH;i0++)PH.push({on:false,c:0,r:0,p:0});
+for(i0=0;i0<NEL;i0++)EL.push({on:false,c:0,r:0,d:0,th:0,v:0,sp:0,age:0,top:false,id:0});
+for(i0=0;i0<NHT;i0++)HT.push({on:false,c:0,r:0,age:0});
+
+function grab(A){for(var i=0;i<A.length;i++)if(!A[i].on)return A[i];return null;}
+function spawnPhoton(){
+  var p=grab(PH);if(!p)return;
+  var c=3,r=0,k;
+  for(var tr=0;tr<4;tr++){c=3+Math.floor(rnd()*10);var u=rnd();r=u<0.4?0:(u<0.75?1:2);k=r*NC+c;if(DIM[k]<=0&&JIG[k]<=0)break;}
+  p.on=true;p.c=c;p.r=r;p.p=0;
+}
+/* photon 到了：一个 photon 只和一个电子作用，一次给完全部能量 hf */
+function arrive(p){
+  var K=hfEV(m.f)-MET[m.met].phi,k=p.r*NC+p.c;
+  if(K>=0){
+    var e=grab(EL);if(!e)return;
+    /* 表面的电子（最容易脱离）拿到 Kmax；更深的电子要的能量比 ϕ 多，出来更慢（分布示意） */
+    var u=p.r===0?1:(p.r===1?0.45+0.3*rnd():0.1+0.25*rnd());
+    e.on=true;e.c=p.c;e.r=p.r;e.d=0;e.age=0;e.th=-0.15+0.95*rnd();e.v=vOf(K*u);e.sp=24+170*e.v/VREF;e.top=p.r===0;e.id=++m.born;
+    DIM[k]=1.1;
+  }else{
+    var h=grab(HT);if(h){h.on=true;h.c=p.c;h.r=p.r;h.age=0;}
+    JIG[k]=0.45;
+  }
+}
+function sub(h){
+  var i,p,e;
+  m.t+=h;
+  m.next-=h;
+  if(m.next<=0){spawnPhoton();m.next=(0.6+0.8*rnd())/(RATE*m.b);}
+  for(i=0;i<NPH;i++){p=PH[i];if(p.on){p.p+=h/TFLY;if(p.p>=1){p.on=false;arrive(p);}}}
+  for(i=0;i<NEL;i++){e=EL[i];if(e.on){e.age+=h;e.d+=e.sp*h;if(e.age>LIFE)e.on=false;}}
+  for(i=0;i<NHT;i++){if(HT[i].on){HT[i].age+=h;if(HT[i].age>0.45)HT[i].on=false;}}
+  for(i=0;i<NC*NR;i++){if(DIM[i]>0)DIM[i]-=h;if(JIG[i]>0)JIG[i]-=h;}
+}
+function step(dt){var n=2,h=dt/n;for(var i=0;i<n;i++)sub(h);}
+/* 改了控件：清空画面，按新的设置先跑 2.5 s，暂停时也能看到新的样子 */
+function restart(){
+  var i;seed=20261030;m.t=0;m.next=0.05;
+  for(i=0;i<NPH;i++)PH[i].on=false;for(i=0;i<NEL;i++)EL[i].on=false;for(i=0;i<NHT;i++)HT[i].on=false;
+  for(i=0;i<NC*NR;i++){DIM[i]=0;JIG[i]=0;}
+  for(i=0;i<150;i++)step(1/60);
+}
+restart();
+
+/* 按“块”换行：只在块和块之间断开（块太长时再按字断开） */
+function wrap(ctx,chunks,maxW,out){
+  var line='',i,t;
+  for(i=0;i<chunks.length;i++){
+    t=line+chunks[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=chunks[i].replace(/^\s+/,'');}
+    else line=t;
+    while(ctx.measureText(line).width>maxW&&line.length>1){var k=line.length-1;while(k>1&&ctx.measureText(line.slice(0,k)).width>maxW)k--;out.push(line.slice(0,k));line=line.slice(k);}
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+
+/* ---------- 状态提示：A = 现在怎样，B = 所以 ---------- */
+function status(){
+  var mt=MET[m.met],hf=hfEV(m.f),K=hf-mt.phi,fs=m.f.toFixed(1)+' × 10¹⁴ Hz',dp=K>=0&&K<0.1?3:2,hs=hf.toFixed(dp),ps=mt.phi.toFixed(dp);
+  var ge='hf = '+hs+' eV'+(K>=0?' ≥ ':' < ')+'ϕ = '+mt.phiS+' eV',need=['（要 f ≥ f₀ = '+f0S(m.met)+' × 10¹⁴ Hz，','也就是 λ ≤ λ₀ = '+lam0S(m.met)+' nm）'],A,B;
+  if(K<0){
+    if(m.last==='b'){A=[(m.b===1?'亮度 × 1：每秒 photon 最少，':'亮度 × '+m.b+'：每秒 photon 是 × 1 时的 '+m.b+' 倍，'),'可是每个只有 '+ge];B=['→ 还是一个电子也没有：','一个 photon 只给一个电子，','两个 photon 的能量不会加起来'];}
+    else if(m.last==='met'){A=['换成 '+mt.name+'：ϕ = '+mt.phiS+' eV，','比一个 photon 的 hf = '+hs+' eV 还大'];B=['→ 一个电子也没有，再亮也没用'].concat(need);}
+    else{A=['f = '+fs+'，'+mt.name+'：',ge];B=['→ 一个电子也没有，再亮也没用'].concat(need);}
+  }else{
+    var Ks=kS(K),v1=sci(vOf(K),1);
+    if(K<0.05){A=['f = '+fs+' ≈ f₀（'+mt.name+'）：','hf 刚好够付 ϕ = '+mt.phiS+' eV'];B=['→ 电子刚刚能出来，','K_max ≈ 0（'+Ks+' eV），','图上的点就在 f₀ 那里'];}
+    else if(m.last==='b'){A=m.b===1?['亮度 × 1：每秒 photon 最少 ','→ 每秒电子最少 ','→ 电流最小']:['亮度 × '+m.b+'：每秒 photon 是 × 1 时的 '+m.b+' 倍 ','→ 每秒电子也是 '+m.b+' 倍 ','→ 电流 × '+m.b];
+      B=['K_max 不变，还是 '+Ks+' eV：','每个 photon 的 hf 没变，','图上的点也不动'];}
+    else if(m.last==='met'){var dn=m.met==='zn';A=['换成 '+mt.name+'：ϕ = '+mt.phiS+' eV ','→ 线整条往'+(dn?'下':'上')+'移 2.2 eV，','f₀ 变'+(dn?'大':'小')];
+      B=['斜率还是 h，两条线平行。','这里 K_max = '+hs+' − '+ps+' = '+Ks+' eV'];}
+    else{A=['f = '+fs+'，'+mt.name+'：',ge];B=['→ K_max = '+hs+' − '+ps+' = '+Ks+' eV ','→ 最快的电子 v ≈ '+v1+' m s⁻¹'];}
+  }
+  return [A,B];
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+function lay(W){
+  if(W>=640){var cx1=Math.round(W*0.47);
+    return {wide:true,cx0:16,cx1:cx1,ty:22,sy0:32,yp:160,pd:32,ply:212,hfy:230,bary:242,bh:12,bly:270,r1:292,r2:311,r3:330,my:350,
+      gl:cx1+34,gx0:cx1+60,gx1:W-18,ghy:22,gy0:44,gy1:330,sep:370,st:394,lh:22,stF:14,stMax:2,H:430};}
+  return {wide:false,cx0:16,cx1:W-16,ty:20,sy0:28,yp:140,pd:32,ply:190,hfy:208,bary:220,bh:12,bly:248,r1:270,r2:289,r3:308,my:328,
+    gl:16,gx0:42,gx1:W-16,ghy:358,gy0:372,gy1:584,sep:604,st:626,lh:19,stF:13.5,stMax:4,H:696};
+}
+function site(L,c,r){return [L.cx0+14+c*(L.cx1-L.cx0-28)/(NC-1),L.yp+8+r*9];}
+
+function scene(ctx,L){
+  var x0=L.cx0,x1=L.cx1,sy0=L.sy0,yp=L.yp,pb=yp+L.pd,mt=MET[m.met],hf=hfEV(m.f),K=hf-mt.phi,nm=lamNM(m.f),bd=band(nm),i,s,k;
+  var lab='光：f = '+m.f.toFixed(1)+' × 10¹⁴ Hz，λ = c/f = '+Math.round(nm)+' nm（'+(bd==='visible'?'visible':bd+'，看不见')+'）';
+  txt(ctx,lab,x0,L.ty,C.ink,L.wide?12.5:12,600);
+  ctx.save();ctx.beginPath();ctx.rect(x0-4,sy0,x1-x0+8,pb-sy0+3);ctx.clip();
+  /* 光束的范围（淡色） */
+  var a=site(L,3,0),b=site(L,12,0),la=(a[1]-sy0+20)/DY,lb=(b[1]-sy0+20)/DY;
+  ctx.beginPath();ctx.moveTo(a[0]-DX*la,a[1]-DY*la);ctx.lineTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(b[0]-DX*lb,b[1]-DY*lb);ctx.closePath();
+  ctx.fillStyle=lightCol(nm,0.08);ctx.fill();
+  /* 金属板 + 里面的电子 */
+  rrect(ctx,x0,yp,x1-x0,L.pd,4);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.75);ctx.lineWidth=1.3;ctx.stroke();
+  for(var r=0;r<NR;r++)for(var c=0;c<NC;c++){k=r*NC+c;s=site(L,c,r);var jx=JIG[k]>0?2.2*Math.sin(m.t*70):0;
+    dot(ctx,s[0]+jx,s[1],3.2,rgba(C.south,DIM[k]>0?0.14:0.55));}
+  /* photon：波长越短，波纹越密（按 λ 画，示意） */
+  var col=lightCol(nm),ws=4.5+6.5*Math.min(1.6,nm/1000);
+  for(i=0;i<NPH;i++){var p=PH[i];if(!p.on)continue;s=site(L,p.c,p.r);var Lp=(s[1]-sy0+20)/DY,back=Lp*(1-p.p),cx=s[0]-DX*back,cy=s[1]-DY*back;
+    ctx.beginPath();for(var q=-16;q<=16;q++){var off=4.6*Math.exp(-q*q/80)*Math.sin(TAU*q/ws),xx=cx+DX*q-DY*off,yy=cy+DY*q+DX*off;if(q===-16)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);}
+    ctx.strokeStyle=col;ctx.lineWidth=2.3;ctx.lineJoin='round';if(bd==='visible')edge(ctx);ctx.stroke();}
+  /* hf < ϕ：photon 被吸收，电子晃一下，能量变成热 */
+  for(i=0;i<NHT;i++){var h=HT[i];if(!h.on)continue;s=site(L,h.c,h.r);var fr=h.age/0.45;ring(ctx,s[0],s[1],4+12*fr,rgba(C.heat,0.9*(1-fr)),2);}
+  /* 飞出来的电子：速度箭头长度 ∝ v */
+  var tag=null;
+  for(i=0;i<NEL;i++){var e=EL[i];if(!e.on)continue;s=site(L,e.c,e.r);var ux=Math.sin(e.th),uy=-Math.cos(e.th),ex=s[0]+ux*e.d,ey=s[1]+uy*e.d;
+    var al=clamp((ey-sy0-4)/30,0,1)*clamp((LIFE-e.age)/0.4,0,1);if(al<=0.02)continue;
+    var ln=46*e.v/VREF;
+    if(ln>3)arrow(ctx,ex+ux*8,ey+uy*8,ex+ux*(8+ln),ey+uy*(8+ln),rgba(C.ink,0.7*al),2,7);
+    dot(ctx,ex,ey,5.5,rgba(C.south,al));
+    if(e.top&&al>0.6&&ey<yp-12&&ey>sy0+22&&(!tag||e.id>tag.id))tag={id:e.id,x:ex,y:ey};}
+  ctx.restore();
+  if(tag){var tgw=tw(ctx,'K_max',11.5,700);rrect(ctx,tag.x-tgw-13,tag.y-8,tgw+6,18,4);ctx.fillStyle=rgba(C.stage,0.85);ctx.fill();
+    txt(ctx,'K_max',tag.x-10,tag.y+4,C.ink,11.5,700,'right');}
+  if(K<0){txt(ctx,'hf < ϕ：电子出不来',x1-6,sy0+18,C.north,12.5,700,'right');txt(ctx,'photon 的能量变成热',x1-6,sy0+36,C.heat,11.5,600,'right');}
+  /* 金属的名字 */
+  txt(ctx,mt.name+' 板 · ϕ = '+mt.phiS+' eV',x0,L.ply,C[mt.col],12.5,700);
+  txt(ctx,'越深的电子出来越慢',x1,L.ply,C.muted,11.5,500,'right');
+  /* 能量条：一个 photon 的 hf = ϕ + Kmax */
+  var bx0=x0,bx1=x1,by=L.bary,bh=L.bh;
+  function EX(v){return bx0+clamp(v,0,EBAR)/EBAR*(bx1-bx0);}
+  txt(ctx,'一个 photon 的能量 hf = '+hf.toFixed(2)+' eV',bx0,L.hfy,C.light,12,700);
+  txt(ctx,'hf = ϕ + K_max',bx1,L.hfy,C.muted,11.5,600,'right');
+  rrect(ctx,bx0,by,bx1-bx0,bh,3);ctx.fillStyle=rgba(C.muted,0.08);ctx.fill();
+  if(K>=0){
+    ctx.fillStyle=rgba(C.muted,0.42);ctx.fillRect(EX(0),by,EX(mt.phi)-EX(0),bh);
+    if(EX(hf)-EX(mt.phi)>0.5){ctx.fillStyle=C.copper;ctx.fillRect(EX(mt.phi),by,EX(hf)-EX(mt.phi),bh);}
+  }else{
+    ctx.fillStyle=rgba(C.light,0.5);ctx.fillRect(EX(0),by,EX(hf)-EX(0),bh);
+    ctx.setLineDash([4,3]);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.strokeRect(EX(0)+0.5,by+0.5,EX(mt.phi)-EX(0)-1,bh-1);ctx.setLineDash([]);
+  }
+  /* hf 的括号（photon 的颜色约定：--light） */
+  var hx=EX(hf),hy=by-5;
+  seg(ctx,EX(0)+1,hy,hx,hy,C.light,2.2);seg(ctx,EX(0)+1,hy,EX(0)+1,hy+4,C.light,2.2);seg(ctx,hx,hy,hx,hy+4,C.light,2.2);
+  seg(ctx,EX(mt.phi),by-2,EX(mt.phi),by+bh+2,C.ink,1.4);
+  txt(ctx,'逃出来要 ϕ = '+ps2(mt.phi)+' eV',bx0,L.bly,C.muted,11.5,600);
+  if(K>=0){var ks='剩下 K_max = '+kS(K)+' eV',kw=tw(ctx,ks,11.5,700);
+    txt(ctx,ks,Math.min(EX(mt.phi)+4,bx1-kw),L.bly,C.copper,11.5,700);}
+  else txt(ctx,'hf 不够 → 没有电子',bx1,L.bly,C.north,11.5,700,'right');
+  /* 读数 */
+  txt(ctx,'f₀ = ϕ/h = '+f0S(m.met)+' × 10¹⁴ Hz · λ₀ = hc/ϕ = '+lam0S(m.met)+' nm',x0,L.r1,C.muted,12,600);
+  if(K>=0){
+    var K4=k4(K),KJ4=sci(parseFloat(K4)*QE);
+    txt(ctx,L.wide?('K_max = '+K4+' eV × 1.602 × 10⁻¹⁹ = '+KJ4+' J'):('K_max = '+K4+' eV = '+KJ4+' J'),x0,L.r2,C.copper,12.5,700);
+    txt(ctx,(L.wide?'最快的电子：':'最快的电子 ')+'v = √(2K_max/m) = '+sci(vOf(K))+' m s⁻¹',x0,L.r3,C.ink,12,600);
+  }else{
+    txt(ctx,'f < f₀（λ = '+Math.round(nm)+' nm > λ₀ = '+lam0S(m.met)+' nm）→ 没有电子',x0,L.r2,C.north,12.5,700);
+    txt(ctx,'每个 photon 都不够 ϕ，再亮也没用',x0,L.r3,C.ink,12,600);
+  }
+  var on=K>=0,mlab=L.wide?'microammeter 读数（示意）':'microammeter（示意）';
+  ctx.font='600 12px '+FONT;var mw=ctx.measureText(mlab).width;
+  txt(ctx,mlab,x0,L.my,C.muted,12,600);
+  hbar(ctx,x0+mw+10,L.my-9,x1-x0-mw-10-44,10,on?m.b/5:0,C.copper);
+  txt(ctx,on?'× '+m.b:'0',x1,L.my,C.ink,12.5,700,'right','alphabetic',MONO);
+}
+function ps2(v){return v.toFixed(2);}
+
+function graph(ctx,L){
+  var x0=L.gx0,x1=L.gx1,y0=L.gy0,y1=L.gy1,i,f,k,mk;
+  function X(v){return x0+v/XMAX*(x1-x0);}
+  function Y(v){return y0+(KTOP-v)/(KTOP-KBOT)*(y1-y0);}
+  var ya=Y(0),sel=MET[m.met],hf=hfEV(m.f),K=hf-sel.phi;
+  /* 标题行：左边纵轴名，右边当前点 */
+  txt(ctx,'K_max (eV)',L.gl,L.ghy,C.muted,12,600);
+  if(K>=0)txt(ctx,'当前点：K_max = '+kS(K)+' eV',x1,L.ghy,C[sel.col],12.5,700,'right');
+  else txt(ctx,'当前点在横轴上：没有电子',x1,L.ghy,C.north,12.5,700,'right');
+  /* 网格和坐标轴 */
+  [-4,-2,2,4].forEach(function(v){seg(ctx,x0,Y(v),x1,Y(v),C.grid,1);txt(ctx,v<0?'−'+(-v):String(v),x0-7,Y(v)+4,C.muted,11,500,'right');});
+  for(f=2;f<=14;f+=2)seg(ctx,X(f),y0,X(f),y1,C.grid,1);
+  seg(ctx,x0,y1,x0,y0+6,C.muted,1.3);arrow(ctx,x0,y0+10,x0,y0-2,C.muted,1.3,7);
+  seg(ctx,x0,ya,x1-6,ya,C.muted,1.3);arrow(ctx,x1-10,ya,x1+2,ya,C.muted,1.3,7);
+  /* 当前 f 的竖线（只画在横轴上面） */
+  seg(ctx,X(m.f),y0,X(m.f),ya,rgba(C.ink,0.28),1.2,[3,4]);
+  /* 当前点的虚竖线先画，后面 f₀ 字下面的底色会盖住它，不会穿过字 */
+  var cx=X(m.f),cc=C[sel.col];if(K>=0)seg(ctx,cx,Y(K),cx,ya,rgba(cc,0.7),1.4,[3,3]);
+  /* 两条线：f₀ 以下是虚线（外推，没有电子）；先画没选中的那条 */
+  var order=m.met==='cs'?['zn','cs']:['cs','zn'];
+  for(i=0;i<2;i++){mk=order[i];var mt=MET[mk],isSel=mk===m.met,col=rgba(C[mt.col],isSel?1:0.45),f0=f0Of(mk);
+    seg(ctx,X(0),Y(-mt.phi),X(f0),ya,col,isSel?2:1.6,[2,4]);
+    seg(ctx,X(f0),ya,X(14),Y(hfEV(14)-mt.phi),col,isSel?3:2.2);
+    dot(ctx,X(f0),ya,isSel?4:3.2,col);dot(ctx,X(0),Y(-mt.phi),isSel?4:3.2,col);}
+  /* f 的刻度（底下垫一块底色，线不会压住数字） */
+  ctx.font='500 11px '+FONT;
+  for(f=2;f<=14;f+=2){var sw=ctx.measureText(String(f)).width;ctx.fillStyle=C.stage;ctx.fillRect(X(f)-sw/2-2,ya+4,sw+4,13);txt(ctx,String(f),X(f),ya+15,C.muted,11,500,'center');}
+  txt(ctx,'f (× 10¹⁴ Hz)',x1,ya+31,C.muted,11.5,600,'right');
+  /* f₀ 和 −ϕ 的标注 */
+  for(i=0;i<2;i++){mk=order[i];var m2=MET[mk],c2=C[m2.col],sel2=mk===m.met,f02=f0Of(mk); /* 字用全色（看得清），没选中的那种用细一点的字 */
+    ctx.font='700 12px '+FONT;var fw=ctx.measureText('f₀').width;ctx.fillStyle=C.stage;ctx.fillRect(X(f02)-fw-5,ya-22,fw+2,13); /* 写高一点：当前点的圈（f 在 f₀ 旁边时）不会盖住它 */
+    txt(ctx,'f₀',X(f02)-4,ya-11,c2,12,sel2?700:500,'right');
+    var ls='−ϕ = −'+m2.phi.toFixed(2)+' eV';ctx.font='600 11.5px '+FONT;var lw=ctx.measureText(ls).width,ly=Y(-m2.phi)+16;
+    ctx.fillStyle=C.stage;ctx.fillRect(X(0)+5,ly-11,lw+4,14);txt(ctx,ls,X(0)+7,ly,c2,11.5,sel2?600:500);}
+  /* 图例和说明（右下角，这里没有线） */
+  var gx=X(6.2),gy=Y(-2.55),rh=L.wide?16:15;
+  for(i=0;i<2;i++){mk=i?'zn':'cs';var m3=MET[mk],yy=gy+i*rh;seg(ctx,gx,yy-4,gx+18,yy-4,C[m3.col],mk===m.met?3:2);
+    txt(ctx,m3.name+'（ϕ = '+m3.phiS+' eV）',gx+24,yy,mk===m.met?C.ink:C.muted,11.5,mk===m.met?700:500);}
+  txt(ctx,'gradient = h：两条线平行',gx,gy+2*rh+2,C.ink,11.5,600);
+  txt(ctx,'虚线 = 外推（没有电子）',gx,gy+3*rh+2,C.muted,11.5,500);
+  /* 当前点 */
+  if(K>=0){var py=Y(K);dot(ctx,cx,py,8.5,C.stage);dot(ctx,cx,py,6.5,cc);}
+  else{dot(ctx,cx,ya,8.5,C.stage);ring(ctx,cx,ya,5.5,cc,2.6);}
+}
+
+var LINES=[];
+var ST=makeStage('sim5',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    scene(ctx,L);
+    graph(ctx,L);
+    seg(ctx,0,L.sep,W,L.sep,C.line,1);
+    var sb=status(),fs=L.stF,i,maxW=W-32,na;
+    for(;;){LINES.length=0;ctx.font='600 '+fs+'px '+FONT;wrap(ctx,sb[0],maxW,LINES);na=LINES.length;ctx.font='500 '+fs+'px '+FONT;wrap(ctx,sb[1],maxW,LINES);
+      if(LINES.length<=L.stMax||fs<=12.5)break;fs-=0.5;}
+    for(i=0;i<LINES.length;i++)txt(ctx,LINES[i],16,L.st+i*L.lh,i<na?C.ink:C.muted,fs,i<na?600:500);
+  }
+});
+
+rf.addEventListener('input',function(){m.f=parseFloat(rf.value);of.textContent=m.f.toFixed(1)+' × 10¹⁴ Hz';m.last='f';restart();ST.render();});
+rb.addEventListener('input',function(){m.b=parseInt(rb.value,10);ob.textContent='× '+m.b;m.last='b';restart();ST.render();});
+function setMet(k){m.met=k;press(bcs,k==='cs');press(bzn,k==='zn');m.last='met';restart();ST.render();}
+bcs.addEventListener('click',function(){setMet('cs');});
+bzn.addEventListener('click',function(){setMet('zn');});
+})();
+</script>
+</body>
+</html>

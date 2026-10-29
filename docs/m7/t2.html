@@ -1,0 +1,1847 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M7 T2 光的波动性</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m7">Module 7</a><span class="sep">/</span><span aria-current="page">Topic 2</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 7 · Topic 2</div>
+  <h1>Light as a Wave: Diffraction, Interference and Polarisation</h1>
+  <p class="h1-sub">光的波动性：衍射、干涉和偏振 · <span style="white-space:nowrap">零基础讲解</span></p>
+  <p class="lead">光是粒子还是波？Newton（牛顿）说是粒子，Huygens（惠更斯）说是波，这一章看实验怎么判。记住下面<b>三条规则</b>，后面干涉、光栅和偏振的公式，都是在用它们。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Superposition</div>
+    <p>两列波相遇，高度相加（叠加）。波峰遇波峰 → 更亮；波峰遇波谷 → 抵消 → 暗。“光 + 光 = 暗”，只有波做得到。</p>
+    <div class="eqs">亮 <i>δ</i> = <i>mλ</i>　暗 <i>δ</i> = (<i>m</i> − ½)<i>λ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Bright fringes</div>
+    <p>相邻两条缝的光，多走的路刚好是整数个波长时，波峰对齐，就出现亮纹。双缝和光栅都用这一条。</p>
+    <div class="eqs"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">Light is a transverse wave</div>
+    <p>光的电场垂直于前进方向振动，所以偏振片能“挑方向”。偏振光再过一片偏振片：和前一片的轴差 <span class="m"><i>θ</i></span>，亮度就按 cos²<span class="m"><i>θ</i></span> 变。</p>
+    <div class="eqs"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章八个部分">
+  <div class="map-row head"><span>部分</span><span>看到什么</span><span>说明什么</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">2.1</span><span class="t">Two models of light</span></span><span>Newton：粒子；Huygens：波</span><span>影子和反射分不出谁对</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">2.1</span><span class="t">Refraction</span></span><span>光进水，偏向 normal</span><span>Foucault：水里更慢，Newton 错了</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">2.2</span><span class="t">Diffraction</span></span><span>光穿过窄缝散开，有暗带</span><span>粒子做不出暗带</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">2.3</span><span class="t">Young's double slit</span></span><span>等间距的亮纹和暗纹</span><span>光 + 光 = 暗：光是波</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">2.3</span><span class="t">Path difference</span></span><span>多走的路 <i>δ</i> = <i>d</i> sin <i>θ</i></span><span>亮 <i>mλ</i>，暗 (<i>m</i> − ½)<i>λ</i></span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">2.4</span><span class="t">Diffraction gratings</span></span><span>又细又亮、角度很大的线</span><span>最适合测波长</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">2.5</span><span class="t">Polarisation</span></span><span>转动第二片偏振片，亮度变</span><span>光是横波</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">2.6</span><span class="t">Key experiments</span></span><span>激光测 <i>λ</i>；Malus' law</span><span>648 nm、649 nm；<i>I</i> ∝ cos²<i>θ</i></span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是单位换算。</li>
+    <li>按 2.1 → 2.6 讲。每一节都问一句：“这个现象，粒子能解释吗？”先读“一句话”，再开动画，让学生自己说看到了什么。</li>
+    <li>讲完让学生合上书，自己填一遍 2.1 的证据表。最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li>波的几个词：<span class="t">crest</span>（波峰，最高点）、<span class="t">trough</span>（波谷，最低点）、<span class="t">wavelength</span> <span class="m"><i>λ</i></span>（波长，波峰到下一个波峰的距离）、<span class="t">amplitude</span>（振幅，波峰有多高）。</li>
+    <li>可见光的 <span class="m"><i>λ</i></span> 在 400 nm 到 700 nm 之间：紫光最短，红光最长。</li>
+    <li><span class="t">Normal</span>（法线）：和表面成 90° 的线。光线的角度都从 normal 量，不从表面量。</li>
+    <li>单位先换成 m：1 nm = 10<sup>−9</sup> m，1 µm = 10<sup>−6</sup> m，1 mm = 10<sup>−3</sup> m。计算器用 degree 模式。cos²<span class="m"><i>θ</i></span> 就是 (cos <span class="m"><i>θ</i></span>)²。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">2.1</div>
+  <h2>光是粒子还是波？<span class="en">Newton's and Huygens' models of light</span></h2>
+  <p class="big"><span class="lbl">一句话</span>大约 1700 年，Newton 说光是一串很小的粒子，Huygens 说光是波。最后是实验决定了谁对。</p>
+  <ul class="pts">
+    <li><b>Newton（牛顿，1704）：</b>光是一串很小的粒子，叫 <span class="t">corpuscles</span>（微粒，意思是“小物体”）。粒子走直线，所以影子的边很清楚。</li>
+    <li><b>Huygens（惠更斯，1678）：</b>光是波。他以为光是 <span class="t">longitudinal wave</span>（纵波），像声音一样。</li>
+    <li><span class="t">Wavefront</span>（波阵面）：把波里“步调一样”的点连起来的线，比如所有的波峰。往水里扔一块石头，一圈一圈的波峰就是 wavefronts。</li>
+    <li><span class="t">Huygens' principle</span>（惠更斯原理）：wavefront 上的每一个点，都发出一个小圆波，叫 <span class="t">wavelet</span>（子波）。和所有 wavelets 都相切的那条线，就是新的 wavefront。</li>
+    <li>光看起来不会绕过拐角，Newton 的名气又特别大。所以大约 100 年里，大多数科学家都跟着 Newton。</li>
+    <li><span class="t">Reflection</span>（反射）：Newton 说，表面有一个 <span class="t">repulsive force</span>（斥力，把东西推离表面的力），把速度的 normal 部分反过来。Huygens 说，反射回来的 wavelets 组成反射的 wavefront。两个都得出 <span class="m"><i>θ</i><sub>i</sub> = <i>θ</i><sub>r</sub></span>（入射角 = 反射角），所以反射分不出谁对。</li>
+  </ul>
+
+  <h3>证据表：全章的路线图</h3>
+  <p>下面这张表，是两个模型的全部证据。折射在下一节讲，其余的在 2.2、2.3、2.5 讲。</p>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>看到的现象</th><th>Newton（粒子）</th><th>Huygens（波）</th><th>证据说明什么</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">清楚的影子</td><td>粒子走直线</td><td>一开始很难解释</td><td>两个都行：知道光的波长非常小以后，波也能解释</td></tr>
+        <tr><td style="white-space:nowrap">反射</td><td>斥力把速度的 normal 部分反过来</td><td>反射的 wavelets</td><td>两个都行：分不出谁对</td></tr>
+        <tr><td style="white-space:nowrap">折射</td><td>水里更快</td><td>水里更慢</td><td>Foucault（1850）：更慢，所以 Newton 错了</td></tr>
+        <tr><td style="white-space:nowrap">衍射和干涉</td><td>做不出暗带</td><td>wavelets 散进影子里；后来 Young 和 Fresnel 补充：波能互相抵消</td><td>强烈支持波（Young，1801；Fresnel 和 Arago，1818）</td></tr>
+        <tr><td style="white-space:nowrap">偏振</td><td>没有自然的解释</td><td>Huygens 的纵波不能被偏振；横波可以</td><td>光是横波，所以 Huygens 的模型要改</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">2.1</div>
+  <h2>光进水：更快还是更慢？<span class="en">Refraction</span></h2>
+  <p class="big"><span class="lbl">一句话</span>光斜着进水，会偏向 normal。两个模型都能解释这一点，但要的速度正好相反：Newton 要水里更快，Huygens 要水里更慢。</p>
+  <ul class="pts">
+    <li><span class="t">Refraction</span>（折射）：光进入另一种材料时拐弯。</li>
+    <li>两个模型都能让光在水里偏向 normal。但它们需要的速度正好相反，所以测一下光在水里的速度，就能判谁错。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Newton（粒子）：更快</div><p>水把每个粒子沿 normal 往里<b>拉</b>。把速度拆成两部分：normal 部分（垂直于水面）变大，parallel 部分（平行于水面）不变。所以光偏向 normal，而且在水里<b>更快</b>。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Huygens（波）：更慢</div><p>wavefront 先进水的那一端<b>先变慢</b>，后面的部分还在空气里快走。整条 wavefront 就转向 normal。所以光在水里<b>更慢</b>。像一排人手拉手斜着走进沙地：先踩进沙地的人先慢下来，整排人就转了方向。</p></div>
+  </div>
+  <ul class="pts">
+    <li><b>Foucault（1850）</b>用一面转得很快的镜子（<span class="t">fast-spinning mirror</span>）给光计时。光路里放一管水，回来的像移得更多。说明光在水里<b>更慢</b>。</li>
+    <li>这推翻了 Newton 对折射的解释。但只靠这一个实验，还不能证明波模型是对的。</li>
+    <li><span class="t">Refractive index</span>（折射率，<span class="m"><i>n</i></span>）：光在材料里比在真空里慢几倍。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Refractive index and the speed of light · 折射率和光速</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>n</i><sub>x</sub> = <i>c</i>/<i>v</i><sub>x</sub></div>
+    <dl class="sym">
+      <div><dt>n<sub>x</sub></dt><dd>材料 x 的折射率（没有单位）</dd></div>
+      <div><dt>c</dt><dd>真空中的光速 (m s<sup>−1</sup>)，等于 3.00 × 10<sup>8</sup> m s<sup>−1</sup></dd></div>
+      <div><dt>v<sub>x</sub></dt><dd>光在材料 x 里的速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>求光在水或玻璃里的速度，或者由速度求 <span class="m"><i>n</i></span>。<br><b>陷阱：</b><span class="m"><i>n</i></span> 是 1 或更大，所以 <span class="m"><i>v</i><sub>x</sub></span> 永远不会比 <span class="m"><i>c</i></span> 大。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">动画 1 · Newton 和 Huygens：光进入水</span><span class="sim-tag">从侧面看 · 水的折射率 1.33：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="从侧面看，一束光从空气斜着射进水里，虚线是 normal，角度从 normal 量。可以切换 Newton 的粒子模型和 Huygens 的波阵面模型：两个模型拐的角度一样，但 Newton 说水里更快，Huygens 说水里更慢，右边（手机上是下面）用柱子比较。最下面是 Foucault 实验：一束光只过空气，一束光过一管水，比谁先到终点。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="光的模型">
+      <button class="btn" type="button" id="s1-newton" aria-pressed="true">Newton 粒子</button>
+      <button class="btn" type="button" id="s1-huygens" aria-pressed="false">Huygens 波阵面</button>
+    </span>
+    <label class="range">入射角 <span class="m"><i>θ</i><sub>i</sub></span> <input type="range" id="s1-angle" min="20" max="70" step="5" value="45"><output id="s1-angle-out" for="s1-angle">45°</output></label>
+    <button class="btn" type="button" id="s1-foucault">Foucault 测一测</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看 Newton：圈住的那颗粒子一碰到水面的绿色薄层，就被往下拉。它的速度箭头里，竖着的 normal part 变长，横着的 parallel part 不变，所以光偏向 normal，而且在水里走得更快（水里的粒子间距变大）。② 切到 Huygens：波阵面左端先进水、先变慢，右端还在空气里跑得快，整条波阵面就转了过来；水里的波阵面更密，因为更慢。两个模型拐的角度完全一样，单看拐弯分不出谁对。③ 拉入射角 <i>θ</i><sub>i</sub>：角度越大，拐得越明显，两个模型还是一样。④ 按 “Foucault 测一测”：过水的那束光晚到，所以水里更慢，Newton 对折射的解释错了（赛跑是示意：Foucault 真正看的是转镜反射回来的像移了多少）。水的 <i>n</i> = 1.33 是示意值。</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">2.2</div>
+  <h2>光穿过窄缝会散开<span class="en">Diffraction</span></h2>
+  <p class="big"><span class="lbl">一句话</span>波穿过一个缝或绕过一个边缘时会散开，这叫衍射。缝越窄（和波长比），散得越开。</p>
+  <ul class="pts">
+    <li><span class="t">Diffraction</span>（衍射）：波穿过一个缝（<span class="t">gap</span>）或绕过一个边缘时散开。</li>
+    <li><b>缝比 <span class="m"><i>λ</i></span> 宽很多：</b>几乎不散。<b>缝和 <span class="m"><i>λ</i></span> 差不多，或者更窄：</b>散得很开，一直散进“影子”里。</li>
+    <li><span class="m"><i>λ</i></span>、频率和速度都不变，只有方向变。</li>
+  </ul>
+
+  <h3>单缝的图样</h3>
+  <ul class="pts">
+    <li><span class="t">Single slit</span>（单缝）的图样：中间一条又宽又亮的 <span class="t">central maximum</span>（中央亮纹），两边是暗很多的亮带，亮带之间是暗带。</li>
+    <li>暗带：缝里不同部分发出的 wavelets，到这里互相抵消。</li>
+    <li><span class="t">Slit width</span>（缝宽，<span class="m"><i>a</i></span>）越窄，或者 <span class="m"><i>λ</i></span> 越长 → 图样越宽。红光比紫光散得开。</li>
+    <li>它只看 <span class="m"><i>λ</i> ÷ <i>a</i></span>。不需要单缝的公式。</li>
+    <li>讲义的图：同一支红激光分别照两条宽度不同的单缝（宽的那条是窄的 2 倍宽），两个图样的峰高调成一样。窄缝的图样更宽。</li>
+  </ul>
+
+  <h3>为什么会散开</h3>
+  <ul class="pts">
+    <li><b>Huygens 的解释：</b>只有缝里面的点能发出 wavelets。边上的 wavelets 向两边散，散进影子里。</li>
+    <li>光的 <span class="m"><i>λ</i></span>（400 nm 到 700 nm）比一个门口小一百万倍以上，所以平时影子的边很清楚。要看到光的衍射，缝要比约 0.1 mm 还窄。</li>
+    <li>声音的波长和门口差不多大，所以站在门边的墙后面（不对着门口），你也能听到教室里的说话声。光的波长太小，几乎不会绕过门边，所以你看不到里面的人。</li>
+  </ul>
+
+  <h3>两个模型怎么说</h3>
+  <ul class="pts">
+    <li><b>粒子做不出暗带：</b>光加光，不会让一个地方更暗。</li>
+    <li><b>波都能解释：</b>散开、暗带，还有为什么红光散得更开。</li>
+    <li>1818 年，Fresnel 的波动理论预言：一个小圆盘的影子正中间，会有一个亮点。Arago 真的找到了这个亮点。</li>
+  </ul>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · 单缝衍射：缝越窄，散得越开</span><span class="sim-tag"><span style="white-space:nowrap">俯视图不按比例</span> · <span style="white-space:nowrap">红光来自讲义实验</span> · <span style="white-space:nowrap">绿光和屏的距离：示意</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边是从上往下看的俯视图：一排排平行的 wavefront 从左边打到一面墙上的窄缝，穿过缝以后向两边散开，散进影子里。右边（手机上是下面）是远处屏上看到的亮暗带和亮度曲线：中间一条又宽又亮的 central maximum，两边是暗很多的亮带和暗带；蓝色虚线是 0.080 mm 缝的对照曲线。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="缝宽 a">
+      <button class="btn" type="button" id="s2-a80" aria-pressed="false">0.080 mm</button>
+      <button class="btn" type="button" id="s2-a40" aria-pressed="true">0.040 mm</button>
+      <button class="btn" type="button" id="s2-a20" aria-pressed="false">0.020 mm</button>
+    </span>
+    <span class="seg" role="group" aria-label="激光颜色">
+      <button class="btn" type="button" id="s2-red" aria-pressed="true">红光 650 nm</button>
+      <button class="btn" type="button" id="s2-green" aria-pressed="false">绿光 532 nm</button>
+    </span>
+    <button class="btn" type="button" id="s2-huy" aria-pressed="false">Huygens wavelets：关</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 三个按钮是缝宽 <i>a</i>。依次按 0.080 mm → 0.040 mm → 0.020 mm：缝越窄，俯视图里的波散得越开；屏上的 central maximum 越宽。缝宽减半，宽度正好变成 2 倍（和讲义实验 A 的结果一样）。选 0.040 mm 或 0.020 mm 时，亮度图上蓝色的虚线是 0.080 mm 的对照（选 0.080 mm 时两条重合，就不画了）。② 切换红光和绿光：红光的 <i>λ</i> 更长，<i>λ</i> ÷ <i>a</i> 更大，所以散得更开。③ 打开 “Huygens wavelets”：缝里每一点发出小圆波（细圈），和它们相切的粗线就是新的 wavefront。墙挡住了其他的点，所以边上的 wavelets 向两边散，散进影子里。④ 比较俯视图里两个 <i>λ</i> 标尺：缝前缝后波峰的间距一样，只有方向变了。俯视图里两条横着的灰色虚线是“走直线”的边界：如果光是走直线的粒子，就只会出现在两条虚线中间，也做不出暗带。俯视图不按比例（真实的 <i>λ</i> 比缝小很多）；绿光 532 nm 和屏的距离 <i>L</i> = 1.00 m 是示意值，所以屏上的 mm 数也是示意。</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">2.3</div>
+  <h2>两束光相遇：Young 的双缝<span class="en">Interference: Young's double-slit experiment</span></h2>
+  <p class="big"><span class="lbl">一句话</span>两列波重叠的地方，会相加或者抵消，这叫干涉。只有波能抵消成黑暗，所以 Young 的双缝实验是“光是波”的有力证据。</p>
+  <ul class="pts">
+    <li><span class="t">Superposition</span>（叠加）：波相遇时，它们的 <span class="t">displacement</span>（位移，就是高度）相加。</li>
+    <li><span class="t">Interference</span>（干涉）：重叠的波相加或抵消，形成的图样。</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">In phase · 同相</div><p>波峰对齐。波峰遇波峰，合成一个更大的波。这叫 <span class="t">constructive interference</span>（相长干涉）：<b>亮</b>。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">180° out of phase · 反相</div><p>一列波落后半个波长。波峰遇波谷，互相抵消。这叫 <span class="t">destructive interference</span>（相消干涉）：<b>暗</b>。“光 + 光 = 暗”只对波说得通。</p></div>
+  </div>
+
+  <h3>Young 的实验（约 1801 年）</h3>
+  <ul class="pts">
+    <li>Young 让光穿过两条靠得很近的窄缝。远处的屏上，出现等间距的亮带和暗带，叫 <span class="t">fringes</span>（条纹）。</li>
+    <li>为什么会重叠：光在每条缝都发生衍射，散开以后，两列波就重叠了。</li>
+    <li>装置（讲义图 2.3）：光源 → 单缝 → 双缝（两条缝 <span class="m"><i>S</i><sub>1</sub></span>、<span class="m"><i>S</i><sub>2</sub></span>，相距 <span class="m"><i>d</i></span>）→ 屏（离双缝 <span class="m"><i>L</i></span>）。正中间是亮纹（<span class="m"><i>m</i> = 0</span>），往外依次是暗、亮（<span class="m" style="white-space:nowrap"><i>m</i> = 1</span>）、暗、亮（<span class="m" style="white-space:nowrap"><i>m</i> = 2</span>）……图不按比例：实际上 <span class="m" style="white-space:nowrap"><i>L</i> ≫ <i>d</i></span>（<span class="m"><i>L</i></span> 比 <span class="m"><i>d</i></span> 大得多）。下一节的动画 3，左图画的就是这个装置（从上往下看）。</li>
+  </ul>
+
+  <h3>两条缝必须 coherent（相干）</h3>
+  <ul class="pts">
+    <li>两条缝必须 <span class="t">coherent</span>（相干的）：频率相同，相位差固定（两列波波峰之间的错开一直不变）。像两个人迈一样大、一样快的步子：一个可以比另一个晚半步，但这个差距一直不变。</li>
+    <li>Young 用一个针孔（<span class="t">pinhole</span>）同时照两条缝。现在用一个单缝，或者直接用激光。</li>
+    <li>两盏独立的灯，相位乱变，图样就糊掉了。</li>
+    <li><span class="t">Monochromatic</span>（单色的，只有一个波长）的光，条纹最清楚。</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="secnum">2.3</div>
+  <h2>亮纹和暗纹在哪里？<span class="en">Path difference and d sin θ = mλ</span></h2>
+  <p class="big"><span class="lbl">一句话</span>看一列波比另一列多走了多少路。多走整数个波长 → 同相 → 亮；多走整数个波长再加半个 → 反相 → 暗。</p>
+  <ul class="pts">
+    <li><span class="t">Path difference</span>（波程差，<span class="m"><i>δ</i></span>，单位 m）：一列波比另一列多走的路。</li>
+    <li><b>亮：</b><span class="m" style="white-space:nowrap"><i>δ</i> = 0, <i>λ</i>, 2<i>λ</i>, …</span>（同相）。<b>暗：</b><span class="m" style="white-space:nowrap"><i>δ</i> = ½<i>λ</i>, 1½<i>λ</i>, …</span>（反相）。</li>
+    <li>正中间 <span class="m"><i>δ</i> = 0</span>，所以中央永远是亮的。</li>
+    <li>屏很远，所以从两条缝到屏上 P 点的两条光线几乎平行。这时 <span class="m" style="white-space:nowrap"><i>δ</i> = <i>d</i> sin <i>θ</i></span>。</li>
+    <li>看讲义图 2.4（双缝的放大图），或者下面的动画 3：从 <span class="m"><i>S</i><sub>1</sub></span> 向 <span class="m"><i>S</i><sub>2</sub></span> 的光线画一条垂线，垂足叫 Q。<span class="m"><i>S</i><sub>2</sub></span> 到 Q 这一段，就是 <span class="m"><i>S</i><sub>2</sub></span> 的光多走的路：<span class="m" style="white-space:nowrap"><i>δ</i> = <i>d</i> sin <i>θ</i></span>。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Bright fringes (double slit or grating) · 亮纹（双缝或光栅）</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd><span class="t">slit separation</span>（双缝间距，也叫缝间距）：相邻两条缝中心之间的距离 (m)</dd></div>
+      <div><dt>θ</dt><dd>从中线到亮纹的角度 (°)</dd></div>
+      <div><dt>m</dt><dd>亮纹的 <span class="t">order</span>（级次）：0（中央）、1、2、…（没有单位）</dd></div>
+      <div><dt>λ</dt><dd>波长 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>双缝或光栅的亮纹，屏很远（<span class="m" style="white-space:nowrap"><i>L</i> ≫ <i>d</i></span>）。<br><b>陷阱：</b>nm、µm 和 mm 先换成 m。计算器用 degree。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Dark fringes · 暗纹</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>d</i> sin <i>θ</i> = (<i>m</i> − ½)<i>λ</i></span><span style="display:inline-block;margin:0 .6em"><i>m</i> = 1, 2, 3, …</span></div>
+    <dl class="sym">
+      <div><dt>m</dt><dd>第几条暗纹，从 1 开始（没有单位）</dd></div>
+      <div><dt>d, θ, λ</dt><dd>和亮纹的公式一样</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>有的书写成 (<span class="m"><i>m</i></span> + ½)<span class="m"><i>λ</i></span>，那时 <span class="m"><i>m</i></span> 从 0 开始。<br><b>也可以自己推导：</b>暗纹的 <span class="m"><i>δ</i> = ½<i>λ</i>, 1½<i>λ</i>, …</span>，再用 <span class="m"><i>δ</i> = <i>d</i> sin <i>θ</i></span>。<br><b>陷阱：</b>不要把 <span class="m"><i>m</i> = 0</span> 代进这个式子。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Path difference · 波程差</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>δ</i> = <i>d</i> sin <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>δ</i> = |<i>S</i><sub>2</sub><i>P</i> − <i>S</i><sub>1</sub><i>P</i>|</span></div>
+    <dl class="sym">
+      <div><dt>δ</dt><dd>波程差 (m)</dd></div>
+      <div><dt>S<sub>1</sub>P, S<sub>2</sub>P</dt><dd>两个波源分别到 P 点的距离 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>知道两段距离时，用 <span class="m" style="white-space:nowrap"><i>δ</i> = |<i>S</i><sub>2</sub><i>P</i> − <i>S</i><sub>1</sub><i>P</i>|</span>。<span class="m"><i>δ</i>/<i>λ</i></span> 是整数 → 相长（亮；声音就是响）；是整数加一半 → 相消。任何两个同相的 coherent 波源都能用：缝、喇叭、天线。<br><b>也可以自己推导：</b>图 2.4 的直角三角形里，斜边是 <span class="m"><i>d</i></span>，对着 <span class="m"><i>θ</i></span> 的边是 <span class="m"><i>δ</i></span>，所以 <span class="m"><i>δ</i> = <i>d</i> sin <i>θ</i></span>。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">On the screen · 屏上的位置</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>y</i> = <i>L</i> tan <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>y</dt><dd>条纹离中央亮纹中心的距离 (m)</dd></div>
+      <div><dt>L</dt><dd>缝到屏的距离 (m)</dd></div>
+      <div><dt>θ</dt><dd>条纹的角度 (°)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>任何角度都能用。约 10° 以下，<span class="m" style="white-space:nowrap">sin <i>θ</i> ≈ tan <i>θ</i> ≈ <i>y</i>/<i>L</i></span>。<br><b>也可以自己推导：</b>从缝到屏画一个直角三角形：<span class="m">tan <i>θ</i> = <i>y</i>/<i>L</i></span>（对边 ÷ 邻边）。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Fringe spacing (small angles) · 条纹间距（小角度）</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq">Δ<i>y</i> = <i>λL</i>/<i>d</i></div>
+    <dl class="sym">
+      <div><dt>Δy</dt><dd>相邻两条亮纹（或暗纹）之间的距离 (m)</dd></div>
+      <div><dt>L</dt><dd>缝到屏的距离 (m)</dd></div>
+      <div><dt>λ, d</dt><dd>波长，双缝间距 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>双缝，小角度（约 10° 以下）。<br><b>从哪来：</b>把 <span class="m" style="white-space:nowrap">sin <i>θ</i> ≈ <i>y</i><sub><i>m</i></sub>/<i>L</i></span> 代入 <span class="m" style="white-space:nowrap"><i>d</i> sin <i>θ</i> = <i>mλ</i></span>，得到 <span class="m" style="white-space:nowrap"><i>y</i><sub><i>m</i></sub> = <i>mλL</i>/<i>d</i></span>。相邻两条差一个 <span class="m"><i>m</i></span>，所以 <span class="m" style="white-space:nowrap">Δ<i>y</i> = <i>λL</i>/<i>d</i></span>。<br><b>陷阱：</b><span class="m"><i>d</i></span> 是双缝间距，不是一条缝的宽度。</p>
+  </div>
+
+  <h3>图样长什么样</h3>
+  <ul class="pts">
+    <li>每条暗纹，都在两条亮纹的正中间。</li>
+    <li>每条缝自己的单缝图样（<span class="t">envelope</span>，包络线）让外侧的条纹变暗。</li>
+    <li><span class="m"><i>λ</i></span> 越长（红光）、屏越远、两条缝越近 → 条纹越开。</li>
+    <li><b>白光：</b>中央条纹是白的（每种颜色在中央的 <span class="m"><i>δ</i></span> 都是 0）。两边是彩色的条纹：蓝在里，红在外。</li>
+  </ul>
+  <h3>影响</h3>
+  <ul class="pts">
+    <li>光能抵消光。Young 还测出了各种颜色的波长。</li>
+    <li>但因为 Newton 的名气，要等到 Fresnel 和 Arago（1818–1819）、Foucault（1850）之后，大多数科学家才接受波模型。</li>
+  </ul>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · Young 双缝：两列波在 P 点相加</span><span class="sim-tag"><span style="white-space:nowrap">从上往下看</span> · <span style="white-space:nowrap">屏距 L 固定</span> · <span style="white-space:nowrap">读数：计算值</span> · <span style="white-space:nowrap">波的图：示意</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="从上往下看双缝实验：左边的单色光同时照到两条缝 S₁（上）和 S₂（下），两组圆形波在右边重叠，彩色是波峰、灰色是波谷，暗的线是两列波互相抵消的地方。最右边的屏上有亮暗条纹，P 是屏上的一点，铜色线是 S₁P，蓝色线是 S₂P，S₂ 那边多走的一小段是 δ。旁边有 y、θ、δ、Δy 的读数（L = 1.00 m），以及三条曲线：S₁ 来的波、S₂ 来的波（落后 δ）和两者相加。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <button class="btn" type="button" id="s3-next">P → 下一条纹</button>
+    <label class="range">波长 λ <input type="range" id="s3-lam" min="400" max="700" step="10" value="650"><output id="s3-lam-out" for="s3-lam">650 nm</output></label>
+    <label class="range">双缝间距 d <input type="range" id="s3-d" min="0.125" max="0.5" step="0.025" value="0.25"><output id="s3-d-out" for="s3-d">0.250 mm</output></label>
+  </div>
+  <p class="try"><b>试一试：</b>① 一打开，P 在第 1 条暗纹：S<sub>2</sub> 的波比 S<sub>1</sub> 的波落后半个波长（δ = ½λ），波峰对着波谷，“相加”是一条平线，所以暗。② 按“P → 下一条纹”，一条一条往上走：δ = λ、2λ、3λ 时波峰又对齐，是亮纹；δ = 1½λ、2½λ 时抵消，是暗纹。看波的图：彩色亮带通到屏上的亮纹，暗的线通到暗纹。③ 把双缝间距 d 拉小，或者把波长 λ 拉长：Δy = λL/d 变大，条纹变开。读数用讲义实验 B 的 d = 0.250 mm、λ = 650 nm、L = 1.00 m 算出（计算值）；波的图不按比例，外侧条纹变暗（envelope）的程度也是示意。</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">2.4</div>
+  <h2>衍射光栅：很多条缝<span class="en">Diffraction gratings</span></h2>
+  <p class="big"><span class="lbl">一句话</span>光栅有很多条缝，靠得很近。所以它的亮线又细、又亮、又离得远，最适合用来测波长。</p>
+  <ul class="pts">
+    <li><span class="t">Diffraction grating</span>（衍射光栅）：一片有很多条等间距、平行的缝的片子，每 mm 大约 100 到 1000 条。CD 上的轨道也像一个光栅。</li>
+    <li>它在 <span class="m"><i>d</i> sin <i>θ</i> = <i>mλ</i></span> 的地方出现又细又亮的线。它还能把白光分成 <span class="t">spectrum</span>（光谱：按波长排好的所有颜色）。</li>
+    <li><b>线又细又亮：</b>所有缝发出的波，只在 <span class="m" style="white-space:nowrap"><i>d</i> sin <i>θ</i> = <i>mλ</i></span> 那个角度刚好步调一样。角度偏一点点，它们就互相抵消。像一大群人一起拍手：只有拍子完全对上，声音才响。</li>
+    <li><b>角度大：</b><span class="m"><i>d</i></span> 很小，所以亮线离得很远，好测量。要用 <span class="m" style="white-space:nowrap"><i>d</i> sin <i>θ</i> = <i>mλ</i></span> 和 <span class="m" style="white-space:nowrap"><i>y</i> = <i>L</i> tan <i>θ</i></span>，不能用 <span class="m" style="white-space:nowrap">Δ<i>y</i> = <i>λL</i>/<i>d</i></span>。</li>
+    <li><b>白光：</b>中央那条（<span class="m"><i>m</i> = 0</span>）是白的。每一级都是一条光谱：<span class="t">violet</span>（紫）最靠中间，<span class="t">red</span>（红）在最外面。这和 <span class="t">prism</span>（棱镜）正好相反：prism 把紫光折得最多。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Bright fringes (double slit or grating) · 亮纹（双缝或光栅）</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd>光栅上相邻两条缝的距离 (m)</dd></div>
+      <div><dt>θ</dt><dd>从中线到亮线的角度 (°)</dd></div>
+      <div><dt>m</dt><dd>级次：0、1、2、…（没有单位）</dd></div>
+      <div><dt>λ</dt><dd>波长 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>和 2.3 是同一个公式，光栅也用它。<br><b>陷阱：</b>nm、µm 和 mm 先换成 m。计算器用 degree。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Grating spacing · 光栅常量</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>d</i> = 1/<i>N</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd><span class="t">grating spacing</span>（光栅常量）：从一条缝到下一条缝的距离 (m)</dd></div>
+      <div><dt>N</dt><dd>每米多少条（lines per metre）= 每 mm 的条数 × 1000</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b><span class="m"><i>N</i></span> 个间距，每个长 <span class="m"><i>d</i></span>，正好排满 1 米：<span class="m"><i>Nd</i> = 1</span>。<br><b>例子：</b>每 mm 300 条 → <i>N</i> = 300 × 1000 = 3.00 × 10<sup>5</sup> 条每米 → <i>d</i> = 1/<i>N</i> = 3.33 × 10<sup>−6</sup> m。<br><b>陷阱：</b>每 mm 的条数，先 × 1000 变成每米。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Highest order · 最高级次</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq">highest <i>m</i> = <i>d</i>/<i>λ</i>，向下取整</div>
+    <dl class="sym">
+      <div><dt>d</dt><dd>光栅常量 (m)</dd></div>
+      <div><dt>λ</dt><dd>波长 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b><span class="m">sin <i>θ</i> = <i>mλ</i>/<i>d</i></span>，而 sin <span class="m"><i>θ</i></span> 不能大于 1，所以 <span class="m"><i>m</i></span> 不能大于 <span class="m"><i>d</i>/<i>λ</i></span>。<br><b>陷阱：</b>是向<b>下</b>取整，不是四舍五入。<span class="m"><i>d</i>/<i>λ</i></span> 刚好是整数时，那一级在 90°，看不到。</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">动画 4 · 衍射光栅：线又细又亮，角度很大</span><span class="sim-tag"><span style="white-space:nowrap">默认值来自讲义实验 B</span> · <span style="white-space:nowrap">角度：计算值</span> · <span style="white-space:nowrap">峰的粗细：示意</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="半圆量角器：一束光从下面打到中间的光栅上，按 d sin θ = mλ 分成几束，每束末端标出级次 m。一个探测器沿着量角器来回转，停在每条亮线上。另一张图是亮度和角度 θ 的关系：光栅的峰又细又尖，蓝色虚线是同样 d 的双缝，条纹很胖。切换白光时，m = 0 是白的，每一级是一条光谱。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">每 mm 条数 <input type="range" id="s4-lpm" min="100" max="1000" step="50" value="300"><output id="s4-lpm-out" for="s4-lpm">300</output></label>
+    <label class="range"><i>λ</i> <input type="range" id="s4-lam" min="400" max="700" step="10" value="650"><output id="s4-lam-out" for="s4-lam">650 nm</output></label>
+    <button class="btn" type="button" id="s4-white" aria-pressed="false">白光：关</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看默认的光栅（讲义实验 B：300 lines per mm，红激光 650 nm）：<i>d</i> = 1/<i>N</i> = 3.33 × 10<sup>−6</sup> m，m = 1 的线在 <i>θ</i> = 11.2°，最高到 m = 5（计算值）。探测器停在每条线上时，<i>d</i> sin <i>θ</i> 正好是 λ 的整数倍。② 看亮度图：光栅的峰又细又尖；蓝色虚线是同样 <i>d</i> 的双缝，条纹很胖。探测器刚离开一条线一点点（比如 <i>d</i> sin <i>θ</i> = 1.1λ）时，光栅已经全暗，双缝还很亮（约 90%）。走到两条线正中间时，双缝也是暗纹。③ 把每 mm 条数拉到 1000：<i>d</i> 变小，线分得更开，只剩 m = 0 和两边的 m = 1。再拉到 100、把 λ 拉到 400 nm：<i>d</i>/<i>λ</i> = 25 刚好是整数，m = 25 在 90°，看不到，最高只到 24。④ 按“白光”：m = 0 是白的，每一级都是一条光谱，violet 在里、red 在外，和 prism 正好相反。亮度图里每一级画在自己的一行（m = 1 在最下面），从 m = 2 起，相邻两级的颜色会重叠。图上光栅的峰按光束照亮 1 mm 宽来算（示意），真实的峰比一个像素还细。</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">2.5</div>
+  <h2>偏振：光是横波<span class="en">Polarisation and Malus' law</span></h2>
+  <p class="big"><span class="lbl">一句话</span>光里的电场，振动方向和前进方向成 90°。只有这种横波才能被偏振，所以偏振告诉我们：光是哪一种波。</p>
+  <ul class="pts">
+    <li>光是 <span class="t">transverse wave</span>（横波）：它的电场和磁场，振动方向和前进方向成 90°。<span class="t">Longitudinal wave</span>（比如声音）是顺着前进方向振动。</li>
+    <li>类比：绳子上下抖，波能穿过栅栏的<b>竖</b>缝，过不了<b>横</b>缝。只有横波才有“侧向的振动”可以挑。</li>
+    <li>阳光是 <span class="t">unpolarised light</span>（非偏振光）：电场在光束横截面的各个方向乱振。</li>
+    <li><span class="t">Polariser</span>（起偏器）只放过沿它 <span class="t">transmission axis</span>（透振方向）的那部分振动。光就变成 <span class="t">plane-polarised light</span>（线偏振光）：电场只朝一个方向振动。</li>
+    <li>第二片叫 <span class="t">analyser</span>（检偏器），只放过沿它自己的轴的那部分。</li>
+    <li><span class="t">Intensity</span>（光强，<span class="m"><i>I</i></span>）：每平方米接到的光的功率，单位 W m<sup>−2</sup>。</li>
+  </ul>
+
+  <h3>顺着光束看，一步一步（讲义图 2.5）</h3>
+  <ol class="pts">
+    <li><b>非偏振光，强度 <span class="m"><i>I</i><sub>0</sub></span>：</b>振动方向什么都有。</li>
+    <li><b>过 polariser（轴竖直）：</b>只剩竖直的振动，强度 <span class="m">½<i>I</i><sub>0</sub></span>。没有哪个方向特殊，平均一半的能量在轴上。不管 polariser 转到什么角度，都是一半。</li>
+    <li><b>过 analyser（轴转了 <span class="m"><i>θ</i></span>）：</b>振幅 <span class="m"><i>A</i></span> 里，只有沿新轴的那部分 <span class="m"><i>A</i> cos <i>θ</i></span> 能通过。强度和振幅的平方成正比，所以剩下 <span class="m">½<i>I</i><sub>0</sub> cos²<i>θ</i></span>。</li>
+  </ol>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Unpolarised light, first filter · 非偏振光过第一片</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>I</i> = ½<i>I</i><sub>0</sub></div>
+    <dl class="sym">
+      <div><dt>I<sub>0</sub></dt><dd>进来的非偏振光的强度 (W m<sup>−2</sup>)</dd></div>
+      <div><dt>I</dt><dd>过第一片以后的强度 (W m<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>非偏振光（阳光、灯光）过第一片偏振片，转到什么角度都一样。<br><b>也可以自己推导：</b>没有哪个方向特殊，平均一半的能量在轴上。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Malus' law · 马吕斯定律</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></div>
+    <dl class="sym">
+      <div><dt>I</dt><dd>通过这片滤光片的强度 (W m<sup>−2</sup>)</dd></div>
+      <div><dt>I<sub>max</sub></dt><dd>进来的偏振光的强度，也就是 <span class="m"><i>θ</i> = 0</span> 时通过的量 (W m<sup>−2</sup>)</dd></div>
+      <div><dt>θ</dt><dd>光的振动方向和滤光片 transmission axis 的夹角 (°)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b><b>已经</b>是 plane-polarised 的光，遇到一片偏振片。<br><b>陷阱：</b>cos²<span class="m"><i>θ</i></span> 是 (cos <span class="m"><i>θ</i></span>)²。<span class="m"><i>θ</i></span> 从<b>前一片</b>滤光片量，不是从竖直方向量。</p>
+  </div>
+
+  <h3>两种图像</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px"><i>I</i> 对 <i>θ</i></div><p>一条 cos² 曲线。0° 和 180° 最大，90° 是 0。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px"><i>I</i> 对 cos²<i>θ</i></div><p>一条过原点的直线，斜率 = <span class="m"><i>I</i><sub>max</sub></span>。讲义图 2.6 的实验：0° 到 90° 和 105° 到 180° 的点都落在这条线上或很近，斜率 = 12.0 W m<sup>−2</sup>。</p></div>
+  </div>
+
+  <h3>三片偏振片</h3>
+  <ul class="pts">
+    <li>两片成 90°（<span class="t">crossed</span>，正交）：光全被挡住。</li>
+    <li>在它们<b>中间</b>加一片 45° 的：反而有光通过了！因为每一片都把光重新偏振到自己的方向。</li>
+    <li><b>用途：</b>水面的反光有一部分是水平偏振的。偏振太阳镜的透振方向是竖直的，能挡掉大部分反光。</li>
+  </ul>
+
+  <h3>偏振对光的模型为什么重要</h3>
+  <ul class="pts">
+    <li>光是横波，所以 Huygens 的纵波模型必须改（Young 1817，Fresnel 1821）。</li>
+    <li>Newton 的粒子没有自然的解释。他只能猜光线有 “<span class="t">sides</span>”（侧面）。</li>
+    <li>Maxwell 的理论（1865）预言了横的电磁波，正好符合偏振和 Malus' law。所以偏振非常重要：它和干涉一起，完成了“光是横的电磁波”这个经典模型。</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">动画 5 · 偏振片和 Malus' law</span><span class="sim-tag"><span style="white-space:nowrap">顺着光束看</span> · <span style="white-space:nowrap">实验点：讲义</span> · <span style="white-space:nowrap">纵波：示意</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="顺着光束看的一排圆：非偏振光的振动方向乱跳，经过轴竖直的 polariser 变成竖直振动、强度变成一半，再经过转了 θ 的 analyser，只剩 A cos θ 那一段。旁边把到达 analyser 的振动 A 分成通过和挡掉两部分。下面是 I–θ 图：Malus' law 曲线和讲义的实验点，标出现在的 θ。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">analyser <i>θ</i> <input type="range" id="s5-th" min="0" max="180" step="15" value="60"><output id="s5-th-out" for="s5-th">60°</output></label>
+    <button class="btn" type="button" id="s5-mid" aria-pressed="false">中间加一片 45°</button>
+    <button class="btn" type="button" id="s5-lon" aria-pressed="false">假如光是纵波</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 拖 analyser <i>θ</i>（每格 15°，和讲义实验一样，从 polariser 的 transmission axis 量）：0° 最亮，90° 全黑，180° 又最亮。看“到达 analyser 的振动 A”那张小图：振动 <i>A</i> 只有沿 analyser 轴的 <i>A</i> cos <i>θ</i> 能通过，强度 ∝ 振幅²，所以 <i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i>。图上的点是讲义的实验数据（实心 0°–90°，空心 105°–180°），都落在曲线上或很近。② 把 <i>θ</i> 放到 90°（crossed，全黑），再按“中间加一片 45°”：又亮了，<i>I</i> = ⅛<i>I</i><sub>0</sub>。<i>θ</i> 要从前一片量：中间片 → analyser 的夹角是 <i>θ</i> − 45°。③ 按“假如光是纵波”：振动顺着光束来回，滤光片挑不出方向，亮度不随 <i>θ</i> 变（紫色虚线，示意）；可实验在 90° 只有 0.1 W m<sup>−2</sup>，所以光是横波。<i>I</i><sub>max</sub> = 12.0 W m<sup>−2</sup> 和实验点来自讲义；<i>I</i><sub>0</sub> 只用符号；滤光片看成理想的，所以 ½<i>I</i><sub>0</sub> = <i>I</i><sub>max</sub>。</p>
+</figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">2.6</div>
+  <h2>两个要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>用激光做衍射和干涉<span class="t">（Diffraction and interference with lasers）</span></h3>
+    <dl>
+      <dt>目的</dt><dd>(A) 衍射和缝宽、波长有什么关系。(B) 用 <span class="m"><i>d</i> sin <i>θ</i> = <i>mλ</i></span> 测一支红激光的波长（标签上写 650 nm）。</dd>
+      <dt>做法</dt><dd>(A) 红光和绿光激光，分别穿过宽 0.080 mm、0.040 mm 和 0.020 mm 的单缝。<br>(B) 双缝（<span class="m"><i>d</i> = 0.250 mm</span>）：量 10 个条纹间距的总长，再 ÷ 10，得到 <span class="m">Δ<i>y</i></span>（量 10 个再平均，误差更小）；<span class="m"><i>L</i></span> 从 1.00 m 到 3.00 m。光栅（每 mm 300 条）：<span class="m"><i>y</i></span> = 两个第一级光点之间距离的一半。</dd>
+      <dt>安全</dt><dd>千万不要直视激光的光束（<span class="t">never look into the beam</span>）。</dd>
+      <dt>结果</dt><dd>(A) 缝宽减半，central maximum 变成 2 倍宽；红光的比绿光的宽。<br>(B) <span class="m">Δ<i>y</i></span> 对 <span class="m"><i>L</i></span> 的图是一条过原点的直线，斜率 = <span class="m"><i>λ</i>/<i>d</i></span>（所以 <span class="m"><i>λ</i></span> = 斜率 × <span class="m"><i>d</i></span>）。双缝：648 nm；光栅：649 nm。</dd>
+      <dt>结论</dt><dd>光像波一样衍射和干涉。两个结果都在 650 nm 的约 0.3 % 以内。</dd>
+      <dt>意义</dt><dd>粒子不能互相抵消、做出暗纹。这是“光是波”的有力证据。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>检验 Malus' law<span class="t">（Testing Malus' law）</span></h3>
+    <dl>
+      <dt>目的</dt><dd>检验 plane-polarised 光是否满足 <span class="m" style="white-space:nowrap"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></span>。</dd>
+      <dt>做法</dt><dd>灯、固定的 polariser、装在角度刻度上的 analyser、光传感器（<span class="t">light sensor</span>）；在暗房里做。从最亮的位置（<span class="m"><i>θ</i> = 0°</span>）开始，每次转 15°，一直转到 180°。</dd>
+      <dt>结果</dt><dd><span class="m"><i>I</i></span> 对 cos²<span class="m"><i>θ</i></span> 的图是一条过原点的直线，斜率 <span class="m"><i>I</i><sub>max</sub> = 12.0 W m<sup>−2</sup></span>（讲义图 2.6）。</dd>
+      <dt>结论</dt><dd><span class="m"><i>I</i> ∝ cos²<i>θ</i></span>：Malus' law 得到支持。</dd>
+      <dt>意义</dt><dd>光能被偏振，所以光是横波，和 Maxwell 预言的一样。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>n</i><sub>x</sub> = <i>c</i>/<i>v</i><sub>x</sub></td><td>光在水或玻璃里的速度</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>d</i> sin <i>θ</i> = <i>mλ</i></td><td>双缝或光栅的亮纹</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>d</i> sin <i>θ</i> = (<i>m</i> − ½)<i>λ</i><br><i>m</i> = 1, 2, 3, …</td><td>双缝的暗纹</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>δ</i> = <i>d</i> sin <i>θ</i><br><i>δ</i> = |<i>S</i><sub>2</sub><i>P</i> − <i>S</i><sub>1</sub><i>P</i>|</td><td>波程差：<i>mλ</i> 亮，(<i>m</i> − ½)<i>λ</i> 暗</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>y</i> = <i>L</i> tan <i>θ</i></td><td>把条纹的角度换成屏上的距离</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f">Δ<i>y</i> = <i>λL</i>/<i>d</i></td><td>双缝的条纹间距，只用于小角度</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>d</i> = 1/<i>N</i></td><td>光栅常量（<i>N</i> = 每米多少条）</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f">highest <i>m</i> = <i>d</i>/<i>λ</i><br>向下取整</td><td>光栅能出现的最高级次</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>I</i> = ½<i>I</i><sub>0</sub></td><td>非偏振光过第一片偏振片</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></td><td>Malus' law：偏振光过偏振片</td><td><span class="badge on">有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 7 句</h3>
+  <ol class="must">
+    <li>光在水里：Newton 预言更快，Huygens 预言更慢；Foucault（1850）测出来是更慢。</li>
+    <li>缝越窄，或者 <span class="m"><i>λ</i></span> 越长 → 散得越开。暗带只有波能解释。</li>
+    <li>亮：<span class="m"><i>δ</i> = <i>mλ</i></span>，所以 <span class="m"><i>d</i> sin <i>θ</i> = <i>mλ</i></span>。暗：<span class="m" style="white-space:nowrap"><i>δ</i> = (<i>m</i> − ½)<i>λ</i></span>。</li>
+    <li><span class="m"><i>y</i> = <i>L</i> tan <i>θ</i></span> 任何角度都能用；<span class="m">Δ<i>y</i> = <i>λL</i>/<i>d</i></span> 只能用于小角度。</li>
+    <li>光栅：<span class="m"><i>d</i> = 1/<i>N</i></span>；最高级次 = <span class="m"><i>d</i>/<i>λ</i></span> 向下取整。</li>
+    <li>非偏振光：<span class="m"><i>I</i> = ½<i>I</i><sub>0</sub></span>。偏振光：<span class="m"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></span>。</li>
+    <li>偏振说明光是横波。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>光在水或玻璃里可以比 c 快。<br><span class="ok">对：</span>n 是 1 或更大，v<sub>x</sub> = c/n 永远不会比 c 大。</div>
+    <div><span class="x">错：</span>Foucault 的实验证明了光是波。<br><span class="ok">对：</span>它只推翻了 Newton 对折射的解释。单靠它，还不能证明波模型。</div>
+    <div><span class="x">错：</span>光穿过窄缝以后，波长变了。<br><span class="ok">对：</span>衍射时 λ、频率和速度都不变，只有方向变。</div>
+    <div><span class="x">错：</span>直接把 nm、µm、mm 代进 d sin θ = mλ。<br><span class="ok">对：</span>先换成 m：650 nm = 650 × 10<sup>−9</sup> m，0.250 mm = 0.250 × 10<sup>−3</sup> m。计算器用 degree。</div>
+    <div><span class="x">错：</span>Δy = λL/d 里的 d 是一条缝的宽度。<br><span class="ok">对：</span>d 是双缝间距：两条缝中心之间的距离。</div>
+    <div><span class="x">错：</span>光栅也用 Δy = λL/d。<br><span class="ok">对：</span>光栅的角度很大，要用 d sin θ = mλ 和 y = L tan θ。Δy = λL/d 只用于约 10° 以下。</div>
+    <div><span class="x">错：</span>光栅和 prism 一样，把紫光偏得最多。<br><span class="ok">对：</span>光栅的每一级里 violet 最靠中间、red 在最外面；prism 正好相反，把 violet 折得最多。</div>
+    <div><span class="x">错：</span>暗纹公式里代 m = 0。<br><span class="ok">对：</span>d sin θ = (m − ½)λ 的 m 从 1 开始。</div>
+    <div><span class="x">错：</span>最高级次 = d/λ 四舍五入。<br><span class="ok">对：</span>向下取整，因为 sin θ 不能大于 1。</div>
+    <div><span class="x">错：</span>cos²θ 就是 cos(θ²)。<br><span class="ok">对：</span>cos²θ 是 (cos θ)²：先算 cos θ，再平方。</div>
+    <div><span class="x">错：</span>Malus' law 的 θ 从竖直方向量。<br><span class="ok">对：</span>θ 从<b>前一片</b>滤光片的轴量。</div>
+    <div><span class="x">错：</span>非偏振光过第一片也用 cos²θ。<br><span class="ok">对：</span>非偏振光过第一片是 ½I<sub>0</sub>，和角度无关。Malus' law 只用于已经偏振的光。</div>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Crest / Trough</td><td>波峰 / 波谷</td><td>波的最高点 / 最低点</td></tr>
+        <tr><td class="t">Wavelength (λ)</td><td>波长</td><td>一个完整的波有多长，比如波峰到波峰，单位 m</td></tr>
+        <tr><td class="t">Amplitude</td><td>振幅</td><td>波峰比中线高多少</td></tr>
+        <tr><td class="t">Corpuscle</td><td>微粒（光微粒）</td><td>Newton 说的光的小粒子</td></tr>
+        <tr><td class="t">Longitudinal wave</td><td>纵波</td><td>顺着前进方向振动的波，像声音</td></tr>
+        <tr><td class="t">Wavefront</td><td>波阵面（波面）</td><td>步调一样的点连成的线，比如所有波峰</td></tr>
+        <tr><td class="t">Wavelet</td><td>子波</td><td>波阵面上一个点发出的小圆波</td></tr>
+        <tr><td class="t">Huygens' principle</td><td>惠更斯原理</td><td>每一点发出子波，和子波相切的线就是新的波阵面</td></tr>
+        <tr><td class="t">Normal</td><td>法线</td><td>和表面成 90° 的线，光线的角度从它量</td></tr>
+        <tr><td class="t">Reflection</td><td>反射</td><td>光碰到表面弹回来，<i>θ</i><sub>i</sub> = <i>θ</i><sub>r</sub></td></tr>
+        <tr><td class="t">Repulsive force</td><td>斥力</td><td>把东西推离表面的力（Newton 解释反射）</td></tr>
+        <tr><td class="t">Refraction</td><td>折射</td><td>光进入另一种材料时拐弯</td></tr>
+        <tr><td class="t">Refractive index (n)</td><td>折射率</td><td>光在材料里比在真空里慢几倍</td></tr>
+        <tr><td class="t">Diffraction</td><td>衍射</td><td>波穿过缝或绕过边缘时散开</td></tr>
+        <tr><td class="t">Central maximum</td><td>中央亮纹（中央极大）</td><td>单缝图样中间又宽又亮的那条</td></tr>
+        <tr><td class="t">Slit width (a)</td><td>缝宽</td><td>一条缝有多宽</td></tr>
+        <tr><td class="t">Superposition</td><td>叠加（波的叠加）</td><td>波相遇时，位移（高度）相加</td></tr>
+        <tr><td class="t">Interference</td><td>干涉</td><td>重叠的波相加或抵消形成的图样</td></tr>
+        <tr><td class="t">In phase</td><td>同相</td><td>波峰和波峰一起到</td></tr>
+        <tr><td class="t">Out of phase (180°)</td><td>反相</td><td>一列的波峰和另一列的波谷一起到</td></tr>
+        <tr><td class="t">Constructive interference</td><td>相长干涉</td><td>同相相遇，合成更大的波：亮</td></tr>
+        <tr><td class="t">Destructive interference</td><td>相消干涉</td><td>反相相遇，互相抵消：暗</td></tr>
+        <tr><td class="t">Young's double-slit experiment</td><td>杨氏双缝实验</td><td>光穿过两条靠近的缝，出现亮暗条纹</td></tr>
+        <tr><td class="t">Fringe</td><td>条纹</td><td>干涉图样里的一条亮带或暗带</td></tr>
+        <tr><td class="t">Coherent</td><td>相干的</td><td>频率相同、相位差固定（错开多少一直不变）</td></tr>
+        <tr><td class="t">Monochromatic</td><td>单色的</td><td>只有一种颜色，也就是一个波长</td></tr>
+        <tr><td class="t">Path difference (δ)</td><td>波程差（路程差）</td><td>一列波比另一列多走的路，单位 m</td></tr>
+        <tr><td class="t">Slit separation (d)</td><td>双缝间距（缝间距）</td><td>两条缝中心之间的距离</td></tr>
+        <tr><td class="t">Order (m)</td><td>级次</td><td>从中央往外数，第几条（亮纹 0, 1, 2, …；暗纹 1, 2, …）</td></tr>
+        <tr><td class="t">Fringe spacing (Δy)</td><td>条纹间距</td><td>相邻两条亮纹中心之间的距离</td></tr>
+        <tr><td class="t">Envelope</td><td>包络线</td><td>让双缝外侧条纹变暗的单缝曲线</td></tr>
+        <tr><td class="t">Diffraction grating</td><td>衍射光栅</td><td>有很多条等间距平行缝的片子，把光分成光谱</td></tr>
+        <tr><td class="t">Grating spacing (d)</td><td>光栅常量（光栅常数）</td><td>光栅上一条缝到下一条缝的距离</td></tr>
+        <tr><td class="t">Spectrum</td><td>光谱</td><td>按波长排好的所有颜色</td></tr>
+        <tr><td class="t">Prism</td><td>棱镜</td><td>把白光折成光谱的玻璃块，紫光折得最多</td></tr>
+        <tr><td class="t">Transverse wave</td><td>横波</td><td>振动方向和前进方向成 90° 的波</td></tr>
+        <tr><td class="t">Polarisation (polarised)</td><td>偏振</td><td>横波只朝一个方向振动；光能被偏振，所以光是横波</td></tr>
+        <tr><td class="t">Unpolarised light</td><td>非偏振光（自然光）</td><td>在光束横截面各个方向乱振的光</td></tr>
+        <tr><td class="t">Polariser</td><td>起偏器（偏振片）</td><td>只放过沿透振方向振动的滤光片</td></tr>
+        <tr><td class="t">Analyser</td><td>检偏器</td><td>第二片偏振片，检查第一片出来的光</td></tr>
+        <tr><td class="t">Transmission axis</td><td>透振方向（透光轴）</td><td>偏振片放过的振动方向</td></tr>
+        <tr><td class="t">Plane-polarised light</td><td>线偏振光（平面偏振光）</td><td>电场只朝一个方向振动的光</td></tr>
+        <tr><td class="t">Intensity (I)</td><td>光强（强度）</td><td>每平方米接到的光的功率，单位 W m<sup>−2</sup></td></tr>
+        <tr><td class="t">Malus' law</td><td>马吕斯定律</td><td>偏振光过偏振片：<i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 光进水时偏向 normal。Newton 和 Huygens 各预言光在水里更快还是更慢？谁对？</summary><p class="ans"><b>Newton：更快；Huygens：更慢。Foucault（1850）测出来更慢。</b>Newton 认为水把粒子往里拉，速度变大；Huygens 认为波阵面先进水的一端先变慢。实验说明 Newton 对折射的解释错了。</p></details>
+    <details><summary><span>2. 光在一种材料里的速度是 2.00 × 10<sup>8</sup> m s<sup>−1</sup>。这种材料的折射率是多少？</span></summary><p class="ans"><b>n = 1.50。</b>n = c/v = 3.00 × 10<sup>8</sup> ÷ (2.00 × 10<sup>8</sup>) = 1.50。没有单位。n 比 1 大，所以光在材料里比真空里慢。</p></details>
+    <details><summary>3. 为什么单缝和双缝图样里的“暗带”，是光是波的证据？</summary><p class="ans"><b>粒子加粒子只会更亮，做不出暗。</b>只有波能“波峰遇波谷”互相抵消，所以“光 + 光 = 暗”只对波说得通。</p></details>
+    <details><summary>4. 双缝 d = 0.250 mm，红激光 λ = 650 nm，屏在 L = 1.00 m 处。条纹间距 Δy 是多少？</summary><p class="ans"><b>Δy = 2.60 × 10<sup>−3</sup> m = 2.60 mm。</b>先换单位：d = 0.250 × 10<sup>−3</sup> m，λ = 650 × 10<sup>−9</sup> m。Δy = λL/d = 650 × 10<sup>−9</sup> × 1.00 ÷ (0.250 × 10<sup>−3</sup>) = 2.60 × 10<sup>−3</sup> m。角度只有约 0.15°，小于 10°，所以可以用这个公式。</p></details>
+    <details><summary>5. 两个同相的喇叭发出 λ = 2 m 的声音。P 点离一个喇叭 5 m，离另一个 8 m。P 点声音响还是小？</summary><p class="ans"><b>很小（相消）。</b>δ = |8 − 5| = 3 m，δ/λ = 3 ÷ 2 = 1.5，是整数加一半，所以两列波反相，互相抵消。</p></details>
+    <details><summary>6. 光栅每 mm 300 条，λ = 650 nm。第一级亮线的角度是多少？最多能看到第几级？</summary><p class="ans"><b>θ<sub>1</sub> ≈ 11.2°；最高 m = 5。</b>N = 300 × 1000 = 3.00 × 10<sup>5</sup> 条每米，d = 1/N = 3.33 × 10<sup>−6</sup> m。除以 d 就是乘 N：sin θ<sub>1</sub> = λ/d = λN = 650 × 10<sup>−9</sup> × 3.00 × 10<sup>5</sup> = 0.195，θ<sub>1</sub> = 11.2°。d/λ = 1 ÷ (Nλ) = 1 ÷ 0.195 = 5.13，向下取整得 5。</p></details>
+    <details><summary><span>7. Malus 实验里 I<sub>max</sub> = 12.0 W m<sup>−2</sup>。analyser 转到 60° 时，I 应该是多少？</span></summary><p class="ans"><b>I = 3.0 W m<sup>−2</sup>。</b>cos 60° = 0.5，cos² 60° = 0.25。I = 12.0 × 0.25 = 3.0 W m<sup>−2</sup>。</p></details>
+    <details><summary><span>8. 非偏振光 I<sub>0</sub> 过两片成 90° 的偏振片，全黑。在中间加一片 45° 的，最后剩多少？</span></summary><p class="ans"><b>⅛I<sub>0</sub>。</b>第一片：½I<sub>0</sub>。中间片和第一片差 45°：½I<sub>0</sub> × cos² 45° = ½I<sub>0</sub> × ½ = ¼I<sub>0</sub>。最后一片和中间片又差 45°：¼I<sub>0</sub> × ½ = ⅛I<sub>0</sub>。每一片都把光重新偏振到自己的方向。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m7/t1.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M7 T1 · The Electromagnetic Spectrum</span><span class="pg-z">电磁波谱：Maxwell、光速和光谱学</span></a><a class="pg next" href="../m7/t3.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M7 T3 · Light as a Particle: Black Bodies and the Photoelectric Effect</span><span class="pg-z">光的粒子性：黑体辐射和光电效应</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 7 The Nature of Light · Chapter 2 整理。实验数据（缝宽 0.080 / 0.040 / 0.020 mm，650 nm，<i>d</i> = 0.250 mm，<i>L</i> = 1.00 m 到 3.00 m，每 mm 300 条，648 nm / 649 nm（都在 650 nm 的约 0.3 % 以内），每次转 15°，<i>I</i><sub>max</sub> = 12.0 W m<sup>−2</sup>，图 2.6 的 13 个实验点）来自讲义。快问快答第 2、5 题的数字是为了练习选的简单数。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · Newton 和 Huygens：光进入水（booklet 2.1 Refraction，Figure 2.1）
+   坐标：O = 光线碰到水面的点，x 向右，y 向下（水里 y > 0）。角度全部从 normal 量。
+   两个模型拐的角度一样：sin θi = n sin θr（n = 1.33，示意；页面不写这条式子，本章 booklet 没有）。
+   Newton：水面一薄层（厚 HL）里有沿 normal 向下的拉力（匀加速）→ parallel part 不变、normal part 变大
+     → v水 = n·v空气（更快）。薄层分成 h1:h2 = vn1:vn2，这样上下两段直线延长后正好交在水面上，
+     粒子在薄层外正好走在理想光线上。
+   Huygens：v水 = v空气/n（更慢），水里波阵面间距 λ/n。波阵面的位置用 s（在空气里沿光线走过的路）表示：
+     空气部分 d1·r = s，水里部分 d2·r = s/n，两段在水面上接上。水面上的点 x0 在 s = x0 sin θi 时被碰到，
+     从那里发出的子波半径 = (s − x0 sin θi)/n，所有子波的包络就是水里的波阵面。
+   Foucault（1850）：真实结果，不管选哪个模型都一样：v水 = c/n → 过水的光晚到。
+     Newton 模式下用空心圈画 Newton 的预言（水里快 n 倍）。赛道上的速度比例用同一个 n（示意）。 */
+var NW=1.33,DEG=Math.PI/180,HL=8;
+var m={mode:'newton',ti:45,t:1.15};   /* t = 1.15 s：第一帧圈住的粒子已经在水里，箭头的竖的部分变长了 */
+var R={st:'idle',t:0,fresh:false};
+var RV=1/3,TA=0.25,TB=0.85;   /* 赛道：速度 = 1/3 条赛道每秒；水管从 25% 到 85% */
+var G={};
+function geom(){var a=m.ti*DEG;G.si=Math.sin(a);G.ci=Math.cos(a);G.sr=G.si/NW;G.cr=Math.sqrt(1-G.sr*G.sr);G.tr=Math.asin(G.sr)/DEG;}
+geom();
+function mod(a,b){return a-Math.floor(a/b)*b;}
+/* 赛道上的位置（0 到 1）；k = 在水管里慢多少倍：1 只过空气，NW 真实的水，1/NW Newton 的预言 */
+function racePos(t,k){var t1=TA/RV,tin=(TB-TA)*k/RV;
+  if(t<=t1)return RV*t;
+  if(t<=t1+tin)return TA+(t-t1)*RV/k;
+  return Math.min(1,TB+(t-t1-tin)*RV);}
+function raceT(k){return (TA+(TB-TA)*k+(1-TB))/RV;}
+
+/* ---------- 文字：_x 画成下标；halo = 先描一圈底色，压在光束上也看得清 ---------- */
+var RU=[],RW=[];
+function rt(ctx,s,x,y,col,size,weight,align,halo){
+  var ss=Math.max(11,size*0.72),wt=weight||500,i,ch,buf='',w=0,n,x0,sb,yy;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}RU.push(s.charAt(i+1),1);i++;}else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sb=RU[2*i+1];ctx.font=wt+' '+(sb?ss:size)+'px '+FONT;RW[i]=ctx.measureText(RU[2*i]).width+(sb?1:0);w+=RW[i];}
+  x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sb=RU[2*i+1];yy=y+(sb?size*0.28:0);
+    if(halo){ctx.font=wt+' '+(sb?ss:size)+'px '+FONT;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=rgba(C.stage,0.9);ctx.strokeText(RU[2*i],x0,yy);}
+    txt(ctx,RU[2*i],x0,yy,col,sb?ss:size,wt,'left','alphabetic');x0+=RW[i];}
+  return w;
+}
+
+/* ---------- 排版 ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.ss=15;o.sy=27;o.slh=21;o.smax=2;
+    o.x0=8;o.x1=W-272;o.y0=62;o.y1=300;o.px=W-250;o.pw=234;o.py=66;o.sub=1;o.ry=320;
+    o.v1=64;o.te=0.34;o.wn=44;o.wh=86;o.lam=26;o.la=34;o.ra=46;}
+  else{o.ss=13.5;o.sy=22;o.slh=19;o.smax=3;
+    o.x0=8;o.x1=W-8;o.y0=72;o.y1=298;o.px=16;o.pw=W-32;o.py=310;o.sub=0;o.ry=482;
+    o.v1=54;o.te=0.37;o.wn=38;o.wh=66;o.lam=22;o.la=28;o.ra=38;}
+  o.ks=0.7;o.H=o.ry+110;
+  o.ox=Math.round((o.x0+o.x1)/2);o.oy=Math.round(o.y0+(o.y1-o.y0)*0.42);
+  o.D=Math.hypot(o.x1-o.x0,o.y1-o.y0);
+  LY=o;return o;
+}
+
+/* ---------- 状态提示 ---------- */
+var ST_N=['Newton：水面把粒子沿 normal 往下拉','normal part 变大、parallel part 不变','偏向 normal，而且更快'],
+    ST_H=['Huygens：波阵面左端先进水，先变慢','整条波阵面转向 normal','水里更慢'],
+    ST_R0=['Foucault 1850：两束光同时出发','比一比谁先到终点'],
+    ST_R1=['只过空气的先到了','过水的还在路上','水里更慢'],
+    ST_R2=['Foucault 1850：过水的光晚到','水里更慢','Newton 对折射的解释错了'];
+function status(){
+  if(R.fresh&&R.st!=='idle'){if(R.st==='done')return ST_R2;return R.t<raceT(1)?ST_R0:ST_R1;}
+  return m.mode==='newton'?ST_N:ST_H;
+}
+function wrap(ctx,parts,maxW,size){
+  var out=[],cur=parts[0],c,i;ctx.font='600 '+size+'px '+FONT;
+  for(i=1;i<parts.length;i++){c=cur+' → '+parts[i];if(ctx.measureText(c).width<=maxW)cur=c;else{out.push(cur);cur='→ '+parts[i];}}
+  out.push(cur);return out;
+}
+
+/* ---------- Newton：粒子 ---------- */
+var NP={},PX=0,PY=0,VY=0,LANE=[-1,0,1],LOFF=[0.41,0,0.77];
+function nsetup(L){var v1=L.v1,vn1=v1*G.ci,vn2=NW*v1*G.cr,tl=2*HL/(vn1+vn2);
+  NP.vx=v1*G.si;NP.vn1=vn1;NP.vn2=vn2;NP.tl=tl;NP.a=(vn2-vn1)/tl;NP.h1=vn1*tl/2;NP.h2=vn2*tl/2;}
+/* 一颗粒子：x0 = 它碰到水面的位置（相对 O），tau = 它进入薄层以后的时间 */
+function npos(x0,tau){
+  PX=x0-NP.h1*G.si/G.ci+NP.vx*tau;
+  if(tau<0){PY=-NP.h1+NP.vn1*tau;VY=NP.vn1;}
+  else if(tau<=NP.tl){PY=-NP.h1+NP.vn1*tau+0.5*NP.a*tau*tau;VY=NP.vn1+NP.a*tau;}
+  else{PY=NP.h2+NP.vn2*(tau-NP.tl);VY=NP.vn2;}
+}
+function drawNewton(ctx,L){
+  nsetup(L);
+  var te=L.te,tmin=-L.D/L.v1,tmax=NP.tl+L.D/(NW*L.v1),l,k,x0,base,k0,k1;
+  for(l=0;l<3;l++){
+    x0=LANE[l]*L.wn/3/G.ci;base=mod(m.t-LOFF[l]*te,te);
+    k0=Math.ceil((tmin-base)/te);k1=Math.floor((tmax-base)/te);
+    for(k=k0;k<=k1;k++){npos(x0,base+k*te);dot(ctx,L.ox+PX,L.oy+PY,3.2,C.light);}
+  }
+  /* 圈住中间那条线上的一颗粒子，跟着它从空气走到水里，再换下一颗 */
+  var da=Math.min((L.oy-L.y0)/G.ci,(L.ox-L.x0)/G.si)*0.8,dw=Math.max(20,Math.min((L.y1-L.oy)/G.cr,(L.x1-L.ox)/G.sr)-NW*L.v1*L.ks-12);
+  var ta=-da/L.v1,P=Math.ceil((da/L.v1+NP.tl+dw/(NW*L.v1))/te)*te,th=ta+mod(m.t-ta,P);
+  npos(0,th);
+  var hx=L.ox+PX,hy=L.oy+PY,vx=NP.vx*L.ks,vy=VY*L.ks,dc=rgba(C.muted,0.95);
+  seg(ctx,hx,hy,hx+vx,hy,dc,1.7,[3,3]);
+  seg(ctx,hx+vx,hy,hx+vx,hy+vy,dc,1.7,[3,3]);
+  arrow(ctx,hx,hy,hx+vx,hy+vy,rgba(C.ink,0.7),2.4,8);
+  dot(ctx,hx,hy,4.8,C.light);ring(ctx,hx,hy,7.5,C.ink,1.5);
+  if(th>-0.08&&th<NP.tl+0.08)arrow(ctx,hx-10,hy-6,hx-10,hy+20,C.force,2.6,8);
+}
+
+/* ---------- Huygens：波阵面 ---------- */
+/* 一条波阵面：空气部分 u ∈ [ua, w/2]，水里部分 u' ∈ [−w2/2, ub]；过水面时两段在水面上接成一条折线 */
+function front(ctx,L,s,w,w2,col,lw){
+  var si=G.si,ci=G.ci,sr=G.sr,cr=G.cr,ox=L.ox,oy=L.oy,ua=Math.max(-w/2,s*ci/si),ub=Math.min(w2/2,s/NW*cr/sr),q=s/NW,on=false;
+  ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineCap='round';ctx.lineJoin='round';ctx.setLineDash([]);ctx.beginPath();
+  if(ub>-w2/2){ctx.moveTo(ox+q*sr-w2/2*cr,oy+q*cr+w2/2*sr);ctx.lineTo(ox+q*sr+ub*cr,oy+q*cr-ub*sr);on=true;}
+  if(ua<w/2){if(on)ctx.lineTo(ox+s*si+ua*ci,oy+s*ci-ua*si);else ctx.moveTo(ox+s*si+ua*ci,oy+s*ci-ua*si);ctx.lineTo(ox+s*si+w/2*ci,oy+s*ci-w/2*si);}
+  ctx.stroke();ctx.lineCap='butt';
+}
+function drawHuygens(ctx,L){
+  var w=L.wh,w2=w*G.cr/G.ci,lam=L.lam,si=G.si,ci=G.ci,sr=G.sr,cr=G.cr,ox=L.ox,oy=L.oy,D=L.D,la=L.la;
+  var ph=mod(m.t*L.v1,lam),k,k0=Math.ceil((-D-ph)/lam),k1=Math.floor((NW*D-ph)/lam);
+  seg(ctx,ox-D*si,oy-D*ci,ox,oy,rgba(C.light,0.6),1.3,[5,5]);
+  seg(ctx,ox,oy,ox+D*sr,oy+D*cr,rgba(C.light,0.6),1.3,[5,5]);
+  for(k=k0;k<=k1;k++)front(ctx,L,ph+k*lam,w,w2,rgba(C.light,0.7),2);
+  /* 跟着一条波阵面走过水面（从碰到水面前一格，到全部进水后一格半） */
+  var half=w/2*si/ci,s0=-half-lam,P=Math.ceil((2*half+2.6*lam)/lam)*lam,sh=s0+mod(m.t*L.v1-s0,P);
+  var K=5,xl=-w/(2*ci),dx=w/ci/K,j,xs,rho,al;
+  for(j=0;j<K;j++){xs=xl+(j+0.5)*dx;rho=(sh-xs*si)/NW;
+    if(rho>0.5){al=0.6*clamp(1-rho/(1.7*w),0,1);if(al>0.02){ctx.beginPath();ctx.arc(ox+xs,oy,rho,0,Math.PI);ctx.strokeStyle=rgba(C.light,al);ctx.lineWidth=1.3;ctx.stroke();}
+      dot(ctx,ox+xs,oy,2.4,C.light);}}
+  front(ctx,L,sh,w,w2,C.light,3.6);
+  /* 两端的速度箭头：在水里的一端短（慢），还在空气里的一端长（快） */
+  var q=sh/NW,ex,ey,ac=rgba(C.ink,0.7);
+  if(sh>=-half){ex=ox+q*sr-w2/2*cr;ey=oy+q*cr+w2/2*sr;arrow(ctx,ex+sr*3,ey+cr*3,ex+sr*(3+la/NW),ey+cr*(3+la/NW),ac,2.2,7);}
+  else{ex=ox+sh*si-w/2*ci;ey=oy+sh*ci+w/2*si;arrow(ctx,ex+si*3,ey+ci*3,ex+si*(3+la),ey+ci*(3+la),ac,2.2,7);}
+  if(sh<=half){ex=ox+sh*si+w/2*ci;ey=oy+sh*ci-w/2*si;arrow(ctx,ex+si*3,ey+ci*3,ex+si*(3+la),ey+ci*(3+la),ac,2.2,7);}
+  else{ex=ox+q*sr+w2/2*cr;ey=oy+q*cr-w2/2*sr;arrow(ctx,ex+sr*3,ey+cr*3,ex+sr*(3+la/NW),ey+cr*(3+la/NW),ac,2.2,7);}
+}
+
+/* ---------- 场景：空气 / 水 ---------- */
+function drawScene(ctx,L){
+  var x0=L.x0,x1=L.x1,y0=L.y0,y1=L.y1,ox=L.ox,oy=L.oy,nw=m.mode==='newton',D=L.D;
+  var si=G.si,ci=G.ci,sr=G.sr,cr=G.cr,w=nw?L.wn:L.wh,e=w/(2*ci);
+  ctx.fillStyle=rgba(C.muted,0.11);ctx.fillRect(x0,oy,x1-x0,y1-oy);
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0,x1-x0,y1-y0);ctx.clip();
+  if(nw){ctx.fillStyle=rgba(C.force,0.16);ctx.fillRect(x0,oy-HL/2,x1-x0,HL);}
+  ctx.beginPath();ctx.moveTo(ox-e-D*si,oy-D*ci);ctx.lineTo(ox-e,oy);ctx.lineTo(ox-e+D*sr,oy+D*cr);
+  ctx.lineTo(ox+e+D*sr,oy+D*cr);ctx.lineTo(ox+e,oy);ctx.lineTo(ox+e-D*si,oy-D*ci);ctx.closePath();
+  ctx.fillStyle=rgba(C.light,0.1);ctx.fill();
+  seg(ctx,x0,oy,x1,oy,C.muted,1.5);
+  seg(ctx,ox,y0+20,ox,y1-6,rgba(C.muted,0.9),1.3,[4,4]);
+  if(nw)drawNewton(ctx,L);else drawHuygens(ctx,L);
+  ctx.restore();
+  /* 角度：从 normal 量 */
+  var ra=L.ra,ti=m.ti*DEG,tr=G.tr*DEG;
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.4;
+  ctx.beginPath();ctx.arc(ox,oy,ra,-Math.PI/2-ti,-Math.PI/2);ctx.stroke();
+  ctx.beginPath();ctx.arc(ox,oy,ra,Math.PI/2-tr,Math.PI/2);ctx.stroke();
+  var lx=Math.min(ox-13,ox-(ra+13)*Math.sin(ti/2)),ly=oy-(ra+13)*Math.cos(ti/2);
+  rt(ctx,'θ_i',lx,ly+5,C.ink,15,600,'center',true);
+  var rx=Math.max(ox+13,ox+(ra+13)*Math.sin(tr/2)),ry=oy+(ra+13)*Math.cos(tr/2);
+  rt(ctx,'θ_r',rx,ry+5,C.ink,15,600,'center',true);
+  /* 标签 */
+  rt(ctx,'normal',ox+6,y0+14,C.muted,11.5,500,'left',true);
+  txt(ctx,'空气 air',x1-6,y0+14,C.muted,12,600,'right');
+  txt(ctx,'水 water',x0+6,y1-8,C.muted,12,600,'left');
+  rt(ctx,nw?'粒子 corpuscles':'波阵面 wavefronts',x1-6,y0+33,C.light,12,600,'right',true);
+  if(nw){var px=ox+(x1-ox)*0.62;arrow(ctx,px,oy-18,px,oy+18,C.force,2.8,9);txt(ctx,'pull',px+8,oy+16,C.force,12.5,700);}
+}
+
+/* ---------- 预言：两种速度的比较 ---------- */
+function row(ctx,x,y,w,title,res,a,b,sc){
+  txt(ctx,title,x,y,C.ink,12.5,600);txt(ctx,res,x+w,y,C.ink,12.5,700,'right');
+  txt(ctx,'空气',x,y+16,C.muted,11,500);hbar(ctx,x+32,y+8,w-32,7,a/sc,rgba(C.ink,0.4));
+  txt(ctx,'水',x,y+31,C.muted,11,500);hbar(ctx,x+32,y+23,w-32,7,b/sc,rgba(C.ink,0.8));
+}
+function drawPanel(ctx,L){
+  var x=L.px,y=L.py,w=L.pw,nw=m.mode==='newton',yy;
+  if(!L.wide)seg(ctx,0,y-6,L.W,y-6,C.line,1);
+  txt(ctx,nw?'Newton 的预言':'Huygens 的预言',x,y+13,C.ink,13.5,700);
+  rt(ctx,'θ_i = '+m.ti+'° → θ_r = '+Math.round(G.tr)+'°',x+w,y+13,C.ink,12.5,600,'right');
+  yy=y+34;
+  if(L.sub){txt(ctx,'两个模型拐的角度一样，都偏向 normal',x,y+32,C.muted,11.5,500);yy=y+56;}
+  if(nw){
+    row(ctx,x,yy,w,'parallel part（横虚线）','不变',G.si,G.si,1.4);
+    row(ctx,x,yy+46,w,'normal part（竖虚线）','变大 × '+(NW*G.cr/G.ci).toFixed(2),G.ci,NW*G.cr,1.4);
+    row(ctx,x,yy+92,w,'速度 v（箭头）','更快 × 1.33',1,NW,1.4);
+    if(L.sub)txt(ctx,'水的 n = 1.33（示意）',x,yy+142,C.muted,11.5,500);
+  }else{
+    row(ctx,x,yy,w,'速度 v','更慢 ÷ 1.33',1,1/NW,1.1);
+    row(ctx,x,yy+46,w,'波阵面间距（波长 λ）','变小 ÷ 1.33',1,1/NW,1.1);
+    txt(ctx,'水里 v = c ÷ n = 2.26 × 10⁸ m s⁻¹',x,yy+94,C.ink,12.5,600);
+    txt(ctx,'c = 3.00 × 10⁸ m s⁻¹，n = 1.33（示意）',x,yy+113,C.muted,11.5,500);
+  }
+}
+
+/* ---------- Foucault 赛跑 ---------- */
+function pulse(ctx,x,y,xs){var tl=Math.min(20,x-xs);if(tl>1)seg(ctx,x-tl,y,x,y,rgba(C.light,0.45),4);
+  ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=10;dot(ctx,x,y,5.5,C.light);ctx.restore();}
+function drawRace(ctx,L,W){
+  var y=L.ry,xs=L.wide?100:76,xf=W-(L.wide?52:48),len=xf-xs,ty1=y+42,ty2=y+74,nw=m.mode==='newton',t=R.st==='idle'?0:R.t,leg;
+  seg(ctx,0,y-8,W,y-8,C.line,1);
+  txt(ctx,'Foucault 1850 · 两束光同时出发：谁先到终点？',16,y+13,C.ink,13,700);
+  txt(ctx,'只过空气',16,ty1+4,C.muted,12,600);txt(ctx,'过一管水',16,ty2+4,C.muted,12,600);
+  seg(ctx,xs,ty1,xf,ty1,rgba(C.muted,0.6),1.2);seg(ctx,xs,ty2,xf,ty2,rgba(C.muted,0.6),1.2);
+  var ta=xs+TA*len,tb=xs+TB*len;
+  rrect(ctx,ta,ty2-10,tb-ta,20,4);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.2;ctx.stroke();
+  seg(ctx,xf,ty1-14,xf,ty2+14,C.ink,1.4,[3,3]);
+  txt(ctx,'终点',xf+9,(ty1+ty2)/2+4,C.muted,11,500);
+  pulse(ctx,xs+len*racePos(t,1),ty1,xs);
+  if(nw&&R.st!=='idle')ring(ctx,xs+len*racePos(t,1/NW),ty2,7,C.muted,1.8);
+  pulse(ctx,xs+len*racePos(t,NW),ty2,xs);
+  if(R.st!=='idle'){if(t>=raceT(1))txt(ctx,'先到',xf+11,ty1+4,C.ink,12,700);if(t>=raceT(NW))txt(ctx,'晚到',xf+11,ty2+4,C.ink,12,700);}
+  if(R.st==='idle')leg=nw?'Newton 预言：过水的先到（水里更快）':'Huygens 预言：过水的晚到（水里更慢）';
+  else if(nw)leg=R.st==='done'?'空心圈 = Newton 预言（先到）：和实验相反':'空心圈 = Newton 预言；实心 = 真的光';
+  else leg=R.st==='done'?'和 Huygens 一样；但单靠它还不能证明光是波':'Huygens 预言：过水的晚到';
+  txt(ctx,leg,16,y+102,C.muted,12,500);
+}
+
+function step(dt){m.t+=dt;if(R.st==='run'){R.t+=dt;if(R.t>=raceT(NW)+0.25)R.st='done';}}
+var S1=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    var L=lay(W),lines,i;
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    lines=wrap(ctx,status(),W-32,L.ss);
+    for(i=0;i<lines.length&&i<L.smax;i++)txt(ctx,lines[i],16,L.sy+i*L.slh,C.ink,L.ss,600);
+    drawScene(ctx,L);drawPanel(ctx,L);drawRace(ctx,L,W);
+  }
+});
+
+var bN=document.getElementById('s1-newton'),bH=document.getElementById('s1-huygens'),bF=document.getElementById('s1-foucault');
+var rA=document.getElementById('s1-angle'),oA=document.getElementById('s1-angle-out');
+function setMode(md){m.mode=md;press(bN,md==='newton');press(bH,md==='huygens');R.fresh=false;S1.render();}
+bN.addEventListener('click',function(){setMode('newton');});
+bH.addEventListener('click',function(){setMode('huygens');});
+rA.addEventListener('input',function(){m.ti=parseInt(rA.value,10);oA.textContent=m.ti+'°';geom();R.fresh=false;S1.render();});
+bF.addEventListener('click',function(){R.st='run';R.t=0;R.fresh=true;bF.textContent='Foucault 再测一次';S1.setPlaying(true);S1.render();});
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 单缝衍射：缝越窄，散得越开
+   左：俯视图（不按比例）。缝后的波 = Huygens–Fresnel 叠加：缝里一排同相的点波源，每个发出圆波
+       w·e^{ikr}/√r（倾斜因子 (1+cos)/2），所以 λ 在缝前缝后一样，只有方向变。
+       图上 λ/a 是真实 λ/a 的同一个倍数（红光 0.080 mm → 0.2），所以三条缝、两种颜色的先后关系是对的。
+   右：远处屏上的亮暗带和亮度（远场、小角度）：β = π a y /(λ L)，I = (sin β / β)²，峰高都调成 1（像 Figure 2.2）。
+       第一条暗带在 y₁ = λL/a，central maximum 宽 2y₁（页面不写公式，只显示宽度）。
+   数据：缝宽 0.080 / 0.040 / 0.020 mm、红光 650 nm 来自讲义实验 A；绿光 532 nm 和 L = 1.00 m 是示意。
+   颜色：0.080 mm 的对照曲线 --south 虚线（全站约定：对照组 --south）。 */
+var LSCR=1.00;                          /* 屏的距离 L (m)：示意 */
+var LAM={red:650,green:532};            /* nm：红光来自讲义，绿光示意 */
+var VD=34;                              /* 图上的波速 px/s（只为画图） */
+var m={a:40,col:'red',huy:false,last:'a',ad:40,lam:650,ph:1.2};   /* a 用 µm；ad、lam 是正在显示的值（切换时平滑过去） */
+var LY=null;
+var BG=[0,0,0],DK=[0,0,0],LS=[0,0,0],LC=[0,0,0];
+var F={cell:3,cols:0,rows:0,A:null,P:null,g:null,off:null,octx:null,img:null,key:''};
+var SP={w:0,cv:null,cx:null,img:null,key:''};
+
+/* ---------- 排版 ---------- */
+function layout(W,H){
+  var o={W:W,H:H,wide:W>=640};
+  if(o.wide){o.vx=16;o.vy=58;o.vw=Math.round(W*0.5)-16;o.vh=H-14-o.vy;
+    o.gx0=o.vx+o.vw+44;o.gx1=W-24;o.pl=o.gx0-20;o.pr=W-16;
+    o.ty=74;o.sy=84;o.sh=28;o.gy0=124;o.gy1=248;o.tk=264;o.bk=281;o.bl=300;o.dn=318;o.r1=342;o.r2=362;}
+  else{o.vx=12;o.vy=56;o.vw=W-24;o.vh=230;
+    o.gx0=24;o.gx1=W-24;o.pl=12;o.pr=W-12;
+    o.ty=310;o.sy=320;o.sh=28;o.gy0=358;o.gy1=470;o.tk=486;o.bk=503;o.bl=522;o.dn=540;o.r1=566;o.r2=586;}
+  o.xb=o.vx+Math.round(o.vw*0.32);o.yc=o.vy+o.vh/2;o.A0=o.vh*0.40;
+  return o;
+}
+function drawA(o){return o.A0*m.ad/80;}            /* 图上的缝宽 px */
+function drawL(o){return 0.2*o.A0*m.lam/650;}       /* 图上的 λ px */
+
+/* ---------- 颜色 ---------- */
+function parseRGB(s,out){var p=String(s).match(/[\d.]+/g)||[136,136,136];out[0]=+p[0];out[1]=+p[1];out[2]=+p[2];return out;}
+function colours(){
+  parseRGB(rgba(C.stage,1),BG);
+  var dark=(0.2126*BG[0]+0.7152*BG[1]+0.0722*BG[2])<128;
+  parseRGB(rgba(dark?C.bg:C.ink,1),DK);            /* 屏（暗房）的底色 */
+  parseRGB(lambdaColor(m.lam,1),LS);               /* λ 的真实颜色（画在暗底上） */
+  var f=dark?1:0.78;LC[0]=LS[0]*f;LC[1]=LS[1]*f;LC[2]=LS[2]*f;   /* 浅色底上稍微压暗一点，看得清 */
+  return dark;
+}
+function lamStr(a){return 'rgba('+Math.round(LC[0])+','+Math.round(LC[1])+','+Math.round(LC[2])+','+a+')';}
+
+/* ---------- 小工具 ---------- */
+function pill(ctx,s,x,y,col,size,weight,align,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);
+  var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  rrect(ctx,x0-4,y-size*0.86-2,w+8,size*1.16+5,5);ctx.fillStyle=rgba(C.stage,0.88);ctx.fill();
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW,minS){ctx.font=weight+' '+size+'px '+FONT;var w=ctx.measureText(s).width;if(w>maxW)size=Math.max(minS,size*maxW/w);txt(ctx,s,x,y,col,size,weight);}
+function I1(ymm,aum,lam){var b=Math.PI*aum*ymm/(lam*LSCR);if(Math.abs(b)<1e-6)return 1;var s=Math.sin(b)/b;return s*s;}
+function num(v,p){return String(+v.toPrecision(p));}
+function mm(aum){return (aum/1000).toFixed(3)+' mm';}
+
+/* ---------- 状态提示：[现在怎样, 所以怎样] ---------- */
+function statusLines(){
+  if(m.last==='huy'&&m.huy)return ['Huygens：缝里每一点都发出 wavelets','→ 相切的线 = 新的 wavefront；边上的散进影子'];
+  if(m.last==='col')return m.col==='red'?['红光 λ 比绿光长 → λ ÷ a 更大','→ 散得更开：central maximum 更宽']:['绿光 λ 比红光短 → λ ÷ a 更小','→ 散得少一点：central maximum 更窄'];
+  if(m.a===80)return ['a = 0.080 mm：三条缝里最宽','→ 散得最少 → central maximum 最窄'];
+  if(m.a===40)return ['a = 0.040 mm：比 0.080 mm 窄一半','→ central maximum 变成 2 倍宽'];
+  return ['a = 0.020 mm：只有 0.080 mm 的 ¼','→ central maximum 是 0.080 mm 时的 4 倍宽'];
+}
+
+/* ---------- 波场（Huygens–Fresnel 叠加，参数变了才重算） ---------- */
+function ensureField(o){
+  var cols=Math.ceil(o.vw/F.cell),rows=2*Math.ceil(o.vh/(2*F.cell));
+  if(cols===F.cols&&rows===F.rows)return;
+  F.cols=cols;F.rows=rows;F.A=new Float32Array(cols*rows);F.P=new Float32Array(cols*rows);F.g=new Float32Array(cols);
+  F.off=document.createElement('canvas');F.off.width=cols;F.off.height=rows;F.octx=F.off.getContext('2d');F.img=F.octx.createImageData(cols,rows);F.key='';
+}
+function computeField(o,ad,lam){
+  var key=o.vw+'|'+o.vh+'|'+ad.toFixed(3)+'|'+lam.toFixed(3);
+  if(key===F.key)return;F.key=key;
+  var cell=F.cell,cols=F.cols,rows=F.rows,half=rows/2,A=F.A,P=F.P,k=TAU/lam,xb=o.xb-o.vx,ycg=rows*cell/2;
+  var ns=Math.max(6,Math.ceil(ad/(lam/6))),ds=ad/ns,c0=0.5*ds*Math.sqrt(k/TAU),rmin=lam*0.25,sh=k*xb-Math.PI/4,y0s=ycg-ad/2+ds/2;
+  for(var i=0;i<cols;i++){
+    var x=(i+0.5)*cell,cm=0,j,idx;
+    if(x<xb){for(j=0;j<rows;j++){idx=j*cols+i;A[idx]=1;P[idx]=k*x;}F.g[i]=1;continue;}   /* 缝前：平面波 */
+    var dx=x-xb;
+    for(j=0;j<half;j++){
+      var y=(j+0.5)*cell,re=0,im=0;
+      for(var q=0;q<ns;q++){var dy=y-(y0s+q*ds),r=Math.sqrt(dx*dx+dy*dy);if(r<rmin)r=rmin;var w=c0*(1+dx/r)/Math.sqrt(r),p=k*r;re+=w*Math.cos(p);im+=w*Math.sin(p);}
+      var amp=Math.sqrt(re*re+im*im),phs=Math.atan2(im,re)+sh,i1=j*cols+i,i2=(rows-1-j)*cols+i;
+      A[i1]=amp;A[i2]=amp;P[i1]=phs;P[i2]=phs;if(amp>cm)cm=amp;
+    }
+    F.g[i]=1/Math.pow(Math.max(0.08,cm),0.65);   /* 远处变弱的部分补回一点，散开的波才看得见 */
+  }
+}
+function paintField(dim){
+  var d=F.img.data,cols=F.cols,rows=F.rows,A=F.A,P=F.P,G=F.g,ph=m.ph;
+  var b0=BG[0],b1=BG[1],b2=BG[2],c0=LC[0]-b0,c1=LC[1]-b1,c2=LC[2]-b2;
+  for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+    var idx=j*cols+i,a=A[idx]*G[i];if(a>1)a=1;
+    var c=Math.cos(P[idx]-ph),al=dim*(0.15*a+0.85*(c>0?a*c:0)),o4=idx*4;
+    d[o4]=b0+c0*al;d[o4+1]=b1+c1*al;d[o4+2]=b2+c2*al;d[o4+3]=255;}}
+  F.octx.putImageData(F.img,0,0);
+}
+
+/* ---------- 屏上的亮暗带（一行像素，拉高画出来） ---------- */
+function stripPaint(w){
+  if(SP.w!==w){SP.w=w;SP.cv=document.createElement('canvas');SP.cv.width=w;SP.cv.height=1;SP.cx=SP.cv.getContext('2d');SP.img=SP.cx.createImageData(w,1);SP.key='';}
+  var key=m.ad.toFixed(3)+'|'+m.lam.toFixed(2)+'|'+DK[0]+','+DK[1]+','+DK[2]+'|'+LS[0]+','+LS[1]+','+LS[2];
+  if(key===SP.key)return;SP.key=key;
+  var d=SP.img.data;
+  for(var i=0;i<w;i++){var ymm=((i+0.5)/w-0.5)*120,b=Math.pow(I1(ymm,m.ad,m.lam),0.45),o4=i*4;   /* 0.45 次方：像眼睛看到的，暗的亮带也看得见 */
+    d[o4]=DK[0]+(LS[0]-DK[0])*b;d[o4+1]=DK[1]+(LS[1]-DK[1])*b;d[o4+2]=DK[2]+(LS[2]-DK[2])*b;d[o4+3]=255;}
+  SP.cx.putImageData(SP.img,0,0);
+}
+
+/* ---------- 左：俯视图 ---------- */
+function drawWave(ctx,o){
+  var ad=drawA(o),lam=drawL(o),k=TAU/lam,xb=o.xb,yc=o.yc,top=yc-ad/2,bot=yc+ad/2;
+  ensureField(o);computeField(o,ad,lam);paintField(m.huy?0.3:1);
+  ctx.save();rrect(ctx,o.vx,o.vy,o.vw,o.vh,8);ctx.clip();
+  ctx.imageSmoothingEnabled=true;
+  ctx.drawImage(F.off,o.vx,yc-F.rows*F.cell/2,F.cols*F.cell,F.rows*F.cell);
+  /* 直线的边界（粒子会停在这里面） */
+  seg(ctx,xb+4,top,o.vx+o.vw,top,rgba(C.muted,0.75),1.2,[4,5]);
+  seg(ctx,xb+4,bot,o.vx+o.vw,bot,rgba(C.muted,0.75),1.2,[4,5]);
+  if(m.huy)drawHuygens(ctx,o,ad,lam,k);
+  /* 墙和缝 */
+  ctx.fillStyle=C.muted;ctx.fillRect(xb-4,o.vy,8,top-o.vy);ctx.fillRect(xb-4,bot,8,o.vy+o.vh-bot);
+  ctx.restore();
+  rrect(ctx,o.vx,o.vy,o.vw,o.vh,8);ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  /* 标注 */
+  pill(ctx,'俯视图',o.vx+8,o.vy+18,C.muted,11.5,600);
+  pill(ctx,'不按比例',o.vx+8,o.vy+34,C.muted,11.5,500);
+  var lx0=o.vx+10,ly=o.vy+54;                                  /* 缝前的 λ 标尺 */
+  seg(ctx,lx0,ly,lx0+lam,ly,C.ink,1.6);seg(ctx,lx0,ly-5,lx0,ly+5,C.ink,1.6);seg(ctx,lx0+lam,ly-5,lx0+lam,ly+5,C.ink,1.6);
+  pill(ctx,'λ',lx0+lam+6,ly+5,C.ink,15,'italic 500','left',MATH);
+  var rx1=o.vx+o.vw-12,rx0=rx1-lam;                             /* 缝后的 λ 标尺（中线上） */
+  seg(ctx,rx0,yc,rx1,yc,C.ink,1.6);seg(ctx,rx0,yc-5,rx0,yc+5,C.ink,1.6);seg(ctx,rx1,yc-5,rx1,yc+5,C.ink,1.6);
+  pill(ctx,'λ',(rx0+rx1)/2,yc-10,C.ink,15,'italic 500','center',MATH);
+  var ax=xb-13;                                                 /* 缝宽 a */
+  arrow(ctx,ax,yc,ax,top,C.ink,1.6,6);arrow(ctx,ax,yc,ax,bot,C.ink,1.6,6);
+  pill(ctx,'a',ax-7,yc+5,C.ink,16,'italic 500','right',MATH);
+  pill(ctx,'影子',xb+9,o.vy+18,C.muted,11.5,600);
+  pill(ctx,'影子',xb+9,o.vy+o.vh-9,C.muted,11.5,600);
+  if(m.huy){var lr=o.vx+o.vw-9;pill(ctx,'细圈 = wavelets',lr,o.vy+o.vh-27,C.ink,11.5,600,'right');pill(ctx,'粗线 = 新的 wavefront',lr,o.vy+o.vh-9,C.ink,11.5,600,'right');}
+}
+function drawHuygens(ctx,o,ad,lam,k){
+  var xb=o.xb,yc=o.yc,top=yc-ad/2,bot=yc+ad/2,col=lamStr(0.95),xg=o.vx,x,r,n,i;
+  /* 缝前：直的 wavefront（波峰） */
+  for(x=((m.ph/k)%lam+lam)%lam;xg+x<xb-4;x+=lam)seg(ctx,xg+x,o.vy,xg+x,o.vy+o.vh,col,2.4);
+  /* 缝后：和 wavelets 相切的线 = 新的 wavefront（中间直、两端是以缝边为圆心的圆弧） */
+  var r0=((m.ph/k-(xb-xg))%lam+lam)%lam,rmax=Math.hypot(o.vw,o.vh);
+  ctx.strokeStyle=col;ctx.lineWidth=2.4;
+  for(r=r0;r<rmax;r+=lam){if(r<1.5)continue;ctx.beginPath();ctx.arc(xb,top,r,-Math.PI/2,0,false);ctx.lineTo(xb+r,bot);ctx.arc(xb,bot,r,0,Math.PI/2,false);ctx.stroke();}
+  /* 缝里几个点各自发出的 wavelets（细圈，越远越淡） */
+  var nh=ad>50?5:3;
+  for(i=0;i<nh;i++){var ys=top+ad*i/(nh-1);
+    for(n=0;n<3;n++){r=r0+n*lam;if(r<2)continue;ctx.beginPath();ctx.arc(xb,ys,r,-Math.PI/2,Math.PI/2,false);ctx.strokeStyle=lamStr((0.75*(1-r/(3*lam))).toFixed(3));ctx.lineWidth=1.3;ctx.stroke();}}
+  for(i=0;i<nh;i++)dot(ctx,xb+1,top+ad*i/(nh-1),3,C.ink);
+}
+
+/* ---------- 右（手机上是下面）：远处的屏 ---------- */
+function drawScreen(ctx,o,dark){
+  var gx0=o.gx0,gx1=o.gx1,gw=gx1-gx0,cx=(gx0+gx1)/2,kx=gw/120,y0=o.gy0,y1=o.gy1,pk=y0+16,hh=y1-pk,px,ymm;
+  txt(ctx,'远处屏上看到的（正面看）',o.pl,o.ty,C.ink,12.5,600);
+  txt(ctx,'峰高调成一样',o.pr,o.ty,C.muted,11,500,'right');
+  /* 亮暗带 */
+  var sw=Math.round(gw);stripPaint(sw);ctx.imageSmoothingEnabled=true;ctx.drawImage(SP.cv,gx0,o.sy,gw,o.sh);
+  ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.strokeRect(gx0-0.5,o.sy-0.5,gw+1,o.sh+1);
+  /* 坐标 */
+  seg(ctx,cx,y0+4,cx,y1,C.grid,1);
+  seg(ctx,gx0,y1,gx1,y1,C.muted,1.2);
+  for(var t=-60;t<=60;t+=20){var tx=cx+t*kx;seg(ctx,tx,y1,tx,y1+4,C.muted,1);if(Math.abs(t)<60)txt(ctx,(t<0?'−':'')+Math.abs(t),tx,o.tk,C.muted,11,500,'center');}
+  txt(ctx,'mm',gx1,o.tk,C.muted,11,500,'right');
+  function curve(aum){ctx.beginPath();for(px=0;px<=gw;px+=1){ymm=(px/gw-0.5)*120;var Y=y1-I1(ymm,aum,m.lam)*hh;if(px)ctx.lineTo(gx0+px,Y);else ctx.moveTo(gx0+px,Y);}}
+  /* 0.080 mm 对照（同一种颜色） */
+  var showRef=m.a!==80||Math.abs(m.ad-80)>0.5;
+  if(showRef){curve(80);ctx.setLineDash([5,4]);ctx.strokeStyle=rgba(C.south,0.85);ctx.lineWidth=1.6;ctx.stroke();ctx.setLineDash([]);}
+  /* 现在的曲线 */
+  curve(m.ad);ctx.lineTo(gx1,y1);ctx.lineTo(gx0,y1);ctx.closePath();ctx.fillStyle=lamStr(0.14);ctx.fill();
+  curve(m.ad);ctx.strokeStyle=lamStr(1);ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+  /* 图例 */
+  seg(ctx,gx0,y0+8,gx0+16,y0+8,lamStr(1),2.4);txt(ctx,'a = '+mm(m.a),gx0+21,y0+12,C.ink,11.5,600);
+  if(showRef){ctx.font='500 11.5px '+FONT;var lw=ctx.measureText('0.080 mm 对照').width;
+    seg(ctx,gx1-lw-22,y0+8,gx1-lw-6,y0+8,rgba(C.south,0.85),1.6,[4,3]);txt(ctx,'0.080 mm 对照',gx1,y0+12,C.muted,11.5,500,'right');}
+  /* 第一条暗带：竖虚线穿过亮暗带和曲线；下面量 central maximum 的宽度 */
+  var yz=m.lam*LSCR/m.ad,dx=yz*kx;
+  /* 分三段画，跳过图例那一行和刻度数字那一行 */
+  if(dx<gw/2-2){var dc=rgba(C.muted,0.8);[cx-dx,cx+dx].forEach(function(x){
+    seg(ctx,x,o.sy,x,o.sy+o.sh,dc,1,[3,3]);seg(ctx,x,y0+18,x,y1,dc,1,[3,3]);seg(ctx,x,o.tk+4,x,o.bk+5,dc,1,[3,3]);});}
+  var stc=dark?C.ink:C.surface;
+  ctx.font='600 11px '+FONT;var dw=ctx.measureText('← 暗带').width;
+  if(cx+dx+5+dw<gx1-2)txt(ctx,'← 暗带',cx+dx+5,o.sy+o.sh/2+1,stc,11,600,'left','middle');
+  else txt(ctx,'暗带 →',cx-dx-5,o.sy+o.sh/2+1,stc,11,600,'right','middle');
+  arrow(ctx,cx,o.bk,cx-dx,o.bk,C.ink,1.6,7);arrow(ctx,cx,o.bk,cx+dx,o.bk,C.ink,1.6,7);
+  var wT=2*LAM[m.col]*LSCR/m.a;
+  txt(ctx,'central maximum 宽 '+num(wT,4)+' mm（示意）',cx,o.bl,C.ink,12.5,600,'center');
+  txt(ctx,'暗带：缝里不同部分发出的 wavelets 在这里抵消',cx,o.dn,C.muted,11.5,500,'center');
+  /* 读数 */
+  txt(ctx,'a = '+mm(m.a)+'   λ = '+LAM[m.col]+' nm'+(m.col==='green'?'（示意）':''),o.pl,o.r1,C.ink,12.5,500,'left','alphabetic',MONO);
+  txt(ctx,'λ ÷ a = '+num(LAM[m.col]/(m.a*1000),4)+'  → 越大，散得越开',o.pl,o.r2,C.ink,12.5,500,'left','alphabetic',MONO);
+}
+
+var st2=makeStage('sim2',{
+  height:function(w){return w>=640?372:600;},
+  step:function(dt){
+    var lam=LY?drawL(LY):20;
+    m.ph=(m.ph+TAU*VD/lam*dt)%TAU;
+    var f=Math.min(1,dt*6),ta=m.a,tl=LAM[m.col];
+    m.ad+=(ta-m.ad)*f;if(Math.abs(ta-m.ad)<0.05)m.ad=ta;
+    m.lam+=(tl-m.lam)*f;if(Math.abs(tl-m.lam)<0.2)m.lam=tl;
+  },
+  draw:function(ctx,W,H){
+    if(!LY||LY.W!==W||LY.H!==H)LY=layout(W,H);
+    var o=LY,dark=colours();
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var s=statusLines(),full=s[0]+' '+s[1];
+    if(o.wide){ctx.font='600 15px '+FONT;
+      if(ctx.measureText(full).width<=W-32)txt(ctx,full,16,30,C.ink,15,600);
+      else{txt(ctx,s[0],16,24,C.ink,15,600);txt(ctx,s[1],16,45,C.ink,14,600);}}
+    else{fitTxt(ctx,s[0],12,22,C.ink,13.5,600,W-24,12);fitTxt(ctx,s[1],12,43,C.ink,13.5,600,W-24,12);}
+    drawWave(ctx,o);
+    drawScreen(ctx,o,dark);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bA=[['s2-a80',80],['s2-a40',40],['s2-a20',20]].map(function(p){var b=document.getElementById(p[0]);b.addEventListener('click',function(){m.a=p[1];m.last='a';sync();});return [b,p[1]];});
+var bR=document.getElementById('s2-red'),bG=document.getElementById('s2-green'),bH=document.getElementById('s2-huy');
+function sync(){
+  bA.forEach(function(p){press(p[0],m.a===p[1]);});
+  press(bR,m.col==='red');press(bG,m.col==='green');press(bH,m.huy);bH.textContent='Huygens wavelets：'+(m.huy?'开':'关');
+  if(!st2.playing){m.ad=m.a;m.lam=LAM[m.col];}   /* 暂停时直接跳到新值 */
+  st2.render();
+}
+bR.addEventListener('click',function(){m.col='red';m.last='col';sync();});
+bG.addEventListener('click',function(){m.col='green';m.last='col';sync();});
+bH.addEventListener('click',function(){m.huy=!m.huy;m.last='huy';sync();});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · Young 双缝：两列波在 P 点相加（booklet 2.3 Path difference，Figure 2.3 / 2.4）
+   读数（计算值）：booklet 实验 B 的 d = 0.250 mm、λ = 650 nm、L = 1.00 m。q = δ/λ：
+     亮纹 q = m（0, 1, 2, 3），暗纹 q = m − ½（m 从 1 开始）。δ = d sin θ = qλ，sin θ = qλ/d，y = L tan θ，Δy = λL/d。
+     默认 Δy = 650e-9 × 1.00 ÷ 0.250e-3 = 2.60e-3 m = 2.60 mm。
+   左图（示意，不按比例）：真实 d/λ ≈ 385，条纹角度不到 1°，画不出来。画图用的 d、λ（像素）按压缩映射跟着 slider 变
+     （方向对、比例不对）：dpx = 55 (d/0.125)^0.36，lpx = 7 (λ/400)^0.339，屏离缝 LPX = 200 px。
+     图里的波、屏上的亮暗、P 的位置都按画图尺寸精确算（δ = S₂P − S₁P），三者一致。
+   S₁ 在上、S₂ 在下；P 在中线上方 → 离 S₁ 近 → 多走的路在 S₂ 那边（Figure 2.4）。
+   波：两缝同相（同一束光照两条缝），ψ = A sin(ωt − kr)。ψ₁ + ψ₂ = 2cos(πq)·sin(ωt − k(r₁ + r₂)/2)。
+   每条缝自己的单缝图样（envelope）：缝宽 a = 0.025 mm（示意），振幅 × sinc(π a sin θ / λ) = sinc(π (a/d) q)。
+   三条曲线：横轴 = 沿光的路径到 P 的距离（真实 nm），P 在最右边；S₂ 的波 = S₁ 的波往回挪 δ（落后 δ）。 */
+var LM=1.00,AW=0.025,SW=3200,PER=1.2,OM=TAU/PER,LPX=200,FW=LPX+10,SEQ=[0,0.5,1,1.5,2,2.5,3];
+var m={t:0,lam:650,d:0.25,i:1,q:0.5,q0:0.5,q1:0.5,tr:1,note:''};
+function dpx(){return 55*Math.pow(m.d/0.125,0.36);}
+function lpx(){return 7*Math.pow(m.lam/400,0.339);}
+function sinc(x){return Math.abs(x)<1e-6?1:Math.sin(x)/x;}
+function envA(q){return sinc(Math.PI*AW/m.d*q);}
+/* P 在中线上方 u 像素处，使 S₂P − S₁P = q·lpx（屏在 x = LPX） */
+function solveU(q,dp,lp){var tg=q*lp,lo=0,hi=600,i,u,f;if(tg<=0)return 0;for(i=0;i<44;i++){u=(lo+hi)/2;f=Math.hypot(LPX,u+dp/2)-Math.hypot(LPX,u-dp/2);if(f<tg)lo=u;else hi=u;}return (lo+hi)/2;}
+function geo(){var dp=dpx(),lp=lpx(),u=solveU(m.q,dp,lp);return {dp:dp,lp:lp,u:u,r1:Math.hypot(LPX,u-dp/2),r2:Math.hypot(LPX,u+dp/2)};}
+/* 第一帧：P 在第 1 条暗纹，S₁ 的波峰正好到 P（S₂ 的波谷也到 P） */
+(function(){var g=geo();m.t=(Math.PI/2+TAU/g.lp*g.r1)/OM;})();
+function step(dt){var n=3,h=dt/n,i,e;for(i=0;i<n;i++){m.t+=h;if(m.tr<1){m.tr=Math.min(1,m.tr+h/0.8);e=m.tr*m.tr*(3-2*m.tr);m.q=m.q0+(m.q1-m.q0)*e;}}if(m.t>PER*5000)m.t-=PER*5000;}
+
+/* ---------- 颜色：暗室面板（真实的光色在白底上看不清，所以缝和屏画在暗底上） ---------- */
+var K={};
+function rgbOf(s){var t=String(s);if(t.charAt(0)==='#')t=rgba(t,1);var a=t.match(/[\d.]+/g)||[0,0,0];return [+a[0],+a[1],+a[2]];}
+function lum(c){return 0.299*c[0]+0.587*c[1]+0.114*c[2];}
+function cols(){var ink=rgbOf(C.ink),st=rgbOf(C.stage),dk=lum(ink)<lum(st);K.PB=dk?C.ink:C.stage;K.PT=dk?C.stage:C.ink;K.pb=dk?ink:st;K.pt=dk?st:ink;K.tr=rgbOf(C.muted);
+  /* λ 的真实颜色；短波（紫）在暗底上太暗，所以先把最亮的通道拉满，再往白色混一点（色相不变，只为看得清） */
+  var lc=rgbOf(lambdaColor(m.lam)),mx=Math.max(lc[0],lc[1],lc[2],1),w=clamp((460-m.lam)/60,0,1)*0.3;
+  K.lam=lc.map(function(v){v=v*255/mx;return v+(255-v)*w;});
+  var r3=K.lam.map(Math.round).join(',');K.lamS='rgb('+r3+')';K.lamA='rgba('+r3+',0.55)';}
+
+/* ---------- 波场（预先算好振幅和相位，每帧只算一次 sin） ---------- */
+var F={key:'',cv:null,cx:null,img:null,amp:null,phi:null,scr:null,fh:0};
+function buildField(ph){
+  var key=ph+'|'+m.d+'|'+m.lam;if(F.key===key)return;F.key=key;
+  if(F.fh!==ph){F.cv=document.createElement('canvas');F.cv.width=FW;F.cv.height=ph;F.cx=F.cv.getContext('2d');F.img=F.cx.createImageData(FW,ph);
+    F.amp=new Float32Array(LPX*ph);F.phi=new Float32Array(LPX*ph);F.scr=new Float32Array(ph);F.fh=ph;}
+  var dp=dpx(),lp=lpx(),k=TAU/lp,y1=ph/2-dp/2,y2=ph/2+dp/2,i,j,n,x,y,r1,r2,q,c,e;
+  for(j=0;j<ph;j++){y=j+0.5;
+    for(i=0;i<LPX;i++){x=i+0.5;r1=Math.hypot(x,y-y1);r2=Math.hypot(x,y-y2);q=(r2-r1)/lp;n=j*LPX+i;F.amp[n]=2*Math.cos(Math.PI*q)*envA(q);F.phi[n]=k*(r1+r2)/2;}
+    q=(Math.hypot(LPX,y-y2)-Math.hypot(LPX,y-y1))/lp;c=Math.cos(Math.PI*q);e=envA(q);F.scr[j]=c*c*e*e;}
+}
+function paintField(){
+  var ph=F.fh,d=F.img.data,b=K.pb,l=K.lam,t=K.tr,wt=OM*m.t,i,j,n,p,v,a;
+  var s0=b[0]+(K.pt[0]-b[0])*0.1,s1=b[1]+(K.pt[1]-b[1])*0.1,s2=b[2]+(K.pt[2]-b[2])*0.1;
+  for(j=0;j<ph;j++){
+    for(i=0;i<LPX;i++){n=j*LPX+i;p=(j*FW+i)*4;v=F.amp[n]*Math.sin(wt-F.phi[n]);
+      if(v>=0){a=v>2?1:v*0.5;d[p]=b[0]+(l[0]-b[0])*a;d[p+1]=b[1]+(l[1]-b[1])*a;d[p+2]=b[2]+(l[2]-b[2])*a;}
+      else{a=(v<-2?1:-v*0.5)*0.45;d[p]=b[0]+(t[0]-b[0])*a;d[p+1]=b[1]+(t[1]-b[1])*a;d[p+2]=b[2]+(t[2]-b[2])*a;}
+      d[p+3]=255;}
+    a=F.scr[j];
+    for(i=LPX;i<FW;i++){p=(j*FW+i)*4;d[p]=s0+(l[0]-s0)*a;d[p+1]=s1+(l[1]-s1)*a;d[p+2]=s2+(l[2]-s2)*a;d[p+3]=255;}}
+  F.cx.putImageData(F.img,0,0);
+}
+
+/* ---------- 小工具 ---------- */
+function fit(ctx,s,x,y,col,size,weight,maxW,align,fam){ctx.font=weight+' '+size+'px '+(fam||FONT);var w=ctx.measureText(s).width;if(w>maxW)size=Math.max(11,size*maxW/w);txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',fam);}
+function wrap(ctx,s,size,weight,maxW){ctx.font=weight+' '+size+'px '+FONT;if(ctx.measureText(s).width<=maxW)return [s];
+  var parts=s.split(' → '),out=[],cur=parts[0],i,t;for(i=1;i<parts.length;i++){t=cur+' → '+parts[i];if(ctx.measureText(t).width<=maxW)cur=t;else{out.push(cur);cur='→ '+parts[i];}}out.push(cur);return out;}
+function half(q){return Math.round(q*2)/2;}
+function atFringe(){return m.tr>=1&&Math.abs(m.q-half(m.q))<0.01;}
+function qName(q){var r=half(q),w,h;if(Math.abs(q-r)>0.01)return q.toFixed(2)+'λ';if(r===0)return '0';w=Math.floor(r);h=r-w>0;if(!h)return (w===1?'':w)+'λ';return (w?w:'')+'½λ';}
+function real(){var lamM=m.lam*1e-9,dM=m.d*1e-3,th=Math.asin(m.q*lamM/dM);return {th:th,y:LM*Math.tan(th)*1e3,dy:lamM*LM/dM*1e3};}
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var q=m.q,r=half(q),o,dy;
+  if(!atFringe())o={a:'P 在移动：δ = '+q.toFixed(2)+'λ → 部分抵消',b:'相加的振幅 = '+(2*Math.abs(Math.cos(Math.PI*q))).toFixed(1)+'A（最亮时 2A，最暗时 0）'};
+  else if(r===0)o={a:'P 在中央亮纹：δ = 0 → 同相 → 亮',b:'两条路一样长 → 波峰遇波峰 → constructive（相长）'};
+  else if(r%1===0)o={a:'P 在 m = '+r+' 亮纹：δ = '+qName(r)+' → 同相 → 亮',b:envA(r)<0.8?'S₂ 落后整整 '+r+' 个 λ → 波峰对齐；离中间远，两列波都弱 → 这条亮纹暗一点（envelope）':'S₂ 的波落后整整 '+r+' 个 λ → 波峰又对齐 → 振幅 2A'};
+  else o={a:'P 在第 '+(r+0.5)+' 条暗纹：δ = '+qName(r)+' → 波峰遇波谷 → 暗',b:'d sin θ = (m − ½)λ，m = '+(r+0.5)+' → 光 + 光 = 暗（destructive）'};
+  o.c=C.muted;
+  if(m.note){dy=real().dy.toFixed(2);o.c=C.copper;
+    if(m.note==='d-')o.b='d 变小 → 条纹变开：Δy = λL/d = '+dy+' mm';
+    else if(m.note==='d+')o.b='d 变大 → 条纹变密：Δy = λL/d = '+dy+' mm';
+    else if(m.note==='l+')o.b='λ 变长 → 条纹变开：Δy = λL/d = '+dy+' mm';
+    else o.b='λ 变短 → 条纹变密：Δy = λL/d = '+dy+' mm';}
+  return o;
+}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var L={wide:W>=640};
+  if(L.wide){L.f1=15;L.f2=13;L.st=[26,48];L.x0=16;L.lab=76;L.top=84;L.ph=250;L.xb=L.x0+70;L.cap=[352,370];
+    L.xr=L.xb+LPX+10+64;L.rx=L.xr+24;L.gut=64;L.ro=[80,100,120];L.u=16;L.g1=146;}
+  else{L.f1=13.5;L.f2=12.5;L.st=[22,41,58];L.x0=Math.max(16,Math.round((W-324)/2));L.lab=82;L.top=90;L.ph=230;L.xb=L.x0+58;L.cap=[338,355];
+    L.xr=L.x0+324;L.rx=16;L.gut=56;L.ro=[380,398,416];L.u=12;L.g1=436;}
+  L.xs=L.xb+LPX;L.yc=L.top+L.ph/2;L.gx=L.rx+L.gut;L.gw=W-16-L.gx;L.hA=2*L.u+8;L.hS=4*L.u+8;
+  L.g2=L.g1+L.hA+26;L.g3=L.g2+L.hA+14;L.cy=L.g3+L.hS+18;L.H=Math.max(L.cy+12,L.cap[1]+12);
+  return L;
+}
+
+/* ---------- 左图：从上往下看 ---------- */
+function drawPanel(ctx,L,g){
+  var x0=L.x0,top=L.top,ph=L.ph,xb=L.xb,xs=L.xs,yc=L.yc,y1=yc-g.dp/2,y2=yc+g.dp/2,yP=yc-g.u,k=TAU/g.lp,wt=OM*m.t,x,n,off;
+  txt(ctx,'单色光 λ = '+m.lam+' nm',x0,L.lab,C.ink,12,600);
+  txt(ctx,L.wide?'屏 screen':'屏',xs+5,L.lab,C.muted,12,600,'center');
+  rrect(ctx,x0,top,L.xr-x0,ph,8);ctx.fillStyle=K.PB;ctx.fill();ctx.strokeStyle=rgba(C.muted,0.45);ctx.lineWidth=1;ctx.stroke();
+  ctx.save();rrect(ctx,x0,top,L.xr-x0,ph,8);ctx.clip();
+  /* 照到双缝的平面波：波峰线向右走，到缝时和两条缝的波同相 */
+  off=(((wt-Math.PI/2)/k)%g.lp+g.lp)%g.lp;
+  for(n=1;n<40;n++){x=xb+off-n*g.lp;if(x<x0+3)break;if(x<xb-4)seg(ctx,x,top+8,x,top+ph-8,K.lamA,1.6);}
+  paintField();ctx.imageSmoothingEnabled=true;ctx.drawImage(F.cv,xb,top,FW,ph);
+  ctx.strokeStyle=rgba(K.PT,0.35);ctx.lineWidth=1;ctx.strokeRect(xs+0.5,top+0.5,9,ph-1);
+  ctx.fillStyle=C.muted;ctx.fillRect(xb-3,top,6,y1-2-top);ctx.fillRect(xb-3,y1+2,6,y2-y1-4);ctx.fillRect(xb-3,y2+2,6,top+ph-y2-2);
+  seg(ctx,xb+4,yc,xs,yc,rgba(K.PT,0.3),1,[4,5]);
+  /* S₁P、S₂P 和多走的 δ */
+  seg(ctx,xb,y1,xs,yP,K.PB,5);seg(ctx,xb,y2,xs,yP,K.PB,5);
+  seg(ctx,xb,y1,xs,yP,C.copper,2.2);seg(ctx,xb,y2,xs,yP,C.south,2.2);
+  var dd=m.q*g.lp;
+  if(dd>0.5){var ux=LPX/g.r2,uy=(yP-y2)/g.r2,qx=xb+ux*dd,qy=y2+uy*dd;
+    seg(ctx,xb,y1,qx,qy,rgba(K.PT,0.75),1.3,[3,3]);
+    seg(ctx,xb,y2,qx,qy,K.PB,9);seg(ctx,xb,y2,qx,qy,C.south,5.5);
+    var lx=xb+ux*dd/2-uy*13+3,ly=y2+uy*dd/2+ux*13+5;
+    txt(ctx,'δ',lx,ly,K.PT,14,700,'center','alphabetic',MATH);}
+  ring(ctx,xs+5,yP,6.5,K.PT,2);
+  ctx.restore();
+  txt(ctx,'P',xs+17,yP+5,K.PT,13.5,700);
+  if(atFringe()){var r=half(m.q);txt(ctx,r%1===0?'m = '+r:'暗纹 '+(r+0.5),xs+17,yP+20,rgba(K.PT,0.8),11.5,600);}
+  txt(ctx,'S₁',xb-8,y1+4,K.PT,13,700,'right');txt(ctx,'S₂',xb-8,y2+5,K.PT,13,700,'right');
+  var xd=xb-31;arrow(ctx,xd,yc,xd,y1+1,K.PT,1.4,6);arrow(ctx,xd,yc,xd,y2-1,K.PT,1.4,6);
+  txt(ctx,'d',xd-7,yc+5,K.PT,15,500,'right','alphabetic',MATH);
+  /* 说明和图例 */
+  var cx=(x0+L.xr)/2;
+  fit(ctx,'从上往下看 · 示意，不按比例（真实 L = 1.00 m ≫ d）',cx,L.cap[0],C.muted,11.5,500,L.xr-x0,'center');
+  legend(ctx,cx,L.cap[1]);
+}
+function legend(ctx,cx,y){
+  var lab=['波峰 crest','波谷 trough','抵消 → 暗'],sz=11.5,gap=14,iw=11,ws=[],tot=0,i,x;
+  ctx.font='500 '+sz+'px '+FONT;
+  for(i=0;i<3;i++){ws.push(ctx.measureText(lab[i]).width);tot+=iw+5+ws[i]+(i?gap:0);}
+  x=cx-tot/2;
+  for(i=0;i<3;i++){rrect(ctx,x,y-9.5,iw,iw,2);ctx.fillStyle=K.PB;ctx.fill();
+    if(i<2){ctx.fillStyle=i===0?K.lamS:rgba(C.muted,0.5);ctx.fill();}
+    ctx.strokeStyle=rgba(C.muted,0.6);ctx.lineWidth=1;ctx.stroke();
+    txt(ctx,lab[i],x+iw+5,y,C.muted,sz,500);x+=iw+5+ws[i]+gap;}
+}
+
+/* ---------- 读数（计算值） ---------- */
+function readouts(ctx,L,W){
+  var R=real(),deg=R.th*180/Math.PI,mw=W-16-L.rx;
+  fit(ctx,'y = L tan θ = '+R.y.toFixed(2)+' mm   θ = '+(deg<1e-9?'0':deg.toPrecision(3))+'°',L.rx,L.ro[0],C.ink,12.5,500,mw,'left',MONO);
+  fit(ctx,'δ = d sin θ = '+Math.round(m.q*m.lam)+' nm   δ/λ = '+m.q.toFixed(2),L.rx,L.ro[1],C.south,12.5,500,mw,'left',MONO);
+  fit(ctx,'Δy = λL/d = '+R.dy.toFixed(2)+' mm   L = 1.00 m',L.rx,L.ro[2],C.ink,12.5,500,mw,'left',MONO);
+}
+
+/* ---------- 三条曲线：沿路径看，最右边是 P ---------- */
+function curve(ctx,L,mid,A,pa,pb,kg,col,lw,dash){
+  var N=160,i,s,v,x;ctx.beginPath();
+  for(i=0;i<=N;i++){x=L.gx+L.gw*i/N;s=SW*(1-i/N);v=A*Math.sin(pa+kg*s);if(pb!==null)v+=A*Math.sin(pb+kg*s);if(i)ctx.lineTo(x,mid-v*L.u);else ctx.moveTo(x,mid-v*L.u);}
+  ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);
+}
+function graphs(ctx,L,g){
+  var u=L.u,A=envA(m.q),p1=OM*m.t-TAU/g.lp*g.r1,p2=p1-TAU*m.q,kg=TAU/m.lam,sc=L.gw/SW,xP=L.gx+L.gw;
+  var m1=L.g1+L.hA/2,m2=L.g2+L.hA/2,m3=L.g3+L.hS/2,v1=A*Math.sin(p1),v2=A*Math.sin(p2),amp=2*Math.abs(Math.cos(Math.PI*m.q));
+  seg(ctx,L.gx,m1,xP,m1,rgba(C.muted,0.5),1);seg(ctx,L.gx,m2,xP,m2,rgba(C.muted,0.5),1);seg(ctx,L.gx,m3,xP,m3,rgba(C.muted,0.5),1);
+  seg(ctx,xP,L.g1-4,xP,L.g3+L.hS+4,rgba(C.ink,0.45),1.2,[3,4]);
+  curve(ctx,L,m1,A,p1,null,kg,C.copper,2.2);
+  curve(ctx,L,m2,A,p1,null,kg,rgba(C.copper,0.5),1.3,[4,4]);
+  curve(ctx,L,m2,A,p2,null,kg,C.south,2.2);
+  curve(ctx,L,m3,A,p1,p2,kg,C.ink,2.4);
+  /* δ：S₁ 的一个波峰（虚线）和 S₂ 对应的波峰相隔 δ */
+  var dl=m.q*m.lam;
+  if(dl>0.04*m.lam){var s1=(((Math.PI/2-p1)%TAU)+TAU)%TAU/kg;if(s1<0.12*m.lam)s1+=m.lam;
+    var xa=xP-(s1+dl)*sc,xe=xP-s1*sc,yb=L.g2-7,yk=m2-A*u,xm=(xa+xe)/2;
+    seg(ctx,xa,yb,xa,yk,rgba(C.south,0.7),1,[2,3]);seg(ctx,xe,yb,xe,yk,rgba(C.copper,0.7),1,[2,3]);
+    arrow(ctx,xm,yb,xa,yb,C.south,1.6,6);arrow(ctx,xm,yb,xe,yb,C.south,1.6,6);
+    txt(ctx,'δ',xm,yb-4,C.south,13,700,'center','alphabetic',MATH);}
+  dot(ctx,xP,m1-v1*u,4.5,C.copper);dot(ctx,xP,m2-v2*u,4.5,C.south);dot(ctx,xP,m3-(v1+v2)*u,4.5,C.ink);
+  txt(ctx,'S₁ 的波',L.rx,m1+4,C.copper,12.5,700);
+  txt(ctx,'S₂ 的波',L.rx,m2-3,C.south,12.5,700);txt(ctx,'落后 δ',L.rx,m2+13,C.muted,11.5,500);
+  var as,ac=C.ink;if(Math.abs(amp-2)<0.02){as='2A → 亮';}else if(amp<0.02){as='0 → 暗';ac=C.muted;}else as=amp.toFixed(1)+'A';
+  txt(ctx,'相加',L.rx,m3-10,C.ink,12.5,700);txt(ctx,'振幅',L.rx,m3+6,C.muted,11.5,500);txt(ctx,as,L.rx,m3+22,ac,11.5,700);
+  txt(ctx,'横轴：沿光走的路，最右边是 P',L.gx,L.cy,C.muted,11,500);
+  txt(ctx,'P',xP+4,L.cy,C.ink,12,700,'right');
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),g=geo(),o=status(),ls,i;
+    cols();buildField(L.ph);
+    if(L.wide){fit(ctx,o.a,16,L.st[0],C.ink,L.f1,600,W-32);fit(ctx,o.b,16,L.st[1],o.c,L.f2,500,W-32);}
+    else{fit(ctx,o.a,16,L.st[0],C.ink,L.f1,600,W-32);ls=wrap(ctx,o.b,L.f2,500,W-32);
+      for(i=0;i<2&&i<ls.length;i++)fit(ctx,i===1&&ls.length>2?ls.slice(1).join(' '):ls[i],16,L.st[1+i],o.c,L.f2,500,W-32);}
+    drawPanel(ctx,L,g);readouts(ctx,L,W);graphs(ctx,L,g);
+  }
+});
+var bN=document.getElementById('s3-next'),rL=document.getElementById('s3-lam'),oL=document.getElementById('s3-lam-out'),rD=document.getElementById('s3-d'),oD=document.getElementById('s3-d-out');
+bN.addEventListener('click',function(){m.i=(m.i+1)%SEQ.length;m.q0=m.q;m.q1=SEQ[m.i];m.note='';if(S3.playing){m.tr=0;}else{m.q=m.q1;m.tr=1;}S3.render();});
+rL.addEventListener('input',function(){var v=parseInt(rL.value,10);if(v===m.lam)return;m.note=v<m.lam?'l-':'l+';m.lam=v;oL.textContent=v+' nm';S3.render();});
+rD.addEventListener('input',function(){var v=Math.round(parseFloat(rD.value)*1000)/1000;if(v===m.d)return;m.note=v<m.d?'d-':'d+';m.d=v;oD.textContent=v.toFixed(3)+' mm';S3.render();});
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 衍射光栅：线又细又亮，角度很大（放在 2.4 Diffraction gratings）
+   数据（booklet）：光栅每 mm 约 100 到 1000 条缝；实验 B 的光栅 300 lines per mm、红激光 650 nm。
+   计算值：d = 1/N（N = 每 mm 条数 × 1000 = lines per metre），θm = sin⁻¹(mλ/d)；
+     300 lines per mm、650 nm → d = 3.33 × 10⁻⁶ m，sin θ1 = 0.195，θ1 = 11.2°，d/λ = 5.13 → 最高 m = 5。
+   物理：亮线只在 d sin θ = mλ；mλ/d > 1 的级次不存在；d/λ 刚好是整数时那一级在 90°，看不到（比较留浮点误差）。
+   亮度图：s = d sin θ / λ。光栅 I = [sin(Nπs) / (N sin πs)]²，N = 光束照到的缝数，按光束 1 mm 宽算（示意），
+     所以 N = 每 mm 条数；峰比一个像素还细，所以每一列取这一列里的最大值来画（不会漏掉峰）。
+     对照：同样 d 的双缝 I = cos²(πs)。缝都看成很窄（不画单缝包络），两条曲线各自按最亮 = 1 画。
+   白光：400–700 nm，每一级是一条光谱，violet（λ 小）偏得最少；m = 0 用 --light。
+   探测器：沿量角器来回转，单色光时停在每条亮线上（d sin θ 正好是整数倍 λ）。
+   颜色：光栅曲线 --copper；同样 d 的双缝是对照组，用 --south 虚线（全站约定）。白光图里每一级画在自己的一行，重叠看得见。 */
+var LMIN=400,LMAX=700,PMAX=88*Math.PI/180,SPD=14*Math.PI/180,EPS=1e-7;
+var m={lpm:300,lam:650,white:false,t:0,phi:0,dir:1,hold:0,focus:'scan',ft:0,dN:1,dL:1};
+var R={};
+function deg(a){return a*180/Math.PI;}
+function topM(r){var k=Math.round(r);return Math.abs(r-k)<1e-9*r?k-1:Math.floor(r);}
+function calc(){
+  R.N=m.lpm*1000;R.d=1/R.N;R.dnm=R.d*1e9;R.r=R.dnm/m.lam;R.k=Math.round(R.r);
+  R.exact=Math.abs(R.r-R.k)<1e-9*R.r;R.mmax=topM(R.r);R.th1=Math.asin(1/R.r);
+  R.hold=clamp(0.3+0.07*deg(R.th1),0.4,1.2);
+  R.mV=topM(R.dnm/LMIN);R.mR=topM(R.dnm/LMAX);
+  if(R.lamC!==m.lam){R.lamC=m.lam;R.col=lambdaColor(m.lam);R.colA=lambdaColor(m.lam,0.36);}
+}
+/* 白光用的颜色表（只算一次） */
+var SPEC=[],RAYS=[];
+(function(){for(var nm=LMIN;nm<=LMAX;nm+=5)SPEC.push({nm:nm,c:lambdaColor(nm)});
+  for(var n2=LMIN;n2<=LMAX;n2+=20)RAYS.push({nm:n2,c:lambdaColor(n2,0.32)});})();
+/* 第 k 级里 SPEC[j] 的角度，和下一个波长的角度（画连续的光谱带用）；看不到时返回 -1 */
+function thS(k,j){if(j>=SPEC.length)return -1;var sv=k*SPEC[j].nm/R.dnm;return sv>=1-1e-9?-1:Math.asin(sv);}
+function gI(s){if(Math.abs(Math.round(s))>R.mmax)return 0;var ps=Math.PI*s,den=Math.sin(ps);if(Math.abs(den)<1e-9)return 1;var v=Math.sin(m.lpm*ps)/(m.lpm*den);return v*v;}
+function dI(s){var c=Math.cos(Math.PI*s);return c*c;}
+function cname(nm){return nm<450?'紫':nm<495?'蓝':nm<570?'绿':nm<590?'黄':nm<620?'橙':'红';}
+var SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci(v){var e=Math.floor(Math.log10(v)),mt=v/Math.pow(10,e);if(mt>=9.995){mt/=10;e++;}var s=String(e),o='';for(var i=0;i<s.length;i++)o+=SUP[s.charAt(i)];return mt.toFixed(2)+' × 10'+o;}
+function rTxt(){return R.exact?String(R.k):R.r.toFixed(2);}
+
+/* 探测器：单色光时，走到下一个整数 s 就停在那条亮线上 R.hold 秒 */
+function step(dt){
+  var n=3,h=dt/n;calc();
+  for(var i=0;i<n;i++){
+    m.t+=h;
+    if(m.ft>0){m.ft-=h;if(m.ft<=0)m.focus='scan';}
+    if(m.hold>0){m.hold-=h;continue;}
+    var p=m.phi+m.dir*SPD*h;
+    if(!m.white){
+      var s0=R.r*Math.sin(m.phi),s1=R.r*Math.sin(p),k=m.dir>0?Math.floor(s0+EPS)+1:Math.ceil(s0-EPS)-1;
+      if(Math.abs(k)<=R.mmax&&(m.dir>0?s1>=k:s1<=k)){p=Math.asin(k/R.r);m.hold=R.hold;}
+    }
+    if(p>PMAX){p=PMAX;m.dir=-1;}else if(p<-PMAX){p=-PMAX;m.dir=1;}
+    m.phi=p;
+  }
+}
+
+/* ---------- 状态提示：[现在怎样, 为什么] ---------- */
+function status(wide){
+  if(m.focus==='N')return m.dN>0?['每 mm 条数变多 → d = 1/N 变小','→ sin θ = mλ/d 变大 → 线分得更开，级次变少']
+    :['每 mm 条数变少 → d = 1/N 变大','→ sin θ = mλ/d 变小 → 线靠近中间，级次变多'];
+  if(m.focus==='lam')return m.dL>0?['λ 变长（往红色走）→ sin θ = mλ/d 变大','→ 每条线离中间更远，最高 m 可能变小']
+    :['λ 变短（往紫色走）→ sin θ = mλ/d 变小','→ 每条线更靠近中间，最高 m 可能变大'];
+  if(m.focus==='white')return ['白光：m = 0 是白的（每种颜色都是 δ = 0）',wide?'每一级都是一条光谱：violet 在里、red 在外，和 prism 正好相反':'每一级是一条光谱：violet 在里、red 在外'];
+  var a=Math.abs(m.phi),ad=deg(a);
+  if(m.white){
+    if(ad<0.5)return ['探测器在中线 θ = 0°','每种颜色 δ = 0 → 全叠在这里 → 白色（m = 0）'];
+    var S=R.dnm*Math.sin(a),f=[];
+    for(var mm=1;mm<=40;mm++){var l=S/mm;if(l<LMIN)break;if(l<=LMAX)f.push([mm,Math.round(l)]);}
+    var l1='探测器在 θ = '+ad.toFixed(1)+'°：d sin θ = '+Math.round(S)+' nm';
+    if(!f.length)return [l1,'除以 m 都不在 400–700 nm → 这里没有可见光'];
+    if(f.length===1)return [l1,'m = '+f[0][0]+'：λ = d sin θ / m = '+f[0][1]+' nm（'+cname(f[0][1])+'）'];
+    return [l1,'m = '+f[0][0]+' 的 '+f[0][1]+' nm 和 m = '+f[1][0]+' 的 '+f[1][1]+' nm 重叠'];
+  }
+  var s=R.r*Math.sin(a),k=Math.round(s),on=Math.abs(s-k)<0.004&&k<=R.mmax;
+  if(on&&k===0)return ['探测器在中线 θ = 0°：d sin θ = 0','δ = 0 → 所有缝的波同相 → 中央亮线 m = 0'];
+  var l0='探测器在 θ = '+ad.toFixed(1)+'°：d sin θ = '+(on?(k===1?'λ':k+'λ'):s.toFixed(2)+'λ');
+  if(on)return [l0,'整数 m = '+k+' → 所有缝的波同步 → 又细又亮的线'];
+  if(s>R.mmax+0.02){var nx=R.mmax+1,sv=nx/R.r;
+    return [l0,R.exact?'m = '+nx+' 要 sin θ = 1，在 90° → 看不到':'m = '+nx+' 要 sin θ = '+sv.toFixed(sv<1.01?3:2)+' > 1 → 不存在'];}
+  return [l0,'不是整数 → 各缝的波抵消 → 暗（双缝还有 '+Math.round(dI(s)*100)+'%）'];
+}
+function nums(wide){
+  var a=m.lpm+' lines per mm → N = '+sci(R.N)+' m⁻¹',b='d = 1/N = '+sci(R.d)+' m',c;
+  if(m.white)c='最高 m：violet 400 nm 到 '+R.mV+'，red 700 nm 到 '+R.mR;
+  else c=R.exact?'d/λ = '+rTxt()+' 是整数 → m = '+R.k+' 在 90° → 最高 m = '+R.mmax:'d/λ = '+rTxt()+' → 最高 m = '+R.mmax+'（向下取整）';
+  return wide?[a,b,c]:['N = '+sci(R.N)+' m⁻¹ → d = 1/N = '+sci(R.d)+' m',c];
+}
+
+/* ---------- 排版 ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var L={W:W,wide:W>=640};
+  if(L.wide){L.sx=16;L.st=[26,48];L.stF=[15,13];L.R=Math.round(clamp((W-360)/2.6,110,150));L.cx=L.R+46;L.cy=86+L.R;L.lb=[44,68];
+    L.gx=L.cx+L.R+56;L.gw=W-18-L.gx;L.gt=80;L.gl=100;L.gy=118;L.gh=116;L.nx=L.gx-22;L.lx=L.nx;L.ny=[282,303,324];}
+  else{L.sx=14;L.st=[22,42];L.stF=[13.5,12.5];L.R=Math.min(140,Math.floor(W/2-36));L.cx=Math.round(W/2);L.cy=224;L.lb=[40,62];
+    L.gx=30;L.gw=W-30-16;L.gt=360;L.gl=379;L.gy=392;L.gh=100;L.nx=14;L.lx=14;L.ny=[310,330];}
+  LY=L;return L;
+}
+function fit(ctx,s,x,y,col,size,weight,maxW,align){
+  var f=size;ctx.font=weight+' '+f+'px '+FONT;
+  while(f>11&&ctx.measureText(s).width>maxW){f-=0.5;ctx.font=weight+' '+f+'px '+FONT;}
+  txt(ctx,s,x,y,col,f,weight,align||'left');
+}
+function isDark(){var h=String(C.stage).replace('#','').trim();if(h.length===3)h=h.replace(/(.)/g,'$1$1');var n=parseInt(h,16);if(isNaN(n))return false;
+  return ((n>>16)&255)*0.299+((n>>8)&255)*0.587+(n&255)*0.114<128;}
+
+/* 一束光：浅色底 + 往外流动的亮段（表示光在往外走） */
+function beam(ctx,x1,y1,x2,y2,col,colA,w,under,flow){
+  ctx.lineCap='round';
+  if(under){ctx.strokeStyle=under;ctx.lineWidth=w+2;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+  ctx.strokeStyle=colA;ctx.lineWidth=w;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  if(flow){ctx.strokeStyle=col;ctx.setLineDash([10,9]);ctx.lineDashOffset=-m.t*36;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0;}
+  ctx.lineCap='butt';
+}
+function pt(L,th,r){return [L.cx+r*Math.sin(th),L.cy-r*Math.cos(th)];}
+
+/* ---------- 量角器、光栅、各级光束 ---------- */
+function protractor(ctx,L,dark){
+  var cx=L.cx,cy=L.cy,Rr=L.R,i,a,p,q,under=dark?null:rgba(C.ink,0.2);
+  ctx.beginPath();ctx.moveTo(cx-Rr,cy);ctx.arc(cx,cy,Rr,Math.PI,0,false);ctx.closePath();ctx.fillStyle=rgba(C.muted,0.06);ctx.fill();
+  ctx.beginPath();ctx.arc(cx,cy,Rr,Math.PI,0,false);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.4;ctx.stroke();
+  seg(ctx,cx-Rr-8,cy,cx+Rr+8,cy,rgba(C.muted,0.8),1.4);
+  for(i=-90;i<=90;i+=10){a=i*Math.PI/180;var tl=(i%30===0)?9:5;p=pt(L,a,Rr);q=pt(L,a,Rr-tl);seg(ctx,p[0],p[1],q[0],q[1],rgba(C.muted,0.8),1.1);}
+  /* 入射光 + 激光器 */
+  var by0=cy+L.lb[0],by1=cy+L.lb[1];
+  if(m.white)beam(ctx,cx,by0,cx,cy,C.light,rgba(C.light,0.4),3,under,true);
+  else beam(ctx,cx,by0,cx,cy,R.col,R.colA,2.6,under,true);
+  /* 各级光束 */
+  var k,th,j,e;
+  if(!m.white){
+    for(k=-R.mmax;k<=R.mmax;k++){th=Math.asin(k/R.r);p=pt(L,th,Rr);beam(ctx,cx,cy,p[0],p[1],R.col,R.colA,2.2,under,true);}
+    for(k=-R.mmax;k<=R.mmax;k++){th=Math.asin(k/R.r);p=pt(L,th,Rr);if(under)dot(ctx,p[0],p[1],5.6,under);dot(ctx,p[0],p[1],4.6,R.col);}
+  }else{
+    for(k=1;k<=R.mV;k++)for(j=0;j<RAYS.length;j++){var sv=k*RAYS[j].nm/R.dnm;if(sv>=1-1e-9)break;th=Math.asin(sv);
+      for(e=-1;e<=1;e+=2){p=pt(L,e*th,Rr);beam(ctx,cx,cy,p[0],p[1],RAYS[j].c,RAYS[j].c,1.1,null,false);}}
+    ctx.lineWidth=6.5;
+    for(k=1;k<=R.mV;k++)for(j=0;j<SPEC.length;j++){th=thS(k,j);if(th<0)break;var tn=thS(k,j+1);tn=tn<0?th+0.012:tn+0.004;
+      ctx.strokeStyle=SPEC[j].c;ctx.beginPath();ctx.arc(cx,cy,Rr,th-Math.PI/2,tn-Math.PI/2,false);ctx.stroke();
+      ctx.beginPath();ctx.arc(cx,cy,Rr,-tn-Math.PI/2,-th-Math.PI/2,false);ctx.stroke();}
+    beam(ctx,cx,cy,cx,cy-Rr,C.light,rgba(C.light,0.45),3,under,true);
+    dot(ctx,cx,cy-Rr,5,C.light);
+  }
+  /* 光栅（很多条缝） */
+  ctx.fillStyle=C.ink;for(i=-6;i<=6;i++)ctx.fillRect(cx+i*6-2,cy-3,4,6);
+  txt(ctx,'grating 光栅',cx+46,cy+17,C.muted,11.5,600);
+  rrect(ctx,cx-54,by0,108,by1-by0,6);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.6);ctx.lineWidth=1.3;ctx.stroke();
+  txt(ctx,m.white?'白光 white light':'laser '+m.lam+' nm',cx,(by0+by1)/2+1,C.ink,12,600,'center','middle');
+  /* 刻度数字（量角器里面） */
+  [30,60,90].forEach(function(d){for(var e2=-1;e2<=1;e2+=2){var a2=e2*d*Math.PI/180,pp=d===90?[cx+e2*(Rr-18),cy-9]:pt(L,a2,Rr-21);
+    var s=d+'°';ctx.font='500 11px '+FONT;var w=ctx.measureText(s).width;
+    rrect(ctx,pp[0]-w/2-2,pp[1]-7,w+4,14,4);ctx.fillStyle=C.stage;ctx.fill();txt(ctx,s,pp[0],pp[1]+0.5,C.muted,11,500,'center','middle');}});
+  /* θ1 */
+  if(!m.white){
+    var ra=Rr*0.34;ctx.beginPath();ctx.arc(cx,cy,ra,-Math.PI/2,-Math.PI/2+R.th1,false);ctx.strokeStyle=C.ink;ctx.lineWidth=1.3;ctx.stroke();
+    var lp=pt(L,R.th1/2,ra+8),ls='θ₁ = '+deg(R.th1).toFixed(1)+'°';ctx.font='600 12px '+FONT;var lw=ctx.measureText(ls).width;
+    var lx=Math.max(lp[0]+2,cx+8);rrect(ctx,lx-3,lp[1]-15,lw+6,18,4);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();
+    txt(ctx,ls,lx,lp[1]-2,C.ink,12,600);
+  }
+  /* 级次 m：在量角器外面。太挤时只标步长 s 的倍数（s 从 1、2、5、10、20 里挑最小的、标出来不挤的），最高一级总是标出 */
+  var Rl=Rr+13,top=pt(L,0,Rl+1);txt(ctx,'m = 0',top[0],top[1],C.ink,12,700,'center','middle');
+  ctx.font='700 12px '+FONT;var w0=ctx.measureText('m = 0').width,ths=[];
+  if(!m.white){for(k=1;k<=R.mmax;k++)ths.push([k,Math.asin(k/R.r)]);}
+  else{for(k=1;k<=R.mV;k++){var ta=Math.asin(k*LMIN/R.dnm),tb=Math.asin(Math.min(1,k*LMAX/R.dnm));ths.push([k,(ta+tb)/2]);}}
+  function lbox(it){var q3=pt(L,it[1],Rl);return [q3[0],q3[1],ctx.measureText(String(it[0])).width];}
+  function hit(a,b){return Math.abs(a[0]-b[0])<(a[2]+b[2])/2+5&&Math.abs(a[1]-b[1])<15;}
+  var top0=[top[0],top[1],w0],kmax=ths.length?ths[ths.length-1][0]:0,STEPS=[1,2,5,10,20],use=[],si,list,bx,okL;
+  for(si=0;si<STEPS.length;si++){list=[];
+    for(j=0;j<ths.length;j++)if(ths[j][0]%STEPS[si]===0||ths[j][0]===kmax)list.push(ths[j]);
+    if(list.length>1&&hit(lbox(list[list.length-2]),lbox(list[list.length-1])))list.splice(list.length-2,1);
+    bx=[top0];for(j=0;j<list.length;j++)bx.push(lbox(list[j]));
+    okL=true;for(j=1;j<bx.length;j++)if(hit(bx[j-1],bx[j])){okL=false;break;}
+    use=list;if(okL)break;}
+  for(e=-1;e<=1;e+=2)for(j=0;j<use.length;j++){var q2=pt(L,e*use[j][1],Rl);txt(ctx,String(use[j][0]),q2[0],q2[1],C.ink,12,700,'center','middle');}
+  /* 探测器 */
+  var dp=pt(L,m.phi,Rr),fc=null;
+  if(!m.white){var sd=R.r*Math.sin(m.phi),v=gI(sd);if(v>0.02)fc=lambdaColor(m.lam,v);}
+  else{var Sd=R.dnm*Math.sin(Math.abs(m.phi));if(deg(Math.abs(m.phi))<0.5)fc=C.light;else for(var mm=1;mm<=40;mm++){var lm=Sd/mm;if(lm<LMIN)break;if(lm<=LMAX){fc=lambdaColor(lm);break;}}}
+  seg(ctx,cx,cy,dp[0],dp[1],rgba(C.ink,0.45),1.2,[3,4]);
+  dot(ctx,dp[0],dp[1],7.5,C.stage);if(fc)dot(ctx,dp[0],dp[1],6,fc);ring(ctx,dp[0],dp[1],7.5,C.ink,2);
+}
+
+/* ---------- 亮度–角度图 ---------- */
+function graph(ctx,L){
+  var gx=L.gx,gw=L.gw,gy=L.gy,gh=L.gh,base=gy+gh,i,x,th,s,v;
+  function X(t){return gx+(t/Math.PI+0.5)*gw;}
+  fit(ctx,m.white?(L.wide?'白光：每种颜色落在哪个角度 θ（每行一级，m = 1 在最下面）':'白光：每种颜色的角度（每行一级，m = 1 在最下）'):'亮度 – 角度 θ（各自最亮处 = 1）',L.lx,L.gt,C.ink,12.5,600,L.W-L.lx-14);
+  /* 图例 */
+  var lx=L.lx,ly=L.gl;ctx.font='500 11.5px '+FONT;
+  if(!m.white){
+    seg(ctx,lx,ly-4,lx+18,ly-4,C.copper,2.2);txt(ctx,'光栅',lx+23,ly,C.ink,11.5,500);lx+=23+ctx.measureText('光栅').width+14;
+    seg(ctx,lx,ly-4,lx+18,ly-4,rgba(C.south,0.85),1.5,[4,3]);txt(ctx,'同样 d 的双缝',lx+23,ly,C.ink,11.5,500);ctx.font='500 11.5px '+FONT;lx+=23+ctx.measureText('同样 d 的双缝').width+14;
+  }else{
+    for(i=0;i<18;i++)seg(ctx,lx+i,ly-9,lx+i,ly+1,SPEC[Math.round(i/17*(SPEC.length-1))].c,1.2);txt(ctx,'λ 的真实颜色',lx+23,ly,C.ink,11.5,500);ctx.font='500 11.5px '+FONT;lx+=23+ctx.measureText('λ 的真实颜色').width+14;
+  }
+  seg(ctx,lx+4,ly-10,lx+4,ly+2,rgba(C.ink,0.6),1.3,[3,2]);txt(ctx,'探测器',lx+12,ly,C.ink,11.5,500);
+  /* 坐标 */
+  for(i=-90;i<=90;i+=30){x=X(i*Math.PI/180);if(i!==-90)seg(ctx,x,gy,x,base,C.grid,1);txt(ctx,(i<0?'−':'')+Math.abs(i)+'°',x,base+15,C.muted,11,500,'center');}
+  seg(ctx,gx,gy-4,gx,base,C.muted,1);seg(ctx,gx,base,gx+gw,base,C.muted,1);
+  seg(ctx,gx-3,gy,gx,gy,C.muted,1);txt(ctx,'1',gx-6,gy+4,C.muted,11,500,'right');txt(ctx,'0',gx-6,base+4,C.muted,11,500,'right');
+  if(!m.white){
+    /* 同样 d 的双缝：cos²(πs) */
+    ctx.beginPath();for(i=0;i<=gw;i++){th=(i/gw-0.5)*Math.PI;v=dI(R.r*Math.sin(th));if(i)ctx.lineTo(gx+i,base-v*gh);else ctx.moveTo(gx+i,base-v*gh);}
+    ctx.strokeStyle=rgba(C.south,0.85);ctx.lineWidth=1.4;ctx.setLineDash([4,3]);ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);
+    /* 光栅：每一列取最大值（峰比一列还窄） */
+    ctx.beginPath();
+    for(i=0;i<=gw;i++){var ta=clamp(((i-0.5)/gw-0.5)*Math.PI,-Math.PI/2,Math.PI/2),tb=clamp(((i+0.5)/gw-0.5)*Math.PI,-Math.PI/2,Math.PI/2);
+      var sa=R.r*Math.sin(ta),sb=R.r*Math.sin(tb),kk=Math.ceil(sa-1e-12);
+      v=(kk<=sb&&Math.abs(kk)<=R.mmax&&!(R.exact&&Math.abs(kk)===R.k))?1:gI(R.r*Math.sin((i/gw-0.5)*Math.PI));
+      if(i)ctx.lineTo(gx+i,base-v*gh);else ctx.moveTo(gx+i,base-v*gh);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=1.8;ctx.lineJoin='miter';ctx.stroke();ctx.lineJoin='round';
+  }else{
+    /* 每一级画在自己的一行（m = 1 在最下面），所以重叠的级次都看得见 */
+    var x0=X(0),hb=0.85*gh/Math.max(1,R.mV),gp=hb>4?1:0;
+    for(var k=1;k<=R.mV;k++)for(var j=0;j<SPEC.length;j++){th=thS(k,j);if(th<0)break;var tn=thS(k,j+1),xa=X(th)-1,w=Math.max(2,(tn<0?0:X(tn)-xa)+0.5);
+      ctx.fillStyle=SPEC[j].c;ctx.fillRect(xa,base-k*hb,w,hb-gp);ctx.fillRect(2*x0-xa-w,base-k*hb,w,hb-gp);}
+    ctx.fillStyle=C.light;ctx.fillRect(X(0)-1.5,gy,3,gh);
+  }
+  /* 探测器的位置 */
+  x=X(m.phi);seg(ctx,x,gy-4,x,base,rgba(C.ink,0.6),1.3,[3,2]);
+  if(!m.white){s=R.r*Math.sin(m.phi);dot(ctx,x,base-dI(s)*gh,3.6,C.south);dot(ctx,x,base-gI(s)*gh,4.2,C.copper);}
+}
+
+for(var q=0;q<20;q++){m.t+=1/60;}
+calc();m.phi=R.th1;m.hold=R.hold;
+var stage=makeStage('sim4',{
+  height:function(w){return w>=640?340:520;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    calc();var L=lay(W),st=status(L.wide),nb=nums(L.wide),i;
+    fit(ctx,st[0],L.sx,L.st[0],C.ink,L.stF[0],600,W-2*L.sx);
+    fit(ctx,st[1],L.sx,L.st[1],C.muted,L.stF[1],500,W-2*L.sx);
+    protractor(ctx,L,isDark());
+    graph(ctx,L);
+    for(i=0;i<nb.length;i++)fit(ctx,nb[i],L.nx,L.ny[i],i===nb.length-1?C.ink:C.muted,12.5,i===nb.length-1?600:500,W-L.nx-14);
+    if(L.wide)txt(ctx,'角度按真实比例（计算值）',L.sx,H-12,C.muted,11.5,500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var rN=document.getElementById('s4-lpm'),oN=document.getElementById('s4-lpm-out');
+var rL=document.getElementById('s4-lam'),oL=document.getElementById('s4-lam-out');
+var bW=document.getElementById('s4-white');
+function syncW(){press(bW,m.white);bW.textContent=m.white?'白光：开':'白光：关';}
+rN.addEventListener('input',function(){var v=parseInt(rN.value,10);if(v!==m.lpm)m.dN=v>m.lpm?1:-1;m.lpm=v;oN.textContent=String(v);m.focus='N';m.ft=6;m.hold=0;stage.render();});
+rL.addEventListener('input',function(){var v=parseInt(rL.value,10);if(v!==m.lam)m.dL=v>m.lam?1:-1;m.lam=v;oL.textContent=v+' nm';
+  if(m.white){m.white=false;syncW();}m.focus='lam';m.ft=6;m.hold=0;stage.render();});
+bW.addEventListener('click',function(){m.white=!m.white;syncW();m.focus=m.white?'white':'scan';m.ft=m.white?6:0;m.hold=0;stage.render();});
+syncW();
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 偏振片和 Malus' law（放在 2.5 Polarisation and Malus' law）
+   顺着光束看（像 booklet Figure 2.5）：非偏振光 → polariser（轴竖直）→［中间片 45°］→ analyser（轴转 θ）。
+   真实物理（滤光片看成理想的）：
+   - 非偏振光过第一片：I = ½I₀，不管轴朝哪里；出来是 plane-polarised，振动沿这片的轴。
+   - 偏振光过一片：振幅 A 只有沿这片轴的 A cos θ 通过；I ∝ 振幅²，所以 I = I_max cos²θ。
+     θ 从前一片滤光片的轴量；I_max = 到达的偏振光强度 = ½I₀（θ = 0 时全部通过）。
+   - 中间片 45°：I = ½I₀ × cos²45° × cos²(θ − 45°)；θ = 90° 时 = ⅛I₀。
+   - 画面里振幅 ∝ √I。轴从竖直逆时针转 θ（和 Figure 2.5 一样）。
+   数据：I_max = 12.0 W m⁻² 和 13 个实验点（θ = 0°, 15°, …, 180°）来自 booklet 实验（Figure 2.6）。
+   I₀ 只用符号。“假如光是纵波”是假设：亮度画成不随 θ 变（示意）。
+   颜色：振动（电场）--violet，挡掉的部分 --muted 虚线；光束和强度条 --light；曲线 --copper；
+   0°–90° 实验点实心 --copper，105°–180° 空心 --south；纵波的预测 --violet 虚线。 */
+var IMAX=12.0,DEG=Math.PI/180,OM=TAU*1.1;
+var EXP=[12.0,11.3,8.9,6.1,3.1,0.9,0.1,0.9,3.0,6.0,9.0,11.2,12.0]; /* booklet：θ = 0°, 15°, …, 180° 时的 I（W m⁻²） */
+var rTh=document.getElementById('s5-th'),oTh=document.getElementById('s5-th-out');
+var bMid=document.getElementById('s5-mid'),bLon=document.getElementById('s5-lon');
+var m5={th:60,mid:false,lon:false,t:0,ua:0.6,ul:0.9,uT:0,seed:11};
+var IT=[],ST=['',''],RW=[],RN=[],GH=['',''],WC={k:'',a:null};
+
+function rnd(){m5.seed=(m5.seed*16807)%2147483647;return (m5.seed-1)/2147483646;}
+function cos2(a){var c=Math.cos(a*DEG);return c*c;}
+/* 轴的方向：从竖直往上开始，逆时针转 a 度（画布坐标，y 向下） */
+function dirv(a){return [-Math.sin(a*DEG),-Math.cos(a*DEG)];}
+function mns(v){return v<0?'−'+(-v):String(v);}
+function f1(v){return v<0.05?'0':v.toFixed(1);}
+function nice(v){var F=[[1,'1'],[0.75,'¾'],[0.5,'½'],[0.25,'¼'],[0.125,'⅛'],[0,'0']];
+  for(var i=0;i<F.length;i++)if(Math.abs(v-F[i][0])<1e-9)return F[i][1];
+  return v>=0.1?v.toFixed(2):v.toPrecision(2);}
+
+/* 带下标的文字：'I_max' 画成 I 加小一号、往下一点的 max。only = true 时只量宽度。 */
+var SUBRE=/([A-Za-z])_([a-z0-9]+)/g,RTP=[];
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+/* 状态提示太长时换行：在“：”“，”“。”“；”后面或“ →”前面断开 */
+function wrap(ctx,s,maxW,size,weight){
+  if(rt(ctx,s,0,0,null,size,weight,'left',null,null,true)<=maxW)return [s];
+  var tk=[],b=0,i,c,out=[],line='',t;
+  for(i=0;i<s.length;i++){c=s.charAt(i);
+    if(c==='：'||c==='，'||c==='。'||c==='；'){tk.push(s.slice(b,i+1));b=i+1;}
+    else if(c===' '&&s.charAt(i+1)==='→'&&i>b){tk.push(s.slice(b,i));b=i+1;}}
+  if(b<s.length)tk.push(s.slice(b));
+  for(i=0;i<tk.length;i++){t=line?line+(tk[i].charAt(0)==='→'?' ':'')+tk[i]:tk[i];
+    if(line&&rt(ctx,t,0,0,null,size,weight,'left',null,null,true)>maxW){out.push(line);line=tk[i];}else line=t;}
+  if(line)out.push(line);
+  return out;
+}
+
+/* ---------- 状态 → 光路、提示、读数（只在控件改变时算） ---------- */
+function build(){
+  var th=m5.th,mid=m5.mid,lon=m5.lon,pv=mid?45:0,d=th-pv,k2=cos2(d),fin=lon?1:(mid?0.25:0.5)*k2;
+  var c=Math.cos(th*DEG),I2=IMAX*cos2(th),ex=EXP[Math.round(th/15)],it=[],u=lon?'不变':null;
+  var fI=fin<1e-9?'0':nice(fin)+' I_0',cs=(c<-1e-9?'−':'')+Math.abs(c).toFixed(2),k2s=cos2(th).toFixed(3),dk=k2.toFixed(3);
+  var ca=(th===60||th===120)?'½A':Math.abs(c).toFixed(2)+'A';
+  it.push({k:'src',fo:1,b1:'I_0',b2:lon?'假如纵波':'unpolarised',n1:'I_0',n2:lon?'假如纵波':'unpolarised'});
+  it.push({k:'filt',ax:0,prev:null,fo:lon?1:0.5,tw:'polariser · 轴 0°',tn:'polariser'});
+  if(mid){
+    it.push({k:'vib',ax:0,fo:lon?1:0.5,b1:u||'½I_0',b2:'',n1:u||'½I_0',n2:''});
+    it.push({k:'filt',ax:45,prev:0,fo:lon?1:0.25,tw:'中间片 · 轴 45°',tn:'中间片 45°'});
+    it.push({k:'vib',ax:45,fo:lon?1:0.25,b1:u||'¼I_0',b2:lon?'':'= ½I_0 cos²45°',n1:u||'¼I_0',n2:''});
+  }else it.push({k:'vib',ax:0,fo:lon?1:0.5,b1:u||'½I_0 = I_max',b2:lon?'':'= 12.0 W m⁻²',n1:u||'½I_0 = I_max',n2:lon?'':'12.0 W m⁻²'});
+  it.push({k:'filt',ax:th,prev:pv,fo:fin,tw:'analyser · 轴 θ = '+th+'°',tn:'analyser'});
+  if(lon)it.push({k:'vib',ax:th,fo:1,b1:'不变',b2:'不随 θ 变',n1:'不变',n2:'不随 θ 变'});
+  else if(mid)it.push({k:'vib',ax:th,fo:fin,b1:'¼I_0 cos²(θ − 45°)',b2:'= '+fI,n1:fI,n2:''});
+  else it.push({k:'vib',ax:th,fo:fin,b1:'I_max cos²θ',b2:'= '+f1(I2)+' W m⁻²',n1:'I_max cos²θ',n2:f1(I2)+' W m⁻²'});
+  IT=it;
+  /* 状态提示：这一刻发生了什么、为什么 */
+  if(lon)ST=['假如是纵波：振动顺着前进方向 → 挑不出方向','→ 转到哪里都一样亮。可实验 90° 几乎全黑 → 光是横波'];
+  else if(mid){
+    if(th===90)ST=['polariser 和 analyser 成 90°（crossed），本来全黑','中间加一片 45° → 每片把光转到自己的轴 → 又亮了（I = ⅛ I_0）'];
+    else if(Math.abs(d)===90)ST=['中间片 → analyser 的夹角 = θ − 45° = 90°','这两片 crossed → 全挡住 → I = 0'];
+    else if(d===0)ST=['中间片 → analyser 的夹角 = θ − 45° = 0°','同方向 → 全部通过 → I = ¼ I_0'];
+    else ST=['中间片 → analyser 的夹角 = θ − 45° = '+mns(d)+'°','每一片都把光重新偏振到自己的轴 → I = '+fI];
+  }else{
+    if(th===0||th===180)ST=['θ = '+th+'°：analyser 轴和振动同方向','→ 全部通过 → I = I_max = 12.0 W m⁻²（最亮）'];
+    else if(th===90)ST=['θ = 90°（crossed）：振动和 analyser 轴垂直','→ A cos 90° = 0 → 全挡住 → I = 0（全黑）'];
+    else ST=['θ = '+th+'°：'+(th<90?'只有 A cos θ = '+ca+' 通过':'通过的部分 A cos θ，大小 '+ca),'I ∝ 振幅² → I = '+nice(cos2(th))+' I_max = '+f1(I2)+' W m⁻²'];
+  }
+  /* 读数（宽屏 2 行 RW，手机 5–6 行 RN）和图的标题 GH */
+  if(lon){
+    RW=['假如是纵波：I 不随 θ 变（紫色虚线，示意）','讲义实验 θ = '+th+'°：'+ex.toFixed(1)+' W m⁻²'];
+    RN=['假如是纵波：','I 不随 θ 变','（紫色虚线，示意）','讲义实验：','θ = '+th+'° → '+ex.toFixed(1)+' W m⁻²'];
+    GH=['I–θ 图 · 讲义实验点 vs 纵波的预测','I–θ 图 · 实验点 vs 纵波'];
+  }else if(mid){
+    RW=['I = ½I_0 × cos²45° × cos²(θ − 45°)','  = ½ × ½ × '+dk+' = '+fI];
+    RN=['中间片 → analyser：','θ − 45° = '+mns(d)+'°','cos² = '+dk,'I = ½I_0 × ½ × '+dk,'  = '+fI];
+    GH=['I–θ 图（两片的实验，没有中间片）','I–θ 图（两片的实验）'];
+  }else{
+    RW=['cos θ = '+cs+'    cos²θ = '+k2s,'公式 '+f1(I2)+' W m⁻²  ·  讲义实验 '+ex.toFixed(1)+' W m⁻²'];
+    RN=['θ = '+th+'°','cos θ = '+cs,'cos²θ = '+k2s,'I = 12.0 × '+k2s,'  = '+f1(I2)+' W m⁻²','实验点：'+ex.toFixed(1)+' W m⁻²'];
+    GH=['I–θ 图 · 曲线 I = 12.0 cos²θ（Malus\' law）','I–θ 图 · 曲线 I = 12.0 cos²θ'];
+  }
+}
+
+/* ---------- 画图小工具 ---------- */
+function arcA(ctx,x,y,rad,p,a,col,w){ctx.beginPath();ctx.arc(x,y,rad,-Math.PI/2-p*DEG,-Math.PI/2-a*DEG,a>p);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash([]);ctx.stroke();}
+function darrow(ctx,x1,y1,x2,y2,col){var dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l;seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,1.8,[4,3]);arrow(ctx,x2-ux*9,y2-uy*9,x2,y2,col,1.8,8);}
+function lab(ctx,x,y,dx,s,col,fs){rt(ctx,s,x,y,col,fs,600,dx<-0.12?'right':(dx>0.12?'left':'center'),'middle');}
+
+/* 一个“振动”圆：顺着光束看到的电场振动（双箭头范围 + 这一刻的电场箭头） */
+function vibD(ctx,x,y,r,it,i){
+  dot(ctx,x,y,r,C.stage);dot(ctx,x,y,r,rgba(C.light,0.05+0.3*it.fo));ring(ctx,x,y,r,rgba(C.muted,0.75),1.2);
+  var A=r*0.8*Math.sqrt(it.fo),ph=m5.t*OM-i*0.8,k,u,dd,L;
+  if(m5.lon){var rr=r*(0.12+0.09*(1+Math.sin(ph)));dot(ctx,x,y,rr,C.violet);ring(ctx,x,y,rr+3,rgba(C.violet,0.35),1.2);return;}
+  if(it.k==='src'){
+    for(k=0;k<4;k++){u=dirv(k*45);seg(ctx,x-u[0]*A,y-u[1]*A,x+u[0]*A,y+u[1]*A,rgba(C.violet,0.22),1.3);}
+    L=A*m5.ul;arrow(ctx,x,y,x+Math.cos(m5.ua)*L,y-Math.sin(m5.ua)*L,C.violet,2.2,Math.min(8,L*0.45));
+    return;
+  }
+  if(A<1.5)return;
+  u=dirv(it.ax);
+  seg(ctx,x-u[0]*A,y-u[1]*A,x+u[0]*A,y+u[1]*A,rgba(C.violet,0.3),1.3);
+  dot(ctx,x-u[0]*A,y-u[1]*A,1.6,rgba(C.violet,0.5));dot(ctx,x+u[0]*A,y+u[1]*A,1.6,rgba(C.violet,0.5));
+  dd=A*Math.sin(ph);
+  if(Math.abs(dd)>2.5)arrow(ctx,x,y,x+u[0]*dd,y+u[1]*dd,C.violet,2.2,Math.min(8,Math.abs(dd)*0.6));
+  dot(ctx,x+u[0]*dd,y+u[1]*dd,2.4,C.violet);
+}
+/* 一片滤光片：深色线 = transmission axis；虚线 = 前一片的轴；小弧 = 两者的夹角 */
+function filtD(ctx,x,y,r,it){
+  dot(ctx,x,y,r,C.surface);dot(ctx,x,y,r,rgba(C.muted,0.16));ring(ctx,x,y,r,C.ink,1.2);
+  var u=dirv(it.ax),g;
+  if(it.prev!==null){g=dirv(it.prev);seg(ctx,x-g[0]*r,y-g[1]*r,x+g[0]*r,y+g[1]*r,rgba(C.muted,0.9),1.1,[3,3]);
+    if(Math.abs(it.ax-it.prev)>0.5)arcA(ctx,x,y,r*0.5,it.prev,it.ax,C.ink,1);}
+  seg(ctx,x-u[0]*r,y-u[1]*r,x+u[0]*r,y+u[1]*r,C.ink,2.6);
+}
+
+/* 圆下面的标签：居中，但不超出画布两边 */
+function lbl(ctx,s,x,y,col,size,weight,o){var w=rt(ctx,s,0,0,null,size,weight,'left',null,null,true);rt(ctx,s,clamp(x,o.x0-2+w/2,o.x1+2-w/2),y,col,size,weight,'center');}
+/* 光路：一排顺着光束看的圆（像 Figure 2.5），下面是强度条 */
+function strip(ctx,o){
+  var n=IT.length,p=(o.x1-o.x0)/n,r=Math.min(o.rm,p*0.36),bw=Math.min(64,p*0.8),i,it,x,x2,s2;
+  for(i=0;i<n;i++){x=o.x0+p*(i+0.5);x2=i<n-1?x+p:x+r+12;
+    if(IT[i].fo>0.004){ctx.fillStyle=rgba(C.light,0.08+0.5*IT[i].fo);ctx.fillRect(x,o.cy-o.bh/2,x2-x,o.bh);}}
+  for(i=0;i<n;i++){it=IT[i];x=o.x0+p*(i+0.5);
+    if(it.k==='filt'){filtD(ctx,x,o.cy,r+1,it);txt(ctx,o.wide?it.tw:it.tn,x,o.ty,C.ink,o.wide?12.5:11.5,600,'center');}
+    else{vibD(ctx,x,o.cy,r,it,i);
+      hbar(ctx,x-bw/2,o.by,bw,o.wide?7:6,it.fo,C.light);
+      lbl(ctx,o.wide?it.b1:it.n1,x,o.b1y,C.ink,o.wide?13:12,600,o);
+      s2=o.wide?it.b2:it.n2;if(s2)lbl(ctx,s2,x,o.b2y,C.muted,o.wide?12:11.5,500,o);}
+  }
+  var a0=o.x0+p*0.5-r,a1=o.x0+p*(n-0.5)+r+12,lb=o.wide?'前进方向 direction of travel':'前进方向',lw;
+  seg(ctx,a0,o.ay,a1-6,o.ay,rgba(C.muted,0.7),1.6);arrow(ctx,a1-14,o.ay,a1,o.ay,rgba(C.muted,0.9),1.6,8);
+  ctx.font='500 11.5px '+FONT;lw=ctx.measureText(lb).width;
+  ctx.fillStyle=C.stage;ctx.fillRect((a0+a1)/2-lw/2-6,o.ay-8,lw+12,16);
+  txt(ctx,lb,(a0+a1)/2,o.ay+4,C.muted,11.5,500,'center');
+}
+
+/* 到达 analyser 的振动 A，分成沿轴（通过）和垂直于轴（挡掉）两部分（像 Figure 2.5 b） */
+function inset(ctx,cx,cy,L,wide){
+  var pv=m5.mid?45:0,th=m5.th,d=th-pv,ad=Math.abs(d),c=Math.cos(d*DEG),sd=Math.sin(d*DEG);
+  var g=dirv(pv),u=dirv(th),E=L*1.18,fs=wide?12.5:12;
+  seg(ctx,cx-g[0]*E,cy-g[1]*E,cx+g[0]*E,cy+g[1]*E,rgba(C.muted,0.85),1.2,[4,4]);
+  seg(ctx,cx-u[0]*E,cy-u[1]*E,cx+u[0]*E,cy+u[1]*E,C.ink,1.8);
+  var Ax=cx+g[0]*L,Ay=cy+g[1]*L,Px=cx+u[0]*L*c,Py=cy+u[1]*L*c,Bx=cx+Ax-Px,By=cy+Ay-Py,pl=Math.abs(c)*L,bl=Math.abs(sd)*L;
+  if(pl>3&&bl>3){seg(ctx,Ax,Ay,Px,Py,rgba(C.muted,0.75),1,[2,3]);seg(ctx,Ax,Ay,Bx,By,rgba(C.muted,0.75),1,[2,3]);}
+  /* 夹角：小于 90° 时画在对顶角那边（两条轴的延长线之间），那里没有箭头 */
+  if(ad>0.5){var o2=ad<90?180:0;arcA(ctx,cx,cy,L*0.24,pv+o2,th+o2,C.ink,1.1);var mv=dirv(ad<35?th+o2+(d>0?17:-17):(pv+th)/2+o2),rl=L*0.24+(ad<35?11:9); /* 角度小时标签放在弧外面 */
+    if(m5.mid)txt(ctx,ad+'°',cx+mv[0]*rl,cy+mv[1]*rl,C.ink,fs,600,'center','middle');
+    else txt(ctx,'θ',cx+mv[0]*rl,cy+mv[1]*rl,C.ink,fs+2,600,'center','middle',MATH);}
+  arrow(ctx,cx,cy,Ax,Ay,rgba(C.violet,0.42),2,9);
+  if(bl>4)darrow(ctx,cx,cy,Bx,By,C.muted);
+  if(pl>4)arrow(ctx,cx,cy,Px,Py,C.violet,3.2,10);
+  dot(ctx,cx,cy,3,C.ink);
+  var pd=c<0?[-u[0],-u[1]]:[u[0],u[1]],nn=[-g[1],g[0]];
+  if(bl<1){ /* 和前一片同方向：全部通过 */
+    if(nn[0]<0){nn[0]=-nn[0];nn[1]=-nn[1];}
+    lab(ctx,Ax+g[0]*6+nn[0]*8,Ay+g[1]*6+nn[1]*8,nn[0],'全部通过',C.violet,fs);
+  }else if(pl<1){ /* 和前一片垂直：全部挡掉 */
+    lab(ctx,Ax+g[0]*11,Ay+g[1]*11,g[0],wide?'A：全部挡掉':'全部挡掉',C.muted,fs);
+  }else{
+    /* A 的标签放在离 A 较远的那个分量一侧，避开较近的那个分量的标签；短分量的标签至少离中心 0.6L，避开角度标签 */
+    var bd=[(Bx-cx)/bl,(By-cy)/bl],aw=Math.abs(c)>=Math.abs(sd)?pd:bd,rp=Math.max(pl+15,L*0.6),rb=Math.max(bl+10,L*0.6);
+    if(nn[0]*aw[0]+nn[1]*aw[1]>0){nn[0]=-nn[0];nn[1]=-nn[1];}
+    lab(ctx,Ax+g[0]*7+nn[0]*7,Ay+g[1]*7+nn[1]*7,nn[0],'A',C.violet,fs);
+    /* “通过”的标签：沿轴放，再往离开 A 的一侧挪 12 px，轴线就不会穿过字；轴接近竖直时字往旁边伸 */
+    var qq=[-pd[1],pd[0]];if(qq[0]*g[0]+qq[1]*g[1]>0){qq[0]=-qq[0];qq[1]=-qq[1];}
+    lab(ctx,cx+pd[0]*rp+qq[0]*12,cy+pd[1]*rp+qq[1]*12,Math.abs(pd[0])>0.12?pd[0]:qq[0],m5.mid?(wide?'A cos '+ad+'°':'通过'):'A cos θ',C.violet,fs);
+    lab(ctx,cx+bd[0]*rb,cy+bd[1]*rb,bd[0],'挡掉',C.muted,fs);
+  }
+}
+/* 假如是纵波：侧面看，振动顺着前进方向来回，滤光片前后一样 */
+function side(ctx,cx,cy,L){
+  var x0=cx-L*1.55,x1=cx+L*1.55,ph=m5.t*OM,a=Math.min(11,L*0.22),k,px,dd;
+  ctx.fillStyle=rgba(C.light,0.45);ctx.fillRect(x0,cy-4,x1-x0-12,8);
+  arrow(ctx,x1-18,cy,x1,cy,C.light,3,11);
+  rrect(ctx,cx-4,cy-L*0.8,8,L*1.6,3);ctx.fillStyle=rgba(C.muted,0.28);ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+  for(k=0;k<4;k++){px=k<2?lerp(x0,cx,0.3+0.4*k):lerp(cx,x1-12,0.3+0.4*(k-2));
+    arrow(ctx,px,cy-11,px+a+3,cy-11,rgba(C.violet,0.4),1.3,6);arrow(ctx,px,cy-11,px-a-3,cy-11,rgba(C.violet,0.4),1.3,6);
+    dd=a*Math.sin(ph-k*0.9);dot(ctx,px+dd,cy,3.6,C.violet);}
+  txt(ctx,'滤光片',cx,cy+L*0.8+16,C.muted,11.5,500,'center');
+}
+
+/* I–θ 图：Malus' law 曲线 + booklet 实验点 + 现在的点 */
+function graph(ctx,x0,y0,w,h,wide){
+  var gray=m5.mid,YM=14,i,t,v,fs=11.5,px,py,lx,ly;
+  function X(a){return x0+a/180*w;}function Y(q){return y0+h-q/YM*h;}
+  seg(ctx,x0,Y(6),x0+w,Y(6),C.grid,1);seg(ctx,x0,Y(12),x0+w,Y(12),C.grid,1);
+  seg(ctx,x0,y0,x0,y0+h,C.muted,1.2);seg(ctx,x0,y0+h,x0+w,y0+h,C.muted,1.2);
+  txt(ctx,'0',x0-12,Y(0)+4,C.muted,fs,500,'right');txt(ctx,'6',x0-12,Y(6)+4,C.muted,fs,500,'right');txt(ctx,'12',x0-12,Y(12)+4,C.muted,fs,500,'right');
+  rt(ctx,'I (W m⁻²)',wide?16:12,y0-8,C.muted,fs,500,'left');
+  for(t=0;t<=180;t+=45){seg(ctx,X(t),y0+h,X(t),y0+h+4,C.muted,1);txt(ctx,t+'°',X(t),y0+h+20,C.muted,fs,500,'center');}
+  ctx.beginPath();for(t=0;t<=180;t+=2){v=IMAX*cos2(t);if(t)ctx.lineTo(X(t),Y(v));else ctx.moveTo(X(t),Y(v));}
+  ctx.strokeStyle=gray?rgba(C.muted,0.4):C.copper;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.setLineDash([]);ctx.stroke();
+  var lbx=null; /* 纵波预测标签的范围（竖的虚线要绕开它） */
+  if(m5.lon&&!gray){seg(ctx,X(0),Y(IMAX),X(180),Y(IMAX),C.violet,2,[7,5]);
+    var lfs=wide?12.5:12,lw5=rt(ctx,'纵波的预测：不随 θ 变（示意）',X(90),Y(IMAX)+22,C.violet,lfs,600,'center');
+    lbx=[X(90)-lw5/2-4,X(90)+lw5/2+4,Y(IMAX)+22+5];}
+  for(i=0;i<13;i++){t=i*15;v=EXP[i];
+    if(t<=90)dot(ctx,X(t),Y(v),3.6,gray?rgba(C.muted,0.45):C.copper);
+    else{dot(ctx,X(t),Y(v),3.6,C.stage);ring(ctx,X(t),Y(v),3.6,gray?rgba(C.muted,0.45):C.south,1.8);}}
+  if(gray){txt(ctx,'这张图是两片的实验',X(90),Y(10.4),C.muted,12.5,600,'center');txt(ctx,'（中间片开着时不适用）',X(90),Y(10.4)+18,C.muted,12,500,'center');}
+  else{v=m5.lon?IMAX:IMAX*cos2(m5.th);px=X(m5.th);py=Y(v);
+    var gtop=(lbx&&px>lbx[0]&&px<lbx[1])?lbx[2]:py+8;
+    if(gtop<y0+h)seg(ctx,px,y0+h,px,gtop,rgba(C.ink,0.4),1.2,[3,3]);ring(ctx,px,py,7.5,C.ink,2);}
+  /* 图例 */
+  ly=y0+h+(wide?38:35);lx=x0;
+  dot(ctx,lx+4,ly-4,3.6,gray?rgba(C.muted,0.45):C.copper);txt(ctx,'0°–90°',lx+12,ly,C.muted,fs,500);
+  ctx.font='500 '+fs+'px '+FONT;lx+=12+ctx.measureText('0°–90°').width+14;
+  dot(ctx,lx+4,ly-4,3.6,C.stage);ring(ctx,lx+4,ly-4,3.6,gray?rgba(C.muted,0.45):C.south,1.8);txt(ctx,'105°–180°',lx+12,ly,C.muted,fs,500);
+  lx+=12+ctx.measureText('105°–180°').width+12;
+  txt(ctx,'讲义实验点',lx,ly,C.muted,fs,500);
+}
+
+function step5(dt){m5.t+=dt;m5.uT+=dt;if(m5.uT>0.13){m5.uT=0;m5.ua=rnd()*TAU;m5.ul=0.55+0.45*rnd();}}
+build();
+for(var q5=0;q5<20;q5++)step5(1/60);
+
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?494:612;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i,y,f1s=wide?15:13.5,f2s=wide?14:13,lh=wide?22:18,key=ST[0]+'|'+ST[1]+'|'+W;
+    /* 状态提示 */
+    if(WC.k!==key){WC.k=key;WC.a=[wrap(ctx,ST[0],W-32,f1s,600),wrap(ctx,ST[1],W-32,f2s,500)];}
+    y=wide?26:20;
+    for(i=0;i<WC.a[0].length;i++){rt(ctx,WC.a[0][i],16,y,C.ink,f1s,600,'left');y+=lh;}
+    for(i=0;i<WC.a[1].length;i++){rt(ctx,WC.a[1][i],16,y,C.ink,f2s,500,'left');y+=lh;}
+    var sep1=wide?62:68,sep2=wide?246:220;
+    seg(ctx,0,sep1,W,sep1,C.line,1);
+    /* 光路 */
+    if(wide)strip(ctx,{wide:true,x0:12,x1:W-12,ty:88,cy:132,rm:30,bh:12,by:170,b1y:194,b2y:211,ay:232});
+    else strip(ctx,{wide:false,x0:8,x1:W-8,ty:88,cy:122,rm:22,bh:9,by:152,b1y:172,b2y:188,ay:205});
+    seg(ctx,0,sep2,W,sep2,C.line,1);
+    /* 右边（手机：中间）：振动分解或侧面图 + 读数 */
+    var cx,cy,L,tx,ty,ry,rx,lgx,lgy,tl;
+    if(wide){tx=Math.round(W*0.62);ty=270;cx=Math.round((tx+W-16)/2);cy=356;L=58;lgy=440;}
+    else{tx=12;ty=240;cx=Math.round(W*0.28);cy=318;L=48;lgy=394;}
+    tl=m5.lon?'侧面看（假如是纵波）':(wide&&m5.mid?'到达 analyser 的振动 A（从中间片来）':'到达 analyser 的振动 A');
+    rt(ctx,tl,tx,ty,C.ink,wide?13:12.5,600,'left');
+    if(m5.lon){side(ctx,cx,cy,L);
+      tl='● 振动顺着前进方向来回';lgx=wide?cx:tx;
+      txt(ctx,tl,lgx,lgy,C.violet,wide?12:11.5,600,wide?'center':'left');}
+    else{inset(ctx,cx,cy,L,wide);
+      var fl=wide?12:11.5,w1,w2;ctx.font='500 '+fl+'px '+FONT;w1=ctx.measureText('analyser 轴').width;w2=ctx.measureText('前一片的轴').width;
+      lgx=wide?cx-(22+w1+16+22+w2)/2:tx;
+      seg(ctx,lgx,lgy-4,lgx+18,lgy-4,C.ink,1.8);txt(ctx,'analyser 轴',lgx+22,lgy,C.muted,fl,500);
+      lgx+=22+w1+16;seg(ctx,lgx,lgy-4,lgx+18,lgy-4,rgba(C.muted,0.85),1.2,[4,4]);txt(ctx,'前一片的轴',lgx+22,lgy,C.muted,fl,500);}
+    if(wide){for(i=0;i<RW.length;i++)rt(ctx,RW[i],tx,463+i*20,i?C.muted:C.ink,12.5,i?500:600,'left');}
+    else{rx=Math.round(W*0.56);for(i=0;i<RN.length;i++)rt(ctx,RN[i],rx,262+i*19,C.ink,12.5,500,'left');
+      seg(ctx,0,404,W,404,C.line,1);}
+    /* I–θ 图 */
+    if(wide){rt(ctx,GH[0],16,270,C.ink,13.5,600,'left');graph(ctx,52,300,Math.round(W*0.58)-52,140,true);}
+    else{rt(ctx,GH[1],12,424,C.ink,12.5,600,'left');graph(ctx,40,452,W-58,118,false);}
+  }
+});
+
+function sync5(){
+  press(bMid,m5.mid);bMid.textContent=m5.mid?'拿走中间片':'中间加一片 45°';
+  press(bLon,m5.lon);bLon.textContent=m5.lon?'回到横波（真实）':'假如光是纵波';
+  oTh.textContent=m5.th+'°';build();S5.render();
+}
+rTh.addEventListener('input',function(){m5.th=clamp(Math.round(parseFloat(rTh.value)/15)*15,0,180);sync5();});
+/* 两个模式互斥：纵波的预测只对两片的实验画（中间片开着时图变灰） */
+bMid.addEventListener('click',function(){m5.mid=!m5.mid;if(m5.mid)m5.lon=false;sync5();});
+bLon.addEventListener('click',function(){m5.lon=!m5.lon;if(m5.lon)m5.mid=false;sync5();});
+})();
+</script>
+</body>
+</html>

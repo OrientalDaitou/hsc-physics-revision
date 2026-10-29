@@ -1,0 +1,1907 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M8 T5 标准模型与加速器</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m8">Module 8</a><span class="sep">/</span><span aria-current="page">Topic 5</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 8 · Topic 5</div>
+  <h1>Deep Inside the Atom</h1>
+  <p class="h1-sub">深入原子内部：标准模型和粒子加速器 · 零基础讲解</p>
+  <p class="lead">这一章往原子核更里面看：质子和中子也是由更小的粒子组成的。讲所有基本粒子和基本力的理论，叫标准模型。科学家用粒子加速器去检验它。新名字很多，但底下只有<b>三条规则</b>，先把这三条弄懂就简单了。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">The Standard Model</div>
+    <p><span class="t">Standard Model</span>（标准模型）：物质由 6 种 <span class="t">quark</span>（夸克）和 6 种 <span class="t">lepton</span>（轻子）组成。力靠 <span class="t">boson</span>（玻色子）传过去：gluon（胶子）、photon（光子）、W 和 Z。<span class="t">Gravity</span>（引力）不在里面。</p>
+    <div class="eqs">6 quarks + 6 leptons + bosons</div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Charges add up</div>
+    <p>一个 <span class="t">hadron</span>（强子）的电荷 = 它里面每个 quark 的电荷加起来。u、c、t 是 +⅔<i>e</i>，d、s、b 是 −⅓<i>e</i>，<span class="t">antiquark</span>（反夸克）反过来。加出来一定是 <i>e</i> 的整数倍。</p>
+    <div class="eqs"><i>Q</i> = <i>q</i><sub>1</sub> + <i>q</i><sub>2</sub> + <i>q</i><sub>3</sub></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">E pushes, B steers</div>
+    <p>电场让带电粒子变快：每过一个 <span class="t">gap</span>（缝隙），多 <i>qV</i> 的能量。磁场力永远和速度垂直：只拐弯，不做功。</p>
+    <div class="eqs"><i>W</i> = <i>qV</i><br><i>r</i> = <i>mv</i>/(<i>qB</i>)</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章内容">
+  <div class="map-row head"><span>部分</span><span>关键</span><span>用到的规则</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">5.1</span><span class="t">Evidence for quarks</span></span><span>SLAC 大角度反弹</span><span>① proton 里面有点状电荷：quarks</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">5.1</span><span class="t">Other subatomic particles</span></span><span>表 5.1 五种粒子</span><span>① 每种都有新的质量、电荷或行为</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">5.2</span><span class="t">The Standard Model</span></span><span>6 quarks + 6 leptons</span><span>① 粒子家族</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">5.2</span><span class="t">The four forces</span></span><span>4 种力；graviton <span style="white-space:nowrap">没找到</span></span><span>① boson 传力；weak 改 flavour</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">5.2</span><span class="t">Baryons and mesons</span></span><span><span class="m">uud、udd、ud̄</span></span><span>② 电荷加起来</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">5.3</span><span class="t">The linac</span></span><span><span class="m"><i>W</i> = <i>qV</i></span></span><span>③ 管子里滑行，gap 里被推</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">5.3</span><span class="t">The cyclotron</span></span><span><span class="m"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span></span><span>③ gap 推，B 拐弯，螺旋往外</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">5.3</span><span class="t">Synchrotron &amp; LHC</span></span><span>B 跟着 p 涨</span><span>③ 半径不变；迎面相撞</span></a>
+  <a class="map-row" href="#s9"><span><span class="sec">5.3</span><span class="t">What accelerators show</span></span><span>表 5.3</span><span>预言 → 证实；还缺 5 样</span></a>
+  <a class="map-row" href="#s10"><span><span class="sec">5.4</span><span class="t">Key experiments</span></span><span>2 个实验</span><span>③ 加速粒子；① 找到 quarks 和 Higgs</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 3 分钟过一遍下面的“先会这 4 样”，特别是分数加减和 palm rule。</li>
+    <li>5.1 和 5.2 是认粒子：先看图 5.2 的两张表，让学生自己算 proton 和 neutron 的电荷。5.3 是加速器：每个动画先让学生说“现在是电场在做事，还是磁场在做事”。</li>
+    <li>最后做“快问快答”，再看“常见错误”。计算题先写单位：eV × 1.602 × 10<sup>−19</sup> 得 J。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li>电荷用 <span class="m"><i>e</i></span> 做单位：<span class="m"><i>e</i> = 1.602 × 10<sup>−19</sup> C</span>。<span class="t">Proton</span>（质子）是 +<i>e</i>，<span class="t">electron</span>（电子）是 −<i>e</i>，<span class="t">neutron</span>（中子）不带电。反应前后，总电荷不变（电荷守恒）。还要会分数加减：<span class="m" style="white-space:nowrap">+⅔ + ⅔ − ⅓ = +1</span>。</li>
+    <li>Rutherford 的 <span class="t">gold foil</span>（金箔）实验（T2）：少数 alpha 粒子大角度反弹，说明正电荷集中在很小的 <span class="t">nucleus</span>（原子核）里。5.1 的 SLAC 是同一个道理，只是换成 electrons 去打 proton。</li>
+    <li>Module 6 的两种场：电荷走过电压 <span class="m"><i>V</i></span>，得到能量 <span class="m"><i>qV</i></span>。磁场力 <span class="m"><i>F</i> = <i>qvB</i> sin <i>θ</i></span>，方向用 <span class="t">right-hand palm rule</span>（右手掌定则）。它永远垂直于 <span class="m"><i>v</i></span>，只拐弯，所以给出圆周运动：<span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>。</li>
+    <li>前面学过的两个公式：<span class="m"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span>（T3：粒子越快，波长越短）；<span class="m" style="white-space:nowrap"><i>E</i> = <i>mc</i>²</span>（T1：能量能变成质量）。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">5.1</div>
+  <h2>proton 和 neutron 不是最小的<span class="en">Protons and neutrons are not fundamental</span></h2>
+  <p class="big"><span class="lbl">一句话</span>没有更小零件的粒子，叫 <span class="t">fundamental particle</span>（基本粒子）。electron 是；proton 和 neutron 不是，它们是由 quarks 组成的。</p>
+  <p>有三条证据。</p>
+
+  <h3>证据 ①：SLAC 的 deep inelastic scattering</h3>
+  <ul class="pts">
+    <li><span class="t">Deep inelastic scattering</span>（深度非弹性散射）：在 SLAC（美国的一个加速器），用很快的 electrons 去打 protons（实验见 5.4）。</li>
+    <li>electrons 打得很狠，把 proton 打碎了。“inelastic”就是这个意思：撞完以后，东西不是原来的样子了。</li>
+    <li>结果：大角度反弹的 electrons，比“平滑的 proton”允许的多得多（图 5.1）。</li>
+    <li>结论：proton 里有很小的、<span class="t">point-like</span>（点状的，像一个个小点）电荷。它们就是 quarks。</li>
+    <li>和 Rutherford 的金箔实验是同一个逻辑：大角度反弹 → 电荷集中在很小的点上。</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Model A：smooth proton</div><p>正电荷均匀铺满整个 proton。预言：electrons 都<b>只偏一点点</b>。</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">Model B：tiny charges inside</div><p>里面有几个点状电荷（u = up，d = down）。SLAC 看到：大角度反弹<b>多得多</b>。</p></div>
+  </div>
+  <p class="note">图 5.1：proton 的两种 model。大角度反弹，说明里面有点状电荷：quarks。</p>
+
+  <h3>证据 ②：beta decay（β 衰变）</h3>
+  <ul class="pts">
+    <li><span class="m">n → p + e<sup>−</sup> + <i style="text-decoration:overline">ν</i><sub>e</sub></span>（<span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span> 是 <span class="t">antineutrino</span>，反中微子）：neutron（udd）变成 proton（uud）。只是<b>一个</b> down quark 变成了 up quark。</li>
+    <li>如果 neutron 里面有零件，这就很好解释。所以它<b>支持</b> <span class="t">quark model</span>（夸克模型）。</li>
+    <li>但单靠它不算证明：<span class="t">muon</span>（μ子）是 fundamental，可它也会 <span class="t">decay</span>（衰变）。</li>
+  </ul>
+
+  <h3>证据 ③：particle zoo</h3>
+  <ul class="pts">
+    <li>1950s–60s，科学家发现了几百种新粒子，多得像动物园，叫 <span class="t">particle zoo</span>（粒子动物园）。</li>
+    <li>1964 年，Gell-Mann 和 Zweig 只用三种 quark（up、down、strange），就把它们全部搭了出来。</li>
+    <li>Gell-Mann 的规律（1962）还预言了一个新粒子 Ω<sup>−</sup>（sss）。1964 年真的找到了，和预言的一样。</li>
+  </ul>
+  <p>动画 1：electrons 一个一个射向 proton。先比较两种 model，再按“遮住内部”，像 SLAC 一样只看 electrons 往哪飞。动画里 quark 的颜色只表示电荷是正还是负。</p>
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">动画 1 · SLAC：electron 撞 proton，<span style="white-space:nowrap">为什么大角度说明有 quark</span></span><span class="sim-tag">俯视示意 · 不按比例 · 角度和计数：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="中间是一个 proton，electrons 从左边一个一个射进来，留下轨迹。Model A 里 proton 的正电荷均匀铺开，electrons 只被轻轻拉向中心；Model B 里有三个点状 quark（u、u、d），偶尔有 electron 擦过一个 quark，被大角度弹开，proton 被打碎成几条灰色碎片。旁边（手机上在下面）按散射角 0°–30°、30°–90°、90°–180° 统计出射的 electrons。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="proton 模型">
+      <button class="btn" type="button" id="s1-a" aria-pressed="false">Model A · smooth</button>
+      <button class="btn" type="button" id="s1-b" aria-pressed="true">Model B · quarks</button>
+    </span>
+    <button class="btn" type="button" id="s1-mask" aria-pressed="false">遮住 proton 内部：关</button>
+    <button class="btn" type="button" id="s1-clear">清空计数</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 现在是 Model B：大部分 electrons 离 quark 远，只偏一点；偶尔有一个正好擦过 quark，被大角度弹开，proton 被打碎（灰色碎片），这个 electron 也变慢了（能量交给了碎片）。绿色箭头是 electron 受的力：u（+⅔<i>e</i>）把 electron 吸过去，d（−⅓<i>e</i>）把它推开。② 换成 Model A：同一串 electrons、同样的入射位置，正电荷铺得很匀，electrons 只被轻轻拉向中心，30°–90° 和 90°–180° 两格一直是 0。③ 按“遮住 proton 内部”，像 SLAC 一样只看 electrons 往哪飞：只要不少 electrons 大角度飞出，就知道里面有点状电荷。和金箔实验是同一个道理（大角度 → 电荷集中在很小的点上）；不同的是 electron 带负电，被正电荷吸过去、往里拐，而且打得狠时 proton 会被打碎（inelastic）。液态氢里有很多 proton，每个 electron 打一个，画面把它们画在同一个位置。</p>
+</figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">5.1</div>
+  <h2>其他亚原子粒子<span class="en">Other subatomic particles</span></h2>
+  <p class="big"><span class="lbl">一句话</span>下面表里的每一种粒子都是“新”的：以前没有哪种粒子有它这样的质量、电荷或行为。</p>
+  <ul class="pts">
+    <li><span class="t">Antiparticle</span>（反粒子）：质量和它的搭档一样，电荷相反。</li>
+    <li>表 5.1 里的粒子，都不是 proton、neutron 或 electron。</li>
+    <li>在磁场里，往同一个方向走的正电荷和负电荷，往相反的方向弯（palm rule）。所以要先知道粒子往哪边走，再看轨迹往哪边弯，才知道电荷是正还是负（下表 positron 那一行的 lead plate，就是用来看方向的）。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>粒子</th><th>看到了什么，说明了什么</th></tr></thead>
+      <tbody>
+        <tr><td><span class="t">Positron</span><span style="white-space:nowrap">（正电子）</span>e<sup>+</sup>（1932）：第一个 antiparticle</td><td>Anderson 把 <span class="t">cloud chamber</span>（云室：带电粒子飞过，留下一串小水滴）放在磁场里。看到一条轨迹，像 electron 的，但往另一边弯（一块 <span class="t">lead plate</span>（铅板）显示它往哪个方向走），所以带正电。Dirac（1928）预言过它。</td></tr>
+        <tr><td>Muon μ<sup>−</sup>（1936）：很重的 electron</td><td><span class="t">Cosmic rays</span>（宇宙射线：从太空来的很快的粒子）留下的轨迹：电荷 −<i>e</i>，质量约 207 个 electron。</td></tr>
+        <tr><td><span class="t">Pions</span><span style="white-space:nowrap">（π介子）</span>π<sup>±</sup>（1947）：<span class="t">mesons</span><span style="white-space:nowrap">（介子，5.2 讲）</span></td><td>也是 cosmic rays 的轨迹：质量约 270 个 electron。</td></tr>
+        <tr><td><span class="t">Antiproton</span><span style="white-space:nowrap">（反质子）</span><span class="m">p̄</span>（1955）</td><td>在加速器里造出来：质量和 proton 一样，电荷 −<i>e</i>。</td></tr>
+        <tr><td><span class="t">Neutrino</span><span style="white-space:nowrap">（中微子）</span><span class="m"><i>ν</i></span>（1956）：不带电，质量很小</td><td>beta decay 放出的 electrons，能量有大有小。Pauli（1930）说：有一个看不见的粒子，带走了少掉的能量。后来在核反应堆旁边探测到它。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">表 5.1：不是 proton、neutron 或 electron 的几种粒子。</p>
+</section>
+
+<section id="s3">
+  <div class="secnum">5.2</div>
+  <h2>标准模型：粒子家族<span class="en">The Standard Model: particles and forces</span></h2>
+  <p class="big"><span class="lbl">一句话</span>Standard Model 是讲基本粒子和基本力的理论：6 种 quark、6 种 lepton，再加上传递力的 bosons（图 5.2）。</p>
+
+  <h3>四个关键词</h3>
+  <ul class="pts">
+    <li><span class="t">Quark</span>：一种基本的物质粒子（是 fermion，费米子），<b>会</b>感受到 <span class="t">strong force</span>（强相互作用）。</li>
+    <li><span class="t">Lepton</span>：一种基本的物质粒子，<b>不</b>感受 strong force。electron 就是一种 lepton。</li>
+    <li><span class="t">Hadron</span>：由 quarks 组成的粒子，比如 proton。</li>
+    <li><span class="t">Fermion</span> / <span class="t">boson</span>：<span class="t">spin</span>（自旋：粒子“自带的转动”）是半整数（比如 ½）/ 整数（比如 Higgs boson（希格斯玻色子）的 0）。</li>
+  </ul>
+
+  <h3>quark 和 lepton 的规矩</h3>
+  <ul class="pts">
+    <li>6 种 quark 叫 6 种 <span class="t">flavour</span>（味，就是“种类”）。它们分成 3 个 <span class="t">generation</span>（代），一代比一代重。</li>
+    <li>普通物质里的 quark 只有 u 和 d：proton 和 neutron 都是用它们搭的。</li>
+    <li><span class="t">Colour charge</span>（色荷）：strong force 的“电荷”。它不是真的颜色，只是一个名字。动画里 quark 的颜色也只表示电荷正负，不是 colour charge。</li>
+    <li><span class="t">Confinement</span>（夸克禁闭）：quark 永远不会单独出现，只待在 hadrons 里面。</li>
+    <li>Antiquark 头上加一横，电荷反过来：<span class="m">ū</span> 是 −⅔<i>e</i>，<span class="m">d̄</span> 是 +⅓<i>e</i>。</li>
+    <li>Neutrinos 质量很小，没有电荷，也没有 colour charge。所以只有 <span class="t">weak force</span>（弱相互作用）和 gravity 能作用在它们身上。</li>
+  </ul>
+
+  <h3>Standard Model 的全部粒子（图 5.2）</h3>
+  <p>物质粒子：12 种，都是 fermions（spin ½）。第一列下面的数是电荷，以 <i>e</i> 为单位。</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th><span style="white-space:nowrap">种类 ·</span> <span style="white-space:nowrap">电荷</span></th><th>第 1 代</th><th>第 2 代</th><th>第 3 代</th></tr></thead>
+      <tbody>
+        <tr><td><b>Quarks</b><br><span class="m">+⅔</span></td><td><b>u</b><br><span style="font-size:.87em">up</span></td><td><b>c</b><br><span style="font-size:.87em">charm</span></td><td><b>t</b><br><span style="font-size:.87em">top</span></td></tr>
+        <tr><td><b>Quarks</b><br><span class="m">−⅓</span></td><td><b>d</b><br><span style="font-size:.87em">down</span></td><td><b>s</b><br><span style="font-size:.87em">strange</span></td><td><b>b</b><br><span style="font-size:.87em">bottom</span></td></tr>
+        <tr><td><b>Leptons</b><br><span class="m">−1</span></td><td><b>e<sup>−</sup></b><br><span style="font-size:.87em">electron</span></td><td><b><i>μ</i><sup>−</sup></b><br><span style="font-size:.87em">muon</span></td><td><b><i>τ</i><sup>−</sup></b><br><span style="font-size:.87em">tau</span></td></tr>
+        <tr><td><b>Leptons</b><br><span class="m">0</span></td><td><b><span class="m"><i>ν</i><sub>e</sub></span></b><br><span style="white-space:nowrap;font-size:.87em">e-neutrino</span></td><td><b><span class="m"><i>ν</i><sub><i>μ</i></sub></span></b><br><span style="white-space:nowrap;font-size:.87em"><i>μ</i>-neutrino</span></td><td><b><span class="m"><i>ν</i><sub><i>τ</i></sub></span></b><br><span style="white-space:nowrap;font-size:.87em"><i>τ</i>-neutrino</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Bosons：spin 是整数。</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>粒子</th><th>做什么</th></tr></thead>
+      <tbody>
+        <tr><td><b>g</b> <span class="t">gluon</span><span style="white-space:nowrap">（胶子）</span></td><td>传递 strong force</td></tr>
+        <tr><td><b><i>γ</i></b> <span class="t">photon</span><span style="white-space:nowrap">（光子）</span></td><td>传递 EM force（EM = electromagnetic，电磁）</td></tr>
+        <tr><td><b>W<sup>±</sup></b> <span class="t">W bosons</span></td><td>传递 weak force</td></tr>
+        <tr><td><b>Z<sup>0</sup></b> <span class="t">Z boson</span></td><td>传递 weak force</td></tr>
+        <tr><td><b>H</b> <span class="t">Higgs boson</span></td><td>spin 0（5.2 后面讲）</td></tr>
+        <tr><td><b>G?</b> <span class="t">graviton</span><span style="white-space:nowrap">（引力子）</span></td><td>从来没找到过；<b>不在</b> Standard Model 里</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="secnum">5.2</div>
+  <h2>四种基本力<span class="en">The four fundamental forces</span></h2>
+  <p class="big"><span class="lbl">一句话</span>strong、EM、weak 三种力都靠 boson 传过去（weak 有 W<sup>+</sup>、W<sup>−</sup>、Z<sup>0</sup> 三个）；gravity 的 graviton 从来没找到。四种力里，strong 最强，gravity 最弱；只有 weak force 能把一种 quark 变成另一种。</p>
+  <ul class="pts">
+    <li><span class="t">Exchange particle</span>（交换粒子）：传递力的 boson。像两个溜冰的人互相扔一个球：一扔一接，两个人就被推开了。</li>
+  </ul>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>力</th><th>谁来传递</th><th>作用在谁身上</th><th>强度</th><th>作用距离</th></tr></thead>
+      <tbody>
+        <tr><td><span class="t">Strong</span>（强相互作用）</td><td>gluons (g)</td><td>quarks 和 gluons</td><td class="f">1</td><td class="f">10<sup>−15</sup> m</td></tr>
+        <tr><td><span class="t">Electromagnetic</span>（电磁相互作用）</td><td>photon (<i>γ</i>)</td><td>带电粒子</td><td class="f">10<sup>−2</sup></td><td>没有限制</td></tr>
+        <tr><td><span class="t">Weak</span>（弱相互作用）</td><td>W<sup>+</sup>、W<sup>−</sup>、Z<sup>0</sup></td><td>所有 quarks 和 leptons</td><td class="f">10<sup>−6</sup></td><td class="f">10<sup>−18</sup> m</td></tr>
+        <tr><td><span class="t">Gravity</span>（引力）</td><td>graviton?（没找到）</td><td>所有质量和能量</td><td class="f">10<sup>−38</sup></td><td>没有限制</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">表 5.2：强度是和 strong force 比的大概值，不同的书略有不同。</p>
+  <ul class="pts">
+    <li><b>Strong：</b>quarks 之间的拉力，有一点“漏”到 proton 和 neutron 外面。就是这一点点力，把 nucleus 拉在一起，虽然 protons 互相排斥。这就是 T4 里的 <span class="t">strong nuclear force</span>（核力）。</li>
+    <li><b>Weak：</b><b>唯一</b>能改变 quark flavour 的力。<span class="t">W and Z bosons</span>（W和Z玻色子）很重（约 86 和 97 个 proton 的质量），所以活得很短，作用距离（<span class="t">range</span>）很小。</li>
+    <li><b>Beta-minus（β<sup>−</sup>）：</b><span class="m" style="white-space:nowrap">d → u + W<sup>−</sup></span>，然后 <span class="m" style="white-space:nowrap">W<sup>−</sup> → e<sup>−</sup> + <i style="text-decoration:overline">ν</i><sub>e</sub></span>。电荷对一下：<span class="m" style="white-space:nowrap">−⅓ = +⅔ − 1</span>。</li>
+    <li><b>Beta-plus（β<sup>+</sup>，只在原子核里面发生）：</b><span class="m" style="white-space:nowrap">u → d + W<sup>+</sup></span>，然后 <span class="m" style="white-space:nowrap">W<sup>+</sup> → e<sup>+</sup> + <i>ν</i><sub>e</sub></span>。电荷：<span class="m" style="white-space:nowrap">+⅔ = −⅓ + 1</span>。</li>
+    <li><span class="t">Higgs field</span>（希格斯场）：它给大多数基本粒子质量。Higgs field 像一片水面，它的“波纹”就是 <span class="t">Higgs boson</span>（希格斯玻色子）。</li>
+  </ul>
+  <p>动画 2：一步一步看 beta decay 在 quark 里面发生了什么。下面的“电荷账本”每一步都对一遍。</p>
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">动画 2 · Beta decay 在 quark 里面：<span style="white-space:nowrap">一个 d 变成 u</span></span><span class="sim-tag"><span style="text-transform:none"><span style="white-space:nowrap">反应式、电荷、W 的质量、range：讲义</span> · <span style="white-space:nowrap">方向、速度、能量分配：示意</span></span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="一个 neutron（大圆）里有三个 quark：u、d、d。第 1 步，一个 d 闪一下变成 u，同时放出绿色的 W⁻；第 2 步，W⁻ 几乎在原地变成 e⁻ 和 ν̄e，两个往不同方向飞走；第 3 步，大圆变成 proton（u、u、d）。右边（手机上是下面）是每一步的电荷账本，和这一次 e⁻ 分到多少能量。切到 β⁺ 时，proton 画在原子核里，一个 u 变成 d，放出 W⁺，W⁺ 变成 e⁺ 和 νe。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="衰变类型">
+      <button class="btn" type="button" id="s2-bm" aria-pressed="true">β<sup>−</sup>：n → p</button>
+      <button class="btn" type="button" id="s2-bp" aria-pressed="false">β<sup>+</sup>：p → n（原子核里）</button>
+    </span>
+    <button class="btn" type="button" id="s2-next">下一步</button>
+    <button class="btn" type="button" id="s2-again">再来一次</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 按“下一步”，一步一步看：先是一个 d 闪一下变成 u，同时放出 W<sup>−</sup>；再按，W<sup>−</sup> 几乎在原地就变成 e<sup>−</sup> 和 <span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span>，往两个方向飞走；再按，大圆从 neutron 变成 proton。每一步都对一下右边（手机上是下面）的电荷账本：等号两边一定相等。② 多按几次“再来一次”：e<sup>−</sup> 每次分到的能量都不一样，剩下的被看不见的 <span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span> 带走。这就是 Pauli（1930）说一定还有一个粒子（neutrino）的原因。neutrino 几乎以光速飞；e<sup>−</sup> 比它慢，分到的能量越少，飞得越慢。③ 切到 β<sup>+</sup>：proton 在原子核里，一个 u 变成 d，放出 W<sup>+</sup>，W<sup>+</sup> 再变成 e<sup>+</sup>（红色空心小圈）和 <span class="m"><i>ν</i><sub>e</sub></span>。β<sup>−</sup> 配 <span class="m"><i style="text-decoration:overline">ν</i><sub>e</sub></span>，β<sup>+</sup> 配 <span class="m"><i>ν</i><sub>e</sub></span>，不能写反；前后都是 3 个 quark，还是 baryon（重子，下一节讲）。quark 的颜色只表示电荷正负（u 型红、d 型蓝），不是 colour charge。</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">5.2</div>
+  <h2>强子：重子和介子<span class="en">Hadrons: baryons and mesons</span></h2>
+  <p class="big"><span class="lbl">一句话</span>quarks 只会成组出现：三个 quark 一组的叫 baryon，一个 quark 加一个 antiquark 的叫 meson。它们的电荷，就是里面 quark 电荷的和。</p>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Baryon（重子）= 3 个 quark</div><p>proton（uud）、neutron（udd）。三个半整数 spin 加起来还是半整数，所以 baryons 是 <b>fermions</b>。</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Meson（介子）= quark + antiquark</div><p>比如 pion π<sup>+</sup>（<span class="m">ud̄</span>）。两个半整数 spin 加起来是整数，所以 mesons 是 <b>bosons</b>。Mesons 全都不稳定。</p></div>
+  </div>
+
+  <h3>算三个电荷</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Hadron</th><th>Quarks</th><th>电荷加起来</th><th><i>Q</i></th></tr></thead>
+      <tbody>
+        <tr><td class="t">proton</td><td class="m">uud</td><td class="f">+⅔ + ⅔ − ⅓</td><td class="f">+1</td></tr>
+        <tr><td class="t">neutron</td><td class="m">udd</td><td class="f">+⅔ − ⅓ − ⅓</td><td class="f">0</td></tr>
+        <tr><td class="t">pion π<sup>+</sup></td><td class="m">ud̄</td><td class="f">+⅔ + ⅓</td><td class="f">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Charge of a hadron · 强子的电荷</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>Q</i> = <i>q</i><sub>1</sub> + <i>q</i><sub>2</sub> + <i>q</i><sub>3</sub>（baryon）</span><span style="display:inline-block;margin:0 .6em"><i>Q</i> = <i>q</i><sub>1</sub> + <i>q</i><sub>2</sub>（meson）</span></div>
+    <dl class="sym">
+      <div><dt>Q</dt><dd>hadron 的电荷（以 <i>e</i> 为单位）</dd></div>
+      <div><dt>q<sub>1</sub>, q<sub>2</sub>, q<sub>3</sub></dt><dd>每个 quark 的电荷（以 <i>e</i> 为单位）</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>电荷守恒，所以 hadron 的电荷就是里面每个 quark 的电荷加起来。<br><b>陷阱：</b>antiquark 要把符号反过来：<span class="m">d̄</span> 是 +⅓，不是 −⅓。加出来一定是 <i>e</i> 的整数倍；算出分数，就是算错了。</p>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="secnum">5.3</div>
+  <h2>加速器怎样加速：直线加速器<span class="en">Particle accelerators · The linear accelerator (linac)</span></h2>
+  <p class="big"><span class="lbl">一句话</span>电场让带电粒子变快，磁场让它拐弯。很快的粒子撞在一起，用来检验 Standard Model。</p>
+
+  <h3>为什么要加速？两个原因</h3>
+  <ol class="pts">
+    <li><b>看得更细：</b>波只能看清比它的波长大的东西。<span class="t">Momentum</span>（动量）越大，波长 <span class="m"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span> 越短（接近 <span class="m"><i>c</i></span> 时用 <span class="m"><i>p</i><sub>v</sub></span>）。SLAC 的 <span class="m" style="white-space:nowrap"><i>λ</i> ≈ 6 × 10<sup>−17</sup> m</span>，比 proton 小 27 倍。就像粗的笔画不出细的线：波长就是“笔尖”有多粗。</li>
+    <li><b>造新粒子：</b>动能可以变成新的质量（<span class="m" style="white-space:nowrap"><i>E</i> = <i>mc</i>²</span>）。造一对 particle–antiparticle（一个粒子和它的反粒子），至少要 <span class="m">2<i>mc</i>²</span> 的能量。</li>
+  </ol>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Matter waves; mass and energy · 物质波；质量和能量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span><span style="display:inline-block;margin:0 .6em"><i>E</i> = <i>mc</i>²</span></div>
+    <dl class="sym">
+      <div><dt>λ</dt><dd>波长 (m)</dd></div>
+      <div><dt>h</dt><dd><span class="t">Planck constant</span>（普朗克常量）(J s)</dd></div>
+      <div><dt>m, v</dt><dd>质量 (kg)；速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>E, c</dt><dd>能量 (J)；光速 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b><span class="m"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span> 只在低于约 0.1<i>c</i> 时用（<span class="t">matter waves</span>，物质波）；更快的用 <span class="m"><i>λ</i> = <i>h</i>/<i>p</i><sub>v</sub></span>（5.3 后面）。<span class="m" style="white-space:nowrap"><i>E</i> = <i>mc</i>²</span>：造一对粒子要 <span class="m">2<i>mc</i>²</span>。总表分别记在 Ch. 3、5 和 Ch. 1、4、5。</p>
+  </div>
+
+  <h3>电场推，磁场拐弯</h3>
+  <ul class="pts">
+    <li>电场让电荷变快：每过一个 gap，多 <span class="m"><i>W</i> = <i>qV</i></span> 的能量。从静止开始过了 <span class="m"><i>n</i></span> 个 gap：<span class="m"><i>K</i> = <i>nqV</i></span>。</li>
+    <li>能量常用 eV（<span class="t">electronvolt</span>，电子伏特）：<span class="m">1 eV = 1.602 × 10<sup>−19</sup> J</span>。电荷 <i>e</i> 走过 1 V，就多 1 eV。</li>
+    <li>磁场力 <span class="m"><i>F</i> = <i>qv</i><sub>⊥</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></span> 永远和 <span class="m"><i>v</i></span> 成 90°。它只让粒子拐弯，<b>不做功</b>，速率不变。</li>
+    <li>只有<b>带电</b>的粒子能被加速。不带电的粒子（比如 neutron），电场和磁场都推不动它。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy from an electric field · 电场给的能量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>qV</i></span><span style="display:inline-block;margin:0 .6em"><i>n</i> 个 gap：<i>K</i> = <i>nqV</i></span></div>
+    <dl class="sym">
+      <div><dt>W</dt><dd>过一个 gap 得到的能量 (J)</dd></div>
+      <div><dt>q</dt><dd>电荷 (C)</dd></div>
+      <div><dt>V</dt><dd>gap 两边的电压 (V)</dd></div>
+      <div><dt>n</dt><dd>过了几个 gap（没有单位）</dd></div>
+      <div><dt>K</dt><dd>动能 (J)</dd></div>
+    </dl>
+    <p class="trap"><b>例子：</b>一个 proton（<i>q</i> = <i>e</i>）过一个 1000 V 的 gap：<span class="m"><i>W</i> = 1.602 × 10<sup>−19</sup> × 1000 = 1.602 × 10<sup>−16</sup> J</span>，也就是 1000 eV。<br><b>要求速度：</b>再用 <span class="m"><i>K</i> = ½<i>mv</i>²</span>（也在 sheet 上）。<br><b>陷阱：</b>sheet 上印的是 <span class="m"><i>W</i> = <i>qV</i></span>；<span class="m"><i>K</i> = <i>nqV</i></span> 只在从静止开始时成立。答案要 J，就要乘 1.602 × 10<sup>−19</sup>；要 eV 就不用乘。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Magnetic force; net force to the centre · 磁场力和向心力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>F</i> = <i>qv</i><sub>⊥</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>q, v</dt><dd>电荷 (C)；速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>磁场强度 (T)</dd></div>
+      <div><dt>θ</dt><dd><i>v</i> 和 <i>B</i> 的夹角</dd></div>
+      <div><dt>F<sub>c</sub></dt><dd>指向圆心的合力 (N)</dd></div>
+      <div><dt>m, r</dt><dd>质量 (kg)；圆的半径 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b><i>v</i> ⊥ <i>B</i>（<i>θ</i> = 90°）时，磁场力就是 <i>F</i><sub>c</sub>，粒子走圆周。下一节 cyclotron 的公式就是这样来的。总表记在 Ch. 2、5。<br><b>陷阱：</b>磁场力不做功，不能让粒子变快。变快只能靠电场。</p>
+  </div>
+
+  <h3>直线加速器（linac）</h3>
+  <p><span class="t">Linac</span>（linear accelerator，直线加速器）：一排直直的、空心的金属管，叫 <span class="t">drift tubes</span>（漂移管）。管子轮流接到 AC 电源的两头：这一根接这头，下一根接那头（图 5.3，动画 3 照它画）。最左边是 <span class="t">proton source</span>（质子源）。</p>
+  <ol class="pts">
+    <li><b>在管子里：</b>金属管里面没有电场，粒子匀速滑行（<span class="t">coast</span>）。</li>
+    <li><b>在 gap：</b>两根管子之间的 gap 里有电场，推粒子一下，粒子变快。</li>
+    <li><b>换向：</b>粒子在管子里的时候，AC 把每根管子的 + 和 − 换过来。所以到了下一个 gap，电场还是往前推。图 5.3 画的是某一瞬间：半个周期以后，每个 + 和 − 都换过来。</li>
+  </ol>
+  <ul class="pts">
+    <li>粒子越来越快，所以管子一根比一根<b>长</b>。这样它在每根管子里的时间都正好是半个 AC 周期，节奏不乱。</li>
+    <li>类比：推秋千。每次在对的时候推一下，越荡越高；推错了时候，反而把它推慢。</li>
+    <li>极限：长度。SLAC 的 linac 有 3.2 km 长。</li>
+    <li>用途：在医院里产生 <span class="t">X-rays</span>（X 射线）治癌症。</li>
+  </ul>
+  <p>动画 3：proton 在管子里滑行，在 gap 里被推一下；从最后一根管子出来的，就是一束很快的 protons，叫 <span class="t">beam</span>（粒子束）。试试把 AC 换向关掉，或者把管子改成一样长。</p>
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">动画 3 · Linac：管子里滑行，gap 里被推</span><span class="sim-tag"><span style="text-transform:none">照 Figure 5.3</span> · 电压、管长、AC 频率：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="照讲义 Figure 5.3 画的 linac：左边是 proton source，右边一排越来越长的金属 drift tubes，交替接到 AC 的两端，每根管子上标 + 或 −，每隔一段时间所有 + 和 − 一起互换。红色的 proton 在管子里匀速滑行；到了两根管子之间的 gap，紫色的电场箭头从 + 管指向 − 管，绿色的力推它一下。下面是 K–t 阶梯图：在管子里是平的，每过一个 gap 跳高 qV，虚线是 AC 换向的时刻。右边或下面是读数：过了几个 gap、K、速度和管长是第 1 根管子的几倍。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <button class="btn" type="button" id="s3-ac" aria-pressed="true">AC 换向：开</button>
+    <span class="seg" role="group" aria-label="管子长度">
+      <button class="btn" type="button" id="s3-grow" aria-pressed="true">管子越来越长</button>
+      <button class="btn" type="button" id="s3-same" aria-pressed="false">管子一样长</button>
+    </span>
+    <button class="btn" type="button" id="s3-reset">重来</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看一遍：proton 在管子里匀速滑行（K–t 图是平的）；一到 gap，紫色的电场 <i>E</i> 从 + 管指向 − 管，推它一下，<i>K</i> 跳高 <i>qV</i>。proton 每次在管子里的时候，所有 + 和 − 互换一次，所以下一个 gap 也是推（source 也接在 AC 上，第 1 个 gap 在 source 和第 1 根管子之间）。② 按“AC 换向：开”把它关掉：+ 和 − 不再换，相邻的 gap 一个向前、一个向后，proton 一会儿被推、一会儿被往回推，加不了速。③ 选“管子一样长”：proton 越来越快，提前到了 gap，电场还没换过来，被往回推，<i>K</i> 掉下来。④ 管子越来越长时，K–t 图上每一段平的一样长：每根管子走的时间一样。（画面里 gap 比较宽，过 gap 也要一点时间，所以是“一根管子 + 一个 gap”正好半个 AC 周期，虚线比平的一段隔得远一点；真的 gap 很窄，就是讲义说的“每根管子半个周期”。）读数里的 <i>v</i> 和管长都写成第 1 根管子的几倍（<i>v</i><sub>1</sub>、<i>L</i><sub>1</sub>），两个数一样：<i>v</i> ∝ √<i>n</i>，所以管长 ∝ √<i>n</i>。</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">5.3</div>
+  <h2>回旋加速器<span class="en">The cyclotron</span></h2>
+  <p class="big"><span class="lbl">一句话</span>磁场让离子转圈，每转半圈过一次 gap，被电场推一下。越转越快，圈越来越大，走出一条往外的螺旋线。</p>
+  <ul class="pts">
+    <li><span class="t">Cyclotron</span>（回旋加速器）：两个空心的 D 形金属盒，叫 <span class="t">dees</span>（D形盒），放在匀强磁场里。AC 接在两个 dee 之间的 gap 两边（图 5.4，动画 4 照它画：从上往下看，<i>B</i> 指向纸里）。</li>
+    <li>被加速的是 <span class="t">ion</span>（离子：带电的原子）。它从中间的 <span class="t">ion source</span>（离子源）出发。</li>
+    <li><b>在 gap：</b>电场让 ion 变快。</li>
+    <li><b>在 dee 里：</b>没有电场，只有 <i>B</i>。<i>B</i> 让它走半个圆。</li>
+    <li>越快，圆越大，所以路径一圈圈往外，是螺旋线。正 ion 逆时针转，到最外面沿切线飞出去（exit）。</li>
+    <li>ion 在 dee 里的时候，AC 换向。所以每次过 gap，都是被往前推。</li>
+    <li>巧的是：半径大了，速度也大了，转半圈的时间不变。所以 AC 只要一个固定的频率。</li>
+    <li>极限：接近 <i>c</i> 时，每圈要更久，ion 跟不上 AC 的节奏。</li>
+    <li>用途：做 PET 扫描（医学检查）用的 <span class="t">isotopes</span>（同位素）；治疗肿瘤。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">A charge moving in a circle in a magnetic field · 电荷在磁场里转圈</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span><span style="display:inline-block;margin:0 .6em"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span></div>
+    <dl class="sym">
+      <div><dt>r, T</dt><dd>圆的半径 (m)；周期，转一整圈的时间 (s)</dd></div>
+      <div><dt>m, v</dt><dd>质量 (kg)；速度，和 <i>B</i> 成 90° 的那部分 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>q, B</dt><dd>电荷 (C)；磁场强度 (T)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>远低于 <i>c</i>。<i>T</i> 和速度无关，所以 cyclotron 的 AC 只要一个固定频率：<span class="m"><i>f</i> = 1/<i>T</i> = <i>qB</i>/(2π<i>m</i>)</span>。接近 <i>c</i> 时用 <span class="m"><i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>)</span>。<br><b>怎么来的：</b>磁场力（<i>θ</i> = 90°）= 向心力（两个都在 sheet 上）：<span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span>，所以 <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span>。再用 <span class="m"><i>T</i> = 2π<i>r</i>/<i>v</i> = 2π<i>m</i>/(<i>qB</i>)</span>：<i>v</i> 约掉了。<br><b>例子（计算值）：</b>proton 在 <span class="m"><i>B</i> = 1.0 T</span> 里：<span class="m"><i>T</i> = 2π × 1.673 × 10<sup>−27</sup> / (1.602 × 10<sup>−19</sup> × 1.0) ≈ 6.56 × 10<sup>−8</sup> s</span>，<span class="m"><i>f</i> ≈ 15.2 MHz</span>。<br><b>陷阱：</b><i>r</i> 是半径，不是直径。<i>T</i> 里的 2π 别丢。</p>
+  </div>
+  <p>动画 4：从上往下看 cyclotron。半径越来越大，但每半圈的时间都一样。</p>
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">动画 4 · Cyclotron：螺旋往外，每半圈时间一样</span><span class="sim-tag"><span style="text-transform:none"><span style="white-space:nowrap">从上往下看</span> · <span style="white-space:nowrap">B 指向纸里</span> · <span style="white-space:nowrap">f、T：计算值</span> · <span style="white-space:nowrap">V、dee、r：示意</span></span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="从上往下看的 cyclotron：左右两个 D 形的 dee 放在指向纸里的磁场 B 里，gap 两边接 AC。一个 proton 从中心的 ion source 出发，逆时针转；在 dee 里走半个圆，绿色的力 F 一直指向圆心；每过一次 gap 被紫色的电场推一下，下一个半圆更大，螺旋往外，最后从边上飞出。右边（手机上在下面）是读数和两张小图：每个半圆的半径越来越大，每半圈用的时间却都一样。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range"><i>B</i> <input type="range" id="s4-B" min="0.5" max="2" step="0.1" value="1"><output id="s4-B-out" for="s4-B">1.0 T</output></label>
+      <button class="btn" type="button" id="s4-c" aria-pressed="false">接近 c：关</button>
+      <button class="btn" type="button" id="s4-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 先看绿色的 <i>F</i>：它一直指向这个半圆的圆心，和 <i>v</i> 垂直，所以 ion 在 dee 里只拐弯，不变快。只有过 gap 时，紫色的电场 <i>E</i> 才推它一下。② 看右边（手机上在下面）的两张小图：半径一个比一个大，每半圈用的时间却都一样（<i>T</i> = 2π<i>m</i>/(<i>qB</i>) 里没有 <i>v</i>），所以 AC 用一个固定的频率，每次都能推对方向。③ 把 <i>B</i> 拉到 2.0 T：圆变小（<i>r</i> ∝ 1/<i>B</i>），转得更快（<i>f</i> 变成 30.5 MHz），在 dee 里能多转很多圈。④ 打开“接近 c”：ion 越快，每半圈越久，到 gap 时 AC 已经换号了，被往回推，圆又变小。说明：这里的 positive ion 是 proton；<i>f</i>、<i>T</i> 是用 data sheet 的 <i>m</i><sub>p</sub> 和 <i>e</i> 算的计算值；<i>r</i> 和 <i>K</i> 是用示意的 gap 电压 <i>V</i> = 50 kV 算的；dee 半径 12 cm 也是示意；“接近 c”把效果放大了（示意）；AC 画成“到时间就整体换号”。</p>
+  </figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">5.3</div>
+  <h2>同步加速器和大型强子对撞机<span class="en">The synchrotron and the Large Hadron Collider</span></h2>
+  <p class="big"><span class="lbl">一句话</span>Synchrotron 让粒子一直在同一个环上转：粒子越快，磁场就跟着越强。两束粒子迎面相撞，所有动能都能用来造新粒子。</p>
+  <ul class="pts">
+    <li>Cyclotron 的磁铁要盖住整个螺旋。粒子越快，螺旋越大，磁铁就要越大。</li>
+    <li><span class="t">Synchrotron</span>（同步加速器）：粒子一直在一个<b>半径固定</b>的环上转。进这个环之前，先经过一个 linac 和几个小一些的环。</li>
+    <li><span class="t">RF cavity</span>（射频腔：一个电场变得很快的盒子）：粒子每转一圈，它推一次，踩准节奏。“synchro”就是“同步”的意思。</li>
+    <li>粒子的 momentum 越来越大，<i>B</i> 也跟着涨，所以 <span class="m"><i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>)</span> 不变。</li>
+    <li><span class="t">Collider</span>（对撞机）：两束粒子迎面相撞，总 momentum 是 0，所以全部动能都能用来造新粒子。如果去撞一个不动的靶子，撞出来的东西还得继续往前飞，一部分动能就用不上了。</li>
+    <li><span class="t">Large Hadron Collider</span>（大型强子对撞机，LHC，在 CERN）：27 km 的环，8 T 的磁铁，每次碰撞 13.6 TeV（13.6 × 10<sup>12</sup> eV）。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Momentum near c · 接近光速时的动量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>p</i><sub>v</sub> = <i>m</i><sub>0</sub><i>v</i> / √<span style="border-top:1px solid currentColor;padding-top:.06em">(1 − <i>v</i>²/<i>c</i>²)</span></div>
+    <dl class="sym">
+      <div><dt>p<sub>v</sub></dt><dd><span class="t">relativistic momentum</span>（相对论动量）：速度为 <i>v</i> 时的 momentum (kg m s<sup>−1</sup>)</dd></div>
+      <div><dt>m<sub>0</sub></dt><dd><span class="t">rest mass</span>（静止质量）(kg)</dd></div>
+      <div><dt>v, c</dt><dd>速度；光速 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>比约 0.1<i>c</i> 快的时候。<i>v</i> 越接近 <i>c</i>，根号越接近 0，<i>p</i><sub>v</sub> 就越大。所以 synchrotron 的 <i>B</i> 要一直往上涨。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Wavelength and radius near c · 接近光速时的波长和半径</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>λ</i> = <i>h</i>/<i>p</i><sub>v</sub></span><span style="display:inline-block;margin:0 .6em"><i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>)</span></div>
+    <dl class="sym">
+      <div><dt>λ, h</dt><dd>波长 (m)；Planck constant (J s)</dd></div>
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+      <div><dt>q, B</dt><dd>电荷 (C)；磁场强度 (T)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>比约 0.1<i>c</i> 快的时候。总表记在 Ch. 3、5。<br><b>也可以自己推导：</b>把 <span class="m"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span> 和 <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span> 里的 <span class="m"><i>mv</i></span> 换成 <span class="m"><i>p</i><sub>v</sub></span>。<br><b>在这一章：</b>synchrotron 的 <i>r</i> 固定，所以 <i>B</i> 要和 <i>p</i><sub>v</sub> 一起涨。</p>
+  </div>
+  <p>动画 5：先看 synchrotron 里 <i>B</i> 怎样跟着 <i>p</i> 涨，再按“对撞”，看 <span class="t">detector</span>（探测器）里的轨迹。</p>
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">动画 5 · Synchrotron 和 collider：<span style="white-space:nowrap">B 跟着涨，两束对撞</span></span><span class="sim-tag"><span style="white-space:nowrap">从上往下看</span> · <span style="white-space:nowrap">B 指向纸里</span> · <span style="white-space:nowrap">数值和轨迹：示意</span> · <span style="white-space:nowrap">LHC 数据：讲义</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="左边是从上往下看的 synchrotron：一圈 bending magnets（× 表示 B 指向纸里），中间一条 beam pipe，最下面一个 RF cavity。红色的一团 proton 逆时针转，铜色箭头是 momentum，绿色箭头是指向圆心的磁场力 F。右边（手机上在下面）三张小图共用一条横轴（圈数）：momentum 和 B 一起涨，半径 r 是一条平线。B 不变时 beam 往外漂，撞到管壁。按“对撞！”后换成 detector 画面：两团 proton 迎面撞，撞出红色（正电荷，逆时针弯）和蓝色（负电荷，顺时针弯）的轨迹。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <span class="seg" role="group" aria-label="磁场 B 怎样变">
+      <button class="btn" type="button" id="s5-sync" aria-pressed="true"><i>B</i> 跟着 <i>p</i><sub>v</sub> 涨（同步）</button>
+      <button class="btn" type="button" id="s5-fix" aria-pressed="false"><i>B</i> 不变</button>
+    </span>
+    <button class="btn" type="button" id="s5-hit" aria-pressed="false">对撞！</button>
+    <button class="btn" type="button" id="s5-reset">重来</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 先看环：红色的一团 proton 每过一次 RF cavity，紫色的 <i>E</i> 推它一下，铜色的 <i>p</i><sub>v</sub> 箭头就长一点。三张小图对齐看：<i>p</i><sub>v</sub> 和 <i>B</i> 一起涨，<i>r</i> 是一条平线，因为 <i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>) 的分子和分母一起变大。绿色的 <i>F</i> = <i>qvB</i> 一直指向圆心：<i>B</i> 变大，<i>F</i> 也变大，才拐得过来。② 按“<i>B</i> 不变”：<i>F</i> 不再变大，<i>p</i><sub>v</sub> 却还在涨，拐不过来 → <i>r</i> 变大，beam 往外漂，一两圈就撞到管壁，丢了。③ 按“对撞！”：两束 proton 的 <i>p</i><sub>v</sub> 一样大、方向相反，总 momentum = 0，所有动能都能用来造新粒子（<i>E</i> = <i>mc</i>²）。看 detector：<i>B</i> 指向纸里，红色（正电荷）逆时针弯，蓝色（负电荷）顺时针弯，越直的 momentum 越大；进来的两束 proton momentum 非常大，在 detector 里几乎不弯，所以画成直线；中性粒子不留轨迹（和 cloud chamber 一样）。LHC 里的 proton 已经很接近 <i>c</i>，每圈 <i>v</i> 几乎不变，变大的是 momentum。</p>
+</figure>
+</section>
+
+<section id="s9">
+  <div class="secnum">5.3</div>
+  <h2>加速器证实了什么，还缺什么<span class="en">What accelerators have shown · Why our understanding is still incomplete</span></h2>
+  <p class="big"><span class="lbl">一句话</span>理论先预言一个粒子，加速器再去把它找出来：Standard Model 一次次被证实。但它还不完整，有几件大事它解释不了。</p>
+  <ul class="pts">
+    <li>Detector 记录撞出来的东西。轨迹往哪边弯，告诉我们电荷是正还是负；弯得多少，告诉我们 momentum 多大（越直，momentum 越大）。</li>
+    <li>质量用 GeV/<i>c</i>² 做单位（1 GeV = 10<sup>9</sup> eV；<span class="t">rest energy</span>，静止能量，用 GeV）。这是因为 <span class="m" style="white-space:nowrap"><i>E</i> = <i>mc</i>²</span>，所以 <span class="m" style="white-space:nowrap"><i>m</i> = <i>E</i>/<i>c</i>²</span>。</li>
+    <li>表 5.3 的每一行，都是“理论先预言 → 加速器证实”。也有反过来的：实验走在理论前面（particle zoo → quarks）。</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>理论预言</th><th>加速器检验</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>Ω<sup>−</sup>，它的电荷和质量（1962）</td><td>Brookhaven，1964</td><td>找到了，和预言一样</td></tr>
+        <tr><td>proton 里有 quarks（1964）</td><td>SLAC linac，1968</td><td>点状电荷</td></tr>
+        <tr><td>W 和 Z，约 80 和 91 GeV/<i>c</i>²</td><td>CERN collider，1983</td><td>在这两个质量找到了</td></tr>
+        <tr><td>第三代的 quark（top）</td><td>Fermilab（美国），1995</td><td>找到了，173 GeV/<i>c</i>²</td></tr>
+        <tr><td>Higgs boson（1964）</td><td>LHC，CERN，2012</td><td>找到了，125 GeV/<i>c</i>²</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">表 5.3：加速器检验 Standard Model 的预言。</p>
+
+  <h3>为什么还不完整</h3>
+  <ul class="pts">
+    <li><b>Gravity</b> 不在 Standard Model 里；graviton 从来没找到过。</li>
+    <li><b><span class="t">Dark matter</span></b>（暗物质：只能靠它的引力知道它存在）和 <span class="t">dark energy</span>（暗能量：让 <span class="t">Universe</span>（宇宙）越胀越快的那个未知原因）加起来，约占 Universe 的 95%。没有一种 Standard Model 粒子能解释它们。</li>
+    <li><b><span class="t">Antimatter</span></b>（反物质）：<span class="t">Big Bang</span>（大爆炸）应该造出一样多的物质和反物质。可是 Universe 几乎全是物质。</li>
+    <li><b>Neutrino mass：</b>最早的 Standard Model 里，neutrino 没有质量。1998 年起，知道它有很小的质量。</li>
+    <li><b>还不知道的：</b>为什么正好是三代；大约 19 个数只能靠测量。</li>
+  </ul>
+</section>
+
+<section id="s10">
+  <div class="secnum">5.4</div>
+  <h2>两个要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>SLAC 的 deep inelastic scattering（1967–1973）</h3>
+    <dl>
+      <dt>目的</dt><dd>看看 proton 里面有没有零件。</dd>
+      <dt>做法</dt><dd>SLAC 3.2 km 长的 linac，把 electrons（最高 20 GeV）打向 <span class="t">liquid hydrogen</span>（液态氢：它的核就是一个个 proton）。<span class="t">Magnetic spectrometers</span>（磁谱仪：一块让 electrons 拐弯的磁铁，加上探测器）量出每个散射出来的 electron 的能量和角度。</dd>
+      <dt>结果</dt><dd>大角度散射，比“平滑的 proton”允许的多得多。</dd>
+      <dt>结论</dt><dd>protons 和 neutrons 里面有点状的、带电的零件：quarks。</dd>
+      <dt>意义</dt><dd>这是 quarks 的第一个直接证据（1990 年诺贝尔奖）。看动画 1。</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>在 LHC 找到 Higgs boson（2012）</h3>
+    <dl>
+      <dt>目的</dt><dd>找到 1964 年预言的 Higgs boson，并量出它的质量。</dd>
+      <dt>做法</dt><dd>protons 对撞，总能量 7 TeV 到 8 TeV。ATLAS 和 CMS 两个 detectors，只留下撞出“两个 photons”或“四个 leptons”的那些碰撞。从这些碰撞，算出造出它们的那个粒子的质量。</dd>
+      <dt>结果</dt><dd>在 125 GeV/<i>c</i>² 处，比背景（<span class="t">background</span>）多出一个小鼓包，两个 detectors 都看到了。这个鼓包碰巧出现的机会，不到 350 万分之一（“5 sigma”）。</dd>
+      <dt>结论</dt><dd>存在一个约 125 GeV/<i>c</i>² 的新 boson：Higgs boson。</dd>
+      <dt>意义</dt><dd>它是 Standard Model 里最后一个被找到的粒子（2013 年诺贝尔奖，给了预言它的 Englert 和 Higgs）。动画 5 的 detector 画面是示意，不是真的 Higgs 事件：它只演示怎样从轨迹的弯曲看出电荷和 momentum。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s11">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>p</i><sub>v</sub> = <i>m</i><sub>0</sub><i>v</i> / √<span style="border-top:1px solid currentColor;padding-top:.06em">(1 − <i>v</i>²/<i>c</i>²)</span></td><td>比约 0.1<i>c</i> 快时的 momentum</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>λ</i> = <i>h</i>/<i>p</i><sub>v</sub><br><i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>)</td><td>比约 0.1<i>c</i> 快时的 <i>λ</i> 和 <i>r</i>；总表记在 Ch. 3、5</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>Q</i> = <i>q</i><sub>1</sub> + <i>q</i><sub>2</sub> + <i>q</i><sub>3</sub><br><i>Q</i> = <i>q</i><sub>1</sub> + <i>q</i><sub>2</sub></td><td>baryon 或 meson 的电荷</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>qV</i></td><td>过一个 gap 得到的能量；<i>n</i> 个 gap：<i>K</i> = <i>nqV</i></td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>r</i> = <i>mv</i>/(<i>qB</i>)<br><i>T</i> = 2π<i>m</i>/(<i>qB</i>)<br><i>f</i> = 1/<i>T</i> = <i>qB</i>/(2π<i>m</i>)</td><td>和 <i>B</i> 成 90° 的圆周（远低于 <i>c</i>）；cyclotron 的 AC 频率</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>mc</i>²</td><td>质量和能量；一对粒子要 2<i>mc</i>²；总表记在 Ch. 1、4、5</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>λ</i> = <i>h</i>/(<i>mv</i>)</td><td>物质波（低于约 0.1<i>c</i>）；总表记在 Ch. 3、5</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i> = <i>qv</i><sub>⊥</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></td><td>运动电荷受的磁场力；总表记在 Ch. 2、5</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></td><td>指向圆心的合力（给出 <i>r</i>）；总表记在 Ch. 2、5</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>动能；总表记在 Ch. 2、5</td><td><span class="badge on">有</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 7 句</h3>
+  <ol class="must">
+    <li>SLAC 的大角度散射说明有 quarks；beta decay 和 Ω<sup>−</sup> 支持这个结论。</li>
+    <li>Positron、muon、pions、antiproton、neutrino：每一种都有新的质量、电荷或行为。</li>
+    <li>Quarks u、c、t 是 +⅔<i>e</i>；d、s、b 是 −⅓<i>e</i>。Baryon = 3 个 quark；meson = quark + antiquark。</li>
+    <li>传递力的粒子：gluon（strong）、photon（EM）、W<sup>±</sup> 和 Z<sup>0</sup>（weak）。Gravity 不在模型里。</li>
+    <li><span class="m"><i>W</i> = <i>qV</i></span> 让粒子变快；<i>B</i> 只让它拐弯。Cyclotron：<span class="m"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span>。</li>
+    <li>加速器证实了 Ω<sup>−</sup>、quarks、W、Z、top quark 和 Higgs boson。</li>
+    <li>Gravity、dark matter、antimatter 和 neutrino mass：这个模型还不完整。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>beta decay 证明了 neutron 是由 quarks 组成的。<br><span class="ok">对：</span>它只是支持。muon 是 fundamental，也会 decay，所以“会 decay”本身不算证明。</div>
+    <div><span class="x">错：</span>colour charge 是 quark 真的颜色。<br><span class="ok">对：</span>它只是 strong force 的“电荷”的名字，不是真的颜色。</div>
+    <div><span class="x">错：</span>antiquark 的电荷和 quark 一样，比如 <span class="m">d̄</span> 是 −⅓<i>e</i>。<br><span class="ok">对：</span>符号反过来：<span class="m">d̄</span> 是 +⅓<i>e</i>，<span class="m">ū</span> 是 −⅔<i>e</i>。</div>
+    <div><span class="x">错：</span>一个 hadron 的电荷算出来是 +⅓<i>e</i>。<br><span class="ok">对：</span>加出来一定是 <i>e</i> 的整数倍。算出分数，就是哪里的符号弄错了。</div>
+    <div><span class="x">错：</span>β<sup>−</sup> 衰变放出的是 neutrino <span class="m"><i>ν</i><sub>e</sub></span>。<br><span class="ok">对：</span>β<sup>−</sup>：<span class="m" style="white-space:nowrap">W<sup>−</sup> → e<sup>−</sup> + <i style="text-decoration:overline">ν</i><sub>e</sub></span>（antineutrino）；β<sup>+</sup>：<span class="m" style="white-space:nowrap">W<sup>+</sup> → e<sup>+</sup> + <i>ν</i><sub>e</sub></span>。</div>
+    <div><span class="x">错：</span>gravity 也在 Standard Model 里，靠 graviton 传递。<br><span class="ok">对：</span>gravity 不在 Standard Model 里；graviton 从来没找到过。</div>
+    <div><span class="x">错：</span>cyclotron 里是磁场让粒子变快。<br><span class="ok">对：</span>磁场力和 <i>v</i> 垂直，不做功，只拐弯。变快靠 gap 里的电场。</div>
+    <div><span class="x">错：</span>用 <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span> 算出来的是直径；<i>T</i> 写成 <span class="m"><i>m</i>/(<i>qB</i>)</span>。<br><span class="ok">对：</span><i>r</i> 是半径。<span class="m"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span>，2π 别丢。</div>
+    <div><span class="x">错：</span>cyclotron 里粒子越往外，转一圈越久，所以 AC 频率要跟着变。<br><span class="ok">对：</span>远低于 <i>c</i> 时，<i>T</i> 和速度无关，AC 只要一个固定频率。只有接近 <i>c</i> 时，ion 才跟不上节奏。</div>
+    <div><span class="x">错：</span>neutron 也能放进加速器里加速。<br><span class="ok">对：</span>只有带电的粒子能被加速。</div>
+  </div>
+</section>
+
+<section id="s12">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Fundamental particle</td><td>基本粒子</td><td>没有更小零件的粒子</td></tr>
+        <tr><td class="t">Point-like</td><td>点状的</td><td>小到像一个点</td></tr>
+        <tr><td class="t">Deep inelastic scattering</td><td>深度非弹性散射</td><td>用很快的 electrons 打 protons，看它里面</td></tr>
+        <tr><td class="t">Quark</td><td>夸克</td><td>会感受 strong force 的基本物质粒子</td></tr>
+        <tr><td class="t">Quark model</td><td>夸克模型</td><td>hadrons 由 quarks 组成</td></tr>
+        <tr><td class="t">Particle zoo</td><td>粒子动物园</td><td>1950s–60s 发现的几百种新粒子</td></tr>
+        <tr><td class="t">Antiparticle</td><td>反粒子</td><td>质量一样，电荷相反</td></tr>
+        <tr><td class="t">Positron</td><td>正电子</td><td>electron 的 antiparticle，带 +<i>e</i></td></tr>
+        <tr><td class="t">Cloud chamber</td><td>云室</td><td>带电粒子飞过，留下一串小水滴</td></tr>
+        <tr><td class="t">Cosmic rays</td><td>宇宙射线</td><td>从太空来的很快的粒子</td></tr>
+        <tr><td class="t">Muon (μ)</td><td>μ子</td><td>很重的 electron（约 207 倍），电荷 −<i>e</i></td></tr>
+        <tr><td class="t">Pion (π)</td><td>π介子</td><td>一种 meson，约 270 个 electron 质量</td></tr>
+        <tr><td class="t">Antiproton</td><td>反质子</td><td>proton 的 antiparticle，电荷 −<i>e</i></td></tr>
+        <tr><td class="t">Neutrino (<span class="m"><i>ν</i></span>)</td><td>中微子</td><td>不带电、质量很小的 lepton</td></tr>
+        <tr><td class="t">Antineutrino</td><td>反中微子</td><td>neutrino 的 antiparticle，β<sup>−</sup> 衰变时放出</td></tr>
+        <tr><td class="t">Standard Model</td><td>标准模型</td><td>讲基本粒子和基本力的理论</td></tr>
+        <tr><td class="t">Lepton</td><td>轻子</td><td>不感受 strong force 的基本物质粒子</td></tr>
+        <tr><td class="t">Hadron</td><td>强子</td><td>由 quarks 组成的粒子</td></tr>
+        <tr><td class="t">Fermion</td><td>费米子</td><td>spin 是半整数的粒子</td></tr>
+        <tr><td class="t">Boson</td><td>玻色子</td><td>spin 是整数的粒子</td></tr>
+        <tr><td class="t">Spin</td><td>自旋</td><td>粒子“自带的转动”</td></tr>
+        <tr><td class="t">Flavour</td><td>味</td><td>quark 的种类（up、down……）</td></tr>
+        <tr><td class="t">Generation (of particles)</td><td>代</td><td>物质粒子的三个家族之一</td></tr>
+        <tr><td class="t">Colour charge</td><td>色荷</td><td>strong force 的“电荷”，不是真的颜色</td></tr>
+        <tr><td class="t">Confinement</td><td>夸克禁闭</td><td>quark 永远不会单独出现</td></tr>
+        <tr><td class="t">Antiquark</td><td>反夸克</td><td>quark 的 antiparticle，电荷相反</td></tr>
+        <tr><td class="t">Exchange particle</td><td>交换粒子</td><td>传递力的 boson</td></tr>
+        <tr><td class="t">Strong force</td><td>强相互作用</td><td>把 quarks 拉在一起，由 gluons 传递</td></tr>
+        <tr><td class="t">Strong nuclear force</td><td>核力</td><td>nucleons 之间很短程的吸引力</td></tr>
+        <tr><td class="t">Electromagnetic force</td><td>电磁相互作用</td><td>作用在带电粒子上，由 photon 传递</td></tr>
+        <tr><td class="t">Weak force</td><td>弱相互作用</td><td>能改变 quark 的 flavour，比如 beta decay</td></tr>
+        <tr><td class="t">Gravity</td><td>引力</td><td>作用在所有质量和能量上；不在 Standard Model 里</td></tr>
+        <tr><td class="t">Gluon</td><td>胶子</td><td>strong force 的 exchange particle</td></tr>
+        <tr><td class="t">Photon</td><td>光子</td><td>EM force 的 exchange particle</td></tr>
+        <tr><td class="t">W and Z bosons</td><td>W和Z玻色子</td><td>weak force 的 exchange particles</td></tr>
+        <tr><td class="t">Graviton</td><td>引力子</td><td>猜想中传递 gravity 的粒子，从没找到</td></tr>
+        <tr><td class="t">Higgs field</td><td>希格斯场</td><td>给大多数基本粒子质量的场</td></tr>
+        <tr><td class="t">Higgs boson</td><td>希格斯玻色子</td><td>Higgs field 的“波纹”，2012 年找到</td></tr>
+        <tr><td class="t">Baryon</td><td>重子</td><td>3 个 quark 组成的 hadron，比如 proton</td></tr>
+        <tr><td class="t">Meson</td><td>介子</td><td>1 个 quark + 1 个 antiquark 组成的 hadron</td></tr>
+        <tr><td class="t">Particle accelerator</td><td>粒子加速器</td><td>让带电粒子变得很快的机器</td></tr>
+        <tr><td class="t">Electronvolt (eV)</td><td>电子伏特</td><td>1 eV = 1.602 × 10<sup>−19</sup> J</td></tr>
+        <tr><td class="t">Linear accelerator (linac)</td><td>直线加速器</td><td>沿一条直线加速粒子</td></tr>
+        <tr><td class="t">Drift tube</td><td>漂移管</td><td>linac 里让粒子滑行的金属管</td></tr>
+        <tr><td class="t">Cyclotron</td><td>回旋加速器</td><td>粒子在固定的磁场里螺旋往外转</td></tr>
+        <tr><td class="t">Dee</td><td>D形盒</td><td>cyclotron 里空心的 D 形电极</td></tr>
+        <tr><td class="t">Ion</td><td>离子</td><td>丢了或多了电子的原子</td></tr>
+        <tr><td class="t">Synchrotron</td><td>同步加速器</td><td>粒子越快、<i>B</i> 越强的环</td></tr>
+        <tr><td class="t">RF cavity</td><td>射频腔</td><td>用电场推粒子的地方</td></tr>
+        <tr><td class="t">Collider</td><td>对撞机</td><td>两束粒子迎面相撞的机器</td></tr>
+        <tr><td class="t">Large Hadron Collider (LHC)</td><td>大型强子对撞机</td><td>CERN 27 km 的 proton 对撞机</td></tr>
+        <tr><td class="t">Relativistic momentum (p<sub>v</sub>)</td><td>相对论动量</td><td>接近 <i>c</i> 时的 momentum</td></tr>
+        <tr><td class="t">Rest mass (m<sub>0</sub>)</td><td>静止质量</td><td>东西静止时量到的质量</td></tr>
+        <tr><td class="t">Detector</td><td>探测器</td><td>追踪、测量粒子的机器</td></tr>
+        <tr><td class="t">Magnetic spectrometer</td><td>磁谱仪</td><td>让 electrons 拐弯的磁铁，加上探测器</td></tr>
+        <tr><td class="t">Dark matter</td><td>暗物质</td><td>看不见，只能靠引力知道它存在</td></tr>
+        <tr><td class="t">Dark energy</td><td>暗能量</td><td>让 Universe 越胀越快的未知原因</td></tr>
+        <tr><td class="t">Antimatter</td><td>反物质</td><td>由 antiparticles 组成的物质</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s13" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. SLAC 里很多 electrons 大角度反弹。这说明 proton 里面是什么样的？</summary><p class="ans"><b>里面有很小的点状电荷：quarks。</b>如果正电荷均匀铺开，electrons 只会偏一点点。电荷集中在小点上，electron 擦过它时离得很近，力很大，才会大角度反弹。</p></details>
+    <details><summary>2. 只靠 beta decay，能证明 neutron 是由 quarks 组成的吗？</summary><p class="ans"><b>不能，它只是支持。</b><span class="m" style="white-space:nowrap">n → p + e<sup>−</sup> + <i style="text-decoration:overline">ν</i><sub>e</sub></span> 用“一个 d 变成 u”很好解释。但 muon 是 fundamental，它也会 decay，所以“会 decay”不能证明里面有零件。</p></details>
+    <details><summary><span>3. 算电荷：Ω<sup>−</sup>（sss）和 π<sup>+</sup>（<span class="m">ud̄</span>）各是多少？它们是 baryon 还是 meson？</span></summary><p class="ans"><b>Ω<sup>−</sup>：−1（baryon）；π<sup>+</sup>：+1（meson）。</b>s 是 −⅓：3 × (−⅓) = −1，和名字里的“−”一样；3 个 quark，所以是 baryon。π<sup>+</sup>：u 是 +⅔，<span class="m">d̄</span> 把符号反过来是 +⅓：+⅔ + ⅓ = +1；一个 quark 加一个 antiquark，所以是 meson。</p></details>
+    <details><summary><span>4. β<sup>−</sup> 衰变在 quark 里怎么写？电荷怎么对得上？是哪种力？</span></summary><p class="ans"><b><span class="m" style="white-space:nowrap">d → u + W<sup>−</sup></span>，然后 <span class="m" style="white-space:nowrap">W<sup>−</sup> → e<sup>−</sup> + <i style="text-decoration:overline">ν</i><sub>e</sub></span>；weak force。</b>电荷：−⅓ = +⅔ + (−1)，左右相等。只有 weak force 能改变 quark 的 flavour。</p></details>
+    <details><summary>5. 一个 proton 从静止开始，在 linac 里过了 20 个 gap，每个 gap 50 kV。它的动能是多少 eV？多少 J？速度大约多少？</summary><p class="ans"><b><i>K</i> = 1.0 × 10<sup>6</sup> eV = 1.602 × 10<sup>−13</sup> J；<i>v</i> ≈ 1.38 × 10<sup>7</sup> m s<sup>−1</sup>。</b><i>K</i> = <i>nqV</i> = 20 × <i>e</i> × 50 000 V = 1 000 000 eV。乘 1.602 × 10<sup>−19</sup> 得 1.602 × 10<sup>−13</sup> J。再用 <i>K</i> = ½<i>mv</i>²：<i>v</i> = √(2<i>K</i>/<i>m</i>) = √(2 × 1.602 × 10<sup>−13</sup> / 1.673 × 10<sup>−27</sup>) ≈ 1.38 × 10<sup>7</sup> m s<sup>−1</sup>。这约是 0.046<i>c</i>，低于 0.1<i>c</i>，所以可以用 ½<i>mv</i>²。</p></details>
+    <details><summary><span>6. Cyclotron 里 <i>B</i> = 0.5 T，一个 proton 的速度是 1.0 × 10<sup>7</sup> m s<sup>−1</sup>。它这个半圆的半径多大？转一整圈要多久？</span></summary><p class="ans"><b><i>r</i> ≈ 0.209 m；<i>T</i> ≈ 1.31 × 10<sup>−7</sup> s。</b><i>r</i> = <i>mv</i>/(<i>qB</i>) = 1.673 × 10<sup>−27</sup> × 1.0 × 10<sup>7</sup> / (1.602 × 10<sup>−19</sup> × 0.5) ≈ 0.209 m。<i>T</i> = 2π<i>m</i>/(<i>qB</i>) = 2π × 1.673 × 10<sup>−27</sup> / (1.602 × 10<sup>−19</sup> × 0.5) ≈ 1.31 × 10<sup>−7</sup> s。<i>T</i> 里没有 <i>v</i>：proton 变快了，<i>T</i> 也不变。</p></details>
+    <details><summary><span>7. Synchrotron 里 protons 越转越快。为什么磁场 <i>B</i> 也要一起变强？</span></summary><p class="ans"><b>为了让半径 <i>r</i> 不变。</b><i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>)。<i>p</i><sub>v</sub> 变大时，如果 <i>B</i> 不变，<i>r</i> 就变大，beam 会撞到管壁。<i>B</i> 跟着 <i>p</i><sub>v</sub> 一起涨，<i>r</i> 就一直一样。</p></details>
+    <details><summary>8. 为什么说 Standard Model 还不完整？说出两点。</summary><p class="ans"><b>任选两点：</b>gravity 不在里面（graviton 没找到）；dark matter 和 dark energy 约占 Universe 的 95%，它解释不了；Universe 几乎全是物质，不是物质和反物质一样多；neutrino 有很小的质量；不知道为什么是三代，约 19 个数只能靠测量。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m8/t4.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M8 T4 · Properties of the Nucleus</span><span class="pg-z">原子核的性质：放射性、核裂变和核聚变</span></a><a class="pg next" href="../index.html"><span class="pg-k">回到首页 →</span><span class="pg-t">HSC Physics 零基础讲解</span><span class="pg-z">全部 Module</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 8 From the Universe to the Atom · Chapter 5 整理。实验和表格数据（SLAC：3.2 km、20 GeV、1967–1973；Higgs：7 TeV 到 8 TeV、125 GeV/<i>c</i>²、350 万分之一；表 5.1 到 5.3；W 和 Z 约 86 和 97 个 proton 质量；SLAC 的 6 × 10<sup>−17</sup> m；LHC：27 km、8 T、13.6 TeV）来自讲义。Cyclotron 的周期和频率是用 data sheet 的 <i>m</i><sub>p</sub> 和 <i>e</i> 算的计算值。<i>W</i> = <i>qV</i> 卡片里的 1000 V、cyclotron 卡片里的 1.0 T，以及快问快答里的 20 个 gap、50 kV、0.5 T、1.0 × 10<sup>7</sup> m s<sup>−1</sup>，都是为了好算选的数。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · SLAC：电子撞 proton，为什么大角度说明有 quark（放在 5.1）
+   俯视示意，不按比例。单位：长度 = proton 半径 R，电子初速 = 1（画面里 1 R 约走 0.55 s）。
+   电子（−e）受 Coulomb 力：a = −K q (P − Q)/|P − Q|³，q 是那一块的电荷（单位 e）：q > 0 吸引，q < 0 排斥。K = 0.05（示意）。
+   Model A：+e 均匀铺满整个 proton（球）：外面 a = −K P/r³，里面 a = −K P（越靠中心越小，到中心 = 0）。
+     力一直指向中心（吸引），最大偏转约 2K = 0.1 rad ≈ 5°：全部 < 30°。
+   Model B：三个点电荷 u(+⅔) u(+⅔) d(−⅓)，位置示意（照 booklet Figure 5.1 的摆法）。u 吸引电子，d 排斥电子。
+     y 均匀入射时（node 算过）：约 70% < 30°，23% 30°–90°，7% > 90°，都是示意。
+   两个 model 用同一串随机数：入射位置和时间都一样，只是 proton 里面的电荷分布不同。
+   inelastic：电子离开 proton（r > R）时已经转过 ≥ 30°，才算 proton 被打碎（在 proton 里面还会被别的 quark 拉回来，
+     所以等它出来再判断）：碎片从离它最近的那个 quark 沿动量转移方向（= 电子的 p_in − p_out）飞出；
+     电子到 r > 1.1 R 后速度 × 0.7（一部分能量交给碎片），并且不再受力（proton 已经碎了，示意）。
+   积分：velocity Verlet，步长 ≤ 0.03 × 到最近 quark 的距离 / v，最大 0.012；softening 1e-4 R（只影响正对 quark 的 0.5%）。 */
+var K=0.05,EPS2=1e-8,HB=1.45,SPD=1.8,NP=16,TM=420,NF=18,FL=1.4,BRK=1.2,HOLD=2.2,COS30=Math.cos(Math.PI/6);
+var QX=[-0.43,0.33,0.29],QY=[0.19,0.59,-0.67],QQ=[2/3,2/3,-1/3],QN=['u','u','d'];
+var PLUS=[[0,0],[0.42,0],[-0.42,0],[0.21,0.37],[-0.21,0.37],[0.21,-0.37],[-0.21,-0.37],[0.63,0.37],[-0.63,0.37],[0.63,-0.37],[-0.63,-0.37],[0,0.74],[0,-0.74],[0.8,0],[-0.8,0]];
+var A=[0,0],NI=0,L={};
+var bA=document.getElementById('s1-a'),bB=document.getElementById('s1-b'),bM=document.getElementById('s1-mask');
+var m={B:true,mask:false,t:0,emit:0,cnt:[0,0,0],brk:0,flash:0,fq:0,hold:0,hq:0,hp:null,th:0};
+var seedE=69,seedF=5;   /* seed 69：前 30 s 的计数接近长期比例（约 68% / 24% / 8%） */
+function rndE(){seedE=(seedE+0x6D2B79F5)|0;var t=Math.imul(seedE^(seedE>>>15),1|seedE);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+function rndF(){seedF=(seedF+0x6D2B79F5)|0;var t=Math.imul(seedF^(seedF>>>15),1|seedF);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+var P=[],F=[],fi=0;
+for(var i0=0;i0<NP;i0++)P.push({on:false,out:false,fade:0,x:0,y:0,vx:1,vy:0,ax:0,ay:0,rn:9,rmin:9,qi:0,hit:false,lose:false,slow:false,n:0,tx:new Float32Array(TM),ty:new Float32Array(TM)});
+for(var j0=0;j0<NF;j0++)F.push({on:false,x:0,y:0,vx:0,vy:0,life:0});
+
+function lay(W){
+  var wide=W>=640;L.wide=wide;
+  if(wide){L.SW=W-262;L.R=clamp(L.SW/5.5,70,92);L.top=60;}
+  else{L.SW=W;L.R=clamp(W/4.6,62,80);L.top=96;}
+  L.xc=Math.round(L.SW*0.42);L.yc=L.top+HB*L.R;L.bot=L.top+2*HB*L.R;
+  L.xL=-L.xc/L.R;L.xR=(L.SW-L.xc)/L.R;
+  if(wide){L.px=L.SW+24;L.pw=W-16-L.px;L.py=L.top+18;L.fy=L.bot+22;L.H=Math.round(L.fy+14);}
+  else{L.px=16;L.pw=W-32;L.py=Math.round(L.bot+28);L.fy=L.py+176;L.H=L.fy+30;}
+}
+/* 加速度写进 A，返回到最近 quark 的距离（Model A 没有点电荷：返回 9），NI = 那个 quark */
+function acc(x,y){
+  var ax=0,ay=0,rn=9;
+  if(!m.B){var r2=x*x+y*y;if(r2<1){ax=-K*x;ay=-K*y;}else{var r3=r2*Math.sqrt(r2);ax=-K*x/r3;ay=-K*y/r3;}}
+  else{for(var i=0;i<3;i++){var dx=x-QX[i],dy=y-QY[i],q2=dx*dx+dy*dy+EPS2,r=Math.sqrt(q2);if(r<rn){rn=r;NI=i;}var f=-K*QQ[i]/(q2*r);ax+=f*dx;ay+=f*dy;}}
+  A[0]=ax;A[1]=ay;return rn;
+}
+function ang(p){return Math.acos(clamp(p.vx/Math.sqrt(p.vx*p.vx+p.vy*p.vy),-1,1))*180/Math.PI;}
+function hit(p){
+  p.hit=true;p.lose=true;
+  var jx=1-p.vx,jy=-p.vy,ja=Math.atan2(jy,jx);   /* quark 得到的动量 = 电子的 p_in − p_out */
+  for(var k=0;k<6;k++){var f=F[fi],a,s;fi=(fi+1)%NF;
+    if(k<4){a=ja+(rndF()-0.5)*0.9;s=0.9+0.6*rndF();}else{a=ja+Math.PI+(rndF()-0.5)*1.4;s=0.3+0.25*rndF();}
+    f.on=true;f.x=QX[p.qi];f.y=QY[p.qi];f.vx=Math.cos(a)*s;f.vy=Math.sin(a)*s;f.life=FL;}
+  m.brk=BRK;m.flash=0.5;m.fq=p.qi;m.hold=HOLD;m.hq=p.qi;m.hp=p;m.th=ang(p);
+}
+function adv(p,T){
+  while(T>1e-12){
+    var v=Math.sqrt(p.vx*p.vx+p.vy*p.vy),h=Math.max(1e-9,Math.min(T,0.012,0.03*p.rn/v));
+    p.vx+=0.5*h*p.ax;p.vy+=0.5*h*p.ay;p.x+=h*p.vx;p.y+=h*p.vy;
+    p.rn=acc(p.x,p.y);if(p.rn<p.rmin){p.rmin=p.rn;p.qi=NI;}if(p.slow){A[0]=0;A[1]=0;}
+    p.ax=A[0];p.ay=A[1];p.vx+=0.5*h*p.ax;p.vy+=0.5*h*p.ay;T-=h;
+    if(p.n<TM){var dx=p.x-p.tx[p.n-1],dy=p.y-p.ty[p.n-1],ds=Math.min(0.035,0.3*p.rn);if(dx*dx+dy*dy>ds*ds){p.tx[p.n]=p.x;p.ty[p.n]=p.y;p.n++;}}
+    var r2=p.x*p.x+p.y*p.y;
+    if(m.B&&!p.hit&&r2>1&&p.vx<=COS30*Math.sqrt(p.vx*p.vx+p.vy*p.vy))hit(p);   /* 出了 proton 才判断 */
+    if(p.lose&&!p.slow&&r2>1.21){p.vx*=0.7;p.vy*=0.7;p.slow=true;}
+  }
+}
+function emit(){
+  var y=(rndE()*2-1)*0.98;
+  for(var i=0;i<NP;i++){var p=P[i];if(p.on)continue;
+    p.on=true;p.out=false;p.fade=0;p.hit=false;p.lose=false;p.slow=false;p.rmin=9;p.qi=0;
+    p.x=L.xL-0.03;p.y=y;p.vx=1;p.vy=0;p.rn=acc(p.x,p.y);p.ax=A[0];p.ay=A[1];p.n=1;p.tx[0]=p.x;p.ty[0]=p.y;return;}
+}
+function step(dt){
+  m.t+=dt;
+  m.emit-=dt;while(m.emit<=0){emit();m.emit+=0.55+0.7*rndE();}
+  for(var i=0;i<NP;i++){var p=P[i];if(!p.on)continue;
+    if(p.out){p.fade+=dt;if(p.fade>1.2)p.on=false;continue;}
+    adv(p,dt*SPD);
+    if(p.x>L.xR+0.05||(p.x<L.xL-0.05&&p.vx<0)||Math.abs(p.y)>HB+0.05){p.out=true;var th=ang(p);m.cnt[th<30?0:(th<90?1:2)]++;}
+  }
+  for(var k=0;k<NF;k++){var f=F[k];if(!f.on)continue;f.life-=dt;if(f.life<=0){f.on=false;continue;}f.x+=f.vx*dt*SPD;f.y+=f.vy*dt*SPD;}
+  m.brk=Math.max(0,m.brk-dt);m.flash=Math.max(0,m.flash-dt);m.hold=Math.max(0,m.hold-dt);
+  if(m.hp&&m.hp.on&&m.hp.hit)m.th=ang(m.hp);
+}
+function reset(){
+  seedE=69;seedF=5;m.t=0;m.emit=0;m.cnt=[0,0,0];m.brk=0;m.flash=0;m.hold=0;m.hp=null;m.th=0;
+  for(var i=0;i<NP;i++)P[i].on=false;for(var k=0;k<NF;k++)F[k].on=false;
+}
+function prerun(sec){for(var i=0;i<sec*60;i++)step(1/60);}
+
+/* 把几段文字按宽度排成几行 */
+function pack(ctx,parts,maxW,size,weight){
+  ctx.font=weight+' '+size+'px '+FONT;var out=[],cur='';
+  for(var i=0;i<parts.length;i++){var t=cur+parts[i];if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=parts[i].replace(/^\s+/,'');}else cur=t;}
+  if(cur)out.push(cur);return out;
+}
+function status(){
+  if(m.mask){
+    if(m.B)return [['遮住内部：看不到 proton 里面，','只看出射的 electrons 往哪飞'],['不少 electrons 大角度飞出',' → 里面一定有很小的点状电荷：quarks'],C.violet];
+    return [['遮住内部：看不到 proton 里面，','只看出射的 electrons 往哪飞'],['如果是 Model A：electrons 全都只偏一点',' → 和 SLAC 测到的不一样'],rgba(C.ink,0.72)];
+  }
+  if(!m.B)return [['Model A：+ 电荷均匀铺满 proton',' → electrons 只被轻轻拉向中心'],['最多只偏几度，没有大角度',' → 和 SLAC 的结果对不上'],rgba(C.ink,0.72)];
+  if(m.hold>0){
+    var l1=QQ[m.hq]>0?['这个 electron 正好擦过一个 u（+⅔e）',' → 被吸过去，绕着它拐弯']:['这个 electron 正好擦过 d（−⅓e）',' → 被推开'];
+    var big=m.th>=30;
+    return [l1,['电荷集中在一点，离得近，力很大',big?' → 大角度飞出（θ ≈ '+Math.round(m.th)+'°），':' → 拐了一个大弯（现在 θ ≈ '+Math.round(m.th)+'°），','proton 被打碎'],C.violet];
+  }
+  return [['Model B：大部分 electrons 离 quark 远',' → 只偏一点'],['偶尔有一个擦过 quark',' → 大角度飞出，proton 被打碎'],rgba(C.ink,0.72)];
+}
+function plus(ctx,x,y,s,col){seg(ctx,x-s,y,x+s,y,col,1.8);seg(ctx,x,y-s,x,y+s,col,1.8);}
+
+var S1=makeStage('sim1',{
+  height:function(w){lay(w);return L.H;},
+  step:step,
+  draw:function(ctx,W,H){
+    lay(W);
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var R=L.R,xc=L.xc,yc=L.yc,top=L.top,bot=L.bot,SW=L.SW,wide=L.wide,i,k,p,f;
+    function X(u){return xc+u*R;}
+    function Y(v){return yc+v*R;}
+    /* ---- status ---- */
+    var st=status(),dy=wide?22:19,mw=W-28;
+    var l1=pack(ctx,st[0],mw,wide?15:13.5,600),l2=pack(ctx,st[1],mw,wide?13.5:12.5,600);
+    var sy=Math.round((top-(l1.length+l2.length-1)*dy)/2)+4;   /* 文字块在 scene 上方的空白里竖直居中 */
+    for(i=0;i<l1.length;i++){txt(ctx,l1[i],14,sy,C.ink,wide?15:13.5,600);sy+=dy;}
+    for(i=0;i<l2.length;i++){txt(ctx,l2[i],14,sy,st[2],wide?13.5:12.5,600);sy+=dy;}
+    /* ---- scene ---- */
+    ctx.save();
+    rrect(ctx,0,top,SW,bot-top,8);ctx.fillStyle=rgba(C.muted,0.07);ctx.fill();ctx.clip();
+    /* 30° 和 90° 的分界线（从 proton 中心量，0° = 原来的方向） */
+    var rays=[30,-30,90,-90],rs=1.18*R;
+    for(k=0;k<4;k++){var a=rays[k]*Math.PI/180,ca=Math.cos(a),sa=Math.sin(a);
+      var re=Math.abs(sa)>1e-6?HB*R/Math.abs(sa):1e9;if(ca>1e-6)re=Math.min(re,(SW-xc)/ca);
+      seg(ctx,xc+rs*ca,yc-rs*sa,xc+re*ca,yc-re*sa,rgba(C.muted,0.5),1,[3,5]);
+      if(rays[k]>0){var lx=rays[k]===90?xc+6:Math.min(xc+re*ca+4,SW-26);txt(ctx,rays[k]+'°',lx,top+14,C.muted,11,600);}
+    }
+    /* proton */
+    var pa=m.hold>0.4?0.45:(m.hold>0?0.45+0.55*(1-m.hold/0.4):1);   /* proton 被打碎：整个 proton 变淡（和状态行一起结束） */
+    if(!m.B){
+      dot(ctx,xc,yc,R,rgba(C.north,0.13));ring(ctx,xc,yc,R,rgba(C.north,0.55),1.3);
+      for(i=0;i<PLUS.length;i++)plus(ctx,X(PLUS[i][0]),Y(PLUS[i][1]),4.5,rgba(C.north,0.8));
+    }else{
+      dot(ctx,xc,yc,R,rgba(C.muted,0.06*pa));
+      ctx.setLineDash([5,5]);ring(ctx,xc,yc,R,rgba(C.muted,0.9*pa),1.3);ctx.setLineDash([]);
+    }
+    /* electron trails（画在 quark 下面，quark 的字母不会被线压住） */
+    ctx.lineJoin='round';
+    for(i=0;i<NP;i++){p=P[i];if(!p.on)continue;
+      var fa=p.out?Math.max(0,1-p.fade/1.2):1,hl=(p===m.hp&&p.hit);
+      ctx.beginPath();ctx.moveTo(X(p.tx[0]),Y(p.ty[0]));for(var j=1;j<p.n;j++)ctx.lineTo(X(p.tx[j]),Y(p.ty[j]));ctx.lineTo(X(p.x),Y(p.y));
+      ctx.strokeStyle=rgba(C.south,(hl?0.9:0.4)*fa);ctx.lineWidth=hl?2.2:1.3;ctx.stroke();
+    }
+    if(m.B&&!m.mask){var qr=wide?10:9;
+      for(i=0;i<3;i++){dot(ctx,X(QX[i]),Y(QY[i]),qr,rgba(QQ[i]>0?C.north:C.south,pa));
+        txt(ctx,QN[i],X(QX[i]),Y(QY[i])+0.5,pa>0.95?'#ffffff':C.ink,wide?12.5:11.5,700,'center','middle');}
+    }
+    for(i=0;i<NP;i++){p=P[i];if(p.on&&!p.out)dot(ctx,X(p.x),Y(p.y),(p===m.hp&&p.hit)?3.6:2.8,C.south);}
+    if(!m.mask){
+      /* fragments of the broken proton */
+      for(k=0;k<NF;k++){f=F[k];if(!f.on)continue;var fv=Math.sqrt(f.vx*f.vx+f.vy*f.vy)||1,fl=0.16;
+        ctx.lineCap='round';seg(ctx,X(f.x-f.vx/fv*fl),Y(f.y-f.vy/fv*fl),X(f.x),Y(f.y),rgba(C.muted,0.95*f.life/FL),2.4);ctx.lineCap='butt';}
+      if(m.flash>0){var fr=1-m.flash/0.5;ring(ctx,X(QX[m.fq]),Y(QY[m.fq]),6+fr*0.5*R,rgba(C.muted,0.8*(1-fr)),2);}
+      /* force on each electron near the proton */
+      for(i=0;i<NP;i++){p=P[i];if(!p.on||p.out||p.slow||p.x*p.x+p.y*p.y>1.96)continue;
+        acc(p.x,p.y);var am=Math.sqrt(A[0]*A[0]+A[1]*A[1]),len=Math.min(36,62*Math.sqrt(am));
+        if(len>=9){var ux=A[0]/am,uy=A[1]/am,x0=X(p.x)+ux*5,y0=Y(p.y)+uy*5;arrow(ctx,x0,y0,x0+ux*len,y0+uy*len,C.force,2,7);}
+      }
+    }else{
+      var cr=1.22*R;dot(ctx,xc,yc,cr,C.surface);ring(ctx,xc,yc,cr,rgba(C.muted,0.9),1.5);
+      txt(ctx,'?',xc,yc-4,C.muted,34,700,'center','middle');
+      txt(ctx,'看不见里面',xc,yc+26,C.muted,12,600,'center');
+    }
+    /* labels */
+    txt(ctx,'electron（−e）→',8,top+16,C.south,wide?12.5:12,700);
+    if(!m.mask){
+      var pl=!m.B?'proton：+e 均匀铺满':(m.hold>0?'proton 被打碎（inelastic）':'proton = u + u + d');
+      txt(ctx,pl,xc,Y(1)+16,m.hold>0&&m.B?C.ink:(m.B?C.muted:C.north),12,700,'center');
+    }
+    ctx.restore();
+    /* ---- counts ---- */
+    var tot=m.cnt[0]+m.cnt[1]+m.cnt[2],px=L.px,pw=L.pw,py=L.py,ny;
+    var names=wide?['0°–30° 只偏一点','30°–90° 大角度','90°–180° 弹回来']:['0°–30°','30°–90°','90°–180°'];
+    var cols=[rgba(C.south,0.4),rgba(C.south,0.75),C.south];
+    txt(ctx,'出射 electron 的散射角 θ',px,py,C.ink,13,700);
+    txt(ctx,'共 '+tot+' 个',px+pw,py,C.muted,12,600,'right');
+    for(k=0;k<3;k++){
+      var cv=tot?(m.cnt[k]+' · '+Math.round(100*m.cnt[k]/tot)+'%'):'0',fk=tot?m.cnt[k]/tot:0;
+      if(wide){var yk=py+30+44*k;txt(ctx,names[k],px,yk,C.ink,12.5,600);txt(ctx,cv,px+pw,yk,C.ink,12,600,'right','alphabetic',MONO);hbar(ctx,px,yk+8,pw,10,fk,cols[k]);ny=yk+48;}
+      else{var yn=py+26+26*k,lw=74;txt(ctx,names[k],px,yn,C.ink,12,600);hbar(ctx,px+lw,yn-9,pw-lw-82,10,fk,cols[k]);txt(ctx,cv,px+pw,yn,C.ink,12,600,'right','alphabetic',MONO);ny=yn+30;}
+    }
+    var n1=m.B?['Model A（smooth）的预测：','没有一个超过 30°']:['SLAC 测到的：','大角度多得多（像 Model B）'];
+    var nl=pack(ctx,n1,pw,12,600);
+    for(i=0;i<nl.length;i++){txt(ctx,nl[i],px,ny,C.ink,12,600);ny+=17;}
+    ny+=4;
+    var n2=m.B?['u = up（+⅔e）',' · d = down（−⅓e）']:['+e 均匀铺满整个 proton'];
+    nl=pack(ctx,n2,pw,11.5,500);
+    for(i=0;i<nl.length;i++){txt(ctx,nl[i],px,ny,C.muted,11.5,500);ny+=16;}
+    if(m.B){txt(ctx,'quark 颜色只表示电荷正负',px,ny,C.muted,11.5,500);ny+=16;}
+    txt(ctx,'示意 · 不按比例',px,ny,C.muted,11.5,500);
+    /* booklet 的 SLAC 数据 */
+    var sl=pack(ctx,['SLAC: 3.2 km linac',' · electrons up to 20 GeV',' · liquid hydrogen'],wide?SW-8:pw,11.5,500);
+    for(i=0;i<sl.length;i++)txt(ctx,sl[i],wide?8:px,L.fy+16*i,C.muted,11.5,500);
+  }
+});
+
+reset();prerun(30);
+/* 第一帧：刚好有一个电子擦过 quark、大角度飞出，proton 正在碎 */
+for(var g=0;g<3600&&!(m.hold>0&&m.hold<HOLD-0.5&&m.th>=70);g++)step(1/60);
+S1.render();
+
+function setModel(b){if(m.B===b)return;m.B=b;press(bA,!b);press(bB,b);reset();prerun(30);S1.render();}
+bA.addEventListener('click',function(){setModel(false);});
+bB.addEventListener('click',function(){setModel(true);});
+bM.addEventListener('click',function(){m.mask=!m.mask;press(bM,m.mask);bM.textContent='遮住 proton 内部：'+(m.mask?'开':'关');S1.render();});
+document.getElementById('s1-clear').addEventListener('click',function(){m.cnt=[0,0,0];S1.render();});
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · Beta decay 在 quark 里面：一个 d 变成 u（放在 5.2 The four fundamental forces）
+   β⁻（booklet）：d → u + W⁻（−⅓ = +⅔ − 1），然后 W⁻ → e⁻ + ν̄e（−1 = −1 + 0）；整体 n(udd) → p(uud) + e⁻ + ν̄e。
+   β⁺（booklet，只在原子核里）：u → d + W⁺（+⅔ = −⅓ + 1），然后 W⁺ → e⁺ + νe；整体 p(uud) → n(udd) + e⁺ + νe。
+   画面只由一轮里的时间 t（0 → END 秒）和这一轮的随机数决定：能量分配 x、e 和 ν 的飞行方向。
+   能量分配（示意）：e 的动能占 x，neutrino 占 1 − x（proton 反冲的能量很小，不算）。x 按 allowed beta 谱的形状抽：
+     f(x) ∝ (x + a)·√(x(x + 2a))·(1 − x)²，a = mₑc²/（放出的总动能）= 0.65（示意，大约是 neutron 的情况；画面不显示 MeV）。
+     x 只在 0.06–0.96 之间抽，让 e 在画面上看得见。
+   速度：neutrino 几乎以 c 飞；e 的 v/c = √(k(k + 2))/(k + 1)，k = 动能/(mₑc²) = x/a，约 0.4c–0.9c。所以 e 比 ν 慢，分到的能量越少越慢。
+   proton 反冲：动量守恒，−(pₑ + p_ν)，只画几个像素（很小）。
+   W 的 range 约 10⁻¹⁸ m（比 proton 小一千倍左右），所以 W 画在 quark 旁边，几乎原地就变成 e 和 ν。 */
+var T1=1.4,MO0=2.0,MO1=2.5,WI0=2.15,WI1=2.75,ST1=3.1,P2=3.3,EMIT=3.55,WOUT=3.8,FLY=2.5,ST2=6.3,P3=6.5,NU0=6.6,NU1=7.4,ST3=8.0,END=11.5;
+var STOPS=[ST1,ST2,ST3],PHI0=0.26,AQ=0.65;
+var QB=[[0.415,-0.22],[-0.44,-0.16],[0.04,0.47]];   /* Q*（会变的那个）、Qa、Qb，单位 R */
+var QLD=[[-0.17,-0.98],[-0.6,-0.8],[0,1]];             /* 电荷标签放在哪一边 */
+var NB=[[180,0],[125,1],[235,1],[95,0]];            /* β⁺：旁边的 nucleon（角度，1 = p，0 = n） */
+var QCH={u:'+⅔',d:'−⅓'};
+var STAT={
+  m:[['neutron = udd：一个 u，两个 d','总电荷：+⅔ − ⅓ − ⅓ = 0。马上要变的是其中一个 d'],
+     ['第 1 步：weak force 把一个 d（−⅓）变成 u（+⅔），同时放出 W⁻（−1）','−⅓ = +⅔ − 1，电荷守恒。只有 weak force 能改变 quark 的 flavour'],
+     ['第 2 步：W⁻ 很重（约 86 个 proton 质量），一出现就变成 e⁻ + {nub}','所以 weak force 的 range 只有约 10⁻¹⁸ m。电荷：−1 = −1 + 0'],
+     ['结果：udd → uud，neutron 变成 proton','前后总电荷：0 = (+1) + (−1) + 0。还是 3 个 quark，还是 baryon']],
+  p:[['原子核里的一个 proton = uud','总电荷：+⅔ + ⅔ − ⅓ = +1。β⁺ 只在原子核里面发生'],
+     ['第 1 步：weak force 把一个 u（+⅔）变成 d（−⅓），同时放出 W⁺（+1）','+⅔ = −⅓ + 1，电荷守恒。flavour 变了：只有 weak force 做得到'],
+     ['第 2 步：W⁺ 很重，一出现就变成 e⁺ + {nu}','β⁺ 放出 neutrino {nu}，β⁻ 放出 antineutrino {nub}。电荷：+1 = +1 + 0'],
+     ['结果：uud → udd，proton 变成 neutron，留在原子核里','前后总电荷：+1 = 0 + (+1) + 0。还是 3 个 quark，还是 baryon']]};
+var LED={
+  m:[['开始：n = udd','+⅔ − ⅓ − ⅓ = 0'],['① d → u + W⁻','−⅓ = +⅔ − 1'],['② W⁻ → e⁻ + {nub}','−1 = −1 + 0'],['③ n → p + e⁻ + {nub}','0 = (+1) + (−1) + 0']],
+  p:[['开始：p = uud','+⅔ + ⅔ − ⅓ = +1'],['① u → d + W⁺','+⅔ = −⅓ + 1'],['② W⁺ → e⁺ + {nu}','+1 = +1 + 0'],['③ p → n + e⁺ + {nu}','+1 = 0 + (+1) + 0']]};
+var CAP={m:[['neutron n','udd · 总电荷 0'],['proton p','uud · 总电荷 +1'],['正在变成 proton','quark 已经是 uud · 加起来 +1']],
+         p:[['原子核里的 proton p','uud · 总电荷 +1'],['原子核里的 neutron n','udd · 总电荷 0'],['正在变成 neutron','quark 已经是 udd · 加起来 0']]};
+
+/* ---------- 文字：ν̄e / νe 自己画（上横线 + 下标 e）；上标 ⁻ ⁺ ¹⁸ 也自己画（字体里的上标负号几乎看不见）；自动换行 ---------- */
+function fnt(sz,wt){return (wt||500)+' '+sz+'px '+FONT;}
+/* ν 用 MATH 斜体（STIX）：IBM Plex Sans 的 ν 看起来和拉丁字母 v 一样；和页面正文的 ν 同一种写法 */
+function nuF(sz,wt){return 'italic '+(wt||500)+' '+(sz+1)+'px '+MATH;}
+function nuW(ctx,sz,wt){ctx.font=nuF(sz,wt);var a=ctx.measureText('ν').width;ctx.font=fnt(Math.max(11,sz-2),wt);return a+ctx.measureText('e').width+1.5;}
+function nuDraw(ctx,x,y,anti,col,sz,wt){
+  ctx.font=nuF(sz,wt);var a=ctx.measureText('ν').width,sl=sz*0.1;
+  ctx.fillStyle=col;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.fillText('ν',x,y);
+  txt(ctx,'e',x+a+0.5,y+sz*0.24,col,Math.max(11,sz-2),wt,'left','alphabetic');
+  if(anti)seg(ctx,x+0.8+sl,y-sz*0.62-1.6,x+a-0.2+sl,y-sz*0.62-1.6,col,1.3);
+}
+var SUPC={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'};
+function supSz(sz){return Math.max(11,Math.round(sz*0.72));}
+function supW(ctx,s,sz,wt){var w=0.5;for(var i=0;i<s.length;i++){var c=s.charAt(i);if(c==='⁻'||c==='⁺')w+=sz*0.42+1.5;else{ctx.font=fnt(supSz(sz),wt);w+=ctx.measureText(SUPC[c]||c).width;}}return w;}
+function supDraw(ctx,s,x,y,col,sz,wt){
+  x+=0.5;var lw=Math.max(1.3,sz*0.1),ym=y-sz*0.66,h=sz*0.42;
+  for(var i=0;i<s.length;i++){var c=s.charAt(i);
+    if(c==='⁻'||c==='⁺'){seg(ctx,x+0.5,ym,x+0.5+h,ym,col,lw);if(c==='⁺')seg(ctx,x+0.5+h/2,ym-h/2,x+0.5+h/2,ym+h/2,col,lw);x+=h+1.5;}
+    else{var d=SUPC[c]||c;txt(ctx,d,x,y-sz*0.4,col,supSz(sz),wt,'left','alphabetic');ctx.font=fnt(supSz(sz),wt);x+=ctx.measureText(d).width;}}
+}
+var NUSPLIT=/(\{nub\}|\{nu\}|[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]+)/,SUPT=/^[⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺]+$/;
+function richW(ctx,s,sz,wt){var p=s.split(NUSPLIT),w=0;for(var i=0;i<p.length;i++){var q=p[i];if(!q)continue;
+  if(q==='{nub}'||q==='{nu}')w+=nuW(ctx,sz,wt);else if(SUPT.test(q))w+=supW(ctx,q,sz,wt);else{ctx.font=fnt(sz,wt);w+=ctx.measureText(q).width;}}return w;}
+function rich(ctx,s,x,y,col,sz,wt,align){
+  var w=richW(ctx,s,sz,wt),p=s.split(NUSPLIT);
+  if(align==='center')x-=w/2;else if(align==='right')x-=w;
+  for(var i=0;i<p.length;i++){var q=p[i];if(!q)continue;
+    if(q==='{nub}'||q==='{nu}'){nuDraw(ctx,x,y,q==='{nub}',col,sz,wt);x+=nuW(ctx,sz,wt);}
+    else if(SUPT.test(q)){supDraw(ctx,q,x,y,col,sz,wt);x+=supW(ctx,q,sz,wt);}
+    else{txt(ctx,q,x,y,col,sz,wt,'left','alphabetic');ctx.font=fnt(sz,wt);x+=ctx.measureText(q).width;}
+  }
+}
+/* 换行：中文每个字之间可以断，英文按词断；等式里的 = + − → 两边不断开（"−1 = −1 + 0" 不会被拆开） */
+var TOK=/\{nub\}|\{nu\}|[　-〿＀-￯一-鿿]|[^ 　-〿＀-￯一-鿿{]+| +|./g;
+var CLOSE=/^[，。：；、）！？”]/,OPEN=/[（“]$/,OP=/^[=+−→·]$/,WRAPC={};
+function wrap(ctx,s,maxW,sz,wt){
+  var key=s+'|'+maxW+'|'+sz+'|'+wt;if(WRAPC[key])return WRAPC[key];
+  var raw=s.match(TOK)||[],tk=[],i;
+  for(i=0;i<raw.length;i++){var t=raw[i],n=tk.length;
+    if(n&&CLOSE.test(t)&&!/^ +$/.test(tk[n-1]))tk[n-1]+=t;
+    else if(n&&OPEN.test(tk[n-1]))tk[n-1]+=t;
+    else tk.push(t);}
+  var units=[],cur='',pj=-1;
+  for(i=0;i<tk.length;i++){var tt=tk[i];
+    if(/^ +$/.test(tt)){cur+=tt;continue;}
+    if(cur!==''&&!OP.test(tt)&&!(pj>=0&&OP.test(tk[pj]))){units.push(cur);cur=tt;}else cur+=tt;
+    pj=i;}
+  if(cur)units.push(cur);
+  var lines=[],line='';
+  for(i=0;i<units.length;i++){var nx=line+units[i];
+    if(line.trim()&&richW(ctx,nx.replace(/ +$/,''),sz,wt)>maxW){lines.push(line.replace(/ +$/,''));line=units[i].replace(/^ +/,'');}
+    else line=nx;}
+  if(line.trim())lines.push(line.replace(/ +$/,''));
+  WRAPC[key]=lines;return lines;
+}
+
+/* ---------- 模型 ---------- */
+function ease(u){return u*u*(3-2*u);}
+function fx(x){return (x+AQ)*Math.sqrt(x*(x+2*AQ))*(1-x)*(1-x);}
+var FMAX=0;for(var gx=0.06;gx<=0.96;gx+=0.005)FMAX=Math.max(FMAX,fx(gx));FMAX*=1.02;
+function sampleX(){for(var i=0;i<500;i++){var x=0.06+0.9*Math.random();if(Math.random()*FMAX<=fx(x))return x;}return 0.35;}
+var m={mode:'m',t:0,g:0,hold:null,x:0.4,ae:0,an:0,be:0.8,rx:0,ry:0,hist:{m:[],p:[]}};
+function pushHist(){var h=m.hist[m.mode];h.push(Math.round(m.x*100));if(h.length>5)h.shift();}
+function newRun(t){
+  m.x=sampleX();
+  m.ae=PHI0-(0.85+0.4*Math.random());m.an=PHI0+(0.85+0.4*Math.random());
+  var k=m.x/AQ,pe=Math.sqrt(k*(k+2)),pn=(1-m.x)/AQ;
+  m.be=pe/(k+1);
+  m.rx=-(pe*Math.cos(m.ae)+pn*Math.cos(m.an))*2.2;m.ry=-(pe*Math.sin(m.ae)+pn*Math.sin(m.an))*2.2;
+  m.t=t;if(t>=EMIT)pushHist();
+}
+function phase(t){return t<T1?0:t<P2?1:t<P3?2:3;}
+newRun(S.reduce?3.0:0.3);
+
+/* ---------- 排版 ---------- */
+var LC=null;
+function lay(W){
+  if(LC&&LC.W===W)return LC;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.px0=12;o.px1=W-310;o.py0=60;o.py1=348;o.R=76;o.cx=Math.round(o.px0+(o.px1-o.px0)*0.36);o.cy=212;
+    o.qx=o.px1+24;o.qw=W-16-o.qx;o.qy=o.py0+24;o.rh=26;o.ey=o.qy+150;o.fs=13;o.sa=15;o.sb=13;}
+  else{o.px0=8;o.px1=W-8;o.py0=98;o.py1=362;o.R=Math.min(62,W*0.17);o.cx=Math.round(W*0.36);o.cy=o.py0+136;
+    o.qx=16;o.qw=W-32;o.qy=o.py1+28;o.rh=24;o.ey=o.qy+128;o.fs=12.5;o.sa=14;o.sb=12.5;}
+  o.rq=Math.max(12,o.R*0.21);o.rw=Math.max(11,o.R*0.17);
+  o.bx0=o.px0+28;o.bx1=o.px1-28;o.by0=o.py0+28;o.by1=o.py1-28;
+  o.ox=o.cx+QB[0][0]*o.R+Math.cos(PHI0)*(o.rq+o.rw+7);o.oy=o.cy+QB[0][1]*o.R+Math.sin(PHI0)*(o.rq+o.rw+7);
+  LC=o;return o;
+}
+function boxDist(L,dx,dy){var t=1e9;
+  if(dx>1e-6)t=Math.min(t,(L.bx1-L.ox)/dx);else if(dx<-1e-6)t=Math.min(t,(L.bx0-L.ox)/dx);
+  if(dy>1e-6)t=Math.min(t,(L.by1-L.oy)/dy);else if(dy<-1e-6)t=Math.min(t,(L.by0-L.oy)/dy);
+  return Math.max(0,t);}
+
+/* ---------- 画面 ---------- */
+function picture(ctx,L,t,bm){
+  var R=L.R,rq=L.rq,g=m.g,i;
+  var pr=clamp((t-EMIT)/FLY,0,1),ncx=L.cx+m.rx*pr,ncy=L.cy+m.ry*pr;
+  if(!bm){for(i=0;i<NB.length;i++){var a=NB[i][0]*Math.PI/180,nx=ncx+Math.cos(a)*R*1.98,ny=ncy+Math.sin(a)*R*1.98,nc=NB[i][1]?C.north:C.muted;
+    dot(ctx,nx,ny,R*0.94,rgba(nc,0.08));ring(ctx,nx,ny,R*0.94,rgba(nc,0.34),1.3);}}
+  /* nucleon：neutron 灰、proton 红；第 3 步交叉渐变 */
+  var kn=ease(clamp((t-NU0)/(NU1-NU0),0,1)),c0=bm?C.muted:C.north,c1=bm?C.north:C.muted;
+  dot(ctx,ncx,ncy,R,rgba(c0,0.13*(1-kn)));if(kn>0)dot(ctx,ncx,ncy,R,rgba(c1,0.13*kn));
+  ring(ctx,ncx,ncy,R,rgba(c0,0.8*(1-kn)),2.2);if(kn>0)ring(ctx,ncx,ncy,R,rgba(c1,0.8*kn),2.2);
+  if(kn>0&&kn<1)ring(ctx,ncx,ncy,R+4+10*kn,rgba(c1,0.5*(1-kn)),2);
+  /* quarks */
+  var km=ease(clamp((t-MO0)/(MO1-MO0),0,1)),from=bm?'d':'u',to=bm?'u':'d',js=R/70;
+  if(t>=T1&&t<MO1+0.25){var fl=0.45+0.4*Math.sin((t-T1)*14);
+    ring(ctx,ncx+QB[0][0]*R,ncy+QB[0][1]*R,rq+5,rgba(C.force,clamp(fl,0,1)),3);}
+  for(i=0;i<3;i++){
+    var qx=ncx+QB[i][0]*R+2*js*Math.sin(g*2.1+i*2.3),qy=ncy+QB[i][1]*R+2*js*Math.cos(g*1.7+i*1.1);
+    var ty=i===0?(km<0.5?from:to):(i===1?'u':'d');
+    if(i===0){dot(ctx,qx,qy,rq,from==='u'?C.north:C.south);if(km>0)dot(ctx,qx,qy,rq,rgba(to==='u'?C.north:C.south,km));}
+    else dot(ctx,qx,qy,rq,ty==='u'?C.north:C.south);
+    txt(ctx,ty,qx,qy+1,'#ffffff',L.wide?14:13,700,'center','middle');
+    var lx=qx+QLD[i][0]*(rq+12),ly=qy+QLD[i][1]*(rq+12);
+    txt(ctx,QCH[ty],lx,ly,ty==='u'?C.north:C.south,L.wide?12:11.5,700,'center','middle');
+  }
+  /* W：几乎原地出现、几乎原地消失（range 约 10⁻¹⁸ m） */
+  if(t>=WI0&&t<WOUT){
+    var kw=ease(clamp((t-WI0)/(WI1-WI0),0,1)),sW=t<P2?0.35+0.65*kw:1-clamp((t-P2)/(WOUT-P2),0,1);
+    var bx=L.cx+QB[0][0]*R,by=L.cy+QB[0][1]*R,wx=bx+(L.ox-bx)*kw,wy=by+(L.oy-by)*kw,rw=L.rw*sW;
+    for(var k=0;k<2;k++){var f=(t*1.3+k*0.5)%1,rr=rw+4+f*16;
+      ctx.beginPath();for(var j=0;j<=40;j++){var th=j/40*TAU,r2=rr+1.8*Math.sin(th*7+t*9),px=wx+Math.cos(th)*r2,py=wy+Math.sin(th)*r2;if(j)ctx.lineTo(px,py);else ctx.moveTo(px,py);}
+      ctx.strokeStyle=rgba(C.force,(1-f)*0.8*sW);ctx.lineWidth=1.6;ctx.stroke();}
+    dot(ctx,wx,wy,Math.max(1,rw),C.force);
+    if(sW>0.6)rich(ctx,bm?'W⁻':'W⁺',wx-0.5,wy+4,C.stage,L.wide?12.5:11.5,700,'center');   /* 底色字：暗色模式下绿点很亮，白字看不清 */
+  }
+  /* e 和 ν：从 W 的位置飞出，ν ≈ c，e 慢一些 */
+  if(t>=EMIT){
+    var dex=Math.cos(m.ae),dey=Math.sin(m.ae),dnx=Math.cos(m.an),dny=Math.sin(m.an);
+    var Lf=Math.min(boxDist(L,dnx,dny),boxDist(L,dex,dey)/m.be);
+    var ex=L.ox+dex*Lf*m.be*pr,ey=L.oy+dey*Lf*m.be*pr,vx=L.ox+dnx*Lf*pr,vy=L.oy+dny*Lf*pr;
+    var ec=bm?C.south:C.north;
+    seg(ctx,L.ox,L.oy,vx,vy,rgba(C.muted,0.75),1.5,[4,4]);
+    seg(ctx,L.ox,L.oy,ex,ey,rgba(ec,0.5),2);
+    dot(ctx,vx,vy,4.5,C.muted);
+    if(bm)dot(ctx,ex,ey,6,C.south);else{dot(ctx,ex,ey,5.5,C.stage);ring(ctx,ex,ey,5.5,C.north,2.5);}
+    if(pr>0.15){
+      rich(ctx,bm?'e⁻':'e⁺',ex+dex*17,ey+dey*17+4.5,ec,13,700,'center');
+      rich(ctx,bm?'{nub}':'{nu}',vx+dnx*18,vy+dny*18+4,C.muted,13,700,'center');
+    }
+  }
+}
+
+function caption(ctx,L,t,bm){
+  /* 说明框跟着 quark 走：d → u（MO0–MO1）以后、大圆变色（第 3 步）以前，写“正在变成 …” */
+  var k=t<(MO0+MO1)/2?0:(t<(NU0+NU1)/2?2:1),c=CAP[m.mode][k],sz1=L.wide?14:13,sz2=L.wide?12.5:12;
+  var w=Math.max(richW(ctx,c[0],sz1,700),richW(ctx,c[1],sz2,500))+16;
+  rrect(ctx,L.px0+2,L.py0+4,w,44,8);ctx.fillStyle=rgba(C.stage,0.85);ctx.fill();
+  var tcol=k===2?C.ink:(((k===0)!==bm)?C.north:C.ink);   /* proton 红，neutron 和“正在变”用 ink */
+  txt(ctx,c[0],L.px0+10,L.py0+22,tcol,sz1,700);
+  txt(ctx,c[1],L.px0+10,L.py0+40,C.muted,sz2,500);
+  if(!bm){var s='淡色圆：原子核里别的 p 和 n',ww=richW(ctx,s,11.5,500)+12;
+    rrect(ctx,L.px0+2,L.py1-24,ww,20,6);ctx.fillStyle=rgba(C.stage,0.85);ctx.fill();
+    txt(ctx,s,L.px0+8,L.py1-10,C.muted,11.5,500);}
+}
+
+function ledger(ctx,L,ph){
+  var rows=LED[m.mode],x0=L.qx,x1=L.qx+L.qw,fs=L.fs,mk=['','①','②','③'];
+  txt(ctx,'电荷账本（单位 e）：每一步两边相等',x0,L.qy,C.ink,fs+0.5,700);
+  for(var i=0;i<4;i++){var y=L.qy+L.rh*(i+1);
+    if(i>ph){txt(ctx,mk[i],x0,y,rgba(C.muted,0.7),fs,500);continue;}
+    if(i===ph){rrect(ctx,x0-6,y-fs-4,L.qw+12,fs+11,6);ctx.fillStyle=rgba(C.ink,0.07);ctx.fill();}
+    var wt=i===ph?700:500;
+    rich(ctx,rows[i][0],x0,y,C.ink,fs,wt,'left');
+    rich(ctx,rows[i][1],x1,y,i===ph?C.ink:C.muted,fs,wt,'right');
+  }
+}
+
+function energy(ctx,L,t,bm){
+  var x0=L.qx,w=L.qw,y=L.ey,fs=L.fs,ec=bm?C.south:C.north,el=bm?'e⁻':'e⁺',nl=bm?'{nub}':'{nu}';
+  txt(ctx,'能量怎么分（这一次）',x0,y,C.ink,fs+0.5,700);
+  var by=y+10,bh=12;
+  rrect(ctx,x0,by,w,bh,6);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  if(t>=EMIT){var f=m.x,pc=Math.round(f*100);
+    ctx.save();rrect(ctx,x0,by,w,bh,6);ctx.clip();ctx.fillStyle=ec;ctx.fillRect(x0,by,w*f,bh);ctx.fillStyle=rgba(C.muted,0.55);ctx.fillRect(x0+w*f,by,w*(1-f),bh);ctx.restore();
+    rich(ctx,el+' 带走 '+pc+'%',x0,by+30,ec,fs,700,'left');
+    rich(ctx,nl+' 带走 '+(100-pc)+'%',x0+w,by+30,C.muted,fs,700,'right');}
+  else txt(ctx,'第 2 步才分能量',x0,by+30,C.muted,fs,500);
+  var h=m.hist[m.mode];
+  rich(ctx,h.length?('最近几次 '+el+'：'+h.join('% · ')+'%'):'多按几次“再来一次”，比一比',x0,by+52,C.muted,fs-0.5,500,'left');
+  var ln=wrap(ctx,'每次都不一样：剩下的能量被看不见的 '+nl+' 带走（Pauli\u00a01930）',w,fs-0.5,500);
+  for(var i=0;i<ln.length;i++)rich(ctx,ln[i],x0,by+74+i*17,C.muted,fs-0.5,500,'left');
+}
+
+function status(ctx,L,ph){
+  var s=STAT[m.mode][ph],mw=L.W-32,a=wrap(ctx,s[0],mw,L.sa,600),b=wrap(ctx,s[1],mw,L.sb,500),y=L.wide?26:22,i;
+  for(i=0;i<a.length;i++){rich(ctx,a[i],16,y,C.ink,L.sa,600,'left');y+=L.sa+5;}
+  y+=1;
+  for(i=0;i<b.length;i++){rich(ctx,b[i],16,y,C.muted,L.sb,500,'left');y+=L.sb+4.5;}
+}
+
+var ST=makeStage('sim2',{
+  height:function(w){return w>=640?360:632;},
+  step:function(dt){
+    var n=4,h=dt/n,stop=false;
+    for(var i=0;i<n&&!stop;i++){
+      m.g+=h;var nt=m.t+h;
+      if(m.hold!==null&&nt>=m.hold){nt=m.hold;m.hold=null;stop=true;ST.setPlaying(false);}
+      if(m.t<EMIT&&nt>=EMIT){m.t=nt;pushHist();}
+      m.t=nt;
+      if(m.t>=END)newRun(0);
+    }
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),t=m.t,bm=m.mode==='m',ph=phase(t);
+    status(ctx,L,ph);
+    if(L.wide)seg(ctx,L.px1+10,L.py0+4,L.px1+10,H-14,C.line,1);else seg(ctx,0,L.py1+4,W,L.py1+4,C.line,1);
+    ctx.save();ctx.beginPath();ctx.rect(L.px0,L.py0,L.px1-L.px0,L.py1-L.py0);ctx.clip();
+    picture(ctx,L,t,bm);
+    ctx.restore();
+    caption(ctx,L,t,bm);
+    ledger(ctx,L,ph);
+    energy(ctx,L,t,bm);
+  }
+});
+
+var bM=document.getElementById('s2-bm'),bP=document.getElementById('s2-bp');
+function setMode(md){if(m.mode===md)return;m.mode=md;press(bM,md==='m');press(bP,md==='p');newRun(m.t);ST.render();}
+bM.addEventListener('click',function(){setMode('m');});
+bP.addEventListener('click',function(){setMode('p');});
+document.getElementById('s2-next').addEventListener('click',function(){
+  var k;for(k=0;k<STOPS.length;k++)if(STOPS[k]>m.t+0.02)break;
+  if(k===STOPS.length){newRun(0);m.hold=STOPS[0];}else m.hold=STOPS[k];
+  ST.setPlaying(true);ST.render();
+});
+document.getElementById('s2-again').addEventListener('click',function(){newRun(0);m.hold=null;ST.setPlaying(true);ST.render();});
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · Linac：管子里滑行，gap 里被推（5.3 The linear accelerator）
+   照 Figure 5.3：proton source + 5 根 drift tubes，交替接到 AC 的两端。source 也接在 AC 上（算第 0 个电极），
+   所以第 1 个 gap 在 source 和管子 1 之间，proton 从静止开始被推：过 n 个 gap 后 K = nqV（booklet）。
+   模型（示意单位）：m = 1，每个 gap 的电压让 qV = ½，所以 K（用 qV 做单位）= v²，v = √K·v₁（v₁ = 1，管子 1 里的速度）。
+   gap 里电场均匀（E = V/g），从 + 电极指向 − 电极；管子里没有电场（金属管把电场挡在外面）。
+   K 用功来算：每一小步 ΔK = ±（在 gap 里走的距离）/ g，所以整个穿过一个 gap 正好 ±qV，不受步长影响。
+   管长 L_n = TC·√n（v ∝ √n → 每根管子里的时间都是 TC）；gap 宽都是 G3。AC 是方波（plan：不画正弦）：
+   每过 TAU3 所有 + 和 − 一起互换，TAU3 = TC + gap 2–5 的平均穿越时间 → 每过“一根管子 + 一个 gap”换一次向，
+   换向都发生在 proton 在管子里的时候（大约管子的 40%–50% 处）。
+   “管子一样长”：5 根都等于第 1 根，AC 不变 → proton 一根比一根提前，第 4 个 gap 到早了（换向发生在 gap 里），
+   第 5 个 gap 整个都是反的：K 0 → 1 → 2 → 3 → 2.8 → 1.8。
+   “AC 换向：关”：+ 和 − 停在关的那一刻，相邻的 gap 一个向前、一个向后。从头开始时 proton 在第 2 个 gap 里
+   刚好在管子 2 口停下（K 1 → 0），被推回去，在 source 和管子 2 之间来回。
+   碰到 source 时 K 很小（< 0.05 qV）就停在 source 口，大了就算“丢了”。 */
+var N3=5,G3=0.36,TC=1,RATE=0.9,TW3=8.4,HN=1200,KM3=5.6;
+var TAU3=(function(){var s=0;for(var k=2;k<=N3;k++)s+=2*G3*(Math.sqrt(k)-Math.sqrt(k-1));return TC+s/(N3-1);})();
+var PH3=Math.min(0,2*G3+0.5*TC-TAU3);            /* 第 1 次换向在管子 1 的中间 */
+var XMAX=N3*G3;(function(){for(var k=1;k<=N3;k++)XMAX+=TC*Math.sqrt(k);})();
+var GA=new Float64Array(N3+1),GL=new Float64Array(N3+1),gEnd=0;
+var HT=new Float32Array(HN),HK=new Float32Array(HN),FT=new Float32Array(48);
+var m3={t:0,x:0,v:0,K:0,s:1,sF:1,acOn:true,same:false,done:false,lost:false,wait:0,flash:0,gk:0,gd:0,mixed:false,xOut:11.3,hn:0,fn:0};
+
+function build3(){var x=0;for(var k=1;k<=N3;k++){GA[k]=x;GL[k]=m3.same?TC:TC*Math.sqrt(k);x+=G3+GL[k];}gEnd=x;}
+function clockSign(t){return (Math.floor((t-PH3)/TAU3)%2===0)?1:-1;}
+function nextFlip(t){return PH3+(Math.floor((t-PH3)/TAU3)+1)*TAU3;}
+function acSign(){return m3.acOn?clockSign(m3.t):m3.sF;}
+function sgnOf(k,s){return (k%2===0)?s:-s;}      /* 电极 k 的符号：0 = source，1–5 = 管子；相邻的永远一正一负 */
+function dirOf(k,s){return sgnOf(k-1,s);}          /* gap k（电极 k−1 和 k 之间）：+1 = 电场向前（后面的是 +） */
+function gapAt(x){for(var k=1;k<=N3;k++){if(x>=GA[k]&&x<GA[k]+G3)return k;}return 0;}
+function tubeAt(x){for(var k=1;k<=N3;k++){var a=GA[k]+G3;if(x>=a&&x<a+GL[k])return k;}return 0;}
+function passed(){if(m3.x>=gEnd)return N3;var k=tubeAt(m3.x);if(k)return k;k=gapAt(m3.x);return k?k-1:0;}
+function kStr(K){var r=Math.round(K);if(Math.abs(K-r)<0.03)return r===0?'0':(r===1?'qV':r+'qV');return K.toFixed(1)+'qV';}
+function addFlip(t){if(m3.fn>=FT.length){FT.copyWithin(0,FT.length/2);m3.fn=FT.length/2;}FT[m3.fn++]=t;}
+function pushHist(){if(m3.hn>=HN){HT.copyWithin(0,HN/2);HK.copyWithin(0,HN/2);m3.hn=HN/2;}HT[m3.hn]=m3.t;HK[m3.hn]=m3.K;m3.hn++;}
+
+function sub3(h){
+  var s=m3.s,x0=m3.x,k=gapAt(x0),acc=k?dirOf(k,s)/(2*G3):0;
+  var v1=m3.v+acc*h,x1=x0+(m3.v+v1)*0.5*h;
+  var lo=Math.min(x0,x1),hi=Math.max(x0,x1),sg=x1>=x0?1:-1,dK=0;
+  for(var j=1;j<=N3;j++){var ov=Math.min(hi,GA[j]+G3)-Math.max(lo,GA[j]);if(ov>0)dK+=dirOf(j,s)*sg*ov/G3;}
+  var K=Math.max(0,m3.K+dK);
+  if(x1<0){if(K<0.05){x1=0;v1=0;K=0;}else{m3.lost=true;m3.x=0;m3.v=0;m3.K=K;return;}}
+  else if(k&&!gapAt(x1)&&K<2e-3){x1=clamp(x1,GA[k]+1e-7,GA[k]+G3-1e-7);v1=0;K=0;} /* 刚好停在管口：被推回 gap */
+  m3.x=x1;m3.K=K;m3.v=(v1>0?1:(v1<0?-1:0))*Math.sqrt(K);
+  var gk=gapAt(m3.x),gd=m3.v>0?1:(m3.v<0?-1:0);
+  if(gk!==m3.gk||(gd!==0&&gd!==m3.gd)){m3.gk=gk;m3.gd=gd;m3.mixed=false;}
+  if(gk&&gd!==0&&dirOf(gk,m3.s)*gd<0)m3.mixed=true;
+}
+function step3(dt){
+  if(m3.flash>0)m3.flash=Math.max(0,m3.flash-dt);
+  if(m3.done||m3.lost){m3.wait+=dt;if(m3.wait>(m3.lost?1.8:1.4))restart3();return;}
+  var T=dt*RATE,n=Math.max(1,Math.ceil(T/0.002)),h=T/n;
+  for(var i=0;i<n;i++){
+    m3.t+=h;var s=acSign();if(s!==m3.s){m3.s=s;addFlip(m3.t);m3.flash=0.8;}
+    sub3(h);
+    if(m3.lost)break;
+    if(m3.x>m3.xOut){m3.done=true;break;}
+  }
+  pushHist();
+}
+function restart3(){build3();m3.t=0;m3.x=0;m3.v=0;m3.K=0;m3.sF=1;m3.s=acSign();m3.done=false;m3.lost=false;m3.wait=0;m3.flash=0;
+  m3.gk=0;m3.gd=0;m3.mixed=false;m3.hn=0;m3.fn=0;pushHist();}
+
+function status3(){
+  var x=m3.x,v=m3.v,k=gapAt(x),tb=tubeAt(x),back=!m3.acOn?'AC 不换向：它在 source 和管子之间来回，出不去':'跟不上 AC 的节奏 → 加不了速';
+  if(m3.lost)return ['proton 被推回 source，丢了',!m3.acOn?'AC 不换向 → 加不了速':'跟不上 AC 的节奏 → 加不了速',C.heat];
+  if(m3.done||x>=gEnd){
+    if(m3.K>N3-0.05)return ['beam 出去了：过了 '+N3+' 个 gap，K = '+N3+'qV','管子越来越长，正好跟上 AC 的节奏，每个 gap 都推',C.ink];
+    return ['beam 出去了：K 只有 '+kStr(m3.K)+'，不到 '+N3+'qV',!m3.acOn?'AC 不换向：一个 gap 推、一个 gap 拉，加不了速':'管子一样长：越来越快，跟不上 AC 的节奏',C.heat];
+  }
+  if(k){var d=dirOf(k,m3.s);
+    if(v<0)return ['proton 被推回来了，往回走',back,C.heat];
+    if(v===0&&d<0)return ['proton 停在 '+(k===1?'source 口':'管口')+'：电场向后，推不出去','等 AC 换向',C.heat];
+    if(d>0)return ['在 gap：'+(k===1?'source 是 +，前面的管子是 −':'后面的管子 +，前面的管子 −'),m3.mixed?'电场换过来了 → 又往前推，但只推了一部分':'电场向前 → 推 proton 一下，K 多了 qV',C.ink];
+    return [!m3.acOn?'AC 不换向：这个 gap 后面 −、前面 +':(m3.same?'管子一样长：proton 提前到了 gap，还没换向':'在 gap：后面的管子 −，前面的管子 +'),'电场向后 → proton 被往回推，变慢',C.heat];
+  }
+  if(v<0)return ['proton 被推回来了，往回走',back,C.heat];
+  var l1='在管子里：金属管里面没有电场，匀速滑行';
+  if(tb===N3)return [l1,'最后一根管子：出去以后就是 beam',C.ink];
+  var dn=dirOf(tb+1,m3.s);
+  if(!m3.acOn)return [l1,dn>0?'AC 不换向，但前面这个 gap 正好向前':'AC 不换向 → 前面的 gap 电场向后，会被往回推',dn>0?C.ink:C.heat];
+  if(dn>0)return [l1,'AC 刚把 + 和 − 换过来 → 前面的 gap 变成向前',C.ink];
+  if(nextFlip(m3.t)-m3.t<(GA[tb+1]-x)/Math.max(v,1e-6))return [l1,'趁这时候，AC 把 + 和 − 换过来',C.ink];
+  return [l1,'管子太短：到 gap 时还来不及换向',C.heat];
+}
+
+function lay3(W){
+  if(W>=640){var gw=Math.round(W*0.57)-52;
+    return {wide:true,st1:26,st2:48,fs1:15,fs2:13.5,mx:16,xl:10,sx:22,x0:82,u:(W-60-82)/XMAX,yLoop:68,yAC:86,rAC:11,yT:108,ax:146,th:32,sh:32,rb:9,rp:6.5,
+      yE:174,yEl:189,yB:198,yA:216,yAt:232,gx:52,gy:276,gw:gw,gh:112,rx:52+gw+36};}
+  return {wide:false,st1:22,st2:41,fs1:13.5,fs2:13,mx:12,xl:3,sx:9,x0:34,u:(W-26-34)/XMAX,yLoop:58,yAC:75,rAC:9,yT:95,ax:128,th:26,sh:26,rb:8,rp:5.5,
+    yE:151,yEl:166,yB:175,yA:189,yAt:204,gx:40,gy:248,gw:W-40-14,gh:104};
+}
+
+restart3();
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?412:464;},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay3(W),u=L.u,x0=L.x0,ax=L.ax,th=L.th,tt=ax-th/2,tb=ax+th/2,s=m3.s,k,ck;
+    function X(xm){return x0+xm*u;}
+    function tc(k){return X(GA[k]+G3+GL[k]/2);}
+    m3.xOut=(W+12-x0)/u;
+    var pg=(m3.done||m3.lost)?0:gapAt(m3.x);
+    /* status */
+    var st=status3();
+    txt(ctx,st[0],L.mx,L.st1,C.ink,L.fs1,700);
+    txt(ctx,st[1],L.mx,L.st2,st[2],L.fs2,600);
+    /* wires：管子 1、3、5 接上面，source、管子 2、4 接下面（照 Figure 5.3） */
+    var wc=rgba(C.ink,0.45),xAC=Math.round((tc(3)+tc(4))/2),cs=(L.sx+x0)/2;   /* AC 在管子 3 和 4 中间（照 Figure 5.3） */
+    seg(ctx,tc(1),L.yT,tc(N3),L.yT,wc,1.3);
+    for(k=1;k<=N3;k+=2){ck=tc(k);seg(ctx,ck,L.yT,ck,tt,wc,1.3);}
+    seg(ctx,xAC,L.yT,xAC,L.yAC+L.rAC,wc,1.3);
+    seg(ctx,xAC,L.yAC-L.rAC,xAC,L.yLoop,wc,1.3);seg(ctx,xAC,L.yLoop,L.xl,L.yLoop,wc,1.3);seg(ctx,L.xl,L.yLoop,L.xl,L.yB,wc,1.3);
+    seg(ctx,L.xl,L.yB,tc(4),L.yB,wc,1.3);
+    seg(ctx,cs,ax+L.sh/2,cs,L.yB,wc,1.3);
+    for(k=2;k<=N3;k+=2){ck=tc(k);seg(ctx,ck,tb,ck,L.yB,wc,1.3);}
+    /* AC supply */
+    dot(ctx,xAC,L.yAC,L.rAC,C.surface);ring(ctx,xAC,L.yAC,L.rAC,m3.acOn?C.ink:C.muted,1.5);
+    txt(ctx,'∼',xAC,L.yAC+1,m3.acOn?C.ink:C.muted,L.wide?17:15,700,'center','middle',MATH);
+    var al=m3.acOn?(L.wide?'AC supply':'AC'):'AC 不换向',fl=m3.flash/0.8;
+    txt(ctx,al,xAC+L.rAC+6,L.yAC+4,m3.acOn?C.ink:C.heat,12,600);
+    if(m3.acOn&&fl>0){var aw=ctx.measureText(al).width;ctx.globalAlpha=Math.min(1,fl*1.6);txt(ctx,'换向！',xAC+L.rAC+12+aw,L.yAC+4,C.violet,12.5,700);ctx.globalAlpha=1;}
+    /* source（第 0 个电极） */
+    var ss=sgnOf(0,s),scol=ss>0?C.north:C.south;
+    rrect(ctx,L.sx,ax-L.sh/2,x0-L.sx,L.sh,4);ctx.fillStyle=rgba(scol,0.14);ctx.fill();ctx.strokeStyle=rgba(scol,0.85);ctx.lineWidth=1.6;ctx.stroke();
+    txt(ctx,ss>0?'+':'−',cs,ax+1,scol,L.wide?16:14,700,'center','middle');
+    if(L.wide)txt(ctx,'proton source',cs,tt-22,C.muted,11.5,600,'center');
+    else{txt(ctx,'proton',cs,tt-17,C.muted,11,600,'center');txt(ctx,'source',cs,tt-5,C.muted,11,600,'center');}
+    /* gaps（电场只在这里） */
+    for(k=1;k<=N3;k++){var g0=X(GA[k]),g1=X(GA[k]+G3);ctx.fillStyle=rgba(C.violet,k===pg?0.24:0.08);ctx.fillRect(g0,tt+3,g1-g0,th-6);}
+    /* drift tubes + 符号 */
+    seg(ctx,x0,ax,X(gEnd),ax,rgba(C.muted,0.35),1,[3,4]);
+    for(k=1;k<=N3;k++){var sk=sgnOf(k,s),col=sk>0?C.north:C.south,xa=X(GA[k]+G3),xb=X(GA[k]+G3+GL[k]);
+      rrect(ctx,xa,tt,xb-xa,th,5);ctx.fillStyle=rgba(col,0.12);ctx.fill();ctx.strokeStyle=rgba(col,0.85);ctx.lineWidth=1.6;ctx.stroke();}
+    for(k=1;k<=N3;k++){var sk2=sgnOf(k,s),col2=sk2>0?C.north:C.south,cx=tc(k);
+      if(fl>0)ring(ctx,cx,tt,L.rb+2+(1-fl)*6,rgba(col2,0.75*fl),2);
+      dot(ctx,cx,tt,L.rb,col2);txt(ctx,sk2>0?'+':'−',cx,tt+1,'#ffffff',L.wide?14:12.5,700,'center','middle');}
+    /* E in every gap：从 + 指向 −（AC 一换向，全部反过来） */
+    for(k=1;k<=N3;k++){var d=dirOf(k,s),gc=X(GA[k]+G3/2),hl=Math.max(11,G3*u/2+4),on=k===pg;
+      arrow(ctx,gc-d*hl,L.yE,gc+d*hl,L.yE,on?C.violet:rgba(C.violet,0.42),on?2.6:1.8,on?8:7);
+      if(on)txt(ctx,'E',gc,L.yEl,C.violet,13,'italic 700','center','alphabetic',MATH);}
+    /* 管长 */
+    var xa2=X(GA[2]+G3),xe=X(gEnd);
+    arrow(ctx,xa2,L.yA,xe,L.yA,rgba(C.muted,0.8),1.3,7);
+    txt(ctx,m3.same?'管子一样长（AC 频率不变）':'管子一根比一根长（L ∝ √n）',(xa2+xe)/2,L.yAt,C.muted,L.wide?12:11.5,600,'center');
+    /* beam */
+    arrow(ctx,xe+4,ax,xe+(L.wide?30:18),ax,rgba(C.ink,0.55),1.8,7);
+    if(L.wide)txt(ctx,'beam',xe+17,ax-11,C.muted,11.5,600,'center');
+    else txt(ctx,'beam',Math.min(xe+11,W-17),tt-5,C.muted,11,600,'center');
+    /* proton */
+    if(!m3.done&&!m3.lost){var px=X(m3.x),dv=m3.v>0?1:(m3.v<0?-1:0),av=Math.abs(m3.v);
+      if(av>0.05){var vl=(L.wide?10:7)+(L.wide?14:9)*av;arrow(ctx,px+dv*(L.rp+2),ax,px+dv*(L.rp+2+vl),ax,rgba(C.ink,0.7),2,7);}
+      if(pg){var dF=dirOf(pg,s),fy=tt-14,fw=L.wide?22:16,fxl=px+dF*(fw+13);
+        arrow(ctx,px+dF*5,fy,px+dF*(5+fw),fy,C.stage,6,11);   /* 底色描边：箭头压在导线和 ± 圆点上时也看得清 */
+        arrow(ctx,px+dF*5,fy,px+dF*(5+fw),fy,C.force,2.6,8);
+        ctx.font='italic 700 13px '+MATH;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText('F',fxl,fy+4);
+        txt(ctx,'F',fxl,fy+4,C.force,13,'italic 700','center','alphabetic',MATH);}
+      dot(ctx,px,ax,L.rp+1.5,C.surface);dot(ctx,px,ax,L.rp,C.north);}
+    /* K–t 阶梯图 */
+    var gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,t0=Math.max(0,m3.t-TW3),i;
+    function GXt(t){return gx+(t-t0)/TW3*gw;}
+    function GYk(K){return gy+gh-K/KM3*gh;}
+    txt(ctx,'动能 K（单位 qV）',gx,gy-12,C.copper,12.5,700);
+    seg(ctx,gx+gw-50,gy-21,gx+gw-50,gy-9,rgba(C.muted,0.8),1.2,[3,3]);txt(ctx,'AC 换向',gx+gw,gy-12,C.muted,11.5,600,'right');
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+    for(k=0;k<=N3;k++){var yk=GYk(k);if(k>0)seg(ctx,gx,yk,gx+gw,yk,C.grid,1);txt(ctx,kStr(k),gx-6,yk+4,C.muted,11,500,'right');}
+    for(i=0;i<m3.fn;i++){if(FT[i]>=t0&&FT[i]<=m3.t){var fx=GXt(FT[i]);seg(ctx,fx,gy,fx,gy+gh,rgba(C.muted,0.6),1.2,[3,4]);}}
+    if(m3.hn>1){ctx.save();ctx.beginPath();ctx.rect(gx,gy-4,gw+2,gh+8);ctx.clip();ctx.beginPath();var first=true;
+      for(i=0;i<m3.hn;i++){if(HT[i]<t0-0.05)continue;var hx=GXt(HT[i]),hy=GYk(HK[i]);if(first){ctx.moveTo(hx,hy);first=false;}else ctx.lineTo(hx,hy);}
+      ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();ctx.restore();
+      dot(ctx,GXt(m3.t),GYk(m3.K),4.5,C.copper);}
+    txt(ctx,'时间 t →',gx+gw,gy+gh+16,C.muted,11,500,'right');
+    /* 读数 */
+    var n=passed(),tbk=tubeAt(m3.x),off=!(pg&&m3.v>=0)&&Math.abs(m3.K-n)>0.05,vs='v = '+(m3.v<0?'−':'')+Math.abs(m3.v).toFixed(2)+' v₁';
+    if(tbk&&!m3.done)vs+=' · 管长 = '+(GL[tbk]/GL[1]).toFixed(2)+' L₁';
+    var rule=off?'K ≠ nqV：有的 gap 把它往回推':(m3.same?'v 越来越大，管长不变 → 越来越早到 gap':'K = nqV，v ∝ √n → 管长 ∝ √n');
+    if(L.wide){var rx=L.rx,ry=gy-12;
+      txt(ctx,'过了 '+n+' 个 gap',rx,ry,C.ink,13,600);
+      txt(ctx,'K = '+kStr(m3.K),rx,ry+30,C.copper,20,700,'left','alphabetic',MONO);
+      txt(ctx,vs,rx,ry+56,C.ink,13,500);
+      txt(ctx,rule,rx,ry+80,off?C.heat:C.muted,12.5,600);
+      txt(ctx,'W = qV（每个 gap）· SLAC：3.2 km',rx,ry+102,C.muted,12,500);
+      txt(ctx,'电压、管长、AC 频率：示意',rx,ry+122,C.muted,11.5,500);}
+    else{var ry2=gy+gh+42;
+      txt(ctx,'过了 '+n+' 个 gap',L.mx,ry2,C.ink,13.5,600);
+      txt(ctx,'K = '+kStr(m3.K),W-L.mx,ry2,C.copper,16,700,'right','alphabetic',MONO);
+      txt(ctx,vs,L.mx,ry2+21,C.ink,12.5,500);
+      txt(ctx,rule,L.mx,ry2+41,off?C.heat:C.muted,12,600);
+      txt(ctx,'W = qV · SLAC 3.2 km · 电压、管长、频率：示意',L.mx,ry2+60,C.muted,11.5,500);}
+  }
+});
+for(var q3=0;q3<200&&m3.t<1.87;q3++)step3(1/60);   /* 第一帧：proton 在第 2 个 gap 里被推（和 Figure 5.3 一样：管子 + − + − +） */
+m3.flash=0;S3.render();
+
+var b3ac=document.getElementById('s3-ac'),b3g=document.getElementById('s3-grow'),b3s=document.getElementById('s3-same');
+function sync3(){press(b3ac,m3.acOn);b3ac.textContent='AC 换向：'+(m3.acOn?'开':'关');press(b3g,!m3.same);press(b3s,m3.same);}
+b3ac.addEventListener('click',function(){m3.acOn=!m3.acOn;if(!m3.acOn)m3.sF=m3.s;else{var s=acSign();if(s!==m3.s){m3.s=s;addFlip(m3.t);m3.flash=0.8;}}sync3();S3.render();});
+function setSame3(v){if(m3.same===v)return;m3.same=v;sync3();restart3();S3.setPlaying(true);S3.render();}
+b3g.addEventListener('click',function(){setSame3(false);});
+b3s.addEventListener('click',function(){setSame3(true);});
+document.getElementById('s3-reset').addEventListener('click',function(){restart3();S3.setPlaying(true);S3.render();});
+sync3();
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · Cyclotron：螺旋往外，每半圈时间一样（5.3 The cyclotron，照 Figure 5.4）
+   booklet：从上往下看；positive ion；B into the page；spirals out anticlockwise；dee 1 在左、dee 2 在右；
+     r = mv/(qB)，T = 2πm/(qB)（要背），f = 1/T；W = qV，n 个 gap：K = nqV；
+     “The AC flips while the ion is in a dee, so every crossing is a push”；
+     “Limit: near c each turn takes longer, so ions fall out of step”。
+   ion = proton，用 data sheet 的 mp = 1.673 × 10⁻²⁷ kg、e = 1.602 × 10⁻¹⁹ C。计算值：
+     T/2 = πm/(qB)：0.5 T → 65.6 ns；1.0 T → 32.8 ns（T = 65.6 ns，f = 15.2 MHz）；2.0 T → 16.4 ns（f = 30.5 MHz）。
+     r = √(2mK)/(qB)，K = n × 50 keV：1.0 T、n = 1 → 3.23 cm；r ∝ √n，r ∝ 1/B。
+   示意：gap 电压 V = 50 kV；dee 半径 12 cm；gap 宽 1.4 cm；ion source 在 dee 中心下面 1.62 cm（= 0.5 × 1.0 T 的 r₁，
+     这样 1.0 T 时螺旋差不多居中，并且和 Figure 5.4 一样从 dee 2 的右上边出去）；画面上每半圈 1.0 s × (1 T / B)（B 大转得快：T ∝ 1/B 是真的比例）。
+     真实的过 gap 时间很短；画面里 gap 有宽度，所以过 gap 时 AC 的“钟”停住（相当于把过 gap 的时间当成 0）。
+   AC 画成方波：每半个周期整体换号，换号在 ion 走到半圆中间时。gap 里的 E 从 + dee 指向 − dee。
+   palm rule：ion 向右（+x），B 指向纸里，正电荷受力向上（+y）→ 向左拐 = 逆时针（和 Figure 5.4 一样）；
+     F 一直指向这个半圆的圆心；dee 里速率不变。
+   dee 外面没有磁场：ion 一离开 dee 的边，就沿那一点的切线走直线（exit）。
+   “接近 c”（示意，效果放大）：假装 mc² = 50 qV，γ = 1 + K/(mc²) = 1 + n/50；每半圈用时 γ·T/2，r = p/(qB) ∝ √(n + n²/100)。
+     AC 频率不变 → 每次到 gap 都晚 (γ − 1)·T/2，越积越多；晚到超过 T/4 时 AC 已经换号 → 电场逆着 ion → K 少 qV。
+     1.0 T：先推 7 次，再被往回推 7 次，最后停在 gap 里。B ≤ 0.8 T 时 ion 还没跟不上就出去了。
+   整个运动先算成一张“路线表”（每段 gap / 半圆 / 出口的起点和时长），画面按时间查表，不积累误差。
+   颜色：proton --north；轨迹 --copper（被往回推以后的半圆 --heat）；v --ink 70%；F --force；E --violet；B 的 × --field；
+     + dee --north，− dee --south；右边：r 的点 --copper，用时的点 --south，AC 换号间隔虚线 --violet。 */
+var MP=1.673e-27,QE=1.602e-19,VG=50e3,RD=12,GAP=1.4,MU=50,THV=1.0,HOLD=2.8;
+var R1T=Math.sqrt(2*MP*QE*VG)/QE*100,S0=0.5*R1T;
+var m4={B:1,nc:false,P:null,t:0,li:0,r2:0,r2T:0};
+var ST={x:0,y:-S0,ux:1,uy:0,sp:0,tac:0,on:true};
+var LY={},OCC=[],nOcc=0,CAND=new Float64Array(8);
+var M1=['从 ion source 出发：gap 里的电场推它一下','过 gap：电场顺着 ion，推一下 → 变快','到 gap 时 AC 已经换号 → 被往回推，变慢',
+  '被往回推到停下：加速不上去了','AC 换号了（ion 在 dee 里，不受影响）','在 dee 1 里：只有 B → 只拐弯，走半个圆',
+  '离开 dee 的边：没有磁场了 → 沿切线飞出去（exit）','ion 跟不上 AC 的节奏 → 加速不上去了','在 dee 2 里：只有 B → 只拐弯，走半个圆',
+  '每过一次 gap 推一下；在 dee 里只拐弯，走半个圆'];
+var CL2=['F = qvB 一直垂直于 v |→ 不做功，速率不变','每过一次 gap，K 多 qV |→ v 变大 → r = mv/(qB) 变大',
+  'r 和 v 一起变大 |→ 每半圈用的时间一样：T = 2πm/(qB)','AC 趁 ion 在 dee 里换号 |→ 每次过 gap 都是推'];
+var NC2=['接近 c（效果放大，示意）：|ion 越快，每半圈要越久','AC 的频率不变 → ion 每次到 gap |都晚一点，越积越多',
+  '晚到超过 T/4，AC 已经换号 |→ 电场逆着 ion，被往回推'];
+
+function rOf(n){var r1=R1T/m4.B;return m4.nc?r1*Math.sqrt(n+n*n/(2*MU)):r1*Math.sqrt(n);}
+function gOf(n){return m4.nc?1+n/MU:1;}
+function dist0(xc,yc,r,a){return Math.hypot(r*Math.cos(a),yc+r*Math.sin(a));}
+function build(){
+  var Th=THV/m4.B,L=[],A=[],t=0,tac=0,n=0,y=-S0,dir=1,end='exit',fb=-1,i,s;
+  function vel(k){return k<=0?0:rOf(k)*Math.PI/(gOf(k)*Th);}
+  for(i=0;i<140;i++){
+    var w=Math.floor(tac/Th+0.5+1e-9),E=(w%2===0)?1:-1,push=(E===dir)?1:-1,lag=tac-A.length*Th,n2=n+push;
+    var first=(i===0),dd=first?GAP/2:GAP,vin=vel(n),stop=n2<=0,vout=stop?0:vel(n2),dg=2*dd/(vin+vout);
+    L.push({k:0,t0:t,d:dg,tac:tac,x0:first?0:-dir*GAP/2,y:y,dir:dir,dd:dd,vin:vin,acc:(vout*vout-vin*vin)/(2*dd),
+      E:E,push:push,n0:n,n1:stop?0:n2,lag:lag,first:first,stop:stop});
+    if(push<0&&fb<0)fb=t;
+    t+=dg;
+    if(stop){end='stuck';break;}
+    n=n2;
+    var r=rOf(n),df=gOf(n)*Th,xc=dir*GAP/2,yc=y+dir*r,a0=dir>0?-Math.PI/2:Math.PI/2,ae=-1;
+    for(s=1;s<=360;s++){if(dist0(xc,yc,r,a0+Math.PI*s/360)>RD){ae=a0+Math.PI*s/360;break;}}
+    var arc={k:1,t0:t,d:df,tac:tac,xc:xc,yc:yc,r:r,a0:a0,w:Math.PI/df,n:n,g:gOf(n),dee:dir>0?2:1,idx:A.length+1,back:push<0,lag:lag,exit:false};
+    L.push(arc);A.push(arc);
+    if(ae>=0){
+      var lo=ae-Math.PI/360,hi=ae;
+      for(s=0;s<16;s++){var mid=(lo+hi)/2;if(dist0(xc,yc,r,mid)>RD)hi=mid;else lo=mid;}
+      arc.d=(hi-a0)/arc.w;arc.exit=true;t+=arc.d;
+      var sp=r*arc.w,de=2*RD/sp;
+      L.push({k:2,t0:t,d:de,tac:tac+arc.d,x0:xc+r*Math.cos(hi),y0:yc+r*Math.sin(hi),dx:-Math.sin(hi),dy:Math.cos(hi),sp:sp,n:n,arc:arc});
+      t+=de;tac+=arc.d+de;break;
+    }
+    t+=df;tac+=df;y+=2*dir*r;dir=-dir;
+  }
+  L.push({k:3,t0:t,d:HOLD,tac:tac,end:end});t+=HOLD;
+  var smax=0;for(i=0;i<A.length;i++)smax=Math.max(smax,A[i].r*A[i].w);
+  m4.P={L:L,A:A,T:t,end:end,Th:Th,smax:smax,nA:A.length,fb:fb,
+    thn:Math.PI*MP/(QE*m4.B)*1e9,f:QE*m4.B/(TAU*MP)/1e6};
+  m4.t=0;m4.li=0;m4.r2=0;m4.r2T=0;
+}
+function where(){
+  var L=m4.P.L;
+  while(m4.li<L.length-1&&m4.t>=L[m4.li].t0+L[m4.li].d)m4.li++;
+  var g=L[m4.li],tau=clamp(m4.t-g.t0,0,g.d),a,s;
+  ST.on=true;
+  if(g.k===0){s=g.vin*tau+0.5*g.acc*tau*tau;ST.x=g.x0+g.dir*s;ST.y=g.y;ST.ux=g.dir;ST.uy=0;ST.sp=Math.max(0,g.vin+g.acc*tau);ST.tac=g.tac;}
+  else if(g.k===1){a=g.a0+g.w*tau;ST.x=g.xc+g.r*Math.cos(a);ST.y=g.yc+g.r*Math.sin(a);ST.ux=-Math.sin(a);ST.uy=Math.cos(a);ST.sp=g.r*g.w;ST.tac=g.tac+tau;}
+  else if(g.k===2){ST.x=g.x0+g.dx*g.sp*tau;ST.y=g.y0+g.dy*g.sp*tau;ST.ux=g.dx;ST.uy=g.dy;ST.sp=g.sp;ST.tac=g.tac+tau;}
+  else{var p=L[L.length-2];ST.tac=g.tac+tau;if(p.k===0){ST.x=p.x0+p.dir*p.dd;ST.y=p.y;ST.ux=p.dir;ST.uy=0;ST.sp=0;}else ST.on=false;}
+  return g;
+}
+function polE(){var w=Math.floor(ST.tac/m4.P.Th+0.5+1e-9);return (w%2===0)?1:-1;}
+function code1(g){
+  var P=m4.P;
+  if(g.k===3)return g.end==='exit'?6:7;
+  if(g.k===2)return 6;
+  if(m4.nc&&P.fb>=0&&m4.t>=P.fb)return (g.k===0&&g.stop)?3:2;
+  if(g.k===0)return g.first?0:1;
+  var ti=m4.t-g.t0,D=Math.PI/g.w;
+  if(D<0.7)return 9;
+  /* AC 换号了没有：和这个半圆开始时的极性比（接近 c 时 ion 晚到，换号会提前到半圆中间以前） */
+  var Ea=(Math.floor(g.tac/m4.P.Th+0.5+1e-9)%2===0)?1:-1,flipped=polE()!==Ea;
+  if(!flipped&&ti<Math.min(0.25,0.22*D))return g.idx===1?0:1;
+  if(!flipped||g.exit)return g.dee===1?5:8;
+  return 4;
+}
+function msg2(g){
+  var P=m4.P;
+  if(g.k>=2){
+    if(P.end==='stuck')return '这就是 cyclotron 的极限：|接近 c 时，ion 和 AC 对不上节奏';
+    if(m4.nc)return '这次 B 小，ion 还没跟不上就出去了 |→ 把 B 调大一点再看';
+    var a=P.A[P.A.length-1];return '出来时：|K = nqV = '+a.n+' × 50 keV = '+(a.n*50)+' keV';
+  }
+  if(m4.nc){if(P.fb>=0&&m4.t>=P.fb)return '这就是 cyclotron 的极限：|接近 c 时，ion 和 AC 对不上节奏';return NC2[m4.r2%NC2.length];}
+  var j=m4.r2%(CL2.length+1);
+  if(j===0)return 'B = '+m4.B.toFixed(1)+' T 的 proton：|f = qB/(2πm) = '+P.f.toPrecision(3)+' MHz，T = '+(2*P.thn).toPrecision(3)+' ns';
+  return CL2[j-1];
+}
+function curArc(g){var L=m4.P.L;if(g.k===1)return g;if(g.k===2)return g.arc;for(var i=m4.li-1;i>=0;i--)if(L[i].k===1)return L[i];return null;}
+function curGap(g){var L=m4.P.L;for(var i=m4.li;i>=0;i--)if(L[i].k===0)return L[i];return L[0];}
+
+/* ---- text bookkeeping: static text is recorded, moving labels avoid it ---- */
+function occ(l,t,r,b){if(!OCC[nOcc])OCC[nOcc]=[0,0,0,0];var o=OCC[nOcc++];o[0]=l;o[1]=t;o[2]=r;o[3]=b;}
+function T(ctx,s,x,y,col,size,wt,al,fam){txt(ctx,s,x,y,col,size,wt,al||'left','alphabetic',fam);var w=ctx.measureText(s).width,l=al==='center'?x-w/2:(al==='right'?x-w:x);occ(l,y-size*0.9,l+w,y+size*0.3);return w;}
+function tw(ctx,s,size,wt,fam){ctx.font=(wt||500)+' '+size+'px '+(fam||FONT);return ctx.measureText(s).width;}
+function free(l,t,r,b){
+  if(l<LY.cx0+2||r>LY.cx1-2||t<LY.cy0+2||b>LY.my1-2)return false;
+  for(var i=0;i<nOcc;i++){var o=OCC[i];if(l<o[2]+3&&r>o[0]-3&&t<o[3]+3&&b>o[1]-3)return false;}
+  return true;
+}
+function lab(ctx,s,n,col,size,wt,fam){
+  var w=tw(ctx,s,size,wt,fam),h=size*0.9;
+  for(var i=0;i<n;i++){var x=CAND[2*i],y=CAND[2*i+1],l=x-w/2,t=y-h/2;
+    if(free(l,t,l+w,t+h)){rrect(ctx,l-3,t-2,w+6,h+4,4);ctx.fillStyle=rgba(C.stage,0.82);ctx.fill();txt(ctx,s,x,y,col,size,wt,'center','middle',fam);occ(l,t,l+w,t+h);return true;}}
+  return false;
+}
+/* status: line 1 bold, line 2 may wrap at '|' */
+function status(ctx,W,g){
+  var wide=LY.wide,mw=W-32,c=code1(g),s1=M1[c],col=(c===2||c===3||c===7)?C.heat:C.ink;
+  var z1=wide?15:13.5;while(tw(ctx,s1,z1,700)>mw&&z1>11.5)z1-=0.5;
+  T(ctx,s1,16,LY.s1,col,z1,700);
+  var s2=msg2(g),parts=s2.split('|'),one=parts.join(''),z2=wide?13.5:12.5;
+  if(tw(ctx,one,z2,500)<=mw||parts.length<2){while(tw(ctx,one,z2,500)>mw&&z2>11.5)z2-=0.5;T(ctx,one,16,LY.s2,C.ink,z2,500);}
+  else{var a=parts[0].replace(/\s+$/,''),b=parts[1];while((tw(ctx,a,z2,500)>mw||tw(ctx,b,z2,500)>mw)&&z2>11.5)z2-=0.5;
+    T(ctx,a,16,LY.s2,C.ink,z2,500);T(ctx,b,16,LY.s2+(wide?19:17),C.ink,z2,500);}
+}
+function lay(W){
+  var wide=W>=640,R=wide?150:Math.min(150,(W-40)/(2+GAP/RD)),k=R/RD,gp=GAP*k;
+  LY.wide=wide;LY.R=R;LY.k=k;LY.gp=gp;
+  if(wide){LY.ox=34+R+gp/2;LY.s1=26;LY.s2=48;LY.div=62;LY.ac=92;}
+  else{LY.ox=W/2;LY.s1=22;LY.s2=41;LY.div=68;LY.ac=98;}
+  LY.oy=LY.ac+22+R;LY.dl=LY.oy+R+19;LY.lg=LY.dl+20;LY.cx0=0;LY.cy0=LY.div+1;LY.my1=LY.dl-15;
+  if(wide){LY.cx1=LY.ox+gp/2+R+30;LY.cy1=LY.lg+14;LY.px0=LY.ox+gp/2+R+44;LY.px1=W-16;LY.ry=90;LY.rs=24;LY.c1=228;LY.ch=56;LY.c2=320;LY.ax=396;LY.fn=420;}
+  else{LY.cx1=W;LY.cy1=LY.lg+10;LY.px0=16;LY.px1=W-16;LY.ry=LY.cy1+24;LY.rs=19;LY.c1=LY.ry+4*19+34;LY.ch=34;LY.c2=LY.c1+LY.ch+28;LY.ax=LY.c2+LY.ch+18;LY.fn=LY.ax+19;}
+  return LY;
+}
+function crossMark(ctx,x,y,s){seg(ctx,x-s,y-s,x+s,y+s,rgba(C.field,0.5),1.2);seg(ctx,x-s,y+s,x+s,y-s,rgba(C.field,0.5),1.2);}
+function cyclotron(ctx,g){
+  var ox=LY.ox,oy=LY.oy,R=LY.R,k=LY.k,gp=LY.gp,E=polE(),i,j;
+  /* dees: + dee red tint, − dee blue tint */
+  for(i=0;i<2;i++){var left=i===0,plus=left?E>0:E<0,col=plus?C.north:C.south,cx=left?ox-gp/2:ox+gp/2;
+    ctx.beginPath();if(left)ctx.arc(cx,oy,R,Math.PI/2,Math.PI*1.5,false);else ctx.arc(cx,oy,R,-Math.PI/2,Math.PI/2,false);ctx.closePath();
+    ctx.fillStyle=rgba(col,0.08);ctx.fill();ctx.strokeStyle=rgba(col,0.6);ctx.lineWidth=1.5;ctx.stroke();}
+  /* B into the page */
+  var sp=LY.wide?30:27,J=Math.floor(R/sp);
+  for(i=0;i*sp+sp*0.5<R;i++){var dx=gp/2+sp*0.5+i*sp;for(j=-J;j<=J;j++){var dy=j*sp;if((dx-gp/2)*(dx-gp/2)+dy*dy<(R-9)*(R-9)){crossMark(ctx,ox+dx,oy+dy,3.6);crossMark(ctx,ox-dx,oy+dy,3.6);}}}
+  /* gap field: faint arrows from + dee to − dee */
+  var hx=gp/2+3,ys=[-0.78,-0.32,0.32,0.78];
+  for(i=0;i<4;i++){var yy=oy+ys[i]*R;arrow(ctx,ox-E*hx,yy,ox+E*hx,yy,rgba(C.violet,0.38),1.6,6);}
+  /* AC source and wires */
+  var ac=LY.ac,wx=LY.wide?48:42,yt=oy-Math.sqrt(R*R-(wx-gp/2)*(wx-gp/2));
+  ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(ox-10,ac);ctx.lineTo(ox-wx,ac);ctx.lineTo(ox-wx,yt);ctx.moveTo(ox+10,ac);ctx.lineTo(ox+wx,ac);ctx.lineTo(ox+wx,yt);ctx.stroke();
+  dot(ctx,ox,ac,10,C.surface);ring(ctx,ox,ac,10,C.ink,1.3);
+  ctx.beginPath();for(i=0;i<=16;i++){var xx=ox-6+12*i/16,y2=ac-3.6*Math.sin(TAU*i/16);if(i)ctx.lineTo(xx,y2);else ctx.moveTo(xx,y2);}ctx.strokeStyle=C.ink;ctx.lineWidth=1.3;ctx.stroke();
+  T(ctx,'AC',ox,ac-16,C.muted,12,600,'center');
+  for(i=0;i<2;i++){var lft=i===0,pl=lft?E>0:E<0,bx=lft?ox-wx-15:ox+wx+15,by=ac+12;
+    dot(ctx,bx,by,9,pl?C.north:C.south);txt(ctx,pl?'+':'−',bx,by+0.5,'#ffffff',13,700,'center','middle');occ(bx-9,by-9,bx+9,by+9);}
+  /* labels under the dees + legend */
+  T(ctx,'dee 1',ox-gp/2-R/2,LY.dl,C.muted,12,600,'center');T(ctx,'gap',ox,LY.dl,C.muted,12,600,'center');T(ctx,'dee 2',ox+gp/2+R/2,LY.dl,C.muted,12,600,'center');
+  var z=LY.wide?12:11.5,l1='B 指向纸里（'+m4.B.toFixed(1)+' T）',l2='ion source（离子源）',w1=tw(ctx,l1,z,500),w2=tw(ctx,l2,z,500),tot=14+w1+22+12+w2,x0=ox-tot/2,ly=LY.lg;
+  crossMark(ctx,x0+4,ly-4,4);T(ctx,l1,x0+14,ly,C.muted,z,500);dot(ctx,x0+14+w1+22+3,ly-4,3.2,C.ink);T(ctx,l2,x0+14+w1+22+12,ly,C.muted,z,500);
+  return E;
+}
+function moving(ctx,g,E){
+  var P=m4.P,L=P.L,ox=LY.ox,oy=LY.oy,k=LY.k,i;
+  ctx.save();ctx.beginPath();ctx.rect(LY.cx0,LY.cy0,LY.cx1-LY.cx0,LY.my1-LY.cy0);ctx.clip();
+  dot(ctx,ox,oy+k*S0,3.2,C.ink);
+  /* trail */
+  var lw=P.nA>24?1.4:2,li=m4.li;ctx.lineCap='round';ctx.setLineDash([]);
+  for(i=0;i<=li&&i<L.length;i++){
+    var q=L[i];if(q.k===3)break;
+    var tau=i<li?q.d:clamp(m4.t-q.t0,0,q.d),back=(q.k===0?q.push<0:(q.k===1?q.back:false));
+    ctx.globalAlpha=0.3+0.7*Math.pow((i+1)/(li+1),1.4);ctx.strokeStyle=back?C.heat:C.copper;ctx.lineWidth=lw;ctx.beginPath();
+    if(q.k===0){var s=q.vin*tau+0.5*q.acc*tau*tau;ctx.moveTo(ox+k*q.x0,oy-k*q.y);ctx.lineTo(ox+k*(q.x0+q.dir*s),oy-k*q.y);}
+    else if(q.k===1){ctx.arc(ox+k*q.xc,oy-k*q.yc,k*q.r,-q.a0,-(q.a0+q.w*tau),true);}
+    else{ctx.moveTo(ox+k*q.x0,oy-k*q.y0);ctx.lineTo(ox+k*(q.x0+q.dx*q.sp*tau),oy-k*(q.y0+q.dy*q.sp*tau));}
+    ctx.stroke();
+  }
+  ctx.globalAlpha=1;ctx.lineCap='butt';
+  var X=ox+k*ST.x,Y=oy-k*ST.y,ux=ST.ux,uy=-ST.uy,fr=P.smax>0?ST.sp/P.smax:0,inGap=g.k===0,ex=null;
+  if(g.k===2||(g.k===3&&P.end==='exit')){ex=L[L.length-2];if(ex.k!==2)ex=null;}
+  /* E arrow in the gap while crossing */
+  if(inGap&&ST.on){var ya=Y-14,hx=LY.gp/2+5;arrow(ctx,ox-E*hx,ya,ox+E*hx,ya,C.violet,2.6,8);}
+  var cxp=0,cyp=0,rp=0,LF=0,inx=0,iny=0;
+  if(g.k===1&&ST.on){
+    cxp=ox+k*g.xc;cyp=oy-k*g.yc;rp=k*g.r;inx=(cxp-X)/rp;iny=(cyp-Y)/rp;
+    seg(ctx,cxp,cyp,X,Y,rgba(C.muted,0.9),1.2,[4,4]);dot(ctx,cxp,cyp,2.6,C.muted);
+    LF=Math.min(10+24*fr,rp-16);
+    if(LF>=7)arrow(ctx,X+inx*9,Y+iny*9,X+inx*(9+LF),Y+iny*(9+LF),C.force,2.8,9);
+  }
+  var Lv=0;
+  if(ST.on&&ST.sp>0){Lv=12+32*fr;arrow(ctx,X+ux*9,Y+uy*9,X+ux*(9+Lv),Y+uy*(9+Lv),rgba(C.ink,0.7),2.4,9);}
+  if(ST.on){dot(ctx,X,Y,6.5,C.north);ring(ctx,X,Y,6.5,C.stage,1.5);}
+  ctx.restore();
+  /* moving labels (skip any that would collide) */
+  var IT='italic 700';
+  if(ex){var bx=ox+k*ex.x0,by=oy-k*ex.y0,dx=ex.dx,dy=-ex.dy;
+    CAND[0]=bx+dx*30-dy*16;CAND[1]=by+dy*30+dx*16;CAND[2]=bx+dx*30+dy*16;CAND[3]=by+dy*30-dx*16;CAND[4]=bx-dy*18;CAND[5]=by+dx*18;CAND[6]=bx+dy*18;CAND[7]=by-dx*18;
+    lab(ctx,'exit',4,C.copper,12.5,700);}
+  if(!ST.on)return;
+  if(Lv>0){var tx=X+ux*(9+Lv),ty=Y+uy*(9+Lv);
+    CAND[0]=tx+ux*10;CAND[1]=ty+uy*10;CAND[2]=tx-uy*11;CAND[3]=ty+ux*11;CAND[4]=tx+uy*11;CAND[5]=ty-ux*11;
+    lab(ctx,'v',3,C.ink,14,IT,MATH);}
+  if(g.k===1&&LF>=7){var mx=X+inx*(9+LF*0.55),my=Y+iny*(9+LF*0.55);
+    CAND[0]=mx-iny*12;CAND[1]=my+inx*12;CAND[2]=mx+iny*12;CAND[3]=my-inx*12;
+    lab(ctx,'F',2,C.force,14,IT,MATH);
+    var dr=(rp-9-LF)*0.5;if(dr>9){var rx=cxp-inx*dr,ry=cyp-iny*dr;CAND[0]=rx-iny*10;CAND[1]=ry+inx*10;CAND[2]=rx+iny*10;CAND[3]=ry-inx*10;lab(ctx,'r',2,C.muted,14,IT,MATH);}}
+  if(inGap){var ex2=ox+E*(LY.gp/2+13),ey=Y-14;CAND[0]=ex2;CAND[1]=ey;CAND[2]=ox;CAND[3]=Y-28;lab(ctx,'E',2,C.violet,14,IT,MATH);}
+}
+function chart(ctx,x0,x1,yt,h,kind,z){
+  var P=m4.P,A=P.A,cap=Math.max(8,P.nA),dx=(x1-x0)/cap,i,n=0,thn=P.thn;
+  var title=kind===0?(m4.nc?'每个半圆的半径 r：推反了就变小':'每个半圆的半径 r：越来越大'):(m4.nc?'每半圈用的时间：比虚线长':'每半圈用的时间：都一样');
+  var note=kind===0?'上沿 = dee 边 12 cm':'虚线 = AC 每 '+thn.toPrecision(3)+' ns 换号';
+  T(ctx,title,x0,yt-8,kind===0?C.copper:C.south,z,700);
+  T(ctx,note,x1,yt-8,kind===0?C.muted:C.violet,z-0.5,500,'right');
+  seg(ctx,x0,yt+h,x1,yt+h,C.muted,1);seg(ctx,x0,yt,x0,yt+h,C.muted,1);
+  if(kind===0)seg(ctx,x0,yt,x1,yt,C.grid,1,[3,4]);else{var yr=yt+h-(1-0.85)/0.35*h;seg(ctx,x0,yr,x1,yr,C.violet,1.4,[5,4]);}
+  var rad=cap>24?2:3;
+  ctx.beginPath();
+  for(i=0;i<A.length;i++){var a=A[i];if(a.t0>m4.t)break;if(kind===1&&(a.exit||a.t0+a.d>m4.t))break;
+    var x=x0+(i+0.5)*dx,v=kind===0?a.r/RD:(a.g-0.85)/0.35,y=yt+h-clamp(v,0,1.05)*h;if(n)ctx.lineTo(x,y);else ctx.moveTo(x,y);n++;}
+  ctx.strokeStyle=rgba(kind===0?C.copper:C.south,0.55);ctx.lineWidth=1.4;ctx.stroke();
+  for(i=0;i<n;i++){var b=A[i],xb=x0+(i+0.5)*dx,vb=kind===0?b.r/RD:(b.g-0.85)/0.35;dot(ctx,xb,yt+h-clamp(vb,0,1.05)*h,rad,kind===0?(b.back?C.heat:C.copper):C.south);}
+}
+function panel(ctx,g){
+  var P=m4.P,wide=LY.wide,x0=LY.px0,x1=LY.px1,zl=wide?13:12.5,zv=wide?13.5:12.5,a=curArc(g),gp=curGap(g),i;
+  var n=g.k===0?g.n0:(g.k===3?(L4n(g)):g.n),thn=P.thn,rows;
+  var tStr=a?(a.g*thn).toPrecision(3)+' ns':'—';
+  if(!m4.nc)rows=[['过 gap 的次数 n',String(n),C.ink],['动能 K = nqV',n+' × 50 keV = '+(n*50)+' keV',C.copper],
+    ['这个半圆的半径 r',a?a.r.toPrecision(3)+' cm':'—',C.copper],['这半圈用的时间',tStr,C.south],['AC 频率 f = qB/(2πm)',P.f.toPrecision(3)+' MHz',C.violet]];
+  else{var lag=gp.lag/P.Th*thn,late=gp.lag>P.Th/2+1e-9;
+    rows=[['过 gap 的次数 n',String(n),C.ink],['动能 K = nqV',n===0?'0':(n===1?'qV':n+'qV'),C.copper],['这半圈用的时间',tStr,C.south],
+    ['到 gap 晚了（> '+(thn/2).toPrecision(3)+' ns 就推反）',lag<0.05?'0 ns':lag.toPrecision(3)+' ns',late?C.heat:C.ink],['AC 频率 f（不变）',P.f.toPrecision(3)+' MHz',C.violet]];}
+  for(i=0;i<rows.length;i++){var y=LY.ry+i*LY.rs;T(ctx,rows[i][0],x0,y,C.ink,zl,500);T(ctx,rows[i][1],x1,y,rows[i][2],zv,600,'right',MONO);}
+  var zc=wide?12.5:12;
+  chart(ctx,x0,x1,LY.c1,LY.ch,0,zc);chart(ctx,x0,x1,LY.c2,LY.ch,1,zc);
+  T(ctx,'横轴：第 1、2、3 … 个半圆',x0,LY.ax,C.muted,11.5,500);
+  if(wide){T(ctx,'V = 50 kV、dee 半径 12 cm：示意',x0,LY.fn,C.muted,11.5,500);
+    T(ctx,m4.nc?'接近 c：效果放大了，用时和晚到的 ns 是示意':'f、T：计算值 · r、K：用示意的 V 算',x0,LY.fn+18,C.muted,11.5,500);}
+  else T(ctx,m4.nc?'接近 c：效果放大了（示意）· f：计算值':'V = 50 kV、dee 12 cm、r：示意 · f、T：计算值',x0,LY.fn,C.muted,11.5,500);
+}
+function L4n(g){var p=m4.P.L[m4.P.L.length-2];return p.k===0?p.n1:p.n;}
+function step4(dt){
+  m4.t+=dt;if(m4.t>=m4.P.T){m4.t=0;m4.li=0;m4.r2=0;m4.r2T=0;}
+  where();
+  m4.r2T+=dt;if(m4.r2T>=3.6){m4.r2T=0;m4.r2++;}
+}
+function prestep(fracArc,idx){var A=m4.P.A,a=A[Math.min(idx,A.length-1)],tg=a.t0+fracArc*a.d;while(m4.t<tg)step4(1/60);}
+build();prestep(0.35,3);
+var S4=makeStage('sim4',{
+  height:function(w){if(w>=640)return 470;var L=lay(w);return Math.round(L.fn+12);},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    lay(W);nOcc=0;
+    var g=where();
+    status(ctx,W,g);
+    seg(ctx,0,LY.div,W,LY.div,C.line,1);
+    if(!LY.wide)seg(ctx,0,LY.cy1+2,W,LY.cy1+2,C.line,1);
+    var E=cyclotron(ctx,g);
+    panel(ctx,g);
+    moving(ctx,g,E);
+  }
+});
+var rB=document.getElementById('s4-B'),oB=document.getElementById('s4-B-out'),bC=document.getElementById('s4-c');
+function restart4(){build();if(!S4.playing)prestep(0.4,1);S4.render();}
+rB.addEventListener('input',function(){m4.B=parseFloat(rB.value);oB.textContent=m4.B.toFixed(1)+' T';restart4();});
+bC.addEventListener('click',function(){m4.nc=!m4.nc;press(bC,m4.nc);bC.textContent='接近 c：'+(m4.nc?'开':'关');restart4();});
+document.getElementById('s4-reset').addEventListener('click',function(){build();S4.setPlaying(true);S4.render();});
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · Synchrotron 和 collider（5.3 The synchrotron and the Large Hadron Collider；5.4 Higgs 实验框引用）
+   画面 A（环，从上往下看）：B 指向纸里（--field ×）。proton bunch（--north）逆时针转。palm rule：在环的最下面 v 向右，
+     B 指向纸里，正电荷受力向上 → 向左拐 = 逆时针；F = qvB（--force）一直指向这段圆弧的圆心。
+     轨道按真实的圆弧走，曲率半径 r = p_v/(qB)（长度单位：环的半径 = 1）。RF cavity（--violet）在环的最下面，
+     每过一次 p_v 加 DP（示意；接近 c 时每次加的能量一样，所以 Δp_v 一样）。
+     同步：B 跟着 p_v 涨（B ∝ p_v），r 不变，bunch 一直在管子的中心线上；20 圈后停在“最高能量”（示意）。
+     B 不变：r = p_v/(qB) 变大。每次都在 cavity 那一点被推，新的圆和旧的圆在那一点相切，所以 beam 在对面往外漂，
+       离中心线最多 2(r − 1)；超过 HW − BR 就碰到管壁，丢了（3.2 s 后重新注入）。所以“碰壁”线在 r = 1 + (HW − BR)/2。
+     右边三张小图共用横轴（圈数 0–20）：p_v、B（开始值的几倍）和 r（纵轴放大）。
+     LHC 里的 proton 很接近 c，v 几乎不变，所以 bunch 的速率画成不变；变大的是 momentum。力 F = qvB ∝ B。
+   画面 B（对撞，detector）：两团 proton 迎面撞（p_v 一样大、方向相反，总 momentum = 0），撞出 6 条带电粒子轨迹（4 正 2 负，示意）。
+     B 指向纸里：正电荷逆时针、负电荷顺时针，r ∝ p_v。中性粒子不画。进来的两束 momentum 比撞出来的大得多，
+     在 detector 里几乎不弯，画成直线。轨迹：从顶点出发、初始方向 α、转过 ψ 后的位置
+     P = s·r·(sin(α + sψ) − sin α, cos α − cos(α + sψ))；走出 detector（半径 1）时 ψ = 2 asin(1/(2r))，出口方向 α + s·asin(1/(2r))。
+   数据：LHC 27 km 的环、8 T 的磁铁、每次碰撞 13.6 TeV（13.6 × 10¹² eV）是讲义的；圈数、倍数、管子宽度、轨迹都是示意。 */
+var LAPS=20,DP=0.03,HW=0.11,BR=0.025,RW=1+(HW-BR)/2,TLAP=1.6,VS=TAU/TLAP,KA=-Math.PI/2,NMAG=10,CG=0.2;
+var PLO=0.9,PHI=1.7,RLO=0.97,RHI=1.06;
+var T1=1.3,TH=5.6,VT=1.7;
+var NT=80,TX=new Float32Array(NT),TY=new Float32Array(NT);
+var NH=1200,HS=new Float32Array(NH),HP=new Float32Array(NH),HB=new Float32Array(NH),HR=new Float32Array(NH);
+var NTR=6,TRS=new Float32Array(NTR),TRR=new Float32Array(NTR),TRA=new Float32Array(NTR),TRE=new Float32Array(NTR),TRB=new Float32Array(NTR);
+var SG=[1,1,1,1,-1,-1],RH=[0,0,0,0,0,0],OR=[0,1,2,3,4,5],JIT=[0,0.012,-0.01,0.009,-0.012];
+var m={scene:'ring',sync:true,x:0,y:0,th:0,p:1,B:1,lap:0,s:0,prev:0,glow:0,lost:false,lostT:0,lx:0,ly:0,tn:0,ti:0,hn:0,next:0,tb:0};
+var seed=20261030;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var x=Math.imul(seed^(seed>>>15),1|seed);x=(x+Math.imul(x^(x>>>7),61|x))^x;return ((x^(x>>>14))>>>0)/4294967296;}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}}
+
+/* ---------- 画面 A：环 ---------- */
+function rec(){if(m.hn<NH&&m.s<=LAPS+1e-6){HS[m.hn]=m.s;HP[m.hn]=m.p;HB[m.hn]=m.B;HR[m.hn]=m.p/m.B;m.hn++;}}
+function inject(){
+  var a=KA+0.02;
+  m.p=1;m.B=1;m.lap=0;m.s=0;m.prev=a;m.glow=0;m.lost=false;m.lostT=0;m.tn=0;m.ti=0;m.hn=0;
+  m.x=Math.cos(a);m.y=Math.sin(a);m.th=a+Math.PI/2;
+  rec();m.next=0.05;
+}
+function kick(){
+  if(m.sync&&m.lap>=LAPS)return;
+  rec();m.p+=DP;m.lap++;if(m.sync)m.B=m.p;m.glow=1;rec();
+}
+function stepRing(dt){
+  if(m.lost){m.lostT+=dt;if(m.lostT>3.2)inject();return;}
+  var n=8,h=dt/n,i,rho,da,a,d;
+  for(i=0;i<n;i++){
+    rho=m.p/m.B;da=VS*h/rho;
+    m.x+=rho*(Math.sin(m.th+da)-Math.sin(m.th));m.y-=rho*(Math.cos(m.th+da)-Math.cos(m.th));m.th+=da;
+    a=Math.atan2(m.y,m.x);
+    if(m.sync){m.x=Math.cos(a);m.y=Math.sin(a);m.th=a+Math.PI/2;}
+    da=a-m.prev;if(da<-Math.PI)da+=TAU;else if(da>Math.PI)da-=TAU;
+    if(m.prev<KA&&a>=KA&&da>0)kick();
+    m.prev=a;m.s+=da/TAU;
+    if(m.s>=m.next){rec();m.next=m.s+0.05;}
+    d=Math.sqrt(m.x*m.x+m.y*m.y)-1;
+    if(Math.abs(d)>HW-BR){m.lost=true;m.lostT=0;m.lx=m.x;m.ly=m.y;break;}
+  }
+  TX[m.ti]=m.x;TY[m.ti]=m.y;m.ti=(m.ti+1)%NT;if(m.tn<NT)m.tn++;
+  m.glow=Math.max(0,m.glow-dt/0.5);
+}
+
+/* ---------- 画面 B：对撞 ---------- */
+function newEvent(){
+  var rot=(20+20*rnd())*Math.PI/180,i,s,r,b;
+  RH[0]=0.62+0.1*rnd();RH[1]=0.8+0.3*rnd();RH[2]=1.2+0.6*rnd();RH[3]=2+1.2*rnd();RH[4]=3.5+2*rnd();RH[5]=7+4*rnd();
+  shuffle(RH);shuffle(OR);
+  for(i=0;i<NTR;i++){s=SG[OR[i]];r=RH[i];b=rot+i*TAU/6+(rnd()-0.5)*0.24;
+    TRS[i]=s;TRR[i]=r;TRB[i]=b;TRE[i]=Math.asin(1/(2*r));TRA[i]=b-s*TRE[i];}
+  m.tb=0;
+}
+function stepHit(dt){m.tb+=dt;if(m.tb>TH)newEvent();}
+function step(dt){if(m.scene==='ring')stepRing(dt);else stepHit(dt);}
+
+inject();
+for(var q5=0;q5<488;q5++)stepRing(1/60);
+
+/* ---------- 文字小工具 ---------- */
+/* "p_v"：下划线后面的一个字是下标（自己画，不用 Unicode 下标字符）；下标不小于 11 px */
+var PC={},LN=['','','','',''];
+function parts(s){var P=PC[s],buf='',i,c;if(P)return P;P=[];
+  for(i=0;i<s.length;i++){c=s.charAt(i);if(c==='_'&&i+1<s.length){if(buf)P.push(buf,0);P.push(s.charAt(i+1),1);buf='';i++;}else buf+=c;}
+  if(buf)P.push(buf,0);PC[s]=P;return P;}
+function rich(ctx,s,x,y,col,size,weight,align){
+  var P=parts(s),i,w=0,ss=Math.max(11,size*0.75),x0;
+  for(i=0;i<P.length;i+=2){ctx.font=weight+' '+(P[i+1]?ss:size)+'px '+FONT;w+=ctx.measureText(P[i]).width+(P[i+1]?1.5:0);}
+  if(col===null)return w;
+  x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<P.length;i+=2){
+    if(P[i+1]){x0+=0.75;txt(ctx,P[i],x0,y+size*0.24,col,ss,weight,'left');x0+=ctx.measureText(P[i]).width+0.75;}
+    else{txt(ctx,P[i],x0,y,col,size,weight,'left');x0+=ctx.measureText(P[i]).width;}
+  }
+  return w;
+}
+/* 按短语换行：放得下就接在这一行，放不下就换行 */
+function wrap(ctx,ph,maxW,size){
+  var n=0,cur='',i,t;
+  for(i=0;i<ph.length;i++){t=cur+ph[i];if(cur&&rich(ctx,t,0,0,null,size,600)>maxW){LN[n++]=cur;cur=ph[i].replace(/^\s+/,'');}else cur=t;}
+  if(cur)LN[n++]=cur;return n;
+}
+function status(ctx,ph,W,col){
+  var wide=W>=640,fs=wide?15:13.5,lh=wide?22:20,y=wide?26:24,n=wrap(ctx,ph,W-32,fs),i;
+  for(i=0;i<n;i++)rich(ctx,LN[i],16,y+i*lh,col,fs,600,'left');
+}
+/* 斜体符号 + 下标（MATH 字体），以 (x,y) 为中心 */
+function sym(ctx,a,b,x,y,col,size){
+  var ss=Math.max(11,size*0.75),w1,w2,x0;
+  ctx.font='italic 600 '+size+'px '+MATH;w1=ctx.measureText(a).width;
+  ctx.font='italic 600 '+ss+'px '+MATH;w2=ctx.measureText(b).width;
+  x0=x-(w1+w2+1.5)/2;
+  txt(ctx,a,x0,y,col,size,'italic 600','left','middle',MATH);
+  txt(ctx,b,x0+w1+1.5,y+size*0.32,col,ss,'italic 600','left','middle',MATH);
+}
+function cross(ctx,x,y,r){ctx.moveTo(x-r,y-r);ctx.lineTo(x+r,y+r);ctx.moveTo(x-r,y+r);ctx.lineTo(x+r,y-r);}
+
+var PH_SYNC=['每过一次 RF cavity，p_v 变大；','B 也跟着变大，','r = p_v/(qB) 不变',' → beam 一直在同一个环里'];
+var PH_TOP=['到了最高的 p_v（示意），B 也停在最大：','beam 一圈一圈地转，','等着对撞 → 按“对撞！”'];
+var PH_FIX0=['B 不变：现在 r = p_v/(qB) 还等于环的半径。','下一次过 RF cavity，p_v 变大……'];
+var PH_DRIFT=['B 不变：p_v 变大了，','F = qvB 却没变',' → 拐不过来，','r = p_v/(qB) 变大，','beam 往外漂'];
+var PH_LOST=['beam 撞到管壁，丢了！','所以 synchrotron 的 B 必须','跟着 p_v 一起涨'];
+var PH_HIT1=['对撞：两束 proton 的 momentum',' 一样大、方向相反',' → 总 momentum = 0，','所有动能都能用来造新粒子（E = mc²）'];
+var PH_HIT2=['detector：B 指向纸里。','逆时针弯的是正电荷，','顺时针弯的是负电荷；','越直，momentum 越大'];
+var LHC1='LHC（CERN）讲义数据：',LHC2='27 km 的环 · 8 T 的磁铁',LHC3='每次碰撞 13.6 TeV（13.6 × 10¹² eV）';
+
+/* ---------- 画面 A ---------- */
+function plot(ctx,arr,cur,lo,hi,x0,w,y0,h,col){
+  var i,X,Y,sx=Math.min(m.s,LAPS);
+  ctx.save();ctx.beginPath();ctx.rect(x0-1,y0-3,w+3,h+6);ctx.clip();ctx.beginPath();
+  for(i=0;i<m.hn;i++){X=x0+HS[i]/LAPS*w;Y=y0+h-(arr[i]-lo)/(hi-lo)*h;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+  X=x0+sx/LAPS*w;Y=y0+h-(cur-lo)/(hi-lo)*h;ctx.lineTo(X,Y);
+  ctx.strokeStyle=col;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+  dot(ctx,X,Y,4,col);ctx.restore();
+}
+function drawRing(ctx,W,H){
+  var wide=W>=640,R,cx,cy,PL,gx,gr,y1,sh,sg,i,j,k,a0,a1,am,X,Y;
+  if(wide){R=120;cx=Math.round(16+R*(1+HW)+11);cy=210;PL=cx+R*(1+HW)+41;gx=PL+34;gr=W-20;y1=92;sh=58;sg=92;}
+  else{R=Math.min(118,((W-32)/2-8)/(1+HW));cx=W/2;cy=80+R*(1+HW)+7;PL=16;gx=50;gr=W-16;y1=418;sh=48;sg=82;}
+  var ri=R*(1-HW),ro=R*(1+HW),bf=clamp((m.B-1)/0.6,0,1),span=(TAU-2*CG)/NMAG,rho=m.p/m.B;
+  status(ctx,m.lost?PH_LOST:(m.sync?(m.lap>=LAPS?PH_TOP:PH_SYNC):(rho>1.0005?PH_DRIFT:PH_FIX0)),W,m.lost?C.heat:C.ink);
+  /* bending magnets */
+  for(k=0;k<NMAG;k++){a0=KA+CG+k*span+0.035;a1=a0+span-0.07;
+    ctx.beginPath();ctx.arc(cx,cy,ro+7,-a0,-a1,true);ctx.arc(cx,cy,ri-7,-a1,-a0,false);ctx.closePath();
+    ctx.fillStyle=rgba(C.field,0.12+0.2*bf);ctx.fill();ctx.strokeStyle=rgba(C.field,0.7);ctx.lineWidth=1;ctx.stroke();}
+  /* beam pipe */
+  ctx.beginPath();ctx.arc(cx,cy,ro,0,TAU);ctx.arc(cx,cy,ri,0,TAU,true);ctx.fillStyle=rgba(C.surface,0.92);ctx.fill();
+  ring(ctx,cx,cy,ro,rgba(C.ink,0.45),1.4);ring(ctx,cx,cy,ri,rgba(C.ink,0.45),1.4);
+  ctx.setLineDash([4,6]);ring(ctx,cx,cy,R,rgba(C.muted,0.45),1);ctx.setLineDash([]);
+  ctx.beginPath();for(k=0;k<NMAG;k++){am=KA+CG+(k+0.5)*span;cross(ctx,cx+R*Math.cos(am),cy-R*Math.sin(am),3.6+1.6*bf);}
+  ctx.strokeStyle=C.field;ctx.lineWidth=1.6+0.6*bf;ctx.stroke();
+  /* RF cavity */
+  var ch=ro-R+6;
+  rrect(ctx,cx-15,cy+R-ch,30,2*ch,4);ctx.fillStyle=rgba(C.violet,0.12+0.3*m.glow);ctx.fill();ctx.strokeStyle=C.violet;ctx.lineWidth=1.5;ctx.stroke();
+  if(m.glow>0.02){arrow(ctx,cx-12,cy+R+ch*0.45,cx+13,cy+R+ch*0.45,rgba(C.violet,0.35+0.65*m.glow),3,8);txt(ctx,'E',cx-21,cy+R+ch*0.45+5,rgba(C.violet,0.4+0.6*m.glow),13,'italic 700','right','alphabetic',MATH);}
+  txt(ctx,'RF cavity',cx,cy+ro+25,C.violet,12.5,600,'center');
+  /* 轨迹（最近大约 0.8 圈） */
+  if(m.tn>1){var st=(m.ti-m.tn+NT)%NT,per=Math.ceil(m.tn/4),b,q;
+    for(b=0;b<4;b++){ctx.beginPath();for(j=b*per;j<=Math.min(m.tn-1,(b+1)*per);j++){q=(st+j)%NT;X=cx+R*TX[q];Y=cy-R*TY[q];if(j===b*per)ctx.moveTo(X,Y);else ctx.lineTo(X,Y);}
+      ctx.strokeStyle=rgba(C.north,0.1+0.12*b);ctx.lineWidth=2.2;ctx.stroke();}}
+  /* center labels */
+  ctx.font='600 12px '+FONT;var w0=ctx.measureText('proton 逆时针转').width+12;
+  dot(ctx,cx-w0/2+4,cy-20,4,C.north);txt(ctx,'proton 逆时针转',cx-w0/2+12,cy-16,C.ink,12,600,'left');
+  txt(ctx,'bending magnets',cx,cy+2,C.muted,12,600,'center');
+  txt(ctx,'×：B 指向纸里',cx,cy+19,C.muted,12,600,'center');
+  /* bunch 或者撞墙 */
+  if(m.lost){
+    var kk=Math.min(1,m.lostT/0.6),ang=Math.atan2(m.ly,m.lx);X=cx+R*m.lx;Y=cy-R*m.ly;
+    ctx.beginPath();ctx.arc(cx,cy,ro,-ang-0.14,-ang+0.14);ctx.strokeStyle=C.heat;ctx.lineWidth=4;ctx.stroke();
+    ring(ctx,X,Y,5+20*kk,rgba(C.heat,1-0.75*kk),2.5);
+    ctx.beginPath();for(k=0;k<8;k++){a0=k*TAU/8+0.3;ctx.moveTo(X+Math.cos(a0)*(4+6*kk),Y+Math.sin(a0)*(4+6*kk));ctx.lineTo(X+Math.cos(a0)*(9+14*kk),Y+Math.sin(a0)*(9+14*kk));}
+    ctx.strokeStyle=rgba(C.heat,1-0.6*kk);ctx.lineWidth=2;ctx.stroke();
+    dot(ctx,X,Y,4,C.heat);
+  }else{
+    var ux=Math.cos(m.th),uy=Math.sin(m.th),Xf=cx+R*m.x,Yf=cy-R*m.y,tx=ux,ty=-uy,nx=-uy,ny=-ux,Lp=22*m.p,Lf=22*m.B;
+    for(j=4;j>=0;j--){var o=j*0.045;dot(ctx,cx+R*(m.x-ux*o-uy*JIT[j]),cy-R*(m.y-uy*o+ux*JIT[j]),3.4,C.north);}
+    arrow(ctx,Xf+tx*6,Yf+ty*6,Xf+tx*(6+Lp),Yf+ty*(6+Lp),C.copper,2.6,9);
+    sym(ctx,'p','v',Xf+tx*(6+Lp)+nx*15,Yf+ty*(6+Lp)+ny*15,C.copper,14);
+    arrow(ctx,Xf+nx*6,Yf+ny*6,Xf+nx*(6+Lf),Yf+ny*(6+Lf),C.force,2.6,9);
+    txt(ctx,'F',Xf+nx*(16+Lf),Yf+ny*(16+Lf),C.force,14,'italic 700','center','middle',MATH);
+  }
+  /* 三张小图：同一条横轴（圈数） */
+  var gw=gr-gx,yy,yb=y1+2*sg+sh;
+  if(m.s<=LAPS){X=gx+m.s/LAPS*gw;seg(ctx,X,y1-2,X,yb,rgba(C.ink,0.3),1,[3,4]);}
+  for(i=0;i<3;i++){
+    yy=y1+i*sg;
+    seg(ctx,gx,yy-2,gx,yy+sh,C.muted,1);seg(ctx,gx,yy+sh,gr,yy+sh,C.muted,1);
+    if(i<2){
+      for(k=0;k<2;k++){var v=k?1.6:1;Y=yy+sh-(v-PLO)/(PHI-PLO)*sh;seg(ctx,gx,Y,gr,Y,C.grid,1,[2,4]);txt(ctx,'×'+v,gx-5,Y+4,C.muted,11,500,'right','alphabetic',MONO);}
+      if(i===0){rich(ctx,'p_v  momentum（× 开始值）',PL,yy-9,C.copper,12.5,600,'left');txt(ctx,'× '+m.p.toFixed(2),gr,yy-9,C.copper,13,600,'right','alphabetic',MONO);plot(ctx,HP,m.p,PLO,PHI,gx,gw,yy,sh,C.copper);}
+      else{txt(ctx,m.sync?'B  磁场（× 开始值）':'B  磁场（不变）',PL,yy-9,C.south,12.5,600);txt(ctx,'× '+m.B.toFixed(2),gr,yy-9,C.south,13,600,'right','alphabetic',MONO);plot(ctx,HB,m.B,PLO,PHI,gx,gw,yy,sh,C.south);}
+    }else{
+      Y=yy+sh-(1-RLO)/(RHI-RLO)*sh;seg(ctx,gx,Y,gr,Y,rgba(C.muted,0.7),1,[2,4]);txt(ctx,'环',gx-5,Y+4,C.muted,11,600,'right');
+      Y=yy+sh-(RW-RLO)/(RHI-RLO)*sh;seg(ctx,gx,Y,gr,Y,rgba(C.heat,0.8),1.2,[4,4]);txt(ctx,'碰壁',gx-5,Y+4,C.heat,11,600,'right');
+      rich(ctx,'r = p_v/(qB)（纵轴放大）',PL,yy-9,C.ink,12.5,600,'left');
+      txt(ctx,rho<1.0005?'= 环的半径':'比环大 '+((rho-1)*100).toFixed(1)+'%',gr,yy-9,rho>RW?C.heat:C.ink,12.5,600,'right');
+      plot(ctx,HR,rho,RLO,RHI,gx,gw,yy,sh,C.muted);
+    }
+  }
+  for(k=0;k<=4;k++){X=gx+k/4*gw;seg(ctx,X,yb,X,yb+4,C.muted,1);
+    if(k<4)txt(ctx,String(5*k),X,yb+16,C.muted,11,500,'center','alphabetic',MONO);else txt(ctx,'20 圈',X+6,yb+16,C.muted,11,600,'right');}
+  if(wide)txt(ctx,LHC1+LHC2+' · '+LHC3,16,H-14,C.muted,12,500);
+  else{txt(ctx,LHC1+LHC2,16,H-28,C.muted,12,500);txt(ctx,LHC3,16,H-10,C.muted,12,500);}
+}
+
+/* ---------- 画面 B ---------- */
+function arcPath(ctx,x0,y0,s,r,a,ps,sc){
+  var n=Math.max(8,Math.ceil(ps/0.04)),k,p;
+  ctx.beginPath();ctx.moveTo(x0,y0);
+  for(k=1;k<=n;k++){p=ps*k/n;ctx.lineTo(x0+sc*s*r*(Math.sin(a+s*p)-Math.sin(a)),y0-sc*s*r*(Math.cos(a)-Math.cos(a+s*p)));}
+}
+function drawHit(ctx,W,H){
+  var wide=W>=640,xa,xb,cx,cy,Rd,D0,lx,ly,lr,i,k,X,Y,g=30;
+  if(wide){xa=262;xb=W-16;cx=(xa+xb)/2;D0=(xb-xa)/2;Rd=Math.min(150,D0-34);cy=248;lx=16;ly=98;lr=26;}
+  else{xa=16;xb=W-16;cx=W/2;D0=(xb-xa)/2;Rd=Math.min(130,D0-30);cy=238;lx=16;ly=424;lr=25;}
+  status(ctx,m.tb<T1+0.3?PH_HIT1:PH_HIT2,W,C.ink);
+  /* detector：几层探测器，× = B 指向纸里 */
+  dot(ctx,cx,cy,Rd,rgba(C.field,0.07));
+  ring(ctx,cx,cy,Rd*0.4,rgba(C.muted,0.25),1);ring(ctx,cx,cy,Rd*0.72,rgba(C.muted,0.25),1);ring(ctx,cx,cy,Rd,rgba(C.muted,0.7),1.5);
+  ctx.beginPath();
+  for(X=-Math.floor(Rd/g)*g;X<=Rd;X+=g)for(Y=-Math.floor(Rd/g)*g;Y<=Rd;Y+=g){if(X*X+Y*Y<(Rd-10)*(Rd-10)&&Math.abs(Y)>12)cross(ctx,cx+X,cy+Y,3.2);}
+  ctx.strokeStyle=rgba(C.field,0.9);ctx.lineWidth=1.3;ctx.stroke();
+  seg(ctx,xa,cy-4,xb,cy-4,rgba(C.ink,0.28),1);seg(ctx,xa,cy+4,xb,cy+4,rgba(C.ink,0.28),1);
+  /* 两团 proton 迎面过来，p_v 一样长、方向相反 */
+  if(m.tb<T1){
+    var d=(D0-54)*(1-m.tb/T1),xl=cx-d,xr=cx+d;
+    for(k=4;k>=0;k--){dot(ctx,xl-k*5,cy+JIT[k]*150,3.2,C.north);dot(ctx,xr+k*5,cy-JIT[k]*150,3.2,C.north);}
+    arrow(ctx,xl-52,cy-18,xl-4,cy-18,C.copper,2.6,9);sym(ctx,'p','v',xl-28,cy-31,C.copper,14);
+    arrow(ctx,xr+52,cy-18,xr+4,cy-18,C.copper,2.6,9);sym(ctx,'p','v',xr+28,cy-31,C.copper,14);
+  }else{
+    var kf=(m.tb-T1)/0.8;
+    if(kf<1){dot(ctx,cx,cy,5+30*kf,rgba(C.light,0.5*(1-kf)));ring(ctx,cx,cy,8+40*kf,rgba(C.light,0.85*(1-kf)),2);}
+    var L=VT*(m.tb-T1-0.05),ps,col;
+    for(i=0;i<NTR;i++){
+      ps=Math.min(L/TRR[i],2*TRE[i]);if(ps<=0)continue;col=TRS[i]>0?C.north:C.south;
+      arcPath(ctx,cx,cy,TRS[i],TRR[i],TRA[i],ps,Rd);ctx.strokeStyle=col;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+      if(ps>=2*TRE[i]-1e-6)txt(ctx,TRS[i]>0?'+':'−',cx+(Rd+13)*Math.cos(TRB[i]),cy-(Rd+13)*Math.sin(TRB[i]),col,16,700,'center','middle');
+    }
+    dot(ctx,cx,cy,3,C.ink);
+  }
+  /* 图例 */
+  var tx=lx+36;
+  dot(ctx,lx+6,ly-5,3.4,C.north);dot(ctx,lx+20,ly-5,3.4,C.north);txt(ctx,'proton：两束迎面撞',tx,ly,C.ink,12.5,600);
+  Y=ly+lr;arrow(ctx,lx,Y-5,lx+12,Y-5,C.copper,2,6);arrow(ctx,lx+28,Y-5,lx+16,Y-5,C.copper,2,6);rich(ctx,'撞前：总 momentum = 0',tx,Y,C.ink,12.5,600,'left');
+  Y=ly+2*lr;arcPath(ctx,lx,Y+2,1,16,0,1.25,1);ctx.strokeStyle=C.north;ctx.lineWidth=2.2;ctx.stroke();txt(ctx,'+ 正电荷：逆时针弯',tx,Y,C.north,12.5,600);
+  Y=ly+3*lr;arcPath(ctx,lx,Y-10,-1,16,0,1.25,1);ctx.strokeStyle=C.south;ctx.lineWidth=2.2;ctx.stroke();txt(ctx,'− 负电荷：顺时针弯',tx,Y,C.south,12.5,600);
+  Y=ly+4*lr;seg(ctx,lx,Y-4,lx+28,Y-5,rgba(C.ink,0.75),2.2);txt(ctx,'越直 → momentum 越大',tx,Y,C.ink,12.5,600);
+  Y=ly+5*lr;ctx.beginPath();cross(ctx,lx+5,Y-5,3.2);cross(ctx,lx+21,Y-5,3.2);ctx.strokeStyle=C.field;ctx.lineWidth=1.4;ctx.stroke();txt(ctx,'B 指向纸里',tx,Y,C.ink,12.5,600);
+  Y=ly+6*lr;txt(ctx,'中性粒子不留轨迹（不画）',tx,Y,C.muted,12.5,500);
+  Y=ly+7*lr;txt(ctx,'进来的 proton：momentum 很大，几乎不弯',tx,Y,C.muted,12.5,500);
+  if(wide){txt(ctx,LHC1,16,H-50,C.muted,12,500);txt(ctx,LHC2,16,H-32,C.muted,12,500);txt(ctx,LHC3,16,H-14,C.muted,12,500);}
+  else{txt(ctx,LHC1+LHC2,16,H-28,C.muted,12,500);txt(ctx,LHC3,16,H-10,C.muted,12,500);}
+}
+
+var stage=makeStage('sim5',{
+  height:function(w){return w>=640?440:700;},
+  step:step,
+  draw:function(ctx,W,H){ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);if(m.scene==='ring')drawRing(ctx,W,H);else drawHit(ctx,W,H);}
+});
+var bSync=document.getElementById('s5-sync'),bFix=document.getElementById('s5-fix'),bHit=document.getElementById('s5-hit');
+function sync5(){press(bSync,m.sync);press(bFix,!m.sync);press(bHit,m.scene==='hit');bHit.textContent=m.scene==='hit'?'回到环':'对撞！';}
+bSync.addEventListener('click',function(){var was=m.sync;m.sync=true;if(!was)inject();m.scene='ring';sync5();stage.render();});
+bFix.addEventListener('click',function(){var was=m.sync;m.sync=false;m.scene='ring';if(was&&(m.lost||m.lap>=LAPS))inject();sync5();stage.render();});
+bHit.addEventListener('click',function(){if(m.scene==='hit')m.scene='ring';else{m.scene='hit';newEvent();}sync5();stage.setPlaying(true);stage.render();});
+document.getElementById('s5-reset').addEventListener('click',function(){if(m.scene==='ring')inject();else newEvent();stage.setPlaying(true);stage.render();});
+})();
+</script>
+</body>
+</html>

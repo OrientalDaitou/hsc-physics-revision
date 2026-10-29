@@ -1,0 +1,1940 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T1 电场和磁场中的电荷</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="位置"><a href="../index.html">首页</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 1</span></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 1</div>
+  <h1>Charged Particles in Electric and Magnetic Fields</h1>
+  <p class="h1-sub">带电粒子在电场和磁场中的运动 · 零基础讲解</p>
+  <p class="lead">这一章讲带电的粒子在电场和磁场里怎么走。电场的力方向不变，路径和抛体一样；磁场的力永远垂直于速度，电荷以 90° 射进去就转圈。记住下面<b>三条规则</b>，后面就都简单了。</p>
+</header>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">规则 ①</div>
+    <div class="rule-name t">Electric force</div>
+    <p>电场推电荷的力，方向固定：正电荷顺着 <span class="m"><i>E</i></span> 推，电子逆着 <span class="m"><i>E</i></span> 推。力不变，所以加速度也不变。</p>
+    <div class="eqs"><i>F⃗</i> = <i>qE⃗</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">规则 ②</div>
+    <div class="rule-name t">Work done by the field</div>
+    <p>电场推着电荷走，做的功全部变成动能。和板间距 <span class="m"><i>d</i></span> 无关。</p>
+    <div class="eqs"><i>W</i> = <i>qV</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">规则 ③</div>
+    <div class="rule-name t">Magnetic force</div>
+    <p>磁场力只推<b>运动</b>的电荷。力永远垂直于 <span class="m"><i>v</i></span> 和 <span class="m"><i>B</i></span>，不做功，只改方向、不改速率。所以电荷以 90° 射进匀强磁场时，走圆周。</p>
+    <div class="eqs"><i>F</i> = <i>qvB</i> sin <i>θ</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="本章八个部分">
+  <div class="map-row head"><span>部分</span><span>受的力</span><span>结果</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">1.1</span><span class="t">Uniform electric field</span></span><span><i>F</i> = <i>qE</i>，大小、方向都不变</span><span>从静止出发：走直线，越来越快</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">1.1</span><span class="t">Work &amp; the electron gun</span></span><span>电场做功 <i>W</i> = <i>qV</i></span><span>电势能 → 动能：½<i>mv</i>² = <i>qV</i></span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">1.2</span><span class="t">Curved paths</span></span><span>只有垂直于板的力</span><span>板间走抛物线，出板走直线</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">1.3</span><span class="t">The magnetic force</span></span><span><i>F</i> = <i>qvB</i> sin <i>θ</i></span><span>只推运动的电荷；palm rule 定方向</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">1.3</span><span class="t">Circular paths</span></span><span>永远垂直于 <i>v</i>，不做功</span><span>走圆：<i>r</i> = <i>mv</i>/(<i>qB</i>)</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">1.3</span><span class="t">Comparing fields</span></span><span><i>E</i>、<i>g</i> 方向固定；<i>B</i> 跟着 <i>v</i> 转</span><span>抛物线 vs 圆</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">1.3</span><span class="t">Velocity selector</span></span><span><i>qE</i> = <i>qvB</i>，两个力抵消</span><span>只有 <i>v</i> = <i>E</i>/<i>B</i> 走直线</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">1.4</span><span class="t">Key experiments</span></span><span>电脑模拟</span><span><i>y</i> ∝ <i>V</i>，<i>v</i>² ∝ <i>V</i></span></a>
+</nav>
+
+<aside class="tip">
+  <h3>带学生复习的顺序</h3>
+  <ol>
+    <li>先花 5 分钟过一遍下面的“先会这 4 样”，特别是抛体和匀速圆周运动。这一章一直在用它们。</li>
+    <li>按 1.1 → 1.4 讲。电场部分处处和抛体比，磁场部分处处和圆周运动比。每节先读“一句话”，再开动画，让学生自己说看到了什么。</li>
+    <li>讲完让学生合上书，自己填一遍 1.3 的对比表。最后做“快问快答”，再看“常见错误”。</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">热身</div>
+  <h2>先会这 4 样<span class="en">Before we start</span></h2>
+  <ol class="pts">
+    <li><span class="t">Projectile motion</span>（抛体运动，Module 5）：水平扔出的球，水平速度不变；竖直方向加速度 <span class="m"><i>g</i></span> 不变，所以走抛物线。用的是恒定加速度公式：<span class="m"><i>v</i> = <i>u</i> + <i>at</i></span>，<span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span>，<span class="m"><i>v</i>² = <i>u</i>² + 2<i>as</i></span>。</li>
+    <li>矢量的分解和合成：速度 <span class="m"><i>u</i></span> 和水平成 <span class="m"><i>θ</i></span> 时，<span class="m"><i>u</i><sub>x</sub>&nbsp;=&nbsp;<i>u</i>&nbsp;cos&nbsp;<i>θ</i></span>，<span class="m"><i>u</i><sub>y</sub>&nbsp;=&nbsp;<i>u</i>&nbsp;sin&nbsp;<i>θ</i></span>。两个分量合起来：<span class="m"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span>。</li>
+    <li>力、功和动能：<span class="m"><i>F⃗</i><sub>net</sub> = <i>ma⃗</i></span>，力朝哪，加速度就朝哪。功 <span class="m"><i>W</i> = <i>Fs</i> cos <i>θ</i></span>：力和位移垂直时，<span class="m"><i>W</i>&nbsp;=&nbsp;0</span>。动能 <span class="m"><i>K</i> = ½<i>mv</i>²</span>。</li>
+    <li><span class="t">Uniform circular motion</span>（匀速圆周运动）：速率不变地转圈。速度沿切线，合力指向圆心：<span class="m"><i>F</i><sub>c</sub>&nbsp;=&nbsp;<i>mv</i>²/<i>r</i></span>，<span class="m"><i>v</i>&nbsp;=&nbsp;2π<i>r</i>/<i>T</i></span>。</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">1.1</div>
+  <h2>两块平行板之间的电场<span class="en">Charges in a uniform electric field</span></h2>
+  <p class="big"><span class="lbl">一句话</span>两块带电的平行板之间，是一个匀强电场。电荷在里面受的力不变，所以加速度也不变。</p>
+  <ul class="pts">
+    <li>把两块平行的金属板接到电池上，电压是 <span class="m"><i>V</i></span>。上板带 +，下板带 −，两板相距 <span class="m"><i>d</i></span>。</li>
+    <li>两板之间就有一个 <span class="t">electric field</span>（电场）：电荷在这里会受力的区域。它的方向 = <b>正电荷</b>受力的方向。</li>
+    <li><span class="t">Electric field strength</span>（电场强度）<span class="m"><i>E</i></span>：每库仑电荷受的力。单位 V m<sup>−1</sup>，和 N C<sup>−1</sup> 是一回事。</li>
+    <li><span class="t">Field lines</span>（电场线）从 + 指向 −。两板中间，它们是直的、平行的、间隔一样。这就是 <span class="t">uniform field</span>（匀强场）：每个地方强度一样，方向也一样。</li>
+    <li>板的两头，电场线会往外鼓一点，叫 <span class="t">edge effect</span>（边缘效应）。计算时不管它。</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">+ 电荷</div><p><b>顺着</b> <span class="m"><i>E</i></span> 被推：从 + 板推向 − 板。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">电子（−）</div><p><b>逆着</b> <span class="m"><i>E</i></span> 被推：从 − 板推向 + 板。</p></div>
+  </div>
+  <ul class="pts">
+    <li><span class="t">Elementary charge</span>（元电荷）：<span class="m"><i>e</i>&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C</span>，就是一个 proton（质子）或一个 electron（电子）的电荷大小。formula sheet 上把 <span class="m"><i>q</i><sub>e</sub></span> 印成负的。计算时用大小，方向另外判断。</li>
+    <li>从静止放开，电荷沿着一条直线走，越来越快。</li>
+    <li>力不变，所以 <span class="t">acceleration</span>（加速度）也不变：<span class="m"><i>a</i> = <i>qE</i>/<i>m</i> = <i>qV</i>/(<i>md</i>)</span>。这是把 <span class="m"><i>F⃗</i> = <i>qE⃗</i></span>、<span class="m"><i>F⃗</i><sub>net</sub> = <i>ma⃗</i></span>、<span class="m"><i>E</i> = <i>V</i>/<i>d</i></span> 三个式子合起来。</li>
+    <li><span class="t">Charge-to-mass ratio</span>（荷质比（比荷））<span class="m"><i>q</i>/<i>m</i></span> 越大，<span class="m"><i>a</i></span> 越大。</li>
+    <li>电子、质子和 <span class="t">ions</span>（离子，带电的原子）都不用管重力。只要 100 V m<sup>−1</sup> 的电场，电子受的电场力就是它重力的约 2 × 10¹² 倍。重力小到看不出来。</li>
+    <li>电场还会对电荷做功：<span class="m"><i>W</i> = <i>qV</i></span>。下面卡片里先列出来，1.1 的后半部分细讲。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Uniform electric field: field, force and work · 匀强电场：场强、力和功</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>E</i> = <i>V</i>/<i>d</i></span><span style="display:inline-block;margin:0 .6em"><i>F⃗</i> = <i>qE⃗</i></span><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>qV</i></span><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>qEd</i></span></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>电场强度 (V m<sup>−1</sup>)</dd></div>
+      <div><dt>V</dt><dd>电势差，就是电压 (V)</dd></div>
+      <div><dt>d</dt><dd>板间距（<span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>）；沿 <span class="m"><i>E</i></span> 走的距离（<span class="m"><i>W</i> = <i>qEd</i></span>）(m)</dd></div>
+      <div><dt>F⃗</dt><dd>电荷受的电场力 (N)</dd></div>
+      <div><dt>q</dt><dd>电荷：<span class="m"><i>F⃗</i> = <i>qE⃗</i></span> 里带正负号，<span class="m"><i>W</i> = <i>qV</i></span> 里用大小 (C)</dd></div>
+      <div><dt>W</dt><dd>电场对电荷做的功 (J)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b><span class="m"><i>E</i> = <i>V</i>/<i>d</i></span> 和 <span class="m"><i>W</i> = <i>qEd</i></span> 只用于匀强场。<span class="m"><i>F⃗</i> = <i>qE⃗</i></span> 和 <span class="m"><i>W</i> = <i>qV</i></span> 任何电场都能用。<br><b>从哪来：</b>走完整个板间距，<span class="m"><i>W</i> = <i>Fd</i> = <i>qEd</i> = <i>q</i>(<i>V</i>/<i>d</i>)<i>d</i> = <i>qV</i></span>。<br><b>陷阱：</b>先把 mm、cm、kV 换成 m 和 V。负电荷的 <span class="m"><i>F⃗</i></span> 逆着 <span class="m"><i>E⃗</i></span>。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Force and acceleration · 电场力和加速度</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>F⃗</i> = <i>qE⃗</i></span><span style="display:inline-block;margin:0 .6em"><i>F⃗</i><sub>net</sub> = <i>ma⃗</i></span></div>
+    <dl class="sym">
+      <div><dt>F⃗<sub>net</sub></dt><dd>合力 (N)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>a⃗</dt><dd>加速度 (m s<sup>−2</sup>)</dd></div>
+      <div><dt>q</dt><dd>电荷 (C)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么组合：</b>电场力就是合力（重力不管），所以 <span class="m"><i>ma</i> = <i>qE</i></span>，<span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span>。再代 <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>：<span class="m"><i>a</i> = <i>qV</i>/(<i>md</i>)</span>。<br><b>注意：</b><span class="m"><i>a</i></span> 和力同方向：正电荷顺着 <span class="m"><i>E</i></span>，电子逆着 <span class="m"><i>E</i></span>。</p>
+  </div>
+
+  <h3>油滴：重力要算的时候</h3>
+  <p>油滴比电子重得多，所以重力不能不管。一个带电油滴在两板之间停着不动：电场力向上 = 重力向下，<span class="m"><i>qE</i> = <i>mg</i></span>（不在 sheet 上）。它的电荷是 <span class="m"><i>q</i> = <i>ne</i></span>，<span class="m"><i>n</i></span> 是整数。这是 Millikan 的油滴实验，Module 8 会讲。</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">A charged drop held still · 静止的带电油滴</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>qE</i> = <i>mg</i></span><span style="display:inline-block;margin:0 .6em"><i>q</i> = <i>ne</i></span></div>
+    <dl class="sym">
+      <div><dt>q</dt><dd>油滴的电荷 (C)</dd></div>
+      <div><dt>E</dt><dd>电场强度 (V m<sup>−1</sup>)</dd></div>
+      <div><dt>m</dt><dd>油滴的质量 (kg)</dd></div>
+      <div><dt>g</dt><dd>9.8 m s<sup>−2</sup></dd></div>
+      <div><dt>n</dt><dd>整数：1、2、3 ……</dd></div>
+      <div><dt>e</dt><dd>元电荷 1.602 × 10<sup>−19</sup> C</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>带电的油滴在两板之间静止不动。<br><b>也可以自己推导：</b>静止 = 合力为 0，所以向上的电场力 <span class="m"><i>qE</i></span> 等于向下的重力 <span class="m"><i>mg</i></span>。</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">1.1</div>
+  <h2>电场做功：电压变成速度<span class="en">Work, energy and the electron gun</span></h2>
+  <p class="big"><span class="lbl">一句话</span>电场推着电荷走，就对它做了功 <i>W</i> = <i>qV</i>。电荷的电势能变少，动能变多。</p>
+  <ul class="pts">
+    <li>电场对电荷做 <span class="t">work</span>（功），也就是传递能量。电荷的 <span class="t">electric potential energy</span>（电势能）变少，动能变多。</li>
+    <li>就像球从坡上滚下来：高度（势能）变少，速度（动能）变多。</li>
+    <li>电压的意思是“每库仑电荷的能量变化”：<span class="m"><i>V</i> = Δ<i>U</i>/<i>q</i></span>（在 sheet 上）。所以电场做的功 <span class="m"><i>W</i> = <i>qV</i></span>。</li>
+    <li><b>板间距没有影响。</b>板靠近一点，<span class="m"><i>E</i> = <i>V</i>/<i>d</i></span> 变大，推得更狠；但要走的路也更短。两样抵消，<span class="m"><i>W</i> = <i>qEd</i> = <i>qV</i></span> 不变。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Voltage and energy · 电压和能量</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>V</i> = Δ<i>U</i>/<i>q</i></span><span style="display:inline-block;margin:0 .6em"><i>K</i> = ½<i>mv</i>²</span></div>
+    <dl class="sym">
+      <div><dt>V</dt><dd>电压 (V)</dd></div>
+      <div><dt>ΔU</dt><dd>电势能的变化 (J)</dd></div>
+      <div><dt>q</dt><dd>电荷 (C)</dd></div>
+      <div><dt>K</dt><dd>动能 (J)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>v</dt><dd>速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>电场做多少功，电势能就少多少，动能就多多少。</p>
+  </div>
+
+  <h3>Electron volt：小粒子用的能量单位</h3>
+  <ul class="pts">
+    <li><span class="t">Electron volt</span>（电子伏特，eV）：一个电子（或一个质子）经过 1 V 得到的能量。<span class="m">1&nbsp;eV&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;J</span>。</li>
+    <li>算 eV 很简单：能量（eV）=（电荷是 <span class="m"><i>e</i></span> 的几倍）×（电压是多少 V）。</li>
+    <li>例：电子经过 100 V，得到 100 eV。带 +2<span class="m"><i>e</i></span> 的粒子经过 100 V，得到 200 eV。</li>
+  </ul>
+
+  <h3>Electron gun（电子枪）</h3>
+  <ol class="pts">
+    <li>热的 <span class="t">cathode</span>（阴极，就是负极板）放出电子。</li>
+    <li>电场把电子从静止一路加速。</li>
+    <li>电子从正极板上的小孔飞出去，成为一束 <span class="t">beam</span>（粒子束（电子束））。</li>
+  </ol>
+  <p>Electron gun 用的就是下面这张卡：电场做的功全部变成电子的动能。</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed gained from rest · 从静止加速得到的速度</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em">½<i>mv</i>² = <i>qV</i></span><span style="display:inline-block;margin:0 .6em">所以 <i>v</i> = √(2<i>qV</i>/<i>m</i>)</span></div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>最后的速度，从静止出发 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>q</dt><dd>电荷的大小 (C)</dd></div>
+      <div><dt>V</dt><dd>加速电压 (V)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>电荷从静止出发，经过电压 <span class="m"><i>V</i></span> 加速（<span class="m"><i>v</i></span> 要远小于光速 <span class="m"><i>c</i></span>）。<br><b>怎么组合：</b>sheet 上的 <span class="m"><i>W</i> = <i>qV</i></span> 和 <span class="m"><i>K</i> = ½<i>mv</i>²</span>。做的功 = 增加的动能：<span class="m"><i>qV</i> = ½<i>mv</i>² − 0</span>。<br><b>陷阱：</b>别忘了 2 和根号。如果电荷一开始已经有速度 <span class="m"><i>u</i></span>：<span class="m"><i>qV</i> = ½<i>mv</i>² − ½<i>mu</i>²</span>。</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">动画 1 · 电子枪：电场做功变成动能</span><span class="sim-tag"><i>E</i> 从 + 板指向 − 板 · 速度：计算值 · 板间距、快慢：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="两块竖着的平行板接在电源上。粒子在一块板上从静止出发，被电场一路加速，从另一块板的小孔射出，出去以后匀速直线运动。下面的条显示电势能 U 变少、动能 K 变多；旁边（手机上在下面）的 v²–V 图每射一次多一个点，所有的点在一条过原点的直线上。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">电压 <i>V</i> <input type="range" id="s1-V" min="100" max="1000" step="100" value="500"><output id="s1-V-out" for="s1-V">500 V</output></label>
+      <span class="seg" role="group" aria-label="板间距">
+        <button class="btn" type="button" id="s1-d1" aria-pressed="true">板间距 <i>d</i></button>
+        <button class="btn" type="button" id="s1-d2" aria-pressed="false">2<i>d</i></button>
+      </span>
+      <span class="seg" role="group" aria-label="粒子">
+        <button class="btn" type="button" id="s1-e" aria-pressed="true">electron</button>
+        <button class="btn" type="button" id="s1-p" aria-pressed="false">proton</button>
+      </span>
+      <button class="btn" type="button" id="s1-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 看电子：板间的点越来越稀（越来越快），出了小孔间隔不变（匀速）。<i>U</i> 条短多少，<i>K</i> 条就长多少。② 拖 <i>V</i>：<i>v</i>²–<i>V</i> 图上的点都在一条过原点的直线上。<i>V</i>&nbsp;×&nbsp;4，<i>v</i> 只 ×&nbsp;2。③ 等图上出现实心点，再按“2<i>d</i>”：力只剩一半，路长了一倍，出口速度不变，空心点落在实心点上。④ 换成 proton：能量还是 <i>qV</i>，但 <i>v</i> 只有电子的约 1/43（<i>v</i> 条上的细线是电子的速度）。速度是计算值；<i>d</i>&nbsp;=&nbsp;1.0&nbsp;cm 和快慢是示意。</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">1.2</div>
+  <h2>平行射入：走抛物线<span class="en">Curved paths in an electric field</span></h2>
+  <p class="big"><span class="lbl">一句话</span>电荷平行于板射进去，会走一条抛物线，就像水平扔出去的球。沿着板，速度不变；垂直于板，加速度不变。</p>
+  <p>想象一个电子以速度 <span class="m"><i>u</i></span> 从左边射进两板中间，方向和板平行。上面是正极板，下面是负极板。板长 <span class="m"><i>L</i></span>，板间距 <span class="m"><i>d</i></span>。</p>
+  <ul class="pts">
+    <li>电子的 <span class="t">trajectory</span>（轨迹，就是走过的路）：<b>沿着板</b>没有力，所以 <span class="m"><i>v</i><sub>x</sub> = <i>u</i></span> 不变，<span class="m"><i>x</i> = <i>ut</i></span>。</li>
+    <li><b>垂直于板</b>：<span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> 不变。一开始 <span class="m"><i>u</i><sub>y</sub> = 0</span>，所以 <span class="m"><i>y</i> = ½<i>at</i>²</span>。</li>
+    <li>路径弯向<b>吸引</b>它的那块板。电子带负电，所以弯向正极板。</li>
+    <li>出了板就没有力了，所以走直线。</li>
+  </ul>
+
+  <h3>为什么是抛物线</h3>
+  <p>把 <span class="m"><i>t</i> = <i>x</i>/<i>u</i></span> 代进 <span class="m"><i>y</i> = ½<i>at</i>²</span>，得到 <span class="m"><i>y</i> = [<i>qE</i>/(2<i>mu</i>²)] <i>x</i>²</span>。所以 <span class="m"><i>y</i> ∝ <i>x</i>²</span>，这就是 <span class="t">parabola</span>（抛物线）。水平扔出的球也是这个形状，只是把 <span class="m"><i>g</i></span> 换成了 <span class="m"><i>qE</i>/<i>m</i></span>。</p>
+
+  <h3>偏了多少</h3>
+  <ul class="pts">
+    <li><span class="t">Deflection</span>（偏转（偏移量））：粒子被往旁边推了多远。</li>
+    <li>板长 <span class="m"><i>L</i></span>：在板间的时间 <span class="m"><i>t</i> = <i>L</i>/<i>u</i></span>，出口处 <span class="m"><i>y</i> = <i>qEL</i>²/(2<i>mu</i>²)</span>。</li>
+    <li><span class="m"><i>L</i></span> 是<b>板长</b>，不是板间距 <span class="m"><i>d</i></span>。</li>
+    <li>粒子越快，在板间的时间越短，偏得越少。</li>
+    <li>出口速度：<span class="m"><i>v</i><sub>y</sub> = <i>at</i></span>，<span class="m"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span>，方向 <span class="m"><i>θ</i> = tan<sup>−1</sup>(<i>v</i><sub>y</sub>/<i>v</i><sub>x</sub>)</span>。</li>
+    <li>斜着射进去：先把 <span class="m"><i>u</i></span> 分成 <span class="m"><i>u</i> cos <i>θ</i></span> 和 <span class="m"><i>u</i> sin <i>θ</i></span>，再分开算。</li>
+  </ul>
+
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">和抛体一样</div><p>都是抛物线：一个方向有不变的力，垂直的方向没有力。两个方向用同一套公式。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">和抛体不一样</div><p><span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> 和电荷、质量有关；<span class="m"><i>g</i></span> 对所有质量都一样。力可以朝两个方向（看 <span class="m"><i>q</i></span> 的正负）。电子的 <span class="m"><i>a</i></span> 极大。</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Constant acceleration across the plates · 板间的匀加速运动</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i> = <i>u</i> + <i>at</i></span><span style="display:inline-block;margin:0 .6em"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span><span style="display:inline-block;margin:0 .6em"><i>v</i>² = <i>u</i>² + 2<i>as</i></span></div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>开始的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v</dt><dd>后来的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>a</dt><dd>加速度 (m s<sup>−2</sup>)</dd></div>
+      <div><dt>t</dt><dd>时间 (s)</dd></div>
+      <div><dt>s</dt><dd>位移 (m)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>只用于恒定加速度。两个方向各用一次：沿板 <span class="m"><i>a</i> = 0</span>；垂直板 <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span>，<span class="m"><i>u</i><sub>y</sub> = 0</span>。<br><b>陷阱：</b>沿板和垂直板的数不能混着用。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Deflection between the plates · 出板时的偏移</span><span class="badge comb">sheet 上没有这个形式，要自己组合</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>t</i> = <i>L</i>/<i>u</i></span><span style="display:inline-block;margin:0 .6em"><i>y</i> = ½<i>at</i>² = <i>qEL</i>²/(2<i>mu</i>²)</span></div>
+    <dl class="sym">
+      <div><dt>t</dt><dd>在板间的时间 (s)</dd></div>
+      <div><dt>L</dt><dd>板长 (m)</dd></div>
+      <div><dt>u</dt><dd>射入速度，平行于板 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>y</dt><dd>出口处的偏移 (m)</dd></div>
+      <div><dt>q</dt><dd>电荷的大小 (C)</dd></div>
+      <div><dt>E</dt><dd>电场强度 (V m<sup>−1</sup>)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>怎么组合：</b>sheet 上的 <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span>（<span class="m"><i>u</i><sub>y</sub> = 0</span>）和 <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span>，再代 <span class="m"><i>t</i> = <i>L</i>/<i>u</i></span>。<br><b>陷阱：</b><span class="m"><i>L</i></span> 是板长，不是板间距。<span class="m"><i>u</i></span> 在分母上还平方：速度减半，偏移 × 4。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Path between the plates · 板间的路径</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><i>y</i> = [<i>qE</i>/(2<i>mu</i>²)] <i>x</i>²</div>
+    <dl class="sym">
+      <div><dt>x</dt><dd>沿板走过的距离 (m)</dd></div>
+      <div><dt>y</dt><dd>垂直板的偏移 (m)</dd></div>
+      <div><dt>u</dt><dd>射入速度 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>也可以自己推导：</b>把 <span class="m"><i>t</i> = <i>x</i>/<i>u</i></span> 和 <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> 代进 <span class="m"><i>y</i> = ½<i>at</i>²</span>。<br><b>注意：</b><span class="m"><i>y</i> ∝ <i>x</i>²</span>，所以 <span class="m"><i>y</i>/<i>x</i>²</span> 在每个 <span class="m"><i>x</i></span> 都一样。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Splitting and joining a velocity · 速度的分解和合成</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span><span style="display:inline-block;margin:0 .6em"><i>θ</i> = tan<sup>−1</sup>(<i>v</i><sub>y</sub>/<i>v</i><sub>x</sub>)</span></div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>射入速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>θ</dt><dd>速度和板的夹角 (°)</dd></div>
+      <div><dt>u<sub>x</sub>, v<sub>x</sub></dt><dd>沿板的分量 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>u<sub>y</sub>, v<sub>y</sub></dt><dd>垂直板的分量 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v</dt><dd>出口速度的大小 (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>斜着射入时，先分解；求出口速度时，再合成。<br><b>也可以自己推导：</b>画一个直角三角形：<span class="m">cos <i>θ</i> = <i>u</i><sub>x</sub>/<i>u</i></span>，<span class="m">sin <i>θ</i> = <i>u</i><sub>y</sub>/<i>u</i></span>；合成用勾股定理。<br><b>陷阱：</b>只写速率不够，还要写方向 <span class="m"><i>θ</i></span>。</p>
+  </div>
+
+<figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">动画 2 · 平行板之间的抛物线</span><span class="sim-tag"><i>E</i> 向下 · 数据：示意 + 计算值</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="两块水平的平行板，上面是正极板，下面是负极板，电场 E 向下。粒子从左边平行于板射入，在板间走抛物线，出了板走直线。路上每隔 1 ns 留一个点，点到中线的竖线越来越长；粒子上画着速度分量 v_x、v_y 和电场力 F。旁边的表记录 x = 1 到 5 cm 处的 y 和 y/x²，下面是 F、a、在板间的时间和出口角度。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">电压 <i>V</i> <input type="range" id="s2-v" min="0" max="300" step="10" value="200"><output id="s2-v-out" for="s2-v">200 V</output></label>
+      <span class="seg" role="group" aria-label="入射速度">
+        <button class="btn" type="button" id="s2-u1" aria-pressed="true">入射速度 <i>u</i></button>
+        <button class="btn" type="button" id="s2-u2" aria-pressed="false">½<i>u</i></button>
+      </span>
+      <span class="seg" role="group" aria-label="粒子">
+        <button class="btn" type="button" id="s2-e" aria-pressed="true">electron</button>
+        <button class="btn" type="button" id="s2-p" aria-pressed="false">proton</button>
+      </span>
+      <button class="btn" type="button" id="s2-reset">重新射入</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 看点：<i>x</i> 方向间隔一样（<i>v</i><sub>x</sub> 不变），离中线越来越远（<i>v</i><sub>y</sub> 变大）。表里每行的 <i>y</i>/<i>x</i>² 都一样。② 按“½<i>u</i>”：在板间的时间 ×&nbsp;2，<i>y</i> ×&nbsp;4。200&nbsp;V 时电子会打到正极板；把 <i>V</i> 调到 90&nbsp;V 以下再比（细线是刚才的路径）。③ 拖 <i>V</i>：<i>y</i> 和 <i>V</i> 成正比。④ 换成 proton：往负极板偏，偏移只有电子的约 1/1840（按 data sheet 算是 1/1837）。<i>L</i>、<i>d</i>、<i>u</i>、<i>V</i> 是示意；<i>y</i>、<i>F</i>、<i>a</i>、<i>θ</i> 是计算值。</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">1.3</div>
+  <h2>磁场对运动电荷的力<span class="en">The magnetic force</span></h2>
+  <p class="big"><span class="lbl">一句话</span>磁场只推<b>运动</b>的电荷。力同时垂直于速度 <i>v</i> 和磁场 <i>B</i>。</p>
+  <ul class="pts">
+    <li><span class="t">Magnetic field</span>（磁场）：磁铁或运动的电荷在这里会受磁场力的区域。</li>
+    <li>磁场有多强，用 <span class="m"><i>B</i></span> 表示，叫 <span class="t">magnetic field strength</span>（磁感应强度）。单位是 <span class="t">tesla</span>（特斯拉，T）。</li>
+    <li>静止的电荷<b>不受</b>磁场力。</li>
+    <li>只有 <span class="m"><i>v</i></span> 里 <span class="t">perpendicular</span>（垂直，成 90°）于 <span class="m"><i>B</i></span> 的那一部分起作用：<span class="m"><i>v</i><sub>⟂</sub> = <i>v</i> sin <i>θ</i></span>。顺着 <span class="m"><i>B</i></span> 走，不受力。</li>
+    <li>力同时垂直于 <span class="m"><i>v</i></span> 和 <span class="m"><i>B</i></span>。</li>
+    <li>纸上的画法：• • • = <span class="m"><i>B</i></span> 出纸面（像看着箭头的尖）；× × × = <span class="m"><i>B</i></span> 进纸面（像看着箭头的尾巴）。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Magnetic force on a moving charge · 运动电荷受的磁场力（洛伦兹力）</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><i>F</i> = <i>qv</i><sub>⟂</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>电荷受的磁场力 (N)</dd></div>
+      <div><dt>q</dt><dd>电荷的大小 (C)</dd></div>
+      <div><dt>v</dt><dd>速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>⟂</sub></dt><dd><span class="m"><i>v</i></span> 垂直于 <span class="m"><i>B</i></span> 的部分 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>磁感应强度 (T)</dd></div>
+      <div><dt>θ</dt><dd><span class="m"><i>v</i></span> 和 <span class="m"><i>B</i></span> 的夹角 (°)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>电荷在磁场里运动。<br><b>陷阱：</b><span class="m"><i>θ</i></span> 从<b>磁场</b>量（用 sin <span class="m"><i>θ</i></span>）。<span class="m"><i>v</i></span> 在纸面内、<span class="m"><i>B</i></span> 进纸面或出纸面时，<span class="m"><i>θ</i> = 90°</span>。</p>
+  </div>
+
+  <h3>方向：right-hand palm rule</h3>
+  <ul class="pts">
+    <li><span class="t">Right-hand palm rule</span>（右手掌定则（结果同左手定则））：<b>右手</b>伸平。四指 = <span class="m"><i>B</i></span>，大拇指 = <b>正电荷</b>的 <span class="m"><i>v</i></span>，掌心朝的方向 = <span class="m"><i>F</i></span>。</li>
+    <li>负电荷（比如电子）：先当正电荷做，再把力反过来。</li>
+    <li>例 1：四指向上（<span class="m"><i>B</i></span> 向上），大拇指向右（<span class="m"><i>v</i></span> 向右），掌心朝着你：<span class="m"><i>F</i></span> 出纸面。</li>
+    <li>例 2：<span class="m"><i>B</i></span> 进纸面，<span class="m"><i>v</i></span> 向右：正电荷受力向上（往纸的上边），电子受力向下。</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="secnum">1.3</div>
+  <h2>在磁场里转圈<span class="en">Circular paths</span></h2>
+  <p class="big"><span class="lbl">一句话</span>磁场力只改方向，不改速率。所以电荷以 90° 射进匀强磁场，就走一个圆。</p>
+  <p>加速度 <span class="m"><i>a</i> = <i>F</i>/<i>m</i></span> 沿着 <span class="m"><i>F</i></span>，也就是垂直于磁场。路径为什么是圆？分三步：</p>
+  <ol class="pts">
+    <li><span class="m"><i>F</i></span> 永远和 <span class="m"><i>v</i></span> 成 90°，所以 <span class="m"><i>W</i> = <i>Fs</i> cos 90° = 0</span>：磁场力不做功。</li>
+    <li>不做功，速率就不变。速率不变，<span class="m"><i>F</i> = <i>qvB</i></span> 的大小也不变。</li>
+    <li>大小不变、永远和 <span class="m"><i>v</i></span> 成 90° 的力，就是 <span class="t">centripetal force</span>（向心力，指向圆心的合力）。所以电荷做 uniform circular motion。</li>
+  </ol>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">+ 电荷，<i>B</i> 进纸面</div><p><b>逆时针</b>转。<span class="m"><i>v</i></span> 沿切线，<span class="m"><i>F</i></span> 指向圆心。</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">电子，<i>B</i> 进纸面</div><p><b>顺时针</b>转。力反过来，所以转的方向也反过来。</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Work and centripetal force · 功和向心力</span><span class="badge on">在 formula sheet 上</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>F</i><sub>‖</sub><i>s</i> = <i>Fs</i> cos <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span><span style="display:inline-block;margin:0 .6em"><i>v</i> = 2π<i>r</i>/<i>T</i></span></div>
+    <dl class="sym">
+      <div><dt>W</dt><dd>功 (J)</dd></div>
+      <div><dt>F<sub>‖</sub></dt><dd>力沿位移方向的部分 (N)</dd></div>
+      <div><dt>s</dt><dd>位移 (m)</dd></div>
+      <div><dt>θ</dt><dd>力和位移的夹角 (°)</dd></div>
+      <div><dt>F<sub>c</sub></dt><dd>向心力 (N)</dd></div>
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+      <div><dt>T</dt><dd>周期：转一圈的时间 (s)</dd></div>
+    </dl>
+    <p class="trap"><b>注意：</b>磁场力和 <span class="m"><i>v</i></span> 永远成 90°，cos 90° = 0，所以 <span class="m"><i>W</i> = 0</span>，速率不变。转圈时，<span class="m"><i>qvB</i></span> 就是向心力。<br><b>陷阱：</b>这里的 <span class="m"><i>θ</i></span> 是力和位移的夹角，和 <span class="m"><i>F</i> = <i>qvB</i> sin <i>θ</i></span> 里的 <span class="m"><i>θ</i></span> 不是同一个角。</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Radius and period in a magnetic field · 磁场中圆周的半径和周期</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span><span style="display:inline-block;margin:0 .6em"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span></div>
+    <dl class="sym">
+      <div><dt>r</dt><dd>圆的半径 (m)</dd></div>
+      <div><dt>T</dt><dd>周期：转一圈的时间 (s)</dd></div>
+      <div><dt>m</dt><dd>质量 (kg)</dd></div>
+      <div><dt>q</dt><dd>电荷的大小 (C)</dd></div>
+      <div><dt>v</dt><dd>速度，垂直于 <span class="m"><i>B</i></span> (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>磁感应强度 (T)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b>电荷以 90° 进入匀强磁场，而且没有别的力。<br><b>也可以自己推导：</b>磁场力 = 向心力（两个都在 sheet 上）：<span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span>，所以 <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span>。再用 <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>：<span class="m"><i>T</i> = 2π<i>r</i>/<i>v</i> = 2π<i>m</i>/(<i>qB</i>)</span>。<br><b>陷阱：</b>两个公式都不在 sheet 上。从 <span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span> 开始推。</p>
+  </div>
+
+  <h3>圆有多大、转多快</h3>
+  <ul class="pts">
+    <li>更重或更快：圆更大（<span class="m"><i>r</i> ∝ <i>v</i></span>）。电荷更多或 <span class="m"><i>B</i></span> 更强：圆更小。</li>
+    <li><span class="m"><i>T</i></span> 和速度无关。快了一倍，圆也大了一倍：路长了一倍，跑得也快了一倍，所以一圈的时间不变。</li>
+  </ul>
+  <h3>半个圆和螺旋线</h3>
+  <ul class="pts">
+    <li>从一大片磁场的边界以 90° 射进去：走半个圆，从同一条边出去，出口离入口 2<span class="m"><i>r</i></span>。</li>
+    <li><span class="t">Mass spectrometer</span>（质谱仪）就靠这个把 ions 分开：电荷和速度一样时，越重的 ion 落得越远。</li>
+    <li><span class="m"><i>v</i></span> 和 <span class="m"><i>B</i></span> 成别的角度：<span class="m"><i>v</i><sub>⟂</sub></span> 让它转圈，<span class="m"><i>v</i><sub>‖</sub></span> 不受力，带着它顺着 <span class="m"><i>B</i></span> 往前走。路径是 <span class="t">helix</span>（螺旋线），像拉长的弹簧。</li>
+  </ul>
+
+<figure class="sim" id="sim3">
+    <figcaption class="sim-head"><span class="sim-title">动画 3 · 磁场里的圆周</span><span class="sim-tag"><i>B</i> 进纸面 · 数据：示意（只看倍数）</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="B 进纸面的匀强磁场里，一个电荷匀速转圈：速度 v 沿切线，磁场力 F 指向圆心，两者永远垂直。旁边显示速率、力、半径和转一圈用时的倍数。还可以看电荷从磁场边界射入走半圈，以及 v 和 B 成角度时的 helix（侧面看）。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <label class="range">速度 <i>v</i> <input type="range" id="s3-v" min="0" max="2" step="0.5" value="1"><output id="s3-v-out" for="s3-v">× 1</output></label>
+      <span class="seg" role="group" aria-label="路径">
+        <button class="btn" type="button" id="s3-full" aria-pressed="true">整圈</button>
+        <button class="btn" type="button" id="s3-semi" aria-pressed="false">从边界射入</button>
+        <button class="btn" type="button" id="s3-helix" aria-pressed="false">斜着射入 · helix</button>
+      </span>
+      <span class="seg" role="group" aria-label="电荷">
+        <button class="btn" type="button" id="s3-pos" aria-pressed="true">+ 电荷</button>
+        <button class="btn" type="button" id="s3-neg" aria-pressed="false">electron</button>
+      </span>
+      <button class="btn" type="button" id="s3-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① <i>F</i> 和 <i>v</i> 永远成 90°，速率条一直不变。② <i>v</i> 调到 ×&nbsp;2：圆大一倍，转一圈的时间 <i>T</i> 不变。调到 0：停住，不受力。③ 换成 electron：变成顺时针（这里两种电荷的质量和电荷大小一样，只比方向）。④ 按“从边界射入”：转半圈，从同一条边出去，离入口 2<i>r</i>。⑤ 按“斜着射入 · helix”：<span class="m"><i>v</i><sub>‖</sub></span> 带着它沿 <i>B</i> 走；实线在前，虚线在后。数字都是示意。</p>
+  </figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">1.3</div>
+  <h2>三种场比一比<span class="en">Comparing electric, magnetic and gravitational fields</span></h2>
+  <p class="big"><span class="lbl">一句话</span>重力场和电场里，力的方向固定，所以走抛物线。磁场里，力跟着速度一起转，所以走圆。</p>
+  <p>下面是讲义的表 1.1：同一个电荷，在匀强电场里和在匀强磁场里比一比。</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th></th><th>匀强电场</th><th>匀强磁场</th></tr></thead>
+      <tbody>
+        <tr><td>静止的电荷</td><td>受力 <span class="m"><i>qE</i></span></td><td><b>不受力</b></td></tr>
+        <tr><td>力的方向</td><td>顺着场（+）或逆着场（−）</td><td>同时垂直于 <span class="m"><i>v</i></span> 和 <span class="m"><i>B</i></span></td></tr>
+        <tr><td>顺着场运动</td><td>在一条直线上变快或变慢</td><td>不受力：匀速直线</td></tr>
+        <tr><td>以 90° 射入</td><td>抛物线</td><td>圆（或一段圆弧）</td></tr>
+        <tr><td>加速度</td><td>大小、方向都不变</td><td>大小不变；方向一直在转（向心）</td></tr>
+        <tr><td>做功和速率</td><td>做功 <span class="m"><i>qV</i></span>；速率变</td><td>不做功；速率不变</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li><b>和所有匀速圆周运动一样</b>：绳子拉着转的球（拉力）、转弯的车（摩擦力）、绕地球的卫星（引力）。<span class="m"><i>F</i></span> 和 <span class="m"><i>v</i></span> 成 90°，所以不做功，速率不变。</li>
+    <li><b>不一样的地方：</b><span class="m"><i>qvB</i></span> 只因为电荷在动才有。</li>
+    <li>对电荷来说，<span class="m"><i>r</i> ∝ <i>v</i></span>，<span class="m"><i>T</i></span> 和速度无关。这就是 <span class="t">cyclotron</span>（回旋加速器，让粒子绕着圈加速的机器）能工作的原因。</li>
+    <li>卫星不一样：轨道越大，走得越慢，一圈的时间也越长。</li>
+  </ul>
+
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">动画 4 · 电场 vs 磁场：同一个电荷，两种场</span><span class="sim-tag">两格：电场（或重力场）和磁场 · 数据：示意</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="左右两格（手机上是上下两格）。左格是匀强电场，紫色场线向下，上面是正极板，下面是负极板；可以换成重力场。右格是匀强磁场，B 进纸面。同一个电荷用同样的速度出发：电场里力的方向固定，走直线或抛物线，速率在变；磁场里力和速度垂直，走圆，速率不变。每格下面有速率随时间变化的小图和 W 是否为 0。"></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>暂停</button>
+      <span class="seg" role="group" aria-label="出发状态">
+        <button class="btn" type="button" id="s4-rest" aria-pressed="false">静止</button>
+        <button class="btn" type="button" id="s4-along" aria-pressed="false">沿着场运动</button>
+        <button class="btn" type="button" id="s4-perp" aria-pressed="true">90° 射入</button>
+      </span>
+      <span class="seg" role="group" aria-label="电荷">
+        <button class="btn" type="button" id="s4-pos" aria-pressed="true">+ 电荷</button>
+        <button class="btn" type="button" id="s4-neg" aria-pressed="false">electron</button>
+      </span>
+      <span class="seg" role="group" aria-label="第一格的场">
+        <button class="btn" type="button" id="s4-fe" aria-pressed="true">电场 <i>E</i></button>
+        <button class="btn" type="button" id="s4-fg" aria-pressed="false">重力场 <i>g</i></button>
+      </span>
+      <button class="btn" type="button" id="s4-reset">重来</button>
+    </div>
+    <p class="try"><b>试一试：</b>① 看“90° 射入”：电场格里力的方向不变，走抛物线，速率变大；磁场格里力跟着 <i>v</i> 转，走圆，速率不变（看下面的速率小图）。② 按“静止”：电场里开始加速，磁场里一动不动。③ 按“沿着场运动”：磁场里不受力；electron 在电场里先减速，再反向。④ 电场换成“重力场 <i>g</i>”：也是抛物线，和电荷正负无关。+ 电荷和 electron 画成一样的电荷大小和质量，只比方向；数值都是示意。</p>
+  </figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">1.3</div>
+  <h2>正交电磁场：速度选择器<span class="en">Crossed fields: the velocity selector</span></h2>
+  <p class="big"><span class="lbl">一句话</span>电场和磁场互相垂直时，电场力和磁场力可以抵消。只有速度刚好是 <i>v</i> = <i>E</i>/<i>B</i> 的粒子，能走直线穿过去。</p>
+  <ul class="pts">
+    <li><span class="t">Crossed fields</span>（正交电磁场）：<span class="m"><i>E</i></span> 和 <span class="m"><i>B</i></span> 在同一个地方，互相成 90°。</li>
+    <li>例：正电荷向右飞，<span class="m"><i>E</i></span> 向下，<span class="m"><i>B</i></span> 进纸面。电场力 <span class="m"><i>qE</i></span> 向下；磁场力 <span class="m"><i>qvB</i></span> 向上（palm rule，和 1.3 的例 2 一样）。</li>
+    <li><span class="m"><i>qE</i> = <i>qvB</i></span> 时，两个力抵消，粒子走直线。两边约掉 <span class="m"><i>q</i></span>：<span class="m"><i>v</i> = <i>E</i>/<i>B</i></span>（不在 sheet 上）。</li>
+    <li>只有这一个速度能直线穿过，所以这叫 <span class="t">velocity selector</span>（速度选择器）。太快：<span class="m"><i>qvB</i></span> 更大，往磁场力那边弯。太慢：<span class="m"><i>qE</i></span> 更大，往电场力那边弯。</li>
+    <li><span class="m"><i>v</i> = <i>E</i>/<i>B</i></span> 里没有 <span class="m"><i>q</i></span> 和 <span class="m"><i>m</i></span>：换成电子，两个力都反过来，还是互相抵消。</li>
+    <li>Thomson 测电子的时候用的就是它（Module 8 会讲）。</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Velocity selector · 速度选择器</span><span class="badge learn">不在 sheet 上，要背</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>qE</i> = <i>qvB</i></span><span style="display:inline-block;margin:0 .6em"><i>v</i> = <i>E</i>/<i>B</i></span></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>电场强度 (V m<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>磁感应强度 (T)</dd></div>
+      <div><dt>v</dt><dd>能走直线穿过的速度 (m s<sup>−1</sup>)</dd></div>
+      <div><dt>q</dt><dd>电荷 (C)</dd></div>
+    </dl>
+    <p class="trap"><b>什么时候用：</b><span class="m"><i>E</i></span> 和 <span class="m"><i>B</i></span> 互相垂直，粒子走直线（两个力抵消）。<br><b>也可以自己推导：</b>电场力 = 磁场力：<span class="m"><i>qE</i> = <i>qvB</i></span>，两边约掉 <span class="m"><i>q</i></span>。<br><b>陷阱：</b>不在 sheet 上，要自己写出 <span class="m"><i>qE</i> = <i>qvB</i></span> 这一步。</p>
+  </div>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">动画 5 · 速度选择器（正交电磁场）</span><span class="sim-tag"><i>E</i> 向下 · <i>B</i> 进纸面 · 数据：示意</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="两块平行板：上板是正极板，下板是负极板，电场 E 向下；两板之间还有进纸面的磁场 B（× 号）。粒子从左边的小孔水平射入，身上画着电场力 qE 和磁场力 qvB 两个绿色箭头，箭头长度按大小画。只有速度 v = E/B 的粒子走直线，从右边的小孔穿出；太快或太慢的会弯过去，打到极板或出口挡板上。右边（手机上是下面）显示 E/B、粒子的 v 和两个力的大小对比。"></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>暂停</button>
+    <label class="range">速度 <i>v</i> <input type="range" id="s5-v" min="0.5" max="1.5" step="0.1" value="1"><output id="s5-v-out" for="s5-v">1.0 × 10<sup>6</sup> m s<sup>−1</sup></output></label>
+    <label class="range">电场 <i>E</i> <input type="range" id="s5-e" min="0.5" max="1.5" step="0.1" value="1"><output id="s5-e-out" for="s5-e">1.0 × 10<sup>5</sup> V m<sup>−1</sup></output></label>
+    <span class="seg" role="group" aria-label="电荷">
+      <button class="btn" type="button" id="s5-pos" aria-pressed="true">+ 电荷</button>
+      <button class="btn" type="button" id="s5-neg" aria-pressed="false">electron</button>
+    </span>
+    <button class="btn" type="button" id="s5-reset">重来</button>
+  </div>
+  <p class="try"><b>试一试：</b>① 开始时 <i>v</i>&nbsp;=&nbsp;<i>E</i>/<i>B</i>：<i>qE</i> 和 <i>qvB</i> 一样长，粒子直线穿过小孔。② 把 <i>v</i> 调大：<i>qvB</i> 赢，+ 电荷往上弯；调小：<i>qE</i> 赢，往下弯。<i>qvB</i> 跟着 <i>v</i> 转，所以不是抛物线。虚线是上一个粒子的路径。③ 再把 <i>E</i> 调到和 <i>v</i> 同一个数：<i>E</i>/<i>B</i> 等于新的 <i>v</i>，又能直线通过。④ 换成 electron：两个力都反过来，照样通过。<i>B</i>&nbsp;=&nbsp;0.10&nbsp;T、<i>E</i> 和 <i>v</i> 是示意；两种电荷画成一样的电荷大小和质量。</p>
+</figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">1.4</div>
+  <h2>要知道的实验<span class="en">Key experiments</span></h2>
+  <div class="exp">
+    <h3>模拟两板之间的电荷<span class="t">（Simulating charges between parallel plates）</span></h3>
+    <dl>
+      <dt>目的</dt><dd>看电荷在两板之间走什么路径。还要看它从静止出发能得到多大的速度。</dd>
+      <dt>做法</dt><dd>用电脑模拟（<span class="t">computer simulation</span>）。<br>(1) 偏转：电子平行于板射进两板之间（就是 1.2 的情景）。只改 <span class="m"><i>V</i></span>，记下 <span class="m"><i>y</i></span>；再用一半的速度做一次；再换成质子做一次；在几个不同的 <span class="m"><i>x</i></span> 处记下 <span class="m"><i>y</i></span>。<br>(2) electron gun：在几个不同的 <span class="m"><i>V</i></span> 下，记下出口速度 <span class="m"><i>v</i></span>；再把板间距加倍。</dd>
+      <dt>结果</dt><dd>(1) <span class="m"><i>y</i></span> 对 <span class="m"><i>V</i></span> 的图是一条过原点的直线。速度减半，偏移变成 <b>4 倍</b>。入射速度一样时，质子往<b>另一边</b>偏，偏移小<b>约 1840 倍</b>（它的质量大约 1840 倍）。<span class="m"><i>y</i>/<i>x</i>²</span> 在每个 <span class="m"><i>x</i></span> 都一样。<br>(2) <span class="m"><i>v</i>²</span> 对 <span class="m"><i>V</i></span> 的图是一条过原点的直线。斜率符合 <span class="m">2<i>e</i>/<i>m</i><sub>e</sub>&nbsp;=&nbsp;3.52&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup></span>。板间距<b>没有影响</b>。</dd>
+      <dt>结论</dt><dd>(1) 所以 <span class="m"><i>y</i> ∝ <i>V</i></span>，<span class="m"><i>y</i> ∝ <i>x</i>²</span>：是抛物线，像抛体，因为力不变。<br>(2) <span class="m"><i>v</i>² = (2<i>q</i>/<i>m</i>)<i>V</i></span> 得到证实；<span class="m"><i>W</i> = <i>qV</i></span> 和 <span class="m"><i>d</i></span> 无关。</dd>
+      <dt>意义</dt><dd>同样的物理，控制过 <span class="t">cathode-ray oscilloscope</span>（阴极射线示波器，画电压图的老式屏幕）里的电子束。Electron gun、<span class="t">X-ray tube</span>（X 射线管）和加速器，都用电压来设定粒子的能量。</dd>
+      <dt>安全</dt><dd>真的 <span class="t">deflection tube</span>（偏转管）要用 kV 的电源，还可能 <span class="t">implode</span>（向内爆裂）。只能老师演示。</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">复习</div>
+  <h2>本章公式一页纸<span class="en">Formulas</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>E</i> = <i>V</i>/<i>d</i></td><td>两平行板之间的匀强电场</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F⃗</i> = <i>qE⃗</i>　<i>F⃗</i><sub>net</sub> = <i>ma⃗</i></td><td>电荷受的力；加速度 <i>a</i> = <i>qE</i>/<i>m</i></td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>qE</i> = <i>mg</i>　<i>q</i> = <i>ne</i></td><td>带电油滴静止不动</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>V</i> = Δ<i>U</i>/<i>q</i></td><td>电压：每库仑的能量变化</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>qV</i>　<i>W</i> = <i>qEd</i></td><td>电场做的功（<i>qEd</i> 只用于匀强场）</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>电荷的动能</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f">½<i>mv</i>² = <i>qV</i>　<i>v</i> = √(2<i>qV</i>/<i>m</i>)</td><td>从静止经过 <i>V</i> 得到的速度</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>qV</i> = ½<i>mv</i>² − ½<i>mu</i>²</td><td>已经在动（速度 <i>u</i>）的电荷</td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>v</i> = <i>u</i> + <i>at</i>　<i>s</i> = <i>ut</i> + ½<i>at</i>²<br><i>v</i>² = <i>u</i>² + 2<i>as</i></td><td>两板之间的匀加速运动</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>t</i> = <i>L</i>/<i>u</i>　<i>y</i> = ½<i>at</i>² = <i>qEL</i>²/(2<i>mu</i>²)</td><td>板长 <i>L</i> 时在板间的时间；出口偏移 <i>y</i></td><td><span class="badge comb">组合</span></td></tr>
+        <tr><td class="f"><i>y</i> = [<i>qE</i>/(2<i>mu</i>²)] <i>x</i>²</td><td>板间的路径：抛物线</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i>　<i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i><br><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)　<i>θ</i> = tan<sup>−1</sup>(<i>v</i><sub>y</sub>/<i>v</i><sub>x</sub>)</td><td>把速度分开，再合起来</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>F</i> = <i>qv</i><sub>⟂</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></td><td>运动电荷受的磁场力</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>F</i><sub>‖</sub><i>s</i> = <i>Fs</i> cos <i>θ</i></td><td>磁场力不做功：速率不变</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i>　<i>v</i> = 2π<i>r</i>/<i>T</i></td><td>圆周：<i>qvB</i> 就是向心力</td><td><span class="badge on">有</span></td></tr>
+        <tr><td class="f"><i>r</i> = <i>mv</i>/(<i>qB</i>)　<i>T</i> = 2π<i>m</i>/(<i>qB</i>)</td><td>磁场中圆的半径和周期</td><td><span class="badge learn">要背</span></td></tr>
+        <tr><td class="f"><i>qE</i> = <i>qvB</i>　<i>v</i> = <i>E</i>/<i>B</i></td><td>正交电磁场：速度选择器</td><td><span class="badge learn">要背</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>考试前背这 6 句</h3>
+  <ol class="must">
+    <li>两板之间，<span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>、<span class="m"><i>F</i> = <i>qE</i></span>、<span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> 都不变。</li>
+    <li><span class="m"><i>W</i> = <i>qV</i> = <i>qEd</i></span>。从静止出发：<span class="m"><i>qV</i> = ½<i>mv</i>²</span>。</li>
+    <li>两板之间走抛体的路径（抛物线），用 <span class="m"><i>qE</i>/<i>m</i></span> 代替 <span class="m"><i>g</i></span>。出了板走直线。</li>
+    <li><span class="m"><i>F</i> = <i>qvB</i> sin <i>θ</i></span> 只作用在运动的电荷上，和 <span class="m"><i>v</i></span>、<span class="m"><i>B</i></span> 都成 90°（palm rule；负电荷反过来）。</li>
+    <li>和 <span class="m"><i>B</i></span> 成 90°：走圆。从 <span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span> 得到 <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span>，<span class="m"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span>（不在 sheet 上）。</li>
+    <li>电场能改变速率；磁场不做功，只改变方向。</li>
+  </ol>
+
+  <h3>常见错误</h3>
+  <div class="err">
+    <div><span class="x">错：</span>直接把 mm、cm、kV 代进公式。<br><span class="ok">对：</span>先换成 m 和 V：5 mm = 0.005 m，2 kV = 2000 V。</div>
+    <div><span class="x">错：</span>电子受的力和 E 同方向。<br><span class="ok">对：</span>负电荷的力逆着 E。sheet 上的 q<sub>e</sub> 是负的：算大小用 e，方向另外判断。</div>
+    <div><span class="x">错：</span><span class="m"><i>v</i> = √(<i>qV</i>/<i>m</i>)</span>，或者忘了开根号。<br><span class="ok">对：</span><span class="m">½<i>mv</i>² = <i>qV</i></span>，所以 <span class="m"><i>v</i> = √(2<i>qV</i>/<i>m</i>)</span>。</div>
+    <div><span class="x">错：</span>板靠得越近，电荷得到的能量越多。<br><span class="ok">对：</span>W = qV，和 d 无关。板近了推得更狠，但路更短。</div>
+    <div><span class="x">错：</span>偏移公式里的 L 用板间距。<br><span class="ok">对：</span>L 是板长；d 才是板间距。</div>
+    <div><span class="x">错：</span>θ 是 v 和纸面（或板）的夹角。<br><span class="ok">对：</span>F = qvB sin θ 里，θ 从磁场量。v 在纸面内、B 进出纸面时，θ = 90°。</div>
+    <div><span class="x">错：</span>磁场力能让电荷变快。<br><span class="ok">对：</span>F 和 v 永远成 90°，不做功，速率不变，只改方向。</div>
+    <div><span class="x">错：</span>r = mv/(qB) 和 T = 2πm/(qB) 在 formula sheet 上。<br><span class="ok">对：</span>两个都不在。从 qvB = mv²/r 开始推。</div>
+    <div><span class="x">错：</span>电荷越快，转一圈的时间越长。<br><span class="ok">对：</span>T = 2πm/(qB)，和速度无关。快了，圆也大了。</div>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="secnum">词汇</div>
+  <h2>本章专业词<span class="en">Glossary</span></h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>English</th><th>中文</th><th>一句话</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Electric field</td><td>电场</td><td>电荷在这里会受力的区域</td></tr>
+        <tr><td class="t">Electric field strength (E)</td><td>电场强度</td><td>每库仑电荷受的力，单位 V m<sup>−1</sup> = N C<sup>−1</sup></td></tr>
+        <tr><td class="t">Uniform field</td><td>匀强场（匀强电场、匀强磁场）</td><td>每个地方强度和方向都一样的场</td></tr>
+        <tr><td class="t">Field lines</td><td>电场线；磁感线</td><td>表示场方向的线，越密场越强</td></tr>
+        <tr><td class="t">Edge effect</td><td>边缘效应</td><td>板的两头电场线往外鼓，计算时不管</td></tr>
+        <tr><td class="t">Elementary charge (e)</td><td>元电荷</td><td>一个质子或电子的电荷大小，1.602 × 10<sup>−19</sup> C</td></tr>
+        <tr><td class="t">Acceleration</td><td>加速度</td><td>速度（大小或方向）变得多快</td></tr>
+        <tr><td class="t">Charge-to-mass ratio (q/m)</td><td>荷质比（比荷）</td><td>电荷除以质量；越大，加速度越大</td></tr>
+        <tr><td class="t">Ion</td><td>离子</td><td>多了或少了电子的原子，带电</td></tr>
+        <tr><td class="t">Work (W)</td><td>功</td><td>力推着物体走一段路，传递的能量</td></tr>
+        <tr><td class="t">Electric potential energy (U)</td><td>电势能</td><td>电荷因为在电场里的位置而存着的能量</td></tr>
+        <tr><td class="t">Potential difference (V)</td><td>电势差（电压）</td><td>每库仑电荷的能量变化</td></tr>
+        <tr><td class="t">Electron volt (eV)</td><td>电子伏特</td><td>一个电子经过 1 V 得到的能量，1.602 × 10<sup>−19</sup> J</td></tr>
+        <tr><td class="t">Electron gun</td><td>电子枪</td><td>用电压把电子从静止加速成一束</td></tr>
+        <tr><td class="t">Cathode</td><td>阴极</td><td>负极板，加热后放出电子</td></tr>
+        <tr><td class="t">Beam</td><td>粒子束（电子束）</td><td>一窄束很快的粒子</td></tr>
+        <tr><td class="t">Trajectory</td><td>轨迹</td><td>运动的物体走过的路</td></tr>
+        <tr><td class="t">Parabola</td><td>抛物线</td><td>像扔出去的球走的曲线：力不变，和开始的速度不在一条线上</td></tr>
+        <tr><td class="t">Deflection</td><td>偏转（偏移量）</td><td>粒子被往旁边推了多远</td></tr>
+        <tr><td class="t">Magnetic field</td><td>磁场</td><td>磁铁或运动的电荷会受磁场力的区域</td></tr>
+        <tr><td class="t">Magnetic field strength (B)</td><td>磁感应强度</td><td>磁场有多强，单位 T</td></tr>
+        <tr><td class="t">Magnetic force on a moving charge</td><td>洛伦兹力</td><td>运动的电荷在磁场里受的力，<i>F</i> = <i>qvB</i> sin <i>θ</i></td></tr>
+        <tr><td class="t">Tesla (T)</td><td>特斯拉</td><td>B 的单位</td></tr>
+        <tr><td class="t">Perpendicular</td><td>垂直</td><td>成 90°</td></tr>
+        <tr><td class="t">Right-hand palm rule</td><td>右手掌定则（结果同左手定则）</td><td>四指 B，拇指 v（正电荷），掌心 F</td></tr>
+        <tr><td class="t">Centripetal force</td><td>向心力</td><td>指向圆心的合力</td></tr>
+        <tr><td class="t">Uniform circular motion</td><td>匀速圆周运动</td><td>速率不变地转圈</td></tr>
+        <tr><td class="t">Period (T)</td><td>周期</td><td>转一圈的时间</td></tr>
+        <tr><td class="t">Mass spectrometer</td><td>质谱仪</td><td>用磁场里圆的半径，把 ions 按质量分开</td></tr>
+        <tr><td class="t">Helix</td><td>螺旋线</td><td>像拉长的弹簧一样的路径</td></tr>
+        <tr><td class="t">Cyclotron</td><td>回旋加速器</td><td>让粒子绕着圈加速的机器</td></tr>
+        <tr><td class="t">Crossed fields</td><td>正交电磁场</td><td>E 和 B 在同一个地方，互相垂直</td></tr>
+        <tr><td class="t">Velocity selector</td><td>速度选择器</td><td>只让一个速度 E/B 直线通过的正交电磁场</td></tr>
+        <tr><td class="t">Cathode-ray oscilloscope</td><td>阴极射线示波器</td><td>用电子束画电压图的老式屏幕</td></tr>
+        <tr><td class="t">X-ray tube</td><td>X 射线管</td><td>用电压加速电子、产生 X 射线的管子</td></tr>
+        <tr><td class="t">Deflection tube</td><td>偏转管</td><td>让电子束在两板间偏转的玻璃管，用 kV 电源</td></tr>
+        <tr><td class="t">Implode</td><td>向内爆裂</td><td>真空管往里面碎掉</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11" class="quiz">
+  <div class="secnum">检查</div>
+  <h2>快问快答<span class="en">点一下看答案</span></h2>
+  <div>
+    <details><summary>1. 两板相距 5 mm，电压 50 V。板间的 E 是多少？电子受的力多大、朝哪边？</summary><p class="ans"><b>E = 1.0 × 10<sup>4</sup> V m<sup>−1</sup>；F = 1.602 × 10<sup>−15</sup> N，指向正极板。</b>先换单位：5 mm = 0.005 m。E = V/d = 50/0.005 = 10 000 V m<sup>−1</sup>。F = qE = 1.602 × 10<sup>−19</sup> × 10 000 = 1.602 × 10<sup>−15</sup> N。电子带负电，力逆着 E，所以指向正极板。</p></details>
+    <details><summary>2. 一个 alpha particle（α 粒子，电荷 +2e）从静止经过 1000 V 加速。它得到多少 eV？多少 J？</summary><p class="ans"><b>2000 eV，也就是 3.204 × 10<sup>−16</sup> J。</b>能量（eV）=（电荷是 e 的几倍）×（电压）= 2 × 1000 = 2000 eV。换成 J：W = qV = 2 × 1.602 × 10<sup>−19</sup> × 1000 = 3.204 × 10<sup>−16</sup> J。</p></details>
+    <details><summary><span>3. 电子从静止经过 100 V 加速。它的动能和速度是多少？（电子质量 9.109 × 10<sup>−31</sup> kg）</span></summary><p class="ans"><b>K = 1.602&nbsp;×&nbsp;10<sup>−17</sup>&nbsp;J（100&nbsp;eV），v ≈ 5.93&nbsp;×&nbsp;10<sup>6</sup>&nbsp;m&nbsp;s<sup>−1</sup>。</b>½mv² = qV = 1.602 × 10<sup>−19</sup> × 100 = 1.602 × 10<sup>−17</sup> J。<span class="m"><i>v</i> = √(2<i>qV</i>/<i>m</i>) = √(2&nbsp;×&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;×&nbsp;100 ÷ (9.109&nbsp;×&nbsp;10<sup>−31</sup>)) = √(3.52&nbsp;×&nbsp;10<sup>13</sup>) ≈ 5.93&nbsp;×&nbsp;10<sup>6</sup>&nbsp;m&nbsp;s<sup>−1</sup></span>。比光速小得多，所以可以用这个公式。</p></details>
+    <details><summary>4. 电子枪的电压不变，把板间距加倍。电子出口的速度怎么变？</summary><p class="ans"><b>不变。</b>E = V/d 变成一半，力也变成一半；但要走 2 倍的路。W = qEd = qV 不变，所以 ½mv² 不变。</p></details>
+    <details><summary>5. 电子平行于板射入，出口偏移是 y。入射速度减半，偏移变成多少？换成同样速度的质子呢？</summary><p class="ans"><b>变成 4y；质子往另一边偏，偏移小约 1840 倍。</b>y = qEL²/(2mu²)：u 减半，在板间的时间 × 2，u² 变成 ¼，所以 y × 4。质子带正电，往负极板偏；它的质量约大 1840 倍，所以 a 小约 1840 倍。</p></details>
+    <details><summary>6. B 进纸面，一个正电荷向右运动。它受的磁场力朝哪？换成电子呢？</summary><p class="ans"><b>正电荷向上（纸的上边），电子向下。</b>palm rule：四指进纸面，大拇指向右，掌心朝上。电子带负电，力反过来。</p></details>
+    <details><summary>7. 电荷在匀强磁场里转圈。速度变成 2 倍，r 和 T 怎么变？磁场会让它变快吗？</summary><p class="ans"><b>r × 2，T 不变；速率不会变。</b>r = mv/(qB)，所以 r ∝ v。T = 2πm/(qB) 里没有 v：路长了一倍，跑得也快了一倍。磁场力和 v 永远成 90°，不做功，所以速率不变。</p></details>
+    <details><summary><span>8. 速度选择器里 E = 6000 V m<sup>−1</sup>，B = 0.02 T。什么速度的粒子能走直线？比它快的正电荷往哪边弯？（粒子向右，E 向下，B 进纸面）</span></summary><p class="ans"><b>v = 3&nbsp;×&nbsp;10<sup>5</sup>&nbsp;m&nbsp;s<sup>−1</sup>；更快的往上弯。</b>qE = qvB，v = E/B = 6000 ÷ 0.02 = 300&nbsp;000&nbsp;m&nbsp;s<sup>−1</sup> = 3&nbsp;×&nbsp;10<sup>5</sup>&nbsp;m&nbsp;s<sup>−1</sup>。更快时 qvB 比 qE 大，向上的磁场力赢了，所以往上弯。</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="上一个和下一个 topic"><a class="pg prev" href="../m5/t5.html"><span class="pg-k">← 上一个 topic</span><span class="pg-t">M5 T5 · Energy in Gravitational Fields</span><span class="pg-z">引力场中的能量：轨道、逃逸和变轨</span></a><a class="pg next" href="../m6/t2.html"><span class="pg-k">下一个 topic →</span><span class="pg-t">M6 T2 · The Motor Effect</span><span class="pg-z">电流的磁场、安培力和平行导线</span></a></nav><!--/pager-->
+
+<footer>根据 HSC Physics Essentials · Module 6 Electromagnetism · Chapter 1 整理。实验数据（速度减半 → 偏移 4 倍；质子偏移约小 1840 倍；<i>v</i>²–<i>V</i> 图斜率 2<i>e</i>/<i>m</i><sub>e</sub>&nbsp;=&nbsp;3.52&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>）和正文数值（<i>e</i>&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C，1&nbsp;eV&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;J，电场力约是重力的 2&nbsp;×&nbsp;10¹² 倍）来自讲义。动画 1、2 的速度和偏移、快问快答第 3 题的速度用 data sheet 常数算出（计算值）；其他练习数字是为了好算选的。动画里没有标出处的数值是示意。</footer>
+</div>
+<script src="../assets/sim-core.js"></script>
+<script>
+/* ---------- 动画 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · 电子枪：电场做功变成动能（1.1 Work, energy and the electron gun）
+   真实物理：板间匀强场 E = V/d，F = qE 大小方向都不变；从静止出发，W = qEd = qV = ½mv²，所以出口 v = √(2qV/m)，和 d 无关。
+   电子：左板是负极板（cathode），右板是正极板（有小孔）；E 从右指向左，电子受力逆着 E → 向右。
+   proton：电源反过来接，左板是正极板；E 从左指向右，proton 受力顺着 E → 向右。
+   计算值（data sheet）：e = 1.602 × 10⁻¹⁹ C，mₑ = 9.109 × 10⁻³¹ kg，mₚ = 1.673 × 10⁻²⁷ kg，c = 3.00 × 10⁸ m s⁻¹。
+   示意：d = 1.0 cm，V 的范围 100–1000 V，画面快慢。画面时间：1000 V、板距 d 时用 T0 秒穿过板间；
+   穿过时间 ∝ d/√V（和真实比例一样，所以 2d 出口速度一样、在板间多用一倍时间）。
+   proton 真实速度只有电子的 1/√(mₚ/mₑ) ≈ 1/43，画面里 proton 用自己的时间比例（放快约 43 倍）；读数和 v 条按真实比例。
+   位置 s 以 G（画面上 d 的长度）为单位，从出发板量起；运动用解析式，不会漂。 */
+var QE=1.602e-19,ME=9.109e-31,MP=1.673e-27,CL=3.00e8,D0=0.010,T0=1.0,DRIFT=1,WAIT=1.0,STB=0.12;
+var VMAXE=Math.sqrt(2*QE*1000/ME);
+var m1={V:500,dm:1,p:'e',t:0,rec:false,ev:null,pts:{e:[{V:200,dm:1},{V:800,dm:1}],p:[]},hl:null,hla:9};
+
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x,d){if(x<=0)return '0';var e=Math.floor(Math.log(x)/Math.LN10+1e-9),mm=x/Math.pow(10,e);if(+mm.toFixed(d)>=10){mm/=10;e++;}return mm.toFixed(d)+' × 10'+sup(e);}
+function rs(k){return String(Math.round(k*100)/100);}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW,align,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+/* 居中写字，但不让它超出 [lo, hi] */
+function cTxt(ctx,s,x,y,col,size,weight,lo,hi){
+  ctx.font=(weight||500)+' '+size+'px '+FONT;var w=ctx.measureText(s).width;
+  x=clamp(x,lo+w/2,hi-w/2);txt(ctx,s,x,y,col,size,weight,'center');
+}
+/* 按真实比例的条（没有 hbar 那种最短一截：proton 的 v 很小就画得很短） */
+function bar(ctx,x,y,w,h,fr,col){rrect(ctx,x,y,w,h,h/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  var fw=w*clamp(fr,0,1);if(fw>0.4){ctx.save();rrect(ctx,x,y,w,h,h/2);ctx.clip();ctx.fillStyle=col;ctx.fillRect(x,y,fw,h);ctx.restore();}}
+
+function mass(){return m1.p==='e'?ME:MP;}
+function tc(){return T0*m1.dm*Math.sqrt(1000/m1.V);}
+function vExit(){return Math.sqrt(2*QE*m1.V/mass());}
+function sAt(t){var T=tc();if(t<=T){var f=t/T;return m1.dm*f*f;}return m1.dm+2*m1.dm/T*(t-T);}
+function frac(){var T=tc();return m1.t>=T?1:(m1.t/T)*(m1.t/T);}
+function tEnd(){var T=tc();return T+DRIFT*T/(2*m1.dm);}
+function addPt(){var L=m1.pts[m1.p];for(var i=0;i<L.length;i++){if(L[i].V===m1.V&&L[i].dm===m1.dm){m1.hl=L[i];m1.hla=0;return;}}
+  var o={V:m1.V,dm:m1.dm};L.push(o);m1.hl=o;m1.hla=0;}
+function restart(){m1.t=0;m1.rec=false;}
+function hasD1(){var L=m1.pts[m1.p];for(var i=0;i<L.length;i++){if(L[i].V===m1.V&&L[i].dm===1)return true;}return false;}
+function step1(dt){m1.hla+=dt;m1.t+=dt;if(!m1.rec&&m1.t>=tc()){m1.rec=true;addPt();}if(m1.t>tEnd()+WAIT){restart();m1.ev=null;}}
+for(var q1=0;q1<60;q1++)step1(1/60);
+
+/* ---------- 排版：宽屏左边电子枪 + 读数，右边 v²–V 图；手机上下排 ---------- */
+function lay(W){
+  var o={wide:W>=640};
+  if(o.wide){o.G=118;o.x0=50;o.s1=24;o.s2=46;o.vl=70;o.wy=86;o.pt=104;o.pb=232;o.lab=252;o.r1=280;o.r2=300;o.b=[326,350,374];
+    o.lw=78;o.vw=128;o.bR=420;o.gx=488;o.gw=W-18-o.gx;o.tl=458;o.ty=76;o.yl=98;o.gy=110;o.gh=170;o.sl=340;o.lg=362;o.H=392;}
+  else{o.G=Math.min(110,Math.floor((W-44)/3));o.x0=30;o.s1=22;o.s2=41;o.vl=62;o.wy=76;o.pt=92;o.pb=200;o.lab=218;o.r1=244;o.r2=263;o.b=[290,312,334];
+    o.lw=70;o.vw=120;o.bR=W-12;o.gx=46;o.gw=W-18-o.gx;o.tl=16;o.ty=370;o.yl=390;o.gy=402;o.gh=140;o.sl=600;o.lg=620;o.H=634;}
+  o.cy=(o.pt+o.pb)/2;o.xR=o.x0+2*o.G;
+  return o;
+}
+
+/* 状态提示：这一刻发生了什么、为什么 */
+function status(){
+  var e=m1.p==='e',ev=m1.ev,k;
+  if(ev){
+    if(ev.type==='d2'){
+      if(m1.t<tc())return['d 变成 2d：E = V/d 减半 → 力 F 减半','但要走 2 倍的路：W = qEd = qV 不变 → 出口速度一样'];
+      return['2d 的出口速度和 d 时一样：W = qV 和 d 无关',hasD1()?'看图：空心点正好落在 d 的实心点上':'先在 d 射一次同样的 V，再比空心点和实心点'];}
+    if(ev.type==='d1')return['2d 变回 d：E = V/d 加倍 → 力 F 加倍','但路只剩一半：W = qEd = qV 不变 → 出口速度一样'];
+    if(ev.type==='V'){k=ev.to/ev.from;return['V：'+ev.from+' V → '+ev.to+' V（× '+rs(k)+'）→ W = qV 也 × '+rs(k),'v² × '+rs(k)+'，v × '+rs(Math.sqrt(k))+'：v² ∝ V，不是 v ∝ V'];}
+    if(ev.type==='p')return['换成 proton：带正电 → 从正极板出发（电源反过来接）','能量一样是 qV，质量约大 1840 倍 → v 约是电子的 1/43'];
+    if(ev.type==='e')return['换成电子：带负电 → 从 cathode（负极板）出发','能量一样是 qV，质量约小 1840 倍 → v 约快 43 倍'];
+    if(ev.type==='reset')return['图清空了：拖 V，每射一次就点一个点','看这些点是不是都在一条过原点的直线上'];
+  }
+  if(m1.t<tc())return e?['电子带负电：受力逆着 E，从 cathode 冲向正极板','电场做功：U 变少，K 变多 → 越来越快（像球滚下坡）']:
+    ['proton 带正电：受力顺着 E，从正极板冲向负极板','同样得到 qV 的能量，但质量约大 1840 倍 → 慢得多'];
+  var b;
+  if(!e)b='W = qV 全部变成 K，但 v 只有同电压电子的约 1/43';
+  else if(m1.V>=800)b='v ≈ '+(vExit()/CL).toFixed(3)+'c，仍远小于 c → ½mv² = qV 还能用';
+  else b='W = qV 全部变成 K：½mv² = qV → 图上多一个点';
+  return['出了小孔：外面没有电场 → 不受力 → 匀速直线',b];
+}
+
+function graph(ctx,L){
+  var e=m1.p==='e',ym=e?4:2,unit=e?1e14:1e11,kk=2*QE/mass(),gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,i,y;
+  function X(V){return gx+V/1000*gw;}
+  function Y(v2){return gy+gh-v2/unit/ym*gh;}
+  txt(ctx,'v²–V 图：每射一次点一个点',L.tl,L.ty,C.ink,L.wide?13.5:13,600);
+  txt(ctx,'v²（× 10'+(e?'¹⁴':'¹¹')+' m² s⁻²）',L.tl,L.yl,C.muted,11.5,500);
+  for(i=1;i<=4;i++){seg(ctx,X(i*250),gy,X(i*250),gy+gh,C.grid,1);}
+  var yst=e?1:0.5;
+  for(i=0;i<=4;i++){y=gy+gh-i/4*gh;if(i)seg(ctx,gx,y,gx+gw,y,C.grid,1);txt(ctx,rs(i*yst),gx-6,y+4,C.muted,11,500,'right');}
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1.2);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1.2);
+  var xt=L.wide?[0,250,500,750,1000]:[0,500,1000];
+  for(i=0;i<xt.length;i++)txt(ctx,String(xt[i]),X(xt[i]),gy+gh+16,C.muted,11,500,'center');
+  txt(ctx,'加速电压 V（V）',gx+gw,gy+gh+34,C.muted,11.5,500,'right');
+  /* 理论线 v² = (2q/m)V：过原点的直线 */
+  seg(ctx,X(0),Y(0),X(1000),Y(kk*1000),rgba(C.copper,0.45),1.5,[5,5]);
+  /* 现在的 V */
+  seg(ctx,X(m1.V),gy,X(m1.V),gy+gh,rgba(C.ink,0.45),1.2,[2,4]);
+  var P=m1.pts[m1.p];
+  for(i=0;i<P.length;i++){if(P[i].dm===1)dot(ctx,X(P[i].V),Y(kk*P[i].V),5,C.copper);}
+  for(i=0;i<P.length;i++){if(P[i].dm===2)ring(ctx,X(P[i].V),Y(kk*P[i].V),8,C.copper,2.2);}
+  if(m1.hl&&P.indexOf(m1.hl)>=0&&m1.hla<1.5){var a=1-m1.hla/1.5;ring(ctx,X(m1.hl.V),Y(kk*m1.hl.V),9+10*m1.hla,rgba(C.copper,0.7*a),2);}
+  /* 斜率：下标 e / p 自己画（canvas 字体里没有 ₑ，会变成一个小点） */
+  var s0='斜率 = 2e/m',s1=e?'e':'p',s2=e?' = 3.52 × 10¹¹ C kg⁻¹（讲义）':' = 1.92 × 10⁸ C kg⁻¹（计算值）';
+  ctx.font='600 12.5px '+FONT;var w0=ctx.measureText(s0).width;ctx.font='600 11px '+FONT;var w1=ctx.measureText(s1).width;
+  txt(ctx,s0,L.tl,L.sl,C.copper,12.5,600);txt(ctx,s1,L.tl+w0+0.5,L.sl+3,C.copper,11,600);txt(ctx,s2,L.tl+w0+w1+1.5,L.sl,C.copper,12.5,600);
+  var lx=L.tl,ly=L.lg;
+  dot(ctx,lx+5,ly-4,4.5,C.copper);txt(ctx,'板间距 d',lx+15,ly,C.muted,11.5,500);
+  ring(ctx,lx+75,ly-4,6.5,C.copper,2);txt(ctx,'2d',lx+87,ly,C.muted,11.5,500);
+  seg(ctx,lx+122,ly-11,lx+122,ly+3,rgba(C.ink,0.55),1.2,[2,3]);txt(ctx,'现在的 V',lx+130,ly,C.muted,11.5,500);
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),wide=L.wide,e=m1.p==='e',G=L.G,cy=L.cy,PT=8,V=m1.V,i;
+    var xR=L.xR,xS=xR-m1.dm*G,f=frac(),T=tc();
+    var leftPlus=!e,lCol=leftPlus?C.north:C.south,rCol=leftPlus?C.south:C.north,pc=e?C.south:C.north;
+    var st=status();
+    fitTxt(ctx,st[0],16,L.s1,C.ink,wide?15:13.5,600,W-32);
+    fitTxt(ctx,st[1],16,L.s2,C.muted,wide?13.5:12,500,W-32);
+
+    /* 电场线：从 + 板到 − 板（紫） */
+    /* 线的浓淡跟着 E = V/d 变：100 V、2d 最淡，1000 V、d 最浓 */
+    var dirE=leftPlus?1:-1,offs=wide?[-46,-22,22,46]:[-40,-20,20,40],mx=(xS+xR)/2,Er=(V/m1.dm)/1000,al=0.25+0.45*Er;
+    for(i=0;i<offs.length;i++){var ly=cy+offs[i];seg(ctx,xS+3,ly,xR-3,ly,rgba(C.violet,al),1.3);arrow(ctx,mx-dirE*8,ly,mx+dirE*8,ly,rgba(C.violet,Math.min(1,al+0.35)),1.4,8);}
+    txt(ctx,'E',mx+(wide?16:14),cy+offs[0]-7,C.violet,15,'italic 600','center','alphabetic',MATH);
+
+    /* 导线和电源：长细线 = 电源 +，短粗线 = 电源 − */
+    var lc=xS-PT/2,rc=xR+PT/2,bm=(lc+rc)/2,wy=L.wy,wc=rgba(C.copper,0.85);
+    seg(ctx,lc,L.pt,lc,wy,wc,1.6);seg(ctx,lc,wy,bm-5,wy,wc,1.6);
+    seg(ctx,rc,L.pt,rc,wy,wc,1.6);seg(ctx,rc,wy,bm+5,wy,wc,1.6);
+    seg(ctx,bm-5,wy-(leftPlus?11:6),bm-5,wy+(leftPlus?11:6),C.ink,leftPlus?1.8:3.6);
+    seg(ctx,bm+5,wy-(leftPlus?6:11),bm+5,wy+(leftPlus?6:11),C.ink,leftPlus?3.6:1.8);
+    txt(ctx,'V = '+V+' V',bm,L.vl,C.ink,wide?13:12.5,600,'center');
+
+    /* 两块板：出口板中间有小孔 */
+    ctx.fillStyle=lCol;ctx.fillRect(xS-PT,L.pt,PT,L.pb-L.pt);
+    ctx.fillStyle=rCol;ctx.fillRect(xR,L.pt,PT,cy-9-L.pt);ctx.fillRect(xR,cy+9,PT,L.pb-cy-9);
+    txt(ctx,leftPlus?'+':'−',xS-PT-9,L.pt+14,lCol,15,700,'center');
+    txt(ctx,leftPlus?'−':'+',xR+PT+9,L.pt+14,rCol,15,700,'center');
+    if(e){/* 热的 cathode 放出电子 */
+      ctx.beginPath();var hx=xS-PT-7;for(i=0;i<=6;i++){var yy=cy-12+i*4,xx=hx+(i%2?3:-3);if(i)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+      ctx.strokeStyle=C.heat;ctx.lineWidth=1.6;ctx.stroke();}
+    var lab=wide?12:11.5;
+    cTxt(ctx,e?'负极板 cathode':'正极板',xS-PT/2,L.lab,lCol,lab,600,12,xR-8);
+    cTxt(ctx,e?'正极板（有小孔）':'负极板（有小孔）',xR+PT/2,L.lab,rCol,lab,600,xR-60,(wide?L.bR:W-12));
+    var nx=xR+PT+8,ny=cy+(wide?36:30);
+    if(e)txt(ctx,'慢动作（示意）',nx,ny,C.muted,11.5,500);
+    else{txt(ctx,'画面里 proton',nx,ny,C.muted,11.5,500);txt(ctx,'已放快约 43 倍',nx,ny+15,C.muted,11.5,500);}
+
+    /* 每隔相同时间留一个点 */
+    var nS=Math.floor(m1.t/STB),rp=wide?7:6.5;
+    for(i=0;i<=nS;i++){var s0=sAt(i*STB);if(s0-m1.dm>DRIFT+0.01)break;dot(ctx,xS+s0*G,cy,2.6,rgba(pc,0.45));}
+
+    /* 粒子 + 力 */
+    if(m1.t<=tEnd()){
+      var px=xS+sAt(m1.t)*G;
+      if(m1.t<T){var LF=Math.max(6,(wide?60:50)*(V/1000)/m1.dm),ax=px+rp+2;
+        arrow(ctx,ax,cy,ax+LF,cy,C.force,2.6,Math.min(9,LF*0.6));txt(ctx,'F',ax+LF/2,cy-9,C.force,13,700,'center');}
+      dot(ctx,px,cy,rp,pc);txt(ctx,e?'−':'+',px,cy+0.5,'#ffffff',12,700,'center','middle');
+    }
+
+    /* 读数 */
+    var dS=m1.dm===1?'d':'2d',E=V/(D0*m1.dm),F=QE*E,Wj=QE*V;
+    fitTxt(ctx,dS+' = '+m1.dm+'.0 cm（示意）→ E = V/'+dS+' = '+sci(E,1)+' V m⁻¹',16,L.r1,C.ink,wide?12.5:12,500,L.bR-16);
+    fitTxt(ctx,'F = qE = '+sci(F,1)+' N → W = F × '+dS+' = '+(wide?sci(Wj,1)+' J = ':'')+V+' eV',16,L.r2,C.ink,wide?12.5:12,500,L.bR-16);
+    var bx0=16+L.lw,bx1=L.bR-L.vw,bw=bx1-bx0,vNow=Math.sqrt(2*QE*V*f/mass());
+    function row(y,lb,lcol,fr,col,val,mk){
+      txt(ctx,lb,16,y,lcol,12.5,600);bar(ctx,bx0,y-9,bw,10,fr,col);
+      if(mk!=null){var xm=bx0+bw*mk;seg(ctx,xm,y-12,xm,y+4,C.ink,1.5);}
+      txt(ctx,val,L.bR,y,C.ink,12,600,'right','alphabetic',MONO);}
+    row(L.b[0],'U 电势能',C.violet,V*(1-f)/1000,C.violet,Math.round(V*(1-f))+' eV',V/1000);
+    row(L.b[1],'K 动能',C.copper,V*f/1000,C.copper,Math.round(V*f)+' eV',V/1000);
+    /* v 条上的细线 = 电子在这个 V 下的出口速度（proton 时拿来对比） */
+    row(L.b[2],'v 速度',C.ink,vNow/VMAXE,rgba(C.ink,0.7),(vNow>0?sci(vNow,2):'0')+' m s⁻¹',Math.sqrt(2*QE*V/ME)/VMAXE);
+
+    graph(ctx,L);
+  }
+});
+
+var rV=document.getElementById('s1-V'),oV=document.getElementById('s1-V-out');
+var bd1=document.getElementById('s1-d1'),bd2=document.getElementById('s1-d2'),be=document.getElementById('s1-e'),bp=document.getElementById('s1-p');
+function sync1(){press(bd1,m1.dm===1);press(bd2,m1.dm===2);press(be,m1.p==='e');press(bp,m1.p==='p');oV.textContent=m1.V+' V';}
+rV.addEventListener('input',function(){var nv=parseInt(rV.value,10)||500;if(nv===m1.V)return;
+  if(!m1.ev||m1.ev.type!=='V')m1.ev={type:'V',from:m1.V};m1.ev.to=nv;if(nv===m1.ev.from)m1.ev=null;
+  m1.V=nv;restart();sync1();S1.render();});
+function setD(k){if(m1.dm===k)return;m1.dm=k;m1.ev={type:k===2?'d2':'d1'};restart();sync1();S1.render();}
+function setP(p){if(m1.p===p)return;m1.p=p;m1.ev={type:p};restart();sync1();S1.render();}
+bd1.addEventListener('click',function(){setD(1);});bd2.addEventListener('click',function(){setD(2);});
+be.addEventListener('click',function(){setP('e');});bp.addEventListener('click',function(){setP('p');});
+document.getElementById('s1-reset').addEventListener('click',function(){m1.pts.e=[];m1.pts.p=[];m1.hl=null;m1.ev={type:'reset'};restart();S1.setPlaying(true);S1.render();});
+sync1();
+})();
+/* ---------- 动画 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 平行板之间的抛物线（1.2 Curved paths in an electric field）
+   真实物理：正极板在上，E = V/d 向下。电子 q < 0，F = qE 逆着 E → 向上；proton 顺着 E → 向下；两者 F 一样大（eV/d）。
+   沿板方向没有力：x = ut，v_x = u 不变；垂直板方向 a = qE/m 不变：y = ½at² = (qE/2mu²)x²，v_y = at。
+   出了板没有力：沿出口速度方向走直线。y ∝ V，y ∝ 1/u²，y ∝ x²。
+   示意：L = 5.0 cm，d = 4.0 cm，u = 1.0 × 10⁷ m s⁻¹（= 1.0 cm/ns），V = 0–300 V，画面快慢（RATE ns 每秒）。
+   计算值：y、F、a、θ 用 data sheet 的 e = 1.602 × 10⁻¹⁹ C、mₑ = 9.109 × 10⁻³¹ kg、mₚ = 1.673 × 10⁻²⁷ kg 算。
+   画面里 x、y 用同一个比例（cm），所以路径的形状和角度是真的。运动用解析式，不会漂。 */
+var QE=1.602e-19,ME=9.109e-31,MP=1.673e-27;
+var L=5,D=4,U0=1,TDOT=1,RATE=2,HOLD=1.5;
+var rv=document.getElementById('s2-v'),ov=document.getElementById('s2-v-out');
+var bu1=document.getElementById('s2-u1'),bu2=document.getElementById('s2-u2'),be=document.getElementById('s2-e'),bp=document.getElementById('s2-p');
+var cur={V:parseFloat(rv.value)||200,half:false,pro:false},ghost=null,snap=null,dragging=false;
+var P={},G={},LY=null,RY=[0,0,0,0,0];
+var m2={x:4.3,hold:0,note:null,half:false}; /* 第一帧：电子已经在板间走了 4.3 cm，路上留着 5 个点；half：这次的提示是“速度减半” */
+
+/* ---------- 物理 ---------- */
+function calc(p,o){
+  var m=p.pro?MP:ME,u=p.half?U0/2:U0,uS=u*1e7;
+  o.u=u;o.s=p.pro?-1:1;
+  o.E=p.V/(D/100);o.F=QE*o.E;o.a=o.F/m;      /* SI：V m⁻¹、N、m s⁻² */
+  o.kS=o.a/(2*uS*uS);o.k=o.kS/100;           /* y = k x²：kS 用 m⁻¹（就是 y/x²），k 用 cm⁻¹ */
+  o.yL=o.k*L*L;o.m=2*o.k*L;                  /* 出口的 y（cm）；出口 v_y/v_x = 2kL */
+  o.hit=o.yL>=D/2;o.xHit=o.hit?Math.sqrt(D/2/o.k):Infinity;
+  return o;
+}
+function yAt(o,x){if(x<=0)return 0;if(x<=L)return o.k*x*x;return o.yL+o.m*(x-L);}
+/* 这一发在哪里结束：打到板，或者飞出画面 */
+function xEnd(o,Y){if(o.hit)return o.xHit;var e=(Y.sx1-Y.X0)/Y.cm,ym=D/2+Y.room;if(o.m>1e-12){var xe=L+(ym-o.yL)/o.m;if(xe<e)e=xe;}return e;}
+function SX(x){return LY.X0+x*LY.cm;}
+function SY(o,x){return LY.yc-o.s*yAt(o,x)*LY.cm;}
+calc(cur,P);
+
+/* ---------- 数字格式 ---------- */
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(v){if(v<=0)return '0';var e=Math.floor(Math.log(v)/Math.LN10+1e-9),mm=v/Math.pow(10,e);if(+mm.toFixed(2)>=10){mm/=10;e++;}return mm.toFixed(2)+'×10'+sup(e);}
+function f3(v){if(v===0)return '0';var a=Math.abs(v);if(a>=100)return v.toFixed(0);if(a>=10)return v.toFixed(1);if(a>=1)return v.toFixed(2);return v.toPrecision(3);}
+function small(v){return v>=0.01?f3(v):sci(v);}
+function scl(mx){return (mx>=0.1||mx<=0)?0:Math.floor(Math.log(mx)/Math.LN10+1e-9);} /* 一行太小时换成 10ⁿ 的单位 */
+function unit(p,u){return p===0?u:'10'+sup(p)+' '+u;}
+function fr(r){return String(Math.round(r*100)/100);}
+function deg(v){return v>=0.1?v.toFixed(1):(v<=0?'0':v.toPrecision(2));}
+
+/* 带下标的文字：'v_x' 画成 v 加小一号、往下一点的 x。noDraw 时只量宽度。
+   HALO：字后面先描一圈底色，压在板或线上也看得清（只给粒子旁边的标签用）。 */
+var SUBRE=/([A-Za-z])_([a-z0-9]+)/g,HALO=false;
+function hs(ctx,q,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(q,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.74),fb=weight+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;adv.push(ctx.measureText(q.slice(1)).width+1.5);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;hs(ctx,q.slice(1),xx+0.8,y+size*0.22);txt(ctx,q.slice(1),xx+0.8,y+size*0.22,col,ss,weight,'left','alphabetic',family);}
+    else if(q){ctx.font=fb;hs(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,weight,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+/* 状态提示太长时换行：在“，”“：”后面或“ →”前面断开 */
+function toks(s){var out=[],b=0,i,c;for(i=0;i<s.length;i++){c=s.charAt(i);
+  if(c==='，'||c==='：'){out.push(s.slice(b,i+1));b=i+1;}
+  else if(c===' '&&s.charAt(i+1)==='→'&&i>b){out.push(s.slice(b,i));b=i+1;}}
+  if(b<s.length)out.push(s.slice(b));return out;}
+function wrap(ctx,s,maxW,size,weight){var t=toks(s),out=[],line='',i,tr;
+  for(i=0;i<t.length;i++){tr=line?line+(t[i].charAt(0)==='→'?' ':'')+t[i]:t[i];
+    if(line&&rich(ctx,tr,0,0,null,size,weight,'left',null,true)>maxW){out.push(line);line=t[i];}else line=tr;}
+  if(line)out.push(line);return out;}
+
+/* ---------- 状态提示：这一刻发生了什么、为什么 ---------- */
+var MSG={
+  pre:['粒子平行于板射入','板外没有电场 → 没有力 → 匀速直线'],
+  ine:['板间：沿板方向没有力 → v_x = u 不变','垂直板方向 a = qE/m 不变 → v_y 越来越大 → 抛物线，像平抛的球'],
+  inp:['proton：F = qE 一样大，方向相反 → 往负极板偏','m 约是电子的 1840 倍 → a 只有约 1/1840 → 看起来几乎是直线'],
+  v0:['V = 0：E = V/d = 0 → 没有力','v_y 一直是 0 → 走直线'],
+  out:['出了板：没有电场 → 没有力','沿出口速度的方向走直线（v_x、v_y 都不再变）'],
+  hitE:['偏移 y 到了 d/2 → 电子打到正极板了','在板间的时间越长、V 越大，y 越大 → 调小 V，或换回 u'],
+  hitP:['偏移 y 到了 d/2 → proton 打到负极板了','在板间的时间越长、V 越大，y 越大 → 调小 V，或换回 u'],
+  hitH:['速度减半：在板间的时间 × 2 → y × 4','y 超过 d/2 → 电子打到正极板了（V ≤ 90 V 才飞得出去）']
+};
+function status(e,x){
+  if(P.hit&&x>=e-1e-9){if(m2.half&&!cur.pro)return MSG.hitH;return cur.pro?MSG.hitP:MSG.hitE;}
+  if(m2.note)return m2.note;
+  if(x<0)return MSG.pre;
+  if(x>L)return MSG.out;
+  if(cur.V===0)return MSG.v0;
+  return cur.pro?MSG.inp:MSG.ine;
+}
+
+/* ---------- 排版：宽屏左边是板、右边是表；手机上下排 ---------- */
+function lay(W){
+  var o={wide:W>=640};
+  if(o.wide){o.pw=226;o.px=W-16-o.pw;o.sx0=14;o.sx1=o.px-18;o.cm=Math.min(52,(o.sx1-o.sx0)/9.3);o.X0=o.sx0+1.3*o.cm;o.dX=o.X0-1.05*o.cm;o.xs=-0.75;
+    o.room=0.9;o.yc=92+(2+o.room)*o.cm;o.VS=60;o.FS=0.17;o.pt=7;o.st=[24,46];o.sf=[15,13.5];o.stB=54;o.lim=o.px-6;}
+  else{o.pw=W-32;o.px=16;o.sx0=8;o.sx1=W-8;o.cm=Math.min(38,(o.sx1-o.sx0)/8.9);o.X0=o.sx0+1.1*o.cm;o.dX=o.X0-0.88*o.cm;o.xs=-0.45;
+    o.room=0.7;o.yc=94+(2+o.room)*o.cm;o.VS=54;o.FS=0.15;o.pt=6;o.st=[22,41,60];o.sf=[13.5,12.5];o.stB=68;o.lim=W-4;}
+  o.yT=o.yc-D/2*o.cm;o.yB=o.yc+D/2*o.cm;o.bo=o.yB+o.pt;o.Ly=o.bo+30;
+  o.pTop=o.wide?84:o.bo+52;
+  o.H=o.wide?Math.max(408,Math.round(o.Ly+22)):Math.round(o.pTop+200);
+  return o;
+}
+
+/* 沿路径从 xa 画到 xb（解析式取点） */
+function trace(ctx,o,xa,xb){var n=Math.max(2,Math.ceil((xb-xa)/0.08)),i,xx;
+  for(i=0;i<=n;i++){xx=xa+(xb-xa)*i/n;if(i)ctx.lineTo(SX(xx),SY(o,xx));else ctx.moveTo(SX(xx),SY(o,xx));}}
+
+/* 对照：细线是改之前的路径；每个 x 处 y 的比 = 两个 k 的比（打不打到板都成立） */
+function ratio(r){return r>10?String(Math.round(r)):(r<0.1?'1/'+Math.round(1/r):fr(r));}
+function legend(ctx,x,y,size){
+  if(!ghost){txt(ctx,'改了一个量以后，细线留下刚才的路径',x,y,C.muted,size,500);return;}
+  var d=[];if(ghost.half!==cur.half)d.push(ghost.half?'½u':'u');if(ghost.pro!==cur.pro)d.push(ghost.pro?'proton':'electron');if(ghost.V!==cur.V)d.push(ghost.V+' V');
+  seg(ctx,x,y-4,x+18,y-4,rgba(C.south,0.55),2.2);
+  txt(ctx,'细线 = 刚才 '+d.join('、')+'：'+(G.hit?'打到'+(ghost.pro?'负':'正')+'极板':'y = '+small(G.yL*10)+' mm'),x+24,y,C.muted,size,500);
+  if(G.k>0&&P.k>0)txt(ctx,'现在每个 x 的 y × '+ratio(P.k/G.k)+(ghost.pro!==cur.pro?'，方向相反':''),x+24,y+18,C.ink,size,600);
+}
+
+/* 表里的 y：x = 1…5 cm 处（mm）；打到板以后没有 */
+function rows(o){var mx=0;for(var i=0;i<5;i++){var xx=i+1;RY[i]=(xx<=o.xHit)?10*o.k*xx*xx:null;if(RY[i]!==null&&RY[i]>mx)mx=RY[i];}return mx;}
+function rowNote(o){
+  if(o.hit)return 'x = '+o.xHit.toFixed(2)+' cm 处打到'+(cur.pro?'负':'正')+'极板';
+  if(cur.V===0)return 'V = 0：y 全是 0 → 直线';
+  return 'y/x² 每一行都一样 → y ∝ x²';
+}
+
+function panelWide(ctx,Y,o,x){
+  var px=Y.px,y=Y.pTop,c2=px+120,c3=px+Y.pw,i,yy,col,ok;
+  txt(ctx,'示意：L = 5.0 cm，d = 4.0 cm',px,y,C.muted,12,500);
+  txt(ctx,cur.half?'入射速度 ½u = 5.0×10⁶ m s⁻¹':'入射速度 u = 1.0×10⁷ m s⁻¹',px,y+18,C.muted,12,500);
+  txt(ctx,'在几个 x 处记录 y（每 1 ns 一个点）',px,y+42,C.ink,12.5,600);
+  var py=scl(rows(o)),pq=scl(o.kS);
+  txt(ctx,'x (cm)',px,y+61,C.muted,11.5,500);
+  txt(ctx,'y ('+unit(py,'mm')+')',c2,y+61,C.muted,11.5,500,'right');
+  txt(ctx,'y/x² ('+unit(pq,'m⁻¹')+')',c3,y+61,C.muted,11.5,500,'right');
+  for(i=0;i<5;i++){yy=y+80+i*19;ok=RY[i]!==null;col=(ok&&x>=i+1-1e-9)?C.ink:C.muted;
+    txt(ctx,i===4?'5 = L':String(i+1),px+4,yy,col,12.5,500,'left','alphabetic',MONO);
+    txt(ctx,ok?f3(RY[i]/Math.pow(10,py)):'—',c2,yy,col,12.5,500,'right','alphabetic',MONO);
+    txt(ctx,ok?f3(o.kS/Math.pow(10,pq)):'—',c3,yy,col,12.5,500,'right','alphabetic',MONO);}
+  txt(ctx,rowNote(o),px,y+178,o.hit?C.heat:C.ink,12.5,600);
+  seg(ctx,px,y+189,c3,y+189,C.line,1);
+  txt(ctx,'F = qE = '+sci(o.F)+' N',px,y+208,C.ink,12.5,500);
+  txt(ctx,'a = qE/m = '+sci(o.a)+' m s⁻²',px,y+226,C.ink,12.5,500);
+  if(o.hit){txt(ctx,'打到板：t = x/u = '+(o.xHit/o.u).toFixed(2)+' ns',px,y+244,C.ink,12.5,500);txt(ctx,'出不了板，没有出口速度',px,y+262,C.muted,12.5,500);}
+  else{txt(ctx,'板间时间 t = L/u = '+(L/o.u).toFixed(1)+' ns',px,y+244,C.ink,12.5,500);
+    rich(ctx,'出口 θ = tan⁻¹(v_y/v_x) = '+deg(Math.atan(o.m)*180/Math.PI)+'°',px,y+262,C.ink,12.5,500);}
+  legend(ctx,px,y+286,12);
+}
+function panelNarrow(ctx,Y,o,x){
+  var px=Y.px,y=Y.pTop,lw=104,cw=(Y.pw-lw)/5,i,cx,col,ok;
+  txt(ctx,'示意：L = 5.0 cm，d = 4.0 cm，'+(cur.half?'½u = 5.0×10⁶':'u = 1.0×10⁷')+' m s⁻¹',px,y,C.muted,11.5,500);
+  txt(ctx,'在几个 x 处记录 y（每 1 ns 一个点）',px,y+22,C.ink,12.5,600);
+  var py=scl(rows(o)),pq=scl(o.kS);
+  txt(ctx,'x (cm)',px,y+42,C.muted,11.5,500);
+  txt(ctx,'y ('+unit(py,'mm')+')',px,y+61,C.muted,11.5,500);
+  txt(ctx,'y/x² ('+unit(pq,'m⁻¹')+')',px,y+80,C.muted,11.5,500);
+  for(i=0;i<5;i++){cx=px+lw+cw*(i+1)-2;ok=RY[i]!==null;col=(ok&&x>=i+1-1e-9)?C.ink:C.muted;
+    txt(ctx,i===4?'5=L':String(i+1),cx,y+42,col,12,500,'right','alphabetic',MONO);
+    txt(ctx,ok?f3(RY[i]/Math.pow(10,py)):'—',cx,y+61,col,12,500,'right','alphabetic',MONO);
+    txt(ctx,ok?f3(o.kS/Math.pow(10,pq)):'—',cx,y+80,col,12,500,'right','alphabetic',MONO);}
+  txt(ctx,rowNote(o),px,y+101,o.hit?C.heat:C.ink,12.5,600);
+  seg(ctx,px,y+111,px+Y.pw,y+111,C.line,1);
+  txt(ctx,'F = qE = '+sci(o.F)+' N，a = '+sci(o.a)+' m s⁻²',px,y+129,C.ink,12,500);
+  txt(ctx,o.hit?'打到板：x = '+o.xHit.toFixed(2)+' cm，t = '+(o.xHit/o.u).toFixed(2)+' ns':'t = L/u = '+(L/o.u).toFixed(1)+' ns，出口 θ = '+deg(Math.atan(o.m)*180/Math.PI)+'°',px,y+148,C.ink,12,500);
+  legend(ctx,px,y+170,12);
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){if(!LY)return;var e=xEnd(P,LY);
+    if(m2.x>=e-1e-9){m2.x=e;m2.hold+=dt;if(m2.hold>(P.hit?2.2:HOLD)){m2.x=LY.xs;m2.hold=0;m2.note=null;m2.half=false;}return;}
+    m2.x=Math.min(e,m2.x+P.u*RATE*dt);},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var Y=lay(W);LY=Y;
+    var o=P,e=xEnd(o,Y),x=Math.min(m2.x,e),cm=Y.cm,yc=Y.yc,xL=SX(L),i,xe,gx;
+    /* 电场线 E：紫色，从正极板指向负极板（向下）；V 越大画得越浓 */
+    if(cur.V>0){var al=0.25+0.4*cur.V/300,ya=yc+0.88*cm;
+      for(xe=0.3;xe<L;xe+=0.8){gx=SX(xe);seg(ctx,gx,Y.yT+3,gx,Y.yB-3,rgba(C.violet,al*0.75),1.2);arrow(ctx,gx,ya-12,gx,ya,rgba(C.violet,Math.min(1,al+0.25)),1.4,7);}
+      rich(ctx,'E',SX(0.3)+7,yc+D/4*cm+16,C.violet,15,'italic 500','left',MATH);}
+    /* 两块板 */
+    ctx.fillStyle=C.north;ctx.fillRect(Y.X0,Y.yT-Y.pt,L*cm,Y.pt);
+    ctx.fillStyle=C.south;ctx.fillRect(Y.X0,Y.yB,L*cm,Y.pt);
+    txt(ctx,'+ 正极板',Y.X0,Y.yT-Y.pt-7,C.north,12.5,600);
+    txt(ctx,'− 负极板',Y.X0,Y.bo+16,C.south,12.5,600);
+    /* 中线（没有电场时的路径）、d 和 L 的标注 */
+    seg(ctx,SX(Y.xs),yc,Y.sx1,yc,rgba(C.muted,0.5),1,[3,5]);
+    var dx=Y.dX;
+    seg(ctx,dx-4,Y.yT,Y.X0-2,Y.yT,rgba(C.muted,0.55),1,[2,3]);seg(ctx,dx-4,Y.yB,Y.X0-2,Y.yB,rgba(C.muted,0.55),1,[2,3]);
+    arrow(ctx,dx,yc,dx,Y.yT,C.muted,1.2,6);arrow(ctx,dx,yc,dx,Y.yB,C.muted,1.2,6);
+    rich(ctx,'d',dx+5,yc-D/4*cm+5,C.ink,14,'italic 500','left',MATH);
+    ctx.font='500 12.5px '+FONT;var lt='L = 5.0 cm',lw2=ctx.measureText(lt).width/2+6,lm=(Y.X0+xL)/2,ly=Y.Ly;
+    seg(ctx,Y.X0,ly-5,Y.X0,ly+5,C.muted,1);seg(ctx,xL,ly-5,xL,ly+5,C.muted,1);
+    arrow(ctx,lm-lw2,ly,Y.X0+1,ly,C.muted,1.2,6);arrow(ctx,lm+lw2,ly,xL-1,ly,C.muted,1.2,6);
+    txt(ctx,lt,lm,ly+4,C.ink,12.5,500,'center');
+    /* 刚才的路径（对照） */
+    if(ghost){var ge=xEnd(G,Y);ctx.beginPath();trace(ctx,G,Y.xs,ge);ctx.strokeStyle=rgba(C.south,0.55);ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+      if(G.hit)ring(ctx,SX(ge),SY(G,ge),5,rgba(C.south,0.7),1.5);}
+    /* 还没走的路（虚线）和已经走过的路 */
+    if(e>x+0.01){ctx.beginPath();trace(ctx,o,x,e);ctx.strokeStyle=rgba(C.copper,0.5);ctx.lineWidth=1.5;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);}
+    if(x>Y.xs+0.01){ctx.beginPath();trace(ctx,o,Y.xs,x);ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.lineJoin='round';ctx.stroke();}
+    /* 每隔 1 ns 一个点；板间的点画一根到中线的竖线（就是这一刻的 y） */
+    var dn=o.u*TDOT,xn,qx,qy;
+    for(i=0;i<40;i++){xn=i*dn;if(xn>x+1e-9)break;qx=SX(xn);qy=SY(o,xn);
+      if(xn<=L+1e-9&&Math.abs(qy-yc)>1.5)seg(ctx,qx,yc,qx,qy,rgba(C.muted,0.8),1.2);
+      dot(ctx,qx,qy,3.2,rgba(C.ink,0.8));}
+    if(!o.hit&&o.yL*cm>=16&&x>=L+1)rich(ctx,'y',xL+5,yc-o.s*o.yL*cm/2+5,C.ink,14,'italic 500','left',MATH);
+    /* 粒子、力 F、速度 v 和它的两个分量 */
+    var flying=x<e-1e-9,onPlate=o.hit&&!flying;
+    if(flying||onPlate){var px=SX(x),py=SY(o,x);
+      HALO=true;
+      if(flying&&x>=0&&x<=L&&cur.V>0){var FL=Y.FS*cur.V;arrow(ctx,px-20,py,px-20,py-o.s*FL,C.force,2.6,8);
+        if(FL>=10)rich(ctx,'F',px-26,py-o.s*FL*0.55+5,C.force,14,'italic 600','right',MATH);}
+      if(flying){var vy=x<=0?0:2*o.k*o.u*Math.min(x,L),ex=o.u*Y.VS,ey=-o.s*vy*Y.VS;
+        if(px+Math.max(ex+22,54)<=Y.lim&&py+Math.min(ey,0)-24>=Y.stB){
+          if(Math.abs(ey)<6){arrow(ctx,px,py,px+ex,py+ey,rgba(C.ink,0.7),2.6,9);rich(ctx,'v = v_x',px+10,py-11,C.ink,14,'italic 500','left',MATH);}
+          else{arrow(ctx,px,py,px+ex,py,rgba(C.ink,0.42),2,7);arrow(ctx,px,py,px,py+ey,rgba(C.ink,0.42),2,7);arrow(ctx,px,py,px+ex,py+ey,rgba(C.ink,0.7),2.6,9);
+            rich(ctx,'v',px+ex+7,py+ey+(ey<0?4:10),C.ink,14,'italic 500','left',MATH);
+            rich(ctx,'v_x',px+ex/2,ey<0?py+19:py-9,C.muted,13.5,'italic 500','center',MATH);
+            rich(ctx,'v_y',px,ey<0?py+ey-7:py+ey+17,C.muted,13.5,'italic 500','center',MATH);}}}
+      HALO=false;
+      dot(ctx,px,py,7,cur.pro?C.north:C.south);txt(ctx,cur.pro?'+':'−',px,py+0.5,'#ffffff',12,700,'center','middle');
+      if(onPlate)ring(ctx,px,py,11,rgba(C.heat,0.9),2);}
+    /* 状态提示 */
+    var S=status(e,x),a1=wrap(ctx,S[0],W-32,Y.sf[0],600),a2=wrap(ctx,S[1],W-32,Y.sf[1],500),k=0;
+    for(i=0;i<a1.length&&k<Y.st.length;i++,k++)rich(ctx,a1[i],16,Y.st[k],C.ink,Y.sf[0],600);
+    for(i=0;i<a2.length&&k<Y.st.length;i++,k++)rich(ctx,a2[i],16,Y.st[k],C.muted,Y.sf[1],500);
+    if(Y.wide)panelWide(ctx,Y,o,x);else panelNarrow(ctx,Y,o,x);
+  }
+});
+
+/* ---------- 控件 ---------- */
+function same(a,b){return a.V===b.V&&a.half===b.half&&a.pro===b.pro;}
+function copy(p){return {V:p.V,half:p.half,pro:p.pro};}
+function sync(){press(bu1,!cur.half);press(bu2,cur.half);press(be,!cur.pro);press(bp,cur.pro);ov.textContent=cur.V+' V';}
+/* 改了一个量：旧的路径留作对照；粒子留在同一个 x，马上看到新路径 */
+function changed(old,note,half){
+  ghost=same(old,cur)?null:copy(old);if(ghost)calc(ghost,G);
+  calc(cur,P);m2.note=note;m2.half=!!half;
+  if(LY){var e=xEnd(P,LY);if(m2.x>=e)m2.x=e;else m2.hold=0;}
+  sync();S2.render();
+}
+function noteSpeed(){if(cur.V===0)return null;
+  return cur.half?['速度减半：在板间的时间 × 2','y = ½at²：t × 2 → y × 4（和刚才那条细线比）']:['速度加倍：在板间的时间减半','t × ½ → y × ¼：越快，偏得越少'];}
+function notePart(){if(cur.V===0)return null;
+  return cur.pro?MSG.inp:['换回电子：q 是负的 → 受力逆着 E → 往正极板偏','m 很小 → a = qE/m 很大 → 偏得很明显'];}
+function noteV(v0,v1){if(v1===0)return null;
+  if(v0===0)return ['加上电压：板间有了匀强电场 E = V/d','力的大小、方向都不变 → 抛物线'];
+  var r=fr(v1/v0);return ['V：'+v0+' V → '+v1+' V，E = V/d 也 × '+r,'F、a 都 × '+r+' → 每个 x 的 y 也 × '+r+'（y ∝ V）'];}
+bu1.addEventListener('click',function(){if(!cur.half)return;var o=copy(cur);cur.half=false;changed(o,noteSpeed());});
+bu2.addEventListener('click',function(){if(cur.half)return;var o=copy(cur);cur.half=true;changed(o,noteSpeed(),true);});
+be.addEventListener('click',function(){if(!cur.pro)return;var o=copy(cur);cur.pro=false;changed(o,notePart());});
+bp.addEventListener('click',function(){if(cur.pro)return;var o=copy(cur);cur.pro=true;changed(o,notePart());});
+rv.addEventListener('input',function(){var v=parseFloat(rv.value)||0;if(!dragging){snap=copy(cur);dragging=true;}cur.V=v;changed(snap,noteV(snap.V,v));});
+rv.addEventListener('change',function(){dragging=false;});
+document.getElementById('s2-reset').addEventListener('click',function(){if(LY)m2.x=LY.xs;m2.hold=0;m2.note=null;m2.half=false;S2.setPlaying(true);S2.render();});
+sync();
+})();
+/* ---------- 动画 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3：磁场里的圆周（1.3 Circular paths，对照 Figure 1.4）。
+   三种路径：整圈（B 进纸面）/ 从磁场边界 90° 射入（半圈，像 Figure 1.4c）/ v 和 B 成 60°（helix，侧面看，B 向右）。
+   物理：F = qvB 永远 ⊥ v → W = 0 → 速率不变 → F 大小不变 → 匀速圆周。r = mv/(qB) ∝ v；T = 2πm/(qB) 和 v 无关。
+   palm rule（四指 B，拇指 + 电荷的 v，掌心 F）：B 进纸面时 + 电荷逆时针，electron 顺时针。
+   helix：ω 的方向和 B 相反（+ 电荷），所以顺着 B 看（B 背离观察者）+ 电荷逆时针。
+   + 电荷和 electron 用同样的 m 和 |q|，只比较方向。数据全是示意：只显示倍数（× 1 = 默认速度）。 */
+var TT=4,OM=TAU/TT,TH=Math.PI/3,SN=Math.sin(TH),CS=Math.cos(TH),PAUSE=1;   /* × 1 时转一圈 4 s（示意）；helix 模式 θ = 60° */
+var m3={mode:'full',sg:1,v:1,rs:1,ph:0.75,u:0,mk:[],msg:null,mt:0};
+var L={w:-1,h:-1},ST=['',''],VL=['','','',''],VF=[0,0,0,0],LB=['','','',''];
+var MS={
+  v0:['v = 0：静止的电荷不受磁场力','F = qvB = 0，所以它停在原地不动'],
+  full:['F ⊥ v → W = Fs cos 90° = 0 → 速率不变','F = qvB 大小也不变，一直指向圆心 → 匀速圆周'],
+  semiA:['还没进磁场：没有力 → 走直线','垂直穿过磁场边界（和边界成 90°）'],
+  semiBp:['进了磁场：F 指向圆心 → 走圆弧','+ 电荷向左转（electron 会向右转）'],
+  semiBn:['进了磁场：F 指向圆心 → 走圆弧','electron 向右转（+ 电荷会向左转）'],
+  semiC:['转了半圈，从同一条边出去，离入口 2r','mass spectrometer 靠这个按质量分开 ions'],
+  helix:['v 和 B 成 60°：v⊥ = v sin 60° 让它转圈','v∥ = v cos 60° 不受力，带着它沿 B 走 → helix']
+};
+
+function lay(W,H){
+  if(L.w===W&&L.h===H)return L;L.w=W;L.h=H;
+  var wide=W>=640;L.wide=wide;
+  if(wide){L.px0=16;L.py0=62;L.px1=Math.round(W*0.57);L.py1=H-14;L.s1=15;L.s2=14;L.y1=26;L.y2=48;}
+  else{L.px0=12;L.py0=54;L.px1=W-12;L.py1=354;L.s1=13.5;L.s2=13;L.y1=22;L.y2=41;}
+  L.fcx=(L.px0+L.px1)/2;L.fcy=(L.py0+L.py1)/2;
+  L.r0=Math.min(wide?60:52,(Math.min(L.px1-L.px0,L.py1-L.py0)/2-34)/2);   /* × 1 的半径（像素）；× 2 也放得下 */
+  L.ye=L.py1-(wide?96:84);L.ys=L.py1-16;                                  /* 半圈模式：磁场边界、出发点 */
+  L.hx0=L.px0+(wide?44:34);L.gap=wide?56:48;                              /* helix 模式 */
+  L.cs=wide?36:32;
+  if(wide){L.rx0=L.px1+28;L.rx1=W-16;L.ry=88;}else{L.rx0=12;L.rx1=W-12;L.ry=L.py1+30;}
+  return L;
+}
+function semiTA(g){return (g.ys-g.ye)/(g.r0*m3.v*OM);}   /* 从出发点走到边界用的时间 */
+var HK=0.7;                                               /* helix 图的半径比整圈小一点，好多画几圈 */
+function hvx(g){return HK*g.r0*m3.v*OM*CS;}               /* helix：v∥ 的屏幕速度 */
+function hLp(g){return g.r0*0.9*m3.v*CS;}                 /* v∥ 箭头长度 */
+function hEnd(g){return g.px1-31-hLp(g);}                 /* 走到这里就从头再来（留出 v∥ 箭头的位置） */
+
+function step3(dt){
+  if(m3.mt>0)m3.mt=Math.max(0,m3.mt-dt);
+  if(m3.v<=0)return;
+  if(m3.mode==='full'){m3.ph=(m3.ph+m3.sg*OM*dt)%TAU;return;}
+  var g=lay(S3.W,S3.H),tA;
+  m3.u+=dt;
+  if(m3.mode==='semi'){tA=semiTA(g);
+    if(m3.u>=tA+TT/2&&m3.mk.indexOf(m3.v)<0)m3.mk.push(m3.v);
+    if(m3.u>2*tA+TT/2+PAUSE)m3.u=0;}
+  else if(g.hx0+hvx(g)*m3.u>hEnd(g))m3.u=0;
+}
+
+/* ---------- 小工具 ---------- */
+/* × 场：标签所在的方框（EX）里不画，免得 × 被标签盖掉一半 */
+var EX=[],EXn=0;
+function exBox(ctx,s,x,y,size,weight,align,extra){ctx.font=(weight||600)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  x0-=extra||0;EX[EXn*4]=x0-4;EX[EXn*4+1]=y-size+0.5;EX[EXn*4+2]=x0+w+(extra||0)+4;EX[EXn*4+3]=y+6.5;EXn++;}
+function crosses(ctx,x0,y0,x1,y1,gap){
+  var d=4.2,nx=Math.floor((x1-x0)/gap),ny=Math.floor((y1-y0)/gap),ox=x0+((x1-x0)-nx*gap)/2,oy=y0+((y1-y0)-ny*gap)/2,i,j,k,x,y,skip;
+  ctx.strokeStyle=rgba(C.field,0.85);ctx.lineWidth=1.4;ctx.setLineDash([]);ctx.beginPath();
+  for(i=0;i<=nx;i++)for(j=0;j<=ny;j++){x=ox+i*gap;y=oy+j*gap;skip=false;
+    for(k=0;k<EXn;k++)if(x+d+2>EX[k*4]&&x-d-2<EX[k*4+2]&&y+d+2>EX[k*4+1]&&y-d-2<EX[k*4+3]){skip=true;break;}
+    if(!skip){ctx.moveTo(x-d,y-d);ctx.lineTo(x+d,y+d);ctx.moveTo(x-d,y+d);ctx.lineTo(x+d,y-d);}}
+  ctx.stroke();EXn=0;
+}
+function xmark(ctx,x,y,d){seg(ctx,x-d,y-d,x+d,y+d,rgba(C.field,0.9),1.5);seg(ctx,x-d,y+d,x+d,y-d,rgba(C.field,0.9),1.5);}
+/* 带底色的标签（盖住后面的 × 和线） */
+function tag(ctx,s,x,y,col,size,weight,align){
+  ctx.font=(weight||600)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  rrect(ctx,x0-4,y-size+0.5,w+8,size+6,4);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();txt(ctx,s,x,y,col,size,weight,align);
+}
+function charge(ctx,x,y,r,sg,a){var col=sg>0?C.north:C.south;dot(ctx,x,y,r,a<1?rgba(col,a):col);
+  txt(ctx,sg>0?'+':'−',x,y+1,'#ffffff',Math.max(11,r*1.45),700,'center','middle');}
+function rightAng(ctx,x,y,ux,uy,fx,fy,d){ctx.beginPath();ctx.moveTo(x+ux*d,y+uy*d);ctx.lineTo(x+(ux+fx)*d,y+(uy+fy)*d);ctx.lineTo(x+fx*d,y+fy*d);
+  ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.3;ctx.setLineDash([]);ctx.stroke();}
+/* 小的转向箭头：sg>0 逆时针，sg<0 顺时针 */
+function turn(ctx,x,y,r,sg,col){var a0=sg>0?0.6:Math.PI-0.6,a1=a0-sg*4.6,ex=x+r*Math.cos(a1),ey=y+r*Math.sin(a1),tx=sg*Math.sin(a1),ty=-sg*Math.cos(a1);
+  ctx.beginPath();ctx.arc(x,y,r,a0,a1,sg>0);ctx.strokeStyle=col;ctx.lineWidth=2;ctx.setLineDash([]);ctx.stroke();
+  arrow(ctx,ex-tx*6,ey-ty*6,ex+tx*3,ey+ty*3,col,2,7);}
+function sym(ctx,s,x,y,col,size){txt(ctx,s,x,y,col,size,'italic 600','center','middle',MATH);}
+/* 状态提示：两行；太长就缩小一点 */
+function fitTxt(ctx,s,x,y,col,size,weight,maxW){var z=size;ctx.font=weight+' '+z+'px '+FONT;
+  while(z>11.5&&ctx.measureText(s).width>maxW){z-=0.5;ctx.font=weight+' '+z+'px '+FONT;}txt(ctx,s,x,y,col,z,weight);}
+
+/* ---------- 三种路径 ---------- */
+function drawFull(ctx,g){
+  var cx=g.fcx,cy=g.fcy,v=m3.v,sg=m3.sg,r0=g.r0,r=r0*(v>0?v:m3.rs),a=m3.ph,c=Math.cos(a),s=Math.sin(a),x=cx+r*c,y=cy-r*s;
+  var ds=sg>0?'+ 电荷：逆时针转':'electron：顺时针转';
+  ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(g.px0,g.py0,g.px1-g.px0,g.py1-g.py0);
+  exBox(ctx,'× = B 进纸面',g.px0+12,g.py0+22,12.5,600,'left');exBox(ctx,ds,g.px0+36,g.py1-16,12.5,600,'left',26);
+  crosses(ctx,g.px0+10,g.py0+10,g.px1-10,g.py1-10,g.cs);
+  if(v>0){
+    ctx.beginPath();ctx.arc(cx,cy,r,0,TAU);ctx.strokeStyle=rgba(C.copper,0.4);ctx.lineWidth=2;ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,r,-a,-a+sg*1.9,sg<0);ctx.strokeStyle=C.copper;ctx.lineWidth=2.8;ctx.stroke();
+    var dA=Math.atan2(Math.sin(a-Math.PI),Math.cos(a-Math.PI));
+    if(Math.abs(dA)>0.75&&r>=40){seg(ctx,cx,cy,cx-r,cy,rgba(C.muted,0.95),1.4,[4,4]);sym(ctx,'r',cx-r/2,cy-10,C.muted,14);}
+    dot(ctx,cx,cy,3.5,C.ink);
+    var ux=-sg*s,uy=-sg*c,fx=-c,fy=s,Lv=r0*0.5*v,LF=r0*0.4*v,sm=r<40,cr=sm?8:11,o=sm?10:13;     /* u：速度方向；f：指向圆心；圆小时电荷画小一点 */
+    arrow(ctx,x+fx*o,y+fy*o,x+fx*(o+LF),y+fy*(o+LF),C.force,3,LF<18?7:9);
+    arrow(ctx,x+ux*o,y+uy*o,x+ux*(o+Lv),y+uy*(o+Lv),rgba(C.ink,0.7),2.6,Lv<18?7:9);
+    if(Math.min(Lv,LF)>=16)rightAng(ctx,x,y,ux,uy,fx,fy,17);   /* 箭头太短时 90° 记号会比箭头还大，就不画 */
+    charge(ctx,x,y,cr,sg,1);
+    sym(ctx,'v',x+ux*(o+Lv+11),y+uy*(o+Lv+11),rgba(C.ink,0.85),15);
+    sym(ctx,'F',x+fx*(o+LF*0.5)-ux*13,y+fy*(o+LF*0.5)-uy*13,C.force,15);
+  }else{
+    charge(ctx,x,y,11,sg,1);
+    tag(ctx,'v = 0 → F = 0',x,y-20,C.ink,12.5,600,'center');
+  }
+  tag(ctx,'× = B 进纸面',g.px0+12,g.py0+22,C.muted,12.5,600,'left');
+  var qc=sg>0?C.north:C.south;
+  ctx.font='600 12.5px '+FONT;
+  rrect(ctx,g.px0+8,g.py1-34,ctx.measureText(ds).width+38,26,6);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();
+  turn(ctx,g.px0+22,g.py1-21,7,sg,qc);
+  txt(ctx,ds,g.px0+36,g.py1-16,qc,12.5,600);
+}
+
+var SD={stage:0,prog:0};
+function drawSemi(ctx,g){
+  var v=m3.v,sg=m3.sg,r0=g.r0,ye=g.ye,xe=sg>0?Math.min(g.fcx+2*r0,g.px1-70):Math.max(g.fcx-2*r0,g.px0+70),r=r0*v,cxs=xe-sg*r,i,mx;
+  ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(g.px0,g.py0,g.px1-g.px0,ye-g.py0);
+  exBox(ctx,'× = B 进纸面',g.px0+12,g.py0+22,12.5,600,'left');exBox(ctx,'磁场边界',sg>0?g.px1-6:g.px0+6,ye-9,11.5,600,sg>0?'right':'left');
+  crosses(ctx,g.px0+10,g.py0+10,g.px1-10,ye-14,g.cs);
+  seg(ctx,g.px0,ye,g.px1,ye,C.field,2.2);
+  /* 之前的落点 */
+  for(i=0;i<m3.mk.length;i++){mx=xe-sg*2*r0*m3.mk[i];
+    seg(ctx,mx,ye-6,mx,ye+6,C.copper,2.4);
+    txt(ctx,'× '+m3.mk[i],mx-sg*5,ye+42,C.muted,11.5,600,sg>0?'right':'left');}
+  txt(ctx,'入口',xe+sg*16,ye+42,C.muted,11.5,600,sg>0?'left':'right');
+  SD.stage=0;SD.prog=0;
+  if(v<=0){
+    var py=ye-44;charge(ctx,xe,py,11,sg,1);tag(ctx,'v = 0 → F = 0',xe-sg*16,py+5,C.ink,12.5,600,sg>0?'right':'left');
+  }else{
+    var tA=semiTA(g),tB=TT/2,u=m3.u,vp=r0*v*OM,p0=sg>0?0:Math.PI,ph,x,y,ux,uy,xo=xe-sg*2*r;
+    SD.stage=u<tA?0:(u<tA+tB?1:2);
+    ctx.beginPath();ctx.moveTo(xe,g.ys);
+    if(SD.stage===0){x=xe;y=g.ys-vp*u;ux=0;uy=-1;ctx.lineTo(x,y);}
+    else{
+      ph=SD.stage===1?p0+sg*OM*(u-tA):p0+sg*Math.PI;
+      ctx.lineTo(xe,ye);ctx.arc(cxs,ye,r,-p0,-ph,sg>0);
+      if(SD.stage===1){x=cxs+r*Math.cos(ph);y=ye-r*Math.sin(ph);ux=-sg*Math.sin(ph);uy=-sg*Math.cos(ph);SD.prog=(u-tA)/tB;}
+      else{x=xo;y=Math.min(g.ys,ye+vp*(u-tA-tB));ux=0;uy=1;ctx.lineTo(x,y);SD.prog=1;}
+    }
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.setLineDash([]);ctx.stroke();
+    var Lv=r0*0.5*v,sm=r<40,cr=sm?8:11,o=sm?10:13;
+    if(SD.stage===1){var fx=(cxs-x)/r,fy=(ye-y)/r,LF=r0*0.4*v;dot(ctx,cxs,ye,3,rgba(C.ink,0.6));
+      arrow(ctx,x+fx*o,y+fy*o,x+fx*(o+LF),y+fy*(o+LF),C.force,3,LF<18?7:9);
+      if(Math.min(Lv,LF)>=16)rightAng(ctx,x,y,ux,uy,fx,fy,17);
+      sym(ctx,'F',x+fx*(o+LF*0.5)-ux*13,y+fy*(o+LF*0.5)-uy*13,C.force,15);}
+    if(SD.stage===2){var dy=ye+18;
+      arrow(ctx,(xe+xo)/2,dy,xe,dy,C.muted,1.4,6);arrow(ctx,(xe+xo)/2,dy,xo,dy,C.muted,1.4,6);
+      tag(ctx,'2r',(xe+xo)/2,dy+5,C.ink,13,'italic 600','center');}
+    arrow(ctx,x+ux*o,y+uy*o,x+ux*(o+Lv),y+uy*(o+Lv),rgba(C.ink,0.7),2.6,Lv<18?7:9);
+    charge(ctx,x,y,cr,sg,1);
+    if(y+uy*(o+Lv+11)<g.py1-8)sym(ctx,'v',x+ux*(o+Lv+11),y+uy*(o+Lv+11),rgba(C.ink,0.85),15);
+  }
+  tag(ctx,'× = B 进纸面',g.px0+12,g.py0+22,C.muted,12.5,600,'left');
+  tag(ctx,'磁场边界',sg>0?g.px1-6:g.px0+6,ye-9,C.muted,11.5,600,sg>0?'right':'left');
+  txt(ctx,g.wide?'下面没有磁场':'没有磁场',sg>0?g.px1-8:g.px0+8,g.py1-12,C.muted,11.5,500,sg>0?'right':'left');
+}
+
+/* helix 一条线：front=true 画靠近观察者的一半，false 画后面的一半 */
+function hpath(ctx,g,front,tEnd,rh,vx){
+  var n=Math.max(24,Math.ceil(tEnd/TT*64)),i,t,X,Y,Z,pX=0,pY=0,pZ=0,on=false;
+  ctx.beginPath();
+  for(i=0;i<=n;i++){t=tEnd*i/n;X=g.hx0+vx*t;Y=g.fcy-rh*Math.sin(OM*t);Z=m3.sg*Math.cos(OM*t);
+    if(i>0){if((pZ+Z>0)===front){if(!on){ctx.moveTo(pX,pY);on=true;}ctx.lineTo(X,Y);}else on=false;}
+    pX=X;pY=Y;pZ=Z;}
+}
+var HD={prog:0};
+function drawHelix(ctx,g){
+  var v=m3.v,sg=m3.sg,r0=g.r0,ax=g.fcy,x0=g.hx0;
+  ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(g.px0,g.py0,g.px1-g.px0,g.py1-g.py0);
+  fieldLines(ctx,g.px0+10,g.px1-6,ax,2,g.gap);
+  sym(ctx,'B',g.px1-18,ax-2*g.gap-12,C.field,16);
+  /* θ = 60° 的标注（出发点） */
+  HD.prog=0;
+  if(v>0){
+    var d=54;seg(ctx,x0,ax,x0+d*CS,ax-d*SN,rgba(C.muted,0.8),1.2,[3,3]);
+    ctx.beginPath();ctx.arc(x0,ax,20,0,-TH,true);ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+    txt(ctx,'60°',x0+27,ax-11,C.muted,11.5,600,'left','middle');
+    var rh=HK*r0*v*SN,vx=hvx(g),tEnd=(hEnd(g)-x0)/vx,t=m3.u,X=x0+vx*t,Y=ax-rh*Math.sin(OM*t),Z=sg*Math.cos(OM*t),fr=Z>0;
+    HD.prog=(t/TT)%1;
+    hpath(ctx,g,false,tEnd,rh,vx);ctx.strokeStyle=rgba(C.copper,0.5);ctx.lineWidth=1.6;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);
+    if(!fr)charge(ctx,X,Y,9.5,sg,0.6);
+    hpath(ctx,g,true,tEnd,rh,vx);ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.stroke();
+    if(fr)charge(ctx,X,Y,11,sg,1);
+    var Lp=hLp(g);
+    arrow(ctx,X+13,Y,X+13+Lp,Y,rgba(C.ink,0.7),2.6,Lp<18?7:9);
+    txt(ctx,'v∥',X+13+Lp/2,Y-13,rgba(C.ink,0.85),14,'italic 600','center','middle',MATH);
+  }else{
+    charge(ctx,x0,ax,11,sg,1);tag(ctx,'v = 0 → F = 0',x0-6,ax-24,C.ink,12.5,600,'left');
+  }
+  tag(ctx,'侧面看 · B 在纸面内，向右',g.px0+12,g.py0+22,C.muted,12.5,600,'left');
+  /* 图例：实线 = 前面，虚线 = 后面 */
+  var ly=g.py1-14,lx=g.px0+12;
+  rrect(ctx,lx-4,ly-14,g.wide?262:250,22,5);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();
+  seg(ctx,lx,ly-4,lx+20,ly-4,C.copper,2.6);txt(ctx,'前面（靠近你）',lx+26,ly,C.muted,11.5,600);
+  var l2=lx+(g.wide?130:124);
+  seg(ctx,l2,ly-4,l2+20,ly-4,rgba(C.copper,0.6),1.6,[4,4]);txt(ctx,'后面（离你远）',l2+26,ly,C.muted,11.5,600);
+}
+
+/* 顺着 B 看的小图（helix 模式）：B 背离观察者 = ×；右边 = +z，上面 = +y */
+function inset(ctx,cx,cy,ri){
+  var sg=m3.sg,t=m3.u,c=Math.cos(OM*t),s=Math.sin(OM*t);
+  ring(ctx,cx,cy,ri,rgba(C.copper,0.85),2);
+  xmark(ctx,cx,cy,4);
+  var e=ri+9;xmark(ctx,cx-e,cy-e,3.5);xmark(ctx,cx+e,cy-e,3.5);xmark(ctx,cx-e,cy+e,3.5);xmark(ctx,cx+e,cy+e,3.5);
+  if(m3.v>0){
+    var x=cx+ri*sg*c,y=cy-ri*s,ux=-sg*s,uy=-c,fx=-sg*c,fy=s,Lf=ri-18;
+    arrow(ctx,x+fx*10,y+fy*10,x+fx*(10+Lf),y+fy*(10+Lf),C.force,2.4,7);
+    arrow(ctx,x+ux*10,y+uy*10,x+ux*30,y+uy*30,rgba(C.ink,0.7),2.2,7);
+    charge(ctx,x,y,8,sg,1);
+  }else charge(ctx,cx+ri*sg,cy,8,sg,1);
+}
+
+/* ---------- 右边（手机上是下面）的读数 ---------- */
+function row(ctx,g,i,x1,stk){
+  var y,x0=g.rx0;
+  if(stk){y=g.ry+i*48;txt(ctx,LB[i],x0,y,C.ink,13,600);txt(ctx,VL[i],x1,y,C.muted,12.5,600,'right');hbar(ctx,x0,y+8,x1-x0,9,VF[i],i===1&&m3.mode!=='helix'?C.force:(i===2?C.copper:(i===3?rgba(C.ink,0.45):rgba(C.ink,0.7))));}
+  else{y=g.ry+i*26;var lw=m3.mode==='helix'?74:100,vw=m3.mode==='helix'?34:86;
+    txt(ctx,LB[i],x0,y,C.ink,12,600);txt(ctx,VL[i],x1,y,C.muted,12,600,'right');
+    hbar(ctx,x0+lw,y-9,x1-x0-lw-vw,9,VF[i],i===1&&m3.mode!=='helix'?C.force:(i===2?C.copper:(i===3?rgba(C.ink,0.45):rgba(C.ink,0.7))));}
+}
+function readouts(ctx,g,prog){
+  var wide=g.wide,v=m3.v,hel=m3.mode==='helix',semi=m3.mode==='semi',sv=String(v),i;
+  if(hel){
+    LB[0]=wide?'v⊥ = v sin 60°（转圈）':'v⊥（转圈）';LB[1]=wide?'v∥ = v cos 60°（沿着 B）':'v∥（沿 B）';
+    LB[2]=wide?'半径 r = mv⊥/(qB)':'半径 r';LB[3]=wide?'转一圈 T = 2πm/(qB)':'转一圈 T';
+    VL[0]=v>0?(wide?'大小不变':'不变'):'0';VL[1]=v>0?(wide?'不变（没有力）':'不变'):'0';
+    VL[2]=v>0?'× '+sv:'—';VL[3]=v>0?(wide?'× 1 · 和 v 无关':'× 1'):'—';
+    VF[0]=v*SN/2;VF[1]=v*CS/2;
+  }else{
+    LB[0]='速率 |v|';LB[1]=wide?'磁场力 F = qvB':'力 F = qvB';LB[2]=wide?'半径 r = mv/(qB)':'半径 r';
+    LB[3]=semi?(wide?'转半圈 T/2 = πm/(qB)':'转半圈 T/2'):(wide?'转一圈 T = 2πm/(qB)':'转一圈 T');
+    VL[0]=v>0?'× '+sv+(wide?' · 一直不变':' 不变'):'0';VL[1]=v>0?'× '+sv+(wide?' · 大小不变':' 不变'):'0';
+    VL[2]=v>0?'× '+sv:'—';VL[3]=v>0?(wide?'× 1 · 和 v 无关':'× 1 和 v 无关'):'—';
+    VF[0]=v/2;VF[1]=v/2;
+  }
+  VF[2]=v/2;VF[3]=prog;
+  var x1=(!wide&&hel)?g.rx1-112:g.rx1;
+  for(i=0;i<4;i++)row(ctx,g,i,x1,wide);
+  var by=wide?g.ry+4*48-8:g.ry+4*26+2;
+  txt(ctx,v>0?'F ⊥ v → W = 0 → 速率不变':'v = 0 → F = qvB = 0',g.rx0,by,C.force,wide?13.5:12.5,700);
+  if(hel){
+    var icx,icy,ri,qc=m3.sg>0?C.north:C.south,dir=m3.sg>0?'逆时针':'顺时针';
+    if(wide){ri=34;icx=g.rx0+50;icy=g.ry+264;
+      txt(ctx,'顺着 B 看（B 背离你）：',g.rx0,g.ry+206,C.muted,12.5,600);
+      inset(ctx,icx,icy,ri);
+      txt(ctx,(m3.sg>0?'+ 电荷 ':'electron ')+dir,g.rx0+108,icy-4,qc,13,700);
+      txt(ctx,'和 B 进纸面时一样',g.rx0+108,icy+16,C.muted,12,500);}
+    else{ri=28;icx=g.rx1-50;icy=g.ry+46;
+      txt(ctx,'顺着 B 看',icx,g.ry-6,C.muted,11.5,600,'center');
+      inset(ctx,icx,icy,ri);
+      txt(ctx,(m3.sg>0?'+ ':'electron ')+dir,icx,icy+ri+28,qc,12,700,'center');}
+  }else if(wide){
+    txt(ctx,'palm rule（右手掌定则）：',g.rx0,g.ry+236,C.muted,12.5,600);
+    txt(ctx,'四指 = B（进纸面），拇指 = + 电荷的 v',g.rx0,g.ry+258,C.muted,12.5,500);
+    txt(ctx,'掌心 = F；electron 的 F 反过来',g.rx0,g.ry+280,C.muted,12.5,500);
+  }
+}
+
+function status(){
+  if(m3.mt>0&&m3.msg){ST[0]=m3.msg[0];ST[1]=m3.msg[1];return;}
+  var M=m3.v<=0?MS.v0:(m3.mode==='full'?MS.full:(m3.mode==='helix'?MS.helix:(SD.stage===0?MS.semiA:(SD.stage===1?(m3.sg>0?MS.semiBp:MS.semiBn):MS.semiC))));
+  ST[0]=M[0];ST[1]=M[1];
+}
+
+function draw3(ctx,W,H){
+  var g=lay(W,H),prog=0;
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  ctx.save();rrect(ctx,g.px0,g.py0,g.px1-g.px0,g.py1-g.py0,10);ctx.clip();
+  if(m3.mode==='semi'){drawSemi(ctx,g);prog=SD.prog;}
+  else if(m3.mode==='helix'){drawHelix(ctx,g);prog=HD.prog;}
+  else{drawFull(ctx,g);prog=m3.v>0?(((m3.sg*m3.ph)/TAU)%1+1)%1:0;}
+  ctx.restore();
+  rrect(ctx,g.px0,g.py0,g.px1-g.px0,g.py1-g.py0,10);ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  status();
+  fitTxt(ctx,ST[0],16,g.y1,C.ink,g.s1,600,W-28);
+  fitTxt(ctx,ST[1],16,g.y2,C.ink,g.s2,500,W-28);
+  readouts(ctx,g,prog);
+}
+
+var S3=makeStage('sim3',{height:function(w){return w>=640?420:506;},step:step3,draw:draw3});
+
+/* ---------- 控件 ---------- */
+var bFull=document.getElementById('s3-full'),bSemi=document.getElementById('s3-semi'),bHel=document.getElementById('s3-helix');
+var bPos=document.getElementById('s3-pos'),bNeg=document.getElementById('s3-neg'),rv=document.getElementById('s3-v'),ov=document.getElementById('s3-v-out');
+function setMode(md){m3.mode=md;m3.u=0;m3.mt=0;press(bFull,md==='full');press(bSemi,md==='semi');press(bHel,md==='helix');S3.render();}
+function signMsg(){var p=m3.sg>0;
+  if(m3.mode==='semi')return p?['+ 电荷：palm rule 掌心朝左 → 向左转','从入口左边 2r 处出去']:['electron 带负电：力反过来 → 向右转','从入口右边 2r 处出去'];
+  if(m3.mode==='helix')return p?['+ 电荷：顺着 B 看是逆时针','和 B 进纸面时转的方向一样']:['electron：力反过来，顺着 B 看是顺时针','侧面图里实线、虚线也跟着反过来'];
+  return p?['+ 电荷：四指 = B（进纸面），拇指 = v','掌心指向圆心 → 逆时针转']:['electron 带负电：力反过来','还是指向圆心，但变成顺时针转'];}
+function vMsg(k){var s=String(k);
+  if(k===1)return ['v × 1 → r × 1（r = mv/(qB)）','T 和 v 无关：T = 2πm/(qB) 里没有 v'];
+  if(m3.mode==='semi')return ['v × '+s+' → r × '+s+' → 落点离入口 2r 也 × '+s,'T 不变：转半圈用的时间一样'];
+  if(m3.mode==='helix')return ['v × '+s+' → v⊥ 和 v∥ 都 × '+s+' → r × '+s,'T 不变：每圈往前走的距离也 × '+s];
+  return k>1?['v × '+s+' → r × '+s+'（r = mv/(qB)）','但 T 不变：路长 '+s+' 倍，跑得也快 '+s+' 倍']:['v × '+s+' → r × '+s+'（r = mv/(qB)）','但 T 不变：路短一半，跑得也慢一半'];}
+function setSign(s){if(m3.sg===s)return;m3.sg=s;m3.mk.length=0;m3.u=0;press(bPos,s>0);press(bNeg,s<0);
+  if(m3.v>0){m3.msg=signMsg();m3.mt=4.5;}S3.render();}
+bFull.addEventListener('click',function(){setMode('full');});
+bSemi.addEventListener('click',function(){setMode('semi');});
+bHel.addEventListener('click',function(){setMode('helix');});
+bPos.addEventListener('click',function(){setSign(1);});
+bNeg.addEventListener('click',function(){setSign(-1);});
+rv.addEventListener('input',function(){var k=parseFloat(rv.value);m3.v=k;if(k>0)m3.rs=k;m3.u=0;
+  ov.textContent=k>0?'× '+k:'0（静止）';if(k>0){m3.msg=vMsg(k);m3.mt=4.5;}else m3.mt=0;S3.render();});
+document.getElementById('s3-reset').addEventListener('click',function(){m3.mk.length=0;m3.u=0;m3.ph=0.75;m3.mt=0;S3.setPlaying(true);S3.render();});
+})();
+/* ---------- 动画 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4：同一个电荷，左格匀强电场 E（可换成重力场 g），右格匀强磁场 B。
+   模型单位：每格是 2 × 1 的方框，y 向上。E 和 g 向下（+ 极板在上）；B 进纸面，“沿着场运动”时改成侧面看，B 在纸面内向下。
+   位置全用解析解：匀加速（电场、重力场）、匀速圆周（磁场 90°）、匀速直线（沿着 B）。数值全是示意。
+   方向：+ 电荷 F 顺着 E（向下），电子逆着 E（向上）；B 进纸面、v 向右：+ 电荷 F = qv × B 向上 → 逆时针，电子向下 → 顺时针。 */
+var BW4=2,U4=0.6,A4=0.3,R4=0.38,OM4=U4/R4,TB4=TAU/OM4,HOLD4=1.2,M4=0.055,DT4=0.3,VM4=1;
+var m4={mode:'perp',neg:false,grav:false,t:0,Tc:4,
+  e:{x0:0,y0:0,vx:0,vy:0,ay:0,tEnd:0,tStop:-1},
+  b:{kind:'circle',x0:0,y0:0,vx:0,vy:0,tEnd:1e9,cx:1,cy:0.5,th0:0,dir:1}};
+var p4={x:0,y:0,vx:0,vy:0},q4={x:0,y:0,vx:0,vy:0};
+var SL4={title:'',tc:'',l1:'',l2:'',word:'',info:''},SR4={title:'',tc:'',l1:'',l2:'',word:'',info:''};
+
+function eAt(t,o){var e=m4.e;o.x=e.x0+e.vx*t;o.y=e.y0+e.vy*t+0.5*e.ay*t*t;o.vx=e.vx;o.vy=e.vy+e.ay*t;return o;}
+function bAt(t,o){var b=m4.b,th;
+  if(b.kind==='rest'){o.x=b.x0;o.y=b.y0;o.vx=0;o.vy=0;}
+  else if(b.kind==='line'){o.x=b.x0+b.vx*t;o.y=b.y0+b.vy*t;o.vx=b.vx;o.vy=b.vy;}
+  else{th=b.th0+b.dir*OM4*t;o.x=b.cx+R4*Math.cos(th);o.y=b.cy+R4*Math.sin(th);o.vx=-b.dir*OM4*R4*Math.sin(th);o.vy=b.dir*OM4*R4*Math.cos(th);}
+  return o;}
+function inBox4(o){return o.x>=M4&&o.x<=BW4-M4&&o.y>=M4&&o.y<=1-M4;}
+function spdE(t){var v=m4.e.vy+m4.e.ay*t;return Math.sqrt(m4.e.vx*m4.e.vx+v*v);}
+function spdB(){return m4.b.kind==='rest'?0:U4;}
+
+function setup4(){
+  var e=m4.e,b=m4.b,md=m4.mode,t=0;
+  e.ay=m4.grav?-A4:(m4.neg?A4:-A4);           /* 电场：+ 向下加速，电子向上；重力场：都向下 */
+  var fromTop=e.ay<0;
+  if(md==='rest'){e.x0=1;e.y0=fromTop?0.88:0.12;e.vx=0;e.vy=0;}
+  else if(md==='along'){e.x0=1;e.y0=0.88;e.vx=0;e.vy=-U4;}   /* 顺着场（向下）运动 */
+  else{e.x0=0.12;e.y0=fromTop?0.88:0.12;e.vx=U4;e.vy=0;}      /* 向右射入，和场成 90° */
+  e.tStop=(md==='along'&&e.ay>0)?U4/e.ay:-1;
+  while(t<20&&inBox4(eAt(t+0.002,p4)))t+=0.002;
+  e.tEnd=t;
+  if(md==='rest'){b.kind='rest';b.x0=1;b.y0=0.5;b.tEnd=1e9;}
+  else if(md==='along'){b.kind='line';b.x0=1;b.y0=0.88;b.vx=0;b.vy=-U4;b.tEnd=(0.88-M4)/U4;}
+  else{b.kind='circle';b.cx=1;b.cy=0.5;b.dir=m4.neg?-1:1;b.th0=m4.neg?Math.PI/2:-Math.PI/2;b.tEnd=1e9;}
+  if(md==='rest')m4.Tc=e.tEnd+HOLD4;
+  else if(md==='along')m4.Tc=Math.max(e.tEnd,b.tEnd)+HOLD4;
+  else m4.Tc=Math.max(TB4,e.tEnd+0.8);      /* 正好一圈：重新开始时磁场里的电荷回到起点 */
+}
+function step4(dt){m4.t+=dt;if(m4.t>=m4.Tc)m4.t=m4.mode==='perp'?m4.t-m4.Tc:0;}
+function show4(){return m4.mode==='perp'?1.6:(m4.mode==='rest'?1.4:1.0);}
+setup4();m4.t=show4();
+
+/* ---------- 状态文字 ---------- */
+function stL(){
+  var e=m4.e,t=m4.t,md=m4.mode,hit=t>=e.tEnd,neg=m4.neg,o=SL4,pl;
+  o.word='变大';
+  if(m4.grav){
+    o.title='匀强重力场 · g 向下（只看重力）';o.tc=C.ink;o.info='a = g 不变 · W = mgΔh ≠ 0';
+    if(md==='rest'){o.l1=hit?'落到底了：重力一直在做功':'受力 F = mg，向下 → 从静止开始下落';o.l2='+ 电荷和电子一样：g 不管电荷正负';}
+    else if(md==='along'){o.l1=hit?'落到底了':'向下运动，F = mg 也向下';o.l2=hit?'一路加速：一条直线，越来越快':'→ 在一条直线上越来越快';}
+    else{o.l1=hit?'落到底了：一路都是抛物线':'力 mg 方向也固定 → 也是抛物线';o.l2='g 对所有质量一样，也不管电荷正负';}
+    return o;
+  }
+  o.title='匀强电场 · E 向下（+ 极板在上）';o.tc=C.violet;o.info='a 大小、方向都不变 · W = qV ≠ 0';
+  pl=neg?' + 极板':' − 极板';
+  if(md==='rest'){
+    if(hit){o.l1='打到'+pl+'：电场做功 W = qV';o.l2='电势能全部变成动能';}
+    else{o.l1=neg?'电子受力逆着 E（向上）：F = qE':'受力 F = qE，顺着 E（向下）';o.l2='静止也受力 → 从静止开始加速';}
+  }else if(md==='along'){
+    if(!neg){o.l1=hit?'打到 − 极板':'顺着 E 运动，力也顺着 E（向下）';o.l2=hit?'一路加速：一条直线，越来越快':'→ 在一条直线上越来越快';}
+    else{
+      o.word='先变小，再变大';
+      if(hit){o.l1='回到 + 极板';o.l2='先减速、停下，再反向加速';}
+      else if(t<e.tStop-0.2){o.l1='电子顺着 E 运动，力却逆着 E（向上）';o.l2='→ 在一条直线上减速';}
+      else if(t<=e.tStop+0.2){o.l1='停下了：v = 0，但 F = qE 还在';o.l2='→ 马上反向';}
+      else{o.l1='反向了：力和 v 同方向（向上）';o.l2='→ 越来越快，还是同一条直线';}
+    }
+  }else{
+    o.l1=hit?('打到'+pl+'：一路都是抛物线'):(neg?'电子受力向上，方向固定 → 抛物线':'力的方向固定（一直向下）→ 抛物线');
+    o.l2=hit?'像平抛的球，只是 g 换成了 qE/m':'水平速度不变，竖直速度变大 → 速率变大';
+  }
+  return o;
+}
+function stR(){
+  var b=m4.b,t=m4.t,md=m4.mode,o=SR4,neg=m4.neg;
+  o.tc=C.ink;
+  if(md==='along'){
+    o.title='匀强磁场 · 侧面看：B 在纸面内（向下）';o.word='不变';o.info='F = 0，a = 0 · W = 0';
+    o.l1='沿着 B 走：θ = 0，sin 0 = 0 → F = 0';o.l2=t>b.tEnd?'出了画面，还在匀速往前走':'不受力 → 匀速直线，速率不变';
+  }else if(md==='rest'){
+    o.title='匀强磁场 · B 进纸面（×）';o.word='一直是 0';o.info='F = 0，a = 0 · W = 0';
+    o.l1='静止：v = 0 → F = qvB = 0';o.l2='磁场不推静止的电荷 → 一动不动';
+  }else{
+    o.title='匀强磁场 · B 进纸面（×）';o.word='不变';o.info='a 大小不变、方向在转 · W = 0';
+    o.l1=neg?'电子的 F 反过来 → 圆（顺时针）':'F 同时 ⊥ v 和 B → 跟着 v 转 → 圆（逆时针）';
+    o.l2=neg?'F ⊥ v 和 B，不做功（W = 0）→ 速率不变':'F ⊥ v，不做功（W = 0）→ 速率不变';
+  }
+  return o;
+}
+
+/* ---------- 画图小工具 ---------- */
+function charge4(ctx,X,Y,neg,dim){
+  if(dim)ctx.globalAlpha=0.45;
+  dot(ctx,X,Y,9,neg?C.south:C.north);
+  seg(ctx,X-4.5,Y,X+4.5,Y,'#ffffff',2);if(!neg)seg(ctx,X,Y-4.5,X,Y+4.5,'#ffffff',2);
+  ctx.globalAlpha=1;
+}
+function badge4(ctx,X,Y,plus){dot(ctx,X,Y,7,plus?C.north:C.south);seg(ctx,X-3.5,Y,X+3.5,Y,'#ffffff',1.8);if(plus)seg(ctx,X,Y-3.5,X,Y+3.5,'#ffffff',1.8);}
+/* 标签：只在方框里面才画 */
+function lab4(ctx,s,cx,cy,col,size,x0,y0,x1,y1){
+  ctx.font='italic 600 '+size+'px '+MATH;var hw=ctx.measureText(s).width/2;
+  if(cx-hw<x0+1||cx+hw>x1-1||cy-size*0.5<y0+1||cy+size*0.5>y1-1)return false;
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=rgba(C.stage,0.9);ctx.strokeText(s,cx,cy);
+  txt(ctx,s,cx,cy,col,size,'italic 600','center','middle',MATH);return true;
+}
+function halo4(ctx,s,x,y,col,size){ctx.font='700 '+size+'px '+FONT;var w=ctx.measureText(s).width;
+  rrect(ctx,x-4,y-size/2-4,w+8,size+8,4);ctx.fillStyle=rgba(C.stage,0.92);ctx.fill();txt(ctx,s,x,y,col,size,700,'left','middle');}
+function hw4(ctx,s,size){ctx.font='italic 600 '+size+'px '+MATH;return ctx.measureText(s).width/2;}
+/* v 箭头（墨色 70%）和力箭头（绿色），从电荷边缘画出；同方向时左右错开 */
+function vecs4(ctx,X,Y,vx,vy,vL,fx,fy,fL,flab,x0,y0,x1,y1){
+  var vc=rgba(C.ink,0.7),hasV=vL>4,hasF=fL>0,side=false,nx=0,ny=0,o,h;
+  if(hasV&&hasF&&vx*fx+vy*fy>0.94){side=true;nx=-vy;ny=vx;}
+  if(hasV){
+    var sx=X+vx*11-nx*7,sy=Y+vy*11-ny*7;
+    arrow(ctx,sx,sy,sx+vx*vL,sy+vy*vL,vc,2.3,8);
+    h=hw4(ctx,'v',15);
+    if(side){o=9+h*Math.abs(nx)+8*Math.abs(ny);lab4(ctx,'v',sx+vx*vL*0.5-nx*o,sy+vy*vL*0.5-ny*o,vc,15,x0,y0,x1,y1);}
+    else{o=8+h*Math.abs(vx)+8*Math.abs(vy);
+      if(!lab4(ctx,'v',sx+vx*(vL+o),sy+vy*(vL+o),vc,15,x0,y0,x1,y1)){   /* 箭头尖外面放不下：放到箭头中间的旁边 */
+        var mx=sx+vx*vL*0.5,my=sy+vy*vL*0.5;
+        lab4(ctx,'v',mx+vy*13,my-vx*13,vc,15,x0,y0,x1,y1)||lab4(ctx,'v',mx-vy*13,my+vx*13,vc,15,x0,y0,x1,y1);}}
+  }
+  if(hasF){
+    var fx0=X+fx*11+nx*7,fy0=Y+fy*11+ny*7;
+    arrow(ctx,fx0,fy0,fx0+fx*fL,fy0+fy*fL,C.force,2.8,9);
+    h=hw4(ctx,flab,14);
+    if(side){o=9+h*Math.abs(nx)+8*Math.abs(ny);lab4(ctx,flab,fx0+fx*fL*0.5+nx*o,fy0+fy*fL*0.5+ny*o,C.force,14,x0,y0,x1,y1);}
+    else{o=8+h*Math.abs(fx)+8*Math.abs(fy);lab4(ctx,flab,fx0+fx*(fL+o),fy0+fy*(fL+o),C.force,14,x0,y0,x1,y1);}
+  }
+}
+
+/* ---------- 一格 ---------- */
+function panel4(ctx,x,y,pw,wide,right){
+  var sc=pw/BW4,bh=sc,top=y+(wide?84:76),bot=top+bh,t=m4.t,md=m4.mode,i,j,k,X,Y,lx;
+  var kind=right?(md==='along'?'Bside':'Bin'):(m4.grav?'g':'E');
+  var st=right?stR():stL();
+  txt(ctx,st.title,x,y+(wide?22:18),st.tc,wide?13.5:13,700);
+  txt(ctx,st.l1,x,y+(wide?44:38),C.ink,wide?13.5:13,600);
+  txt(ctx,st.l2,x,y+(wide?63:56),C.ink,wide?13:12.5,500);
+  /* 场 */
+  if(kind==='E'){
+    ctx.fillStyle=rgba(C.violet,0.05);ctx.fillRect(x,top,pw,bh);
+    for(k=0;k<10;k++){lx=x+(0.1+0.2*k)*sc;seg(ctx,lx,top,lx,bot,rgba(C.violet,0.4),1.2);arrow(ctx,lx,top+bh*0.5-9,lx,top+bh*0.5+7,rgba(C.violet,0.85),1.4,7);}
+    ctx.fillStyle=C.north;ctx.fillRect(x,top-6,pw,6);ctx.fillStyle=C.south;ctx.fillRect(x,bot,pw,6);
+    badge4(ctx,x+pw-12,top-3,true);badge4(ctx,x+pw-12,bot+3,false);
+  }else if(kind==='g'){
+    ctx.fillStyle=rgba(C.muted,0.05);ctx.fillRect(x,top,pw,bh);
+    for(k=0;k<10;k++){lx=x+(0.1+0.2*k)*sc;seg(ctx,lx,top,lx,bot,rgba(C.muted,0.5),1.2,[5,6]);arrow(ctx,lx,top+bh*0.5-9,lx,top+bh*0.5+7,rgba(C.muted,0.9),1.4,7);}
+    ctx.fillStyle=rgba(C.muted,0.45);ctx.fillRect(x,bot,pw,6);
+  }else{
+    ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(x,top,pw,bh);
+    ctx.strokeStyle=rgba(C.field,0.4);ctx.lineWidth=1;ctx.strokeRect(x+0.5,top+0.5,pw-1,bh-1);
+    if(kind==='Bin'){
+      for(i=0;i<10;i++)for(j=0;j<5;j++){X=x+(0.1+0.2*i)*sc;Y=top+(0.1+0.2*j)*sc;
+        seg(ctx,X-3.8,Y-3.8,X+3.8,Y+3.8,rgba(C.field,0.6),1.4);seg(ctx,X-3.8,Y+3.8,X+3.8,Y-3.8,rgba(C.field,0.6),1.4);}
+    }else{
+      for(k=0;k<10;k++){lx=x+(0.1+0.2*k)*sc;seg(ctx,lx,top,lx,bot,rgba(C.field,0.6),1.2,[5,6]);arrow(ctx,lx,top+bh*0.5-9,lx,top+bh*0.5+7,C.field,1.4,7);}
+    }
+  }
+  /* 轨迹、每 0.3 s 一个点、起点 */
+  var o=right?bAt(0,q4):eAt(0,q4),sx0=x+o.x*sc,sy0=top+(1-o.y)*sc;
+  ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(sx0,sy0,10,0,TAU);ctx.strokeStyle=rgba(C.ink,0.35);ctx.lineWidth=1.2;ctx.stroke();ctx.setLineDash([]);
+  var tt,p,n=60,b=m4.b;
+  if(!right){
+    tt=Math.min(t,m4.e.tEnd);
+    ctx.beginPath();for(i=0;i<=n;i++){p=eAt(tt*i/n,p4);X=x+p.x*sc;Y=top+(1-p.y)*sc;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+    for(k=1;k*DT4<=tt;k++){p=eAt(k*DT4,p4);dot(ctx,x+p.x*sc,top+(1-p.y)*sc,2.8,rgba(C.ink,0.6));}
+  }else if(b.kind==='line'){
+    tt=Math.min(t,b.tEnd);p=bAt(tt,p4);
+    seg(ctx,sx0,sy0,x+p.x*sc,top+(1-p.y)*sc,C.copper,2.2);
+    for(k=1;k*DT4<=tt;k++){p=bAt(k*DT4,p4);dot(ctx,x+p.x*sc,top+(1-p.y)*sc,2.8,rgba(C.ink,0.6));}
+  }else if(b.kind==='circle'){
+    tt=t;var ccx=x+b.cx*sc,ccy=top+(1-b.cy)*sc,a0=-b.th0,da=OM4*tt;
+    ctx.beginPath();
+    if(da>=TAU-1e-3)ctx.arc(ccx,ccy,R4*sc,0,TAU);else ctx.arc(ccx,ccy,R4*sc,a0,a0-b.dir*da,b.dir>0);
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.2;ctx.stroke();
+    for(k=1;k*DT4<=tt;k++){p=bAt(k*DT4,p4);dot(ctx,x+p.x*sc,top+(1-p.y)*sc,2.8,rgba(C.ink,0.6));}
+    dot(ctx,ccx,ccy,3,rgba(C.ink,0.6));
+  }
+  /* 电荷、v 和 F */
+  ctx.save();ctx.beginPath();ctx.rect(x-4,top-12,pw+8,bh+24);ctx.clip();
+  var neg=m4.neg,kv=0.33*sc,fL=0.17*sc;
+  if(!right){
+    var hit=t>=m4.e.tEnd;p=eAt(Math.min(t,m4.e.tEnd),p4);X=x+p.x*sc;Y=top+(1-p.y)*sc;
+    if(hit)charge4(ctx,X,Y,neg,true);
+    else{
+      var sp=Math.sqrt(p.vx*p.vx+p.vy*p.vy),ux=sp>1e-6?p.vx/sp:0,uy=sp>1e-6?-p.vy/sp:0;
+      vecs4(ctx,X,Y,ux,uy,sp*kv,0,m4.e.ay<0?1:-1,fL,m4.grav?'mg':'qE',x,top,x+pw,bot);
+      charge4(ctx,X,Y,neg,false);
+    }
+  }else{
+    p=bAt(t,p4);X=x+p.x*sc;Y=top+(1-p.y)*sc;
+    if(b.kind==='circle'){
+      var cx2=x+b.cx*sc,cy2=top+(1-b.cy)*sc,vux=p.vx/U4,vuy=-p.vy/U4,fux=(cx2-X)/(R4*sc),fuy=(cy2-Y)/(R4*sc);
+      seg(ctx,cx2,cy2,X,Y,rgba(C.muted,0.55),1,[3,4]);
+      ctx.beginPath();ctx.moveTo(X+vux*14,Y+vuy*14);ctx.lineTo(X+(vux+fux)*14,Y+(vuy+fuy)*14);ctx.lineTo(X+fux*14,Y+fuy*14);
+      ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.2;ctx.stroke();
+      vecs4(ctx,X,Y,vux,vuy,U4*kv,fux,fuy,fL,'qvB',x,top,x+pw,bot);
+      charge4(ctx,X,Y,neg,false);
+    }else if(b.kind==='line'){
+      if(t<=b.tEnd){
+        vecs4(ctx,X,Y,0,1,U4*kv,0,0,0,'',x,top,x+pw,bot);
+        charge4(ctx,X,Y,neg,false);
+        if(X+90<x+pw)halo4(ctx,'F = 0',X+16,Y,C.force,13);
+      }
+    }else{
+      charge4(ctx,X,Y,neg,false);
+      halo4(ctx,'v = 0，F = 0',X+16,Y,C.force,13);
+    }
+  }
+  ctx.restore();
+  /* 下面：速率、a、W，和速率–时间小图 */
+  var rb=bot+28,gx=x+16,gw=pw-20,gy=bot+36,gh=wide?40:36,w0;
+  txt(ctx,'速率：',x,rb,C.muted,12.5,500);ctx.font='500 12.5px '+FONT;w0=ctx.measureText('速率：').width;
+  txt(ctx,st.word,x+w0,rb,C.ink,12.5,700);
+  txt(ctx,st.info,x+pw,rb,C.ink,12,600,'right');
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+  if(md!=='rest'){var yu=gy+gh-U4/VM4*gh;seg(ctx,gx,yu,gx+gw,yu,rgba(C.muted,0.55),1,[3,4]);txt(ctx,'u',gx-5,yu+4,C.muted,12,'italic 600','right','alphabetic',MATH);}
+  tt=right?t:Math.min(t,m4.e.tEnd);
+  ctx.beginPath();
+  for(i=0;i<=n;i++){var ti=tt*i/n,v=right?spdB():spdE(ti);X=gx+ti/m4.Tc*gw;Y=gy+gh-Math.min(VM4,v)/VM4*gh;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+  dot(ctx,X,Y,3.5,C.copper);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){
+    if(w>=640){var pw=Math.floor((w-60)/2);return Math.round(84+pw/BW4+82);}
+    var pn=Math.min(w-24,400);return Math.round(2*(76+pn/BW4+78)+16);
+  },
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var pw,ph;
+    if(W>=640){
+      pw=Math.floor((W-60)/2);
+      panel4(ctx,16,0,pw,true,false);
+      seg(ctx,W/2,10,W/2,H-10,C.line,1);
+      panel4(ctx,W-16-pw,0,pw,true,true);
+    }else{
+      pw=Math.min(W-24,400);ph=76+pw/BW4+78;
+      var x0=Math.round((W-pw)/2);
+      panel4(ctx,x0,0,pw,false,false);
+      seg(ctx,0,ph+8,W,ph+8,C.line,1);
+      panel4(ctx,x0,ph+16,pw,false,true);
+    }
+  }
+});
+
+var b4m={rest:document.getElementById('s4-rest'),along:document.getElementById('s4-along'),perp:document.getElementById('s4-perp')};
+var b4p=document.getElementById('s4-pos'),b4n=document.getElementById('s4-neg'),b4e=document.getElementById('s4-fe'),b4g=document.getElementById('s4-fg');
+function sync4(){press(b4m.rest,m4.mode==='rest');press(b4m.along,m4.mode==='along');press(b4m.perp,m4.mode==='perp');
+  press(b4p,!m4.neg);press(b4n,m4.neg);press(b4e,!m4.grav);press(b4g,m4.grav);}
+function restart4(){setup4();m4.t=S4.playing?0:show4();sync4();S4.render();}
+['rest','along','perp'].forEach(function(k){b4m[k].addEventListener('click',function(){m4.mode=k;restart4();});});
+b4p.addEventListener('click',function(){m4.neg=false;restart4();});
+b4n.addEventListener('click',function(){m4.neg=true;restart4();});
+b4e.addEventListener('click',function(){m4.grav=false;restart4();});
+b4g.addEventListener('click',function(){m4.grav=true;restart4();});
+document.getElementById('s4-reset').addEventListener('click',function(){setup4();m4.t=0;S4.setPlaying(true);sync4();S4.render();});
+sync4();
+})();
+/* ---------- 动画 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 速度选择器（正交电磁场）（1.3 Crossed fields）
+   两块平行板：上板 +（--north），下板 −（--south），E 向下；两板之间还有 B 进纸面（× × ×）。粒子从左边小孔水平射入。
+   物理坐标：x 向右、y 向上，长度单位 = 板长；速度单位 v0 = 1.0 × 10⁶ m s⁻¹；时间单位 = 以 v0 走完板长的动画时间 V0T 秒。
+   方向：+ 电荷 F = qE 顺着 E → 向下；F = qv × B，v 向右、B 进纸面 → 向上（palm rule：四指进纸面，拇指向右，掌心向上）。
+         electron 两个力都反过来：qE 向上，qvB 向下。
+   运动：m dv/dt = q(E + v × B) 的精确解（不是硬画抛物线）。在以 vd = E/B 向右移动的参考系里，粒子做匀速圆周运动：
+     x = vd t + (D/ω) sin ωt，y = s (D/ω)(1 − cos ωt)，vx = vd + D cos ωt，vy = s D sin ωt，
+     D = v − E/B，s = +1（+ 电荷）或 −1（electron），ω = |q|B/m（逆时针 / 顺时针，和动画 3 一致）。
+     D = 0 时 y ≡ 0：直线穿过。粒子一偏，v 转了方向，qvB 也跟着转。
+   示意：B = 0.10 T 不变，E = 0.5–1.5 × 10⁵ V m⁻¹，v = 0.5–1.5 × 10⁶ m s⁻¹，所以 E/B = 0.5–1.5 × 10⁶ m s⁻¹；ω = 1.9（弯得多厉害）。
+     + 电荷和 electron 用一样的 |q| 和 m（只比较方向）。场只在两板之间（不考虑 edge effect）。
+   粒子半径 RPN = 0.02 板长（画的大小也一样）。滑块步长 0.1：v ≠ E/B 时至少差 0.1，到出口挡板时偏离 ≥ 0.036 板长
+   （python 算过全部 110 对），比小孔半宽 0.024 大，一定过不去。 */
+var V0T=2.4,OM=1.9,HN=0.2,SLIT=0.024,RPN=0.02,X0N=-0.065,XWN=-0.03,XEN=1.08,NMAX=1500;
+var m5={vi:10,ei:10,sg:1,ph:0,t:0,x:0,y:0,vx:1,vy:0,res:'',hold:0,bent:false,n:0,gn:0};
+var TX=new Float32Array(NMAX),TY=new Float32Array(NMAX),GX=new Float32Array(NMAX),GY=new Float32Array(NMAX);
+
+function xAt(t){var vd=m5.ei/10,D=m5.vi/10-vd;return vd*t+D/OM*Math.sin(OM*t);}
+function yAt(t){var D=m5.vi/10-m5.ei/10;return m5.sg*D/OM*(1-Math.cos(OM*t));}
+function inField(){var t=m5.t,vd=m5.ei/10,D=m5.vi/10-vd,c=Math.cos(OM*t),sn=Math.sin(OM*t);
+  m5.x=vd*t+D/OM*sn;m5.y=m5.sg*D/OM*(1-c);m5.vx=vd+D*c;m5.vy=m5.sg*D*sn;
+  if(Math.abs(Math.atan2(m5.vy,m5.vx))>0.09)m5.bent=true;}
+/* f(a) < 0 ≤ f(b) → 交点的时间 */
+function solve(a,b,f){for(var i=0;i<30;i++){var c=(a+b)/2;if(f(c)>=0)b=c;else a=c;}return b;}
+function push(x,y,force){var n=m5.n;if(n>=NMAX)return;if(n>0&&!force){var dx=x-TX[n-1],dy=y-TY[n-1];if(dx*dx+dy*dy<1.6e-5)return;}TX[n]=x;TY[n]=y;m5.n=n+1;}
+function fire(keep){
+  if(keep&&m5.n>1){GX.set(TX.subarray(0,m5.n));GY.set(TY.subarray(0,m5.n));m5.gn=m5.n;}
+  m5.ph=0;m5.t=0;m5.x=X0N;m5.y=0;m5.vx=m5.vi/10;m5.vy=0;m5.res='';m5.hold=0;m5.bent=false;m5.n=0;push(X0N,0,true);
+}
+var LIM=HN-RPN,XW=1-RPN;
+function fPlate(t){return Math.abs(yAt(t))-LIM;}
+function fWall(t){return xAt(t)-XW;}
+function adv(h){
+  var v=m5.vi/10;
+  if(m5.ph===0){m5.x+=v*h;if(m5.x>=0){m5.t=m5.x/v;m5.ph=1;push(0,0,true);inField();}push(m5.x,m5.y);return;}
+  if(m5.ph===1){
+    var t0=m5.t,t1=t0+h,tp=-1,tw=-1;
+    if(fPlate(t1)>=0)tp=solve(t0,t1,fPlate);
+    if(fWall(t1)>=0)tw=solve(t0,t1,fWall);
+    if(tp>=0&&(tw<0||tp<=tw)){m5.t=tp;inField();push(m5.x,m5.y,true);m5.res=m5.y>0?'top':'bot';m5.ph=3;m5.hold=0;return;}
+    if(tw>=0){m5.t=tw;inField();push(m5.x,m5.y,true);if(Math.abs(m5.y)>SLIT){m5.res='wall';m5.ph=3;m5.hold=0;}else m5.ph=2;return;}
+    m5.t=t1;inField();push(m5.x,m5.y);return;
+  }
+  if(m5.ph===2){m5.x+=m5.vx*h;m5.y+=m5.vy*h;if(m5.x>=XEN){m5.x=XEN;m5.res='pass';m5.ph=3;m5.hold=0;push(m5.x,m5.y,true);}else push(m5.x,m5.y);}
+}
+function step5(dt){
+  if(m5.ph===3){m5.hold+=dt;if(m5.hold>=1.2)fire(true);return;}
+  var h=dt/V0T,n=Math.max(1,Math.ceil(h/0.004)),hh=h/n;
+  for(var i=0;i<n&&m5.ph<3;i++)adv(hh);
+}
+/* 第一帧：先跑完一个粒子（变成淡色的“上一个”），再让第二个飞到板的中间 */
+function prerun(){fire(false);m5.gn=0;var k=0;while(m5.ph<3&&k++<4000)adv(0.004);fire(true);k=0;while((m5.ph<1||m5.x<0.47)&&m5.ph<3&&k++<4000)adv(0.004);}
+prerun();
+
+/* ---------- 排版 ---------- */
+var LY={w:-1};
+function lay5(W){
+  var L=LY;if(L.w===W)return L;L.w=W;L.wide=W>=640;
+  if(L.wide){L.Lp=Math.min(400,W-334);L.xL=64;L.th=10;L.lf=30;L.lv=28;L.top=84;L.fs=12.5;L.ls=13;}
+  else{L.Lp=Math.min(400,W-74);L.xL=26+Math.max(0,(W-74-L.Lp)/2);L.th=8;L.lf=22;L.lv=18;L.top=76;L.fs=11.5;L.ls=12;}
+  L.rp=Math.max(7,RPN*L.Lp);L.h=HN*L.Lp;L.cy=L.top+L.th+L.h;L.xR=L.xL+L.Lp;L.gT=L.cy-L.h;L.gB=L.cy+L.h;L.tO=L.gT-L.th;L.bO=L.gB+L.th;
+  L.xw0=L.xL+XWN*L.Lp;L.xE=L.xL+XEN*L.Lp;L.sl=SLIT*L.Lp;L.ly=L.bO+(L.wide?18:17);
+  if(L.wide){L.px=W-200;L.pw=184;L.py=92;L.H=322;}
+  else{L.px=16;L.pw=W-32;L.py=L.bO+44;L.H=Math.round(L.py+160);}
+  return L;
+}
+function X5(L,x){return L.xL+x*L.Lp;}
+function Y5(L,y){return L.cy-y*L.Lp;}
+function cross(ctx,x,y,r,col,w){seg(ctx,x-r,y-r,x+r,y+r,col,w);seg(ctx,x-r,y+r,x+r,y-r,col,w);}
+function fmt(i){return (i/10).toFixed(1);}
+/* 有底色描边的标签：压在 × 和场线上也看得清 */
+function halo(ctx,s,x,y,col,z){ctx.font='700 '+z+'px '+FONT;var w=ctx.measureText(s).width;
+  rrect(ctx,x-w/2-3,y-z/2-4,w+6,z+8,3);ctx.fillStyle=rgba(C.stage,0.92);ctx.fill();txt(ctx,s,x,y,col,z,700,'center','middle');}
+
+function status5(){
+  var c=m5.vi-m5.ei,pos=m5.sg>0,r=m5.res,l1,l2;
+  if(c===0){
+    if(pos){l1='v = E/B：qE = qvB，方向相反';l2='→ 两个力抵消 → 走直线，穿过小孔';}
+    else{l1='electron：两个力都反过来，还是一样大';l2='v = E/B 里没有 q 和 m → 照样直线穿过';}
+  }else{
+    var up=(c>0)===pos,d=up?'往上弯':'往下弯';
+    l1=c>0?'v > E/B：qvB > qE，磁场力赢':'v < E/B：qE > qvB，电场力赢';
+    if(r==='top'||r==='bot')l2='→ '+d+'，打到'+(r==='top'?'正':'负')+'极板上';
+    else if(r==='wall')l2='→ '+d+'，打到出口挡板，过不去';
+    else l2='→ '+d+'（往'+(up?'正':'负')+'极板那边）';
+  }
+  return [l1,l2];
+}
+function note5(wide){
+  if(m5.bent&&m5.ph!==0)return wide?'粒子一偏，v 转了方向 → qvB 也跟着转（一直 ⊥ v）→ 路径不是抛物线':'v 转了方向 → qvB 跟着转（⊥ v）→ 不是抛物线';
+  if(m5.sg>0)return wide?'+ 电荷：qE 顺着 E 向下；palm rule（四指 B 进纸面，拇指 v 向右）→ qvB 向上':'+ 电荷：qE 向下，qvB 向上（palm rule）';
+  return wide?'electron 带负电：qE 逆着 E 向上；palm rule 的结果也反过来 → qvB 向下':'electron：qE 向上，qvB 向下（都反过来）';
+}
+function path5(ctx,L,AX,AY,n,col,w,dash){
+  if(n<2)return;ctx.beginPath();ctx.moveTo(X5(L,AX[0]),Y5(L,AY[0]));for(var i=1;i<n;i++)ctx.lineTo(X5(L,AX[i]),Y5(L,AY[i]));
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);
+}
+/* 从粒子边上画出的箭头。力的标签放在箭头中点、往粒子身后（−v 方向）挪一点，并留在两板之间 */
+function fpos(L,x,y,ux,uy,len,bx,by){var a=L.rp+2,d=L.wide?19:17;
+  return [x+ux*(a+len/2)+bx*d,clamp(y+uy*(a+len/2)+by*d,L.gT+L.ls/2+5,L.gB-L.ls/2-5)];}   /* 标签的底框也留在两板之间 */
+function farrow(ctx,L,x,y,ux,uy,len,col,lab,bx,by){
+  if(len<2)return;var a=L.rp+2;
+  arrow(ctx,x+ux*a,y+uy*a,x+ux*(a+len),y+uy*(a+len),col,L.wide?2.8:2.4,L.wide?10:8);
+  if(!lab)return;var p=fpos(L,x,y,ux,uy,len,bx,by);
+  halo(ctx,lab,p[0],p[1],col,L.ls);
+}
+/* 标签底框的位置：先算好，画 × 和 E 箭头时碰到底框的就不画（不然底框只盖住半个 ×，像多了一个“<”） */
+var BX=[];
+function addBox(ctx,L,s,p){ctx.font='700 '+L.ls+'px '+FONT;var w=ctx.measureText(s).width;BX.push([p[0]-w/2-3,p[1]-L.ls/2-4,p[0]+w/2+3,p[1]+L.ls/2+4]);}
+function hitBox(x0,y0,x1,y1){for(var i=0;i<BX.length;i++){var b=BX[i];if(x1>b[0]&&x0<b[2]&&y1>b[1]&&y0<b[3])return true;}return false;}
+
+var S5=makeStage('sim5',{
+  height:function(w){return lay5(w).H;},
+  step:step5,
+  draw:function(ctx,W,H){
+    var L=lay5(W),wide=L.wide,i;
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    /* 状态 */
+    var st=status5();
+    txt(ctx,st[0],16,wide?28:24,C.ink,wide?15:13.5,600);
+    txt(ctx,st[1],16,wide?50:44,C.copper,wide?14:13,600);
+    /* 场：B 进纸面（×），E 向下（紫色线，条数 ∝ E） */
+    var gx=L.gT,sp=wide?40:30,cols=Math.max(2,Math.round(L.Lp/sp)),dx=L.Lp/cols;
+    var nE=Math.max(2,Math.round((wide?8:6)*m5.ei/10)),ex=L.Lp/nE;
+    /* 粒子、v 的方向和三个标签的位置（先算好：标签底框下面不画 ×） */
+    var px=X5(L,m5.x),py=Y5(L,m5.y),sp5=Math.hypot(m5.vx,m5.vy),pc=m5.sg>0?C.north:C.south,qr=L.rp+8,cr=wide?4:3.2;   /* 粒子身上不画 × */
+    var fly=m5.ph<3&&sp5>1e-6,ux=fly?m5.vx/sp5:0,uy=fly?-m5.vy/sp5:0,vp=null;
+    BX.length=0;
+    if(fly){
+      if(m5.ph===1){addBox(ctx,L,'qE',fpos(L,px,py,0,m5.sg,L.lf*m5.ei/10,-ux,-uy));addBox(ctx,L,'qvB',fpos(L,px,py,m5.sg*uy,-m5.sg*ux,L.lf*sp5,-ux,-uy));}
+      /* v 的标签放在箭头一侧；那一侧出了两板之间，就换到另一侧 */
+      var a=L.rp+2+L.lv*sp5/2,vy1=py+uy*a-ux*12,lo=L.gT+L.ls/2+5,hi=L.gB-L.ls/2-5,sd=(vy1<lo||vy1>hi)?-1:1;
+      vp=[px+ux*a+sd*uy*12,clamp(py+uy*a-sd*ux*12,lo,hi)];addBox(ctx,L,'v',vp);
+    }
+    for(i=0;i<cols;i++)for(var j=0;j<4;j++){var cxx=L.xL+(i+0.5)*dx,cyy=L.cy+(j-1.5)*L.h/2;
+      if(Math.abs(cxx-px)<qr&&Math.abs(cyy-py)<qr)continue;if(hitBox(cxx-cr-1,cyy-cr-1,cxx+cr+1,cyy+cr+1))continue;cross(ctx,cxx,cyy,cr,C.field,1.6);}
+    /* E 线在每一排 × 的地方断开，和 × 重合时也看得清 */
+    for(i=0;i<nE;i++){var xe=L.xL+(i+0.5)*ex,y0=gx+2;
+      for(var r=0;r<4;r++){var yr=L.cy+(r-1.5)*L.h/2;seg(ctx,xe,y0,xe,yr-6,rgba(C.violet,0.42),1.2,[4,5]);y0=yr+6;}
+      seg(ctx,xe,y0,xe,L.gB-2,rgba(C.violet,0.42),1.2,[4,5]);
+      if(!hitBox(xe-5,L.cy+L.h*0.36,xe+5,L.cy+L.h*0.64+2))arrow(ctx,xe,L.cy+L.h*0.36,xe,L.cy+L.h*0.64,rgba(C.violet,0.85),1.4,6);}
+    /* 极板 */
+    ctx.fillStyle=C.north;ctx.fillRect(L.xL,L.tO,L.Lp,L.th);
+    ctx.fillStyle=C.south;ctx.fillRect(L.xL,L.gB,L.Lp,L.th);
+    var np=Math.max(3,Math.round(L.Lp/(wide?44:34))),pd=L.Lp/np,k=L.th*0.3;
+    for(i=0;i<np;i++){var xp=L.xL+(i+0.5)*pd,yt=L.tO+L.th/2,yb=L.gB+L.th/2;
+      seg(ctx,xp-k,yt,xp+k,yt,'#ffffff',1.6);seg(ctx,xp,yt-k,xp,yt+k,'#ffffff',1.6);seg(ctx,xp-k,yb,xp+k,yb,'#ffffff',1.6);}
+    /* 入口、出口的挡板和小孔 */
+    ctx.fillStyle=C.muted;
+    ctx.fillRect(L.xw0-2,L.tO,4,L.cy-L.sl-L.tO);ctx.fillRect(L.xw0-2,L.cy+L.sl,4,L.bO-L.cy-L.sl);
+    ctx.fillRect(L.xR,L.tO,4,L.cy-L.sl-L.tO);ctx.fillRect(L.xR,L.cy+L.sl,4,L.bO-L.cy-L.sl);
+    txt(ctx,'入口',L.xw0,L.ly,C.muted,L.fs,600,'center');
+    txt(ctx,'出口',L.xR+2,L.ly,C.muted,L.fs,600,'center');
+    /* 图例 */
+    ctx.font='600 '+L.fs+'px '+FONT;
+    var t1='E 向下',t2='B 进纸面 · 0.10 T',w1=ctx.measureText(t1).width,w2=ctx.measureText(t2).width;
+    var lx=(L.xL+L.xR)/2-(17+w1+18+15+w2)/2,ly=L.ly;
+    arrow(ctx,lx+5,ly-L.fs+1,lx+5,ly+2,C.violet,1.6,6);lx+=17;
+    txt(ctx,t1,lx,ly,C.violet,L.fs,600);lx+=w1+18;
+    cross(ctx,lx+4,ly-L.fs*0.36,3.6,C.field,1.8);lx+=15;
+    txt(ctx,t2,lx,ly,C.muted,L.fs,600);
+    /* 路径：虚线（--south，对照）= 上一个粒子；实线 = 现在这个 */
+    path5(ctx,L,GX,GY,m5.gn,rgba(C.south,0.5),1.6,[5,5]);
+    path5(ctx,L,TX,TY,m5.n,C.copper,2.4);
+    /* 粒子和箭头 */
+    if(fly){
+      ctx.save();ctx.beginPath();ctx.rect(L.xw0-14,L.tO,L.xE-L.xw0+60,L.bO-L.tO);ctx.clip();   /* 箭头不伸出极板外面 */
+      if(m5.ph===1){
+        farrow(ctx,L,px,py,0,m5.sg,L.lf*m5.ei/10,C.force,'qE',-ux,-uy);
+        /* qv × B（屏幕坐标）：+ 电荷 = v 逆时针转 90°；electron 反过来 */
+        farrow(ctx,L,px,py,m5.sg*uy,-m5.sg*ux,L.lf*sp5,C.force,'qvB',-ux,-uy);
+      }
+      farrow(ctx,L,px,py,ux,uy,L.lv*sp5,rgba(C.ink,0.7),'',0,0);
+      ctx.restore();
+      halo(ctx,'v',vp[0],vp[1],C.muted,L.ls);
+    }
+    dot(ctx,px,py,L.rp,pc);
+    var kk=L.rp*0.5;seg(ctx,px-kk,py,px+kk,py,'#ffffff',1.6);if(m5.sg>0)seg(ctx,px,py-kk,px,py+kk,'#ffffff',1.6);
+    if(m5.ph===3&&m5.res!=='pass')ring(ctx,px,py,L.rp+5,rgba(C.ink,0.45),1.5);
+    if(m5.ph===3&&m5.res==='pass')txt(ctx,'通过',px,py+L.rp+16,C.ink,L.ls,700,'center');
+    /* 读数 */
+    var x0=L.px,x1=L.px+L.pw,y=L.py,ratio=(m5.vi/m5.ei).toFixed(2);
+    if(wide){
+      txt(ctx,'能直线通过的速度',x0,y,C.muted,12,500);
+      txt(ctx,'E/B = '+fmt(m5.ei)+' × 10⁶ m s⁻¹',x0,y+21,C.ink,13.5,600,'left','alphabetic',MONO);
+      txt(ctx,'粒子的速度',x0,y+48,C.muted,12,500);
+      txt(ctx,'v = '+fmt(m5.vi)+' × 10⁶ m s⁻¹',x0,y+69,C.ink,13.5,600,'left','alphabetic',MONO);
+      y+=98;
+    }else{
+      txt(ctx,'能直线通过的速度',x0,y,C.muted,12,500);
+      txt(ctx,'E/B = '+fmt(m5.ei)+' × 10⁶ m s⁻¹',x1,y,C.ink,12.5,600,'right','alphabetic',MONO);
+      txt(ctx,'粒子的速度',x0,y+24,C.muted,12,500);
+      txt(ctx,'v = '+fmt(m5.vi)+' × 10⁶ m s⁻¹',x1,y+24,C.ink,12.5,600,'right','alphabetic',MONO);
+      y+=50;
+    }
+    txt(ctx,'射入时的两个力（箭头长度）',x0,y,C.muted,12,500);
+    var bx=x0+38,bw=x1-bx;
+    txt(ctx,'qE',x0,y+22,C.force,12.5,700);hbar(ctx,bx,y+13,bw,10,m5.ei/10/1.6,C.force);
+    txt(ctx,'qvB',x0,y+44,C.force,12.5,700);hbar(ctx,bx,y+35,bw,10,m5.vi/10/1.6,C.force);
+    if(wide){
+      txt(ctx,'qvB ÷ qE = '+ratio,x0,y+72,C.ink,13,600);
+      txt(ctx,'= v ÷ (E/B)：q 约掉了',x0,y+92,C.muted,12,500);
+    }else txt(ctx,'qvB ÷ qE = v ÷ (E/B) = '+ratio+'（q 约掉了）',x0,y+70,C.ink,12.5,600);
+    txt(ctx,note5(wide),16,H-14,C.muted,12,500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var r5v=document.getElementById('s5-v'),o5v=document.getElementById('s5-v-out'),r5e=document.getElementById('s5-e'),o5e=document.getElementById('s5-e-out');
+var b5p=document.getElementById('s5-pos'),b5n=document.getElementById('s5-neg');
+/* 改了设置：马上射一个新的。淡色虚线一直是最近一个走完的粒子（飞到一半的不算） */
+function restart5(){fire(m5.ph===3);S5.render();}
+function sync5(){r5v.value=fmt(m5.vi);r5e.value=fmt(m5.ei);o5v.textContent=fmt(m5.vi)+' × 10⁶ m s⁻¹';o5e.textContent=fmt(m5.ei)+' × 10⁵ V m⁻¹';press(b5p,m5.sg>0);press(b5n,m5.sg<0);}
+r5v.addEventListener('input',function(){m5.vi=Math.round(parseFloat(r5v.value)*10);sync5();restart5();});
+r5e.addEventListener('input',function(){m5.ei=Math.round(parseFloat(r5e.value)*10);sync5();restart5();});
+b5p.addEventListener('click',function(){m5.sg=1;sync5();restart5();});
+b5n.addEventListener('click',function(){m5.sg=-1;sync5();restart5();});
+document.getElementById('s5-reset').addEventListener('click',function(){m5.vi=10;m5.ei=10;m5.sg=1;sync5();prerun();S5.setPlaying(true);S5.render();});
+sync5();
+})();
+</script>
+</body>
+</html>
