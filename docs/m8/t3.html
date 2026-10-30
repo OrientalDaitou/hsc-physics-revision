@@ -18,6 +18,7 @@
   <p class="h1-sub">原子的量子模型：玻尔、德布罗意和<span style="white-space:nowrap">薛定谔</span> · 零基础讲解</p>
   <p class="lead">这一章讲原子里的电子：Bohr 的能级、氢的光谱、de Broglie 的物质波和 Schrödinger 的模型。名字很多，其实只靠<b>两条规则</b>：电子只能有几个特定的能量；电子也是波。弄懂这两条，后面都只是在用它们。</p>
 </header>
+<nav class="jump" aria-label="总复习直接跳到"><span class="jump-k">总复习直接跳到</span><a href="#s8">公式一页纸</a><a href="#review-must">必背</a><a href="#review-err">常见错误</a><a href="#s10">快问快答</a></nav>
 
 <div class="rules">
   <div class="rule">
@@ -240,7 +241,7 @@
       <div><dt>n<sub>f</sub></dt><dd>终点（end）能级的号码（没有单位）</dd></div>
       <div><dt>n<sub>i</sub></dt><dd>起点（start）能级的号码（没有单位）</dd></div>
     </dl>
-    <p class="trap"><b>什么时候用：</b>只用于氢的线。放出时 <span class="m"><i>n</i><sub>i</sub> &gt; <i>n</i><sub>f</sub></span>。series limit 用 <span class="m"><i>n</i><sub>i</sub> = ∞</span>（1/∞² = 0）。<br><b>例子：</b>4 → 2：<span class="m">1/<i>λ</i> = 1.097 × 10<sup>7</sup> × (1/2² − 1/4²) = 1.097 × 10<sup>7</sup> × 0.1875 = 2.057 × 10<sup>6</sup> m<sup>−1</sup></span>，<span class="m"><i>λ</i> = 1/(2.057 × 10<sup>6</sup>) = 4.86 × 10<sup>−7</sup> m = 486 nm</span>。<br><b>陷阱：</b>每个 <span class="m"><i>n</i></span> 先平方。算出来的是 <span class="m">1/<i>λ</i></span>，最后要取倒数才是 <span class="m"><i>λ</i></span>。<span class="m"><i>R</i></span> 不是电阻。</p>
+    <p class="trap"><b>什么时候用：</b>只用于氢的线。放出时 <span class="m"><i>n</i><sub>i</sub> &gt; <i>n</i><sub>f</sub></span>。吸收时电子往上跳，算波长时括号里还是小号码在前：<span class="m">1/<i>λ</i> = <i>R</i>(1/<i>n</i><sub>低</sub>² − 1/<i>n</i><sub>高</sub>²)</span>，例如 2 → 6 吸收用 <span class="m">1/2² − 1/6²</span>；不然会算出负数。series limit 用 <span class="m"><i>n</i><sub>i</sub> = ∞</span>（1/∞² = 0）。<br><b>例子：</b>4 → 2：<span class="m">1/<i>λ</i> = 1.097 × 10<sup>7</sup> × (1/2² − 1/4²) = 1.097 × 10<sup>7</sup> × 0.1875 = 2.057 × 10<sup>6</sup> m<sup>−1</sup></span>，<span class="m"><i>λ</i> = 1/(2.057 × 10<sup>6</sup>) = 4.86 × 10<sup>−7</sup> m = 486 nm</span>。<br><b>陷阱：</b>每个 <span class="m"><i>n</i></span> 先平方。算出来的是 <span class="m">1/<i>λ</i></span>，最后要取倒数才是 <span class="m"><i>λ</i></span>。<span class="m"><i>R</i></span> 不是电阻。</p>
   </div>
 
   <p>动画 2 里可以打开 <span class="t">discharge tube</span>（放电管：装着低压气体、通电会发光的管子）。里面很多原子一起往下跳，三个线系的线都会亮起来。3.5 的实验用的就是它。</p>
@@ -491,7 +492,7 @@
 <section id="s8">
   <div class="secnum">复习</div>
   <h2>本章公式一页纸<span class="en">Formulas</span></h2>
-  <div class="tbl-wrap wide">
+  <div class="tbl-wrap wide ftab">
     <table>
       <thead><tr><th>公式</th><th>用来算什么</th><th>Formula sheet</th></tr></thead>
       <tbody>
@@ -510,7 +511,7 @@
     </table>
   </div>
 
-  <h3>考试前背这 5 句</h3>
+  <h3 id="review-must">考试前背这 5 句</h3>
   <ol class="must">
     <li>Rutherford 的原子应该会塌，而且应该发出 continuous spectrum。</li>
     <li>Bohr：stationary state <b>不</b>辐射；跳一次放出一个 photon，<span class="m"><i>hf</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></span>（能量守恒）。</li>
@@ -519,7 +520,7 @@
     <li>Schrödinger：<span class="m"><i>ψ</i>²</span> = 概率；是 orbital，不是 orbit；能级从数学里来。</li>
   </ol>
 
-  <h3>常见错误</h3>
+  <h3 id="review-err">常见错误</h3>
   <div class="err">
     <div><span class="x">错：</span>photon 的能量 = 某一级的能量，比如 −3.40&nbsp;eV。<br><span class="ok">对：</span>photon 的能量 = 两级的差（gap），比如 <span class="m" style="white-space:nowrap"><i>E</i><sub>3</sub> − <i>E</i><sub>2</sub> = 1.89 eV</span>。</div>
     <div><span class="x">错：</span>eV 和 nm 直接代进公式。<br><span class="ok">对：</span>eV × 1.602 × 10<sup>−19</sup> 才是 J；nm × 10<sup>−9</sup> 才是 m。</div>
@@ -531,6 +532,7 @@
     <div><span class="x">错：</span>允许的轨道是 <span class="m"><i>r</i> = <i>nλ</i></span>。<br><span class="ok">对：</span><span class="m">2π<i>r</i> = <i>nλ</i></span>：2π<i>r</i> 才是一整圈的长度。</div>
     <div><span class="x">错：</span>orbital 是电子走的一条路。<br><span class="ok">对：</span>orbital 是一团概率云。有确定路径的 orbit 是 Bohr 的说法，uncertainty principle 不允许。</div>
   </div>
+  <p class="jump-next"><a href="#s10">跳过本章专业词，直接做快问快答 ↓</a></p>
 </section>
 
 <section id="s9">

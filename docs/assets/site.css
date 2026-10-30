@@ -187,3 +187,23 @@ span.pg .pg-k{color:var(--muted)}
 
 /* superscripts (10<sup>−4</sup>) must not push lines apart */
 sup{line-height:0}
+/* quick-revision links: bar under the page header, and the skip link at the end of 复习 */
+.jump{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:22px 0 0}
+.jump-k{font-size:14px;color:var(--muted);margin-right:2px}
+.jump a,.jump-next a{font-size:14px;line-height:1.4;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;white-space:nowrap}
+.jump a:hover,.jump-next a:hover{border-color:var(--copper);color:var(--copper)}
+.jump-next{margin:22px 0 0}
+.jump a:focus-visible,.jump-next a:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+/* phone: 本章公式一页纸 one block per formula (formula on top, then the badge and 用来算什么), no sideways swipe */
+@media (max-width:560px){
+  .tbl-wrap.wide.ftab table{min-width:0}
+  .ftab thead{display:none}
+  .ftab table,.ftab tbody{display:block}
+  .ftab tr{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 10px;align-items:baseline;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .ftab tr:last-child{border-bottom:none}
+  .ftab td{display:block;padding:0;border:none}
+  .ftab td.f{grid-column:1 / -1;grid-row:1;white-space:normal;overflow-wrap:anywhere}
+  .ftab td:nth-child(3){grid-column:1;grid-row:2}
+  .ftab td:nth-child(2){grid-column:2;grid-row:2;font-size:14.5px;color:var(--muted)}
+  .ftab td[colspan]{grid-column:1 / -1;grid-row:auto}
+}
