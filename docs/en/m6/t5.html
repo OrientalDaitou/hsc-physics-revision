@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T5 Motors, Generators &amp; Braking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 5</span><a class="lang" lang="zh-Hans" href="../../m6/t5.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 5</div>
+  <h1>Motors, Generators &amp; Braking</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter has no new rules. It only uses the <b>two rules</b> from earlier, on four machines. First we make these two rules clear. After that, the rest is simple.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s7">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s9">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Motor effect</div>
+    <p>A wire carrying a current in a magnetic field gets pushed (it feels a force).</p>
+    <div class="eqs"><i>F</i> = <i>lIB</i> sin <i>θ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Electromagnetic induction</div>
+    <p>When the <span class="t">flux</span> through a coil changes, a voltage (<span class="t">emf</span>) is produced. This emf always opposes the change (<span class="t">Lenz's law</span>).</p>
+    <div class="eqs"><i>ε</i> = −<i>N</i> ΔΦ / Δ<i>t</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="The four machines in this chapter">
+  <div class="map-row head"><span>Machine</span><span>Energy</span><span>Rules used</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">5.1</span><span class="t">DC motor</span></span><span>electrical → rotation</span><span>① current feels a force, coil turns</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">5.3</span><span class="t">Generator</span></span><span>rotation → electrical</span><span>② coil turns, flux changes, emf is produced</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">5.4</span><span class="t">AC induction motor</span></span><span>electrical → rotation</span><span>② a current is induced, then ① it feels a force</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">5.4</span><span class="t">Magnetic braking</span></span><span>motion → heat</span><span>② eddy currents are produced, then ① they make a drag force</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 3 first" below.</li>
+    <li>Teach 5.1 → 5.4 in order. In each section, read the "Big idea" first, then open the animation and let the students say what they see.</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 3 first</h2>
+  <ol class="pts">
+    <li><span class="t">Right-hand palm rule</span>: hold your right hand flat. Fingers = field <span class="m"><i>B</i></span>, thumb = current <span class="m"><i>I</i></span>, the direction the palm pushes = force <span class="m"><i>F</i></span>.</li>
+    <li><span class="t">Magnetic flux</span> <span class="m">Φ = <i>BA</i> cos <i>θ</i></span>: how many field lines pass through the coil. It is largest when the coil faces the field, and 0 when the coil is side-on (parallel to the field).</li>
+    <li><span class="t">Faraday's law</span> and <span class="t">Lenz's law</span>: the faster the flux changes, the bigger the emf. The induced current always acts against the "change". If the flux does not change, there is no emf, however big the flux is.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">5.1</div>
+  <h2>Torque on a coil &amp; the simple DC motor</h2>
+  <p class="big"><span class="lbl">Big idea</span>The two long sides of the coil carry opposite currents. So one side is pushed up and the other is pushed down, and the coil turns.</p>
+  <ul class="pts">
+    <li>Put a <span class="t">coil</span> (many loops of wire, called <span class="t">turns</span>) between the N and S poles of a magnet.</li>
+    <li>Each long side is at 90° to the field. With <span class="m"><i>n</i></span> turns, the force on each long side is <span class="m"><i>F</i> = <i>nlIB</i></span>.</li>
+    <li>In one long side the current comes out of the page ⊙. In the other it goes into the page ⊗. The palm rule shows that one force is up and one is down.</li>
+    <li>These two forces are equal, opposite and not in line. They are called a <span class="t">couple</span>. It is like turning a steering wheel with two hands: one hand pushes up and the other pulls down.</li>
+    <li>The turning effect is called <span class="t">torque</span> (<span class="m"><i>τ</i></span>). Its unit is N m.</li>
+    <li>As the coil turns, the forces keep the same size. Only the <span class="t">lever arm</span> (<span class="m"><i>r</i>⊥</span>) changes: how far the line of the force is from the axle.</li>
+    <li>The forces on the two short sides (the ends of the coil) point along the axle. They do not turn the coil, so they give no torque.</li>
+    <li>If only one side is in the field: the force on that side is <span class="m"><i>F</i> = <i>lIB</i></span> (the side is at 90° to B), and the torque is <span class="m"><i>τ</i> = <i>r</i>⊥<i>F</i></span>.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h">plane ∥ B</div><p>The plane of the coil is <b>parallel</b> to the field. The lever arm is longest, so the <b>torque is largest</b>.</p></div>
+    <div class="state"><div class="state-h">plane ⊥ B</div><p>The plane of the coil is <b>perpendicular</b> to the field. The two forces are in line, so <b>torque = 0</b>.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Torque on a coil</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>τ</i> = <i>nIA</i><sub>⊥</sub><i>B</i> = <i>nIAB</i> sin <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>τ</dt><dd>torque on the coil (N m)</dd></div>
+      <div><dt>n</dt><dd>number of turns in the coil</dd></div>
+      <div><dt>I</dt><dd>current (A)</dd></div>
+      <div><dt>A</dt><dd>area of one turn (m²)</dd></div>
+      <div><dt>A<sub>⊥</sub></dt><dd>= <i>A</i> sin <i>θ</i> (m²)</dd></div>
+      <div><dt>B</dt><dd>magnetic field strength (T)</dd></div>
+      <div><dt>θ</dt><dd>angle between B and the <span class="t">normal</span></dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a flat coil turning on an axle in a uniform field.<br><b>Trap:</b> the <span class="t">normal</span> is the line at 90° to the plane of the coil. θ is measured from the normal, not from the plane of the coil. If a question says "the plane of the coil is at 30° to B", then θ = 90° − 30° = 60°.</p>
+  </div>
+
+  <h3>The four parts of a DC motor</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Stator</td><td>The part that does not move. It makes the magnetic field (magnets).</td></tr>
+        <tr><td class="t">Rotor / armature</td><td>The part that turns: coil + soft-iron core + axle.</td></tr>
+        <tr><td class="t">Split-ring commutator</td><td>Two half-rings. They reverse the current in the coil every half turn.</td></tr>
+        <tr><td class="t">Brushes</td><td>Fixed carbon blocks that carry electricity into the spinning coil.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Energy: a DC motor changes electrical energy into <span class="t">rotational kinetic energy</span>.</p>
+
+  <h3>Why must a motor have a commutator?</h3>
+  <ul class="pts">
+    <li><b>Without it:</b> when the coil passes the vertical position (plane ⊥ B), the torque reverses and pulls the coil back. So the coil rocks a few times, then stops with its plane ⊥ B.</li>
+    <li><b>With it:</b> each time the coil reaches plane ⊥ B, the current reverses. So the torque always turns the coil one way, and the coil keeps turning. At the moment of the swap the brushes touch the gaps, and <span class="t">rotational inertia</span> carries the coil on.</li>
+    <li><span class="t">Dead spot</span>: if the coil stops exactly at plane ⊥ B, torque = 0 and it cannot start by itself. Real motors use many coils at different angles, so the torque is smooth.</li>
+    <li><span class="t">Radial magnetic field</span>: the ends of the magnets are curved (these are called <span class="t">pole pieces</span>), and a soft-iron core sits in the middle. The field lines point straight out from the centre, like the spokes of a wheel. So B always lies along the plane of the coil, θ is always 90°, and the torque stays at its maximum <span class="m"><i>nIAB</i></span> for almost the whole turn. Note: the maximum is not bigger. The <b>average</b> is.</li>
+  </ul>
+
+  <figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">Animation 1 · Coil and commutator</span><span class="sim-tag">Coil seen end-on · B points right</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="A coil turns between the N and S poles. Its two sides feel one force up and one force down. Below are the size of the torque and the commutator."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s1-comm" aria-pressed="true">Commutator: on</button>
+      <button class="btn" type="button" id="s1-dead">Go to dead spot</button>
+      <button class="btn" type="button" id="s1-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Turn the commutator off: the coil rocks a few times, then stops in the vertical position. ② Turn it on again: the coil keeps turning. ③ Press "Go to dead spot": the coil does not move, because torque = 0. Watch the green r⊥: the closer the coil is to horizontal, the longer r⊥ is and the larger the torque is.</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">5.2</div>
+  <h2>Back emf, maximum speed and energy</h2>
+  <p class="big"><span class="lbl">Big idea</span>Once a motor is spinning, it also acts as a small generator. It makes a voltage that "pushes back". This is called back emf.</p>
+  <ul class="pts">
+    <li>Why it exists: a coil spinning in a field has a changing flux, so an emf is induced (Faraday). By Lenz's law, this emf opposes the supply.</li>
+    <li>The faster the motor spins, the bigger the <span class="t">back emf</span> (back emf ∝ speed). AC and DC motors both have it.</li>
+    <li>What really pushes the current is the difference between the two: <span class="m"><i>V</i> − <i>ε</i><sub>back</sub></span>. This is called the <span class="t">net emf</span>.</li>
+  </ul>
+
+  <h3>The three stages of motor current</h3>
+  <ol class="pts">
+    <li><b>Switch-on:</b> the coil is not turning yet, so back emf = 0. So <span class="m"><i>I</i> = <i>V</i>/<i>R</i></span>: the current is largest, and the torque is largest too.</li>
+    <li><b>Speeding up:</b> the back emf grows, so the current and torque fall.</li>
+    <li><b>Maximum speed:</b> the torque just balances friction and the load. The back emf is a little less than <span class="m"><i>V</i></span>, so a small current still flows. In an ideal motor (no friction, no load): back emf ≈ <span class="m"><i>V</i></span>, current ≈ 0.</li>
+  </ol>
+  <ul class="pts">
+    <li><b>Adding a <span class="t">load</span>:</b> the motor slows, the back emf falls, the current rises and the torque rises. The motor "pushes harder" by itself.</li>
+    <li><b>A motor that <span class="t">stalls</span>:</b> it is switched on but cannot turn. The back emf = 0, so the current stays large. The <span class="m"><i>I</i>²<i>R</i></span> heating can melt the insulation (<span class="t">burn out</span>). So large motors have a <span class="t">starting resistor</span> in series, which limits the start-up current.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Current in a running motor</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>I</i> = (<i>V</i> − <i>ε</i><sub>back</sub>) / <i>R</i></div>
+    <dl class="sym">
+      <div><dt>V</dt><dd>supply voltage (V)</dd></div>
+      <div><dt>ε<sub>back</sub></dt><dd>back emf (V)</dd></div>
+      <div><dt>R</dt><dd>resistance of the coil (Ω)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a running DC motor. At switch-on or when stalled, <span class="m"><i>ε</i><sub>back</sub> = 0</span>, so <span class="m"><i>I</i> = <i>V</i>/<i>R</i></span>.<br><b>You can also derive it:</b> use <span class="m"><i>V</i> = <i>IR</i></span> from the sheet, and replace <i>V</i> with the net emf: <span class="m"><i>V</i> − <i>ε</i><sub>back</sub> = <i>IR</i></span>. Multiply both sides by <i>I</i>: <span class="m"><i>VI</i> = <i>ε</i><sub>back</sub><i>I</i> + <i>I</i>²<i>R</i></span>.<br><b>Example (illustrative numbers):</b> <span class="m"><i>V</i> = 12 V, <i>R</i> = 2 Ω</span>. At switch-on: <span class="m"><i>I</i> = 12/2 = 6 A</span>. Once it is running with back emf = 10 V: <span class="m"><i>I</i> = (12 − 10)/2 = 1 A</span>.<br><b>Trap:</b> the back emf is 0 at switch-on and largest at maximum speed. Do not mix them up.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy in a motor</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>VI</i> = <i>ε</i><sub>back</sub><i>I</i> + <i>I</i>²<i>R</i></div>
+    <p class="trap" style="border-top:none;padding-top:0">Power in = mechanical power (useful) + heat in the coil. When stalled, back emf = 0, so <b>all</b> of the input energy becomes heat. So back emf is how the motor "does work".</p>
+  </div>
+
+  <h3>Lenz's law is really conservation of energy</h3>
+  <p>Imagine the induced emf <b>helped</b> the supply push. The faster the motor spins, the bigger the current and torque, so it spins even faster, and it speeds up without limit. Energy would be made from nothing, and this is impossible. So the induced emf must "push back".</p>
+
+  <figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">Animation 2 · Switch-on, load, stall</span><span class="sim-tag">V = 12 V · R = 2 Ω · illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Motor simulation. On the left is the rotor. In the middle is the supply voltage, with the part taken up by back emf. On the right is a graph of current against time. Below, the power is split into mechanical and heat."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s2-on" aria-pressed="false">Switch on</button>
+      <button class="btn" type="button" id="s2-load" aria-pressed="false">Add load</button>
+      <button class="btn" type="button" id="s2-stall" aria-pressed="false">Stall</button>
+      <button class="btn" type="button" id="s2-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Press "Switch on": the current jumps to 6 A first, then slowly falls. Look at the middle column: the longer the blue back emf, the shorter the orange "part that pushes the current". ② Press "Add load": the motor slows and the current rises. ③ Press "Stall": the current goes back to 6 A and the coil gets hotter and hotter.</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">5.3</div>
+  <h2>Generators: AC and DC</h2>
+  <p class="big"><span class="lbl">Big idea</span>An outside force turns the coil. The flux keeps changing, so an emf is produced. Kinetic energy becomes electrical energy.</p>
+  <ul class="pts">
+    <li>As the coil turns, θ changes, so <span class="m">Φ = <i>BA</i> cos <i>θ</i></span> changes and an emf is produced (Faraday: <span class="m"><i>ε</i> = −<i>N</i>ΔΦ/Δ<i>t</i></span>).</li>
+    <li>The emf depends on <b>how fast</b> Φ changes (the <span class="t">gradient</span> of the Φ–t graph), not on how big Φ is. This is the easiest place in the chapter to make a mistake.</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Coil position</th><th>Φ (flux)</th><th>ε (emf)</th></tr></thead>
+      <tbody>
+        <tr><td class="f">plane ⊥ <i>B</i></td><td>largest (<span class="m"><i>BA</i></span>)</td><td><b>0</b>: Φ is not changing at this instant. The wires move along the field lines and do not "cut" them.</td></tr>
+        <tr><td class="f">plane ∥ <i>B</i></td><td><b>0</b></td><td><b>largest</b>: Φ is changing fastest. The wires "cut" straight across the field lines.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">AC generator</div><p>Uses <span class="t">slip rings</span> (two full rings, each always joined to the same end of the coil). The coil's emf reverses every half turn, and the output reverses with it. So the output is alternating current (AC).</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">DC generator</div><p>Uses a <span class="t">split-ring commutator</span>. It swaps the connections every half turn (just when ε = 0). The output goes one way only, but in <span class="t">pulses</span>. It is direct current (DC).</p></div>
+  </div>
+  <h3>What changes the output?</h3>
+  <ul class="pts">
+    <li><b>Turning twice as fast:</b> <span class="t">peak emf</span> × 2, frequency × 2 (the period halves).</li>
+    <li><b>More turns, a stronger field, a bigger coil:</b> only the peak gets bigger. The frequency does not change.</li>
+    <li><b>Turning the other way:</b> the graph flips upside down.</li>
+  </ul>
+  <p><b>Energy:</b> when a device is connected, a current flows in the coil. This current is in a field, so it feels a force (motor effect). By Lenz's law this force opposes the turning. The bigger the current in the coil, the harder the coil is to turn. It is like a bike light run by a generator: when the light comes on, your legs get more tired.</p>
+
+  <figure class="sim" id="sim3">
+    <figcaption class="sim-head"><span class="sim-title">Animation 3 · Coil turning, flux and emf</span><span class="sim-tag">The two graphs line up in time</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="A generator coil turns in a magnetic field. On the right, the top graph shows flux against time and the bottom graph shows output emf against time."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <span class="seg" role="group" aria-label="Output type">
+        <button class="btn" type="button" id="s3-ac" aria-pressed="true">AC · slip rings</button>
+        <button class="btn" type="button" id="s3-dc" aria-pressed="false">DC · split ring</button>
+      </span>
+      <button class="btn" type="button" id="s3-step">Pause and turn 45°</button>
+      <label class="range">Speed <input type="range" id="s3-speed" min="0.5" max="2" step="0.25" value="1"><output id="s3-speed-out" for="s3-speed">× 1.0</output></label>
+    </div>
+    <p class="try"><b>Try it:</b> ① Look at the two graphs: when Φ is at its highest point, the emf is exactly 0. ② Press "Pause and turn 45°" to compare the graphs with the coil position, step by step. ③ Switch to DC: the negative half is flipped up. ④ Set Speed to ×&nbsp;2: the peak gets higher and the waves get closer together.</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">5.4</div>
+  <h2>AC induction motors</h2>
+  <p class="big"><span class="lbl">Big idea</span>The stator makes a rotating magnetic field. The field drags the rotor round, and the rotor is always a little slower.</p>
+  <p>The current in the rotor does not come in through wires. It is <b>induced</b>. So an induction motor has no brushes and no commutator.</p>
+  <ol class="pts">
+    <li><b>Rotating field:</b> the <span class="t">stator</span> has 3 pairs of coils connected to <span class="t">three-phase AC</span> (three alternating currents, a third of a cycle apart, that reach their maximum one after another). Together they make a field whose strength stays fixed and whose direction keeps turning. This is called a <span class="t">rotating magnetic field</span>. Note: the coils themselves do not move at all.</li>
+    <li><b>Induced current:</b> the <span class="t">rotor</span> is a <span class="t">squirrel cage</span>: metal bars joined at both ends by metal rings. As the field turns past, the flux through each loop changes, so currents are induced (Faraday).</li>
+    <li><b>Force:</b> the bars carry current in a field, so they feel a force (<span class="m"><i>F</i> = <i>lIB</i></span>). By Lenz's law the force opposes the "relative motion", so the rotor is dragged round after the field.</li>
+  </ol>
+  <ul class="pts">
+    <li><span class="t">Slip</span>: the rotor always turns slower than the field. If it caught up, there would be no relative motion between them, no flux change, no current and no force, so the rotor would slow down again.</li>
+    <li>A bigger load gives more slip, so more induced current and more torque.</li>
+    <li>Advantages: no brushes or commutator, so little wear and no sparking. Disadvantage: the supply frequency sets the speed, so it is hard to change.</li>
+    <li>Analogy: walking a dog. The lead (the field) goes ahead, and the dog (the rotor) is pulled along, but it is always a little behind. If the dog walks beside you, the lead goes loose and there is no pull.</li>
+  </ul>
+
+  <figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">Animation 4 · Rotating field and slip</span><span class="sim-tag">Front view · outer ring stator, inner ring rotor</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="The outer ring is three pairs of stator poles. Their colours change with the three-phase current. The arrow in the middle is the direction of the rotating field. The squirrel-cage rotor inside follows it, a little slower. On the right are the three-phase AC waves and a comparison of speeds."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <label class="range">Load <input type="range" id="s4-load" min="0" max="100" step="5" value="25"><output id="s4-load-out" for="s4-load">25%</output></label>
+      <button class="btn" type="button" id="s4-lock" aria-pressed="false">Let rotor catch the field</button>
+      <button class="btn" type="button" id="s4-reset">Start from rest</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Look at the outer ring: the A, B and C poles take turns getting stronger, so the big arrow in the middle (the field) turns. ② Drag Load up: the rotor slows, the slip grows, and the metal bars get brighter (the induced current grows). ③ Press "Let rotor catch the field": all the metal bars go dark. There is no current, so there is no force.</p>
+  </figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">5.4</div>
+  <h2>Magnetic braking</h2>
+  <p class="big"><span class="lbl">Big idea</span>When metal and a magnetic field move past each other, eddy currents are produced in the metal. The force from the eddy currents opposes the relative motion. So the object slows, and its kinetic energy becomes heat.</p>
+  <ul class="pts">
+    <li><span class="t">Eddy currents</span>: induced currents that flow in loops inside a piece of metal.</li>
+    <li>Use Lenz's law for the direction: when metal enters the field the flux increases, and when it leaves the flux decreases. So the eddy currents on the two sides go opposite ways. But the forces on both sides oppose the motion.</li>
+    <li>Example: a metal disc turns through a field into the page (×). Where metal enters the field the flux increases, and the eddy current is <span class="t">anticlockwise</span>. Where metal leaves the field the eddy current is <span class="t">clockwise</span>. In the field these two currents flow the same way, and the force on them is opposite to <span class="m"><i>v</i></span>. So the disc slows.</li>
+    <li>Energy: kinetic → electrical → heat in the metal.</li>
+    <li><b>The higher the speed, the bigger the braking force.</b> At zero speed the flux does not change and there is no force. So a magnetic brake <b>cannot hold an object still</b>. <span class="t">Friction brakes</span> finish the stop.</li>
+    <li>A stronger field or a better conductor brakes more strongly. <span class="t">Slots</span> in the metal break up the eddy-current loops and weaken the braking.</li>
+    <li>No contact, so no wear. Roller coasters, trains and drop towers all use it.</li>
+    <li><span class="t">Regenerative braking</span>: when an electric car brakes, its motor acts as a generator and charges the battery. By Lenz's law this also slows the car, and the energy is not wasted.</li>
+  </ul>
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Heat from a magnetic brake</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>Q</i> = ½<i>mu</i>² − ½<i>mv</i>²</div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>speed before braking</dd></div>
+      <div><dt>v</dt><dd>speed after braking</dd></div>
+      <div><dt>Q</dt><dd>heat produced (J)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> this is for level ground. If the object also falls a height Δh (for example a drop tower), add <span class="m"><i>mg</i>Δ<i>h</i></span>.</p>
+  </div>
+
+  <figure class="sim" id="sim5">
+    <figcaption class="sim-head"><span class="sim-title">Animation 5 · Magnets falling in three tubes</span><span class="sim-tag">Times are from the booklet's experiment</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Three identical magnets fall at the same time through a PVC tube, a slotted copper tube and a complete copper tube. The copper tubes have eddy currents, so the magnets fall slowly."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s5-drop">Drop</button>
+      <button class="btn" type="button" id="s5-slow" aria-pressed="false">Slow motion × ¼</button>
+      <button class="btn" type="button" id="s5-reset">Back to top</button>
+    </div>
+    <p class="try"><b>Try it:</b> Press "Drop". PVC does not conduct, so there are no eddy currents and the magnet is in free fall. In the complete copper tube the eddy currents are strongest. The braking force F soon equals the weight mg (the two arrows are the same length), and the magnet falls at constant speed. In the slotted copper tube the eddy currents are cut, so the magnet is only a little slower. The copper-coloured rings are the eddy currents: seen from above, the ring below the magnet is clockwise and the ring above it is anticlockwise.</p>
+  </figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">5.5</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Build a simple DC motor yourself</h3>
+    <dl>
+      <dt>Aim</dt><dd>To find the job of each part of a DC motor, and the effect of back emf.</dd>
+      <dt>Method</dt><dd>Wind a coil of <span class="t">enamelled wire</span> (wire with a thin insulating coat) and rest it on two paper clips, with a magnet below. Scrape the coat off all round one end, but off only the <b>top half</b> of the other end.</dd>
+      <dt>Results</dt><dd>The coil keeps spinning only when one end is half scraped.</dd>
+      <dt>Why</dt><dd>The half-scraped end switches the current off for the half turn when the torque would reverse. So the torque always acts one way, just like a commutator. The paper clips act as brushes.</dd>
+      <dt>back emf</dt><dd>Lab motor: when it is held still by hand for 1–2 seconds, the current is 1.5&nbsp;A. When it runs, the current is only 0.30&nbsp;A. The current is smaller when the motor runs, and this is the evidence for back emf.</dd>
+      <dt>Significance</dt><dd>It shows every part of a DC motor, and back emf, in a few minutes.</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Falling magnets and swinging plates</h3>
+    <dl>
+      <dt>Method</dt><dd>A strong magnet falls through a PVC tube, a slotted copper tube and a complete copper tube. An aluminium or copper plate swings between magnet poles, and then a slotted plate is used instead.</dd>
+      <dt>Results</dt><dd>Fall times: PVC 0.41&nbsp;s, slotted copper tube 0.56&nbsp;s, copper tube 3.57&nbsp;s. The solid plate stops quickly, and the slotted plate swings longer.</dd>
+      <dt>Conclusion</dt><dd>Eddy currents oppose the motion (Lenz), and the lost energy becomes heat. Slots cut the eddy currents, so the braking is weaker.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>τ</i> = <i>nIA</i><sub>⊥</sub><i>B</i> = <i>nIAB</i> sin <i>θ</i></td><td>torque on a coil (θ from the normal)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>τ</i> = <i>r</i>⊥<i>F</i> = <i>rF</i> sin <i>θ</i></td><td>torque from one force</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>I</i> = (<i>V</i> − <i>ε</i><sub>back</sub>)/<i>R</i></td><td>current in a running motor</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>VI</i> = <i>ε</i><sub>back</sub><i>I</i> + <i>I</i>²<i>R</i></td><td>power in = mechanical + heat</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>ε</i> = −<i>N</i> ΔΦ/Δ<i>t</i></td><td>average emf of a generator</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>Q</i> = ½<i>mu</i>² − ½<i>mv</i>²</td><td>heat from a magnetic brake (add <i>mg</i>Δ<i>h</i> if it falls)</td><td><span class="badge comb">Combine</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 7 before the exam</h3>
+  <ol class="must">
+    <li><span class="m"><i>τ</i> = <i>nIAB</i> sin <i>θ</i></span>, with θ from the normal. The torque is largest when the plane of the coil ∥ B.</li>
+    <li>The split-ring commutator reverses the current every half turn, so the torque always turns the coil one way.</li>
+    <li>Back emf opposes the supply and grows with speed: <span class="m"><i>I</i> = (<i>V</i> − <i>ε</i><sub>back</sub>)/<i>R</i></span> (not on the sheet).</li>
+    <li>Generator: the emf is largest when the plane of the coil ∥ B. Slip rings: AC. Split ring: DC.</li>
+    <li>Induction motor: a rotating field drags the cage rotor round, a little slower (slip).</li>
+    <li>Magnetic brake: eddy currents oppose the motion. There is no force at zero speed.</li>
+    <li>Lenz's law is conservation of energy: if induced currents helped the change, energy would be made from nothing.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> θ is the angle between B and the plane of the coil.<br><span class="ok">Right:</span> θ is the angle between B and the normal.</div>
+    <div><span class="x">Wrong:</span> the back emf is largest when a motor is switched on.<br><span class="ok">Right:</span> at switch-on the back emf = 0 and the current is largest.</div>
+    <div><span class="x">Wrong:</span> when a generator's Φ is largest, the emf is also largest.<br><span class="ok">Right:</span> when Φ is largest, emf = 0. When Φ = 0, the emf is largest.</div>
+    <div><span class="x">Wrong:</span> a DC motor uses slip rings.<br><span class="ok">Right:</span> DC motors and DC generators use a split ring. AC generators use slip rings.</div>
+    <div><span class="x">Wrong:</span> a magnetic brake can stop a car completely.<br><span class="ok">Right:</span> the lower the speed, the smaller the force. Friction brakes finish the stop.</div>
+    <div><span class="x">Wrong:</span> explaining Lenz's law by saying only "it opposes".<br><span class="ok">Right:</span> also say why: conservation of energy.</div>
+  </div>
+  <p class="jump-next"><a href="#s9">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s8">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Torque (τ)</td><td>力矩</td><td>The turning effect of a force, unit N m</td></tr>
+        <tr><td class="t">Couple</td><td>力偶</td><td>A pair of forces that are equal, opposite and not in line</td></tr>
+        <tr><td class="t">Lever arm (r⊥)</td><td>力臂</td><td>The perpendicular distance from the axle to the line of the force</td></tr>
+        <tr><td class="t">Normal</td><td>法线</td><td>A line at 90° to the plane of the coil</td></tr>
+        <tr><td class="t">Stator</td><td>定子</td><td>The part of a motor that does not move; it makes the magnetic field</td></tr>
+        <tr><td class="t">Rotor / armature</td><td>转子 / 电枢</td><td>The part of a motor that turns</td></tr>
+        <tr><td class="t">Split-ring commutator</td><td>换向器</td><td>Reverses the current in the coil every half turn</td></tr>
+        <tr><td class="t">Slip rings</td><td>滑环</td><td>Two full rings that do not swap the connections; used in an AC generator</td></tr>
+        <tr><td class="t">Brushes</td><td>电刷</td><td>Fixed contacts that carry electricity into the spinning coil</td></tr>
+        <tr><td class="t">Dead spot</td><td>死点</td><td>The position where torque = 0 and the coil cannot start by itself</td></tr>
+        <tr><td class="t">Radial magnetic field</td><td>辐向磁场</td><td>A field whose lines point out from the centre, like the spokes of a wheel</td></tr>
+        <tr><td class="t">Pole pieces</td><td>极靴</td><td>The curved ends of a magnet</td></tr>
+        <tr><td class="t">Back emf</td><td>反电动势</td><td>The emf that a spinning motor makes itself; it opposes the supply</td></tr>
+        <tr><td class="t">Net emf</td><td>净电动势</td><td>Supply voltage minus back emf; the part that really pushes the current</td></tr>
+        <tr><td class="t">Stall</td><td>堵转</td><td>Switched on but cannot turn</td></tr>
+        <tr><td class="t">Starting resistor</td><td>启动电阻</td><td>Put in series to limit the start-up current</td></tr>
+        <tr><td class="t">Load</td><td>负载</td><td>Whatever the motor drives</td></tr>
+        <tr><td class="t">Generator</td><td>发电机</td><td>Kinetic energy → electrical energy</td></tr>
+        <tr><td class="t">Three-phase AC</td><td>三相交流电</td><td>Three alternating currents that reach their maximum one after another</td></tr>
+        <tr><td class="t">Rotating magnetic field</td><td>旋转磁场</td><td>The coils do not move, but the direction of the field turns</td></tr>
+        <tr><td class="t">Squirrel-cage rotor</td><td>鼠笼式转子</td><td>Metal bars + metal rings at both ends</td></tr>
+        <tr><td class="t">Slip</td><td>转差</td><td>How much slower the rotor is than the field</td></tr>
+        <tr><td class="t">Eddy currents</td><td>涡流</td><td>Induced currents that flow in loops inside a piece of metal</td></tr>
+        <tr><td class="t">Magnetic braking</td><td>电磁制动</td><td>Slowing metal with eddy currents, without touching it</td></tr>
+        <tr><td class="t">Regenerative braking</td><td>再生制动</td><td>When braking, the motor generates electricity and charges the battery</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. When the plane of the coil is parallel to the field, is the torque largest or smallest?</summary><p class="ans"><b>Largest.</b> Here θ (between B and the normal) = 90°, sin 90° = 1, and the lever arm is longest.</p></details>
+    <details><summary>2. What happens to a DC motor with no split-ring commutator?</summary><p class="ans"><b>The coil rocks a few times, then stops with its plane ⊥ B.</b> Once the coil passes plane ⊥ B, the torque reverses and pulls the coil back.</p></details>
+    <details><summary>3. Why is the current largest when a motor is first switched on?</summary><p class="ans">It is not turning yet, so <b>back emf = 0</b>. So I = V/R, and only the small resistance of the coil limits the current.</p></details>
+    <details><summary>4. V = 12 V, R = 2 Ω, back emf = 10 V. What is the current? What about when it is stalled?</summary><p class="ans">Running: I = (12 − 10)/2 = <b>1 A</b>. Stalled: back emf = 0, I = 12/2 = <b>6 A</b>.</p></details>
+    <details><summary>5. When the plane of a generator's coil is ⊥ B, what is the emf? Why?</summary><p class="ans"><b>0.</b> Φ is largest here, but at this instant Φ is not changing (its rate of change is 0).</p></details>
+    <details><summary>6. Can the rotor of an induction motor turn as fast as the field?</summary><p class="ans"><b>No.</b> At the same speed there is no relative motion, the flux does not change, there is no induced current, and so there is no force.</p></details>
+    <details><summary>7. Why does a magnet fall slowly in a copper tube? Where does the lost energy go?</summary><p class="ans"><b>Eddy currents</b> are produced in the tube. By Lenz's law they oppose the motion of the magnet. The lost energy becomes <b>heat</b> in the tube.</p></details>
+  </div>
+</section>
+
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m6/t4.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M6 T4 · Transformers and Power Transmission</span></a><a class="pg next" href="../m7/t1.html"><span class="pg-k">Next topic →</span><span class="pg-t">M7 T1 · The Electromagnetic Spectrum</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 6 Electromagnetism · Chapter 5. The experimental data (0.41 s / 0.56 s / 3.57 s, 1.5 A / 0.30 A) are from the booklet; the fall times are from the Chapter 3 experiment. The motor example and the 12 V, 2 Ω in Animation 2 are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,MONO=S.MONO,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,rrect=S.rrect,dot=S.dot,ring=S.ring,
+  pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,press=S.press,FONT=S.FONT;
+/* word wrap for status lines: returns one line, or two when the text is wider than maxW */
+function wrap2(ctx,s,maxW,size,weight){ctx.font=weight+' '+size+'px '+FONT;if(ctx.measureText(s).width<=maxW)return [s];var w=s.split(' '),best=null;for(var i=1;i<w.length;i++){var a=w.slice(0,i).join(' '),b=w.slice(i).join(' '),m=Math.max(ctx.measureText(a).width,ctx.measureText(b).width);if(!best||m<best[0])best=[m,a,b];}return best?[best[1],best[2]]:[s];}
+
+/* ---------- Sim 1: coil + commutator ---------- */
+var m1={a:0.35,w:0,comm:true};
+var S1=makeStage('sim1',{
+  height:function(){return 430;},
+  step:function(dt){var n=6,h=dt/n;for(var i=0;i<n;i++){var c=Math.cos(m1.a);var sg;if(m1.comm){sg=Math.abs(c)<0.03?0:(c>=0?1:-1);}else sg=1;var tq=6*sg*c;m1.w+=(tq-0.9*m1.w)*h;m1.a+=m1.w*h;}m1.a=((m1.a%TAU)+TAU)%TAU;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var narrow=W<520,cy=165,ph=250,pw=narrow?36:50;
+    var lx=14,rx=W-14-pw,fx0=lx+pw+4,fx1=rx-4;
+    fieldLines(ctx,fx0,fx1,cy,3,34);
+    txt(ctx,'B',fx1-12,cy-3*34-10,C.muted,13,700,'center');
+    pole(ctx,lx,cy-ph/2,pw,ph,'N',C.north);
+    pole(ctx,rx,cy-ph/2,pw,ph,'S',C.south);
+    var cx=W/2,r=Math.max(60,Math.min(95,(fx1-fx0)/2-42));
+    var a=m1.a,c=Math.cos(a),s=Math.sin(a);
+    var ax=cx+r*c,ay=cy-r*s,bx=cx-r*c,by=cy+r*s;
+    var gap=m1.comm&&Math.abs(c)<0.03;
+    var sA=gap?0:(m1.comm?(c>=0?1:-1):1);
+    var nx=-s,ny=-c,nl=r*0.95;
+    seg(ctx,cx-nx*nl,cy-ny*nl,cx+nx*nl,cy+ny*nl,rgba(C.muted,0.85),1.3,[3,4]);
+    txt(ctx,'normal',cx+nx*(nl+18),cy+ny*(nl+18)+4,C.muted,12,500,'center');
+    if(sA!==0){
+      seg(ctx,ax,ay,ax,cy,rgba(C.force,0.5),1.2,[4,4]);
+      seg(ctx,bx,by,bx,cy,rgba(C.force,0.5),1.2,[4,4]);
+      seg(ctx,cx,cy,ax,cy,C.force,2.5);seg(ctx,cx,cy,bx,cy,C.force,2.5);
+      if(Math.abs(ax-cx)>28)txt(ctx,'r⊥',(cx+ax)/2,cy+19,C.force,13,700,'center');
+    }
+    ctx.lineCap='round';seg(ctx,ax,ay,bx,by,C.copper,7);ctx.lineCap='butt';
+    if(sA!==0){var L=44;arrow(ctx,ax,ay-sA*15,ax,ay-sA*(15+L),C.force,3,11);arrow(ctx,bx,by+sA*15,bx,by+sA*(15+L),C.force,3,11);
+      txt(ctx,'F',ax+11,ay-sA*(15+L/2)+5,C.force,14,700);txt(ctx,'F',bx+11,by+sA*(15+L/2)+5,C.force,14,700);}
+    wire(ctx,ax,ay,sA,13);wire(ctx,bx,by,-sA,13);
+    dot(ctx,cx,cy,5,C.ink);
+    /* readout */
+    seg(ctx,0,332,W,332,C.line,1);
+    var st;
+    if(gap)st='brushes on the gap → no current → torque = 0';
+    else if(Math.abs(c)<0.06)st=(!m1.comm&&Math.abs(m1.w)<0.05)?'plane ⊥ B → torque = 0 → it stops here':'plane ⊥ B → forces in line → torque = 0';
+    else if(!m1.comm&&c<0)st='past vertical → torque reverses, pulls coil back';
+    else if(Math.abs(c)>0.97)st='plane ∥ B → longest lever arm → largest torque';
+    else st=m1.comm?'with commutator: torque always turns one way':'no commutator: the coil rocks back and forth';
+    txt(ctx,st,16,narrow?353:358,C.ink,narrow?13.5:15,600);
+    var sinT=Math.abs(c);var th=Math.round(Math.asin(Math.min(1,sinT))*180/Math.PI);
+    txt(ctx,'θ = '+th+'°   sin θ = '+sinT.toFixed(2),16,383,C.muted,13,500,'left','alphabetic',MONO);
+    var b0=40,b1=W-112,bm=(b0+b1)/2,yb=398;
+    txt(ctx,'τ',16,yb+10,C.ink,16,600,'left','alphabetic','"STIX Two Text",serif');
+    rrect(ctx,b0,yb,b1-b0,11,5.5);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+    var tv=sA*c;if(Math.abs(tv)>0.005){ctx.fillStyle=C.force;var x0=Math.min(bm,bm+tv*(bm-b0)),wv=Math.abs(tv*(bm-b0));ctx.fillRect(x0,yb,wv,11);}
+    seg(ctx,bm,yb-4,bm,yb+15,C.muted,1.2);
+    txt(ctx,'0',bm,yb+27,C.muted,11,500,'center');
+    txt(ctx,'clockwise',b0,yb+27,C.muted,11,500,'left');txt(ctx,'anticlockwise',b1,yb+27,C.muted,11,500,'right');
+    /* commutator inset */
+    var ix=W-56,iy=380,R=19;
+    if(m1.comm){var g=0.14;for(var hh=0;hh<2;hh++){var cen=a+hh*Math.PI;var plus=Math.cos(cen)>0.03;ctx.beginPath();ctx.arc(ix,iy,R,-cen-Math.PI/2+g,-cen+Math.PI/2-g,false);ctx.strokeStyle=plus?C.copper:rgba(C.copper,0.38);ctx.lineWidth=7;ctx.stroke();}}
+    else{ring(ctx,ix,iy,R+2,rgba(C.copper,0.9),3);ring(ctx,ix,iy,R-5,rgba(C.copper,0.5),3);}
+    ctx.fillStyle=C.muted;ctx.fillRect(ix+R+5,iy-5,9,10);ctx.fillRect(ix-R-14,iy-5,9,10);
+    txt(ctx,'+',ix+R+9.5,iy-10,C.ink,12,700,'center');txt(ctx,'−',ix-R-9.5,iy-10,C.ink,12,700,'center');
+    txt(ctx,m1.comm?'split ring':'slip rings',ix,iy+R+20,C.muted,11,500,'center');
+  }
+});
+var b1c=document.getElementById('s1-comm');
+b1c.addEventListener('click',function(){m1.comm=!m1.comm;press(b1c,m1.comm);b1c.textContent='Commutator: '+(m1.comm?'on':'off');S1.render();});
+document.getElementById('s1-dead').addEventListener('click',function(){m1.a=Math.PI/2;m1.w=0;S1.render();});
+document.getElementById('s1-reset').addEventListener('click',function(){m1.a=0.35;m1.w=0;S1.setPlaying(true);S1.render();});
+
+/* ---------- Sim 2: back emf ---------- */
+var P2={V:12,R:2,k:0.12,J:0.015,b:0.0006,Lt:0.3,top:92};
+var m2;function reset2(){m2={on:false,load:false,stall:false,w:0,I:0,temp:0,t:0,hist:[],vis:0};}
+reset2();
+var S2=makeStage('sim2',{
+  height:function(w){return w>=640?350:470;},
+  step:function(dt){
+    var n=8,h=dt/n;
+    for(var i=0;i<n;i++){var eb=P2.k*m2.w;m2.I=m2.on?(P2.V-eb)/P2.R:0;if(m2.stall){m2.w=0;}else{var L=(m2.load&&m2.w>0.5)?P2.Lt:0;var tq=P2.k*m2.I-P2.b*m2.w-L-(m2.on?0:0.004*m2.w);m2.w=Math.max(0,m2.w+tq/P2.J*h);}}
+    var eb2=P2.k*m2.w;m2.I=m2.on?(P2.V-eb2)/P2.R:0;
+    var heat=m2.I*m2.I*P2.R/72;m2.temp=Math.min(1.3,Math.max(0,m2.temp+(0.55*heat-0.12*m2.temp)*dt));
+    m2.t+=dt;m2.vis+=m2.w*dt*0.08;m2.hist.push([m2.t,m2.I]);while(m2.hist.length&&m2.hist[0][0]<m2.t-10)m2.hist.shift();
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,V=P2.V,eb=P2.k*m2.w,I=m2.I,spd=m2.w/P2.top;
+    var st,stc=C.ink;
+    if(m2.stall&&m2.on){st='Stalled: back emf = 0 → I largest → heating!';stc=C.heat;}
+    else if(!m2.on)st=m2.w>1?'Power off: inertia keeps it turning, then it stops':'Supply off. Press Switch on to start';
+    else if(m2.load)st='Load: slower → back emf falls → current rises';
+    else if(eb/V<0.3)st='Switch-on: back emf ≈ 0 → current largest';
+    else if(eb/V<0.88)st='Speeding up: back emf rises → current falls';
+    else st='Near maximum speed: back emf ≈ V → current small';
+    txt(ctx,st,16,26,stc,wide?15:13.5,600);
+    var mx,my,mr,bx,by,bh,gx,gy,gw,gh,py;
+    if(wide){mr=Math.min(66,W*0.09);mx=24+mr;my=150;bx=W*0.27;by=62;bh=196;gx=W*0.56;gy=62;gw=W-gx-20;gh=186;py=292;}
+    else{mr=54;mx=20+mr;my=130;bx=Math.max(150,W*0.45);by=56;bh=150;gx=44;gy=272;gw=W-gx-18;gh=106;py=410;}
+    /* motor */
+    ctx.lineWidth=10;
+    ctx.beginPath();ctx.arc(mx,my,mr,Math.PI/2,Math.PI*1.5);ctx.strokeStyle=C.north;ctx.stroke();
+    ctx.beginPath();ctx.arc(mx,my,mr,-Math.PI/2,Math.PI/2);ctx.strokeStyle=C.south;ctx.stroke();
+    txt(ctx,'N',mx-mr*0.82,my+4,C.north,11,700,'center');txt(ctx,'S',mx+mr*0.82,my+4,C.south,11,700,'center');
+    var hot=Math.min(1,m2.temp),rc=hot>0.25?C.heat:C.copper;
+    ctx.save();if(hot>0.25){ctx.shadowColor=C.heat;ctx.shadowBlur=26*hot;}dot(ctx,mx,my,mr*0.62,rgba(rc,0.2+0.55*Math.max(hot,0.25)));ctx.restore();
+    ring(ctx,mx,my,mr*0.62,rc,3);
+    for(var i=0;i<3;i++){var an=m2.vis+i*TAU/3;seg(ctx,mx,my,mx+Math.cos(an)*mr*0.58,my+Math.sin(an)*mr*0.58,C.ink,3);}
+    dot(ctx,mx,my,5,C.ink);
+    txt(ctx,'speed '+Math.round(Math.min(1,spd)*100)+'%',mx,my+mr+24,C.ink,13,600,'center');
+    var hw=mr*1.7,hx=mx-hw/2,hy=my+mr+33;
+    hbar(ctx,hx,hy,hw,7,hot,C.heat);
+    txt(ctx,hot>0.8?'too hot → burn out!':'coil temperature',mx,hy+22,hot>0.8?C.heat:C.muted,12,hot>0.8?700:500,'center');
+    /* voltage column */
+    var bw=40;
+    txt(ctx,'supply V = 12 V',bx+bw/2,by-10,C.ink,12.5,600,'center');
+    rrect(ctx,bx,by,bw,bh,4);ctx.fillStyle=rgba(C.muted,0.08);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    var hb=bh*Math.min(1,eb/V);
+    if(hb>0.5){ctx.fillStyle=rgba(C.south,0.8);ctx.fillRect(bx+1.5,by+bh-hb,bw-3,hb-1.5);}
+    if(m2.on&&bh-hb>0.5){ctx.fillStyle=rgba(C.copper,0.85);ctx.fillRect(bx+1.5,by+1.5,bw-3,bh-hb-1.5);}
+    var lx=bx+bw+8;
+    txt(ctx,'back emf = '+eb.toFixed(1)+' V',lx,by+bh-Math.max(hb/2,8)+4,C.south,12.5,600);
+    if(m2.on){var ny2=by+Math.max((bh-hb)/2,10);txt(ctx,'V − back emf = '+(V-eb).toFixed(1)+' V',lx,ny2+4,C.copper,12.5,600);txt(ctx,'↑ pushes the current',lx,ny2+20,C.muted,11.5,500);}
+    /* graph */
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+    [0,2,4,6].forEach(function(v){var y=gy+gh-v/6*gh;if(v>0)seg(ctx,gx,y,gx+gw,y,C.grid,1);txt(ctx,String(v),gx-8,y+4,C.muted,11,500,'right');});
+    txt(ctx,'current I (A)',gx,gy-12,C.muted,12,600);
+    txt(ctx,'I = '+I.toFixed(2)+' A',gx+gw,gy-12,C.copper,15,700,'right','alphabetic',MONO);
+    if(m2.hist.length>1){ctx.beginPath();for(var j=0;j<m2.hist.length;j++){var p=m2.hist[j];var x=gx+(p[0]-(m2.t-10))/10*gw;var y=gy+gh-Math.min(6.3,p[1])/6*gh;if(j)ctx.lineTo(x,y);else ctx.moveTo(x,y);}ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();}
+    txt(ctx,'last 10 s →',gx+gw,gy+gh+16,C.muted,11,500,'right');
+    /* power */
+    var P=V*I,Pm=eb*I,Ph=I*I*P2.R;
+    txt(ctx,wide?('power: VI = back emf × I + I²R = '+P.toFixed(0)+' W'):('power: VI = '+P.toFixed(0)+' W'),16,py+6,C.ink,13,600);
+    var x0=16,x1=W-16,yb2=py+14;
+    rrect(ctx,x0,yb2,x1-x0,14,7);ctx.fillStyle=rgba(C.muted,0.15);ctx.fill();
+    if(P>0.05){var fm=Pm/P;ctx.save();rrect(ctx,x0,yb2,x1-x0,14,7);ctx.clip();ctx.fillStyle=C.force;ctx.fillRect(x0,yb2,(x1-x0)*fm,14);ctx.fillStyle=C.heat;ctx.fillRect(x0+(x1-x0)*fm,yb2,(x1-x0)*(1-fm),14);ctx.restore();
+      txt(ctx,(wide?'mechanical = back emf × I = ':'mechanical ')+Pm.toFixed(0)+' W',x0,yb2+32,C.force,12,600);
+      txt(ctx,(wide?'heat = I²R = ':'heat ')+Ph.toFixed(0)+' W',x1,yb2+32,C.heat,12,600,'right');}
+    else txt(ctx,'No current, so no power',x0,yb2+32,C.muted,12,500);
+  }
+});
+var b2on=document.getElementById('s2-on'),b2ld=document.getElementById('s2-load'),b2st=document.getElementById('s2-stall');
+function sync2(){press(b2on,m2.on);b2on.textContent=m2.on?'Switch off':'Switch on';press(b2ld,m2.load);press(b2st,m2.stall);b2st.textContent=m2.stall?'Release':'Stall';}
+b2on.addEventListener('click',function(){m2.on=!m2.on;sync2();S2.setPlaying(true);S2.render();});
+b2ld.addEventListener('click',function(){m2.load=!m2.load;sync2();S2.render();});
+b2st.addEventListener('click',function(){m2.stall=!m2.stall;sync2();S2.setPlaying(true);S2.render();});
+document.getElementById('s2-reset').addEventListener('click',function(){reset2();sync2();S2.render();});
+
+/* ---------- Sim 3: generator ---------- */
+var F0=0.4,TW=5;
+var m3={b:0,mul:1,mode:'AC',t:0,hist:[]};
+function step3(dt){var om=TAU*F0*m3.mul;m3.b+=om*dt;m3.t+=dt;var e=m3.mul*Math.sin(m3.b);m3.hist.push([m3.t,Math.cos(m3.b),m3.mode==='DC'?Math.abs(e):e]);while(m3.hist.length&&m3.hist[0][0]<m3.t-TW-0.1)m3.hist.shift();}
+for(var q=0;q<300;q++)step3(1/60);
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?330:570;},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,cw=wide?Math.min(330,W*0.45):W,cx=cw/2,cy=wide?H/2-6:140;
+    var hs=Math.min(cw/2-12,150),pw=wide?32:30,ph=wide?190:180;
+    var fx0=cx-hs+pw+4,fx1=cx+hs-pw-4;
+    fieldLines(ctx,fx0,fx1,cy,2,42);
+    pole(ctx,cx-hs,cy-ph/2,pw,ph,'N',C.north);pole(ctx,cx+hs-pw,cy-ph/2,pw,ph,'S',C.south);
+    txt(ctx,m3.mode==='AC'?'AC generator · slip rings':'DC generator · split ring',12,22,C.muted,12.5,600);
+    var r=Math.max(50,hs-pw-42);
+    var b=m3.b,phi=b+Math.PI/2,c=Math.cos(phi),s=Math.sin(phi);
+    var ax=cx+r*c,ay=cy-r*s,bx=cx-r*c,by=cy+r*s;
+    var sb=Math.sin(b),sA=Math.abs(sb)<0.08?0:(sb>0?1:-1);
+    var nx=-s,ny=-c,nl=r*0.9;
+    seg(ctx,cx-nx*nl,cy-ny*nl,cx+nx*nl,cy+ny*nl,rgba(C.muted,0.8),1.3,[3,4]);
+    var vl=Math.min(34,20*m3.mul+4);
+    arrow(ctx,ax+nx*16,ay+ny*16,ax+nx*(16+vl),ay+ny*(16+vl),rgba(C.ink,0.6),2,8);
+    arrow(ctx,bx-nx*16,by-ny*16,bx-nx*(16+vl),by-ny*(16+vl),rgba(C.ink,0.6),2,8);
+    txt(ctx,'v',ax+nx*(22+vl)+6,ay+ny*(22+vl)+4,C.muted,12,600,'center');
+    ctx.lineCap='round';seg(ctx,ax,ay,bx,by,C.copper,7);ctx.lineCap='butt';
+    wire(ctx,ax,ay,sA,12);wire(ctx,bx,by,-sA,12);
+    dot(ctx,cx,cy,5,C.ink);
+    var st,col=C.muted;
+    if(Math.abs(sb)<0.2){st='plane ⊥ B: Φ largest but not changing → ε = 0';col=C.ink;}
+    else if(Math.abs(Math.cos(b))<0.2){st='plane ∥ B: Φ = 0 but changing fastest → ε largest';col=C.copper;}
+    else st='coil turning, Φ changing → emf produced';
+    txt(ctx,st,cx,cy+ph/2+26,col,13.5,600,'center');
+    var gx,gw,g1,g2,gh;
+    if(wide){gx=cw+40;gw=W-gx-20;gh=106;g1=40;g2=g1+gh+56;}else{gx=40;gw=W-58;gh=104;g1=cy+ph/2+62;g2=g1+gh+50;}
+    function graph(y0,label,idx,ymax,col2,refs){
+      var mid=y0+gh/2;
+      seg(ctx,gx,y0,gx,y0+gh,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+      refs.forEach(function(rf){var y=mid-rf[0]/ymax*(gh/2);seg(ctx,gx,y,gx+gw,y,C.grid,1,[2,4]);txt(ctx,rf[1],gx-6,y+4,C.muted,11,500,'right');});
+      txt(ctx,label,gx,y0-10,col2,12.5,700);
+      var t0=m3.t-TW;ctx.save();ctx.beginPath();ctx.rect(gx,y0-4,gw+2,gh+8);ctx.clip();ctx.beginPath();var first=true;
+      for(var j=0;j<m3.hist.length;j++){var p=m3.hist[j];var x=gx+(p[0]-t0)/TW*gw;var y=mid-p[idx]/ymax*(gh/2);if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+      ctx.strokeStyle=col2;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();ctx.restore();
+      var lp=m3.hist[m3.hist.length-1];if(lp)dot(ctx,gx+gw,mid-lp[idx]/ymax*(gh/2),4.5,col2);
+    }
+    graph(g1,'Φ  flux',1,1.2,C.south,[[1,'BA'],[-1,'−BA']]);
+    graph(g2,'ε  output emf',2,2.25,C.copper,[[1,'×1'],[-1,'']]);
+    seg(ctx,gx+gw,g1,gx+gw,g2+gh,rgba(C.muted,0.6),1,[3,4]);
+    txt(ctx,'time → (now at right edge)',gx+gw,g2+gh+16,C.muted,11,500,'right');
+  }
+});
+var b3ac=document.getElementById('s3-ac'),b3dc=document.getElementById('s3-dc');
+function setMode(m){m3.mode=m;press(b3ac,m==='AC');press(b3dc,m==='DC');S3.render();}
+b3ac.addEventListener('click',function(){setMode('AC');});b3dc.addEventListener('click',function(){setMode('DC');});
+document.getElementById('s3-step').addEventListener('click',function(){S3.setPlaying(false);var om=TAU*F0*m3.mul;var tot=(Math.PI/4)/om;for(var i=0;i<30;i++)step3(tot/30);S3.render();});
+var r3=document.getElementById('s3-speed'),o3=document.getElementById('s3-speed-out');
+r3.addEventListener('input',function(){m3.mul=parseFloat(r3.value);o3.textContent='× '+m3.mul.toFixed(m3.mul%1?2:1);S3.render();});
+
+/* ---------- Sim 4: induction motor ---------- */
+var P4={ws:TAU*0.3,k:1.2,b:0.06,J:0.5,Lmax:1.2};
+var m4={t:0,th:0,w:0,load:0.25,lock:false};
+function step4(dt){m4.t+=dt;if(m4.lock){m4.w=P4.ws;}else{var L=m4.w>0.05?m4.load*P4.Lmax:0;var tq=P4.k*(P4.ws-m4.w)-P4.b*m4.w-L;m4.w=Math.max(0,m4.w+tq/P4.J*dt);}m4.th+=m4.w*dt;}
+for(var q4=0;q4<240;q4++)step4(1/60);
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?340:610;},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,cx,cy,R1,gx,gy,gw,ry;
+    if(wide){R1=Math.min(128,(H-56)/2);cx=24+R1+16;cy=H/2+4;gx=cx+R1+52;gw=W-gx-20;gy=48;ry=gy+150;}
+    else{R1=Math.min(118,(W-48)/2-12);cx=W/2;cy=R1+44;gx=36;gw=W-54;gy=cy+R1+56;ry=gy+150;}
+    var phc=[C.copper,C.force,C.violet],names=['A','B','C'];
+    ring(ctx,cx,cy,R1,rgba(C.muted,0.22),18);
+    for(var k=0;k<3;k++){
+      var I=Math.cos(P4.ws*m4.t-k*TAU/3);
+      for(var e=0;e<2;e++){
+        var ang=k*TAU/3+e*Math.PI;var isS=(e===0)?(I>0):(I<0);var col=isS?C.south:C.north;
+        ctx.beginPath();ctx.arc(cx,cy,R1,-ang-0.3,-ang+0.3);ctx.strokeStyle=rgba(col,0.12+0.88*Math.abs(I));ctx.lineWidth=18;ctx.stroke();
+        if(Math.abs(I)>0.4)txt(ctx,isS?'S':'N',cx+Math.cos(ang)*R1,cy-Math.sin(ang)*R1+4,'#ffffff',11,700,'center');
+        txt(ctx,names[k]+(e?'′':''),cx+Math.cos(ang)*(R1+22),cy-Math.sin(ang)*(R1+22)+4,phc[k],12.5,700,'center');
+      }
+    }
+    var R2=R1*0.6,slip=Math.max(0,1-m4.w/P4.ws),Ii=m4.lock?0:Math.min(1,slip/0.6);
+    dot(ctx,cx,cy,R2,C.surface);ring(ctx,cx,cy,R2,C.muted,3);ring(ctx,cx,cy,R2*0.62,rgba(C.muted,0.45),1.5);
+    for(var i=0;i<10;i++){var an=m4.th+i*TAU/10;var x=cx+Math.cos(an)*R2*0.81,y=cy-Math.sin(an)*R2*0.81;
+      if(Ii>0.05){ctx.save();ctx.shadowColor=C.copper;ctx.shadowBlur=10*Ii;dot(ctx,x,y,R2*0.1,rgba(C.copper,0.15+0.85*Ii));ctx.restore();}else dot(ctx,x,y,R2*0.1,rgba(C.copper,0.12));
+      ring(ctx,x,y,R2*0.1,C.copper,1.5);}
+    seg(ctx,cx,cy,cx+Math.cos(m4.th)*R2*0.58,cy-Math.sin(m4.th)*R2*0.58,C.ink,3);
+    var fa=P4.ws*m4.t,ux=Math.cos(fa),uy=-Math.sin(fa),al=R1*0.8;
+    arrow(ctx,cx-ux*al,cy-uy*al,cx+ux*al,cy+uy*al,rgba(C.ink,0.82),3.5,14);
+    txt(ctx,'B',cx+ux*(al-22)-uy*14,cy+uy*(al-22)+ux*14+4,C.ink,13,700,'center');
+    dot(ctx,cx,cy,4.5,C.ink);
+    /* waves */
+    var wh=100,mid=gy+wh/2;
+    txt(ctx,'three-phase AC: A, B, C peak in turn',gx,gy-14,C.muted,12.5,600);
+    seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+    for(var k2=0;k2<3;k2++){ctx.beginPath();for(var xx=0;xx<=gw;xx+=3){var ph=xx/gw*TAU;var yy=mid-Math.cos(ph-k2*TAU/3)*wh/2*0.88;if(xx)ctx.lineTo(gx+xx,yy);else ctx.moveTo(gx+xx,yy);}ctx.strokeStyle=phc[k2];ctx.lineWidth=2;ctx.stroke();}
+    var pc=((P4.ws*m4.t)%TAU+TAU)%TAU,xc=gx+pc/TAU*gw;
+    seg(ctx,xc,gy,xc,gy+wh,rgba(C.ink,0.55),1.2,[3,3]);
+    for(var k3=0;k3<3;k3++){dot(ctx,xc,mid-Math.cos(pc-k3*TAU/3)*wh/2*0.88,4.2,phc[k3]);}
+    /* readouts */
+    var st;
+    if(m4.lock)st='rotor = field speed → flux not changing → no current, no force';
+    else if(m4.w<0.35*P4.ws)st='Just started: large slip → large current and torque';
+    else st='rotor slower than field → induced current → dragged round';
+    var st4=wrap2(ctx,st,gw,wide?14:12.5,600);st4.forEach(function(ln,i){txt(ctx,ln,gx,ry-(st4.length-1-i)*18,m4.lock?C.north:C.ink,wide?14:12.5,600);});
+    var lw=wide?120:106,bx0=gx+lw,bx1=gx+gw-46;
+    function row(y,label,frac,col,val){txt(ctx,label,gx,y,C.ink,12.5,600);hbar(ctx,bx0,y-9,bx1-bx0,10,frac,col);txt(ctx,val,gx+gw,y,C.ink,12.5,600,'right','alphabetic',MONO);}
+    row(ry+30,'field speed',1,rgba(C.ink,0.75),'100%');
+    row(ry+56,'rotor speed',m4.w/P4.ws,C.force,Math.round(m4.w/P4.ws*100)+'%');
+    row(ry+82,'induced current',Ii,C.copper,Ii<0.02?'0':'');
+    txt(ctx,'slip = '+Math.round(slip*100)+'%   (how much faster the field is)',gx,ry+110,C.muted,12.5,600);
+  }
+});
+var r4=document.getElementById('s4-load'),o4=document.getElementById('s4-load-out'),b4l=document.getElementById('s4-lock');
+r4.addEventListener('input',function(){m4.load=parseInt(r4.value,10)/100;o4.textContent=r4.value+'%';S4.render();});
+b4l.addEventListener('click',function(){m4.lock=!m4.lock;press(b4l,m4.lock);b4l.textContent=m4.lock?'Release rotor':'Let rotor catch the field';S4.render();});
+document.getElementById('s4-reset').addEventListener('click',function(){m4.w=0;m4.lock=false;press(b4l,false);b4l.textContent='Let rotor catch the field';S4.setPlaying(true);S4.render();});
+
+/* ---------- Sim 5: falling magnets ---------- */
+var G=9.8,LF=0.5*G*0.41*0.41;
+function xk(t,k){return k<1e-9?0.5*G*t*t:(G/k)*t-(G/(k*k))*(1-Math.exp(-k*t));}
+function vk(t,k){return k<1e-9?G*t:(G/k)*(1-Math.exp(-k*t));}
+function solveK(T){var lo=1e-6,hi=500;for(var i=0;i<90;i++){var m=(lo+hi)/2;if(xk(T,m)>LF)lo=m;else hi=m;}return (lo+hi)/2;}
+var tubes=[{n:'PVC',sub:'plastic, insulator',T:0.41,k:0,type:0},{n:'slotted copper',sub:'tube with a slot',T:0.56,k:0,type:1},{n:'copper',sub:'complete tube',T:3.57,k:0,type:2}];
+tubes.forEach(function(tb){if(tb.type)tb.k=solveK(tb.T);});
+var m5={t:0,run:false,slow:false};
+var S5=makeStage('sim5',{
+  autoplay:true,
+  height:function(w){return w<480?448:430;},
+  step:function(dt){if(!m5.run)return;m5.t+=dt*(m5.slow?0.25:1);if(m5.t>=tubes[2].T){m5.t=tubes[2].T+0.0001;m5.run=false;}},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var colW=W/3,tw=W<480?32:40,yt=74,yb=H-(W<480?104:86);
+    for(var i=0;i<3;i++){
+      var tb=tubes[i],xc=colW*(i+0.5),tl=xc-tw/2;
+      txt(ctx,tb.n,xc,26,C.ink,W<420?12.5:13.5,700,'center');txt(ctx,tb.sub,xc,45,C.muted,12,500,'center');
+      if(tb.type===0){ctx.fillStyle=rgba(C.field,0.2);ctx.fillRect(tl,yt,tw,yb-yt);ctx.strokeStyle=C.field;ctx.lineWidth=1.5;ctx.strokeRect(tl,yt,tw,yb-yt);}
+      else{ctx.fillStyle=rgba(C.copper,0.2);ctx.fillRect(tl,yt,tw,yb-yt);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.strokeRect(tl,yt,tw,yb-yt);if(tb.type===1)seg(ctx,xc,yt,xc,yb,C.stage,4);}
+      seg(ctx,xc-tw,yb+2,xc+tw,yb+2,C.muted,2);
+      var tt=Math.min(m5.t,tb.T),pos=Math.min(LF,xk(tt,tb.k)),falling=m5.t>0&&m5.t<tb.T,v=falling?vk(tt,tb.k):0;
+      var mw=tw-10,mh=24,my=yt+4+pos/LF*(yb-yt-8-mh);
+      if(tb.type>0&&falling&&v>0.01){
+        var strength=Math.min(1,tb.k*v/G),aa=0.3+0.7*strength;
+        [-1,1].forEach(function(sg){var ey=my+mh/2+sg*(mh/2+9);ctx.lineWidth=tb.type===1?1.5:2.6;ctx.setLineDash(tb.type===1?[4,4]:[]);
+          ctx.beginPath();ctx.ellipse(xc,ey,tw/2+7,6,0,Math.PI,TAU);ctx.strokeStyle=rgba(C.copper,aa*0.35);ctx.stroke();
+          ctx.beginPath();ctx.ellipse(xc,ey,tw/2+7,6,0,0,Math.PI);ctx.strokeStyle=rgba(C.copper,aa);ctx.stroke();ctx.setLineDash([]);
+          /* front (lower) edge: ring below the magnet is clockwise seen from above (front moves left), ring above is anticlockwise */
+          var ax=xc,ay=ey+6;ctx.beginPath();ctx.moveTo(ax-5*sg,ay);ctx.lineTo(ax+3*sg,ay-4);ctx.lineTo(ax+3*sg,ay+4);ctx.closePath();ctx.fillStyle=rgba(C.copper,aa);ctx.fill();});
+      }
+      rrect(ctx,xc-mw/2,my,mw,mh,3);ctx.save();ctx.clip();ctx.fillStyle=C.north;ctx.fillRect(xc-mw/2,my,mw,mh/2);ctx.fillStyle=C.south;ctx.fillRect(xc-mw/2,my+mh/2,mw,mh/2);ctx.restore();
+      txt(ctx,'N',xc,my+mh/4+1,'#ffffff',11,700,'center','middle');txt(ctx,'S',xc,my+mh*0.75+1,'#ffffff',11,700,'center','middle');
+      if(falling){var fx=xc+tw/2+13,fy=my+mh/2,L=30,fr=Math.min(1.05,tb.k*v/G);
+        arrow(ctx,fx,fy,fx,fy+L,C.muted,2.2,7);txt(ctx,'mg',fx,fy+L+13,C.muted,11,600,'center');
+        if(fr*L>3){arrow(ctx,fx,fy,fx,fy-fr*L,C.force,2.6,7);txt(ctx,'F',fx,fy-fr*L-6,C.force,11.5,700,'center');}}
+      var done=m5.t>=tb.T;
+      txt(ctx,(done?tb.T:Math.min(m5.t,tb.T)).toFixed(2)+' s',xc,yb+30,done?C.ink:C.muted,17,700,'center','alphabetic',MONO);
+      txt(ctx,'v = '+v.toFixed(2)+' m/s',xc,yb+50,C.muted,11.5,500,'center');
+    }
+    var st;
+    if(m5.t===0)st='Press Drop: three identical magnets fall at the same time';
+    else if(m5.t<tubes[2].T){var vc=vk(Math.min(m5.t,tubes[2].T),tubes[2].k),term=G/tubes[2].k;st=(vc>0.95*term)?'Copper tube: braking force F = mg → constant speed':'Copper tube: strongest eddy currents → largest braking force';}
+    else st='PVC: no eddy currents, fastest. Slotted: weak eddy currents. Copper: slowest';
+    var st5=wrap2(ctx,st,W-24,W<420?12.5:13.5,600);st5.forEach(function(ln,i){txt(ctx,ln,W/2,H-12-(st5.length-1-i)*18,C.ink,W<420?12.5:13.5,600,'center');});
+  }
+});
+var b5s=document.getElementById('s5-slow');
+document.getElementById('s5-drop').addEventListener('click',function(){m5.t=0;m5.run=true;S5.setPlaying(true);S5.render();});
+b5s.addEventListener('click',function(){m5.slow=!m5.slow;press(b5s,m5.slow);});
+document.getElementById('s5-reset').addEventListener('click',function(){m5.t=0;m5.run=false;S5.render();});
+})();
+</script>
+</body>
+</html>

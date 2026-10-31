@@ -1,0 +1,1798 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T4 Transformers and Power Transmission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 4</span><a class="lang" lang="zh-Hans" href="../../m6/t4.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 4</div>
+  <h1>Transformers and Power Transmission</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter covers three things: how a transformer makes an AC voltage bigger or smaller, why a real transformer gets hot, and why the grid sends electricity at a very high voltage. It uses <b>three rules</b> you have already learned. Once you know these three, the rest is just simple ratios.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s8">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s10">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Faraday's law</div>
+    <p>An <span class="t">emf</span> is produced only when the <span class="t">flux</span> changes. If the flux does not change, there is no emf. So a transformer works only on <span class="t">AC</span>.</p>
+    <div class="eqs"><i>ε</i> = −<i>N</i> ΔΦ / Δ<i>t</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Conservation of energy</div>
+    <p>Energy is conserved. In an ideal transformer, <span class="t">power</span> in = power out. Voltage up means current down.</p>
+    <div class="eqs"><i>V</i><sub>p</sub><i>I</i><sub>p</sub> = <i>V</i><sub>s</sub><i>I</i><sub>s</sub></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Resistive heating</div>
+    <p>A current flowing through a resistance makes heat (resistive heating). If the current becomes 1/10, the heat is only 1/100.</p>
+    <div class="eqs"><i>P</i><sub>loss</sub> = <i>I</i>²<i>R</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="In this chapter">
+  <div class="map-row head"><span>Part</span><span>Key formula</span><span>Rules used</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">4.1</span><span class="t">How a transformer works</span></span><span><span class="m"><i>V</i><sub>p</sub>/<i>V</i><sub>s</sub> = <i>N</i><sub>p</sub>/<i>N</i><sub>s</sub></span></span><span>① Current changes → flux changes → emf in the secondary</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">4.1</span><span class="t">Power and current</span></span><span><span class="m"><i>V</i><sub>p</sub><i>I</i><sub>p</sub> = <i>V</i><sub>s</sub><i>I</i><sub>s</sub></span></span><span>② Voltage up, current down</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">4.2</span><span class="t">Energy losses</span></span><span><span class="m"><i>η</i> = <i>P</i><sub>out</sub>/<i>P</i><sub>in</sub></span></span><span>② The lost power becomes heat</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">4.2</span><span class="t">Eddy currents</span></span><span>Laminated core</span><span>① The core also has induced currents, and they make heat</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">4.3</span><span class="t">High-voltage transmission</span></span><span><span class="m"><i>P</i><sub>loss</sub> = <i>I</i>²<i>R</i></span></span><span>③ Small current, much less heat</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">4.3</span><span class="t">The grid</span></span><span>20&nbsp;kV → 330/500&nbsp;kV → 230&nbsp;V</span><span>③ Step up to send; ① AC only</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">4.4</span><span class="t">Key experiment</span></span><span>600 turns · 6.0&nbsp;V</span><span>Test <i>V</i><sub>s</sub> ∝ <i>N</i><sub>s</sub> and measure efficiency</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially number 1: if the flux does not change, there is no emf.</li>
+    <li>Teach 4.1 → 4.3 in order. For each section, read the "Big idea" first, then open the animation and let the student say: does the voltage get bigger or smaller? What about the current? Where does the energy go?</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li><span class="t">Magnetic flux</span> and <span class="t">Faraday's law</span>: the faster the flux changes, the bigger the emf. However big the flux is, if it does not change, the emf is 0.</li>
+    <li><span class="t">Lenz's law</span>: an induced current always opposes the change in flux.</li>
+    <li><span class="t">Right-hand grip rule</span>: point your thumb along the current, and your curled fingers show the direction of the magnetic field. The direction of the current in a coil decides the direction of the flux in the core.</li>
+    <li>Electric power <span class="m"><i>P</i>&nbsp;=&nbsp;<i>VI</i></span> and <span class="t">Ohm's law</span> <span class="m"><i>V</i>&nbsp;=&nbsp;<i>IR</i></span>: both are on the sheet.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">4.1</div>
+  <h2>The ideal transformer: how a transformer works</h2>
+  <p class="big"><span class="lbl">Big idea</span>A transformer can make an AC voltage bigger or smaller. A changing current in one coil makes a changing flux in an iron core, and this induces an emf in a second coil.</p>
+  <ul class="pts">
+    <li><span class="t">Transformer</span>: a device that changes the size of an AC voltage.</li>
+    <li><span class="t">AC</span> (<span class="t">alternating current</span>): current that keeps reversing. <span class="t">DC</span> (<span class="t">direct current</span>) flows one way only.</li>
+    <li><span class="t">Primary coil</span>: the input coil, joined to the supply. <span class="t">Secondary coil</span>: the output coil, joined to the <span class="t">load</span> (the device that uses the energy).</li>
+    <li><span class="t">Mutual induction</span>: an emf made in one coil by a changing current in a nearby coil.</li>
+    <li><span class="t">Step-up</span>: more secondary turns, so a bigger voltage. <span class="t">Step-down</span>: fewer secondary turns, so a smaller voltage.</li>
+    <li>Both coils are wrapped around one closed <span class="t">core</span>. The core is a ring of <span class="t">soft iron</span> (iron that is easy to magnetise and demagnetise).</li>
+  </ul>
+
+  <h3>How the output voltage is made</h3>
+  <ol class="pts">
+    <li>AC in the primary makes a magnetic field that keeps changing size and direction.</li>
+    <li>The iron core carries this changing flux to the secondary.</li>
+    <li>The flux through each secondary turn changes, so an emf is induced in every turn (Faraday's law, <span class="m"><i>ε</i>&nbsp;=&nbsp;−<i>N</i>&nbsp;ΔΦ/&#8288;Δ<i>t</i></span>).</li>
+    <li>The turns are in series, so their emfs add up. More turns, bigger voltage.</li>
+    <li>The flux reverses with the supply, so the output is also AC, with the <b>same frequency</b>.</li>
+  </ol>
+  <p>Note: <b>no wire</b> joins the two coils, and no charge crosses between them. The changing magnetic field carries the energy. The direction of the flux in the core reverses every half-cycle (in Animation 1 you can see the flux arrows reverse).</p>
+
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Why AC is needed</div><p>Steady DC makes a magnetic field that <b>does not change</b>, so <span class="m">ΔΦ/&#8288;Δ<i>t</i>&nbsp;=&nbsp;0</span>: no emf. DC gives only a short <span class="t">pulse</span> at the moment it is switched on or off (see <a href="t3.html#sim5">Animation 5 of Topic 3</a>).</p></div>
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">Why <i>V</i> ∝ <i>N</i></div><p>The same flux passes through every turn of both coils, so each turn has the same emf. So the voltage ratio = the <span class="t">turns ratio</span> <span class="m"><i>N</i><sub>p</sub>&nbsp;:&nbsp;<i>N</i><sub>s</sub></span>.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">The transformer (turns) equation</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>V</i><sub>p</sub> / <i>V</i><sub>s</sub> = <i>N</i><sub>p</sub> / <i>N</i><sub>s</sub></div>
+    <dl class="sym">
+      <div><dt>V<sub>p</sub></dt><dd>voltage of the primary (input) (V)</dd></div>
+      <div><dt>V<sub>s</sub></dt><dd>voltage of the secondary (output) (V)</dd></div>
+      <div><dt>N<sub>p</sub></dt><dd>number of turns on the primary (no unit)</dd></div>
+      <div><dt>N<sub>s</sub></dt><dd>number of turns on the secondary (no unit)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a transformer on AC (exact if ideal). Not for DC, and not for currents.<br><b>Example:</b> <span class="m"><i>N</i><sub>p</sub>&nbsp;=&nbsp;600, <i>V</i><sub>p</sub>&nbsp;=&nbsp;6.0&nbsp;V, <i>N</i><sub>s</sub>&nbsp;=&nbsp;1200</span>: <span class="m"><i>V</i><sub>s</sub>&nbsp;=&nbsp;6.0&nbsp;×&nbsp;1200/&#8288;600&nbsp;=&nbsp;12&nbsp;V</span>. This is step-up.<br><b>Trap:</b> primary values go on top of both fractions. The primary is the coil joined to the supply.</p>
+  </div>
+
+  <h3>What the output looks like</h3>
+  <ul class="pts">
+    <li>The frequency stays the same. The <span class="t">peak</span> (the largest voltage in each cycle) is multiplied by <span class="m"><i>N</i><sub>s</sub>/&#8288;<i>N</i><sub>p</sub></span>.</li>
+    <li><span class="t">Mains</span> (the electricity from a power point at home): 230&nbsp;V AC, 50&nbsp;Hz (<span class="m"><i>T</i>&nbsp;=&nbsp;1/&#8288;<i>f</i>&nbsp;=&nbsp;20&nbsp;ms</span>).</li>
+    <li>230&nbsp;V is an <span class="t">effective value</span>: a steady voltage (DC) of 230&nbsp;V heats a heater by the same amount as this AC. The peak is about 325&nbsp;V.</li>
+    <li>Never mix peak and effective values.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">AC frequency</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>f</i> = 1 / <i>T</i></div>
+    <dl class="sym">
+      <div><dt>f</dt><dd><span class="t">frequency</span>: the number of complete back-and-forth cycles each second (Hz)</dd></div>
+      <div><dt>T</dt><dd><span class="t">period</span>: the time for one complete back-and-forth cycle (s)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> mains is 50&nbsp;Hz, so <span class="m"><i>T</i>&nbsp;=&nbsp;1/&#8288;50&nbsp;=&nbsp;0.02&nbsp;s&nbsp;=&nbsp;20&nbsp;ms</span>. A transformer does not change the frequency, so the secondary is also 50&nbsp;Hz.</p>
+  </div>
+
+  <h3>From the primary current graph to the secondary emf</h3>
+  <p>The flux follows the current. So the secondary emf follows the <span class="t">gradient</span> (how steep the graph is) of the current graph, not how big the current is. It is like a car: the steeper the distance graph, the faster the car. If the distance graph is flat, the car is stopped.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Primary current graph</th><th>Secondary emf</th></tr></thead>
+      <tbody>
+        <tr><td>Flat</td><td><b>0</b></td></tr>
+        <tr><td>Steepest part</td><td><b>Biggest</b></td></tr>
+        <tr><td>Straight-line rise</td><td>A value that does not change (a constant)</td></tr>
+        <tr><td><span class="t">Sine</span> shape</td><td><span class="t">Cosine</span> shape, shifted by ¼ of a period</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>In Animation 1, the upper graph is the primary current and the lower graph is the secondary emf. Look at the vertical "now" line: when the current reaches its highest point, the emf is exactly 0.</p>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">Animation 1 · How a transformer works: <i>ε</i><sub>s</sub> follows the gradient</span><span class="sim-tag">Primary coil 600 turns, 6.0&nbsp;V: the booklet's experiment · current: illustrative · slow motion</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left is the transformer: a supply is joined to the primary coil. In the closed soft-iron core, a dashed line and arrows show the flux. The flux grows, shrinks and reverses with the current. On the right, the secondary coil is joined to a lamp: the bigger the emf, the brighter the lamp. On the far right are two graphs on the same time axis. The top graph is the primary current Ip (same shape as the flux) and its gradient at this moment. The bottom graph is the secondary emf εs. The vertical dashed line is now."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Shape of the primary current">
+      <button class="btn" type="button" id="s1-sin" aria-pressed="true">AC sine</button>
+      <button class="btn" type="button" id="s1-ramp" aria-pressed="false">Straight-line</button>
+      <button class="btn" type="button" id="s1-dc" aria-pressed="false">Steady DC</button>
+    </span>
+    <label class="range"><span class="m"><i>N</i><sub>s</sub></span> <input type="range" id="s1-ns" min="150" max="1200" step="150" value="1200"><output id="s1-ns-out" for="s1-ns">1200 turns</output></label>
+    <button class="btn" type="button" id="s1-step">Pause and step</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Compare the two graphs. At the moment <i>I</i><sub>p</sub> is at its highest point and the graph is flat, <i>ε</i><sub>s</sub> on the lower graph is exactly 0 and the lamp is off. At the moment <i>I</i><sub>p</sub> crosses 0 and the graph is steepest, <i>ε</i><sub>s</sub> has its largest size (a positive or negative peak) and the lamp is brightest. Press "Pause and step" to look one step at a time (each step is ⅛ of a period for sine, ¼ of a period for straight-line). ② Change to "Straight-line": during the rising part the gradient does not change, so <i>ε</i><sub>s</sub> is a flat line (a constant). During the part where the current stays constant, <i>ε</i><sub>s</sub>&nbsp;=&nbsp;0. ③ Change to "Steady DC": the current and flux are both large, but they do not change, so there is no output. ④ Drag <i>N</i><sub>s</sub>: only the height of <i>ε</i><sub>s</sub> changes (double <i>N</i><sub>s</sub> and <i>ε</i><sub>s</sub> doubles too). The shape and frequency do not change. The lower graph is drawn with Faraday's negative sign (<i>ε</i><sub>s</sub> is negative while the current rises). The real sign depends on how the secondary coil is connected. The exam looks at the shape and the size. The size of the current is illustrative. The lamp only shows how big <i>ε</i><sub>s</sub> is. This follows the booklet's simplification (the flux follows the current), and does not count the extra current the lamp draws from the primary coil.</p>
+</figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">4.1</div>
+  <h2>The ideal transformer: power and current</h2>
+  <p class="big"><span class="lbl">Big idea</span>An ideal transformer wastes no energy, so power in equals power out. So voltage up means current down.</p>
+  <ul class="pts">
+    <li><span class="t">Ideal transformer</span>: a transformer that wastes no energy at all. So power in = power out.</li>
+    <li><span class="t">Power</span>: the energy transferred each second, in W. The power of each coil is <span class="m"><i>P</i>&nbsp;=&nbsp;<i>VI</i></span> (on the sheet).</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Electrical power</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>P</i> = <i>VI</i></div>
+    <dl class="sym">
+      <div><dt>P</dt><dd>power (W)</dd></div>
+      <div><dt>V</dt><dd>voltage (V)</dd></div>
+      <div><dt>I</dt><dd>current (A)</dd></div>
+    </dl>
+    <p class="trap"><b>Also often used the other way round:</b> the current sent is <span class="m"><i>I</i>&nbsp;=&nbsp;<i>P</i>/&#8288;<i>V</i></span>. For the same power, the higher the voltage, the smaller the current. Section 4.3 uses this.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Power in an ideal transformer</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>V</i><sub>p</sub><i>I</i><sub>p</sub> = <i>V</i><sub>s</sub><i>I</i><sub>s</sub></div>
+    <dl class="sym">
+      <div><dt>V<sub>p</sub></dt><dd>voltage of the primary (input) (V)</dd></div>
+      <div><dt>I<sub>p</sub></dt><dd>current of the primary (input) (A)</dd></div>
+      <div><dt>V<sub>s</sub></dt><dd>voltage of the secondary (output) (V)</dd></div>
+      <div><dt>I<sub>s</sub></dt><dd>current of the secondary (output) (A)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> an ideal transformer, to find a current or a power.<br><b>Trap:</b> step-up means <b>voltage</b> up, current <b>down</b>. Never multiply <span class="m"><i>V</i><sub>p</sub></span> by <span class="m"><i>I</i><sub>s</sub></span>.</p>
+  </div>
+
+  <p>Put this together with the turns equation to get the ratio of the currents. The current ratio is <b>upside down</b>: step-down gives a <b>bigger</b> secondary current.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Currents in an ideal transformer</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>I</i><sub>s</sub> / <i>I</i><sub>p</sub> = <i>V</i><sub>p</sub> / <i>V</i><sub>s</sub> = <i>N</i><sub>p</sub> / <i>N</i><sub>s</sub></div>
+    <dl class="sym">
+      <div><dt>I<sub>s</sub></dt><dd>current of the secondary (A)</dd></div>
+      <div><dt>I<sub>p</sub></dt><dd>current of the primary (A)</dd></div>
+      <div><dt>N<sub>p</sub></dt><dd>number of turns on the primary (no unit)</dd></div>
+      <div><dt>N<sub>s</sub></dt><dd>number of turns on the secondary (no unit)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> divide both sides of <span class="m"><i>V</i><sub>p</sub><i>I</i><sub>p</sub>&nbsp;=&nbsp;<i>V</i><sub>s</sub><i>I</i><sub>s</sub></span> by <span class="m"><i>V</i><sub>s</sub><i>I</i><sub>p</sub></span> to get <span class="m"><i>I</i><sub>s</sub>/&#8288;<i>I</i><sub>p</sub>&nbsp;=&nbsp;<i>V</i><sub>p</sub>/&#8288;<i>V</i><sub>s</sub></span>. Then use the turns equation to change it to <span class="m"><i>N</i><sub>p</sub>/&#8288;<i>N</i><sub>s</sub></span>.<br><b>Example:</b> in the 600 turns → 1200 turns example above, voltage × 2, so current ÷ 2. When <span class="m"><i>I</i><sub>s</sub>&nbsp;=&nbsp;0.5&nbsp;A</span>, <span class="m"><i>I</i><sub>p</sub>&nbsp;=&nbsp;12&nbsp;×&nbsp;0.5&nbsp;/&#8288;&nbsp;6.0&nbsp;=&nbsp;1&nbsp;A</span>.</p>
+  </div>
+
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Step-up</div><p><i>N</i><sub>s</sub> &gt; <i>N</i><sub>p</sub>. Voltage <b>up</b>, current <b>down</b>.</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Step-down</div><p><i>N</i><sub>s</sub> &lt; <i>N</i><sub>p</sub>. Voltage <b>down</b>, current <b>up</b>.</p></div>
+  </div>
+
+  <h3>The load decides the current</h3>
+  <ul class="pts">
+    <li>The load takes the current it needs. The primary then automatically draws just enough current to supply that power.</li>
+    <li>It is like a restaurant: the kitchen cooks as much food as the customers order. If the customers order nothing, the kitchen cooks nothing. If the load is switched off, <span class="m"><i>I</i><sub>s</sub>&nbsp;=&nbsp;0</span>, and the ideal transformer's <span class="m"><i>I</i><sub>p</sub></span> is also 0.</li>
+  </ul>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Step-up or step-down: voltage and current change in opposite ways</span><span class="sim-tag">Voltage: values from the booklet · Power, efficiency, dot speed: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left is a transformer: a mains 230 V AC supply is joined to the primary, in the middle is a closed iron core, and the secondary is joined to a device (a microwave oven, a welder or a phone charger). The two coils are drawn with turns in the ratio Np : Ns. The side with fewer turns and a bigger current has thicker wire. Small dots in the wires move back and forth with the AC, at a speed proportional to the current (each device has its own scale). Below, four meters show the effective values of Vp, Ip, Vs and Is. Beside them are two sine waves, Vp and Vs, one above the other on the same time axis. They have the same frequency, each uses its own vertical axis, and the peak is marked. Below these, two power bars compare Pin and Pout. In real mode, Pin has an extra piece that shows heat."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Device">
+      <button class="btn" type="button" id="s2-mw" aria-pressed="true">Microwave oven <span style="white-space:nowrap">step-up</span></button>
+      <button class="btn" type="button" id="s2-wd" aria-pressed="false">Welder <span style="white-space:nowrap">step-down</span></button>
+      <button class="btn" type="button" id="s2-ph" aria-pressed="false">Phone charger <span style="white-space:nowrap">step-down</span></button>
+    </span>
+    <label class="range">Device setting <input type="range" id="s2-load" min="0" max="100" step="5" value="100"><output id="s2-load-out" for="s2-load">100%</output></label>
+    <span class="seg" role="group" aria-label="Ideal or real">
+      <button class="btn" type="button" id="s2-ideal" aria-pressed="true">Ideal</button>
+      <button class="btn" type="button" id="s2-real" aria-pressed="false">Real</button>
+    </span>
+  </div>
+  <p class="try"><b>Try it:</b> ① Start with the microwave oven (step-up): <i>V</i><sub>s</sub> is 8.7 times <i>V</i><sub>p</sub>, but <i>I</i><sub>s</sub> is only 1/8.7 of <i>I</i><sub>p</sub>. The two power bars are the same length. ② Change to the welder or the phone charger (step-down): the voltage gets smaller and the current gets bigger. The dots in the secondary wire move faster than the dots in the primary wire (for one device, dot speed ∝ current; the scale is set again when you change device). ③ Drag "Device setting" to 0: <i>I</i><sub>s</sub>&nbsp;=&nbsp;0, and the ideal <i>I</i><sub>p</sub> also becomes 0, but <i>V</i><sub>s</sub> is still there. The device (the load) decides the current. ④ Press "Real": <i>P</i><sub>out</sub> does not change, <i>P</i><sub>in</sub> gets an extra orange piece of heat, so <i>I</i><sub>p</sub> is a little bigger.<br>The voltages are the booklet's values (230&nbsp;V → about 2&nbsp;kV, 50&nbsp;V, 5&nbsp;V). The device powers 1000&nbsp;W, 2300&nbsp;W, 10&nbsp;W and <i>η</i>&nbsp;=&nbsp;90% are illustrative. Peak&nbsp;=&nbsp;325&nbsp;V&nbsp;×&nbsp;<i>N</i><sub>s</sub>/<i>N</i><sub>p</sub> is calculated. The coil turns are drawn to scale (the charger's 46&nbsp;:&nbsp;1 is drawn as only 18&nbsp;:&nbsp;1). The animation is slowed down: the real period is 20&nbsp;ms.</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">4.2</div>
+  <h2>Real transformers: energy losses and efficiency</h2>
+  <p class="big"><span class="lbl">Big idea</span>Real transformers waste a little energy, mostly as heat. So the power out is a bit less than the power in. A closed iron core, thick wire and a laminated core keep the losses small.</p>
+  <ul class="pts">
+    <li><span class="t">Incomplete flux linkage</span>: some flux from the primary misses the secondary.</li>
+    <li><span class="t">Eddy currents</span>: loops of current induced inside a solid piece of metal by a changing flux.</li>
+    <li><span class="t">Laminated core</span>: a core made of many thin iron sheets, with insulation between them.</li>
+    <li>Real transformer: <span class="m"><i>V</i><sub>s</sub><i>I</i><sub>s</sub>&nbsp;&lt;&nbsp;<i>V</i><sub>p</sub><i>I</i><sub>p</sub></span>. The lost energy becomes heat (and a little sound).</li>
+    <li>The table below gives the three <span class="t">limitations</span> in the <span class="t">syllabus</span>.</li>
+  </ul>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Limitation</th><th>Cause and effect</th><th>How to reduce it</th></tr></thead>
+      <tbody>
+        <tr><td><span class="t">Incomplete flux linkage</span>, also called <span class="t">flux leakage</span></td><td>Some primary flux leaks into the air and misses the secondary, so the secondary emf is smaller than predicted.</td><td>One <b>closed</b> loop of soft iron for both coils. Wind the secondary directly over the primary.</td></tr>
+        <tr><td><span class="t">Resistive heating</span> in the coils</td><td>The current heats the long copper coils (<span class="m"><i>I</i>²<i>R</i></span>). Resistive heating is the heat made when a current flows through a resistance.</td><td>Thick copper wire (thickest on the coil with the larger current). Cooling (vents, fans or oil) keeps the wire cool, and a cool wire has less resistance.</td></tr>
+        <tr><td><span class="t">Eddy currents</span> in the core</td><td>The changing flux induces loops of current in the iron core, which heat it.</td><td>A <span class="t">laminated core</span>, or a <span class="t">ferrite</span> core.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>How good is the ideal model?</h3>
+  <ul class="pts">
+    <li>Big transformers in power stations and substations are about 99% efficient. Small ones often waste 10–20%.</li>
+    <li>So the ideal model is a very good approximation, but never exact.</li>
+    <li>Losses can be reduced, never removed.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Efficiency</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .3em"><i>η</i> = <i>P</i><sub>out</sub> / <i>P</i><sub>in</sub> × 100%</span><span style="display:inline-block;margin:0 .3em">= <i>V</i><sub>s</sub><i>I</i><sub>s</sub> / (<i>V</i><sub>p</sub><i>I</i><sub>p</sub>) × 100%</span></div>
+    <dl class="sym">
+      <div><dt>η</dt><dd><span class="t">efficiency</span>, the Greek letter eta (no unit, given as %)</dd></div>
+      <div><dt>P<sub>out</sub></dt><dd>useful power out (W)</dd></div>
+      <div><dt>P<sub>in</sub></dt><dd>power in (W)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a real transformer (ideal: <span class="m"><i>η</i>&nbsp;=&nbsp;100%</span>). Energy wasted: <span class="m">Δ<i>E</i>&nbsp;=&nbsp;(<i>P</i><sub>in</sub>&nbsp;−&nbsp;<i>P</i><sub>out</sub>)Δ<i>t</i></span> (from <span class="m"><i>P</i>&nbsp;=&nbsp;Δ<i>E</i>/&#8288;Δ<i>t</i></span>).<br><b>You can also derive it:</b> it is just the definition: useful power out ÷ power in.<br><b>Trap:</b> multiply the power by the efficiency, not the voltage. Use 0.92, not 92, inside a formula.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Power and energy</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>P</i> = Δ<i>E</i> / Δ<i>t</i></div>
+    <dl class="sym">
+      <div><dt>P</dt><dd>power (W)</dd></div>
+      <div><dt>ΔE</dt><dd>energy used or wasted in this time (J)</dd></div>
+      <div><dt>Δt</dt><dd>time (s)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> <span class="m"><i>P</i><sub>in</sub>&nbsp;=&nbsp;500&nbsp;W</span>, <span class="m"><i>η</i>&nbsp;=&nbsp;92%</span>. <span class="m"><i>P</i><sub>out</sub>&nbsp;=&nbsp;0.92&nbsp;×&nbsp;500&nbsp;=&nbsp;460&nbsp;W</span>, so 40&nbsp;J is wasted each second. In 1 minute (60&nbsp;s), the energy wasted is <span class="m">Δ<i>E</i>&nbsp;=&nbsp;40&nbsp;×&nbsp;60&nbsp;=&nbsp;2400&nbsp;J</span>.</p>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="secnum">4.2</div>
+  <h2>Eddy currents and the laminated core</h2>
+  <p class="big"><span class="lbl">Big idea</span>The core itself is a conductor. When the flux changes, eddy currents flow inside the core and heat it. If the core is made of many insulated thin sheets, the eddy currents are much smaller.</p>
+  <ul class="pts">
+    <li>The core is a conductor, and the flux in it keeps changing. So eddy currents flow in it, in loops at <b>right angles</b> to the flux.</li>
+    <li>By Lenz's law they oppose the change in flux. They heat the core.</li>
+    <li>Laminated core: many thin iron sheets, each with a thin insulating layer.</li>
+    <li>The sheets lie <b>along</b> the flux, so the flux still passes easily.</li>
+    <li>The insulation cuts the eddy-current paths: each loop stays inside one sheet.</li>
+  </ul>
+
+  <h3>Cut a slice from the core and look at the cut face</h3>
+  <p>The flux comes out of the page (⊙) and is growing. By Lenz's law, the magnetic field of the eddy currents must point into the page, to oppose this growth. So the eddy currents flow <b>clockwise</b>. AC reverses every half-cycle, so the eddy currents reverse every half-cycle too.</p>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Solid core</div><p>One big eddy-current loop goes around the whole slice. Large current, <b>a lot of heat</b>.</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">Laminated core</div><p>Each sheet has only one small, long, thin loop. Small current, <b>much less heat</b>.</p></div>
+  </div>
+
+  <h3>Why laminating works</h3>
+  <ul class="pts">
+    <li>Each thin loop surrounds only a thin strip of flux, so its emf is small.</li>
+    <li>Its path is narrow and long, so its resistance is high.</li>
+    <li>So the eddy currents and their heat are much smaller. It is like a big sports field divided by fences into many narrow tracks: each person can run only in their own narrow track and cannot run a big loop.</li>
+    <li>Small chargers use ferrite cores. Ferrite is a magnetic ceramic that conducts very poorly.</li>
+    <li>Note: <span class="t">cooling</span> does <b>not</b> stop eddy currents. It only keeps the core a bit cooler.</li>
+  </ul>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · Eddy currents: solid core and laminated core</span><span class="sim-tag">Slice through the core · flux perpendicular to the page · Data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A slice through a transformer core. The flux is perpendicular to the page. It gets bigger, gets smaller and reverses with the AC. A bigger dot means more flux. ⊙ is out of the page and ⊗ is into the page. The copper-coloured loops are eddy currents in the core: a big loop in a solid core, and only one long thin loop in each sheet of a laminated core. The vertical lines between the sheets are the insulating layers. Ferrite has almost no eddy currents. On the right, two graphs aligned in time show the flux and the eddy current. Below them are the heating and temperature of the core."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Core">
+      <button class="btn" type="button" id="s3-solid" aria-pressed="true">Solid</button>
+      <button class="btn" type="button" id="s3-lam" aria-pressed="false">Laminated</button>
+      <button class="btn" type="button" id="s3-fer" aria-pressed="false">Ferrite</button>
+    </span>
+    <label class="range">Sheets <input type="range" id="s3-n" min="2" max="10" step="1" value="6" disabled><output id="s3-n-out" for="s3-n">6 sheets</output></label>
+    <button class="btn" type="button" id="s3-cool" aria-pressed="false">Cooling: off</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Start with the solid core: when the flux comes out of the page and is growing, the eddy current is clockwise. At the moment the flux reaches its maximum, the eddy current is 0. When the flux passes 0 (changing fastest), the eddy current is largest. If it is hard to see, press Pause. ② Choose "Laminated": each sheet has only one long thin loop, and the heating bar suddenly becomes very short. Then drag "Sheets": the thinner the sheets, the less heat. ③ Choose "Ferrite": the flux still changes, but there are almost no eddy currents. ④ Go back to Solid and press "Cooling": the temperature bar comes down, but the copper-coloured eddy currents are still there (cooling does not stop eddy currents). Heating is estimated as 1/n² (n&nbsp;=&nbsp;number of sheets). The temperature and the animation speed are illustrative (real mains is 50&nbsp;Hz, T&nbsp;=&nbsp;20&nbsp;ms).</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">4.3</div>
+  <h2>Sending electricity at high voltage</h2>
+  <p class="big"><span class="lbl">Big idea</span>Transmission lines have resistance, so the current in them makes heat (<span class="m"><i>I</i>²<i>R</i></span>). Stepping the voltage up makes the current smaller, so much less energy is wasted.</p>
+  <ul class="pts">
+    <li><span class="t">Transmission line</span>: a long, thick wire on tall towers that carries electricity far.</li>
+    <li><span class="t">Voltage drop</span>: the voltage used up pushing current through a resistance, equal to <span class="m"><i>IR</i></span>.</li>
+    <li><span class="t">Substation</span>: a place with transformers that change the voltage.</li>
+  </ul>
+
+  <h3>A simple model</h3>
+  <ul class="pts">
+    <li>The power station sends voltage <span class="m"><i>V</i></span>. The long line has several ohms of resistance <span class="m"><i>R</i></span> (both wires together).</li>
+    <li>The current <span class="m"><i>I</i></span> is the same all the way around the loop.</li>
+    <li>The voltage used up on the line is <span class="m"><i>V</i><sub>drop</sub>&nbsp;=&nbsp;<i>IR</i></span> (Ohm's law). So the <span class="t">town</span> gets only <span class="m"><i>V</i>&nbsp;−&nbsp;<i>IR</i></span>.</li>
+    <li>The power turned into heat in the line is <span class="m"><i>P</i><sub>loss</sub>&nbsp;=&nbsp;<i>I</i>²<i>R</i></span>.</li>
+  </ul>
+
+  <h3>Why high voltage</h3>
+  <ol class="pts">
+    <li>A power station sends a fixed power. Since <span class="m"><i>P</i>&nbsp;=&nbsp;<i>VI</i></span>, a higher voltage needs a smaller current.</li>
+    <li>The loss <span class="m"><i>I</i>²<i>R</i></span> depends on the <b>square</b> of the current: voltage × 10 → current becomes 1/10 → loss becomes 1/100. <span class="m"><i>R</i></span> stays the same.</li>
+  </ol>
+  <p>Thick wires have less resistance, so they also reduce the loss. But they are heavy and expensive.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Voltage drop along a line</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>V</i><sub>drop</sub> = <i>IR</i></div>
+    <dl class="sym">
+      <div><dt style="flex:none">V<sub>drop</sub></dt><dd>voltage used up on the line (V)</dd></div>
+      <div><dt>I</dt><dd>current in the line (A)</dd></div>
+      <div><dt>R</dt><dd>total resistance of the line, both wires together (Ω)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> the voltage the town gets = the voltage sent − the voltage drop = <span class="m"><i>V</i>&nbsp;−&nbsp;<i>IR</i></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Power lost in a transmission line</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>P</i><sub>loss</sub> = <i>I</i>²<i>R</i></div>
+    <dl class="sym">
+      <div><dt style="flex:none">P<sub>loss</sub></dt><dd>power turned into heat in the line (W)</dd></div>
+      <div><dt>I</dt><dd>current in the line (A)</dd></div>
+      <div><dt>R</dt><dd>total resistance of the line, both wires together (Ω)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> heat lost in lines or coils. Find <span class="m"><i>I</i>&nbsp;=&nbsp;<i>P</i>/&#8288;<i>V</i></span> first. The town gets <span class="m"><i>P</i>&nbsp;−&nbsp;<i>P</i><sub>loss</sub></span>.<br><b>You can also derive it:</b> look only at the line and use <span class="m"><i>P</i>&nbsp;=&nbsp;<i>VI</i></span>, where the voltage is <span class="m"><i>V</i><sub>drop</sub>&nbsp;=&nbsp;<i>IR</i></span> (both on the sheet): <span class="m"><i>P</i><sub>loss</sub>&nbsp;=&nbsp;<i>V</i><sub>drop</sub><i>I</i>&nbsp;=&nbsp;(<i>IR</i>)<i>I</i>&nbsp;=&nbsp;<i>I</i>²<i>R</i></span>.<br><b>Trap:</b> do not put the line's voltage (for example 330&nbsp;kV) into <span class="m"><i>V</i>²/&#8288;<i>R</i></span>. There, <span class="m"><i>V</i></span> must be the voltage drop <span class="m"><i>IR</i></span>, not the voltage sent.</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">Animation 4 · Why transmit at high voltage</span><span class="sim-tag">P = 10&nbsp;MW, R = 5&nbsp;Ω: illustrative · Readings: calculated</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A horizontal transmission chain: the power station on the left, then a step-up transformer, two long transmission lines and a step-down transformer, to the town on the right. The hotter the wires, the redder they are, and heat ripples rise from them. The small dots on the wires move back and forth: the more strongly they move, the larger the current. The 8 lamps in the town together stand for 10 MW, and the number of lamps lit shows how much power arrives. Below are the readings for I = P/V, V_drop = IR and P_loss = I²R, and a bar showing how the power is shared. On the right is the curve of P_loss against the voltage sent V (∝ 1/V²), and a dot on the curve shows the present voltage."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Voltage sent V <input type="range" id="s4-v" min="20" max="500" step="1" value="20" list="s4-ticks"><output id="s4-v-out" for="s4-v">20 kV</output></label>
+    <datalist id="s4-ticks"><option value="20"></option><option value="66"></option><option value="132"></option><option value="330"></option><option value="500"></option></datalist>
+    <button class="btn" type="button" id="s4-x10" aria-pressed="false">Voltage × 10: 50 → 500 kV</button>
+    <button class="btn" type="button" id="s4-thick" aria-pressed="false">Thick wire R ÷ 2: off</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Start at 20&nbsp;kV (no step-up): the current is 500&nbsp;A and the wires are hot. One of the town's 8 lamps (each stands for 1.25&nbsp;MW) is out, because 12.5% of the power becomes heat in the line. ② Drag the voltage to 330&nbsp;kV or 500&nbsp;kV: the current is only a few tens of A, the wires hardly heat up, and all 8 lamps are on. The point on the <i>P</i><sub>loss</sub>–<i>V</i> graph quickly falls to the bottom (∝ 1/<i>V</i>²). ③ Press "Voltage&nbsp;×&nbsp;10": current&nbsp;÷&nbsp;10, heat&nbsp;÷&nbsp;100. Then turn on "Thick wire": <i>R</i>&nbsp;÷&nbsp;2, heat only&nbsp;÷&nbsp;2. Note: you cannot put 330&nbsp;kV into <i>V</i>²/<i>R</i> (you would get about 21.8&nbsp;GW). The <i>V</i> there can only be the voltage drop <i>IR</i>. The dots on the wires show the AC current (slowed down): the more strongly they move, the larger the current. <i>P</i>&nbsp;=&nbsp;10&nbsp;MW and <i>R</i>&nbsp;=&nbsp;5&nbsp;Ω are illustrative, and the readings are calculated. In the booklet, the scale marks 66 and 132&nbsp;kV are voltages after step-down. Here they are only used for comparison.</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">4.3</div>
+  <h2>The grid</h2>
+  <p class="big"><span class="lbl">Big idea</span>On the way from the power station to your home, electricity is first stepped up to a very high voltage at the power station. Then near towns it is stepped down in stages to 230 V.</p>
+  <p><span class="t">Electricity grid</span>: the network of power stations, lines and transformers. Typical NSW voltages are:</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Where</th><th>Voltage</th><th>Transformer</th></tr></thead>
+      <tbody>
+        <tr><td>Power station</td><td>about 20 kV</td><td style="white-space:nowrap">step-up</td></tr>
+        <tr><td>Transmission lines</td><td>330 kV or 500 kV</td><td>—</td></tr>
+        <tr><td>Substations</td><td>132 kV or 66 kV → 11 kV</td><td style="white-space:nowrap">step-down</td></tr>
+        <tr><td><span class="t">Power pole</span></td><td>230 V</td><td style="white-space:nowrap">step-down</td></tr>
+        <tr><td>Homes</td><td>230 V</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li><b>Step up at the power station:</b> a low current in the long lines, so little energy is wasted.</li>
+    <li><b>Step down near towns:</b> high voltages are dangerous. They can spark (<span class="t">arc</span>) across air and need tall towers and big <span class="t">insulators</span>. Appliances at home are built for 230 V.</li>
+    <li><b>Why AC:</b> transformers need a changing current: AC, not steady DC. (A few undersea links, such as <span class="t">Basslink</span>, use DC.)</li>
+  </ul>
+
+  <h3>Other uses of transformers</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Device</th><th>Type</th><th>Voltage</th></tr></thead>
+      <tbody>
+        <tr><td><span class="t">Microwave oven</span></td><td style="white-space:nowrap">step-up</td><td>230&nbsp;V → about&nbsp;2&nbsp;kV</td></tr>
+        <tr><td><span class="t">Welder</span></td><td style="white-space:nowrap">step-down</td><td>230&nbsp;V → 50&nbsp;V</td></tr>
+        <tr><td><span class="t">Phone charger</span></td><td style="white-space:nowrap">step-down</td><td>230&nbsp;V → 5&nbsp;V</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A welder has a very large current, which can melt metal. A phone charger uses a small ferrite core, then electronics make DC.</p>
+</section>
+
+<section id="s7">
+  <div class="secnum">4.4</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Testing the transformer equations</h3>
+    <dl>
+      <dt>Aim</dt><dd>To test whether a real transformer follows <span class="m"><i>V</i><sub>p</sub>/&#8288;<i>V</i><sub>s</sub>&nbsp;=&nbsp;<i>N</i><sub>p</sub>/&#8288;<i>N</i><sub>s</sub></span>, and to find its efficiency.</dd>
+      <dt>Method</dt><dd>Use a <span class="t">demountable transformer</span> (one you can take apart): a laminated U-shaped iron core, an iron <span class="t">I-bar</span> to close the top, and coils that slide on and off. Use low-voltage AC and AC meters. Primary 600 turns at 6.0&nbsp;V. Change the secondary from 150 to 1200 turns, and measure <span class="m"><i>V</i><sub>s</sub></span> each time. With a load, read all four meters (<span class="m"><i>V</i><sub>p</sub>, <i>I</i><sub>p</sub>, <i>V</i><sub>s</sub>, <i>I</i><sub>s</sub></span>). Finally, lift off the I-bar.</dd>
+      <dt>Results</dt><dd>The <span class="m"><i>V</i><sub>s</sub></span>–<span class="m"><i>N</i><sub>s</sub></span> graph is a straight line through the origin, about 5% below the ideal line. With the load, <span class="m"><i>η</i>&nbsp;≈&nbsp;90%</span>. Lifting off the I-bar (opening the core) cut <span class="m"><i>V</i><sub>s</sub></span> (300 turns) from 2.86&nbsp;V to about 0.9&nbsp;V.</dd>
+      <dt>Conclusion</dt><dd><span class="m"><i>V</i><sub>s</sub>&nbsp;∝&nbsp;<i>N</i><sub>s</sub></span>, as predicted. The small gap is mainly flux leakage. With the I-bar off, the core is no longer a closed loop. A lot of flux leaks into the air and misses the secondary, so <span class="m"><i>V</i><sub>s</sub></span> is much smaller (this is flux leakage too). <span class="m"><i>P</i><sub>out</sub>&nbsp;&lt;&nbsp;<i>P</i><sub>in</sub></span> (the lost power becomes heat). The ideal model is close, not exact.</dd>
+      <dt>Significance</dt><dd>It supports the model behind every grid transformer. It also shows why cores are closed loops.</dd>
+    </dl>
+  </div>
+  <p>Animation 5 follows this experiment: drag <span class="m"><i>N</i><sub>s</sub></span> to change the coil, and the voltmeter reading is plotted automatically on the <span class="m"><i>V</i><sub>s</sub></span>–<span class="m"><i>N</i><sub>s</sub></span> graph. Then take off the I-bar and see how far <span class="m"><i>V</i><sub>s</sub></span> falls.</p>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Experiment: <i>V</i><sub>s</sub>–<i>N</i><sub>s</sub> graph and removing the I-bar</span><span class="sim-tag">2.86&nbsp;V and 0.9&nbsp;V at 300 turns: the booklet · other readings: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A demountable transformer: a laminated U-shaped core with an I-bar on top, which can be lifted off. On the left, the primary has 600 turns and is joined to 6.0 V AC. On the right, the number of secondary turns can be changed, and the secondary is joined to an AC voltmeter. The dashed lines are the flux. With the I-bar on, nearly all the flux goes around inside the closed core and passes through both coils. With the I-bar off, a lot of flux leaks out of the top of the left side of the core into the air and goes back around to the bottom bar, and does not pass through the secondary. On the right is the Vs–Ns graph: the dashed line is the ideal line, and the readings with the I-bar on and with the I-bar off are each recorded as dots of one colour."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range"><span class="m"><i>N</i><sub>s</sub></span> <input type="range" id="s5-ns" min="150" max="1200" step="150" value="300"><output id="s5-ns-out" for="s5-ns">300 turns</output></label>
+    <span class="seg" role="group" aria-label="I-bar">
+      <button class="btn" type="button" id="s5-on" aria-pressed="true">I-bar on</button>
+      <button class="btn" type="button" id="s5-off" aria-pressed="false">I-bar off</button>
+    </span>
+    <button class="btn" type="button" id="s5-clr">Clear graph</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Drag <i>N</i><sub>s</sub> from 150 to 1200: each time you change the coil, the voltmeter reading is recorded automatically as a copper-coloured dot. The dots make a straight line through the origin (<i>V</i><sub>s</sub> ∝ <i>N</i><sub>s</sub>), about 5% below the ideal dashed line. This is mainly flux leakage. ② Press "I-bar off": the core is no longer a closed loop. A lot of flux leaks out of the top of the U-shaped core into the air and does not pass through the secondary. At 300 turns, <i>V</i><sub>s</sub> falls from 2.86&nbsp;V to about 0.9&nbsp;V. Drag <i>N</i><sub>s</sub> again and record the purple dots. ③ Press "Clear graph" to record again.<br>The booklet's numbers: primary 600 turns, 6.0&nbsp;V; 2.86&nbsp;V and about 0.9&nbsp;V at 300 turns; about 5% below the ideal line; with a load, <i>η</i>&nbsp;≈&nbsp;90%. Readings at other numbers of turns are worked out with the same ratio and are illustrative. The voltmeter reads the effective value. The flux arrows reverse with the AC (slowed down).</p>
+</figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>V</i><sub>p</sub>/<i>V</i><sub>s</sub> = <i>N</i><sub>p</sub>/<i>N</i><sub>s</sub></td><td>Transformer equation (AC only)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>P</i> = <i>VI</i></td><td>Electrical power; the current sent <i>I</i> = <i>P</i>/<i>V</i></td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>V</i><sub>p</sub><i>I</i><sub>p</sub> = <i>V</i><sub>s</sub><i>I</i><sub>s</sub></td><td>Ideal transformer: power in = power out</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>I</i><sub>s</sub>/<i>I</i><sub>p</sub> = <i>V</i><sub>p</sub>/<i>V</i><sub>s</sub> = <i>N</i><sub>p</sub>/<i>N</i><sub>s</sub></td><td>Currents in an ideal transformer</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>η</i> = <i>P</i><sub>out</sub>/<i>P</i><sub>in</sub> × 100%<br>= <i>V</i><sub>s</sub><i>I</i><sub>s</sub>/(<i>V</i><sub>p</sub><i>I</i><sub>p</sub>) × 100%</td><td>Efficiency of a real transformer</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>P</i> = Δ<i>E</i>/Δ<i>t</i></td><td>Energy used or wasted in a certain time</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>V</i><sub>drop</sub> = <i>IR</i></td><td>Voltage lost along a transmission line</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>P</i><sub>loss</sub> = <i>I</i>²<i>R</i></td><td>Power turned into heat in a transmission line</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>f</i> = 1/<i>T</i></td><td>AC frequency (mains: 50&nbsp;Hz)</td><td><span class="badge on">On sheet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 6 before the exam</h3>
+  <ol class="must">
+    <li>A transformer needs AC: changing primary current → changing flux in the iron core → induced emf in the secondary (Faraday's law). Steady DC gives no output.</li>
+    <li><span class="m"><i>V</i><sub>p</sub>/&#8288;<i>V</i><sub>s</sub>&nbsp;=&nbsp;<i>N</i><sub>p</sub>/&#8288;<i>N</i><sub>s</sub></span>: more secondary turns, bigger voltage. The frequency stays the same.</li>
+    <li>Ideal: <span class="m"><i>V</i><sub>p</sub><i>I</i><sub>p</sub>&nbsp;=&nbsp;<i>V</i><sub>s</sub><i>I</i><sub>s</sub></span>, so voltage up means current down: <span class="m"><i>I</i><sub>s</sub>/&#8288;<i>I</i><sub>p</sub>&nbsp;=&nbsp;<i>N</i><sub>p</sub>/&#8288;<i>N</i><sub>s</sub></span>.</li>
+    <li>Real losses: flux leakage, <span class="m"><i>I</i>²<i>R</i></span> heating in the coils, eddy currents in the core. Fixes: closed soft-iron core, thick copper wire, laminated core.</li>
+    <li>Not on the sheet, so learn them: <span class="m"><i>η</i>&nbsp;=&nbsp;<i>P</i><sub>out</sub>/&#8288;<i>P</i><sub>in</sub>&nbsp;×&nbsp;100%</span> and <span class="m"><i>P</i><sub>loss</sub>&nbsp;=&nbsp;<i>I</i>²<i>R</i></span>.</li>
+    <li>Fixed power: higher voltage → smaller current → much less <span class="m"><i>I</i>²<i>R</i></span> loss. Step up at the power station. For safety, step down in stages to 230&nbsp;V.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> <i>V</i><sub>p</sub>/<i>V</i><sub>s</sub> = <i>N</i><sub>s</sub>/<i>N</i><sub>p</sub> (primary on top on one side, secondary on top on the other).<br><span class="ok">Right:</span> primary on top of both fractions.</div>
+    <div><span class="x">Wrong:</span> a transformer on steady DC can also change the voltage.<br><span class="ok">Right:</span> with steady DC the flux does not change, so there is no output. There is only a short pulse at the moment it is switched on or off.</div>
+    <div><span class="x">Wrong:</span> using the turns equation for currents: <i>I</i><sub>p</sub>/<i>I</i><sub>s</sub> = <i>N</i><sub>p</sub>/<i>N</i><sub>s</sub>.<br><span class="ok">Right:</span> the current ratio is upside down: <i>I</i><sub>s</sub>/<i>I</i><sub>p</sub> = <i>N</i><sub>p</sub>/<i>N</i><sub>s</sub>.</div>
+    <div><span class="x">Wrong:</span> a step-up transformer raises both the voltage and the current.<br><span class="ok">Right:</span> voltage up, current down. Energy cannot appear from nothing.</div>
+    <div><span class="x">Wrong:</span> multiplying <i>V</i><sub>p</sub> by <i>I</i><sub>s</sub> to find power.<br><span class="ok">Right:</span> do each coil on its own: <i>V</i><sub>p</sub><i>I</i><sub>p</sub> or <i>V</i><sub>s</sub><i>I</i><sub>s</sub>.</div>
+    <div><span class="x">Wrong:</span> multiplying the voltage by the efficiency, or using 92 in the formula.<br><span class="ok">Right:</span> multiply the power by the efficiency. Use 0.92 in the formula.</div>
+    <div><span class="x">Wrong:</span> mixing peak and effective values in one question.<br><span class="ok">Right:</span> 230&nbsp;V is the effective value, and the peak is about 325&nbsp;V. Use only one kind.</div>
+    <div><span class="x">Wrong:</span> <i>P</i><sub>loss</sub> = <i>V</i>²/<i>R</i>, with <i>V</i> = 330&nbsp;kV.<br><span class="ok">Right:</span> here <i>V</i> can only be the voltage drop <i>IR</i>. First find <i>I</i> = <i>P</i>/<i>V</i>, then find <i>I</i>²<i>R</i>.</div>
+    <div><span class="x">Wrong:</span> voltage × 10 makes the loss 1/10.<br><span class="ok">Right:</span> the current becomes 1/10 and the loss becomes 1/100 (it depends on the square of the current).</div>
+    <div><span class="x">Wrong:</span> cooling can stop eddy currents.<br><span class="ok">Right:</span> cooling only keeps the core a bit cooler. To reduce eddy currents, use a laminated core or a ferrite core.</div>
+  </div>
+  <p class="jump-next"><a href="#s10">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s9">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Transformer</td><td>变压器</td><td>A device that changes the size of an AC voltage</td></tr>
+        <tr><td class="t">Alternating current (AC)</td><td>交流电</td><td>Current that keeps reversing</td></tr>
+        <tr><td class="t">Direct current (DC)</td><td>直流电</td><td>Current that flows one way only</td></tr>
+        <tr><td class="t">Primary coil</td><td>原线圈</td><td>The input coil, joined to the supply</td></tr>
+        <tr><td class="t">Secondary coil</td><td>副线圈</td><td>The output coil, where the emf is induced</td></tr>
+        <tr><td class="t">Load</td><td>负载</td><td>The device that uses the energy</td></tr>
+        <tr><td class="t">Mutual induction</td><td>互感</td><td>An emf made in one coil by a changing current in a nearby coil</td></tr>
+        <tr><td class="t">Step-up transformer</td><td>升压变压器</td><td>More secondary turns, bigger voltage</td></tr>
+        <tr><td class="t">Step-down transformer</td><td>降压变压器</td><td>Fewer secondary turns, smaller voltage</td></tr>
+        <tr><td class="t">Core (soft-iron core)</td><td>铁芯（软铁芯）</td><td>The iron that carries the magnetic field from one coil to the other</td></tr>
+        <tr><td class="t">Soft iron</td><td>软铁</td><td>Iron that is easy to magnetise and demagnetise</td></tr>
+        <tr><td class="t">Turns ratio</td><td>匝数比</td><td><i>N</i><sub>p</sub> : <i>N</i><sub>s</sub>, the ratio of primary turns to secondary turns</td></tr>
+        <tr><td class="t">Peak (voltage)</td><td>峰值</td><td>The largest voltage in each cycle</td></tr>
+        <tr><td class="t">Effective value (of AC)</td><td>有效值</td><td>The steady voltage with the same heating effect; for mains it is 230&nbsp;V</td></tr>
+        <tr><td class="t">Mains</td><td>市电</td><td>The electricity from a power point at home: 230&nbsp;V AC, 50&nbsp;Hz</td></tr>
+        <tr><td class="t">Frequency (f)</td><td>频率</td><td>The number of complete back-and-forth cycles each second, in Hz</td></tr>
+        <tr><td class="t">Gradient</td><td>斜率</td><td>How steep a graph is</td></tr>
+        <tr><td class="t">Ideal transformer</td><td>理想变压器</td><td>Wastes no energy, power in = power out</td></tr>
+        <tr><td class="t">Power (P)</td><td>功率</td><td>The energy transferred each second, in W</td></tr>
+        <tr><td class="t">Incomplete flux linkage (flux leakage)</td><td>漏磁</td><td>Some flux from the primary misses the secondary</td></tr>
+        <tr><td class="t">Resistive heating</td><td>电阻发热</td><td>The heat made when a current flows through a resistance (<i>I</i>²<i>R</i>)</td></tr>
+        <tr><td class="t">Eddy currents</td><td>涡流</td><td>Induced currents that flow in loops inside a solid piece of metal</td></tr>
+        <tr><td class="t">Laminated core</td><td>叠片铁芯</td><td>Many thin iron sheets, with insulation between them</td></tr>
+        <tr><td class="t">Ferrite</td><td>铁氧体</td><td>A magnetic ceramic that conducts very poorly</td></tr>
+        <tr><td class="t">Efficiency (η)</td><td>效率</td><td>How much of the power in becomes useful power out (%)</td></tr>
+        <tr><td class="t">Transmission line</td><td>输电线</td><td>A thick wire on tall towers that carries electricity far</td></tr>
+        <tr><td class="t">Voltage drop</td><td>电压降</td><td>The voltage used up pushing current through a resistance, <i>IR</i></td></tr>
+        <tr><td class="t">Substation</td><td>变电站</td><td>A place where transformers change the grid voltage</td></tr>
+        <tr><td class="t">Electricity grid</td><td>电网</td><td>The network of power stations, lines and transformers</td></tr>
+        <tr><td class="t">Arc</td><td>电弧</td><td>A spark that a high voltage makes across air</td></tr>
+        <tr><td class="t">Demountable transformer</td><td>可拆变压器</td><td>A lab transformer whose core and coils can be taken apart</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s10" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. A transformer's primary is joined to a steady DC supply. Is there an output from the secondary?</summary><p class="ans"><b>No (only a short pulse at the moment it is switched on or off).</b> Steady DC makes a magnetic field that does not change. The flux does not change, ΔΦ/Δ<i>t</i> = 0, so there is no emf.</p></details>
+    <details><summary>2. The primary carries sine-shaped AC. When the current is exactly at its highest point, what is the secondary emf?</summary><p class="ans"><b>0.</b> The emf follows the gradient of the current graph. At the highest point the graph is flat, so the gradient = 0 and the flux is not changing at this moment. When the current crosses 0, the graph is steepest and the emf is biggest.</p></details>
+    <details><summary><span>3. Experiment: primary 600 turns, 6.0&nbsp;V, secondary 300 turns. What is the ideal V<sub>s</sub>? If 2.86&nbsp;V is measured, by what percentage is it too low?</span></summary><p class="ans"><b>Ideal 3.0&nbsp;V; about 5% too low.</b> <i>V</i><sub>s</sub> = <i>V</i><sub>p</sub> × <i>N</i><sub>s</sub>/<i>N</i><sub>p</sub> = 6.0 × 300/600 = 3.0&nbsp;V. The gap: (3.0 − 2.86)/3.0 = 0.047, about 5%. The main cause is flux leakage.</p></details>
+    <details><summary><span>4. Ideal phone charger: 230&nbsp;V → 5&nbsp;V, output current 2.0&nbsp;A. What is the turns ratio N<sub>p</sub> : N<sub>s</sub>? What is the primary current?</span></summary><p class="ans"><b>46&nbsp;:&nbsp;1; <i>I</i><sub>p</sub> ≈ 0.043&nbsp;A.</b> <i>N</i><sub>p</sub>/<i>N</i><sub>s</sub> = <i>V</i><sub>p</sub>/<i>V</i><sub>s</sub> = 230/5 = 46. Power out = 5 × 2.0 = 10&nbsp;W. Ideal: power in is also 10&nbsp;W, so <i>I</i><sub>p</sub> = 10/230 = 0.043&nbsp;A. Step-down: voltage down, current up.</p></details>
+    <details><summary>5. A transformer has 200&nbsp;W in and 12&nbsp;V, 15&nbsp;A out. What is its efficiency? How much energy is wasted in 1 minute?</summary><p class="ans"><b><i>η</i> = 90%; 1200&nbsp;J wasted.</b> <i>P</i><sub>out</sub> = 12 × 15 = 180&nbsp;W. <i>η</i> = 180/200 × 100% = 90%. Power wasted = 200 − 180 = 20&nbsp;W, which means 20&nbsp;J is wasted each second. Δ<i>E</i> = 20 × 60 = 1200&nbsp;J, which becomes heat.</p></details>
+    <details><summary>6. A power station sends 10&nbsp;MW. The total resistance of the line is 5&nbsp;Ω. How much power is lost in the line when sending at 50&nbsp;kV, and at 500&nbsp;kV?</summary><p class="ans"><b>50&nbsp;kV: 200&nbsp;kW; 500&nbsp;kV: 2&nbsp;kW.</b> 50&nbsp;kV: <i>I</i> = <i>P</i>/<i>V</i> = 10 000 000/50 000 = 200&nbsp;A, <i>P</i><sub>loss</sub> = 200² × 5 = 200 000&nbsp;W = 200&nbsp;kW. 500&nbsp;kV: <i>I</i> = 20&nbsp;A, <i>P</i><sub>loss</sub> = 20² × 5 = 2000&nbsp;W = 2&nbsp;kW. Voltage × 10, current ÷ 10, loss ÷ 100.</p></details>
+    <details><summary><span>7. A power station sends 10&nbsp;MW at 330&nbsp;kV. The total resistance of the line is 5&nbsp;Ω. A student calculates: P<sub>loss</sub> = V²/R = (330&nbsp;kV)² / 5&nbsp;Ω. What is wrong?</span></summary><p class="ans"><b>330&nbsp;kV is the voltage sent, not the voltage drop on the line.</b> This calculation gives about 2.2 × 10<sup>10</sup> W, which is more than two thousand times the 10&nbsp;MW sent (2.18 × 10<sup>10</sup> / 10<sup>7</sup> ≈ 2200). This is impossible. The <i>V</i> in <i>V</i>²/<i>R</i> can only be the voltage drop <i>IR</i>. The correct way: first find <i>I</i> = <i>P</i>/<i>V</i>, then find <i>I</i>²<i>R</i>.</p></details>
+    <details><summary>8. Why does a laminated core reduce eddy currents? Does adding a fan to cool the core help?</summary><p class="ans"><b>The insulation cuts the big eddy-current loops; cooling does not stop eddy currents.</b> Each loop must stay inside one thin iron sheet. It surrounds only a thin strip of flux (small emf), and its path is narrow with a high resistance. So the current and the heat are much smaller. Cooling only keeps the core a bit cooler, and the eddy currents are still there.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m6/t3.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M6 T3 · Electromagnetic Induction: Flux, Faraday and Lenz</span></a><a class="pg next" href="../m6/t5.html"><span class="pg-k">Next topic →</span><span class="pg-t">M6 T5 · Motors, Generators &amp; Braking</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 6 Electromagnetism · Chapter 4. The experimental data (primary 600&nbsp;turns, 6.0&nbsp;V, secondary 150–1200&nbsp;turns, about 5% below the ideal line, 2.86&nbsp;V at 300&nbsp;turns / about 0.9&nbsp;V with the I-bar off, <i>η</i> ≈ 90% with a load), the efficiency data (big transformers about 99%, small ones waste 10–20%) and the mains data (230&nbsp;V, peak about 325&nbsp;V, 50&nbsp;Hz) are from the booklet. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · 变压器怎样工作：emf 跟着电流图像的斜率走（对应 booklet Figure 4.1 和 "What the output looks like"）
+   模型：理想变压器，不接 load（booklet："the flux follows the current"）→ Φ ∝ I_p，flux 全部穿过 secondary。
+   ε_s = −N_s ΔΦ/Δt ∝ −N_s · ΔI_p/Δt（Faraday 的负号；真实正负取决于 secondary 的接法）。
+   时间以“周期”为单位：动画里 1 个周期 = PER 秒（放慢了；真实 mains 50 Hz，T = 20 ms）。
+   I_p 的形状（大小是示意）：
+     正弦  I = A sin 2πφ；
+     直线升降（梯形，和正弦对齐）：u = φ + 1/8，0–1/4 直线上升（中点 φ = 0 过 0），1/4–1/2 停在最高，
+                                   1/2–3/4 直线下降，3/4–1 停在最低；
+     DC 稳定  I = 常数。
+   e = ε_s ÷（N_s = 600 时正弦 ε_s 的峰值），所以正弦时 e 的峰值 = N_s/600；V_s（有效值）= 6.0 V × N_s/600。
+   方向（right-hand grip rule）：I_p > 0 = 电流从上面那根导线流进 primary，前面的线段里电流向右 → 左臂里 flux 向上
+   → 整个闭合铁芯里 Φ 顺时针（上边向右、下边向左），和 Figure 4.1 那一刻一样；I_p < 0 时逆时针。 */
+var NP=600,VP=6.0,PER=8,AMP=0.8,IDC=0.6,K0=AMP*TAU,KR=8*AMP,EMAX=2.7,DOTV=75,GAP=15;
+var m={t:0,mode:'sin',ns:1200,off:0};
+function frac(x){return x-Math.floor(x);}
+function ip(t){var ph=frac(t),u;
+  if(m.mode==='dc')return IDC;
+  if(m.mode==='sin')return AMP*Math.sin(TAU*ph);
+  u=frac(ph+0.125);
+  if(u<0.25)return -AMP+KR*u;
+  if(u<0.5)return AMP;
+  if(u<0.75)return AMP-KR*(u-0.5);
+  return -AMP;}
+/* dI_p/dφ（φ 以周期为单位） */
+function dip(t){var ph=frac(t),u;
+  if(m.mode==='dc')return 0;
+  if(m.mode==='sin')return K0*Math.cos(TAU*ph);
+  u=frac(ph+0.125);
+  return u<0.25?KR:(u<0.5?0:(u<0.75?-KR:0));}
+function emf(t){return -(m.ns/NP)*dip(t)/K0;}
+function region(t){var ph=frac(t),u,s,c;
+  if(m.mode==='dc')return 'dc';
+  if(m.mode==='ramp'){u=frac(ph+0.125);return u<0.25?'rise':(u<0.5?'top':(u<0.75?'fall':'bot'));}
+  s=Math.sin(TAU*ph);c=Math.cos(TAU*ph);
+  if(Math.abs(c)<0.2)return s>0?'top':'bot';
+  if(Math.abs(s)<0.2)return c>0?'steepU':'steepD';
+  return c>0?'up':'down';}
+function step(dt){var n=4,h=dt/n;for(var i=0;i<n;i++){m.off+=ip(m.t)*DOTV*h;m.t+=h/PER;}
+  if(m.t>2000)m.t-=2000;if(Math.abs(m.off)>1e5)m.off%=GAP;}
+for(var q=0;q<Math.round(1.03*PER*60);q++)step(1/60);   /* 第一帧：I_p 刚过 0、在上升、最陡 → ε_s 接近负的峰 */
+
+/* 状态提示：[第一段, 第二段, 颜色, 一定要分两行] */
+var ST={
+  top:['I_p at its highest point, graph is flat','→ gradient ≈ 0 → ε_s ≈ 0',0,0],
+  bot:['I_p at its lowest point, graph is flat','→ gradient ≈ 0 → ε_s ≈ 0',0,0],
+  steepU:['I_p crosses 0 and is rising, graph is steepest','→ flux changes fastest\n→ ε_s is at its negative peak (largest size)',1,0],
+  steepD:['I_p crosses 0 and is falling, graph is steepest','→ flux changes fastest\n→ ε_s is at its positive peak (largest size)',1,0],
+  up:['I_p is rising: gradient > 0','→ ε_s < 0 (Faraday\'s negative sign)',0,0],
+  down:['I_p is falling: gradient < 0','→ ε_s > 0',0,0],
+  rise:['Straight-line rise → gradient does not change','→ ε_s is a constant',1,0],
+  rtop:['Current stays at its highest point → gradient 0','→ ε_s = 0, lamp off',0,0],
+  fall:['Straight-line fall → gradient is reversed','→ ε_s is a constant in the opposite direction',1,0],
+  rbot:['Current stays at its lowest point → gradient 0','→ ε_s = 0, lamp off',0,0],
+  dc:['Steady DC → ΔΦ/Δt = 0 → no output, lamp off','(Only a short pulse at the moment of switching on or off:\nsee Topic 3 Animation 5)',0,1]};
+/* 铁芯中间的小字：[Φ 怎样, 补一句] */
+var WT={top:['Φ is maximum','almost no change'],bot:['Φ is max, reversed','almost no change'],steepU:['Φ is near 0','but changes fastest'],steepD:['Φ is near 0','but changes fastest'],
+  up:['Φ is changing','same shape as I_p'],down:['Φ is changing','same shape as I_p'],rise:['Φ changes evenly','constant rate'],rtop:['Φ is maximum','no change'],
+  fall:['Φ changes evenly','constant rate'],rbot:['Φ is max, reversed','no change'],dc:['Φ is large','but does not change']};
+function key(){var r=region(m.t);if(m.mode==='ramp'&&(r==='top'||r==='bot'))return 'r'+r;return r;}
+
+/* ---------- 文字：_x 画成下标（不小于 11 px） ---------- */
+var RU=[],RW=[];
+function rt(ctx,s,x,y,col,size,weight,align,noDraw){
+  var ss=Math.max(11,size*0.74),wt=weight||500,i,ch,buf='',w=0,n,x0,sb;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}RU.push(s.charAt(i+1),1);i++;}else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sb=RU[2*i+1];ctx.font=wt+' '+(sb?ss:size)+'px '+FONT;RW[i]=ctx.measureText(RU[2*i]).width+(sb?0.5:0);w+=RW[i];}
+  if(noDraw)return w;
+  x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sb=RU[2*i+1];txt(ctx,RU[2*i],x0,y+(sb?size*0.26:0),col,sb?ss:size,wt,'left','alphabetic');x0+=RW[i];}
+  return w;
+}
+/* 太宽就缩小字号（不小于 11 px） */
+function fit(ctx,s,size,weight,maxw){var w=rt(ctx,s,0,0,null,size,weight,'left',true);return w>maxw?Math.max(11,Math.floor(size*maxw/w*10)/10):size;}
+function gcd(a,b){while(b){var t=a%b;a=b;b=t;}return a;}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var o={wide:W>=640,W:W},dr,off;
+  if(o.wide){
+    o.gw=clamp(W-18-460,190,330);o.gx=W-18-o.gw;dr=o.gx-24;
+    o.rs=15;o.t=36;o.rise=7;o.rl=13;o.lw=4.5;
+    o.cw=clamp(dr-46-66-93,170,230);off=Math.max(0,(dr-(46+66+o.cw+93))/2);
+    o.sx=46+off;o.x0=o.sx+66;o.x1=o.x0+o.cw;o.xm=o.x1+16;o.lx=o.x1+68;
+    o.y0=104;o.y1=278;o.lh=48;o.sp=24;
+    o.sy=28;o.fs=15;o.ry=324;o.rf=13;o.g1=84;o.gh=100;o.g2=228;
+  }else{
+    o.gx=40;o.gw=W-58;
+    o.rs=13;o.t=30;o.rise=6;o.rl=12;o.lw=4;
+    o.sx=26;o.x0=76;o.lx=W-34;o.x1=o.lx-56;o.cw=o.x1-o.x0;o.xm=o.x1+14;
+    o.y0=112;o.y1=266;o.lh=40;o.sp=22;
+    o.sy=22;o.fs=13.5;o.ry=312;o.rf=12.5;o.g1=406;o.gh=84;o.g2=530;
+  }
+  o.cy=(o.y0+o.y1)/2;o.xc=(o.x0+o.x1)/2;
+  return o;
+}
+var L=null;
+
+/* 折线：pts = [x0,y0,x1,y1,…] */
+function pline(ctx,pts,col,w){ctx.beginPath();ctx.moveTo(pts[0],pts[1]);for(var i=2;i<pts.length;i+=2)ctx.lineTo(pts[i],pts[i+1]);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.stroke();}
+/* 沿折线 s 处的点，写进 PT */
+var PT=[0,0];
+function along(pts,s){for(var i=0;i+3<pts.length;i+=2){var dx=pts[i+2]-pts[i],dy=pts[i+3]-pts[i+1],l=Math.hypot(dx,dy);if(s<=l||i+4>=pts.length){var f=l>0?Math.min(1,s/l):0;PT[0]=pts[i]+dx*f;PT[1]=pts[i+1]+dy*f;return;}s-=l;}}
+function plen(pts){var s=0;for(var i=0;i+3<pts.length;i+=2)s+=Math.hypot(pts[i+2]-pts[i],pts[i+3]-pts[i+1]);return s;}
+function dots(ctx,pts,o){var len=plen(pts);for(var s=o;s<len;s+=GAP){along(pts,s);dot(ctx,PT[0],PT[1],2.5,C.copper);}}
+
+/* 电源里的小图标：正弦 / 梯形 / 直线 */
+function supplyIcon(ctx,x,y,r){
+  var a=r*0.62,b=r*0.36,i,u;ctx.beginPath();
+  if(m.mode==='sin'){for(i=0;i<=20;i++){u=i/20;ctx[i?'lineTo':'moveTo'](x-a+2*a*u,y-b*Math.sin(TAU*u));}}
+  else if(m.mode==='ramp'){ctx.moveTo(x-a,y+b);ctx.lineTo(x-a*0.5,y-b);ctx.lineTo(x,y-b);ctx.lineTo(x+a*0.5,y+b);ctx.lineTo(x+a,y+b);}
+  else{ctx.moveTo(x-a,y);ctx.lineTo(x+a,y);}
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;ctx.lineJoin='round';ctx.stroke();
+}
+
+function drawStatus(ctx,W){
+  var s=ST[key()],col=s[2]?C.copper:C.ink,avail=W-32,b=s[1].split('\n'),one=s[0]+' '+b.join(' '),z,i;
+  if(L.wide&&!s[3]&&rt(ctx,one,0,0,null,L.fs,600,'left',true)<=avail){rt(ctx,one,16,L.sy,col,L.fs,600);return;}
+  z=fit(ctx,s[0],L.fs,600,avail);rt(ctx,s[0],16,L.sy-(L.wide?2:0),col,z,600);
+  if(L.wide)b=[b.join(' ')];
+  var z2=s[3]?Math.min(L.fs-1.5,13):L.fs;
+  for(i=0;i<b.length;i++)z2=fit(ctx,b[i],z2,s[3]?500:600,avail);
+  for(i=0;i<b.length;i++)rt(ctx,b[i],16,L.sy+(L.wide?18:20)+i*18,s[3]?C.muted:col,z2,s[3]?500:600);
+}
+
+function drawDiagram(ctx){
+  var o=L,cy=o.cy,t=o.t,I=ip(m.t),e=emf(m.t),a=Math.abs(I)/AMP,dir=I>=0?1:-1,i,yc;
+  /* --- primary 电路（电源 + 两根导线） --- */
+  var yT=cy-1.5*o.sp+o.rise/2,yB=cy+1.5*o.sp+o.rise/2+9,xa=o.x0-5;
+  var PA=[o.sx,cy-o.rs,o.sx,yT,xa,yT],PB=[o.x0,yB,o.sx,yB,o.sx,cy+o.rs];
+  pline(ctx,PA,rgba(C.ink,0.7),1.6);pline(ctx,PB,rgba(C.ink,0.7),1.6);
+  /* --- secondary 电路（两根导线 + 灯） --- */
+  var n=Math.round(m.ns/150),win=o.y1-o.y0-2*t,ss=n>1?Math.min(o.wide?16:14,(win-12)/(n-1)):0;
+  var sTop=cy-(n-1)/2*ss,sBot=cy+(n-1)/2*ss,xb2=o.x1+5;
+  var QA=[xb2,sTop-o.rise/2,o.xm,sTop-o.rise/2,o.xm,cy-o.lh,o.lx,cy-o.lh,o.lx,cy-o.rl];
+  var QB=[o.x1,sBot+o.rise/2+9,o.xm,sBot+o.rise/2+9,o.xm,cy+o.lh,o.lx,cy+o.lh,o.lx,cy+o.rl];
+  pline(ctx,QA,rgba(C.ink,0.7),1.6);pline(ctx,QB,rgba(C.ink,0.7),1.6);
+  /* --- 铁芯：闭合的环 --- */
+  ctx.beginPath();ctx.rect(o.x0,o.y0,o.cw,o.y1-o.y0);ctx.rect(o.x0+t,o.y0+t,o.cw-2*t,o.y1-o.y0-2*t);
+  ctx.fillStyle=rgba(C.muted,0.24);ctx.fill('evenodd');ctx.strokeStyle=rgba(C.ink,0.45);ctx.lineWidth=1;ctx.stroke();
+  /* --- flux：铁芯中线上的虚线环 + 上下两个箭头（长短、深浅 ∝ |Φ|） --- */
+  ctx.setLineDash([5,5]);ctx.strokeStyle=rgba(C.field,0.3+0.5*a);ctx.lineWidth=1.4;
+  ctx.strokeRect(o.x0+t/2,o.y0+t/2,o.cw-t,o.y1-o.y0-t);ctx.setLineDash([]);
+  if(a>0.05){var La=(o.wide?14:12)+(o.wide?56:44)*a,fc=rgba(C.field,0.45+0.55*a);
+    arrow(ctx,o.xc-dir*La/2,o.y0+t/2,o.xc+dir*La/2,o.y0+t/2,fc,2.4,9);     /* I_p > 0：顺时针，上边向右 */
+    arrow(ctx,o.xc+dir*La/2,o.y1-t/2,o.xc-dir*La/2,o.y1-t/2,fc,2.4,9);}   /*            下边向左 */
+  var w=WT[key()];
+  rt(ctx,w[0],o.xc,cy-3,C.ink,12.5,700,'center');
+  if(w[1])rt(ctx,w[1],o.xc,cy+14,C.muted,11.5,500,'center');
+  /* --- 线圈：前面的线段（primary 4 圈；secondary 每圈 = 150 匝） --- */
+  ctx.lineCap='round';
+  for(i=0;i<4;i++){yc=cy+(i-1.5)*o.sp;seg(ctx,xa,yc+o.rise/2,o.x0+t+5,yc-o.rise/2,C.copper,o.lw);}
+  for(i=0;i<n;i++){yc=sTop+i*ss;seg(ctx,o.x1-t-5,yc+o.rise/2,xb2,yc-o.rise/2,C.copper,o.lw);}
+  ctx.lineCap='butt';
+  /* --- 电源 --- */
+  dot(ctx,o.sx,cy,o.rs,C.surface);ring(ctx,o.sx,cy,o.rs,C.ink,1.6);supplyIcon(ctx,o.sx,cy,o.rs);
+  var la=o.wide?o.sx:6,al=o.wide?'center':'left';
+  rt(ctx,m.mode==='sin'?'AC supply':(m.mode==='dc'?'DC supply':'Supply'),la,yB+17,C.ink,12,600,al);
+  rt(ctx,m.mode==='sin'?'V_p = 6.0 V':(m.mode==='dc'?'I_p steady':'straight-line'),la,yB+32,C.muted,11.5,500,al);
+  /* --- primary 里的电流：移动的点（速度 ∝ I_p）+ 箭头 --- */
+  var o2=frac(m.off/GAP)*GAP;dots(ctx,PA,o2);dots(ctx,PB,o2);
+  var xm=(o.sx+xa)/2;
+  if(a>0.05){var Li=6+22*a;arrow(ctx,xm-dir*Li/2,yT-8,xm+dir*Li/2,yT-8,C.copper,2.2,7);}
+  rt(ctx,'I_p',xm,yT-17,C.copper,12,700,'center');
+  /* --- 灯：亮度 ∝ |ε_s| --- */
+  var bl=clamp(Math.abs(e)/2.2,0,1);
+  if(bl>0.03){ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=26*bl;dot(ctx,o.lx,cy,o.rl+1,rgba(C.light,0.25+0.75*bl));ctx.restore();
+    for(i=0;i<6;i++){var an=[0,0.7,2.44,Math.PI,3.84,5.58][i],r0=o.rl+4,r1=r0+3+7*bl;
+      seg(ctx,o.lx+Math.cos(an)*r0,cy+Math.sin(an)*r0,o.lx+Math.cos(an)*r1,cy+Math.sin(an)*r1,rgba(C.light,0.35+0.65*bl),2);}}
+  else dot(ctx,o.lx,cy,o.rl,C.surface);
+  ring(ctx,o.lx,cy,o.rl,C.ink,1.6);var d=o.rl*0.68;
+  seg(ctx,o.lx-d,cy-d,o.lx+d,cy+d,C.ink,1.4);seg(ctx,o.lx-d,cy+d,o.lx+d,cy-d,C.ink,1.4);
+  txt(ctx,'lamp',o.lx,cy+o.lh+18,C.ink,12,600,'center');
+  /* --- 标签 --- */
+  txt(ctx,'primary coil',o.x0+t/2,o.y0-26,C.ink,12,600,'center');
+  rt(ctx,'N_p = 600',o.x0+t/2,o.y0-10,C.copper,12,700,'center');
+  txt(ctx,'secondary coil',o.x1-t/2,o.y0-26,C.ink,12,600,'center');
+  rt(ctx,'N_s = '+m.ns,o.x1-t/2,o.y0-10,C.copper,12,700,'center');
+  txt(ctx,'soft-iron core (a closed loop)',o.xc,o.y1+18,C.muted,11.5,500,'center');
+}
+
+function drawReadout(ctx){
+  var o=L,x=16,y=o.ry,ns=m.ns,g=gcd(NP,ns),l1,l2,l3,mw=o.wide?o.gx-40:o.W-32;
+  l1='N_p : N_s = 600 : '+ns+' = '+(NP/g)+' : '+(ns/g)+' → '+(ns>NP?'step-up':(ns<NP?'step-down':'voltage unchanged'));
+  if(m.mode==='sin')l2='V_s = 6.0 V × '+ns+'/600 = '+(VP*ns/NP).toFixed(1)+' V (ideal, effective)';
+  else if(m.mode==='ramp')l2='ε_s is a constant, height ∝ N_s (values illustrative)';
+  else l2='V_s = 0: no output, however many turns N_s has';
+  l3=m.mode==='sin'?'Animation slowed down: real mains 50 Hz, T = 20 ms':'Straight-line and DC current sizes are illustrative';
+  rt(ctx,l1,x,y,C.ink,fit(ctx,l1,o.rf,600,mw),600);
+  rt(ctx,l2,x,y+20,C.copper,fit(ctx,l2,o.rf,700,mw),700);
+  rt(ctx,l3,x,y+38,C.muted,11.5,500);
+  rt(ctx,'Each loop drawn = 150 turns (N_p = 600: 4 loops)',x,y+54,C.muted,11.5,500);
+}
+
+function graph(ctx,y0,title,ymax,fn,col,tw){
+  var o=L,gx=o.gx,gw=o.gw,gh=o.gh,mid=y0+gh/2,x,y;
+  seg(ctx,gx,y0,gx,y0+gh,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+  seg(ctx,gx+gw/2,y0,gx+gw/2,y0+gh,C.grid,1,[2,4]);
+  txt(ctx,'0',gx-6,mid+4,C.muted,11,500,'right');
+  rt(ctx,title,gx,y0-10,col,fit(ctx,title,12.5,700,gw-tw),700);
+  ctx.save();ctx.beginPath();ctx.rect(gx,y0-3,gw+2,gh+6);ctx.clip();ctx.beginPath();
+  for(x=0;x<=gw;x+=1.5){y=mid-fn(2*x/gw)/ymax*(gh/2);if(x)ctx.lineTo(gx+x,y);else ctx.moveTo(gx+x,y);}
+  ctx.strokeStyle=col;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();ctx.restore();
+}
+
+function drawGraphs(ctx){
+  var o=L,gx=o.gx,gw=o.gw,gh=o.gh,xc=gx+frac(m.t/2)*gw;
+  ctx.font='600 11.5px '+FONT;var lw=ctx.measureText('gradient').width;
+  graph(ctx,o.g1,'I_p primary current (∝ Φ)',1,ip,C.south,lw+34);
+  seg(ctx,gx+gw-lw-26,o.g1-14,gx+gw-lw-8,o.g1-14,C.ink,2);txt(ctx,'gradient',gx+gw,o.g1-10,C.ink,11.5,600,'right');
+  graph(ctx,o.g2,'ε_s secondary emf = −N_s ΔΦ/Δt',EMAX,emf,C.copper,0);
+  /* 现在：竖虚线 + 两个点 + I_p 图上的切线（斜率） */
+  seg(ctx,xc,o.g1-2,xc,o.g2+gh+2,rgba(C.ink,0.5),1.2,[3,4]);
+  var m1=o.g1+gh/2,yI=m1-ip(m.t)*(gh/2),k=-dip(m.t)*(gh/2)*(2/gw),ux=1/Math.sqrt(1+k*k),uy=k*ux,hl=21;
+  ctx.save();ctx.beginPath();ctx.rect(gx,o.g1-3,gw+2,gh+6);ctx.clip();
+  ctx.lineCap='round';seg(ctx,xc-hl*ux,yI-hl*uy,xc+hl*ux,yI+hl*uy,rgba(C.ink,0.85),2.2);ctx.lineCap='butt';ctx.restore();
+  dot(ctx,xc,yI,4.5,C.south);
+  dot(ctx,xc,o.g2+gh/2-emf(m.t)/EMAX*(gh/2),4.5,C.copper);
+  var yt=o.g2+gh+14;
+  txt(ctx,'0',gx,yt,C.muted,11.5,500,'center');txt(ctx,'T',gx+gw/2,yt,C.muted,11.5,600,'center');txt(ctx,'2T',gx+gw,yt,C.muted,11.5,600,'center');
+  txt(ctx,'time → (dashed line = now)',gx+gw,yt+16,C.muted,11.5,500,'right');
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return w>=640?390:656;},
+  step:step,
+  draw:function(ctx,W,H){
+    if(!L||L.W!==W)L=lay(W);
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    drawStatus(ctx,W);drawDiagram(ctx);drawReadout(ctx);drawGraphs(ctx);
+  }
+});
+
+var b1s=document.getElementById('s1-sin'),b1r=document.getElementById('s1-ramp'),b1d=document.getElementById('s1-dc');
+function setMode(md){m.mode=md;press(b1s,md==='sin');press(b1r,md==='ramp');press(b1d,md==='dc');S1.render();}
+b1s.addEventListener('click',function(){setMode('sin');});
+b1r.addEventListener('click',function(){setMode('ramp');});
+b1d.addEventListener('click',function(){setMode('dc');});
+var r1=document.getElementById('s1-ns'),o1=document.getElementById('s1-ns-out');
+r1.addEventListener('input',function(){m.ns=parseInt(r1.value,10);o1.textContent=m.ns+' turns';S1.render();});
+/* 暂停，走到下一个关键时刻：正弦和 DC 每步 ⅛ 周期；直线升降每步 ¼ 周期（每一段的中间） */
+document.getElementById('s1-step').addEventListener('click',function(){
+  S1.setPlaying(false);
+  var den=m.mode==='ramp'?4:8,ph=frac(m.t),base=m.t-ph,tg=(Math.floor(ph*den+1e-6)+1)/den,sec=(tg-ph)*PER,n=Math.max(1,Math.ceil(sec*60));
+  for(var i=0;i<n;i++)step(sec/n);
+  m.t=base+tg;S1.render();
+});
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 升压还是降压：电压和电流反着变（放在 4.1 Power and current）
+   数据（booklet）：mains 230 V（effective value）、peak 约 325 V、50 Hz（T = 20 ms）；
+   微波炉 230 V → 约 2 kV（step-up），电焊机 230 V → 50 V，手机充电器 230 V → 5 V（step-down）。
+   示意：用电器功率 1000 W / 2300 W / 10 W；真实模式 η = 90%（booklet：小变压器常浪费 10–20%）。
+   物理：load 决定电流：先 Is = Pout/Vs，再 Pin = Pout（理想）或 Pout/η（真实），Ip = Pin/Vp（不拿 Vp 乘 Is）。
+   理想：Is/Ip = Vp/Vs = Np/Ns（倒过来）。Vs 的 peak = 325 V × Ns/Np（计算值）。两条波频率一样，动画放慢。
+   导线里的小点：AC 电流来回换方向，点的速度 ∝ 瞬时电流（电阻性 load，和电压同相）。速度的比例按每个用电器
+   自己设（Iref），所以只能在同一个用电器里比较 primary 和 secondary，换用电器时不能比。
+   两个线圈画成同一个绕向；按 Lenz，secondary 电流的 flux 反对 primary 的 flux（Np·Ip = Ns·Is），
+   所以两边上面那根导线里的电流同时流向铁芯、或同时离开铁芯：画面左右镜像。 */
+var VP=230,VPK=325,ETA=0.9,TA=2.4,OM=TAU/TA,AMAX=22;
+var APPS=[
+  {name:'Microwave oven',sn:'Microwave',Vs:2000,P:1000,up:true, nP:2, nS:17,ratio:'N_p : N_s ≈ 1 : 8.7',k:'8.7'},
+  {name:'Welder',sn:'Welder',Vs:50,  P:2300,up:false,nP:9, nS:2, ratio:'N_p : N_s = 4.6 : 1',k:'4.6'},
+  {name:'Charger',sn:'Charger',Vs:5,   P:10,  up:false,nP:18,nS:1, ratio:'N_p : N_s = 46 : 1', k:'46'}
+];
+var m={app:0,frac:1,real:false,focus:'app',t:0,dp:0,ds:0};
+var R={Po:0,Pi:0,Is:0,Ip:0,heat:0,Iref:1,Vspk:0};
+function calc(){var A=APPS[m.app],Po=m.frac*A.P,Pi=m.real?Po/ETA:Po;
+  R.Po=Po;R.Pi=Pi;R.Is=Po/A.Vs;R.Ip=Pi/VP;R.heat=Pi-Po;
+  R.Iref=Math.max(A.P/ETA/VP,A.P/A.Vs);R.Vspk=VPK*A.Vs/VP;}
+function fmtI(v){if(v<1e-9)return '0 A';return v<0.1?(v*1000).toPrecision(3)+' mA':v.toPrecision(3)+' A';}
+function fmtP(v){if(v<1e-9)return '0 W';return (v>=100?v.toFixed(0):(v>=10?v.toFixed(1):v.toFixed(2)))+' W';}
+function fmtV(v){return (v>=1000?String(Math.round(v/10)*10):v.toPrecision(3))+' V';}
+
+/* ---------- 文字：_x 或 _{xy} 画成下标（下标不小于 11 px） ---------- */
+var RU=[],RW=[];
+function rt(ctx,s,x,y,col,size,weight,align,noDraw,fam){
+  var ss=Math.max(11,size*0.74),wt=weight||500,i,j,ch,buf='',w=0,n,x0,sb,ff=fam||FONT;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);
+    if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}
+      if(s.charAt(i+1)==='{'){j=s.indexOf('}',i+2);if(j<0)j=s.length;RU.push(s.slice(i+2,j),1);i=j;}
+      else{RU.push(s.charAt(i+1),1);i++;}}
+    else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sb=RU[2*i+1];ctx.font=wt+' '+(sb?ss:size)+'px '+ff;RW[i]=ctx.measureText(RU[2*i]).width+(sb?0.5:0);w+=RW[i];}
+  if(noDraw)return w;
+  x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sb=RU[2*i+1];txt(ctx,RU[2*i],x0,y+(sb?size*0.26:0),col,sb?ss:size,wt,'left','alphabetic',ff);x0+=RW[i];}
+  return w;
+}
+/* 太宽就缩小字号（不小于 11 px） */
+function fit(ctx,s,size,weight,maxw){var w=rt(ctx,s,0,0,null,size,weight,'left',true);return w>maxw?Math.max(11,Math.floor(size*maxw/w*10)/10):size;}
+
+/* 小点：位移 = ∫ 速度 dt，速度 ∝ 瞬时电流 I(t) ∝ sin ωt（拉 slider 时不会跳） */
+function step(dt){var n=4,h=dt/n;calc();var ap=AMAX*R.Ip/R.Iref,as=AMAX*R.Is/R.Iref;
+  for(var i=0;i<n;i++){m.t+=h;var v=OM*Math.sin(OM*m.t);m.dp+=ap*v*h;m.ds+=as*v*h;}
+  if(m.t>TA*200)m.t-=TA*200;}
+
+/* ---------- 排版（按宽度和用电器缓存） ---------- */
+function mkPath(pts,hid){var n=pts.length/2,P={x:[],y:[],c:[0],hid:hid,L:0,n:n},i;
+  for(i=0;i<n;i++){P.x.push(pts[2*i]);P.y.push(pts[2*i+1]);}
+  for(i=0;i<n;i++){var j=(i+1)%n;P.L+=Math.hypot(P.x[j]-P.x[i],P.y[j]-P.y[i]);P.c.push(P.L);}
+  P.nd=Math.max(6,Math.round(P.L/20));P.sp=P.L/P.nd;return P;}
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W&&LY.app===m.app)return LY;
+  var A=APPS[m.app],L={W:W,app:m.app,wide:W>=640};
+  if(L.wide){L.sx0=16;L.st=[26,48];L.stF=[15,13];L.x0=16;L.x1=Math.round(W*0.54);L.y0=64;L.y1=250;L.rs=19;L.lw=72;L.cw=156;L.t=18;
+    L.my=262;L.mh=48;L.gx=L.x1+36;L.gw=W-18-L.gx;L.gy=82;L.sh=44;L.sg=24;L.px=L.gx;L.pw=L.gw;L.py=[256,298];L.hy=338;L.fy=338;}
+  else{L.sx0=14;L.st=[22,42];L.stF=[13.5,12.5];L.x0=12;L.x1=W-12;L.y0=56;L.y1=226;L.rs=16;L.lw=58;L.cw=122;L.t=15;
+    L.my=236;L.mh=48;L.gx=16;L.gw=W-32;L.gy=318;L.sh=42;L.sg=24;L.px=16;L.pw=W-32;L.py=[488,530];L.hy=572;L.fy=596;}
+  L.sx=L.x0+L.rs+4;L.lx0=L.x1-L.lw;L.lcx=L.lx0+L.lw/2;L.ccx=Math.round((L.sx+L.lcx)/2);
+  L.cx0=L.ccx-L.cw/2;L.cx1=L.ccx+L.cw/2;L.cy0=L.y0+20;L.cy1=L.y1-26;L.cyc=(L.cy0+L.cy1)/2;
+  L.yt=L.cy0+L.t+7;L.yb=L.cy1-L.t-7;
+  var lh=Math.min(L.wide?70:62,L.yb-L.yt-14);L.ly0=L.cyc-lh/2;L.ly1=L.cyc+lh/2;
+  function coil(n){var p=Math.min(L.wide?11:10,(L.yb-L.yt-4)/n),h=p*n;return {n:n,p:p,top:L.cyc-h/2,bot:L.cyc+h/2};}
+  L.cp=coil(A.nP);L.cs=coil(A.nS);
+  /* 圈数少的线圈电流大，用粗线（booklet 4.2：电流大的线圈用最粗的线） */
+  var wt=L.wide?3.8:3.4,wn=1.8;L.wP=A.nP<A.nS?wt:wn;L.wS=A.nP<A.nS?wn:wt;
+  var xo=L.cx0-5,xo2=L.cx1+5;L.xo=xo;L.xo2=xo2;
+  /* 回路从线圈上端出发：先往上，再沿上面那根导线往外走；第 4 段（电源 / 用电器里面）和最后一段（线圈里面）不画点 */
+  L.pathP=mkPath([xo,L.cp.top, xo,L.yt, L.sx,L.yt, L.sx,L.cyc-L.rs, L.sx,L.cyc+L.rs, L.sx,L.yb, xo,L.yb, xo,L.cp.bot],[0,0,0,1,0,0,0,1]);
+  L.pathS=mkPath([xo2,L.cs.top, xo2,L.yt, L.lcx,L.yt, L.lcx,L.ly0, L.lcx,L.ly1, L.lcx,L.yb, xo2,L.yb, xo2,L.cs.bot],[0,0,0,1,0,0,0,1]);
+  LY=L;return L;
+}
+
+/* ---------- 状态提示：[现在怎样, 为什么, 颜色] ---------- */
+function status(){
+  var A=APPS[m.app],pc=Math.round(m.frac*100);
+  if(pc===0)return ['Device at 0 → no power used → I_s = 0 (V_s stays)',m.real?'Real: no load, I_p is tiny (core losses), taken as 0':'power in = power out = 0 → I_p is 0 too',C.ink];
+  if(m.focus==='load')return ['Device at '+pc+'% → needs '+fmtP(R.Po)+' → I_s = '+fmtI(R.Is),'Load decides the current → primary draws I_p = '+fmtI(R.Ip),C.ink];
+  if(m.focus==='real')return m.real?['Real: P_{out} < P_{in}, the difference becomes heat','P_{in} = '+fmtP(R.Po)+' ÷ 0.9 = '+fmtP(R.Pi)+' → I_p is a little bigger too',C.heat]
+    :['Ideal: no losses → P_{in} = P_{out}','V_pI_p = V_sI_s = '+fmtP(R.Po)+', power in = power out',C.ink];
+  var re=' · Real: '+fmtP(R.heat)+' becomes heat';
+  if(m.app===0)return ['Microwave: step-up, V_s about 2 kV, bigger than V_p','→ I_s is smaller than I_p'+(m.real?re:' (÷ 8.7) → same power'),C.ink];
+  if(m.app===1)return ['Welder: step-down, V_s = 50 V, smaller than V_p','→ I_s is bigger than I_p'+(m.real?re:' (× 4.6) → big current can melt metal'),C.ink];
+  return ['Charger: step-down, V_s = 5 V, much smaller than V_p','→ I_s is bigger than I_p'+(m.real?re:' (× 46) → but power is only '+fmtP(R.Po)),C.ink];
+}
+
+/* ---------- 变压器、导线、小点、电源、用电器 ---------- */
+function strokePath(ctx,P,col,w){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.lineCap='round';ctx.setLineDash([]);
+  for(var j=0;j<P.n;j++){if(P.hid[j])continue;var k=(j+1)%P.n;ctx.beginPath();ctx.moveTo(P.x[j],P.y[j]);ctx.lineTo(P.x[k],P.y[k]);ctx.stroke();}
+  ctx.lineCap='butt';}
+function dots(ctx,P,d,r){for(var k=0;k<P.nd;k++){var s=((k*P.sp+d)%P.L+P.L)%P.L,j=0;while(j<P.n-1&&s>=P.c[j+1])j++;
+  if(P.hid[j])continue;var len=P.c[j+1]-P.c[j];if(len<0.5)continue;var f=(s-P.c[j])/len,jn=(j+1)%P.n,x=lerp(P.x[j],P.x[jn],f),y=lerp(P.y[j],P.y[jn],f);
+  dot(ctx,x,y,r,C.copper);}}
+function coilDraw(ctx,xL,xR,c,w){var s=Math.min(c.p*0.3,5);ctx.lineCap='round';
+  for(var k=0;k<c.n;k++){var y=c.top+(k+0.5)*c.p;seg(ctx,xL-5,y-s,xR+5,y+s,C.copper,w);}ctx.lineCap='butt';}
+function loadBox(ctx,L){
+  var x=L.lx0,y=L.ly0,w=L.lw,h=L.ly1-L.ly0,f=m.frac,cx=x+w/2,k;
+  rrect(ctx,x,y,w,h,7);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.7);ctx.lineWidth=1.5;ctx.stroke();
+  if(m.app===0){/* 微波炉：门上的窗（灯亮度 ∝ 开多大）+ 两个旋钮 */
+    rrect(ctx,x+7,y+8,w*0.58,h-16,3);ctx.fillStyle=rgba(C.light,0.06+0.6*f);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.75);ctx.lineWidth=1.2;ctx.stroke();
+    ring(ctx,x+w*0.82,y+h*0.36,3.2,rgba(C.ink,0.75),1.2);ring(ctx,x+w*0.82,y+h*0.64,3.2,rgba(C.ink,0.75),1.2);
+  }else if(m.app===1){/* 电焊机：焊条碰到金属板，火花 ∝ 开多大 */
+    var by=y+h-15,tx=x+w*0.42,ty=by-3;ctx.fillStyle=rgba(C.muted,0.55);ctx.fillRect(x+8,by,w-16,7);
+    ctx.lineCap='round';seg(ctx,x+w*0.8,y+9,tx,ty,C.ink,3);ctx.lineCap='butt';
+    if(f>0.004){dot(ctx,tx,ty,3+5*f*(0.7+0.3*Math.sin(m.t*29)),rgba(C.light,0.35+0.4*f));
+      for(k=0;k<6;k++){var an=Math.PI*(1.08+k*0.17),ln=(4+10*f)*(0.6+0.4*Math.sin(m.t*23+k*1.9));
+        seg(ctx,tx+Math.cos(an)*4,ty+Math.sin(an)*4,tx+Math.cos(an)*(4+ln),ty+Math.sin(an)*(4+ln),C.light,1.6);}}
+  }else{/* 手机：屏幕亮度 ∝ 开多大 */
+    var pw=Math.min(26,w*0.42),ph=h-14,px=cx-pw/2,py=y+7;
+    rrect(ctx,px,py,pw,ph,4);ctx.strokeStyle=rgba(C.ink,0.8);ctx.lineWidth=1.5;ctx.stroke();
+    rrect(ctx,px+3,py+5,pw-6,ph-12,2);ctx.fillStyle=rgba(C.light,0.06+0.6*f);ctx.fill();
+  }
+}
+function scheme(ctx,L){
+  var A=APPS[m.app],wide=L.wide;
+  /* 闭合软铁芯 */
+  ctx.beginPath();ctx.rect(L.cx0,L.cy0,L.cw,L.cy1-L.cy0);ctx.rect(L.cx0+L.t,L.cy0+L.t,L.cw-2*L.t,L.cy1-L.cy0-2*L.t);
+  ctx.fillStyle=rgba(C.muted,0.28);ctx.fill('evenodd');ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.2;ctx.stroke();
+  /* 导线 + 线圈 */
+  strokePath(ctx,L.pathP,rgba(C.copper,0.55),L.wP);strokePath(ctx,L.pathS,rgba(C.copper,0.55),L.wS);
+  coilDraw(ctx,L.cx0,L.cx0+L.t,L.cp,L.wP);coilDraw(ctx,L.cx1-L.t,L.cx1,L.cs,L.wS);
+  /* 来回动的电荷 */
+  var r=wide?2.8:2.5;dots(ctx,L.pathP,m.dp,r);dots(ctx,L.pathS,m.ds,r);
+  /* AC 电源 */
+  dot(ctx,L.sx,L.cyc,L.rs,C.surface);ring(ctx,L.sx,L.cyc,L.rs,C.ink,1.6);
+  ctx.beginPath();for(var i=0;i<=16;i++){var u=i/16,xx=L.sx-L.rs*0.55+u*L.rs*1.1,yy=L.cyc-Math.sin(u*TAU)*L.rs*0.3;if(i)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;ctx.stroke();
+  loadBox(ctx,L);
+  /* 文字 */
+  txt(ctx,'mains 230 V',L.x0,L.yt-8,C.ink,12,600);
+  txt(ctx,'50 Hz',L.x0,L.yb+18,C.muted,11.5,500);
+  rt(ctx,A.ratio,L.ccx,L.cy0-8,C.ink,12.5,700,'center');
+  txt(ctx,A.up?'step-up':'step-down',L.ccx,L.cyc+5,C.ink,wide?13.5:12.5,700,'center');
+  txt(ctx,'primary',L.cx0+L.t/2,L.cy1+16,C.copper,11.5,600,'center');
+  txt(ctx,'secondary',L.cx1-L.t/2,L.cy1+16,C.south,11.5,600,'center');
+  txt(ctx,wide?A.name:A.sn,L.lcx,L.yb+18,C.ink,12.5,600,'center');
+}
+
+/* ---------- 四个表（effective value） ---------- */
+function meter(ctx,L,x,y,w,h,lab,col,val,tag,tcol){
+  rrect(ctx,x,y,w,h,7);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(col,0.6);ctx.lineWidth=1.4;ctx.stroke();
+  rt(ctx,lab,x+8,y+17,col,12.5,700);
+  if(tag)txt(ctx,tag,x+w-7,y+17,tcol,11.5,700,'right');
+  txt(ctx,val,x+8,y+h-10,C.ink,L.wide?14.5:13,600,'left','alphabetic',MONO);
+}
+function meters(ctx,L){
+  var A=APPS[m.app],g=6,mid=14,w=(L.x1-L.x0-2*g-mid)/4,y=L.my,h=L.mh,on=m.frac>0.004;
+  var tV=(A.up?'× ':'÷ ')+A.k,tI=(A.up?'÷ ':'× ')+A.k;
+  meter(ctx,L,L.x0,y,w,h,'V_p',C.copper,VP+' V','',C.copper);
+  meter(ctx,L,L.x0+w+g,y,w,h,'I_p',C.copper,fmtI(R.Ip),(m.real&&on)?'+11%':'',C.heat);
+  meter(ctx,L,L.x0+2*w+g+mid,y,w,h,'V_s',C.south,A.Vs+' V',tV,C.south);
+  meter(ctx,L,L.x0+3*w+2*g+mid,y,w,h,'I_s',C.south,fmtI(R.Is),(on&&!m.real)?tI:'',C.south);
+}
+
+/* ---------- Vp、Vs 波形：同一个时间轴，上下两条，各用自己的纵轴（充电器的 Vs 只有 Vp 的 1/46，
+   画在同一个纵轴上就是一条平线，看不出频率一样）；纵轴差多少倍写在标题里 ---------- */
+function wave(ctx,gx,gw,mid,amp,col){ctx.beginPath();for(var i=0;i<=96;i++){var x=gx+i/96*gw,y=mid-amp*Math.sin(i/96*2*TAU);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=col;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();}
+function graph(ctx,L){
+  var A=APPS[m.app],gx=L.gx,gw=L.gw,sh=L.sh,y1=L.gy,y2=L.gy+sh+L.sg,amp=sh/2-3;
+  var ph=((m.t/TA)%2+2)%2,xc=gx+ph/2*gw,sn=Math.sin(OM*m.t);
+  function strip(y0,lab,col){var mid=y0+sh/2;
+    rt(ctx,lab,gx,y0-6,col,fit(ctx,lab,12,600,gw),600);
+    seg(ctx,gx,y0,gx,y0+sh,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+    seg(ctx,gx+gw/2,y0,gx+gw/2,y0+sh,C.grid,1,[3,4]);
+    seg(ctx,xc,y0,xc,y0+sh,rgba(C.ink,0.55),1.2,[3,3]);
+    wave(ctx,gx,gw,mid,amp,col);dot(ctx,xc,mid-amp*sn,4.2,col);}
+  strip(y1,'V_p  peak '+fmtV(VPK),C.copper);
+  strip(y2,'V_s  peak '+fmtV(R.Vspk)+' (y-axis '+(A.up?'shrunk ':'enlarged ')+A.k+' times)',C.south);
+  var ty=y2+sh+14;
+  txt(ctx,'0',gx,ty,C.muted,11,500,'center');txt(ctx,'20 ms',gx+gw/2,ty,C.muted,11,500,'center');txt(ctx,'40 ms',gx+gw,ty,C.muted,11,500,'right');
+  txt(ctx,'Same frequency (50 Hz) · animation slowed down',gx+gw/2,ty+18,C.muted,11.5,500,'center');
+}
+
+/* ---------- power 条 ---------- */
+function power(ctx,L){
+  var A=APPS[m.app],x=L.px,w=L.pw,bw=w-66,bh=11,Pref=A.P/ETA,y,by;
+  y=L.py[0];by=y+8;
+  rt(ctx,'P_{in} = V_pI_p = '+VP+' V × '+fmtI(R.Ip),x,y,C.ink,12.5,600);
+  rrect(ctx,x,by,bw,bh,bh/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  if(R.Pi>1e-9){var fo=R.Po/Pref*bw,fi=R.Pi/Pref*bw;ctx.save();rrect(ctx,x,by,bw,bh,bh/2);ctx.clip();
+    ctx.fillStyle=C.copper;ctx.fillRect(x,by,fo,bh);if(fi-fo>0.3){ctx.fillStyle=C.heat;ctx.fillRect(x+fo,by,fi-fo,bh);seg(ctx,x+fo,by,x+fo,by+bh,C.stage,2);}ctx.restore();}
+  txt(ctx,fmtP(R.Pi),x+w,by+bh/2+4.5,C.ink,13,600,'right','alphabetic',MONO);
+  y=L.py[1];by=y+8;
+  rt(ctx,'P_{out} = V_sI_s = '+A.Vs+' V × '+fmtI(R.Is),x,y,C.ink,12.5,600);
+  hbar(ctx,x,by,bw,bh,R.Po/Pref,C.copper);
+  txt(ctx,fmtP(R.Po),x+w,by+bh/2+4.5,C.ink,13,600,'right','alphabetic',MONO);
+  if(m.real){if(m.frac>0.004)txt(ctx,'Difference '+fmtP(R.heat)+' → becomes heat (η = 90%)',x,L.hy,C.heat,12,600);
+    else txt(ctx,'No load: no output, so η is not calculated here',x,L.hy,C.muted,12,600);}
+  else rt(ctx,'Ideal: P_{in} = P_{out}, nothing is wasted',x,L.hy,C.muted,12,500);
+}
+
+for(var q=0;q<40;q++)step(1/60);
+var stage=makeStage('sim2',{
+  height:function(w){return w>=640?352:610;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    calc();var L=lay(W),st=status();
+    rt(ctx,st[0],L.sx0,L.st[0],st[2],fit(ctx,st[0],L.stF[0],600,W-2*L.sx0),600);
+    rt(ctx,st[1],L.sx0,L.st[1],C.muted,fit(ctx,st[1],L.stF[1],500,W-2*L.sx0),500);
+    scheme(ctx,L);meters(ctx,L);graph(ctx,L);power(ctx,L);
+    txt(ctx,'Meters show the effective value; the waves mark the peak',L.x0,L.fy,C.muted,L.wide?12:11.5,500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bA=[document.getElementById('s2-mw'),document.getElementById('s2-wd'),document.getElementById('s2-ph')];
+var bId=document.getElementById('s2-ideal'),bRe=document.getElementById('s2-real');
+var rL=document.getElementById('s2-load'),oL=document.getElementById('s2-load-out');
+function sync(){for(var i=0;i<3;i++)press(bA[i],i===m.app);press(bId,!m.real);press(bRe,m.real);}
+bA.forEach(function(b,i){b.addEventListener('click',function(){m.app=i;m.focus='app';sync();stage.render();});});
+bId.addEventListener('click',function(){m.real=false;m.focus='real';sync();stage.render();});
+bRe.addEventListener('click',function(){m.real=true;m.focus='real';sync();stage.render();});
+rL.addEventListener('input',function(){m.frac=parseInt(rL.value,10)/100;oL.textContent=rL.value+'%';m.focus='load';stage.render();});
+sync();
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 涡流：实心铁芯和叠片铁芯（对应 booklet Figure 4.2：铁芯的切面，flux 垂直纸面）
+   模型（示意）：Φ = Φ0 sin θ，θ = ωt，出纸面为 +。周期放慢到 PER = 6 s（真实 mains 50 Hz，T = 20 ms）。
+   涡流 ∝ ΔΦ/Δt ∝ cos θ（Faraday）：Φ 过 0 时最大，Φ 在最大值时为 0。
+   方向（Lenz + right-hand grip rule，逐个查过）：ΔΦ/Δt > 0（出纸面在变大，或进纸面在变小）→ 涡流的磁场要向里
+   → 从正面看顺时针（booklet Figure 4.2）；ΔΦ/Δt < 0 → 逆时针。canvas 上顺时针 = 上边向右、右边向下。
+   强度（示意，booklet 只说 much smaller）：实心 f = 1；叠片 n 片：每片宽 1/n，片里的电流密度 ∝ 片宽 → f = 1/n，
+   发热（每单位体积 ∝ 电流密度²）→ f² = 1/n²；ferrite 几乎不导电 → f = 0。
+   温度（示意）：铁芯热得慢，所以跟着平均发热走：dT/dt = H0·f² − c·T。cooling 只把 c 变大：温度降，涡流还在
+   （模型里涡流和发热不变；真实的铁凉了电阻小一点，涡流反而略大，所以文字只说“cooling 不能阻止涡流”）。 */
+var PER=6,OM=TAU/PER,TW=2*PER,H0=0.2975,CL0=0.35,CL1=0.9,FLOW=40;
+var m={t:2*PER+0.45/OM-0.5,mode:'solid',n:6,cool:false,T:H0/CL0,s:0,note:'mode'};
+function fac(){return m.mode==='solid'?1:(m.mode==='lam'?1/m.n:0);}
+function sub(h){m.t+=h;var c=Math.cos(OM*m.t),f=fac();m.s+=f*c*FLOW*h;var P=H0*f*f;m.T=Math.max(0,m.T+(P-(m.cool?CL1:CL0)*m.T)*h);}
+function step(dt){var k=4,h=dt/k;for(var i=0;i<k;i++)sub(h);}
+for(var q=0;q<30;q++)step(1/60);
+
+/* ---------- 小工具 ---------- */
+function tri(ctx,x,y,ux,uy,sz,col){ctx.beginPath();ctx.moveTo(x+ux*sz,y+uy*sz);ctx.lineTo(x-ux*sz*0.6-uy*sz*0.62,y-uy*sz*0.6+ux*sz*0.62);ctx.lineTo(x-ux*sz*0.6+uy*sz*0.62,y-uy*sz*0.6-ux*sz*0.62);ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+/* flux 记号：phi > 0 出纸面 ⊙，phi < 0 进纸面 ⊗，大小 ∝ |Φ| */
+function fluxMark(ctx,x,y,R,phi){
+  var a=Math.abs(phi);
+  if(a<0.07){dot(ctx,x,y,1.5,rgba(C.ink,0.55));return;}
+  var r=R*(0.25+0.75*a),lw=r>4?1.8:1.4,ck=rgba(C.ink,0.85);
+  /* 白底 + --field 圈，中间的点 / 叉用 ink：两种主题在发热的铁芯上都看得清 */
+  dot(ctx,x,y,r,C.surface);ring(ctx,x,y,r,C.field,lw);
+  if(phi>0)dot(ctx,x,y,Math.max(1.3,r*0.34),ck);
+  else{var d=r*0.5;seg(ctx,x-d,y-d,x+d,y+d,ck,lw);seg(ctx,x-d,y+d,x+d,y-d,ck,lw);}
+}
+/* 一个涡流圈：u = |ΔΦ/Δt|（0–1），f = 强度系数，dir = +1 顺时针；arr = 画箭头的边 */
+function eddy(ctx,x,y,w,h,r,u,f,dir,lw0,asz,arr){
+  rrect(ctx,x,y,w,h,r);ctx.strokeStyle=rgba(C.copper,0.2);ctx.lineWidth=1;ctx.stroke();
+  if(f<=0||u<0.05)return;
+  var a=0.25+0.75*u,col=rgba(C.copper,a);
+  rrect(ctx,x,y,w,h,r);ctx.strokeStyle=col;ctx.lineWidth=1.3+lw0*u*f;ctx.setLineDash([8,6]);ctx.lineDashOffset=-m.s;ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0;
+  if(u<0.15)return;
+  for(var i=0;i<arr.length;i++){var e=arr[i];
+    if(e==='t')tri(ctx,x+w/2,y,dir,0,asz,col);
+    else if(e==='r')tri(ctx,x+w,y+h/2,0,dir,asz,col);
+    else if(e==='b')tri(ctx,x+w/2,y+h,-dir,0,asz,col);
+    else tri(ctx,x,y+h/2,0,-dir,asz,col);}
+}
+function fit(ctx,s,x,y,col,size,weight,maxW,align){ctx.font=weight+' '+size+'px '+FONT;var w=ctx.measureText(s).width;if(w>maxW)size=Math.max(11,size*maxW/w);txt(ctx,s,x,y,col,size,weight,align||'left');}
+
+function wrapW(ctx,s,size,weight,maxW){ctx.font=weight+' '+size+'px '+FONT;var ws=s.split(' '),out=[],ln='',i;for(i=0;i<ws.length;i++){var t=ln?ln+' '+ws[i]:ws[i];if(ln&&ctx.measureText(t).width>maxW){out.push(ln);ln=ws[i];}else ln=t;}if(ln)out.push(ln);return out;}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var L={wide:W>=640},b;
+  if(L.wide){L.st=[28,51];L.f1=15;L.f2=13;L.S=228;L.x0=32;L.ty=88;L.y0=100;b=L.y0+L.S;L.lg=[b+25,b+45];L.lgx=L.x0+L.S/2;
+    L.gx=L.x0+L.S+60;L.gw=W-L.gx-20;L.gh=62;L.g1=102;L.g2=L.g1+L.gh+40;L.tm=L.g2+L.gh+17;
+    L.rx=L.gx;L.rx2=W-20;L.r1=L.tm+32;L.r2=L.r1+27;L.ntY=L.r2+31;L.ntD=20;L.ntN=W>=720?2:4;}
+  else{L.st=[24,45];L.f1=13.5;L.f2=12.5;L.S=Math.min(204,W-90);L.x0=Math.round((W-L.S)/2);L.ty=W<340?118:100;L.y0=L.ty+10;b=L.y0+L.S;L.lg=[b+24,b+43];L.lgx=W/2;
+    L.gx=40;L.gw=W-58;L.gh=54;L.g1=b+82;L.g2=L.g1+L.gh+36;L.tm=L.g2+L.gh+16;
+    L.rx=16;L.rx2=W-16;L.r1=L.tm+30;L.r2=L.r1+26;L.ntY=L.r2+29;L.ntD=19;L.ntN=W>=340?3:4;}
+  L.bx0=L.rx+104;L.bx1=L.rx2-60;L.H=L.ntY+(L.ntN-1)*L.ntD+16;
+  return L;
+}
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var th=OM*m.t,s=Math.sin(th),c=Math.cos(th),cw=c>0,who=m.mode==='lam'?'eddy current in each sheet':'eddy current',dw=cw?'clockwise':'anticlockwise';
+  if(m.mode==='fer')return {a:'Ferrite conducts very poorly → almost no eddy currents',b:'Flux still passes and still changes, but current can hardly flow',col:C.ink};
+  if(Math.abs(c)<0.15)return {a:'Φ is at its maximum '+(s>0?'out of':'into')+' the page, almost not changing → eddy current ≈ 0',b:'Eddy current depends on how fast Φ changes, not on how big Φ is',col:C.ink};
+  var lenz='The eddy current\'s field points '+(cw?'into':'out of')+' the page, opposing ';
+  if(Math.abs(s)<0.3)return {a:'Φ passes 0, changing fastest → '+who+' is largest ('+dw+')',b:lenz+'the change in flux (Lenz)',col:C.copper};
+  var grow=(s>0)===(c>0);
+  return {a:'Flux '+(s>0?'out of':'into')+' the page'+(grow?' and growing':' but getting smaller')+' → '+who+' '+dw,b:lenz+(grow?'the growth':'the decrease')+' in flux (Lenz)',col:C.ink};
+}
+function notes(){
+  /* cooling 的说明按“现在的温度”和“这种铁芯不加 cooling 时最后稳定的温度 Ts”比较，所以任何时候都是真的 */
+  if(m.note==='cool'){var f=fac(),Ts=H0*f*f/(m.cool?CL1:CL0),dT=m.T-Ts;
+    if(!m.cool){
+      if(dT<-0.03)return ['Cooling off: heat escapes slowly,','so the temperature slowly rises again'];
+      var tail=dT>0.03?'the temperature is still slowly coming down':'the temperature hardly changes';
+      return f<0.34?['Cooling off: this core makes almost no heat,',tail]:['Cooling off:',tail];}
+    return m.mode==='fer'?['Cooling on: ferrite already has almost','no eddy currents, heating ≈ 0']:['Cooling on: the core is a little cooler,','but eddy currents remain: cooling does not stop them'];}
+  if(m.mode==='solid')return ['Solid: one big loop around all the flux, wide path','→ large eddy currents, very hot core'];
+  if(m.mode==='lam')return ['Laminated: only a thin strip of flux in each loop,','narrow path, high resistance → small eddy currents, much less heat'];
+  return ['Ferrite: a magnetic ceramic, flux still passes,','conducts very poorly → used in phone chargers'];
+}
+
+/* ---------- 铁芯切面 ---------- */
+function drawCore(ctx,L){
+  var x0=L.x0,y0=L.y0,S=L.S,th=OM*m.t,phi=Math.sin(th),c=Math.cos(th),u=Math.abs(c),dir=c>=0?1:-1,f=fac(),R=S*0.034,i,j;
+  var title=m.mode==='solid'?'Solid core · slice':(m.mode==='lam'?'Laminated core · '+m.n+' sheets':'Ferrite core');
+  txt(ctx,title,x0+S/2,L.ty,C.ink,12.5,700,'center');
+  ctx.fillStyle=m.mode==='fer'?rgba(C.muted,0.42):rgba(C.muted,0.2);ctx.fillRect(x0,y0,S,S);
+  if(m.T>0.005){ctx.fillStyle=rgba(C.heat,0.3*Math.min(1,m.T));ctx.fillRect(x0,y0,S,S);}
+  if(m.mode==='lam'){
+    var n=m.n,w=S/n,ix=clamp(0.17*w,3,10),cpk=Math.max(1,Math.floor(w/40)),rr=Math.min(R,w*0.2),rows=[0.17,0.39,0.61,0.83];
+    for(i=1;i<n;i++)seg(ctx,x0+i*w,y0,x0+i*w,y0+S,rgba(C.ink,0.85),2);
+    for(i=0;i<n;i++){var sx=x0+i*w;
+      for(j=0;j<cpk;j++)for(var k=0;k<rows.length;k++)fluxMark(ctx,sx+w*(j+0.5)/cpk,y0+S*rows[k],rr,phi);
+      eddy(ctx,sx+ix,y0+S*0.05,w-2*ix,S*0.9,Math.min(6,w*0.25),u,f,dir,3.4,Math.min(7,w*0.24),n>=8?['r']:['r','l']);}
+  }else{
+    for(i=0;i<5;i++)for(j=0;j<5;j++)fluxMark(ctx,x0+S*(0.1+0.2*i),y0+S*(0.1+0.2*j),R,phi);
+    if(m.mode==='solid'){
+      eddy(ctx,x0+0.2*S,y0+0.2*S,0.6*S,0.6*S,0.07*S,u,1,dir,3.6,9,['t','r','b','l']);
+      eddy(ctx,x0+0.4*S,y0+0.4*S,0.2*S,0.2*S,0.05*S,u,0.45,dir,3.6,7,['t','b']);
+    }
+  }
+  ctx.strokeStyle=rgba(C.ink,0.6);ctx.lineWidth=1.2;ctx.strokeRect(x0,y0,S,S);
+  /* cooling：热从铁芯两边被带走 */
+  if(m.cool){var ca=rgba(C.heat,0.35+0.65*Math.min(1,m.T*2));for(i=0;i<3;i++){var cy=y0+S*(0.25+0.25*i);arrow(ctx,x0-3,cy,x0-19,cy,ca,2,6);arrow(ctx,x0+S+3,cy,x0+S+19,cy,ca,2,6);}}
+  /* 图例 */
+  var r1=[['out','flux out of the page'],['in','into the page']],r2=[['eddy','eddy current']];
+  if(m.mode==='lam')r2.push(['ins','insulating layer']);
+  legend(ctx,r1,L.lgx,L.lg[0]);legend(ctx,r2,L.lgx,L.lg[1]);
+}
+function legend(ctx,items,cx,y){
+  var sz=11.5,gap=16,iw=18,ws=[],tot=0,i;
+  ctx.font='500 '+sz+'px '+FONT;
+  for(i=0;i<items.length;i++){ws.push(ctx.measureText(items[i][1]).width);tot+=iw+5+ws[i]+(i?gap:0);}
+  var x=cx-tot/2,yc=y-4;
+  for(i=0;i<items.length;i++){var k=items[i][0];
+    if(k==='out')fluxMark(ctx,x+iw/2,yc,6.5,1);
+    else if(k==='in')fluxMark(ctx,x+iw/2,yc,6.5,-1);
+    else if(k==='eddy'){seg(ctx,x,yc,x+iw-6,yc,C.copper,2.4);tri(ctx,x+iw-6,yc,1,0,6,C.copper);}
+    else seg(ctx,x+iw/2,yc-7,x+iw/2,yc+7,rgba(C.ink,0.85),2);
+    txt(ctx,items[i][1],x+iw+5,y,C.muted,sz,500);
+    x+=iw+5+ws[i]+gap;}
+}
+
+/* ---------- 两张时间对齐的图 ---------- */
+function axes(ctx,L,y0,lab,col,refs,rlab){
+  var gx=L.gx,gw=L.gw,gh=L.gh,mid=y0+gh/2,k=gh/2/1.15;
+  seg(ctx,gx,y0,gx,y0+gh,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+  for(var i=0;i<refs.length;i++){var y=mid-refs[i][0]*k;seg(ctx,gx,y,gx+gw,y,C.grid,1,[2,4]);txt(ctx,refs[i][1],gx-6,y+4,C.muted,11,500,'right');}
+  txt(ctx,lab,gx,y0-10,col,12.5,700);
+  if(rlab)txt(ctx,rlab,gx+gw,y0-10,C.muted,11.5,500,'right');
+}
+function curve(ctx,L,y0,amp,cosine,col,w,dash){
+  var gx=L.gx,gw=L.gw,mid=y0+L.gh/2,k=L.gh/2/1.15,t0=m.t-TW,N=120;
+  ctx.beginPath();
+  for(var i=0;i<=N;i++){var th=OM*(t0+i/N*TW),v=amp*(cosine?Math.cos(th):Math.sin(th)),x=gx+i/N*gw,y=mid-v*k;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);
+  var th2=OM*m.t;return mid-amp*(cosine?Math.cos(th2):Math.sin(th2))*k;
+}
+
+/* ---------- 发热和温度 ---------- */
+function row(ctx,L,y,lab,frac,val,fam){
+  txt(ctx,lab,L.rx,y,C.ink,12.5,600);
+  hbar(ctx,L.bx0,y-9,L.bx1-L.bx0,10,frac,C.heat);
+  txt(ctx,val,L.rx2,y,C.ink,12.5,600,'right','alphabetic',fam);
+}
+
+var St=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),st=status(),f=fac();
+    if(L.wide){
+      fit(ctx,st.a,16,L.st[0],st.col,L.f1,600,W-32);
+      fit(ctx,st.b,16,L.st[1],C.muted,L.f2,500,W-32);
+    }else{
+      /* phone: English is longer, so word wrap the two status lines */
+      var sy=22,sl=wrapW(ctx,st.a,L.f1,600,W-32),si;
+      for(si=0;si<sl.length;si++){txt(ctx,sl[si],16,sy,st.col,L.f1,600);sy+=18;}
+      sy+=1;sl=wrapW(ctx,st.b,L.f2,500,W-32);
+      for(si=0;si<sl.length;si++){txt(ctx,sl[si],16,sy,C.muted,L.f2,500);sy+=16;}
+    }
+    drawCore(ctx,L);
+    /* 图 1：Φ；图 2：涡流（实心的为 1） */
+    axes(ctx,L,L.g1,'Φ flux (out of the page = +)',C.south,[[1,'out'],[-1,'in']]);
+    var y1=curve(ctx,L,L.g1,1,false,C.south,2.4);
+    axes(ctx,L,L.g2,'Eddy current ('+(W<340?'cw':'clockwise')+' = +)',C.copper,[[1,'cw'],[-1,'acw']],m.mode==='solid'?'':(W<340?'dashed = solid':'dashed = solid core'));
+    if(m.mode!=='solid')curve(ctx,L,L.g2,1,true,rgba(C.copper,0.45),1.4,[4,4]);
+    var y2=curve(ctx,L,L.g2,f,true,C.copper,2.4);
+    var xn=L.gx+L.gw;
+    seg(ctx,xn,L.g1-2,xn,L.g2+L.gh+2,rgba(C.muted,0.6),1,[3,4]);
+    dot(ctx,xn,y1,4.5,C.south);dot(ctx,xn,y2,4.5,C.copper);
+    txt(ctx,W<340?'Slowed: real T = 20 ms':'Slowed down: real T = 20 ms',L.gx,L.tm,C.muted,11,500);
+    txt(ctx,W<340?'time → (now: right)':'time → (now = far right)',xn,L.tm,C.muted,11,500,'right');
+    /* 发热（平均，实心 = 1）和温度 */
+    ctx.font='600 12.5px '+FONT;L.bx0=L.rx+14+Math.max(ctx.measureText('Heating (solid = 1)').width,ctx.measureText('Temperature (cooling on)').width);
+    var hv=m.mode==='solid'?'1':(m.mode==='lam'?'1/'+(m.n*m.n):'≈ 0');
+    row(ctx,L,L.r1,'Heating (solid = 1)',f*f,hv,MONO);
+    var T=m.T,tw=T>0.6?'very hot':(T>0.3?'hot':(T>0.1?'warm':'not hot'));
+    row(ctx,L,L.r2,m.cool?'Temperature (cooling on)':'Core temperature',Math.min(1,T),tw,FONT);
+    var nt=notes();
+    var nw=L.rx2-L.rx,ny=L.ntY,nl=wrapW(ctx,nt[0],12.5,600,nw),ni;
+    for(ni=0;ni<nl.length;ni++){txt(ctx,nl[ni],L.rx,ny,C.ink,12.5,600);ny+=L.ntD;}
+    nl=wrapW(ctx,nt[1],12.5,500,nw);
+    for(ni=0;ni<nl.length;ni++){txt(ctx,nl[ni],L.rx,ny,C.ink,12.5,500);ny+=L.ntD;}
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bS=document.getElementById('s3-solid'),bL=document.getElementById('s3-lam'),bF=document.getElementById('s3-fer');
+var rN=document.getElementById('s3-n'),oN=document.getElementById('s3-n-out'),bC=document.getElementById('s3-cool'),lbN=rN.parentNode;
+function setMode(md){m.mode=md;m.note='mode';press(bS,md==='solid');press(bL,md==='lam');press(bF,md==='fer');
+  rN.disabled=md!=='lam';lbN.style.opacity=md==='lam'?'':'0.5';St.render();}
+bS.addEventListener('click',function(){setMode('solid');});
+bL.addEventListener('click',function(){setMode('lam');});
+bF.addEventListener('click',function(){setMode('fer');});
+rN.addEventListener('input',function(){m.n=parseInt(rN.value,10);oN.textContent=m.n+' sheets';if(m.mode==='lam')m.note='mode';St.render();});
+bC.addEventListener('click',function(){m.cool=!m.cool;m.note='cool';press(bC,m.cool);bC.textContent='Cooling: '+(m.cool?'on':'off');St.render();});
+setMode('solid');
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 为什么要高压输电（booklet 4.3，Figure 4.3 的模型）
+   发电站送出固定的 power P = 10 MW（示意），step-up 把 20 kV 升到送电电压 V（理想变压器，不算它的损失），
+   输电线两根线一共 R = 5 Ω（示意，booklet 只说 several ohms；粗电线 R ÷ 2 = 2.5 Ω）。
+   I = P/V（整条线上一样）；V_drop = IR；P_loss = I²R；town 得到 P − P_loss，线的末端电压 V − IR。
+   计算值：20 kV → 500 A、2500 V、1.25 MW（12.5%）；50 kV → 200 A、1000 V、200 kW；
+   330 kV → 30.3 A、152 V、4.59 kW；500 kV → 20.0 A、100 V、2.00 kW。P_loss ∝ 1/V²。
+   画法：电线的发热颜色 ∝ P_loss/P（以 20 kV、R = 5 Ω 的 12.5% 为满）；town 的 8 盏灯一共代表 P（每盏 1.25 MW）；
+   线上的小点表示电流（--copper，外面一圈底色，免得和铜线混在一起）：AC，所以来回动（放慢），速度振幅 ∝ I。
+   读数都用显示出来的整数 kV（滑动时也一样），送出和到达的电压不会对不上。 */
+var PW=10e6,R0=5,TICKS=[20,66,132,330,500],VMAX=520,YMAX=1.4,FMAX=0.125,OM=TAU*0.7,GLIDE=2.0;
+var m={V:20,Vt:20,thick:false,cmp:false,ph:1.2,t:0,tThick:-1e9,shown:20};
+var rV=document.getElementById('s4-v'),oV=document.getElementById('s4-v-out'),bX=document.getElementById('s4-x10'),bT=document.getElementById('s4-thick');
+
+function Rl(){return m.thick?R0/2:R0;}
+function lossAt(Vk,R){var I=PW/(Vk*1e3);return I*I*R;}
+function fI(I){return (I>=100?I.toFixed(0):I>=10?I.toFixed(1):I.toFixed(2))+' A';}
+function fW(w){if(w>=1e6)return (w/1e6).toFixed(2)+' MW';var k=w/1e3;return (k>=100?k.toFixed(0):k>=10?k.toFixed(1):k.toFixed(2))+' kW';}
+function fPct(p){return (p>=1?p.toFixed(1):p>=0.1?p.toFixed(2):p.toFixed(3))+'%';}
+function fVd(v){return (v>=100?v.toFixed(0):v.toFixed(1))+' V';}
+
+/* 小号富文本：*斜体符号*，_下标_（只用于固定的公式片段，结果缓存） */
+var RC={};
+function parse(s){var a=[],buf='',k=0;for(var i=0;i<s.length;i++){var ch=s.charAt(i);if(ch==='*'||ch==='_'){if(buf)a.push({t:buf,k:k,w:0});buf='';k=(ch==='*')?(k===1?0:1):(k===2?0:2);}else buf+=ch;}if(buf)a.push({t:buf,k:k,w:0});return a;}
+function rfont(ctx,k,size,wt){ctx.font=k===1?('italic 500 '+(size*1.1).toFixed(1)+'px '+MATH):k===2?('500 '+Math.max(11,size*0.76).toFixed(1)+'px '+FONT):((wt||500)+' '+size+'px '+FONT);}
+function rich(ctx,s,x,y,col,size,wt,align,dry){
+  var a=RC[s]||(RC[s]=parse(s)),w=0,i;
+  for(i=0;i<a.length;i++){rfont(ctx,a[i].k,size,wt);a[i].w=ctx.measureText(a[i].t).width+(a[i].k===1?1:0);w+=a[i].w;}
+  if(dry)return w;
+  var cx=align==='right'?x-w:align==='center'?x-w/2:x;
+  ctx.fillStyle=col;ctx.textAlign='left';ctx.textBaseline='alphabetic';
+  for(i=0;i<a.length;i++){rfont(ctx,a[i].k,size,wt);ctx.fillText(a[i].t,cx,y+(a[i].k===2?size*0.26:0));cx+=a[i].w;}
+  return w;
+}
+/* 公式片段 + 数字（数字用普通字体），整体按 align 对齐 */
+function richNum(ctx,pre,num,x,y,col,size,wt,align,ncol){
+  var w1=rich(ctx,pre,0,0,col,size,wt,'left',true);ctx.font=(wt||500)+' '+size+'px '+FONT;var w2=ctx.measureText(num).width;
+  var x0=align==='right'?x-w1-w2:align==='center'?x-(w1+w2)/2:x;
+  rich(ctx,pre,x0,y,col,size,wt,'left');txt(ctx,num,x0+w1,y,ncol||col,size,wt,'left');
+}
+
+function step(dt){
+  var n=4,h=dt/n;
+  for(var i=0;i<n;i++){
+    var d=Math.log(m.Vt/m.V),k=GLIDE*h;
+    if(Math.abs(d)<=k)m.V=m.Vt;else m.V*=Math.exp(d>0?k:-k);
+    m.ph+=OM*h;m.t+=h;
+  }
+  var vr=Math.round(m.V);if(vr!==m.shown){m.shown=vr;oV.textContent=vr+' kV';}
+}
+for(var q=0;q<40;q++)step(1/60);
+
+function lay(W){
+  var L;
+  if(W>=640){L={wide:true,s1:24,s2:44,Ly:80,yT:112,yB:162,yL:188,stCx:44,stR:18,su:106,hw:78,gap:30,
+      rows:[222,248,274],cZh:16,cF:94,cV:Math.round(W*0.5),bl:304,by:312,bt:344,
+      gx0:Math.round(W*0.5)+66,gx1:W-22,gy0:228,gy1:318,yr:15};}
+  else{L={wide:false,s1:20,s2:54,Ly:90,yT:120,yB:166,yL:188,stCx:26,stR:13,su:64,hw:60,gap:10,
+      rows:[218,242,266],cZh:16,cF:W<310?62:94,cV:W-16,bl:294,by:302,bt:332,
+      gx0:46,gx1:W-18,gy0:376,gy1:470,yr:13};}
+  L.hx=W-16-L.hw;L.sd=L.hx-L.gap-24;L.x0=L.su+24;L.x1=L.sd;
+  return L;
+}
+
+function coil(ctx,x,yT,yB,n,dir){
+  var a=yT+5,b=yB-5,h=(b-a)/n;
+  ctx.beginPath();ctx.moveTo(x,yT);ctx.lineTo(x,a);
+  for(var k=0;k<n;k++)ctx.arc(x,a+h*(k+0.5),h/2,-Math.PI/2,Math.PI/2,dir<0);
+  ctx.lineTo(x,yB);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.stroke();
+}
+function xfmr(ctx,x,yT,yB,nL,nR){
+  coil(ctx,x,yT,yB,nL,1);coil(ctx,x+24,yT,yB,nR,-1);
+  seg(ctx,x+10,yT-5,x+10,yB+5,C.muted,2);seg(ctx,x+14,yT-5,x+14,yB+5,C.muted,2);
+}
+/* 图上的小标签：先垫一块底色，免得和曲线混在一起 */
+function tag(ctx,s,x,y,align){ctx.font='600 11.5px '+FONT;var w=ctx.measureText(s).width,xl=align==='right'?x-w:x;
+  ctx.fillStyle=rgba(C.stage,0.88);ctx.fillRect(xl-3,y-11,w+6,15);txt(ctx,s,x,y,C.heat,11.5,600,align);}
+function nTurns(r){return r<1.05?3:Math.min(7,3+Math.round(Math.log(r)/Math.log(25)*4));}
+
+function status(ctx,L,I,Pl,R){
+  var gl=Math.abs(m.V-m.Vt)>1e-6,vr=Math.round(m.V),s1,s2;
+  s2='I = '+fI(I)+', lost as heat in the line: '+fW(Pl)+' ('+fPct(100*Pl/PW)+')';
+  if(gl){s1=m.Vt>m.V?'Voltage rising → current falls → heat falls with the square of the current':'Voltage falling → current rises → heat rises with the square of the current';}
+  else if(m.cmp&&vr===500){
+    s1='Voltage × 10 → current ÷ 10 → I²R ÷ 100';
+    s2=L.wide?('I: 200 A → 20.0 A · Heat in the line: '+fW(lossAt(50,R))+' → '+fW(lossAt(500,R))+' (÷ 100)')
+            :('Heat in the line: '+fW(lossAt(50,R))+' → '+fW(lossAt(500,R))+' (÷ 100)');
+  }
+  else if(m.thick&&performance.now()-m.tThick<4000)s1='Thick wire: R ÷ 2 → heat ÷ 2, but heavy and expensive';
+  else if(vr<=20)s1='20 kV, no step-up → very large current → hot wires';
+  else if(vr<300)s1='Step up to '+vr+' kV → I = P/V falls → I²R falls with the square of I';
+  else s1='High voltage '+vr+' kV → very small current → almost no heat';
+  if(L.wide)txt(ctx,s1,16,L.s1,C.ink,15,600);
+  else{
+    /* phone: English may need two lines, so break at an arrow when it does not fit (space for two lines is always kept) */
+    ctx.font='600 13.5px '+FONT;
+    var parts=s1.split(' → '),a=parts[0],b='',maxw=ctx.canvas.clientWidth-32;
+    for(var pi=1;pi<parts.length;pi++){
+      if(!b&&ctx.measureText(a+' → '+parts[pi]).width<=maxw)a+=' → '+parts[pi];
+      else b+=(b?' → ':'→ ')+parts[pi];
+    }
+    if(b){txt(ctx,a,16,L.s1,C.ink,13.5,600);txt(ctx,b,16,L.s1+17,C.ink,13.5,600);}
+    else txt(ctx,a,16,L.s1+14,C.ink,13.5,600);
+  }
+  ctx.font='500 12.5px '+FONT;
+  if(!L.wide&&ctx.measureText(s2).width>ctx.canvas.clientWidth-32)s2='I = '+fI(I)+', line heat: '+fW(Pl)+' ('+fPct(100*Pl/PW)+')';
+  txt(ctx,s2,16,L.s2,C.ink,L.wide?13:12.5,500);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?362:514;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),R=Rl(),V=Math.round(m.V),I=PW/(V*1e3),Pl=I*I*R,Vd=I*R,f=clamp(Pl/PW/FMAX,0,1),town=PW-Pl;
+    var yT=L.yT,yB=L.yB,ym=(yT+yB)/2,lab=L.wide?12.5:11.5,sm=L.wide?12:11;
+    status(ctx,L,I,Pl,R);
+
+    /* ---- 发电站 ---- */
+    seg(ctx,L.stCx,yT,L.su,yT,C.copper,2.5);seg(ctx,L.stCx,yB,L.su,yB,C.copper,2.5);seg(ctx,L.stCx,yT,L.stCx,yB,C.copper,2.5);
+    dot(ctx,L.stCx,ym,L.stR,C.surface);ring(ctx,L.stCx,ym,L.stR,C.ink,1.8);
+    ctx.beginPath();for(var j=0;j<=16;j++){var u=j/16,xx=L.stCx-L.stR*0.55+u*L.stR*1.1,yy=ym-Math.sin(u*TAU)*L.stR*0.32;if(j)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+    ctx.strokeStyle=C.ink;ctx.lineWidth=1.8;ctx.stroke();
+    txt(ctx,'Power',L.stCx,L.Ly-14,C.ink,lab,600,'center');txt(ctx,'station',L.stCx,L.Ly,C.ink,lab,600,'center');
+    txt(ctx,'20 kV',L.stCx,L.yL,C.muted,sm,600,'center');
+
+    /* ---- 变压器 ---- */
+    var up=V/20;
+    xfmr(ctx,L.su,yT,yB,3,nTurns(up));
+    xfmr(ctx,L.sd,yT,yB,nTurns(up),3);
+    if(up<1.02&&!L.wide){txt(ctx,'No',L.su+12,L.Ly-14,C.muted,lab,600,'center');txt(ctx,'step-up',L.su+12,L.Ly,C.muted,lab,600,'center');}
+    else txt(ctx,up<1.02?'No step-up':'Step-up',L.su+12,L.Ly,up<1.02?C.muted:C.ink,lab,600,'center');
+    txt(ctx,'Step-down',L.sd+12,L.Ly,C.ink,lab,600,'center');
+
+    /* ---- 输电线：两根线 ---- */
+    var x0=L.x0,x1=L.x1,lw=m.thick?7:3.5;
+    for(var w=0;w<2;w++){
+      var y=w?yB:yT;
+      seg(ctx,x0,y,x1,y,C.copper,lw);
+      if(f>0.01){ctx.save();ctx.shadowColor=C.heat;ctx.shadowBlur=16*f;seg(ctx,x0,y,x1,y,rgba(C.heat,f),lw+1);ctx.restore();}
+    }
+    var gtxt=L.wide?', the same along the whole line':'',gw=rich(ctx,'*I* = ',0,0,C.ink,sm,600,'left',true);
+    ctx.font='600 '+sm+'px '+FONT;gw+=ctx.measureText(fI(I)+gtxt).width;
+    var xm=(x0+x1)/2;
+    richNum(ctx,'*I* = ',fI(I)+gtxt,xm,ym+4,C.ink,sm,600,'center');
+    /* 热的波纹：从线上往上冒 */
+    if(f>0.01){
+      var qi=0;
+      for(var xq=x0+24;xq<x1-18;xq+=34){
+        for(var w2=0;w2<2;w2++){
+          qi++;
+          if(w2===1&&Math.abs(xq-xm)<gw/2+8)continue;
+          var s=(m.t*0.6+qi*0.37)%1,yb=(w2?yB:yT)-lw/2-3-s*8;
+          ctx.beginPath();for(var k=0;k<=10;k++){var yk=yb-k*1.2,xk=xq+2*Math.sin(k*0.95+s*6);if(k)ctx.lineTo(xk,yk);else ctx.moveTo(xk,yk);}
+          ctx.strokeStyle=rgba(C.heat,f*(1-s)*0.95);ctx.lineWidth=1.6;ctx.stroke();
+        }
+      }
+    }
+    /* 表示电流的小点：AC → 来回动，速度振幅 ∝ I */
+    var A=9*I/500,sh=A*Math.sin(m.ph);
+    for(var xd=x0+14;xd<=x1-14;xd+=22){ring(ctx,xd+sh,yT,3.4,C.stage,1.4);dot(ctx,xd+sh,yT,2.7,C.copper);ring(ctx,xd-sh,yB,3.4,C.stage,1.4);dot(ctx,xd-sh,yB,2.7,C.copper);}
+    if(L.wide)rich(ctx,(m.thick?'Thick wire':'Transmission line')+' · two wires in total '+'*R* = '+(m.thick?'2.5':'5')+' Ω',xm,L.Ly,m.thick?C.copper:C.ink,lab,600,'center');
+    else{var xl=W<310?xm-6:xm;txt(ctx,m.thick?'Thick wire':'Transmission line',W<310?xm+4:xm,L.Ly-14,m.thick?C.copper:C.ink,lab,600,'center');rich(ctx,'*R* = '+(m.thick?'2.5':'5')+' Ω',xl,L.Ly,m.thick?C.copper:C.ink,lab,600,'center');}
+    if(L.wide){
+      richNum(ctx,'Sent *V* = ',Math.round(V)+' kV',x0+2,L.yL,C.muted,sm,600,'left',C.ink);
+      richNum(ctx,'Arrives *V* − *IR* = ',(V-Vd/1e3).toFixed(1)+' kV',x1-2,L.yL,C.muted,sm,600,'right',C.ink);
+    }else{
+      var sSent='Sent '+Math.round(V)+' kV',sArr='Arrives '+(V-Vd/1e3).toFixed(1)+' kV';
+      ctx.font='600 '+sm+'px '+FONT;
+      var both=ctx.measureText('Sent 500 kV').width+ctx.measureText('Arrives 499.9 kV').width+8;
+      txt(ctx,sSent,x0+2,L.yL,C.muted,sm,600,'left');
+      txt(ctx,sArr,x1-2,L.yL+(both>x1-x0-4?13:0),C.muted,sm,600,'right');
+    }
+
+    /* ---- town：8 盏灯一共 = P ---- */
+    var hx=L.hx,hw=L.hw,bt=yT-8,bb=yB+8;
+    seg(ctx,L.sd+24,yT,hx,yT,C.copper,2.5);seg(ctx,L.sd+24,yB,hx,yB,C.copper,2.5);
+    ctx.beginPath();ctx.moveTo(hx-4,bt);ctx.lineTo(hx+hw/2,bt-16);ctx.lineTo(hx+hw+4,bt);ctx.closePath();
+    ctx.fillStyle=rgba(C.muted,0.1);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.5;ctx.stroke();
+    rrect(ctx,hx,bt,hw,bb-bt,3);ctx.fillStyle=rgba(C.muted,0.07);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.5;ctx.stroke();
+    var fr=town/PW,lr=L.wide?6:5;
+    for(var i=0;i<8;i++){
+      var cxl=hx+hw*((i%4)+0.5)/4,cyl=ym+(i<4?-12:12),b=clamp(fr*8-i,0,1);
+      if(b>0.02){ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=12*b;dot(ctx,cxl,cyl,lr,rgba(C.light,0.2+0.8*b));ctx.restore();ring(ctx,cxl,cyl,lr,C.light,1.4);}
+      else{dot(ctx,cxl,cyl,lr,rgba(C.muted,0.16));ring(ctx,cxl,cyl,lr,rgba(C.muted,0.6),1.2);}
+    }
+    txt(ctx,'Town',hx+hw/2,L.Ly,C.ink,lab,600,'center');
+    txt(ctx,'1.25 MW each',hx+hw/2,L.yL,C.muted,sm,600,'center');
+
+    /* ---- 读数 ---- */
+    var rs=L.wide?14:13,vs=L.wide?14:13;
+    var rowsZh=['Current',W<310?'Drop':'Voltage drop','Heat'],rowsF=['*I* = *P* / *V*','*V*_drop_ = *IR*','*P*_loss_ = *I²R*'];
+    var rowsV=[fI(I),fVd(Vd),fW(Pl)+' ('+fPct(100*Pl/PW)+')'],rowsC=[C.ink,C.ink,C.heat];
+    for(var r=0;r<3;r++){
+      txt(ctx,rowsZh[r],L.cZh,L.rows[r],C.muted,12,600);
+      rich(ctx,rowsF[r],L.cF,L.rows[r],C.ink,rs,500,'left');
+      txt(ctx,rowsV[r],L.cV,L.rows[r],rowsC[r],vs,600,'right','alphabetic',MONO);
+    }
+    var bx0=L.cZh,bx1=L.cV,bw=bx1-bx0;
+    var pt='*P* = 10 MW goes into the line and splits into 2 parts:';
+    if(rich(ctx,pt,0,0,C.muted,12,600,'left',true)>bw)pt='*P* = 10 MW into the line, in 2 parts:';
+    rich(ctx,pt,bx0,L.bl,C.muted,12,600,'left');
+    rrect(ctx,bx0,L.by,bw,12,6);ctx.save();ctx.clip();
+    ctx.fillStyle=C.light;ctx.fillRect(bx0,L.by,bw*fr,12);ctx.fillStyle=C.heat;ctx.fillRect(bx0+bw*fr,L.by,bw*(1-fr)+1,12);ctx.restore();
+    var tstr=(town/1e6).toFixed(Pl<0.01*PW?3:2)+' MW';
+    if(L.wide)richNum(ctx,'Town gets *P* − *P*_loss_ = ',tstr,bx0,L.bt,C.ink,12.5,600,'left');
+    else txt(ctx,'Town gets '+tstr,bx0,L.bt,C.ink,12,600);
+    txt(ctx,'Heat '+fW(Pl),bx1,L.bt,C.heat,L.wide?12.5:12,600,'right');
+
+    /* ---- P_loss–V 图 ---- */
+    var gx0=L.gx0,gx1=L.gx1,gy0=L.gy0,gy1=L.gy1,gwd=gx1-gx0,gh=gy1-gy0;
+    function X(v){return gx0+v/VMAX*gwd;}
+    function Y(p){return gy1-p/YMAX*gh;}
+    [0.5,1.0].forEach(function(v){seg(ctx,gx0,Y(v),gx1,Y(v),C.grid,1);});
+    seg(ctx,gx0,gy0-4,gx0,gy1,C.muted,1);seg(ctx,gx0,gy1,gx1,gy1,C.muted,1);
+    [[0,'0'],[0.5,'0.5'],[1.0,'1.0']].forEach(function(p){txt(ctx,p[1],gx0-6,Y(p[0])+4,C.muted,11,500,'right');});
+    TICKS.forEach(function(tk){var xt=X(tk);seg(ctx,xt,gy1,xt,gy1+4,C.muted,1);txt(ctx,String(tk),xt,gy1+L.yr,C.muted,11,500,'center');});
+    rich(ctx,'*P*_loss_ (MW)',gx0-30,gy0-12,C.muted,12,600,'left');
+    rich(ctx,'Voltage sent *V* (kV)',gx1,gy1+L.yr+17,C.muted,12,600,'right');
+    function curve(Rr,col,wd,dash){
+      ctx.beginPath();for(var c=0;c<=90;c++){var v=20*Math.pow(25,c/90),xc=X(v),yc=Y(lossAt(v,Rr)/1e6);if(c)ctx.lineTo(xc,yc);else ctx.moveTo(xc,yc);}
+      ctx.strokeStyle=col;ctx.lineWidth=wd;ctx.setLineDash(dash||[]);ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);
+    }
+    if(m.thick)curve(R0,rgba(C.heat,0.45),1.5,[4,4]);
+    curve(R,C.heat,2.4);
+    rich(ctx,'*P*_loss_ ∝ 1/*V*²',gx1-4,gy0+14,C.ink,12.5,600,'right');
+    if(m.thick)rich(ctx,'Dashed: *R* = 5 Ω',gx1-4,gy0+31,C.muted,11.5,500,'right');
+    var px=X(V),py=Y(Pl/1e6);
+    if(m.cmp){
+      var gxp=X(50),gyp=Y(lossAt(50,R)/1e6);
+      ring(ctx,gxp,gyp,5,C.heat,1.6);
+      tag(ctx,'50 kV: '+fW(lossAt(50,R)),gxp+9,gyp-6,'left');
+      if(Math.round(V)===500)tag(ctx,'500 kV: '+fW(Pl),px,py-10,'right');
+    }
+    seg(ctx,px,py,px,gy1,rgba(C.muted,0.7),1,[3,3]);seg(ctx,gx0,py,px,py,rgba(C.muted,0.7),1,[3,3]);
+    dot(ctx,px,py,5,C.heat);
+  }
+});
+
+function syncX(){press(bX,m.cmp);bX.textContent=m.cmp?'Voltage ÷ 10: back to 50 kV':'Voltage × 10: 50 → 500 kV';}
+rV.addEventListener('input',function(){
+  var v=parseInt(rV.value,10);
+  for(var i=0;i<TICKS.length;i++)if(Math.abs(v-TICKS[i])<=6)v=TICKS[i];
+  m.V=m.Vt=v;m.shown=v;oV.textContent=v+' kV';
+  if(m.cmp){m.cmp=false;syncX();}
+  S4.render();
+});
+bX.addEventListener('click',function(){
+  m.cmp=!m.cmp;
+  if(m.cmp){m.V=50;m.Vt=500;}else m.Vt=50;
+  if(!S4.playing){m.V=m.Vt;}
+  rV.value=String(m.Vt);m.shown=Math.round(m.V);oV.textContent=m.shown+' kV';
+  syncX();S4.render();
+});
+bT.addEventListener('click',function(){
+  m.thick=!m.thick;m.tThick=m.thick?performance.now():-1e9;
+  press(bT,m.thick);bT.textContent='Thick wire R ÷ 2: '+(m.thick?'on':'off');
+  S4.render();
+});
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 实验：V_s–N_s 图和拿掉 I-bar（booklet 4.4 Key experiment "Testing the transformer equations"）
+   讲义数据：可拆变压器，primary N_p = 600 匝，V_p = 6.0 V（AC）；secondary 150–1200 匝；V_s–N_s 是过原点的直线，
+   比理想线低约 5%；300 匝时盖上 I-bar 2.86 V，拿掉 I-bar 约 0.9 V；接 load 时 η ≈ 90%。
+   理想线：V_s = V_p × N_s/N_p = 0.01 V × N_s。
+   示意（300 匝以外的读数）：盖上 V_s = 理想 × 2.86/3.00（低 4.7%）；拿掉 V_s = N_s × 0.9 V/300（同一个比例）。
+   拿掉 I-bar 后铁芯不闭合：很多 flux 从左臂（primary）顶端漏到空气里，从窗口里绕回下面的横梁，不穿过 secondary；
+   只有一小部分跨过空隙进右臂。secondary 每一圈穿过的 flux 一样，所以 V_s 仍然 ∝ N_s，只是小很多。
+   电压表读 effective value，是稳定的数；flux 是 AC，箭头每半个周期反向（放慢了：动画 1 个周期 = PER 秒）。
+   方向（right-hand grip rule，和动画 1 同一个绕法）：Φ > 0 时左臂里 flux 向上，闭合时整个铁芯里顺时针。 */
+var NP=600,VP=6.0,KC=2.86/3.00,KO=0.9/300,PER=2.6,OM=TAU/PER,LIFT_T=0.7,NMAX=1200,VMAX=12;
+var m={t:0.35,ns:300,off:false,lift:0,pts:[]};
+function vIdeal(n){return VP*n/NP;}
+function vClosed(n){return vIdeal(n)*KC;}
+function vOpen(n){return n*KO;}
+function ease(x){return x*x*(3-2*x);}
+function vNow(){return lerp(vClosed(m.ns),vOpen(m.ns),ease(m.lift));}
+function f2(v){return v.toFixed(2);}
+/* 拿掉时的读数写成“约 0.9 V”（讲义的写法），其他匝数同样最多两位小数 */
+function fAbout(v){return String(Math.round(v*100+1e-6)/100);}
+/* 记一个点：I-bar 停在盖上或拿掉时才记；同一个 N_s、同一个状态只记一次 */
+function rec(){
+  if(m.lift>0&&m.lift<1)return;
+  var off=m.lift>0.5,i,p;
+  for(i=0;i<m.pts.length;i++){p=m.pts[i];if(p.n===m.ns&&p.off===off)return;}
+  m.pts.push({n:m.ns,off:off,v:off?vOpen(m.ns):vClosed(m.ns)});
+}
+function step(dt){
+  m.t+=dt;if(m.t>PER*1000)m.t-=PER*1000;
+  var tg=m.off?1:0;
+  if(m.lift!==tg){var d=dt/LIFT_T;m.lift=tg>m.lift?Math.min(tg,m.lift+d):Math.max(tg,m.lift-d);if(m.lift===tg)rec();}
+}
+rec();
+
+/* ---------- 文字：_x 或 _{xy} 画成下标（下标不小于 11 px） ---------- */
+var RU=[],RW=[];
+function rt(ctx,s,x,y,col,size,weight,align,noDraw){
+  var ss=Math.max(11,size*0.74),wt=weight||500,i,j,ch,buf='',w=0,n,x0,sb;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);
+    if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}
+      if(s.charAt(i+1)==='{'){j=s.indexOf('}',i+2);if(j<0)j=s.length;RU.push(s.slice(i+2,j),1);i=j;}
+      else{RU.push(s.charAt(i+1),1);i++;}}
+    else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sb=RU[2*i+1];ctx.font=wt+' '+(sb?ss:size)+'px '+FONT;RW[i]=ctx.measureText(RU[2*i]).width+(sb?0.5:0);w+=RW[i];}
+  if(noDraw)return w;
+  x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sb=RU[2*i+1];txt(ctx,RU[2*i],x0,y+(sb?size*0.26:0),col,sb?ss:size,wt,'left','alphabetic');x0+=RW[i];}
+  return w;
+}
+/* 太宽就缩小字号（不小于 11 px） */
+function fit(ctx,s,size,weight,maxw){var w=rt(ctx,s,0,0,null,size,weight,'left',true);return w>maxw?Math.max(11,Math.floor(size*maxw/w*10)/10):size;}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var o={W:W,wide:W>=640},av;
+  if(o.wide){
+    o.gw=clamp(Math.round(W*0.33),220,300);o.gx=W-22-o.gw;av=o.gx-40;
+    o.sy=[26,48];o.fs=[15,13];o.t=26;o.LH=34;o.yTop=136;o.yBot=296;o.rise=7;o.lw=4.5;o.sp=22;
+    o.sx=46;o.rs=17;o.x0=o.sx+64;o.cw=clamp(av-250,150,196);o.x1=o.x0+o.cw;o.mx=o.x1+30;o.mw=clamp(av-o.mx,74,94);o.mh=54;
+    o.ly=316;o.cl=332;o.r1=356;o.r2=374;o.n1=398;o.n2=416;o.H=430;o.rf=13;
+    o.gy0=88;o.gy1=300;
+  }else{
+    o.gx=44;o.gw=W-62;
+    o.sy=[22,42];o.fs=[13.5,12.5];o.t=22;o.LH=30;o.yTop=134;o.yBot=282;o.rise=6;o.lw=4;o.sp=20;
+    o.sx=30;o.rs=14;o.x0=78;o.cw=clamp(W-78-30-94,130,170);o.x1=o.x0+o.cw;o.mx=o.x1+22;o.mw=Math.min(90,W-8-o.mx);o.mh=52;
+    o.ly=300;o.cl=316;o.r1=338;o.r2=356;o.rf=12.5;
+    o.gy0=406;o.gy1=570;o.n1=624;o.n2=641;o.H=689;
+  }
+  o.cy=(o.yTop+o.yBot-o.t)/2;
+  return o;
+}
+var L=null;
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var e=m.lift,vi=vIdeal(m.ns);
+  if(e>0&&e<1)return m.off?['I-bar is lifting off → core opens','→ Watch the voltmeter: V_s is getting smaller',C.ink]:['I-bar is going back on → core closes again','→ Watch the voltmeter: V_s is getting bigger',C.ink];
+  if(!m.off)return ['I-bar on: nearly all the flux passes through the secondary','→ V_s = '+f2(vClosed(m.ns))+' V, about 5% below the ideal '+f2(vi)+' V',C.copper];
+  return ['I-bar off: a lot of flux leaks into the air and does not pass through the secondary','→ V_s is only about '+fAbout(vOpen(m.ns))+' V (ideal '+f2(vi)+' V)',C.violet];
+}
+/* English is wider: on a phone, break long lines at spaces instead of shrinking them */
+function wrapL(ctx,s,size,weight,maxw){
+  var ws=s.split(' '),out=[],cur='',i,t;
+  for(i=0;i<ws.length;i++){t=cur?cur+' '+ws[i]:ws[i];
+    if(cur&&rt(ctx,t,0,0,null,size,weight,'left',true)>maxw){out.push(cur);cur=ws[i];}else cur=t;}
+  if(cur)out.push(cur);
+  return out;
+}
+function flow(ctx,s,y,col,size,weight,maxw,lh){
+  var a=wrapL(ctx,s,size,weight,maxw),i;
+  for(i=0;i<a.length;i++){rt(ctx,a[i],16,y,col,size,weight);y+=lh;}
+  return y;
+}
+function drawStatus(ctx){
+  var s=status(),av=L.W-32;
+  if(!L.wide){var y=flow(ctx,s[0],L.sy[0],s[2],L.fs[0],600,av,20);flow(ctx,s[1],y,C.ink,L.fs[1],500,av,20);return;}
+  rt(ctx,s[0],16,L.sy[0],s[2],fit(ctx,s[0],L.fs[0],600,av),600);
+  rt(ctx,s[1],16,L.sy[1],C.ink,fit(ctx,s[1],L.fs[1],500,av),500);
+}
+
+/* ---------- 可拆变压器 ---------- */
+function bez(p,u,out){var a=1-u;out[0]=a*a*a*p[0]+3*a*a*u*p[2]+3*a*u*u*p[4]+u*u*u*p[6];out[1]=a*a*a*p[1]+3*a*a*u*p[3]+3*a*u*u*p[5]+u*u*u*p[7];
+  out[2]=3*a*a*(p[2]-p[0])+6*a*u*(p[4]-p[2])+3*u*u*(p[6]-p[4]);out[3]=3*a*a*(p[3]-p[1])+6*a*u*(p[5]-p[3])+3*u*u*(p[7]-p[5]);}
+var BP=[0,0,0,0];
+function arrowAt(ctx,x,y,ux,uy,len,col){var l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;arrow(ctx,x-ux*len/2,y-uy*len/2,x+ux*len/2,y+uy*len/2,col,2.2,8);}
+
+function drawCore(ctx,e){
+  var o=L,t=o.t,x0=o.x0,x1=o.x1,yT=o.yTop,yB=o.yBot,yb=yT-t-e*o.LH;
+  /* U 形铁芯 */
+  ctx.beginPath();ctx.moveTo(x0,yT);ctx.lineTo(x0,yB);ctx.lineTo(x1,yB);ctx.lineTo(x1,yT);ctx.lineTo(x1-t,yT);ctx.lineTo(x1-t,yB-t);ctx.lineTo(x0+t,yB-t);ctx.lineTo(x0+t,yT);ctx.closePath();
+  ctx.fillStyle=rgba(C.muted,0.24);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.45);ctx.lineWidth=1;ctx.stroke();
+  /* I-bar */
+  ctx.beginPath();ctx.rect(x0,yb,x1-x0,t);ctx.fillStyle=rgba(C.muted,0.3);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.2;ctx.stroke();
+  txt(ctx,'I-bar',x1+7,yb+t/2+4,C.ink,12,700,'left');
+}
+
+function drawFlux(ctx,e){
+  var o=L,t=o.t,s=Math.sin(OM*m.t),a=Math.abs(s),dir=s>=0?1:-1,xa=o.x0+t/2,xb=o.x1-t/2,yt=o.yTop-t/2,yb=o.yBot-t/2,xc=(xa+xb)/2,k,al,La;
+  ctx.lineWidth=1.6;
+  /* 盖上：三圈都在闭合的铁芯里（穿过两个线圈），Φ > 0 时顺时针 */
+  if(e<1){al=(1-e)*(0.5+0.5*a);ctx.setLineDash([5,4]);
+    for(k=-1;k<=1;k++){var d=k*(t*0.26);ctx.strokeStyle=rgba(C.field,al*(k?0.7:1));ctx.strokeRect(xa+d,yt+d,xb-xa-2*d,yb-yt-2*d);}
+    ctx.setLineDash([]);
+    if(a>0.06){La=10+(o.wide?40:32)*a;var fc=rgba(C.field,(1-e)*(0.5+0.5*a));
+      arrow(ctx,xc-dir*La/2,yt,xc+dir*La/2,yt,fc,2.3,8);arrow(ctx,xc+dir*La/2,yb,xc-dir*La/2,yb,fc,2.3,8);}}
+  if(e<=0)return;
+  /* 拿掉：一小部分跨过空隙进右臂（穿过 secondary） */
+  var h=o.LH*0.75,P=[xa,o.yTop,xa,o.yTop-h,xb,o.yTop-h,xb,o.yTop];
+  al=e*(0.35+0.45*a);ctx.setLineDash([5,4]);ctx.strokeStyle=rgba(C.field,al);ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.moveTo(xa,yb);ctx.lineTo(xa,o.yTop);ctx.bezierCurveTo(P[2],P[3],P[4],P[5],P[6],P[7]);ctx.lineTo(xb,yb);ctx.closePath();ctx.stroke();
+  ctx.setLineDash([]);
+  if(a>0.06){bez(P,0.5,BP);arrowAt(ctx,BP[0],BP[1],dir*BP[2],dir*BP[3],8+12*a,rgba(C.field,e*(0.45+0.4*a)));}
+  /* 大部分漏到空气里：从左臂顶端出来，在窗口里绕回下面的横梁，不穿过 secondary */
+  var win=o.cw-2*t;ctx.lineWidth=1.6;
+  for(k=0;k<3;k++){
+    var xs=o.x0+t*(0.6+0.15*k),xe=o.x0+t+win*(0.16+0.24*k),hc=o.LH*(0.42+0.22*k);
+    var Q=[xs,o.yTop,xs,o.yTop-hc,xe+8,o.yTop-hc*0.4,xe,o.yBot-t];
+    al=e*(0.5+0.5*a);ctx.setLineDash([5,4]);ctx.strokeStyle=rgba(C.field,al);
+    ctx.beginPath();ctx.moveTo(Q[0],Q[1]);ctx.bezierCurveTo(Q[2],Q[3],Q[4],Q[5],Q[6],Q[7]);ctx.stroke();ctx.setLineDash([]);
+    if(a>0.06){bez(Q,0.62,BP);arrowAt(ctx,BP[0],BP[1],dir*BP[2],dir*BP[3],8+10*a,rgba(C.field,e*(0.5+0.5*a)));}
+  }
+}
+
+function drawCircuit(ctx,e){
+  var o=L,t=o.t,cy=o.cy,i,yc,n=Math.round(m.ns/150);
+  /* 线圈（前面的线段）：primary 4 圈 = 600 匝；secondary 每圈 = 150 匝 */
+  var pTop=cy-1.5*o.sp,pBot=cy+1.5*o.sp;
+  var win=o.yBot-o.yTop-t,ss=n>1?Math.min(o.wide?15:13,(win-24)/(n-1)):0,sTop=cy-(n-1)/2*ss,sBot=cy+(n-1)/2*ss;
+  var xa=o.x0-5,xb=o.x1+5,ink=rgba(C.ink,0.7);
+  /* primary 电路 */
+  seg(ctx,xa,pTop+o.rise/2,o.sx,pTop+o.rise/2,ink,1.6);seg(ctx,o.sx,pTop+o.rise/2,o.sx,cy-o.rs,ink,1.6);
+  seg(ctx,xa,pBot+o.rise/2,o.sx,pBot+o.rise/2,ink,1.6);seg(ctx,o.sx,pBot+o.rise/2,o.sx,cy+o.rs,ink,1.6);
+  /* secondary 电路 → 电压表 */
+  var xm=o.mx-9;
+  seg(ctx,xb,sTop-o.rise/2,xm,sTop-o.rise/2,ink,1.6);seg(ctx,xm,sTop-o.rise/2,xm,cy-12,ink,1.6);seg(ctx,xm,cy-12,o.mx,cy-12,ink,1.6);
+  seg(ctx,xb,sBot-o.rise/2,xm,sBot-o.rise/2,ink,1.6);seg(ctx,xm,sBot-o.rise/2,xm,cy+12,ink,1.6);seg(ctx,xm,cy+12,o.mx,cy+12,ink,1.6);
+  ctx.lineCap='round';
+  for(i=0;i<4;i++){yc=pTop+i*o.sp;seg(ctx,xa,yc+o.rise/2,o.x0+t+5,yc-o.rise/2,C.copper,o.lw);}
+  for(i=0;i<n;i++){yc=sTop+i*ss;seg(ctx,o.x1-t-5,yc+o.rise/2,xb,yc-o.rise/2,C.copper,o.lw);}
+  ctx.lineCap='butt';
+  /* AC 电源 */
+  dot(ctx,o.sx,cy,o.rs,C.surface);ring(ctx,o.sx,cy,o.rs,C.ink,1.6);
+  ctx.beginPath();for(i=0;i<=16;i++){var u=i/16,xx=o.sx-o.rs*0.55+u*o.rs*1.1,yy=cy-Math.sin(u*TAU)*o.rs*0.3;if(i)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;ctx.stroke();
+  var la=o.wide?o.sx:6,al=o.wide?'center':'left';
+  txt(ctx,'AC supply',la,o.yTop-24,C.ink,12,600,al);
+  rt(ctx,'V_p = 6.0 V',la,o.yTop-9,C.muted,11.5,500,al);
+  /* 电压表（effective value） */
+  var my=cy-o.mh/2,v=vNow(),off=ease(m.lift)>0.5;
+  rrect(ctx,o.mx,my,o.mw,o.mh,7);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.6);ctx.lineWidth=1.4;ctx.stroke();
+  rt(ctx,'Voltmeter V_s',o.mx+o.mw/2,my+17,C.muted,11.5,600,'center');
+  txt(ctx,f2(v)+' V',o.mx+o.mw/2,my+o.mh-11,off?C.violet:C.ink,o.wide?17:15,600,'center','alphabetic',MONO);
+  /* 标签 */
+  var fsz=o.wide?12:11.5;
+  rt(ctx,'primary 600 turns',o.x0+t/2,o.ly,C.copper,fsz,600,'center');
+  rt(ctx,'secondary '+m.ns+' turns',o.x1-t/2,o.ly,C.copper,fsz,600,'center');
+  txt(ctx,o.wide?'Laminated U-shaped core + I-bar (demountable transformer)':'Laminated U-shaped core + I-bar (demountable)',o.wide?(o.x0+o.x1)/2:16,o.cl,C.muted,11.5,500,o.wide?'center':'left');
+}
+
+function drawReadout(ctx){
+  var o=L,ns=m.ns,mw=o.wide?o.gx-56:o.W-32;
+  var l1='Ideal: V_s = 6.0 V × '+ns+'/600 = '+f2(vIdeal(ns))+' V';
+  var l2='Each loop drawn stands for 150 turns · with a load, η ≈ 90% (the booklet)';
+  rt(ctx,l1,16,o.r1,C.ink,fit(ctx,l1,o.rf,600,mw),600);
+  if(o.wide)rt(ctx,l2,16,o.r2,C.muted,fit(ctx,l2,11.5,500,mw),500);
+  else flow(ctx,l2,o.r2,C.muted,11.5,500,mw,16);
+}
+
+/* ---------- V_s–N_s 图 ---------- */
+function drawGraph(ctx,e){
+  var o=L,gx=o.gx,gw=o.gw,y0=o.gy0,y1=o.gy1,gh=y1-y0,i,p,nc=0,no=0,sc=0,sco=0,xxc=0,xxo=0;
+  function X(n){return gx+n/NMAX*gw;}
+  function Y(v){return y1-v/VMAX*gh;}
+  for(i=3;i<=12;i+=3)seg(ctx,gx,Y(i),gx+gw,Y(i),C.grid,1);
+  for(i=300;i<=1200;i+=300)seg(ctx,X(i),y0,X(i),y1,C.grid,1);
+  seg(ctx,gx,y0-4,gx,y1,C.muted,1);seg(ctx,gx,y1,gx+gw,y1,C.muted,1);
+  for(i=0;i<=12;i+=3)txt(ctx,String(i),gx-6,Y(i)+4,C.muted,11,500,'right');
+  for(i=0;i<=1200;i+=300)txt(ctx,String(i),X(i),y1+15,C.muted,11,500,i===1200?'right':'center');
+  rt(ctx,'V_s (V)',gx-30,y0-12,C.muted,12,600,'left');
+  rt(ctx,'N_s (turns)',gx+gw,y1+31,C.muted,12,600,'right');
+  /* 理想线 */
+  seg(ctx,X(0),Y(0),X(NMAX),Y(vIdeal(NMAX)),rgba(C.ink,0.55),1.5,[6,4]);
+  /* 过原点的直线（最小二乘，过原点）：两个状态各一条 */
+  for(i=0;i<m.pts.length;i++){p=m.pts[i];if(p.off){no++;sco+=p.n*p.v;xxo+=p.n*p.n;}else{nc++;sc+=p.n*p.v;xxc+=p.n*p.n;}}
+  if(nc>=2)seg(ctx,X(0),Y(0),X(NMAX),Y(sc/xxc*NMAX),rgba(C.copper,0.55),1.4);
+  if(no>=2)seg(ctx,X(0),Y(0),X(NMAX),Y(sco/xxo*NMAX),rgba(C.violet,0.55),1.4);
+  for(i=0;i<m.pts.length;i++){p=m.pts[i];dot(ctx,X(p.n),Y(p.v),5.2,C.stage);dot(ctx,X(p.n),Y(p.v),4.2,p.off?C.violet:C.copper);}
+  /* 现在的读数 */
+  ring(ctx,X(m.ns),Y(vNow()),7.5,e>0.5?C.violet:C.copper,1.8);
+  /* 图例（左上角，理想线在下面） */
+  var lx=gx+10,ly=y0+15,fz=11.5;
+  dot(ctx,lx+5,ly-4,4.2,C.copper);txt(ctx,'I-bar on',lx+16,ly,C.ink,fz,500);
+  dot(ctx,lx+5,ly+12,4.2,C.violet);txt(ctx,'I-bar off',lx+16,ly+16,C.ink,fz,500);
+  seg(ctx,lx,ly+28,lx+11,ly+28,rgba(C.ink,0.55),1.5,[4,3]);rt(ctx,'Ideal V_s = 6.0 V × N_s/600',lx+16,ly+32,C.ink,fz,500);
+  /* 下面两行说明 */
+  var a,b,mw=o.W-32;
+  if(nc>=3)a=['I-bar on: the dots make a straight line through the origin → V_s ∝ N_s, about 5% below the ideal line',C.copper];
+  else a=['Drag N_s to change the coil: each reading is recorded as a dot',C.muted];
+  if(no>=1)b=['I-bar off: the dots are much lower (core not closed, flux leakage)',C.violet];
+  else if(nc>=3)b=['Now press "I-bar off" and see how far V_s falls',C.muted];
+  else b=null;
+  if(!o.wide){var ny=flow(ctx,a[0],o.n1,a[1],12.5,600,mw,17);if(b)flow(ctx,b[0],ny,b[1],12.5,600,mw,17);return;}
+  rt(ctx,a[0],16,o.n1,a[1],fit(ctx,a[0],12.5,600,mw),600);
+  if(b)rt(ctx,b[0],16,o.n2,b[1],fit(ctx,b[0],12.5,600,mw),600);
+}
+
+var S5=makeStage('sim5',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    if(!L||L.W!==W)L=lay(W);
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var e=ease(m.lift);
+    drawStatus(ctx);drawCore(ctx,e);drawFlux(ctx,e);drawCircuit(ctx,e);drawReadout(ctx);drawGraph(ctx,e);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var r5=document.getElementById('s5-ns'),o5=document.getElementById('s5-ns-out');
+var bOn=document.getElementById('s5-on'),bOff=document.getElementById('s5-off'),bClr=document.getElementById('s5-clr');
+r5.addEventListener('input',function(){m.ns=parseInt(r5.value,10);o5.textContent=m.ns+' turns';rec();S5.render();});
+function setBar(off){m.off=off;press(bOn,!off);press(bOff,off);
+  if(!S5.playing){m.lift=off?1:0;rec();}
+  S5.render();}
+bOn.addEventListener('click',function(){setBar(false);});
+bOff.addEventListener('click',function(){setBar(true);});
+bClr.addEventListener('click',function(){m.pts.length=0;S5.render();});
+})();
+</script>
+</body>
+</html>

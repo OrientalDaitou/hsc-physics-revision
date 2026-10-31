@@ -1,0 +1,1879 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M7 T2 Light as a Wave: Diffraction, Interference and Polarisation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m7">Module 7</a><span class="sep">/</span><span aria-current="page">Topic 2</span><a class="lang" lang="zh-Hans" href="../../m7/t2.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 7 · Topic 2</div>
+  <h1>Light as a Wave: Diffraction, Interference and Polarisation</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">Is light a particle or a wave? Newton said particles, Huygens said a wave. This chapter looks at how experiments decided. Remember the <b>three rules</b> below: the later formulas for interference, gratings and polarisation all use them.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s9">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s11">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Superposition</div>
+    <p>When two waves meet, their heights add (superposition). Crest meets crest → brighter. Crest meets trough → they cancel → dark. "Light + light = darkness": only waves can do this.</p>
+    <div class="eqs"><span style="white-space:nowrap">Bright <i>δ</i> = <i>mλ</i></span>&emsp;<span style="white-space:nowrap">Dark <i>δ</i> = (<i>m</i> − ½)<i>λ</i></span></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Bright fringes</div>
+    <p>When the extra path for light from neighbouring slits is exactly a whole number of wavelengths, the crests line up and a bright fringe appears. The double slit and the grating both use this rule.</p>
+    <div class="eqs"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Light is a transverse wave</div>
+    <p>Light's electric field vibrates at 90° to the direction of travel, so a polariser can "select a direction". When polarised light meets another polariser with its axis at <span class="m"><i>θ</i></span> to the previous one, the brightness changes as cos²<span class="m"><i>θ</i></span>.</p>
+    <div class="eqs"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="The eight parts of this chapter">
+  <div class="map-row head"><span>Part</span><span>What you see</span><span>What it shows</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">2.1</span><span class="t">Two models of light</span></span><span>Newton: particles; Huygens: waves</span><span>Shadows and reflection cannot decide</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">2.1</span><span class="t">Refraction</span></span><span>Light enters water and bends towards the normal</span><span>Foucault: slower in water, so Newton is wrong</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">2.2</span><span class="t">Diffraction</span></span><span>Light spreads out through a narrow slit, with dark bands</span><span>Particles cannot make dark bands</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">2.3</span><span class="t">Young's double slit</span></span><span>Evenly spaced bright and dark fringes</span><span>Light + light = darkness: light is a wave</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">2.3</span><span class="t">Path difference</span></span><span>Extra path <span style="white-space:nowrap"><i>δ</i> = <i>d</i> sin <i>θ</i></span></span><span>Bright <i>mλ</i>, dark (<i>m</i> − ½)<i>λ</i></span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">2.4</span><span class="t">Diffraction gratings</span></span><span>Sharp, bright lines at large angles</span><span>Ideal for measuring wavelengths</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">2.5</span><span class="t">Polarisation</span></span><span>Turn the second filter: the brightness changes</span><span>Light is a transverse wave</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">2.6</span><span class="t">Key experiments</span></span><span>Measuring <i>λ</i> with a laser; Malus' law</span><span>648 nm, 649 nm; <i>I</i> ∝ cos²<i>θ</i></span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially changing units.</li>
+    <li>Teach in order, 2.1 → 2.6. In every section, ask: "Can particles explain this?" Read the "Big idea" first, then open the animation and let the students say what they see.</li>
+    <li>Afterwards, ask the students to close the book and fill in the evidence table from 2.1 themselves. Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li>Some words for waves: <span class="t">crest</span> (the highest point), <span class="t">trough</span> (the lowest point), <span class="t">wavelength</span> <span class="m"><i>λ</i></span> (the distance from one crest to the next), <span class="t">amplitude</span> (how high a crest is).</li>
+    <li>Visible light has <span class="m"><i>λ</i></span> between 400 nm and 700 nm: violet is shortest, red is longest.</li>
+    <li><span class="t">Normal</span>: a line at 90° to a surface. Angles of rays are always measured from the normal, not from the surface.</li>
+    <li>Change units into m first: 1 nm = 10<sup>−9</sup> m, 1 µm = 10<sup>−6</sup> m, 1 mm = 10<sup>−3</sup> m. Calculator in degrees. cos²<span class="m"><i>θ</i></span> means (cos <span class="m"><i>θ</i></span>)².</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">2.1</div>
+  <h2>Newton's and Huygens' models of light</h2>
+  <p class="big"><span class="lbl">Big idea</span>Around 1700 Newton said light is a stream of tiny particles. Huygens said light is a wave. Experiments decided between these two models.</p>
+  <ul class="pts">
+    <li><b>Newton (1704):</b> light is a stream of tiny particles, called <span class="t">corpuscles</span> ("little bodies"). They travel in straight lines, so the edges of shadows are sharp.</li>
+    <li><b>Huygens (1678):</b> light is a wave. He thought it was a <span class="t">longitudinal wave</span>, like sound.</li>
+    <li><span class="t">Wavefront</span>: a line joining points of a wave that are in step, such as all the crests. Drop a stone into water: the rings of crests are wavefronts.</li>
+    <li><span class="t">Huygens' principle</span>: every point on a wavefront sends out a small circular wave, called a <span class="t">wavelet</span>. The line touching all the wavelets is the new wavefront.</li>
+    <li>Light seems not to bend around corners, and Newton had a huge reputation. So most scientists followed Newton for about 100 years.</li>
+    <li><span class="t">Reflection</span>: Newton said a <span class="t">repulsive force</span> (a force that pushes things away from the surface) at the surface reverses the normal part of the velocity. Huygens said reflected wavelets build the reflected wavefront. Both give <span class="m"><i>θ</i><sub>i</sub> = <i>θ</i><sub>r</sub></span> (angle of incidence = angle of reflection), so reflection cannot decide.</li>
+  </ul>
+
+  <h3>The evidence table: a map of the whole chapter</h3>
+  <p>This table collects all the evidence for the two models. Refraction is explained in the next section; the rest in 2.2, 2.3 and 2.5.</p>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>What we see</th><th>Newton (particles)</th><th>Huygens (waves)</th><th>What the evidence shows</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">Sharp shadows</td><td>particles go straight</td><td>hard to explain at first</td><td>both work: once we know light's wavelength is tiny, waves can explain it too</td></tr>
+        <tr><td style="white-space:nowrap">Reflection</td><td>a repulsive force reverses the normal part of the velocity</td><td>reflected wavelets</td><td>both work: no decision</td></tr>
+        <tr><td style="white-space:nowrap">Refraction</td><td>faster in water</td><td>slower in water</td><td>Foucault (1850): slower, so Newton is wrong</td></tr>
+        <tr><td>Diffraction and interference</td><td>cannot make dark bands</td><td>wavelets spread into the shadow; Young and Fresnel later added that waves can cancel</td><td>strong support for waves (Young, 1801; Fresnel and Arago, 1818)</td></tr>
+        <tr><td style="white-space:nowrap">Polarisation</td><td>no natural explanation</td><td>Huygens' longitudinal wave cannot be polarised; a transverse wave can</td><td>light is a transverse wave, so Huygens' model had to change</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">2.1</div>
+  <h2>Refraction</h2>
+  <p class="big"><span class="lbl">Big idea</span>Light entering water at an angle bends towards the normal. Both models can explain this, but they need opposite speeds: Newton needs light to be faster in water, Huygens needs it to be slower.</p>
+  <ul class="pts">
+    <li><span class="t">Refraction</span>: the bending of light as it enters another material.</li>
+    <li>Both models explain why light bends towards the normal in water. But they need opposite speeds, so measuring the speed of light in water can show which one is wrong.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Newton (particles): faster</div><p>The water <b>pulls</b> each particle inwards along the normal. Split the velocity into two parts: the normal part (at 90° to the water surface) grows, and the parallel part (parallel to the water surface) does not change. So light bends towards the normal and is <b>faster</b> in water.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Huygens (waves): slower</div><p>The end of the wavefront that enters the water first <b>slows first</b>, while the rest is still moving fast in air. The whole wavefront swings towards the normal. So light is <b>slower</b> in water. It is like a row of people holding hands and walking at an angle into sand: the person who steps into the sand first slows first, and the whole row changes direction.</p></div>
+  </div>
+  <ul class="pts">
+    <li><b>Foucault (1850)</b> timed light with a <span class="t">fast-spinning mirror</span>. The returning image shifted more with a tube of water in the path. So light is <b>slower</b> in water.</li>
+    <li>This disproved Newton's explanation of refraction. But on its own, this one experiment did not prove the wave model.</li>
+    <li><span class="t">Refractive index</span> (<span class="m"><i>n</i></span>): how many times slower light is in a material than in vacuum.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Refractive index and the speed of light</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>n</i><sub>x</sub> = <i>c</i>/<i>v</i><sub>x</sub></div>
+    <dl class="sym">
+      <div><dt>n<sub>x</sub></dt><dd>refractive index of material x (no unit)</dd></div>
+      <div><dt>c</dt><dd>speed of light in a vacuum (m s<sup>−1</sup>), equal to 3.00 × 10<sup>8</sup> m s<sup>−1</sup></dd></div>
+      <div><dt>v<sub>x</sub></dt><dd>speed of light in material x (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> the speed of light in water or glass, or <span class="m"><i>n</i></span> from a speed.<br><b>Trap:</b> <span class="m"><i>n</i></span> is 1 or more, so <span class="m"><i>v</i><sub>x</sub></span> is never bigger than <span class="m"><i>c</i></span>.</p>
+  </div>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">Animation 1 · Newton and Huygens: light enters water</span><span class="sim-tag">Side view · refractive index of water 1.33: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Side view. A beam of light goes from air into water at an angle. The dashed line is the normal, and angles are measured from the normal. You can switch between Newton's particle model and Huygens' wavefront model: both models bend the light by the same angle, but Newton says light is faster in water and Huygens says it is slower. Bars on the right (below on a phone) compare them. At the bottom is the Foucault experiment: one beam goes through air only, one beam goes through a tube of water, and you see which reaches the finish first."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Model of light">
+      <button class="btn" type="button" id="s1-newton" aria-pressed="true">Newton particles</button>
+      <button class="btn" type="button" id="s1-huygens" aria-pressed="false">Huygens wavefronts</button>
+    </span>
+    <label class="range"><span style="white-space:nowrap">Angle of incidence <span class="m"><i>θ</i><sub>i</sub></span></span> <input type="range" id="s1-angle" style="width:100px" min="20" max="70" step="5" value="45"><output id="s1-angle-out" for="s1-angle">45°</output></label>
+    <button class="btn" type="button" id="s1-foucault">Foucault test</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First watch Newton: as soon as the circled particle touches the thin green layer at the water surface, it is pulled down. In its velocity arrow, the vertical normal part gets longer and the horizontal parallel part does not change. So the light bends towards the normal and travels faster in water (the particles are further apart in water). ② Switch to Huygens: the left end of the wavefront enters the water first and slows first, while the right end is still moving fast in air, so the whole wavefront swings round. The wavefronts are closer together in water, because they are slower. The two models bend the light by exactly the same angle, so the bending alone cannot tell you which one is right. ③ Drag the angle of incidence <i>θ</i><sub>i</sub>: the bigger the angle, the more obvious the bend, and the two models still match. ④ Press "Foucault test": the beam through water arrives late, so light is slower in water and Newton's explanation of refraction was wrong (the race is illustrative: what Foucault really looked at was how far the image reflected from a spinning mirror moved). The <i>n</i> = 1.33 for water is an illustrative value.</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">2.2</div>
+  <h2>Diffraction</h2>
+  <p class="big"><span class="lbl">Big idea</span>Waves spread out as they pass through a gap or around an edge. This is diffraction. The narrower the gap (compared with the wavelength), the more the wave spreads.</p>
+  <ul class="pts">
+    <li><span class="t">Diffraction</span>: a wave spreading as it passes through a <span class="t">gap</span> or around an edge.</li>
+    <li><b>Gap much wider than <span class="m"><i>λ</i></span>:</b> little spreading. <b>Gap about <span class="m"><i>λ</i></span>, or narrower:</b> strong spreading, far into the "shadow".</li>
+    <li><span class="m"><i>λ</i></span>, frequency and speed do not change; only the direction does.</li>
+  </ul>
+
+  <h3>The single-slit pattern</h3>
+  <ul class="pts">
+    <li>The pattern of a <span class="t">single slit</span>: a wide, bright <span class="t">central maximum</span> in the middle, with much weaker bright bands on both sides and dark bands between them.</li>
+    <li>Dark bands: wavelets from different parts of the slit cancel here.</li>
+    <li>A narrower <span class="t">slit width</span> (<span class="m"><i>a</i></span>) or a longer <span class="m"><i>λ</i></span> → a wider pattern. Red spreads more than violet.</li>
+    <li>It depends only on <span class="m"><i>λ</i> ÷ <i>a</i></span>. No single-slit formula is needed.</li>
+    <li>The booklet's figure: the same red laser shines through two single slits of different widths (the wide one is 2 times as wide as the narrow one), and the two patterns are given the same peak height. The narrow slit's pattern is wider.</li>
+  </ul>
+
+  <h3>Why it spreads</h3>
+  <ul class="pts">
+    <li><b>Huygens' explanation:</b> only the points inside the gap send out wavelets. The wavelets at the edges spread sideways into the shadow.</li>
+    <li>Light's <span class="m"><i>λ</i></span> (400 nm to 700 nm) is over a million times smaller than a doorway, so the edges of shadows usually look sharp. To see light diffract, use a slit narrower than about 0.1 mm.</li>
+    <li>The wavelength of sound is about the size of a doorway. So when you stand behind the wall next to a classroom door (not in front of the doorway), you can still hear people talking inside. Light's wavelength is far too small, so light hardly bends around the edge of the door and you cannot see the people inside.</li>
+  </ul>
+
+  <h3>The two models</h3>
+  <ul class="pts">
+    <li><b>Particles cannot make dark bands:</b> adding light cannot make a place darker.</li>
+    <li><b>Waves explain all of it:</b> the spreading, the dark bands and why red spreads more.</li>
+    <li>In 1818 Fresnel's wave theory predicted a bright spot in the middle of a small disc's shadow. Arago did find this bright spot.</li>
+  </ul>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Single-slit diffraction: the narrower the slit, the more it spreads</span><span class="sim-tag">Top view not to scale · red light from the booklet's experiment · green light and screen distance: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left is a top view, looking down from above: rows of parallel wavefronts come from the left and hit a narrow slit in a wall. After passing through the slit they spread out to both sides, into the shadow. On the right (below on a phone) are the bright and dark bands seen on a far screen, and the brightness curve: a wide, bright central maximum in the middle, with much dimmer bright bands and dark bands on both sides. The blue dashed line is the comparison curve for the 0.080 mm slit."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Slit width a">
+      <button class="btn" type="button" id="s2-a80" aria-pressed="false">0.080 mm</button>
+      <button class="btn" type="button" id="s2-a40" aria-pressed="true">0.040 mm</button>
+      <button class="btn" type="button" id="s2-a20" aria-pressed="false">0.020 mm</button>
+    </span>
+    <span class="seg" role="group" aria-label="Laser colour">
+      <button class="btn" type="button" id="s2-red" aria-pressed="true">Red 650 nm</button>
+      <button class="btn" type="button" id="s2-green" aria-pressed="false">Green 532 nm</button>
+    </span>
+    <button class="btn" type="button" id="s2-huy" aria-pressed="false">Huygens wavelets: off</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① The three buttons are the slit width <i>a</i>. Press 0.080 mm → 0.040 mm → 0.020 mm in turn: the narrower the slit, the more the wave spreads in the top view, and the wider the central maximum on the screen. When the slit width halves, the central maximum becomes exactly 2 times as wide (the same as the result of part (A) of the booklet's laser experiment). When you select 0.040 mm or 0.020 mm, the blue dashed line on the brightness graph is the 0.080 mm comparison (when you select 0.080 mm the two lines are the same, so it is not drawn). ② Switch between red and green light: red light has a longer <i>λ</i>, so <i>λ</i> ÷ <i>a</i> is larger, and it spreads more. ③ Turn on "Huygens wavelets": each point in the slit sends out small circular waves (thin circles), and the thick line touching them is the new wavefront. The wall blocks the other points, so the wavelets at the edges spread sideways into the shadow. ④ Compare the two <i>λ</i> scale bars in the top view: the spacing of the wave crests is the same before and after the slit. Only the direction changes. The two horizontal grey dashed lines in the top view are the "straight line" limits: if light were particles moving in straight lines, it would appear only between the two dashed lines, and it could not make dark bands either. The top view is not to scale (the real <i>λ</i> is much smaller than the slit). The green light (532 nm) and the screen distance <i>L</i> = 1.00 m are illustrative values, so the mm values on the screen are illustrative too.</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">2.3</div>
+  <h2>Interference: Young's double-slit experiment</h2>
+  <p class="big"><span class="lbl">Big idea</span>Where two waves overlap, they add or cancel. This is interference. Only waves can cancel to make darkness, so Young's double slit is strong evidence that light is a wave.</p>
+  <ul class="pts">
+    <li><span class="t">Superposition</span>: where waves meet, their <span class="t">displacements</span> (heights) add.</li>
+    <li><span class="t">Interference</span>: the pattern made when overlapping waves add or cancel.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">In phase</div><p>Crests line up. Crest meets crest and makes a bigger wave. This is <span class="t">constructive interference</span>: <b>bright</b>.</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">180° out of phase</div><p>One wave is half a wavelength behind. Crest meets trough and they cancel. This is <span class="t">destructive interference</span>: <b>dark</b>. "Light + light = darkness" only makes sense for waves.</p></div>
+  </div>
+
+  <h3>Young's experiment (about 1801)</h3>
+  <ul class="pts">
+    <li>Young passed light through two narrow slits very close together. A far screen showed evenly spaced bright and dark bands, called <span class="t">fringes</span>.</li>
+    <li>Why the waves overlap: light diffracts at each slit. After it spreads out, the two waves overlap.</li>
+    <li>Set-up (the booklet's Figure 2.3): light source → single slit → double slit (two slits <span class="m"><i>S</i><sub>1</sub></span> and <span class="m"><i>S</i><sub>2</sub></span>, a distance <span class="m"><i>d</i></span> apart) → screen (a distance <span class="m"><i>L</i></span> from the double slit). The middle is a bright fringe (<span class="m"><i>m</i> = 0</span>). Going outwards, you see dark, bright (<span class="m" style="white-space:nowrap"><i>m</i> = 1</span>), dark, bright (<span class="m" style="white-space:nowrap"><i>m</i> = 2</span>), and so on. The figure is not to scale: really <span class="m" style="white-space:nowrap"><i>L</i> ≫ <i>d</i></span> (<span class="m"><i>L</i></span> is much bigger than <span class="m"><i>d</i></span>). The picture on the left of Animation 3, in the next section, shows this set-up (view from above).</li>
+  </ul>
+
+  <h3>The two slits must be coherent</h3>
+  <ul class="pts">
+    <li>The two slits must be <span class="t">coherent</span>: same frequency and a fixed phase difference (a constant shift between the crests of the two waves). It is like two people walking with steps of the same size and the same speed: one can be half a step behind the other, but this gap never changes.</li>
+    <li>Young lit both slits from one <span class="t">pinhole</span>. Today a single slit or a laser does this.</li>
+    <li>With two separate lamps, the phase changes at random, so the pattern washes out.</li>
+    <li><span class="t">Monochromatic</span> light (one wavelength) gives the clearest fringes.</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="secnum">2.3</div>
+  <h2>Path difference and d sin θ = mλ</h2>
+  <p class="big"><span class="lbl">Big idea</span>Look at how much further one wave travels than the other. A whole number of wavelengths further → in phase → bright. A whole number of wavelengths plus a half further → 180° out of phase → dark.</p>
+  <ul class="pts">
+    <li><span class="t">Path difference</span> (<span class="m"><i>δ</i></span>, unit: m): how much further one wave travels than the other.</li>
+    <li><b>Bright:</b> <span class="m" style="white-space:nowrap"><i>δ</i> = 0, <i>λ</i>, 2<i>λ</i>, …</span> (in phase). <b>Dark:</b> <span class="m" style="white-space:nowrap"><i>δ</i> = ½<i>λ</i>, 1½<i>λ</i>, …</span> (180° out of phase).</li>
+    <li>The centre has <span class="m"><i>δ</i> = 0</span>, so it is always bright.</li>
+    <li>The screen is far away, so the two rays from the slits to a point P on the screen are almost parallel. Then <span class="m" style="white-space:nowrap"><i>δ</i> = <i>d</i> sin <i>θ</i></span>.</li>
+    <li>Look at the booklet's Figure 2.4 (a close-up of the double slit), or Animation 3 below: from <span class="m"><i>S</i><sub>1</sub></span>, draw a line at 90° to the ray from <span class="m"><i>S</i><sub>2</sub></span>. The point where they meet is called Q. The part from <span class="m"><i>S</i><sub>2</sub></span> to Q is the extra path for light from <span class="m"><i>S</i><sub>2</sub></span>: <span class="m" style="white-space:nowrap"><i>δ</i> = <i>d</i> sin <i>θ</i></span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Bright fringes (double slit or grating)</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd><span class="t">slit separation</span>: the distance between the centres of neighbouring slits (m)</dd></div>
+      <div><dt>θ</dt><dd>angle from the central line to the bright fringe (°)</dd></div>
+      <div><dt>m</dt><dd><span class="t">order</span> of the bright fringe: 0 (centre), 1, 2, … (no unit)</dd></div>
+      <div><dt>λ</dt><dd>wavelength (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> bright fringes of a double slit or a grating, with a far screen (<span class="m" style="white-space:nowrap"><i>L</i> ≫ <i>d</i></span>).<br><b>Trap:</b> change nm, µm and mm into metres first. Calculator in degrees.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Dark fringes</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>d</i> sin <i>θ</i> = (<i>m</i> − ½)<i>λ</i></span><span style="display:inline-block;margin:0 .6em"><i>m</i> = 1, 2, 3, …</span></div>
+    <dl class="sym">
+      <div><dt>m</dt><dd>which dark fringe, counting from 1 (no unit)</dd></div>
+      <div><dt>d, θ, λ</dt><dd>the same as in the bright-fringe formula</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> some books write (<span class="m"><i>m</i></span> + ½)<span class="m"><i>λ</i></span>. Then <span class="m"><i>m</i></span> starts at 0.<br><b>You can also derive it:</b> dark fringes have <span class="m"><i>δ</i> = ½<i>λ</i>, 1½<i>λ</i>, …</span>, then use <span class="m"><i>δ</i> = <i>d</i> sin <i>θ</i></span>.<br><b>Trap:</b> do not put <span class="m"><i>m</i> = 0</span> into this formula.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Path difference</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>δ</i> = <i>d</i> sin <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>δ</i> = |<i>S</i><sub>2</sub><i>P</i> − <i>S</i><sub>1</sub><i>P</i>|</span></div>
+    <dl class="sym">
+      <div><dt>δ</dt><dd>path difference (m)</dd></div>
+      <div><dt>S<sub>1</sub>P, S<sub>2</sub>P</dt><dd>the distances from each of the two sources to point P (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> when you know the two distances, use <span class="m" style="white-space:nowrap"><i>δ</i> = |<i>S</i><sub>2</sub><i>P</i> − <i>S</i><sub>1</sub><i>P</i>|</span>. <span class="m"><i>δ</i>/<i>λ</i></span> is a whole number → constructive (bright; for sound, loud). A whole number plus a half → destructive. This works for any two coherent sources in phase: slits, speakers, antennas.<br><b>You can also derive it:</b> in the right-angled triangle of Figure 2.4, the hypotenuse is <span class="m"><i>d</i></span> and the side opposite <span class="m"><i>θ</i></span> is <span class="m"><i>δ</i></span>, so <span class="m"><i>δ</i> = <i>d</i> sin <i>θ</i></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">On the screen</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>y</i> = <i>L</i> tan <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>y</dt><dd>distance of the fringe from the centre of the central bright fringe (m)</dd></div>
+      <div><dt>L</dt><dd>distance from the slits to the screen (m)</dd></div>
+      <div><dt>θ</dt><dd>angle of the fringe (°)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> at any angle. Below about 10°, <span class="m" style="white-space:nowrap">sin <i>θ</i> ≈ tan <i>θ</i> ≈ <i>y</i>/<i>L</i></span>.<br><b>You can also derive it:</b> draw a right-angled triangle from the slits to the screen: <span class="m">tan <i>θ</i> = <i>y</i>/<i>L</i></span> (opposite ÷ adjacent).</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Fringe spacing (small angles)</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq">Δ<i>y</i> = <i>λL</i>/<i>d</i></div>
+    <dl class="sym">
+      <div><dt>Δy</dt><dd>distance between neighbouring bright (or dark) fringes (m)</dd></div>
+      <div><dt>L</dt><dd>distance from the slits to the screen (m)</dd></div>
+      <div><dt>λ, d</dt><dd>wavelength, slit separation (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a double slit at small angles (below about 10°).<br><b>Where it comes from:</b> put <span class="m" style="white-space:nowrap">sin <i>θ</i> ≈ <i>y</i><sub><i>m</i></sub>/<i>L</i></span> into <span class="m" style="white-space:nowrap"><i>d</i> sin <i>θ</i> = <i>mλ</i></span> to get <span class="m" style="white-space:nowrap"><i>y</i><sub><i>m</i></sub> = <i>mλL</i>/<i>d</i></span>. For neighbouring fringes, <span class="m"><i>m</i></span> differs by one, so <span class="m" style="white-space:nowrap">Δ<i>y</i> = <i>λL</i>/<i>d</i></span>.<br><b>Trap:</b> <span class="m"><i>d</i></span> is the slit separation, not a slit's width.</p>
+  </div>
+
+  <h3>The pattern</h3>
+  <ul class="pts">
+    <li>Each dark fringe is halfway between two bright fringes.</li>
+    <li>The single-slit pattern of each slit (the <span class="t">envelope</span>) dims the outer fringes.</li>
+    <li>A longer <span class="m"><i>λ</i></span> (red), a further screen, or closer slits → the fringes are further apart.</li>
+    <li><b>White light:</b> the central fringe is white (<span class="m"><i>δ</i></span> is 0 for every colour at the centre). Beside it are coloured fringes: blue inside, red outside.</li>
+  </ul>
+  <h3>Impact</h3>
+  <ul class="pts">
+    <li>Light can cancel light. Young also measured the wavelengths of colours.</li>
+    <li>But because of Newton's reputation, most scientists accepted the wave model only after Fresnel and Arago (1818–1819) and Foucault (1850).</li>
+  </ul>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · Young's double slit: two waves add at P</span><span class="sim-tag"><span style="white-space:nowrap">View from above</span> · <span style="white-space:nowrap">Screen distance L fixed</span> · <span style="white-space:nowrap">Readings: calculated</span> · <span style="white-space:nowrap">Wave picture: illustrative</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="View from above of the double-slit experiment. On the left, monochromatic light reaches both slits S₁ (top) and S₂ (bottom) at the same time. Two sets of circular waves overlap on the right. Colour shows crests, grey shows troughs, and the dark lines are where the two waves cancel. The screen on the far right has bright and dark fringes. P is a point on the screen. The copper line is S₁P, the blue line is S₂P, and the short extra length on the S₂ side is δ. Next to it are the readings of y, θ, δ and Δy (L = 1.00 m), and three curves: the wave from S₁, the wave from S₂ (behind by δ), and their sum."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <button class="btn" type="button" id="s3-next">P → next fringe</button>
+    <label class="range">Wavelength λ <input type="range" id="s3-lam" min="400" max="700" step="10" value="650"><output id="s3-lam-out" for="s3-lam">650 nm</output></label>
+    <label class="range">Slit separation d <input type="range" id="s3-d" min="0.125" max="0.5" step="0.025" value="0.25"><output id="s3-d-out" for="s3-d">0.250 mm</output></label>
+  </div>
+  <p class="try"><b>Try it:</b> ① When it opens, P is on dark fringe 1: the wave from S<sub>2</sub> is half a wavelength behind the wave from S<sub>1</sub> (δ = ½λ). Crest meets trough and "Sum" is a flat line, so it is dark. ② Press "P → next fringe" to go up one fringe at a time: at δ = λ, 2λ, 3λ the crests line up again, so it is a bright fringe. At δ = 1½λ, 2½λ the waves cancel, so it is a dark fringe. Look at the wave picture: the coloured bright bands reach the bright fringes on the screen, and the dark lines reach the dark fringes. ③ Drag slit separation d smaller, or drag wavelength λ longer: Δy = λL/d gets bigger and the fringes spread out. The readings are worked out from Experiment B in the booklet, with d = 0.250 mm, λ = 650 nm, L = 1.00 m (calculated). The wave picture is not to scale, and how much the outer fringes dim (envelope) is also illustrative.</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">2.4</div>
+  <h2>Diffraction gratings</h2>
+  <p class="big"><span class="lbl">Big idea</span>A grating has many slits, very close together. So its bright lines are sharp, bright and far apart: ideal for measuring wavelengths.</p>
+  <ul class="pts">
+    <li><span class="t">Diffraction grating</span>: a slide with many equally spaced, parallel slits, about 100 to 1000 per mm. The tracks of a CD also act like a grating.</li>
+    <li>It makes sharp, bright lines where <span class="m"><i>d</i> sin <i>θ</i> = <i>mλ</i></span>. It also splits white light into a <span class="t">spectrum</span> (a band of all the colours, in order of wavelength).</li>
+    <li><b>Sharp, bright lines:</b> the waves from all the slits are in step only at the exact angle where <span class="m" style="white-space:nowrap"><i>d</i> sin <i>θ</i> = <i>mλ</i></span>. Just off that angle, they cancel. It is like a big crowd clapping together: the sound is loud only when the claps match exactly.</li>
+    <li><b>Large angles:</b> <span class="m"><i>d</i></span> is tiny, so the lines are far apart and easy to measure. Use <span class="m" style="white-space:nowrap"><i>d</i> sin <i>θ</i> = <i>mλ</i></span> and <span class="m" style="white-space:nowrap"><i>y</i> = <i>L</i> tan <i>θ</i></span>, not <span class="m" style="white-space:nowrap">Δ<i>y</i> = <i>λL</i>/<i>d</i></span>.</li>
+    <li><b>White light:</b> the central line (<span class="m"><i>m</i> = 0</span>) is white. Each order is a spectrum: <span class="t">violet</span> nearest the centre, <span class="t">red</span> furthest out. This is the opposite of a <span class="t">prism</span>: a prism bends violet most.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Bright fringes (double slit or grating)</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd>distance between neighbouring slits on the grating (m)</dd></div>
+      <div><dt>θ</dt><dd>angle from the central line to the bright line (°)</dd></div>
+      <div><dt>m</dt><dd>order: 0, 1, 2, … (no unit)</dd></div>
+      <div><dt>λ</dt><dd>wavelength (m)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> this is the same formula as in 2.3. Gratings use it too.<br><b>Trap:</b> change nm, µm and mm into metres first. Calculator in degrees.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Grating spacing</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>d</i> = 1/<i>N</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd><span class="t">grating spacing</span>: the distance from one slit to the next (m)</dd></div>
+      <div><dt>N</dt><dd>number of lines per metre = lines per mm × 1000</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> <span class="m"><i>N</i></span> spacings, each of size <span class="m"><i>d</i></span>, fill exactly 1 metre: <span class="m"><i>Nd</i> = 1</span>.<br><b>Example:</b> 300 lines per mm → <i>N</i> = 300 × 1000 = 3.00 × 10<sup>5</sup> lines per metre → <i>d</i> = 1/<i>N</i> = 3.33 × 10<sup>−6</sup> m.<br><b>Trap:</b> change lines per mm into lines per metre first: × 1000.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Highest order</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq">highest <i>m</i> = <i>d</i>/<i>λ</i>, rounded down</div>
+    <dl class="sym">
+      <div><dt>d</dt><dd>grating spacing (m)</dd></div>
+      <div><dt>λ</dt><dd>wavelength (m)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> <span class="m">sin <i>θ</i> = <i>mλ</i>/<i>d</i></span>, and sin <span class="m"><i>θ</i></span> cannot be more than 1, so <span class="m"><i>m</i></span> cannot be more than <span class="m"><i>d</i>/<i>λ</i></span>.<br><b>Trap:</b> round <b>down</b>, not to the nearest whole number. If <span class="m"><i>d</i>/<i>λ</i></span> is exactly a whole number, that order is at 90° and cannot be seen.</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">Animation 4 · Diffraction grating: sharp, bright lines at large angles</span><span class="sim-tag"><span style="white-space:nowrap">Defaults from the booklet's Experiment B</span> · <span style="white-space:nowrap">Angles: calculated</span> · <span style="white-space:nowrap">Peak width: illustrative</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A semicircular protractor: a beam of light comes from below and hits the grating in the middle. It splits into several beams according to d sin θ = mλ, and the end of each beam is labelled with its order m. A detector moves back and forth along the protractor and stops on each bright line. A second graph shows brightness against the angle θ: the grating peaks are narrow and sharp; the blue dashed line is a double slit with the same d, and its fringes are very wide. When you switch to white light, m = 0 is white and each order is a spectrum."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Lines per mm <input type="range" id="s4-lpm" min="100" max="1000" step="50" value="300"><output id="s4-lpm-out" for="s4-lpm">300</output></label>
+    <label class="range"><i>λ</i> <input type="range" id="s4-lam" min="400" max="700" step="10" value="650"><output id="s4-lam-out" for="s4-lam">650 nm</output></label>
+    <button class="btn" type="button" id="s4-white" aria-pressed="false">White light: off</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First look at the default grating (Experiment B in the booklet: 300 lines per mm, red laser 650 nm): <i>d</i> = 1/<i>N</i> = 3.33 × 10<sup>−6</sup> m, the m = 1 line is at <i>θ</i> = 11.2°, and the highest order is m = 5 (calculated). When the detector stops on each line, <i>d</i> sin <i>θ</i> is exactly a whole number times λ. ② Look at the brightness graph: the grating peaks are narrow and sharp; the blue dashed line is a double slit with the same <i>d</i>, and its fringes are very wide. When the detector has moved just a little off a line (for example <i>d</i> sin <i>θ</i> = 1.1λ), the grating is already completely dark, but the double slit is still bright (about 90%). Halfway between two lines, the double slit has a dark fringe too. ③ Drag "Lines per mm" to 1000: <i>d</i> gets smaller and the lines spread further apart. Only m = 0 and the m = 1 line on each side are left. Then drag it to 100 and drag λ to 400 nm: <i>d</i>/<i>λ</i> = 25 is exactly a whole number, so m = 25 is at 90° and cannot be seen. The highest order is only 24. ④ Press "White light": m = 0 is white and each order is a spectrum, violet nearest the centre and red furthest out. This is exactly the opposite of a prism. On the graph, each order is drawn in its own row (m = 1 at the bottom). From m = 2 onwards, the colours of neighbouring orders overlap. The grating peaks on the graph are calculated for a beam that lights up a width of 1 mm (illustrative). Real peaks are thinner than one pixel.</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">2.5</div>
+  <h2>Polarisation and Malus' law</h2>
+  <p class="big"><span class="lbl">Big idea</span>In light, the electric field vibrates at 90° to the direction of travel. Only such transverse waves can be polarised, so polarisation tells us what kind of wave light is.</p>
+  <ul class="pts">
+    <li>Light is a <span class="t">transverse wave</span>: its electric and magnetic fields vibrate at 90° to the direction of travel. In a <span class="t">longitudinal wave</span> (such as sound) the vibration is along the direction of travel.</li>
+    <li>Analogy: a rope shaken up and down passes a <b>vertical</b> gap in a fence, but not a <b>horizontal</b> one. Only transverse waves have a sideways vibration to select.</li>
+    <li>Sunlight is <span class="t">unpolarised light</span>: the electric field vibrates in every direction across the beam, at random.</li>
+    <li>A <span class="t">polariser</span> passes only the part of the vibration along its <span class="t">transmission axis</span>. The light then becomes <span class="t">plane-polarised light</span>: its electric field vibrates in one direction only.</li>
+    <li>A second filter, the <span class="t">analyser</span>, passes only the part along its own axis.</li>
+    <li><span class="t">Intensity</span> (<span class="m"><i>I</i></span>): the power of light falling on each square metre. Unit: W m<sup>−2</sup>.</li>
+  </ul>
+
+  <h3>Looking along the beam, step by step (the booklet's Figure 2.5)</h3>
+  <ol class="pts">
+    <li><b>Unpolarised light, intensity <span class="m"><i>I</i><sub>0</sub></span>:</b> the vibration is in every direction.</li>
+    <li><b>Through the polariser (vertical axis):</b> only the vertical vibration is left, with intensity <span class="m">½<i>I</i><sub>0</sub></span>. No direction is special, so on average half the energy is along the axis. Whatever angle the polariser is turned to, it is always half.</li>
+    <li><b>Through the analyser (axis turned by <span class="m"><i>θ</i></span>):</b> of the amplitude <span class="m"><i>A</i></span>, only the part <span class="m"><i>A</i> cos <i>θ</i></span> along the new axis passes. Intensity is proportional to amplitude squared, so <span class="m">½<i>I</i><sub>0</sub> cos²<i>θ</i></span> is left.</li>
+  </ol>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Unpolarised light, first filter</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>I</i> = ½<i>I</i><sub>0</sub></div>
+    <dl class="sym">
+      <div><dt>I<sub>0</sub></dt><dd>intensity of the unpolarised light arriving (W m<sup>−2</sup>)</dd></div>
+      <div><dt>I</dt><dd>intensity after the first filter (W m<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> unpolarised light (sunlight, lamp light) goes through the first filter, at any angle.<br><b>You can also derive it:</b> no direction is special, so on average half the energy is along the axis.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Malus' law</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></div>
+    <dl class="sym">
+      <div><dt>I</dt><dd>intensity passing through this filter (W m<sup>−2</sup>)</dd></div>
+      <div><dt>I<sub>max</sub></dt><dd>intensity of the polarised light arriving, that is, what passes at <span class="m"><i>θ</i> = 0</span> (W m<sup>−2</sup>)</dd></div>
+      <div><dt>θ</dt><dd>angle between the light's vibration and the filter's transmission axis (°)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> light that is <b>already</b> plane-polarised meets a polariser.<br><b>Trap:</b> cos²<span class="m"><i>θ</i></span> means (cos <span class="m"><i>θ</i></span>)². Measure <span class="m"><i>θ</i></span> from the <b>previous</b> filter, not from the vertical.</p>
+  </div>
+
+  <h3>Two graphs</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px"><i>I</i> against <i>θ</i></div><p>A cos² curve: greatest at 0° and 180°, and 0 at 90°.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px"><i>I</i> against cos²<i>θ</i></div><p>A straight line through the origin, gradient = <span class="m"><i>I</i><sub>max</sub></span>. The experiment in the booklet's Figure 2.6: the points from 0° to 90° and from 105° to 180° all lie on this line or very close to it, gradient = 12.0 W m<sup>−2</sup>.</p></div>
+  </div>
+
+  <h3>Three filters</h3>
+  <ul class="pts">
+    <li>Two filters at 90° (<span class="t">crossed</span>): all the light is blocked.</li>
+    <li>Add a 45° filter <b>between</b> them: now light passes! This is because each filter re-polarises the light along its own axis.</li>
+    <li><b>Uses:</b> glare from water is partly polarised horizontally. Polarising sunglasses have a vertical transmission axis, so they block much of the glare.</li>
+  </ul>
+
+  <h3>Why polarisation matters for the model of light</h3>
+  <ul class="pts">
+    <li>Light is a transverse wave, so Huygens' longitudinal model had to change (Young 1817, Fresnel 1821).</li>
+    <li>Newton's particles had no natural explanation. He could only guess that rays have "<span class="t">sides</span>".</li>
+    <li>Maxwell's theory (1865) predicts a transverse electromagnetic wave, which fits polarisation and Malus' law exactly. So polarisation was highly significant: with interference, it completed the classical model of light as a transverse electromagnetic wave.</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Polarisers and Malus' law</span><span class="sim-tag"><span style="white-space:nowrap">View along the beam</span> · <span style="white-space:nowrap">Data points: the booklet</span> · <span style="white-space:nowrap">Longitudinal wave: illustrative</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A row of circles viewed along the beam. The vibration direction of unpolarised light jumps around. After a polariser with a vertical axis, it becomes a vertical vibration and the intensity becomes half. After an analyser turned by θ, only the part A cos θ is left. Beside this, the vibration A reaching the analyser is split into a part that passes and a part that is blocked. Below is an I–θ graph: the Malus' law curve and the booklet's experimental points, with the current θ marked."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">analyser <i>θ</i> <input type="range" id="s5-th" min="0" max="180" step="15" value="60"><output id="s5-th-out" for="s5-th">60°</output></label>
+    <button class="btn" type="button" id="s5-mid" aria-pressed="false">Add a 45° filter between</button>
+    <button class="btn" type="button" id="s5-lon" aria-pressed="false">If light were longitudinal</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Drag analyser <i>θ</i> (15° per step, the same as the experiment in the booklet, measured from the polariser's transmission axis): 0° is brightest, 90° is fully dark, 180° is brightest again. Look at the small diagram "Vibration A reaching the analyser": of the vibration <i>A</i>, only the part <i>A</i> cos <i>θ</i> along the analyser axis can pass. Intensity ∝ amplitude², so <i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i>. The points on the graph are the booklet's experimental data (solid 0°–90°, hollow 105°–180°). They all lie on the curve or very close to it. ② Put <i>θ</i> at 90° (crossed, fully dark), then press "Add a 45° filter between": it is bright again, <i>I</i> = ⅛<i>I</i><sub>0</sub>. <i>θ</i> must be measured from the previous filter: the angle from the middle filter to the analyser is <i>θ</i> − 45°. ③ Press "If light were longitudinal": the vibration goes back and forth along the beam, so a filter has no direction to select, and the brightness does not change with <i>θ</i> (violet dashed line, illustrative). But the experiment gives only 0.1 W m<sup>−2</sup> at 90°, so light is a transverse wave. <i>I</i><sub>max</sub> = 12.0 W m<sup>−2</sup> and the experimental points come from the booklet; <i>I</i><sub>0</sub> is used only as a symbol; the filters are treated as ideal, so ½<i>I</i><sub>0</sub> = <i>I</i><sub>max</sub>.</p>
+</figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">2.6</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Diffraction and interference with lasers</h3>
+    <dl>
+      <dt>Aim</dt><dd>(A) How diffraction depends on slit width and wavelength. (B) Measure a red laser's wavelength (label: 650 nm) from <span class="m"><i>d</i> sin <i>θ</i> = <i>mλ</i></span>.</dd>
+      <dt>Method</dt><dd>(A) Red and green lasers through single slits 0.080 mm, 0.040 mm and 0.020 mm wide.<br>(B) Double slit (<span class="m"><i>d</i> = 0.250 mm</span>): <span class="m">Δ<i>y</i></span> = distance across 10 fringe spacings ÷ 10 (measuring 10 and averaging gives a smaller error), for <span class="m"><i>L</i></span> from 1.00 m to 3.00 m. Grating (300 lines per mm): <span class="m"><i>y</i></span> = half the distance between the two first-order spots.</dd>
+      <dt>Safety</dt><dd><span class="t">Never look into the beam</span> of a laser.</dd>
+      <dt>Results</dt><dd>(A) Halving the slit width made the central maximum 2 times as wide; red was wider than green.<br>(B) <span class="m">Δ<i>y</i></span> against <span class="m"><i>L</i></span>: a straight line through the origin, gradient = <span class="m"><i>λ</i>/<i>d</i></span> (so <span class="m"><i>λ</i></span> = gradient × <span class="m"><i>d</i></span>). Double slit: 648 nm; grating: 649 nm.</dd>
+      <dt>Conclusion</dt><dd>Light diffracts and interferes like a wave. Both values are within about 0.3 % of 650 nm.</dd>
+      <dt>Significance</dt><dd>Particles cannot cancel to make dark fringes. This is strong evidence that light is a wave.</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Testing Malus' law</h3>
+    <dl>
+      <dt>Aim</dt><dd>To test <span class="m" style="white-space:nowrap"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></span> for plane-polarised light.</dd>
+      <dt>Method</dt><dd>Lamp, fixed polariser, analyser on an angle scale, <span class="t">light sensor</span>; in a dark room. Turn the analyser in 15° steps from the brightest position (<span class="m"><i>θ</i> = 0°</span>) to 180°.</dd>
+      <dt>Results</dt><dd><span class="m"><i>I</i></span> against cos²<span class="m"><i>θ</i></span>: a straight line through the origin, gradient <span class="m"><i>I</i><sub>max</sub> = 12.0 W m<sup>−2</sup></span> (the booklet's Figure 2.6).</dd>
+      <dt>Conclusion</dt><dd><span class="m"><i>I</i> ∝ cos²<i>θ</i></span>: Malus' law is supported.</dd>
+      <dt>Significance</dt><dd>Light can be polarised, so it is a transverse wave, as Maxwell predicted.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>n</i><sub>x</sub> = <i>c</i>/<i>v</i><sub>x</sub></td><td>the speed of light in water or glass</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>d</i> sin <i>θ</i> = <i>mλ</i></td><td>bright fringes of a double slit or grating</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>d</i> sin <i>θ</i> = (<i>m</i> − ½)<i>λ</i><br><i>m</i> = 1, 2, 3, …</td><td>dark fringes of a double slit</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>δ</i> = <i>d</i> sin <i>θ</i><br><i>δ</i> = |<i>S</i><sub>2</sub><i>P</i> − <i>S</i><sub>1</sub><i>P</i>|</td><td>path difference: <i>mλ</i> bright, (<i>m</i> − ½)<i>λ</i> dark</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>y</i> = <i>L</i> tan <i>θ</i></td><td>changes a fringe's angle into a distance on the screen</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">Δ<i>y</i> = <i>λL</i>/<i>d</i></td><td>fringe spacing of a double slit, small angles only</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>d</i> = 1/<i>N</i></td><td>grating spacing (<i>N</i> = lines per metre)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">highest <i>m</i> = <i>d</i>/<i>λ</i><br>rounded down</td><td>the highest order a grating can show</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>I</i> = ½<i>I</i><sub>0</sub></td><td>unpolarised light through the first filter</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></td><td>Malus' law: polarised light through a filter</td><td><span class="badge on">On sheet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 7 before the exam</h3>
+  <ol class="must">
+    <li>Light in water: Newton predicted faster, Huygens slower; Foucault (1850) measured slower.</li>
+    <li>Narrower slit or longer <span class="m"><i>λ</i></span> → more spreading. Only waves can explain dark bands.</li>
+    <li>Bright: <span class="m"><i>δ</i> = <i>mλ</i></span>, so <span class="m"><i>d</i> sin <i>θ</i> = <i>mλ</i></span>. Dark: <span class="m" style="white-space:nowrap"><i>δ</i> = (<i>m</i> − ½)<i>λ</i></span>.</li>
+    <li><span class="m"><i>y</i> = <i>L</i> tan <i>θ</i></span> at any angle; <span class="m">Δ<i>y</i> = <i>λL</i>/<i>d</i></span> only at small angles.</li>
+    <li>Grating: <span class="m"><i>d</i> = 1/<i>N</i></span>; highest order = <span class="m"><i>d</i>/<i>λ</i></span> rounded down.</li>
+    <li>Unpolarised: <span class="m"><i>I</i> = ½<i>I</i><sub>0</sub></span>. Polarised: <span class="m"><i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></span>.</li>
+    <li>Polarisation shows that light is a transverse wave.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> light in water or glass can be faster than c.<br><span class="ok">Right:</span> n is 1 or more, so v<sub>x</sub> = c/n is never bigger than c.</div>
+    <div><span class="x">Wrong:</span> Foucault's experiment proved that light is a wave.<br><span class="ok">Right:</span> it only disproved Newton's explanation of refraction. On its own, it did not prove the wave model.</div>
+    <div><span class="x">Wrong:</span> after light passes through a narrow slit, its wavelength has changed.<br><span class="ok">Right:</span> in diffraction, λ, frequency and speed do not change; only the direction does.</div>
+    <div><span class="x">Wrong:</span> putting nm, µm or mm straight into d sin θ = mλ.<br><span class="ok">Right:</span> change into m first: 650 nm = 650 × 10<sup>−9</sup> m, 0.250 mm = 0.250 × 10<sup>−3</sup> m. Calculator in degrees.</div>
+    <div><span class="x">Wrong:</span> in Δy = λL/d, d is the width of one slit.<br><span class="ok">Right:</span> d is the slit separation: the distance between the centres of the two slits.</div>
+    <div><span class="x">Wrong:</span> gratings also use Δy = λL/d.<br><span class="ok">Right:</span> grating angles are large, so use d sin θ = mλ and y = L tan θ. Δy = λL/d is only for below about 10°.</div>
+    <div><span class="x">Wrong:</span> a grating is like a prism: it bends violet most.<br><span class="ok">Right:</span> in each order of a grating, violet is nearest the centre and red is furthest out. A prism is the opposite: it bends violet most.</div>
+    <div><span class="x">Wrong:</span> putting m = 0 into the dark-fringe formula.<br><span class="ok">Right:</span> in d sin θ = (m − ½)λ, m starts at 1.</div>
+    <div><span class="x">Wrong:</span> highest order = d/λ rounded to the nearest whole number.<br><span class="ok">Right:</span> round down, because sin θ cannot be more than 1.</div>
+    <div><span class="x">Wrong:</span> cos²θ means cos(θ²).<br><span class="ok">Right:</span> cos²θ means (cos θ)²: find cos θ first, then square it.</div>
+    <div><span class="x">Wrong:</span> in Malus' law, θ is measured from the vertical.<br><span class="ok">Right:</span> θ is measured from the axis of the <b>previous</b> filter.</div>
+    <div><span class="x">Wrong:</span> unpolarised light through the first filter also uses cos²θ.<br><span class="ok">Right:</span> unpolarised light through the first filter gives ½I<sub>0</sub>, at any angle. Malus' law is only for light that is already polarised.</div>
+  </div>
+  <p class="jump-next"><a href="#s11">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s10">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Crest / Trough</td><td>波峰 / 波谷</td><td>the highest / lowest point of a wave</td></tr>
+        <tr><td class="t">Wavelength (λ)</td><td>波长</td><td>the length of one complete wave, such as crest to crest. Unit: m</td></tr>
+        <tr><td class="t">Amplitude</td><td>振幅</td><td>how far a crest is above the middle line</td></tr>
+        <tr><td class="t">Corpuscle</td><td>微粒（光微粒）</td><td>Newton's tiny particle of light</td></tr>
+        <tr><td class="t">Longitudinal wave</td><td>纵波</td><td>a wave that vibrates along the direction of travel, like sound</td></tr>
+        <tr><td class="t">Wavefront</td><td>波阵面（波面）</td><td>a line joining points that are in step, such as all the crests</td></tr>
+        <tr><td class="t">Wavelet</td><td>子波</td><td>a small circular wave sent out by a point on a wavefront</td></tr>
+        <tr><td class="t">Huygens' principle</td><td>惠更斯原理</td><td>every point sends out a wavelet; the line touching the wavelets is the new wavefront</td></tr>
+        <tr><td class="t">Normal</td><td>法线</td><td>a line at 90° to a surface; angles of rays are measured from it</td></tr>
+        <tr><td class="t">Reflection</td><td>反射</td><td>light bouncing off a surface, <i>θ</i><sub>i</sub> = <i>θ</i><sub>r</sub></td></tr>
+        <tr><td class="t">Repulsive force</td><td>斥力</td><td>a force that pushes things away from the surface (Newton's explanation of reflection)</td></tr>
+        <tr><td class="t">Refraction</td><td>折射</td><td>the bending of light as it enters another material</td></tr>
+        <tr><td class="t">Refractive index (n)</td><td>折射率</td><td>how many times slower light is in a material than in vacuum</td></tr>
+        <tr><td class="t">Diffraction</td><td>衍射</td><td>a wave spreading as it passes through a gap or around an edge</td></tr>
+        <tr><td class="t">Central maximum</td><td>中央亮纹（中央极大）</td><td>the wide bright band in the middle of a single-slit pattern</td></tr>
+        <tr><td class="t">Slit width (a)</td><td>缝宽</td><td>how wide a slit is</td></tr>
+        <tr><td class="t">Superposition</td><td>叠加（波的叠加）</td><td>where waves meet, their displacements (heights) add</td></tr>
+        <tr><td class="t">Interference</td><td>干涉</td><td>the pattern made when overlapping waves add or cancel</td></tr>
+        <tr><td class="t">In phase</td><td>同相</td><td>crests arrive together</td></tr>
+        <tr><td class="t">Out of phase (180°)</td><td>反相</td><td>the crests of one wave arrive with the troughs of the other</td></tr>
+        <tr><td class="t">Constructive interference</td><td>相长干涉</td><td>waves meet in phase and make a bigger wave: bright</td></tr>
+        <tr><td class="t">Destructive interference</td><td>相消干涉</td><td>waves meet 180° out of phase and cancel: dark</td></tr>
+        <tr><td class="t">Young's double-slit experiment</td><td>杨氏双缝实验</td><td>light passes through two close slits and makes bright and dark fringes</td></tr>
+        <tr><td class="t">Fringe</td><td>条纹</td><td>a bright or dark band in an interference pattern</td></tr>
+        <tr><td class="t">Coherent</td><td>相干的</td><td>same frequency and a fixed phase difference (the shift between them does not change)</td></tr>
+        <tr><td class="t">Monochromatic</td><td>单色的</td><td>only one colour, that is, one wavelength</td></tr>
+        <tr><td class="t">Path difference (δ)</td><td>波程差（路程差）</td><td>how much further one wave travels than the other. Unit: m</td></tr>
+        <tr><td class="t">Slit separation (d)</td><td>双缝间距（缝间距）</td><td>the distance between the centres of two slits</td></tr>
+        <tr><td class="t">Order (m)</td><td>级次</td><td>the number of a fringe, counting out from the centre (bright fringes 0, 1, 2, …; dark fringes 1, 2, …)</td></tr>
+        <tr><td class="t">Fringe spacing (Δy)</td><td>条纹间距</td><td>the distance between the centres of neighbouring bright fringes</td></tr>
+        <tr><td class="t">Envelope</td><td>包络线</td><td>the single-slit curve that dims the outer fringes of a double slit</td></tr>
+        <tr><td class="t">Diffraction grating</td><td>衍射光栅</td><td>a slide with many equally spaced, parallel slits; it splits light into a spectrum</td></tr>
+        <tr><td class="t">Grating spacing (d)</td><td>光栅常量（光栅常数）</td><td>the distance from one slit to the next on a grating</td></tr>
+        <tr><td class="t">Spectrum</td><td>光谱</td><td>a band of all the colours, in order of wavelength</td></tr>
+        <tr><td class="t">Prism</td><td>棱镜</td><td>a glass block that bends white light into a spectrum; it bends violet most</td></tr>
+        <tr><td class="t">Transverse wave</td><td>横波</td><td>a wave that vibrates at 90° to the direction of travel</td></tr>
+        <tr><td class="t">Polarisation (polarised)</td><td>偏振</td><td>a transverse wave vibrating in one direction only; light can be polarised, so it is a transverse wave</td></tr>
+        <tr><td class="t">Unpolarised light</td><td>非偏振光（自然光）</td><td>light that vibrates in every direction across the beam, at random</td></tr>
+        <tr><td class="t">Polariser</td><td>起偏器（偏振片）</td><td>a filter that passes only the vibration along its transmission axis</td></tr>
+        <tr><td class="t">Analyser</td><td>检偏器</td><td>a second polarising filter that checks the light from the first</td></tr>
+        <tr><td class="t">Transmission axis</td><td>透振方向（透光轴）</td><td>the direction of vibration that a polarising filter lets through</td></tr>
+        <tr><td class="t">Plane-polarised light</td><td>线偏振光（平面偏振光）</td><td>light whose electric field vibrates in one direction only</td></tr>
+        <tr><td class="t">Intensity (I)</td><td>光强（强度）</td><td>the power of light falling on each square metre. Unit: W m<sup>−2</sup></td></tr>
+        <tr><td class="t">Malus' law</td><td>马吕斯定律</td><td>polarised light through a filter: <i>I</i> = <i>I</i><sub>max</sub> cos²<i>θ</i></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. When light enters water, it bends towards the normal. Did Newton predict that light is faster or slower in water? Did Huygens? Who was right?</summary><p class="ans"><b>Newton: faster; Huygens: slower. Foucault (1850) measured slower.</b> Newton thought the water pulls the particles inwards, so the speed gets bigger. Huygens thought the end of the wavefront that enters the water first slows first. The experiment shows that Newton's explanation of refraction was wrong.</p></details>
+    <details><summary><span>2. The speed of light in a material is 2.00 × 10<sup>8</sup> m s<sup>−1</sup>. What is the refractive index of this material?</span></summary><p class="ans"><b>n = 1.50.</b> n = c/v = 3.00 × 10<sup>8</sup> ÷ (2.00 × 10<sup>8</sup>) = 1.50. It has no unit. n is more than 1, so light is slower in the material than in vacuum.</p></details>
+    <details><summary>3. Why are the "dark bands" in single-slit and double-slit patterns evidence that light is a wave?</summary><p class="ans"><b>Particles added to particles can only make it brighter, not dark.</b> Only waves can have "crest meets trough" and cancel, so "light + light = darkness" only makes sense for waves.</p></details>
+    <details><summary>4. A double slit has d = 0.250 mm, a red laser has λ = 650 nm, and the screen is at L = 1.00 m. What is the fringe spacing Δy?</summary><p class="ans"><b>Δy = 2.60 × 10<sup>−3</sup> m = 2.60 mm.</b> First change the units: d = 0.250 × 10<sup>−3</sup> m, λ = 650 × 10<sup>−9</sup> m. Δy = λL/d = 650 × 10<sup>−9</sup> × 1.00 ÷ (0.250 × 10<sup>−3</sup>) = 2.60 × 10<sup>−3</sup> m. The angle is only about 0.15°, which is below 10°, so you can use this formula.</p></details>
+    <details><summary>5. Two speakers in phase send out sound with λ = 2 m. Point P is 5 m from one speaker and 8 m from the other. Is the sound at P loud or quiet?</summary><p class="ans"><b>Very quiet (destructive).</b> δ = |8 − 5| = 3 m, δ/λ = 3 ÷ 2 = 1.5. This is a whole number plus a half, so the two waves are 180° out of phase and cancel.</p></details>
+    <details><summary>6. A grating has 300 lines per mm and λ = 650 nm. What is the angle of the first-order bright line? What is the highest order you can see?</summary><p class="ans"><b>θ<sub>1</sub> ≈ 11.2°; highest m = 5.</b> N = 300 × 1000 = 3.00 × 10<sup>5</sup> lines per metre, d = 1/N = 3.33 × 10<sup>−6</sup> m. Dividing by d is the same as multiplying by N: sin θ<sub>1</sub> = λ/d = λN = 650 × 10<sup>−9</sup> × 3.00 × 10<sup>5</sup> = 0.195, θ<sub>1</sub> = 11.2°. d/λ = 1 ÷ (Nλ) = 1 ÷ 0.195 = 5.13, rounded down gives 5.</p></details>
+    <details><summary><span>7. In the Malus experiment, I<sub>max</sub> = 12.0 W m<sup>−2</sup>. When the analyser is turned to 60°, what should I be?</span></summary><p class="ans"><b>I = 3.0 W m<sup>−2</sup>.</b> cos 60° = 0.5, cos² 60° = 0.25. I = 12.0 × 0.25 = 3.0 W m<sup>−2</sup>.</p></details>
+    <details><summary><span>8. Unpolarised light I<sub>0</sub> goes through two filters at 90°: completely dark. Add a 45° filter between them. How much is left at the end?</span></summary><p class="ans"><b>⅛I<sub>0</sub>.</b> First filter: ½I<sub>0</sub>. The middle filter is 45° from the first: ½I<sub>0</sub> × cos² 45° = ½I<sub>0</sub> × ½ = ¼I<sub>0</sub>. The last filter is another 45° from the middle one: ¼I<sub>0</sub> × ½ = ⅛I<sub>0</sub>. Each filter re-polarises the light along its own axis.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m7/t1.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M7 T1 · The Electromagnetic Spectrum</span></a><a class="pg next" href="../m7/t3.html"><span class="pg-k">Next topic →</span><span class="pg-t">M7 T3 · Light as a Particle: Black Bodies and the Photoelectric Effect</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 7 The Nature of Light · Chapter 2. The experimental data (slit widths 0.080 / 0.040 / 0.020 mm, 650 nm, <i>d</i> = 0.250 mm, <i>L</i> = 1.00 m to 3.00 m, 300 lines per mm, 648 nm / 649 nm (both within about 0.3 % of 650 nm), 15° steps, <i>I</i><sub>max</sub> = 12.0 W m<sup>−2</sup>, the 13 data points of Figure 2.6) are from the booklet. The numbers in Quick quiz questions 2 and 5 are simple numbers chosen for practice. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · Newton 和 Huygens：光进入水（booklet 2.1 Refraction，Figure 2.1）
+   坐标：O = 光线碰到水面的点，x 向右，y 向下（水里 y > 0）。角度全部从 normal 量。
+   两个模型拐的角度一样：sin θi = n sin θr（n = 1.33，示意；页面不写这条式子，本章 booklet 没有）。
+   Newton：水面一薄层（厚 HL）里有沿 normal 向下的拉力（匀加速）→ parallel part 不变、normal part 变大
+     → v水 = n·v空气（更快）。薄层分成 h1:h2 = vn1:vn2，这样上下两段直线延长后正好交在水面上，
+     粒子在薄层外正好走在理想光线上。
+   Huygens：v水 = v空气/n（更慢），水里波阵面间距 λ/n。波阵面的位置用 s（在空气里沿光线走过的路）表示：
+     空气部分 d1·r = s，水里部分 d2·r = s/n，两段在水面上接上。水面上的点 x0 在 s = x0 sin θi 时被碰到，
+     从那里发出的子波半径 = (s − x0 sin θi)/n，所有子波的包络就是水里的波阵面。
+   Foucault（1850）：真实结果，不管选哪个模型都一样：v水 = c/n → 过水的光晚到。
+     Newton 模式下用空心圈画 Newton 的预言（水里快 n 倍）。赛道上的速度比例用同一个 n（示意）。 */
+var NW=1.33,DEG=Math.PI/180,HL=8;
+var m={mode:'newton',ti:45,t:1.15};   /* t = 1.15 s：第一帧圈住的粒子已经在水里，箭头的竖的部分变长了 */
+var R={st:'idle',t:0,fresh:false};
+var RV=1/3,TA=0.25,TB=0.85;   /* 赛道：速度 = 1/3 条赛道每秒；水管从 25% 到 85% */
+var G={};
+function geom(){var a=m.ti*DEG;G.si=Math.sin(a);G.ci=Math.cos(a);G.sr=G.si/NW;G.cr=Math.sqrt(1-G.sr*G.sr);G.tr=Math.asin(G.sr)/DEG;}
+geom();
+function mod(a,b){return a-Math.floor(a/b)*b;}
+/* 赛道上的位置（0 到 1）；k = 在水管里慢多少倍：1 只过空气，NW 真实的水，1/NW Newton 的预言 */
+function racePos(t,k){var t1=TA/RV,tin=(TB-TA)*k/RV;
+  if(t<=t1)return RV*t;
+  if(t<=t1+tin)return TA+(t-t1)*RV/k;
+  return Math.min(1,TB+(t-t1-tin)*RV);}
+function raceT(k){return (TA+(TB-TA)*k+(1-TB))/RV;}
+
+/* ---------- 文字：_x 画成下标；halo = 先描一圈底色，压在光束上也看得清 ---------- */
+var RU=[],RW=[];
+function rt(ctx,s,x,y,col,size,weight,align,halo){
+  var ss=Math.max(11,size*0.72),wt=weight||500,i,ch,buf='',w=0,n,x0,sb,yy;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}RU.push(s.charAt(i+1),1);i++;}else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sb=RU[2*i+1];ctx.font=wt+' '+(sb?ss:size)+'px '+FONT;RW[i]=ctx.measureText(RU[2*i]).width+(sb?1:0);w+=RW[i];}
+  x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sb=RU[2*i+1];yy=y+(sb?size*0.28:0);
+    if(halo){ctx.font=wt+' '+(sb?ss:size)+'px '+FONT;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=rgba(C.stage,0.9);ctx.strokeText(RU[2*i],x0,yy);}
+    txt(ctx,RU[2*i],x0,yy,col,sb?ss:size,wt,'left','alphabetic');x0+=RW[i];}
+  return w;
+}
+
+/* ---------- 排版 ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.ss=15;o.sy=27;o.slh=21;o.smax=2;
+    o.x0=8;o.x1=W-272;o.y0=62;o.y1=300;o.px=W-250;o.pw=234;o.py=66;o.sub=1;o.ry=320;
+    o.v1=64;o.te=0.34;o.wn=44;o.wh=86;o.lam=26;o.la=34;o.ra=46;}
+  else{o.ss=13.5;o.sy=22;o.slh=19;o.smax=3;
+    o.x0=8;o.x1=W-8;o.y0=72;o.y1=298;o.px=16;o.pw=W-32;o.py=310;o.sub=0;o.ry=482;
+    o.v1=54;o.te=0.37;o.wn=38;o.wh=66;o.lam=22;o.la=28;o.ra=38;}
+  o.ks=0.7;o.H=o.ry+110;
+  o.ox=Math.round((o.x0+o.x1)/2);o.oy=Math.round(o.y0+(o.y1-o.y0)*0.42);
+  o.D=Math.hypot(o.x1-o.x0,o.y1-o.y0);
+  LY=o;return o;
+}
+
+/* ---------- 状态提示 ---------- */
+var ST_N=['Newton: water pulls particles down the normal','normal part grows, parallel part unchanged','bends towards the normal, and goes faster'],
+    ST_H=['Huygens: left end enters first and slows first','whole wavefront swings towards the normal','slower in water'],
+    ST_R0=['Foucault 1850: two beams leave at the same time','see which reaches the finish first'],
+    ST_R1=['The beam through air only arrived first','the beam through water is still on its way','slower in water'],
+    ST_R2=['Foucault 1850: the beam through water is late','slower in water','Newton\'s explanation of refraction was wrong'];
+function status(){
+  if(R.fresh&&R.st!=='idle'){if(R.st==='done')return ST_R2;return R.t<raceT(1)?ST_R0:ST_R1;}
+  return m.mode==='newton'?ST_N:ST_H;
+}
+function wrap(ctx,parts,maxW,size){
+  var out=[],cur=parts[0],c,i;ctx.font='600 '+size+'px '+FONT;
+  for(i=1;i<parts.length;i++){c=cur+' → '+parts[i];if(ctx.measureText(c).width<=maxW)cur=c;else{out.push(cur);cur='→ '+parts[i];}}
+  out.push(cur);return out;
+}
+
+/* ---------- Newton：粒子 ---------- */
+var NP={},PX=0,PY=0,VY=0,LANE=[-1,0,1],LOFF=[0.41,0,0.77];
+function nsetup(L){var v1=L.v1,vn1=v1*G.ci,vn2=NW*v1*G.cr,tl=2*HL/(vn1+vn2);
+  NP.vx=v1*G.si;NP.vn1=vn1;NP.vn2=vn2;NP.tl=tl;NP.a=(vn2-vn1)/tl;NP.h1=vn1*tl/2;NP.h2=vn2*tl/2;}
+/* 一颗粒子：x0 = 它碰到水面的位置（相对 O），tau = 它进入薄层以后的时间 */
+function npos(x0,tau){
+  PX=x0-NP.h1*G.si/G.ci+NP.vx*tau;
+  if(tau<0){PY=-NP.h1+NP.vn1*tau;VY=NP.vn1;}
+  else if(tau<=NP.tl){PY=-NP.h1+NP.vn1*tau+0.5*NP.a*tau*tau;VY=NP.vn1+NP.a*tau;}
+  else{PY=NP.h2+NP.vn2*(tau-NP.tl);VY=NP.vn2;}
+}
+function drawNewton(ctx,L){
+  nsetup(L);
+  var te=L.te,tmin=-L.D/L.v1,tmax=NP.tl+L.D/(NW*L.v1),l,k,x0,base,k0,k1;
+  for(l=0;l<3;l++){
+    x0=LANE[l]*L.wn/3/G.ci;base=mod(m.t-LOFF[l]*te,te);
+    k0=Math.ceil((tmin-base)/te);k1=Math.floor((tmax-base)/te);
+    for(k=k0;k<=k1;k++){npos(x0,base+k*te);dot(ctx,L.ox+PX,L.oy+PY,3.2,C.light);}
+  }
+  /* 圈住中间那条线上的一颗粒子，跟着它从空气走到水里，再换下一颗 */
+  var da=Math.min((L.oy-L.y0)/G.ci,(L.ox-L.x0)/G.si)*0.8,dw=Math.max(20,Math.min((L.y1-L.oy)/G.cr,(L.x1-L.ox)/G.sr)-NW*L.v1*L.ks-12);
+  var ta=-da/L.v1,P=Math.ceil((da/L.v1+NP.tl+dw/(NW*L.v1))/te)*te,th=ta+mod(m.t-ta,P);
+  npos(0,th);
+  var hx=L.ox+PX,hy=L.oy+PY,vx=NP.vx*L.ks,vy=VY*L.ks,dc=rgba(C.muted,0.95);
+  seg(ctx,hx,hy,hx+vx,hy,dc,1.7,[3,3]);
+  seg(ctx,hx+vx,hy,hx+vx,hy+vy,dc,1.7,[3,3]);
+  arrow(ctx,hx,hy,hx+vx,hy+vy,rgba(C.ink,0.7),2.4,8);
+  dot(ctx,hx,hy,4.8,C.light);ring(ctx,hx,hy,7.5,C.ink,1.5);
+  if(th>-0.08&&th<NP.tl+0.08)arrow(ctx,hx-10,hy-6,hx-10,hy+20,C.force,2.6,8);
+}
+
+/* ---------- Huygens：波阵面 ---------- */
+/* 一条波阵面：空气部分 u ∈ [ua, w/2]，水里部分 u' ∈ [−w2/2, ub]；过水面时两段在水面上接成一条折线 */
+function front(ctx,L,s,w,w2,col,lw){
+  var si=G.si,ci=G.ci,sr=G.sr,cr=G.cr,ox=L.ox,oy=L.oy,ua=Math.max(-w/2,s*ci/si),ub=Math.min(w2/2,s/NW*cr/sr),q=s/NW,on=false;
+  ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineCap='round';ctx.lineJoin='round';ctx.setLineDash([]);ctx.beginPath();
+  if(ub>-w2/2){ctx.moveTo(ox+q*sr-w2/2*cr,oy+q*cr+w2/2*sr);ctx.lineTo(ox+q*sr+ub*cr,oy+q*cr-ub*sr);on=true;}
+  if(ua<w/2){if(on)ctx.lineTo(ox+s*si+ua*ci,oy+s*ci-ua*si);else ctx.moveTo(ox+s*si+ua*ci,oy+s*ci-ua*si);ctx.lineTo(ox+s*si+w/2*ci,oy+s*ci-w/2*si);}
+  ctx.stroke();ctx.lineCap='butt';
+}
+function drawHuygens(ctx,L){
+  var w=L.wh,w2=w*G.cr/G.ci,lam=L.lam,si=G.si,ci=G.ci,sr=G.sr,cr=G.cr,ox=L.ox,oy=L.oy,D=L.D,la=L.la;
+  var ph=mod(m.t*L.v1,lam),k,k0=Math.ceil((-D-ph)/lam),k1=Math.floor((NW*D-ph)/lam);
+  seg(ctx,ox-D*si,oy-D*ci,ox,oy,rgba(C.light,0.6),1.3,[5,5]);
+  seg(ctx,ox,oy,ox+D*sr,oy+D*cr,rgba(C.light,0.6),1.3,[5,5]);
+  for(k=k0;k<=k1;k++)front(ctx,L,ph+k*lam,w,w2,rgba(C.light,0.7),2);
+  /* 跟着一条波阵面走过水面（从碰到水面前一格，到全部进水后一格半） */
+  var half=w/2*si/ci,s0=-half-lam,P=Math.ceil((2*half+2.6*lam)/lam)*lam,sh=s0+mod(m.t*L.v1-s0,P);
+  var K=5,xl=-w/(2*ci),dx=w/ci/K,j,xs,rho,al;
+  for(j=0;j<K;j++){xs=xl+(j+0.5)*dx;rho=(sh-xs*si)/NW;
+    if(rho>0.5){al=0.6*clamp(1-rho/(1.7*w),0,1);if(al>0.02){ctx.beginPath();ctx.arc(ox+xs,oy,rho,0,Math.PI);ctx.strokeStyle=rgba(C.light,al);ctx.lineWidth=1.3;ctx.stroke();}
+      dot(ctx,ox+xs,oy,2.4,C.light);}}
+  front(ctx,L,sh,w,w2,C.light,3.6);
+  /* 两端的速度箭头：在水里的一端短（慢），还在空气里的一端长（快） */
+  var q=sh/NW,ex,ey,ac=rgba(C.ink,0.7);
+  if(sh>=-half){ex=ox+q*sr-w2/2*cr;ey=oy+q*cr+w2/2*sr;arrow(ctx,ex+sr*3,ey+cr*3,ex+sr*(3+la/NW),ey+cr*(3+la/NW),ac,2.2,7);}
+  else{ex=ox+sh*si-w/2*ci;ey=oy+sh*ci+w/2*si;arrow(ctx,ex+si*3,ey+ci*3,ex+si*(3+la),ey+ci*(3+la),ac,2.2,7);}
+  if(sh<=half){ex=ox+sh*si+w/2*ci;ey=oy+sh*ci-w/2*si;arrow(ctx,ex+si*3,ey+ci*3,ex+si*(3+la),ey+ci*(3+la),ac,2.2,7);}
+  else{ex=ox+q*sr+w2/2*cr;ey=oy+q*cr-w2/2*sr;arrow(ctx,ex+sr*3,ey+cr*3,ex+sr*(3+la/NW),ey+cr*(3+la/NW),ac,2.2,7);}
+}
+
+/* ---------- 场景：空气 / 水 ---------- */
+function drawScene(ctx,L){
+  var x0=L.x0,x1=L.x1,y0=L.y0,y1=L.y1,ox=L.ox,oy=L.oy,nw=m.mode==='newton',D=L.D;
+  var si=G.si,ci=G.ci,sr=G.sr,cr=G.cr,w=nw?L.wn:L.wh,e=w/(2*ci);
+  ctx.fillStyle=rgba(C.muted,0.11);ctx.fillRect(x0,oy,x1-x0,y1-oy);
+  ctx.save();ctx.beginPath();ctx.rect(x0,y0,x1-x0,y1-y0);ctx.clip();
+  if(nw){ctx.fillStyle=rgba(C.force,0.16);ctx.fillRect(x0,oy-HL/2,x1-x0,HL);}
+  ctx.beginPath();ctx.moveTo(ox-e-D*si,oy-D*ci);ctx.lineTo(ox-e,oy);ctx.lineTo(ox-e+D*sr,oy+D*cr);
+  ctx.lineTo(ox+e+D*sr,oy+D*cr);ctx.lineTo(ox+e,oy);ctx.lineTo(ox+e-D*si,oy-D*ci);ctx.closePath();
+  ctx.fillStyle=rgba(C.light,0.1);ctx.fill();
+  seg(ctx,x0,oy,x1,oy,C.muted,1.5);
+  seg(ctx,ox,y0+20,ox,y1-6,rgba(C.muted,0.9),1.3,[4,4]);
+  if(nw)drawNewton(ctx,L);else drawHuygens(ctx,L);
+  ctx.restore();
+  /* 角度：从 normal 量 */
+  var ra=L.ra,ti=m.ti*DEG,tr=G.tr*DEG;
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.4;
+  ctx.beginPath();ctx.arc(ox,oy,ra,-Math.PI/2-ti,-Math.PI/2);ctx.stroke();
+  ctx.beginPath();ctx.arc(ox,oy,ra,Math.PI/2-tr,Math.PI/2);ctx.stroke();
+  var lx=Math.min(ox-13,ox-(ra+13)*Math.sin(ti/2)),ly=oy-(ra+13)*Math.cos(ti/2);
+  rt(ctx,'θ_i',lx,ly+5,C.ink,15,600,'center',true);
+  var rx=Math.max(ox+13,ox+(ra+13)*Math.sin(tr/2)),ry=oy+(ra+13)*Math.cos(tr/2);
+  rt(ctx,'θ_r',rx,ry+5,C.ink,15,600,'center',true);
+  /* 标签 */
+  rt(ctx,'normal',ox+6,y0+14,C.muted,11.5,500,'left',true);
+  txt(ctx,'air',x1-6,y0+14,C.muted,12,600,'right');
+  txt(ctx,'water',x0+6,y1-8,C.muted,12,600,'left');
+  rt(ctx,nw?'corpuscles':'wavefronts',x1-6,y0+33,C.light,12,600,'right',true);
+  if(nw){var px=ox+(x1-ox)*0.62;arrow(ctx,px,oy-18,px,oy+18,C.force,2.8,9);txt(ctx,'pull',px+8,oy+16,C.force,12.5,700);}
+}
+
+/* ---------- 预言：两种速度的比较 ---------- */
+function row(ctx,x,y,w,title,res,a,b,sc){
+  txt(ctx,title,x,y,C.ink,12.5,600);txt(ctx,res,x+w,y,C.ink,12.5,700,'right');
+  txt(ctx,'air',x,y+16,C.muted,11,500);hbar(ctx,x+38,y+8,w-38,7,a/sc,rgba(C.ink,0.4));
+  txt(ctx,'water',x,y+31,C.muted,11,500);hbar(ctx,x+38,y+23,w-38,7,b/sc,rgba(C.ink,0.8));
+}
+function drawPanel(ctx,L){
+  var x=L.px,y=L.py,w=L.pw,nw=m.mode==='newton',yy;
+  if(!L.wide)seg(ctx,0,y-6,L.W,y-6,C.line,1);
+  txt(ctx,nw?'Newton predicts':'Huygens predicts',x,y+13,C.ink,13.5,700);
+  rt(ctx,'θ_i = '+m.ti+'° → θ_r = '+Math.round(G.tr)+'°',x+w,y+13,C.ink,12.5,600,'right');
+  yy=y+34;
+  if(L.sub){txt(ctx,'Same angle in both models, towards normal',x,y+32,C.muted,11.5,500);yy=y+56;}
+  if(nw){
+    row(ctx,x,yy,w,'parallel part (horizontal)','unchanged',G.si,G.si,1.4);
+    row(ctx,x,yy+46,w,'normal part (vertical)','grows × '+(NW*G.cr/G.ci).toFixed(2),G.ci,NW*G.cr,1.4);
+    row(ctx,x,yy+92,w,'speed v (arrow)','faster × 1.33',1,NW,1.4);
+    if(L.sub)txt(ctx,'n = 1.33 for water (illustrative)',x,yy+142,C.muted,11.5,500);
+  }else{
+    row(ctx,x,yy,w,'speed v','slower ÷ 1.33',1,1/NW,1.1);
+    row(ctx,x,yy+46,w,'wavefront spacing (λ)','smaller ÷ 1.33',1,1/NW,1.1);
+    txt(ctx,'water: v = c ÷ n = 2.26 × 10⁸ m s⁻¹',x,yy+94,C.ink,12.5,600);
+    if(L.wide){txt(ctx,'c = 3.00 × 10⁸ m s⁻¹',x,yy+113,C.muted,11.5,500);txt(ctx,'n = 1.33 (illustrative)',x,yy+130,C.muted,11.5,500);}
+    else txt(ctx,'c = 3.00 × 10⁸ m s⁻¹, n = 1.33 (illustrative)',x,yy+113,C.muted,11.5,500);
+  }
+}
+
+/* ---------- Foucault 赛跑 ---------- */
+function pulse(ctx,x,y,xs){var tl=Math.min(20,x-xs);if(tl>1)seg(ctx,x-tl,y,x,y,rgba(C.light,0.45),4);
+  ctx.save();ctx.shadowColor=C.light;ctx.shadowBlur=10;dot(ctx,x,y,5.5,C.light);ctx.restore();}
+function drawRace(ctx,L,W){
+  var y=L.ry,xs=110,xf=W-(L.wide?52:48),len=xf-xs,ty1=y+42,ty2=y+74,nw=m.mode==='newton',t=R.st==='idle'?0:R.t,leg;
+  seg(ctx,0,y-8,W,y-8,C.line,1);
+  txt(ctx,L.wide?'Foucault 1850 · Two beams leave at the same time: which reaches the finish first?':'Foucault 1850 · Same start: which is first?',16,y+13,C.ink,13,700);
+  txt(ctx,'air only',16,ty1+4,C.muted,12,600);txt(ctx,'through water',16,ty2+4,C.muted,12,600);
+  seg(ctx,xs,ty1,xf,ty1,rgba(C.muted,0.6),1.2);seg(ctx,xs,ty2,xf,ty2,rgba(C.muted,0.6),1.2);
+  var ta=xs+TA*len,tb=xs+TB*len;
+  rrect(ctx,ta,ty2-10,tb-ta,20,4);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.2;ctx.stroke();
+  seg(ctx,xf,ty1-14,xf,ty2+14,C.ink,1.4,[3,3]);
+  txt(ctx,'finish',xf+9,(ty1+ty2)/2+4,C.muted,11,500);
+  pulse(ctx,xs+len*racePos(t,1),ty1,xs);
+  if(nw&&R.st!=='idle')ring(ctx,xs+len*racePos(t,1/NW),ty2,7,C.muted,1.8);
+  pulse(ctx,xs+len*racePos(t,NW),ty2,xs);
+  if(R.st!=='idle'){if(t>=raceT(1))txt(ctx,'first',xf+11,ty1+4,C.ink,12,700);if(t>=raceT(NW))txt(ctx,'late',xf+11,ty2+4,C.ink,12,700);}
+  if(R.st==='idle')leg=nw?'Newton predicts: water beam first (faster in water)':'Huygens predicts: water beam late (slower in water)';
+  else if(nw)leg=R.st==='done'?'Hollow ring = Newton (first): opposite to experiment':'Hollow ring = Newton predicts; solid = real light';
+  else leg=R.st==='done'?'Matches Huygens, but alone cannot prove light is a wave':'Huygens predicts: water beam late';
+  txt(ctx,leg,16,y+102,C.muted,12,500);
+}
+
+function step(dt){m.t+=dt;if(R.st==='run'){R.t+=dt;if(R.t>=raceT(NW)+0.25)R.st='done';}}
+var S1=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    var L=lay(W),lines,i;
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    lines=wrap(ctx,status(),W-32,L.ss);
+    for(i=0;i<lines.length&&i<L.smax;i++)txt(ctx,lines[i],16,L.sy+i*L.slh,C.ink,L.ss,600);
+    drawScene(ctx,L);drawPanel(ctx,L);drawRace(ctx,L,W);
+  }
+});
+
+var bN=document.getElementById('s1-newton'),bH=document.getElementById('s1-huygens'),bF=document.getElementById('s1-foucault');
+var rA=document.getElementById('s1-angle'),oA=document.getElementById('s1-angle-out');
+function setMode(md){m.mode=md;press(bN,md==='newton');press(bH,md==='huygens');R.fresh=false;S1.render();}
+bN.addEventListener('click',function(){setMode('newton');});
+bH.addEventListener('click',function(){setMode('huygens');});
+rA.addEventListener('input',function(){m.ti=parseInt(rA.value,10);oA.textContent=m.ti+'°';geom();R.fresh=false;S1.render();});
+bF.addEventListener('click',function(){R.st='run';R.t=0;R.fresh=true;bF.textContent='Foucault test again';S1.setPlaying(true);S1.render();});
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 单缝衍射：缝越窄，散得越开
+   左：俯视图（不按比例）。缝后的波 = Huygens–Fresnel 叠加：缝里一排同相的点波源，每个发出圆波
+       w·e^{ikr}/√r（倾斜因子 (1+cos)/2），所以 λ 在缝前缝后一样，只有方向变。
+       图上 λ/a 是真实 λ/a 的同一个倍数（红光 0.080 mm → 0.2），所以三条缝、两种颜色的先后关系是对的。
+   右：远处屏上的亮暗带和亮度（远场、小角度）：β = π a y /(λ L)，I = (sin β / β)²，峰高都调成 1（像 Figure 2.2）。
+       第一条暗带在 y₁ = λL/a，central maximum 宽 2y₁（页面不写公式，只显示宽度）。
+   数据：缝宽 0.080 / 0.040 / 0.020 mm、红光 650 nm 来自讲义实验 A；绿光 532 nm 和 L = 1.00 m 是示意。
+   颜色：0.080 mm 的对照曲线 --south 虚线（全站约定：对照组 --south）。 */
+var LSCR=1.00;                          /* 屏的距离 L (m)：示意 */
+var LAM={red:650,green:532};            /* nm：红光来自讲义，绿光示意 */
+var VD=34;                              /* 图上的波速 px/s（只为画图） */
+var m={a:40,col:'red',huy:false,last:'a',ad:40,lam:650,ph:1.2};   /* a 用 µm；ad、lam 是正在显示的值（切换时平滑过去） */
+var LY=null;
+var BG=[0,0,0],DK=[0,0,0],LS=[0,0,0],LC=[0,0,0];
+var F={cell:3,cols:0,rows:0,A:null,P:null,g:null,off:null,octx:null,img:null,key:''};
+var SP={w:0,cv:null,cx:null,img:null,key:''};
+
+/* ---------- 排版 ---------- */
+function layout(W,H){
+  var o={W:W,H:H,wide:W>=720};   /* English: the right column needs 320 px or more */
+  if(o.wide){o.vx=16;o.vy=58;o.vw=Math.round(W*0.5)-16;o.vh=H-14-o.vy;
+    o.gx0=o.vx+o.vw+44;o.gx1=W-24;o.pl=o.gx0-20;o.pr=W-16;
+    o.ty=74;o.sy=84;o.sh=28;o.gy0=124;o.gy1=248;o.tk=264;o.bk=281;o.bl=300;o.dn=318;o.r1=342;o.r2=362;}
+  else{var d=W<340?24:0;o.vx=12;o.vy=76+d;o.vw=W-24;o.vh=230;   /* English: room for 3 status lines (5 on the narrowest phones), 2 lines for the dark-band note */
+    o.gx0=24;o.gx1=W-24;o.pl=12;o.pr=W-12;
+    o.ty=330+d;o.sy=340+d;o.sh=28;o.gy0=378+d;o.gy1=490+d;o.tk=506+d;o.bk=523+d;o.bl=542+d;o.dn=560+d;o.r1=601+d;o.r2=621+d;}
+  o.xb=o.vx+Math.round(o.vw*0.32);o.yc=o.vy+o.vh/2;o.A0=o.vh*0.40;
+  return o;
+}
+function drawA(o){return o.A0*m.ad/80;}            /* 图上的缝宽 px */
+function drawL(o){return 0.2*o.A0*m.lam/650;}       /* 图上的 λ px */
+
+/* ---------- 颜色 ---------- */
+function parseRGB(s,out){var p=String(s).match(/[\d.]+/g)||[136,136,136];out[0]=+p[0];out[1]=+p[1];out[2]=+p[2];return out;}
+function colours(){
+  parseRGB(rgba(C.stage,1),BG);
+  var dark=(0.2126*BG[0]+0.7152*BG[1]+0.0722*BG[2])<128;
+  parseRGB(rgba(dark?C.bg:C.ink,1),DK);            /* 屏（暗房）的底色 */
+  parseRGB(lambdaColor(m.lam,1),LS);               /* λ 的真实颜色（画在暗底上） */
+  var f=dark?1:0.78;LC[0]=LS[0]*f;LC[1]=LS[1]*f;LC[2]=LS[2]*f;   /* 浅色底上稍微压暗一点，看得清 */
+  return dark;
+}
+function lamStr(a){return 'rgba('+Math.round(LC[0])+','+Math.round(LC[1])+','+Math.round(LC[2])+','+a+')';}
+
+/* ---------- 小工具 ---------- */
+function pill(ctx,s,x,y,col,size,weight,align,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);
+  var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  rrect(ctx,x0-4,y-size*0.86-2,w+8,size*1.16+5,5);ctx.fillStyle=rgba(C.stage,0.88);ctx.fill();
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+function wrapLines(ctx,s,font,maxW){ctx.font=font;var out=[],line='';s.split(' ').forEach(function(w){var t=line?line+' '+w:w;if(line&&ctx.measureText(t).width>maxW){out.push(line);line=w;}else line=t;});if(line)out.push(line);return out;}
+function I1(ymm,aum,lam){var b=Math.PI*aum*ymm/(lam*LSCR);if(Math.abs(b)<1e-6)return 1;var s=Math.sin(b)/b;return s*s;}
+function num(v,p){return String(+v.toPrecision(p));}
+function mm(aum){return (aum/1000).toFixed(3)+' mm';}
+
+/* ---------- 状态提示：[现在怎样, 所以怎样] ---------- */
+function statusLines(){
+  if(m.last==='huy'&&m.huy)return ['Huygens: each point in the slit sends out wavelets','→ the line touching them = the new wavefront; the wavelets at the edges spread into the shadow'];
+  if(m.last==='col')return m.col==='red'?['Red λ is longer than green λ → λ ÷ a is larger','→ spreads more: central maximum is wider']:['Green λ is shorter than red λ → λ ÷ a is smaller','→ spreads a bit less: central maximum is narrower'];
+  if(m.a===80)return ['a = 0.080 mm: the widest of the three slits','→ spreads the least → narrowest central maximum'];
+  if(m.a===40)return ['a = 0.040 mm: half the width of 0.080 mm','→ central maximum becomes 2 times as wide'];
+  return ['a = 0.020 mm: only ¼ of 0.080 mm','→ central maximum is 4 times as wide as at 0.080\u00A0mm'];
+}
+
+/* ---------- 波场（Huygens–Fresnel 叠加，参数变了才重算） ---------- */
+function ensureField(o){
+  var cols=Math.ceil(o.vw/F.cell),rows=2*Math.ceil(o.vh/(2*F.cell));
+  if(cols===F.cols&&rows===F.rows)return;
+  F.cols=cols;F.rows=rows;F.A=new Float32Array(cols*rows);F.P=new Float32Array(cols*rows);F.g=new Float32Array(cols);
+  F.off=document.createElement('canvas');F.off.width=cols;F.off.height=rows;F.octx=F.off.getContext('2d');F.img=F.octx.createImageData(cols,rows);F.key='';
+}
+function computeField(o,ad,lam){
+  var key=o.vw+'|'+o.vh+'|'+ad.toFixed(3)+'|'+lam.toFixed(3);
+  if(key===F.key)return;F.key=key;
+  var cell=F.cell,cols=F.cols,rows=F.rows,half=rows/2,A=F.A,P=F.P,k=TAU/lam,xb=o.xb-o.vx,ycg=rows*cell/2;
+  var ns=Math.max(6,Math.ceil(ad/(lam/6))),ds=ad/ns,c0=0.5*ds*Math.sqrt(k/TAU),rmin=lam*0.25,sh=k*xb-Math.PI/4,y0s=ycg-ad/2+ds/2;
+  for(var i=0;i<cols;i++){
+    var x=(i+0.5)*cell,cm=0,j,idx;
+    if(x<xb){for(j=0;j<rows;j++){idx=j*cols+i;A[idx]=1;P[idx]=k*x;}F.g[i]=1;continue;}   /* 缝前：平面波 */
+    var dx=x-xb;
+    for(j=0;j<half;j++){
+      var y=(j+0.5)*cell,re=0,im=0;
+      for(var q=0;q<ns;q++){var dy=y-(y0s+q*ds),r=Math.sqrt(dx*dx+dy*dy);if(r<rmin)r=rmin;var w=c0*(1+dx/r)/Math.sqrt(r),p=k*r;re+=w*Math.cos(p);im+=w*Math.sin(p);}
+      var amp=Math.sqrt(re*re+im*im),phs=Math.atan2(im,re)+sh,i1=j*cols+i,i2=(rows-1-j)*cols+i;
+      A[i1]=amp;A[i2]=amp;P[i1]=phs;P[i2]=phs;if(amp>cm)cm=amp;
+    }
+    F.g[i]=1/Math.pow(Math.max(0.08,cm),0.65);   /* 远处变弱的部分补回一点，散开的波才看得见 */
+  }
+}
+function paintField(dim){
+  var d=F.img.data,cols=F.cols,rows=F.rows,A=F.A,P=F.P,G=F.g,ph=m.ph;
+  var b0=BG[0],b1=BG[1],b2=BG[2],c0=LC[0]-b0,c1=LC[1]-b1,c2=LC[2]-b2;
+  for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+    var idx=j*cols+i,a=A[idx]*G[i];if(a>1)a=1;
+    var c=Math.cos(P[idx]-ph),al=dim*(0.15*a+0.85*(c>0?a*c:0)),o4=idx*4;
+    d[o4]=b0+c0*al;d[o4+1]=b1+c1*al;d[o4+2]=b2+c2*al;d[o4+3]=255;}}
+  F.octx.putImageData(F.img,0,0);
+}
+
+/* ---------- 屏上的亮暗带（一行像素，拉高画出来） ---------- */
+function stripPaint(w){
+  if(SP.w!==w){SP.w=w;SP.cv=document.createElement('canvas');SP.cv.width=w;SP.cv.height=1;SP.cx=SP.cv.getContext('2d');SP.img=SP.cx.createImageData(w,1);SP.key='';}
+  var key=m.ad.toFixed(3)+'|'+m.lam.toFixed(2)+'|'+DK[0]+','+DK[1]+','+DK[2]+'|'+LS[0]+','+LS[1]+','+LS[2];
+  if(key===SP.key)return;SP.key=key;
+  var d=SP.img.data;
+  for(var i=0;i<w;i++){var ymm=((i+0.5)/w-0.5)*120,b=Math.pow(I1(ymm,m.ad,m.lam),0.45),o4=i*4;   /* 0.45 次方：像眼睛看到的，暗的亮带也看得见 */
+    d[o4]=DK[0]+(LS[0]-DK[0])*b;d[o4+1]=DK[1]+(LS[1]-DK[1])*b;d[o4+2]=DK[2]+(LS[2]-DK[2])*b;d[o4+3]=255;}
+  SP.cx.putImageData(SP.img,0,0);
+}
+
+/* ---------- 左：俯视图 ---------- */
+function drawWave(ctx,o){
+  var ad=drawA(o),lam=drawL(o),k=TAU/lam,xb=o.xb,yc=o.yc,top=yc-ad/2,bot=yc+ad/2;
+  ensureField(o);computeField(o,ad,lam);paintField(m.huy?0.3:1);
+  ctx.save();rrect(ctx,o.vx,o.vy,o.vw,o.vh,8);ctx.clip();
+  ctx.imageSmoothingEnabled=true;
+  ctx.drawImage(F.off,o.vx,yc-F.rows*F.cell/2,F.cols*F.cell,F.rows*F.cell);
+  /* 直线的边界（粒子会停在这里面） */
+  seg(ctx,xb+4,top,o.vx+o.vw,top,rgba(C.muted,0.75),1.2,[4,5]);
+  seg(ctx,xb+4,bot,o.vx+o.vw,bot,rgba(C.muted,0.75),1.2,[4,5]);
+  if(m.huy)drawHuygens(ctx,o,ad,lam,k);
+  /* 墙和缝 */
+  ctx.fillStyle=C.muted;ctx.fillRect(xb-4,o.vy,8,top-o.vy);ctx.fillRect(xb-4,bot,8,o.vy+o.vh-bot);
+  ctx.restore();
+  rrect(ctx,o.vx,o.vy,o.vw,o.vh,8);ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  /* 标注 */
+  pill(ctx,'Top view',o.vx+8,o.vy+18,C.muted,11.5,600);
+  pill(ctx,'Not to scale',o.vx+8,o.vy+34,C.muted,11.5,500);
+  var lx0=o.vx+10,ly=o.vy+54;                                  /* 缝前的 λ 标尺 */
+  seg(ctx,lx0,ly,lx0+lam,ly,C.ink,1.6);seg(ctx,lx0,ly-5,lx0,ly+5,C.ink,1.6);seg(ctx,lx0+lam,ly-5,lx0+lam,ly+5,C.ink,1.6);
+  pill(ctx,'λ',lx0+lam+6,ly+5,C.ink,15,'italic 500','left',MATH);
+  var rx1=o.vx+o.vw-12,rx0=rx1-lam;                             /* 缝后的 λ 标尺（中线上） */
+  seg(ctx,rx0,yc,rx1,yc,C.ink,1.6);seg(ctx,rx0,yc-5,rx0,yc+5,C.ink,1.6);seg(ctx,rx1,yc-5,rx1,yc+5,C.ink,1.6);
+  pill(ctx,'λ',(rx0+rx1)/2,yc-10,C.ink,15,'italic 500','center',MATH);
+  var ax=xb-13;                                                 /* 缝宽 a */
+  arrow(ctx,ax,yc,ax,top,C.ink,1.6,6);arrow(ctx,ax,yc,ax,bot,C.ink,1.6,6);
+  pill(ctx,'a',ax-7,yc+5,C.ink,16,'italic 500','right',MATH);
+  pill(ctx,'Shadow',xb+9,o.vy+18,C.muted,11.5,600);
+  pill(ctx,'Shadow',xb+9,o.vy+o.vh-9,C.muted,11.5,600);
+  if(m.huy){var lr=o.vx+o.vw-9;ctx.font='600 11.5px '+FONT;
+    var shEnd=xb+9+ctx.measureText('Shadow').width+8,up=lr-ctx.measureText('thick line = new wavefront').width-4<shEnd?18:0;   /* narrow phones: lift the legend clear of the lower "Shadow" */
+    pill(ctx,'thin circles = wavelets',lr,o.vy+o.vh-27-up,C.ink,11.5,600,'right');pill(ctx,'thick line = new wavefront',lr,o.vy+o.vh-9-up,C.ink,11.5,600,'right');}
+}
+function drawHuygens(ctx,o,ad,lam,k){
+  var xb=o.xb,yc=o.yc,top=yc-ad/2,bot=yc+ad/2,col=lamStr(0.95),xg=o.vx,x,r,n,i;
+  /* 缝前：直的 wavefront（波峰） */
+  for(x=((m.ph/k)%lam+lam)%lam;xg+x<xb-4;x+=lam)seg(ctx,xg+x,o.vy,xg+x,o.vy+o.vh,col,2.4);
+  /* 缝后：和 wavelets 相切的线 = 新的 wavefront（中间直、两端是以缝边为圆心的圆弧） */
+  var r0=((m.ph/k-(xb-xg))%lam+lam)%lam,rmax=Math.hypot(o.vw,o.vh);
+  ctx.strokeStyle=col;ctx.lineWidth=2.4;
+  for(r=r0;r<rmax;r+=lam){if(r<1.5)continue;ctx.beginPath();ctx.arc(xb,top,r,-Math.PI/2,0,false);ctx.lineTo(xb+r,bot);ctx.arc(xb,bot,r,0,Math.PI/2,false);ctx.stroke();}
+  /* 缝里几个点各自发出的 wavelets（细圈，越远越淡） */
+  var nh=ad>50?5:3;
+  for(i=0;i<nh;i++){var ys=top+ad*i/(nh-1);
+    for(n=0;n<3;n++){r=r0+n*lam;if(r<2)continue;ctx.beginPath();ctx.arc(xb,ys,r,-Math.PI/2,Math.PI/2,false);ctx.strokeStyle=lamStr((0.75*(1-r/(3*lam))).toFixed(3));ctx.lineWidth=1.3;ctx.stroke();}}
+  for(i=0;i<nh;i++)dot(ctx,xb+1,top+ad*i/(nh-1),3,C.ink);
+}
+
+/* ---------- 右（手机上是下面）：远处的屏 ---------- */
+function drawScreen(ctx,o,dark){
+  var gx0=o.gx0,gx1=o.gx1,gw=gx1-gx0,cx=(gx0+gx1)/2,kx=gw/120,y0=o.gy0,y1=o.gy1,pk=y0+16,hh=y1-pk,px,ymm;
+  txt(ctx,'On the far screen (face-on)',o.pl,o.ty,C.ink,12.5,600);
+  txt(ctx,'Same peak height',o.pr,o.ty,C.muted,11,500,'right');
+  /* 亮暗带 */
+  var sw=Math.round(gw);stripPaint(sw);ctx.imageSmoothingEnabled=true;ctx.drawImage(SP.cv,gx0,o.sy,gw,o.sh);
+  ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.strokeRect(gx0-0.5,o.sy-0.5,gw+1,o.sh+1);
+  /* 坐标 */
+  seg(ctx,cx,y0+4,cx,y1,C.grid,1);
+  seg(ctx,gx0,y1,gx1,y1,C.muted,1.2);
+  for(var t=-60;t<=60;t+=20){var tx=cx+t*kx;seg(ctx,tx,y1,tx,y1+4,C.muted,1);if(Math.abs(t)<60)txt(ctx,(t<0?'−':'')+Math.abs(t),tx,o.tk,C.muted,11,500,'center');}
+  txt(ctx,'mm',gx1,o.tk,C.muted,11,500,'right');
+  function curve(aum){ctx.beginPath();for(px=0;px<=gw;px+=1){ymm=(px/gw-0.5)*120;var Y=y1-I1(ymm,aum,m.lam)*hh;if(px)ctx.lineTo(gx0+px,Y);else ctx.moveTo(gx0+px,Y);}}
+  /* 0.080 mm 对照（同一种颜色） */
+  var showRef=m.a!==80||Math.abs(m.ad-80)>0.5;
+  if(showRef){curve(80);ctx.setLineDash([5,4]);ctx.strokeStyle=rgba(C.south,0.85);ctx.lineWidth=1.6;ctx.stroke();ctx.setLineDash([]);}
+  /* 现在的曲线 */
+  curve(m.ad);ctx.lineTo(gx1,y1);ctx.lineTo(gx0,y1);ctx.closePath();ctx.fillStyle=lamStr(0.14);ctx.fill();
+  curve(m.ad);ctx.strokeStyle=lamStr(1);ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+  /* 图例 */
+  seg(ctx,gx0,y0+8,gx0+16,y0+8,lamStr(1),2.4);txt(ctx,'a = '+mm(m.a),gx0+21,y0+12,C.ink,11.5,600);
+  if(showRef){ctx.font='500 11.5px '+FONT;var lw=ctx.measureText('0.080 mm comparison').width;
+    seg(ctx,gx1-lw-22,y0+8,gx1-lw-6,y0+8,rgba(C.south,0.85),1.6,[4,3]);txt(ctx,'0.080 mm comparison',gx1,y0+12,C.muted,11.5,500,'right');}
+  /* 第一条暗带：竖虚线穿过亮暗带和曲线；下面量 central maximum 的宽度 */
+  var yz=m.lam*LSCR/m.ad,dx=yz*kx;
+  /* 分三段画，跳过图例那一行和刻度数字那一行 */
+  if(dx<gw/2-2){var dc=rgba(C.muted,0.8);[cx-dx,cx+dx].forEach(function(x){
+    seg(ctx,x,o.sy,x,o.sy+o.sh,dc,1,[3,3]);seg(ctx,x,y0+18,x,y1,dc,1,[3,3]);seg(ctx,x,o.tk+4,x,o.bk+5,dc,1,[3,3]);});}
+  var stc=dark?C.ink:C.surface;
+  ctx.font='600 11px '+FONT;var dw=ctx.measureText('← dark band').width;
+  if(cx+dx+5+dw<gx1-2)txt(ctx,'← dark band',cx+dx+5,o.sy+o.sh/2+1,stc,11,600,'left','middle');
+  else txt(ctx,'dark band →',cx-dx-5,o.sy+o.sh/2+1,stc,11,600,'right','middle');
+  arrow(ctx,cx,o.bk,cx-dx,o.bk,C.ink,1.6,7);arrow(ctx,cx,o.bk,cx+dx,o.bk,C.ink,1.6,7);
+  var wT=2*LAM[m.col]*LSCR/m.a;
+  txt(ctx,'central maximum width '+num(wT,4)+' mm (illustrative)',cx,o.bl,C.ink,12.5,600,'center');
+  if(o.wide)txt(ctx,'Dark bands: wavelets from different parts of the slit cancel here',cx,o.dn,C.muted,11.5,500,'center');
+  else{txt(ctx,'Dark bands: wavelets from different parts',cx,o.dn,C.muted,11.5,500,'center');txt(ctx,'of the slit cancel here',cx,o.dn+15,C.muted,11.5,500,'center');}
+  /* 读数 */
+  var r1a='a = '+mm(m.a)+'   λ = '+LAM[m.col]+' nm',r1b=m.col==='green'?' (illustrative)':'',r2a='λ ÷ a = '+num(LAM[m.col]/(m.a*1000),4),r2b='  → bigger: spreads more';
+  if(o.W<340){   /* narrowest phones: each readout on two lines */
+    txt(ctx,r1a,o.pl,o.r1,C.ink,12.5,500,'left','alphabetic',MONO);if(r1b)txt(ctx,r1b.trim(),o.pl,o.r2,C.ink,12.5,500,'left','alphabetic',MONO);
+    txt(ctx,r2a,o.pl,o.r2+20,C.ink,12.5,500,'left','alphabetic',MONO);txt(ctx,r2b.trim(),o.pl,o.r2+40,C.ink,12.5,500,'left','alphabetic',MONO);
+  }else{
+    txt(ctx,r1a+r1b,o.pl,o.r1,C.ink,12.5,500,'left','alphabetic',MONO);
+    txt(ctx,r2a+r2b,o.pl,o.r2,C.ink,12.5,500,'left','alphabetic',MONO);
+  }
+}
+
+var st2=makeStage('sim2',{
+  height:function(w){return w>=720?372:(w<340?695:635);},
+  step:function(dt){
+    var lam=LY?drawL(LY):20;
+    m.ph=(m.ph+TAU*VD/lam*dt)%TAU;
+    var f=Math.min(1,dt*6),ta=m.a,tl=LAM[m.col];
+    m.ad+=(ta-m.ad)*f;if(Math.abs(ta-m.ad)<0.05)m.ad=ta;
+    m.lam+=(tl-m.lam)*f;if(Math.abs(tl-m.lam)<0.2)m.lam=tl;
+  },
+  draw:function(ctx,W,H){
+    if(!LY||LY.W!==W||LY.H!==H)LY=layout(W,H);
+    var o=LY,dark=colours();
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var s=statusLines(),full=s[0]+' '+s[1];
+    if(o.wide){ctx.font='600 15px '+FONT;
+      if(ctx.measureText(full).width<=W-32)txt(ctx,full,16,30,C.ink,15,600);
+      else{txt(ctx,s[0],16,24,C.ink,15,600);txt(ctx,s[1],16,45,C.ink,14,600);}}
+    else{var fn='600 13.5px '+FONT,L=wrapLines(ctx,s[0],fn,W-24).concat(wrapLines(ctx,s[1],fn,W-24)),lh=Math.min(21,(o.vy-4)/L.length),y=(o.vy-lh*(L.length-1))/2+3;
+      L.forEach(function(t,i){txt(ctx,t,12,y+i*lh,C.ink,13.5,600);});}
+    drawWave(ctx,o);
+    drawScreen(ctx,o,dark);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bA=[['s2-a80',80],['s2-a40',40],['s2-a20',20]].map(function(p){var b=document.getElementById(p[0]);b.addEventListener('click',function(){m.a=p[1];m.last='a';sync();});return [b,p[1]];});
+var bR=document.getElementById('s2-red'),bG=document.getElementById('s2-green'),bH=document.getElementById('s2-huy');
+function sync(){
+  bA.forEach(function(p){press(p[0],m.a===p[1]);});
+  press(bR,m.col==='red');press(bG,m.col==='green');press(bH,m.huy);bH.textContent='Huygens wavelets: '+(m.huy?'on':'off');
+  if(!st2.playing){m.ad=m.a;m.lam=LAM[m.col];}   /* 暂停时直接跳到新值 */
+  st2.render();
+}
+bR.addEventListener('click',function(){m.col='red';m.last='col';sync();});
+bG.addEventListener('click',function(){m.col='green';m.last='col';sync();});
+bH.addEventListener('click',function(){m.huy=!m.huy;m.last='huy';sync();});
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · Young 双缝：两列波在 P 点相加（booklet 2.3 Path difference，Figure 2.3 / 2.4）
+   读数（计算值）：booklet 实验 B 的 d = 0.250 mm、λ = 650 nm、L = 1.00 m。q = δ/λ：
+     亮纹 q = m（0, 1, 2, 3），暗纹 q = m − ½（m 从 1 开始）。δ = d sin θ = qλ，sin θ = qλ/d，y = L tan θ，Δy = λL/d。
+     默认 Δy = 650e-9 × 1.00 ÷ 0.250e-3 = 2.60e-3 m = 2.60 mm。
+   左图（示意，不按比例）：真实 d/λ ≈ 385，条纹角度不到 1°，画不出来。画图用的 d、λ（像素）按压缩映射跟着 slider 变
+     （方向对、比例不对）：dpx = 55 (d/0.125)^0.36，lpx = 7 (λ/400)^0.339，屏离缝 LPX = 200 px。
+     图里的波、屏上的亮暗、P 的位置都按画图尺寸精确算（δ = S₂P − S₁P），三者一致。
+   S₁ 在上、S₂ 在下；P 在中线上方 → 离 S₁ 近 → 多走的路在 S₂ 那边（Figure 2.4）。
+   波：两缝同相（同一束光照两条缝），ψ = A sin(ωt − kr)。ψ₁ + ψ₂ = 2cos(πq)·sin(ωt − k(r₁ + r₂)/2)。
+   每条缝自己的单缝图样（envelope）：缝宽 a = 0.025 mm（示意），振幅 × sinc(π a sin θ / λ) = sinc(π (a/d) q)。
+   三条曲线：横轴 = 沿光的路径到 P 的距离（真实 nm），P 在最右边；S₂ 的波 = S₁ 的波往回挪 δ（落后 δ）。 */
+var LM=1.00,AW=0.025,SW=3200,PER=1.2,OM=TAU/PER,LPX=200,FW=LPX+10,SEQ=[0,0.5,1,1.5,2,2.5,3];
+var m={t:0,lam:650,d:0.25,i:1,q:0.5,q0:0.5,q1:0.5,tr:1,note:''};
+function dpx(){return 55*Math.pow(m.d/0.125,0.36);}
+function lpx(){return 7*Math.pow(m.lam/400,0.339);}
+function sinc(x){return Math.abs(x)<1e-6?1:Math.sin(x)/x;}
+function envA(q){return sinc(Math.PI*AW/m.d*q);}
+/* P 在中线上方 u 像素处，使 S₂P − S₁P = q·lpx（屏在 x = LPX） */
+function solveU(q,dp,lp){var tg=q*lp,lo=0,hi=600,i,u,f;if(tg<=0)return 0;for(i=0;i<44;i++){u=(lo+hi)/2;f=Math.hypot(LPX,u+dp/2)-Math.hypot(LPX,u-dp/2);if(f<tg)lo=u;else hi=u;}return (lo+hi)/2;}
+function geo(){var dp=dpx(),lp=lpx(),u=solveU(m.q,dp,lp);return {dp:dp,lp:lp,u:u,r1:Math.hypot(LPX,u-dp/2),r2:Math.hypot(LPX,u+dp/2)};}
+/* 第一帧：P 在第 1 条暗纹，S₁ 的波峰正好到 P（S₂ 的波谷也到 P） */
+(function(){var g=geo();m.t=(Math.PI/2+TAU/g.lp*g.r1)/OM;})();
+function step(dt){var n=3,h=dt/n,i,e;for(i=0;i<n;i++){m.t+=h;if(m.tr<1){m.tr=Math.min(1,m.tr+h/0.8);e=m.tr*m.tr*(3-2*m.tr);m.q=m.q0+(m.q1-m.q0)*e;}}if(m.t>PER*5000)m.t-=PER*5000;}
+
+/* ---------- 颜色：暗室面板（真实的光色在白底上看不清，所以缝和屏画在暗底上） ---------- */
+var K={};
+function rgbOf(s){var t=String(s);if(t.charAt(0)==='#')t=rgba(t,1);var a=t.match(/[\d.]+/g)||[0,0,0];return [+a[0],+a[1],+a[2]];}
+function lum(c){return 0.299*c[0]+0.587*c[1]+0.114*c[2];}
+function cols(){var ink=rgbOf(C.ink),st=rgbOf(C.stage),dk=lum(ink)<lum(st);K.PB=dk?C.ink:C.stage;K.PT=dk?C.stage:C.ink;K.pb=dk?ink:st;K.pt=dk?st:ink;K.tr=rgbOf(C.muted);
+  /* λ 的真实颜色；短波（紫）在暗底上太暗，所以先把最亮的通道拉满，再往白色混一点（色相不变，只为看得清） */
+  var lc=rgbOf(lambdaColor(m.lam)),mx=Math.max(lc[0],lc[1],lc[2],1),w=clamp((460-m.lam)/60,0,1)*0.3;
+  K.lam=lc.map(function(v){v=v*255/mx;return v+(255-v)*w;});
+  var r3=K.lam.map(Math.round).join(',');K.lamS='rgb('+r3+')';K.lamA='rgba('+r3+',0.55)';}
+
+/* ---------- 波场（预先算好振幅和相位，每帧只算一次 sin） ---------- */
+var F={key:'',cv:null,cx:null,img:null,amp:null,phi:null,scr:null,fh:0};
+function buildField(ph){
+  var key=ph+'|'+m.d+'|'+m.lam;if(F.key===key)return;F.key=key;
+  if(F.fh!==ph){F.cv=document.createElement('canvas');F.cv.width=FW;F.cv.height=ph;F.cx=F.cv.getContext('2d');F.img=F.cx.createImageData(FW,ph);
+    F.amp=new Float32Array(LPX*ph);F.phi=new Float32Array(LPX*ph);F.scr=new Float32Array(ph);F.fh=ph;}
+  var dp=dpx(),lp=lpx(),k=TAU/lp,y1=ph/2-dp/2,y2=ph/2+dp/2,i,j,n,x,y,r1,r2,q,c,e;
+  for(j=0;j<ph;j++){y=j+0.5;
+    for(i=0;i<LPX;i++){x=i+0.5;r1=Math.hypot(x,y-y1);r2=Math.hypot(x,y-y2);q=(r2-r1)/lp;n=j*LPX+i;F.amp[n]=2*Math.cos(Math.PI*q)*envA(q);F.phi[n]=k*(r1+r2)/2;}
+    q=(Math.hypot(LPX,y-y2)-Math.hypot(LPX,y-y1))/lp;c=Math.cos(Math.PI*q);e=envA(q);F.scr[j]=c*c*e*e;}
+}
+function paintField(){
+  var ph=F.fh,d=F.img.data,b=K.pb,l=K.lam,t=K.tr,wt=OM*m.t,i,j,n,p,v,a;
+  var s0=b[0]+(K.pt[0]-b[0])*0.1,s1=b[1]+(K.pt[1]-b[1])*0.1,s2=b[2]+(K.pt[2]-b[2])*0.1;
+  for(j=0;j<ph;j++){
+    for(i=0;i<LPX;i++){n=j*LPX+i;p=(j*FW+i)*4;v=F.amp[n]*Math.sin(wt-F.phi[n]);
+      if(v>=0){a=v>2?1:v*0.5;d[p]=b[0]+(l[0]-b[0])*a;d[p+1]=b[1]+(l[1]-b[1])*a;d[p+2]=b[2]+(l[2]-b[2])*a;}
+      else{a=(v<-2?1:-v*0.5)*0.45;d[p]=b[0]+(t[0]-b[0])*a;d[p+1]=b[1]+(t[1]-b[1])*a;d[p+2]=b[2]+(t[2]-b[2])*a;}
+      d[p+3]=255;}
+    a=F.scr[j];
+    for(i=LPX;i<FW;i++){p=(j*FW+i)*4;d[p]=s0+(l[0]-s0)*a;d[p+1]=s1+(l[1]-s1)*a;d[p+2]=s2+(l[2]-s2)*a;d[p+3]=255;}}
+  F.cx.putImageData(F.img,0,0);
+}
+
+/* ---------- 小工具 ---------- */
+function fit(ctx,s,x,y,col,size,weight,maxW,align,fam){ctx.font=weight+' '+size+'px '+(fam||FONT);var w=ctx.measureText(s).width;if(w>maxW)size=Math.max(11,size*maxW/w);txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',fam);}
+function wrap(ctx,s,size,weight,maxW){ctx.font=weight+' '+size+'px '+FONT;if(ctx.measureText(s).width<=maxW)return [s];
+  var raw=s.split(' '),toks=[],out=[],cur,i,t,e;
+  /* word wrap; keep "a = b", "a − b" and "2.60 mm" whole, and an arrow stays with the word after it */
+  for(i=0;i<raw.length;i++){t=raw[i];e=toks.length?toks[toks.length-1]:'';if(e&&(t==='='||t==='−'||t==='mm'||/[=−→]$/.test(e)))toks[toks.length-1]=e+' '+t;else toks.push(t);}
+  cur=toks[0];for(i=1;i<toks.length;i++){t=cur+' '+toks[i];if(ctx.measureText(t).width<=maxW)cur=t;else{out.push(cur);cur=toks[i];}}out.push(cur);return out;}
+function half(q){return Math.round(q*2)/2;}
+function atFringe(){return m.tr>=1&&Math.abs(m.q-half(m.q))<0.01;}
+function qName(q){var r=half(q),w,h;if(Math.abs(q-r)>0.01)return q.toFixed(2)+'λ';if(r===0)return '0';w=Math.floor(r);h=r-w>0;if(!h)return (w===1?'':w)+'λ';return (w?w:'')+'½λ';}
+function real(){var lamM=m.lam*1e-9,dM=m.d*1e-3,th=Math.asin(m.q*lamM/dM);return {th:th,y:LM*Math.tan(th)*1e3,dy:lamM*LM/dM*1e3};}
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var q=m.q,r=half(q),o,dy;
+  if(!atFringe())o={a:'P is moving: δ = '+q.toFixed(2)+'λ → partly cancel',b:'Amplitude of the sum = '+(2*Math.abs(Math.cos(Math.PI*q))).toFixed(1)+'A (brightest 2A, darkest 0)'};
+  else if(r===0)o={a:'P is on the central bright fringe: δ = 0 → in phase → bright',b:'The two paths are the same length → crest meets crest → constructive'};
+  else if(r%1===0)o={a:'P is on the m = '+r+' bright fringe: δ = '+qName(r)+' → in phase → bright',b:envA(r)<0.8?'S₂ is exactly '+r+'λ behind → crests line up. Far from the centre, both waves are weak → this fringe is dimmer (envelope)':'The S₂ wave is exactly '+r+'λ behind → crests line up again → amplitude 2A'};
+  else o={a:'P is on dark fringe '+(r+0.5)+': δ = '+qName(r)+' → crest meets trough → dark',b:'d sin θ = (m − ½)λ, m = '+(r+0.5)+' → light + light = darkness (destructive)'};
+  o.c=C.muted;
+  if(m.note){dy=real().dy.toFixed(2);o.c=C.copper;
+    if(m.note==='d-')o.b='d smaller → fringes spread out: Δy = λL/d = '+dy+' mm';
+    else if(m.note==='d+')o.b='d larger → fringes closer together: Δy = λL/d = '+dy+' mm';
+    else if(m.note==='l+')o.b='λ longer → fringes spread out: Δy = λL/d = '+dy+' mm';
+    else o.b='λ shorter → fringes closer together: Δy = λL/d = '+dy+' mm';}
+  return o;
+}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var L={wide:W>=640};
+  if(L.wide){L.f1=15;L.f2=13;L.st=[26,48];L.x0=16;L.lab=76;L.top=84;L.ph=250;L.xb=L.x0+70;L.cap=[352,368,386];
+    L.xr=L.xb+LPX+10+64;L.rx=L.xr+24;L.gut=72;L.ro=[80,100,120];L.u=16;L.g1=146;}
+  else{L.f1=13.5;L.f2=12.5;L.st=[22];L.x0=Math.max(16,Math.round((W-324)/2));L.lab=118;L.top=126;L.ph=230;L.xb=L.x0+58;L.cap=[374,390,407];
+    L.xr=L.x0+324;L.rx=16;L.gut=70;L.ro=[432,450,468];L.u=12;L.g1=488;}
+  L.xs=L.xb+LPX;L.yc=L.top+L.ph/2;L.gx=L.rx+L.gut;L.gw=W-16-L.gx;L.hA=2*L.u+8;L.hS=4*L.u+8;
+  L.g2=L.g1+L.hA+26;L.g3=L.g2+L.hA+14;L.cy=L.g3+L.hS+18;L.H=Math.max(L.cy+12,L.cap[2]+12);
+  return L;
+}
+
+/* ---------- 左图：从上往下看 ---------- */
+function drawPanel(ctx,L,g){
+  var x0=L.x0,top=L.top,ph=L.ph,xb=L.xb,xs=L.xs,yc=L.yc,y1=yc-g.dp/2,y2=yc+g.dp/2,yP=yc-g.u,k=TAU/g.lp,wt=OM*m.t,x,n,off;
+  txt(ctx,'Monochromatic light λ = '+m.lam+' nm',x0,L.lab,C.ink,12,600);
+  txt(ctx,'screen',xs+5,L.lab,C.muted,12,600,'center');
+  rrect(ctx,x0,top,L.xr-x0,ph,8);ctx.fillStyle=K.PB;ctx.fill();ctx.strokeStyle=rgba(C.muted,0.45);ctx.lineWidth=1;ctx.stroke();
+  ctx.save();rrect(ctx,x0,top,L.xr-x0,ph,8);ctx.clip();
+  /* 照到双缝的平面波：波峰线向右走，到缝时和两条缝的波同相 */
+  off=(((wt-Math.PI/2)/k)%g.lp+g.lp)%g.lp;
+  for(n=1;n<40;n++){x=xb+off-n*g.lp;if(x<x0+3)break;if(x<xb-4)seg(ctx,x,top+8,x,top+ph-8,K.lamA,1.6);}
+  paintField();ctx.imageSmoothingEnabled=true;ctx.drawImage(F.cv,xb,top,FW,ph);
+  ctx.strokeStyle=rgba(K.PT,0.35);ctx.lineWidth=1;ctx.strokeRect(xs+0.5,top+0.5,9,ph-1);
+  ctx.fillStyle=C.muted;ctx.fillRect(xb-3,top,6,y1-2-top);ctx.fillRect(xb-3,y1+2,6,y2-y1-4);ctx.fillRect(xb-3,y2+2,6,top+ph-y2-2);
+  seg(ctx,xb+4,yc,xs,yc,rgba(K.PT,0.3),1,[4,5]);
+  /* S₁P、S₂P 和多走的 δ */
+  seg(ctx,xb,y1,xs,yP,K.PB,5);seg(ctx,xb,y2,xs,yP,K.PB,5);
+  seg(ctx,xb,y1,xs,yP,C.copper,2.2);seg(ctx,xb,y2,xs,yP,C.south,2.2);
+  var dd=m.q*g.lp;
+  if(dd>0.5){var ux=LPX/g.r2,uy=(yP-y2)/g.r2,qx=xb+ux*dd,qy=y2+uy*dd;
+    seg(ctx,xb,y1,qx,qy,rgba(K.PT,0.75),1.3,[3,3]);
+    seg(ctx,xb,y2,qx,qy,K.PB,9);seg(ctx,xb,y2,qx,qy,C.south,5.5);
+    var lx=xb+ux*dd/2-uy*13+3,ly=y2+uy*dd/2+ux*13+5;
+    txt(ctx,'δ',lx,ly,K.PT,14,700,'center','alphabetic',MATH);}
+  ring(ctx,xs+5,yP,6.5,K.PT,2);
+  ctx.restore();
+  txt(ctx,'P',xs+17,yP+5,K.PT,13.5,700);
+  if(atFringe()){var r=half(m.q);txt(ctx,r%1===0?'m = '+r:'dark '+(r+0.5),xs+17,yP+20,rgba(K.PT,0.8),11.5,600);}
+  txt(ctx,'S₁',xb-8,y1+4,K.PT,13,700,'right');txt(ctx,'S₂',xb-8,y2+5,K.PT,13,700,'right');
+  var xd=xb-31;arrow(ctx,xd,yc,xd,y1+1,K.PT,1.4,6);arrow(ctx,xd,yc,xd,y2-1,K.PT,1.4,6);
+  txt(ctx,'d',xd-7,yc+5,K.PT,15,500,'right','alphabetic',MATH);
+  /* 说明和图例 */
+  var cx=(x0+L.xr)/2;
+  fit(ctx,'View from above · illustrative, not to scale',cx,L.cap[0],C.muted,11.5,500,L.xr-x0,'center');
+  fit(ctx,'(really L = 1.00 m ≫ d)',cx,L.cap[1],C.muted,11.5,500,L.xr-x0,'center');
+  legend(ctx,cx,L.cap[2]);
+}
+function legend(ctx,cx,y){
+  var lab=['Crest','Trough','Cancel → dark'],sz=11.5,gap=14,iw=11,ws=[],tot=0,i,x;
+  ctx.font='500 '+sz+'px '+FONT;
+  for(i=0;i<3;i++){ws.push(ctx.measureText(lab[i]).width);tot+=iw+5+ws[i]+(i?gap:0);}
+  x=cx-tot/2;
+  for(i=0;i<3;i++){rrect(ctx,x,y-9.5,iw,iw,2);ctx.fillStyle=K.PB;ctx.fill();
+    if(i<2){ctx.fillStyle=i===0?K.lamS:rgba(C.muted,0.5);ctx.fill();}
+    ctx.strokeStyle=rgba(C.muted,0.6);ctx.lineWidth=1;ctx.stroke();
+    txt(ctx,lab[i],x+iw+5,y,C.muted,sz,500);x+=iw+5+ws[i]+gap;}
+}
+
+/* ---------- 读数（计算值） ---------- */
+function readouts(ctx,L,W){
+  var R=real(),deg=R.th*180/Math.PI,mw=W-16-L.rx;
+  fit(ctx,'y = L tan θ = '+R.y.toFixed(2)+' mm   θ = '+(deg<1e-9?'0':deg.toPrecision(3))+'°',L.rx,L.ro[0],C.ink,12.5,500,mw,'left',MONO);
+  fit(ctx,'δ = d sin θ = '+Math.round(m.q*m.lam)+' nm   δ/λ = '+m.q.toFixed(2),L.rx,L.ro[1],C.south,12.5,500,mw,'left',MONO);
+  fit(ctx,'Δy = λL/d = '+R.dy.toFixed(2)+' mm   L = 1.00 m',L.rx,L.ro[2],C.ink,12.5,500,mw,'left',MONO);
+}
+
+/* ---------- 三条曲线：沿路径看，最右边是 P ---------- */
+function curve(ctx,L,mid,A,pa,pb,kg,col,lw,dash){
+  var N=160,i,s,v,x;ctx.beginPath();
+  for(i=0;i<=N;i++){x=L.gx+L.gw*i/N;s=SW*(1-i/N);v=A*Math.sin(pa+kg*s);if(pb!==null)v+=A*Math.sin(pb+kg*s);if(i)ctx.lineTo(x,mid-v*L.u);else ctx.moveTo(x,mid-v*L.u);}
+  ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);
+}
+function graphs(ctx,L,g){
+  var u=L.u,A=envA(m.q),p1=OM*m.t-TAU/g.lp*g.r1,p2=p1-TAU*m.q,kg=TAU/m.lam,sc=L.gw/SW,xP=L.gx+L.gw;
+  var m1=L.g1+L.hA/2,m2=L.g2+L.hA/2,m3=L.g3+L.hS/2,v1=A*Math.sin(p1),v2=A*Math.sin(p2),amp=2*Math.abs(Math.cos(Math.PI*m.q));
+  seg(ctx,L.gx,m1,xP,m1,rgba(C.muted,0.5),1);seg(ctx,L.gx,m2,xP,m2,rgba(C.muted,0.5),1);seg(ctx,L.gx,m3,xP,m3,rgba(C.muted,0.5),1);
+  seg(ctx,xP,L.g1-4,xP,L.g3+L.hS+4,rgba(C.ink,0.45),1.2,[3,4]);
+  curve(ctx,L,m1,A,p1,null,kg,C.copper,2.2);
+  curve(ctx,L,m2,A,p1,null,kg,rgba(C.copper,0.5),1.3,[4,4]);
+  curve(ctx,L,m2,A,p2,null,kg,C.south,2.2);
+  curve(ctx,L,m3,A,p1,p2,kg,C.ink,2.4);
+  /* δ：S₁ 的一个波峰（虚线）和 S₂ 对应的波峰相隔 δ */
+  var dl=m.q*m.lam;
+  if(dl>0.04*m.lam){var s1=(((Math.PI/2-p1)%TAU)+TAU)%TAU/kg;if(s1<0.12*m.lam)s1+=m.lam;
+    var xa=xP-(s1+dl)*sc,xe=xP-s1*sc,yb=L.g2-7,yk=m2-A*u,xm=(xa+xe)/2;
+    seg(ctx,xa,yb,xa,yk,rgba(C.south,0.7),1,[2,3]);seg(ctx,xe,yb,xe,yk,rgba(C.copper,0.7),1,[2,3]);
+    arrow(ctx,xm,yb,xa,yb,C.south,1.6,6);arrow(ctx,xm,yb,xe,yb,C.south,1.6,6);
+    txt(ctx,'δ',xm,yb-4,C.south,13,700,'center','alphabetic',MATH);}
+  dot(ctx,xP,m1-v1*u,4.5,C.copper);dot(ctx,xP,m2-v2*u,4.5,C.south);dot(ctx,xP,m3-(v1+v2)*u,4.5,C.ink);
+  txt(ctx,'S₁ wave',L.rx,m1+4,C.copper,12.5,700);
+  txt(ctx,'S₂ wave',L.rx,m2-3,C.south,12.5,700);txt(ctx,'behind by δ',L.rx,m2+13,C.muted,11.5,500);
+  var as,ac=C.ink;if(Math.abs(amp-2)<0.02){as='2A → bright';}else if(amp<0.02){as='0 → dark';ac=C.muted;}else as=amp.toFixed(1)+'A';
+  txt(ctx,'Sum',L.rx,m3-10,C.ink,12.5,700);txt(ctx,'amplitude',L.rx,m3+6,C.muted,11.5,500);txt(ctx,as,L.rx,m3+22,ac,11.5,700);
+  txt(ctx,'Horizontal axis: along the light\'s path, P at far right',L.rx,L.cy,C.muted,11,500);
+  txt(ctx,'P',xP+4,L.cy,C.ink,12,700,'right');
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),g=geo(),o=status(),ls,i;
+    cols();buildField(L.ph);
+    if(L.wide){fit(ctx,o.a,16,L.st[0],C.ink,L.f1,600,W-32);fit(ctx,o.b,16,L.st[1],o.c,L.f2,500,W-32);}
+    else{var ys=L.st[0];ls=wrap(ctx,o.a,L.f1,600,W-32);for(i=0;i<ls.length;i++){fit(ctx,ls[i],16,ys,C.ink,L.f1,600,W-32);ys+=18;}
+      ys+=1;ls=wrap(ctx,o.b,L.f2,500,W-32);for(i=0;i<ls.length;i++){fit(ctx,ls[i],16,ys,o.c,L.f2,500,W-32);ys+=17;}}
+    drawPanel(ctx,L,g);readouts(ctx,L,W);graphs(ctx,L,g);
+  }
+});
+var bN=document.getElementById('s3-next'),rL=document.getElementById('s3-lam'),oL=document.getElementById('s3-lam-out'),rD=document.getElementById('s3-d'),oD=document.getElementById('s3-d-out');
+bN.addEventListener('click',function(){m.i=(m.i+1)%SEQ.length;m.q0=m.q;m.q1=SEQ[m.i];m.note='';if(S3.playing){m.tr=0;}else{m.q=m.q1;m.tr=1;}S3.render();});
+rL.addEventListener('input',function(){var v=parseInt(rL.value,10);if(v===m.lam)return;m.note=v<m.lam?'l-':'l+';m.lam=v;oL.textContent=v+' nm';S3.render();});
+rD.addEventListener('input',function(){var v=Math.round(parseFloat(rD.value)*1000)/1000;if(v===m.d)return;m.note=v<m.d?'d-':'d+';m.d=v;oD.textContent=v.toFixed(3)+' mm';S3.render();});
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 衍射光栅：线又细又亮，角度很大（放在 2.4 Diffraction gratings）
+   数据（booklet）：光栅每 mm 约 100 到 1000 条缝；实验 B 的光栅 300 lines per mm、红激光 650 nm。
+   计算值：d = 1/N（N = 每 mm 条数 × 1000 = lines per metre），θm = sin⁻¹(mλ/d)；
+     300 lines per mm、650 nm → d = 3.33 × 10⁻⁶ m，sin θ1 = 0.195，θ1 = 11.2°，d/λ = 5.13 → 最高 m = 5。
+   物理：亮线只在 d sin θ = mλ；mλ/d > 1 的级次不存在；d/λ 刚好是整数时那一级在 90°，看不到（比较留浮点误差）。
+   亮度图：s = d sin θ / λ。光栅 I = [sin(Nπs) / (N sin πs)]²，N = 光束照到的缝数，按光束 1 mm 宽算（示意），
+     所以 N = 每 mm 条数；峰比一个像素还细，所以每一列取这一列里的最大值来画（不会漏掉峰）。
+     对照：同样 d 的双缝 I = cos²(πs)。缝都看成很窄（不画单缝包络），两条曲线各自按最亮 = 1 画。
+   白光：400–700 nm，每一级是一条光谱，violet（λ 小）偏得最少；m = 0 用 --light。
+   探测器：沿量角器来回转，单色光时停在每条亮线上（d sin θ 正好是整数倍 λ）。
+   颜色：光栅曲线 --copper；同样 d 的双缝是对照组，用 --south 虚线（全站约定）。白光图里每一级画在自己的一行，重叠看得见。 */
+var LMIN=400,LMAX=700,PMAX=88*Math.PI/180,SPD=14*Math.PI/180,EPS=1e-7;
+var m={lpm:300,lam:650,white:false,t:0,phi:0,dir:1,hold:0,focus:'scan',ft:0,dN:1,dL:1};
+var R={};
+function deg(a){return a*180/Math.PI;}
+function topM(r){var k=Math.round(r);return Math.abs(r-k)<1e-9*r?k-1:Math.floor(r);}
+function calc(){
+  R.N=m.lpm*1000;R.d=1/R.N;R.dnm=R.d*1e9;R.r=R.dnm/m.lam;R.k=Math.round(R.r);
+  R.exact=Math.abs(R.r-R.k)<1e-9*R.r;R.mmax=topM(R.r);R.th1=Math.asin(1/R.r);
+  R.hold=clamp(0.3+0.07*deg(R.th1),0.4,1.2);
+  R.mV=topM(R.dnm/LMIN);R.mR=topM(R.dnm/LMAX);
+  if(R.lamC!==m.lam){R.lamC=m.lam;R.col=lambdaColor(m.lam);R.colA=lambdaColor(m.lam,0.36);}
+}
+/* 白光用的颜色表（只算一次） */
+var SPEC=[],RAYS=[];
+(function(){for(var nm=LMIN;nm<=LMAX;nm+=5)SPEC.push({nm:nm,c:lambdaColor(nm)});
+  for(var n2=LMIN;n2<=LMAX;n2+=20)RAYS.push({nm:n2,c:lambdaColor(n2,0.32)});})();
+/* 第 k 级里 SPEC[j] 的角度，和下一个波长的角度（画连续的光谱带用）；看不到时返回 -1 */
+function thS(k,j){if(j>=SPEC.length)return -1;var sv=k*SPEC[j].nm/R.dnm;return sv>=1-1e-9?-1:Math.asin(sv);}
+function gI(s){if(Math.abs(Math.round(s))>R.mmax)return 0;var ps=Math.PI*s,den=Math.sin(ps);if(Math.abs(den)<1e-9)return 1;var v=Math.sin(m.lpm*ps)/(m.lpm*den);return v*v;}
+function dI(s){var c=Math.cos(Math.PI*s);return c*c;}
+function cname(nm){return nm<450?'violet':nm<495?'blue':nm<570?'green':nm<590?'yellow':nm<620?'orange':'red';}
+var SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sci(v){var e=Math.floor(Math.log10(v)),mt=v/Math.pow(10,e);if(mt>=9.995){mt/=10;e++;}var s=String(e),o='';for(var i=0;i<s.length;i++)o+=SUP[s.charAt(i)];return mt.toFixed(2)+' × 10'+o;}
+function rTxt(){return R.exact?String(R.k):R.r.toFixed(2);}
+
+/* 探测器：单色光时，走到下一个整数 s 就停在那条亮线上 R.hold 秒 */
+function step(dt){
+  var n=3,h=dt/n;calc();
+  for(var i=0;i<n;i++){
+    m.t+=h;
+    if(m.ft>0){m.ft-=h;if(m.ft<=0)m.focus='scan';}
+    if(m.hold>0){m.hold-=h;continue;}
+    var p=m.phi+m.dir*SPD*h;
+    if(!m.white){
+      var s0=R.r*Math.sin(m.phi),s1=R.r*Math.sin(p),k=m.dir>0?Math.floor(s0+EPS)+1:Math.ceil(s0-EPS)-1;
+      if(Math.abs(k)<=R.mmax&&(m.dir>0?s1>=k:s1<=k)){p=Math.asin(k/R.r);m.hold=R.hold;}
+    }
+    if(p>PMAX){p=PMAX;m.dir=-1;}else if(p<-PMAX){p=-PMAX;m.dir=1;}
+    m.phi=p;
+  }
+}
+
+/* ---------- 状态提示：[现在怎样, 为什么] ---------- */
+function status(wide){
+  if(m.focus==='N')return m.dN>0?['More lines per mm → d = 1/N gets smaller','→ sin θ = mλ/d gets larger → lines spread further apart, fewer orders']
+    :['Fewer lines per mm → d = 1/N gets larger','→ sin θ = mλ/d gets smaller → lines move towards the centre, more orders'];
+  if(m.focus==='lam')return m.dL>0?['λ gets longer (towards red) → sin θ = mλ/d gets larger','→ each line moves further from the centre; the highest m may get smaller']
+    :['λ gets shorter (towards violet) → sin θ = mλ/d gets smaller','→ each line moves closer to the centre; the highest m may get larger'];
+  if(m.focus==='white')return ['White light: m = 0 is white (every colour has δ = 0)',wide?'Each order is a spectrum: violet nearest the centre, red furthest out, exactly the opposite of a prism':'Each order is a spectrum: violet inside, red outside'];
+  var a=Math.abs(m.phi),ad=deg(a);
+  if(m.white){
+    if(ad<0.5)return ['Detector on the central line, θ = 0°','Every colour has δ = 0 → all overlap here → white (m = 0)'];
+    var S=R.dnm*Math.sin(a),f=[];
+    for(var mm=1;mm<=40;mm++){var l=S/mm;if(l<LMIN)break;if(l<=LMAX)f.push([mm,Math.round(l)]);}
+    var l1='Detector at θ = '+ad.toFixed(1)+'°: d sin θ = '+Math.round(S)+' nm';
+    if(!f.length)return [l1,'Divided by m, it is never in 400–700 nm → no visible light here'];
+    if(f.length===1)return [l1,'m = '+f[0][0]+': λ = d sin θ / m = '+f[0][1]+' nm ('+cname(f[0][1])+')'];
+    return [l1,f[0][1]+' nm from m = '+f[0][0]+' and '+f[1][1]+' nm from m = '+f[1][0]+' overlap'];
+  }
+  var s=R.r*Math.sin(a),k=Math.round(s),on=Math.abs(s-k)<0.004&&k<=R.mmax;
+  if(on&&k===0)return ['Detector on the central line, θ = 0°: d sin θ = 0','δ = 0 → waves from all the slits are in phase → central bright line, m = 0'];
+  var l0='Detector at θ = '+ad.toFixed(1)+'°: d sin θ = '+(on?(k===1?'λ':k+'λ'):s.toFixed(2)+'λ');
+  if(on)return [l0,'Whole number, m = '+k+' → waves from all the slits are in step → a sharp, bright line'];
+  if(s>R.mmax+0.02){var nx=R.mmax+1,sv=nx/R.r;
+    return [l0,R.exact?'m = '+nx+' needs sin θ = 1, at 90° → cannot be seen':'m = '+nx+' needs sin θ = '+sv.toFixed(sv<1.01?3:2)+' > 1 → does not exist'];}
+  return [l0,'Not a whole number → waves from the slits cancel → dark (double slit still '+Math.round(dI(s)*100)+'%)'];
+}
+function nums(wide){
+  var a=m.lpm+' lines per mm → N = '+sci(R.N)+' m⁻¹',b='d = 1/N = '+sci(R.d)+' m',c;
+  if(m.white)c='Highest m: '+R.mV+' for violet 400 nm, '+R.mR+' for red 700 nm';
+  else c=R.exact?'d/λ = '+rTxt()+(wide?' is a whole number':' exactly')+' → m = '+R.k+' at 90° → highest m = '+R.mmax:'d/λ = '+rTxt()+' → highest m = '+R.mmax+' (rounded down)';
+  return wide?[a,b,c]:['N = '+sci(R.N)+' m⁻¹ → d = 1/N = '+sci(R.d)+' m',c];
+}
+
+/* ---------- 排版 ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var L={W:W,wide:W>=640};
+  if(L.wide){L.sx=16;L.st=[26,48];L.stF=[15,13];L.R=Math.round(clamp((W-360)/2.6,110,150));L.cx=L.R+46;L.cy=86+L.R;L.lb=[44,68];
+    L.gx=L.cx+L.R+56;L.gw=W-18-L.gx;L.gt=87;L.gl=106;L.gy=124;L.gh=116;L.nx=L.gx-22;L.lx=L.nx;L.ny=[282,303,324];}
+  else{L.sx=14;L.st=[22,42];L.stF=[13.5,12.5];L.R=Math.min(140,Math.floor(W/2-36));L.cx=Math.round(W/2);L.cy=244;L.lb=[40,62];
+    L.gx=30;L.gw=W-30-16;L.gt=394;L.gl=413;L.gy=426;L.gh=100;L.nx=14;L.lx=14;L.ny=[330,350];}
+  LY=L;return L;
+}
+function fit(ctx,s,x,y,col,size,weight,maxW,align){
+  var f=size;ctx.font=weight+' '+f+'px '+FONT;
+  while(f>11&&ctx.measureText(s).width>maxW){f-=0.5;ctx.font=weight+' '+f+'px '+FONT;}
+  txt(ctx,s,x,y,col,f,weight,align||'left');
+}
+/* English: word wrap for the phone. Spaces inside maths, and the space after an arrow, do not break. */
+function wrapL(ctx,s,font,maxW){
+  ctx.font=font;var out=[],line='';
+  s.replace(/ = /g,'\u00A0=\u00A0').replace(/ > /g,'\u00A0>\u00A0').replace(/ \/ /g,'\u00A0/\u00A0').replace(/→ /g,'→\u00A0').replace(/d sin θ/g,'d\u00A0sin\u00A0θ').replace(/sin θ/g,'sin\u00A0θ').replace(/ nm/g,'\u00A0nm').split(' ').forEach(function(w){
+    var t=line?line+' '+w:w;if(line&&ctx.measureText(t.replace(/\u00A0/g,' ')).width>maxW){out.push(line);line=w;}else line=t;});
+  if(line)out.push(line);
+  return out.map(function(l){return l.replace(/\u00A0/g,' ');});
+}
+function isDark(){var h=String(C.stage).replace('#','').trim();if(h.length===3)h=h.replace(/(.)/g,'$1$1');var n=parseInt(h,16);if(isNaN(n))return false;
+  return ((n>>16)&255)*0.299+((n>>8)&255)*0.587+(n&255)*0.114<128;}
+
+/* 一束光：浅色底 + 往外流动的亮段（表示光在往外走） */
+function beam(ctx,x1,y1,x2,y2,col,colA,w,under,flow){
+  ctx.lineCap='round';
+  if(under){ctx.strokeStyle=under;ctx.lineWidth=w+2;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();}
+  ctx.strokeStyle=colA;ctx.lineWidth=w;ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  if(flow){ctx.strokeStyle=col;ctx.setLineDash([10,9]);ctx.lineDashOffset=-m.t*36;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0;}
+  ctx.lineCap='butt';
+}
+function pt(L,th,r){return [L.cx+r*Math.sin(th),L.cy-r*Math.cos(th)];}
+
+/* ---------- 量角器、光栅、各级光束 ---------- */
+function protractor(ctx,L,dark){
+  var cx=L.cx,cy=L.cy,Rr=L.R,i,a,p,q,under=dark?null:rgba(C.ink,0.2);
+  ctx.beginPath();ctx.moveTo(cx-Rr,cy);ctx.arc(cx,cy,Rr,Math.PI,0,false);ctx.closePath();ctx.fillStyle=rgba(C.muted,0.06);ctx.fill();
+  ctx.beginPath();ctx.arc(cx,cy,Rr,Math.PI,0,false);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.4;ctx.stroke();
+  seg(ctx,cx-Rr-8,cy,cx+Rr+8,cy,rgba(C.muted,0.8),1.4);
+  for(i=-90;i<=90;i+=10){a=i*Math.PI/180;var tl=(i%30===0)?9:5;p=pt(L,a,Rr);q=pt(L,a,Rr-tl);seg(ctx,p[0],p[1],q[0],q[1],rgba(C.muted,0.8),1.1);}
+  /* 入射光 + 激光器 */
+  var by0=cy+L.lb[0],by1=cy+L.lb[1];
+  if(m.white)beam(ctx,cx,by0,cx,cy,C.light,rgba(C.light,0.4),3,under,true);
+  else beam(ctx,cx,by0,cx,cy,R.col,R.colA,2.6,under,true);
+  /* 各级光束 */
+  var k,th,j,e;
+  if(!m.white){
+    for(k=-R.mmax;k<=R.mmax;k++){th=Math.asin(k/R.r);p=pt(L,th,Rr);beam(ctx,cx,cy,p[0],p[1],R.col,R.colA,2.2,under,true);}
+    for(k=-R.mmax;k<=R.mmax;k++){th=Math.asin(k/R.r);p=pt(L,th,Rr);if(under)dot(ctx,p[0],p[1],5.6,under);dot(ctx,p[0],p[1],4.6,R.col);}
+  }else{
+    for(k=1;k<=R.mV;k++)for(j=0;j<RAYS.length;j++){var sv=k*RAYS[j].nm/R.dnm;if(sv>=1-1e-9)break;th=Math.asin(sv);
+      for(e=-1;e<=1;e+=2){p=pt(L,e*th,Rr);beam(ctx,cx,cy,p[0],p[1],RAYS[j].c,RAYS[j].c,1.1,null,false);}}
+    ctx.lineWidth=6.5;
+    for(k=1;k<=R.mV;k++)for(j=0;j<SPEC.length;j++){th=thS(k,j);if(th<0)break;var tn=thS(k,j+1);tn=tn<0?th+0.012:tn+0.004;
+      ctx.strokeStyle=SPEC[j].c;ctx.beginPath();ctx.arc(cx,cy,Rr,th-Math.PI/2,tn-Math.PI/2,false);ctx.stroke();
+      ctx.beginPath();ctx.arc(cx,cy,Rr,-tn-Math.PI/2,-th-Math.PI/2,false);ctx.stroke();}
+    beam(ctx,cx,cy,cx,cy-Rr,C.light,rgba(C.light,0.45),3,under,true);
+    dot(ctx,cx,cy-Rr,5,C.light);
+  }
+  /* 光栅（很多条缝） */
+  ctx.fillStyle=C.ink;for(i=-6;i<=6;i++)ctx.fillRect(cx+i*6-2,cy-3,4,6);
+  txt(ctx,'grating',cx+46,cy+17,C.muted,11.5,600);
+  rrect(ctx,cx-54,by0,108,by1-by0,6);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.6);ctx.lineWidth=1.3;ctx.stroke();
+  txt(ctx,m.white?'white light':'laser '+m.lam+' nm',cx,(by0+by1)/2+1,C.ink,12,600,'center','middle');
+  /* 刻度数字（量角器里面） */
+  [30,60,90].forEach(function(d){for(var e2=-1;e2<=1;e2+=2){var a2=e2*d*Math.PI/180,pp=d===90?[cx+e2*(Rr-18),cy-9]:pt(L,a2,Rr-21);
+    var s=d+'°';ctx.font='500 11px '+FONT;var w=ctx.measureText(s).width;
+    rrect(ctx,pp[0]-w/2-2,pp[1]-7,w+4,14,4);ctx.fillStyle=C.stage;ctx.fill();txt(ctx,s,pp[0],pp[1]+0.5,C.muted,11,500,'center','middle');}});
+  /* θ1 */
+  if(!m.white){
+    var ra=Rr*0.34;ctx.beginPath();ctx.arc(cx,cy,ra,-Math.PI/2,-Math.PI/2+R.th1,false);ctx.strokeStyle=C.ink;ctx.lineWidth=1.3;ctx.stroke();
+    var lp=pt(L,R.th1/2,ra+8),ls='θ₁ = '+deg(R.th1).toFixed(1)+'°';ctx.font='600 12px '+FONT;var lw=ctx.measureText(ls).width;
+    var lx=Math.max(lp[0]+2,cx+8);rrect(ctx,lx-3,lp[1]-15,lw+6,18,4);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();
+    txt(ctx,ls,lx,lp[1]-2,C.ink,12,600);
+  }
+  /* 级次 m：在量角器外面。太挤时只标步长 s 的倍数（s 从 1、2、5、10、20 里挑最小的、标出来不挤的），最高一级总是标出 */
+  var Rl=Rr+13,top=pt(L,0,Rl+1);txt(ctx,'m = 0',top[0],top[1],C.ink,12,700,'center','middle');
+  ctx.font='700 12px '+FONT;var w0=ctx.measureText('m = 0').width,ths=[];
+  if(!m.white){for(k=1;k<=R.mmax;k++)ths.push([k,Math.asin(k/R.r)]);}
+  else{for(k=1;k<=R.mV;k++){var ta=Math.asin(k*LMIN/R.dnm),tb=Math.asin(Math.min(1,k*LMAX/R.dnm));ths.push([k,(ta+tb)/2]);}}
+  function lbox(it){var q3=pt(L,it[1],Rl);return [q3[0],q3[1],ctx.measureText(String(it[0])).width];}
+  function hit(a,b){return Math.abs(a[0]-b[0])<(a[2]+b[2])/2+5&&Math.abs(a[1]-b[1])<15;}
+  var top0=[top[0],top[1],w0],kmax=ths.length?ths[ths.length-1][0]:0,STEPS=[1,2,5,10,20],use=[],si,list,bx,okL;
+  for(si=0;si<STEPS.length;si++){list=[];
+    for(j=0;j<ths.length;j++)if(ths[j][0]%STEPS[si]===0||ths[j][0]===kmax)list.push(ths[j]);
+    if(list.length>1&&hit(lbox(list[list.length-2]),lbox(list[list.length-1])))list.splice(list.length-2,1);
+    bx=[top0];for(j=0;j<list.length;j++)bx.push(lbox(list[j]));
+    okL=true;for(j=1;j<bx.length;j++)if(hit(bx[j-1],bx[j])){okL=false;break;}
+    use=list;if(okL)break;}
+  for(e=-1;e<=1;e+=2)for(j=0;j<use.length;j++){var q2=pt(L,e*use[j][1],Rl);txt(ctx,String(use[j][0]),q2[0],q2[1],C.ink,12,700,'center','middle');}
+  /* 探测器 */
+  var dp=pt(L,m.phi,Rr),fc=null;
+  if(!m.white){var sd=R.r*Math.sin(m.phi),v=gI(sd);if(v>0.02)fc=lambdaColor(m.lam,v);}
+  else{var Sd=R.dnm*Math.sin(Math.abs(m.phi));if(deg(Math.abs(m.phi))<0.5)fc=C.light;else for(var mm=1;mm<=40;mm++){var lm=Sd/mm;if(lm<LMIN)break;if(lm<=LMAX){fc=lambdaColor(lm);break;}}}
+  seg(ctx,cx,cy,dp[0],dp[1],rgba(C.ink,0.45),1.2,[3,4]);
+  dot(ctx,dp[0],dp[1],7.5,C.stage);if(fc)dot(ctx,dp[0],dp[1],6,fc);ring(ctx,dp[0],dp[1],7.5,C.ink,2);
+}
+
+/* ---------- 亮度–角度图 ---------- */
+function graph(ctx,L){
+  var gx=L.gx,gw=L.gw,gy=L.gy,gh=L.gh,base=gy+gh,i,x,th,s,v;
+  function X(t){return gx+(t/Math.PI+0.5)*gw;}
+  if(m.white){txt(ctx,'White light: the angle θ where each colour lands',L.lx,L.gt-17,C.ink,12.5,600);txt(ctx,'(one row per order, m = 1 at the bottom)',L.lx,L.gt,C.ink,12.5,600);}
+  else fit(ctx,'Brightness vs angle θ (each curve: brightest = 1)',L.lx,L.gt,C.ink,12.5,600,L.W-L.lx-14);
+  /* 图例 */
+  var lx=L.lx,ly=L.gl;ctx.font='500 11.5px '+FONT;
+  if(!m.white){
+    seg(ctx,lx,ly-4,lx+18,ly-4,C.copper,2.2);txt(ctx,'Grating',lx+23,ly,C.ink,11.5,500);lx+=23+ctx.measureText('Grating').width+14;
+    seg(ctx,lx,ly-4,lx+18,ly-4,rgba(C.south,0.85),1.5,[4,3]);txt(ctx,'Double slit, same d',lx+23,ly,C.ink,11.5,500);ctx.font='500 11.5px '+FONT;lx+=23+ctx.measureText('Double slit, same d').width+14;
+  }else{
+    for(i=0;i<18;i++)seg(ctx,lx+i,ly-9,lx+i,ly+1,SPEC[Math.round(i/17*(SPEC.length-1))].c,1.2);txt(ctx,'True colour of λ',lx+23,ly,C.ink,11.5,500);ctx.font='500 11.5px '+FONT;lx+=23+ctx.measureText('True colour of λ').width+14;
+  }
+  seg(ctx,lx+4,ly-10,lx+4,ly+2,rgba(C.ink,0.6),1.3,[3,2]);txt(ctx,'Detector',lx+12,ly,C.ink,11.5,500);
+  /* 坐标 */
+  for(i=-90;i<=90;i+=30){x=X(i*Math.PI/180);if(i!==-90)seg(ctx,x,gy,x,base,C.grid,1);txt(ctx,(i<0?'−':'')+Math.abs(i)+'°',x,base+15,C.muted,11,500,'center');}
+  seg(ctx,gx,gy-4,gx,base,C.muted,1);seg(ctx,gx,base,gx+gw,base,C.muted,1);
+  seg(ctx,gx-3,gy,gx,gy,C.muted,1);txt(ctx,'1',gx-6,gy+4,C.muted,11,500,'right');txt(ctx,'0',gx-6,base+4,C.muted,11,500,'right');
+  if(!m.white){
+    /* 同样 d 的双缝：cos²(πs) */
+    ctx.beginPath();for(i=0;i<=gw;i++){th=(i/gw-0.5)*Math.PI;v=dI(R.r*Math.sin(th));if(i)ctx.lineTo(gx+i,base-v*gh);else ctx.moveTo(gx+i,base-v*gh);}
+    ctx.strokeStyle=rgba(C.south,0.85);ctx.lineWidth=1.4;ctx.setLineDash([4,3]);ctx.lineJoin='round';ctx.stroke();ctx.setLineDash([]);
+    /* 光栅：每一列取最大值（峰比一列还窄） */
+    ctx.beginPath();
+    for(i=0;i<=gw;i++){var ta=clamp(((i-0.5)/gw-0.5)*Math.PI,-Math.PI/2,Math.PI/2),tb=clamp(((i+0.5)/gw-0.5)*Math.PI,-Math.PI/2,Math.PI/2);
+      var sa=R.r*Math.sin(ta),sb=R.r*Math.sin(tb),kk=Math.ceil(sa-1e-12);
+      v=(kk<=sb&&Math.abs(kk)<=R.mmax&&!(R.exact&&Math.abs(kk)===R.k))?1:gI(R.r*Math.sin((i/gw-0.5)*Math.PI));
+      if(i)ctx.lineTo(gx+i,base-v*gh);else ctx.moveTo(gx+i,base-v*gh);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=1.8;ctx.lineJoin='miter';ctx.stroke();ctx.lineJoin='round';
+  }else{
+    /* 每一级画在自己的一行（m = 1 在最下面），所以重叠的级次都看得见 */
+    var x0=X(0),hb=0.85*gh/Math.max(1,R.mV),gp=hb>4?1:0;
+    for(var k=1;k<=R.mV;k++)for(var j=0;j<SPEC.length;j++){th=thS(k,j);if(th<0)break;var tn=thS(k,j+1),xa=X(th)-1,w=Math.max(2,(tn<0?0:X(tn)-xa)+0.5);
+      ctx.fillStyle=SPEC[j].c;ctx.fillRect(xa,base-k*hb,w,hb-gp);ctx.fillRect(2*x0-xa-w,base-k*hb,w,hb-gp);}
+    ctx.fillStyle=C.light;ctx.fillRect(X(0)-1.5,gy,3,gh);
+  }
+  /* 探测器的位置 */
+  x=X(m.phi);seg(ctx,x,gy-4,x,base,rgba(C.ink,0.6),1.3,[3,2]);
+  if(!m.white){s=R.r*Math.sin(m.phi);dot(ctx,x,base-dI(s)*gh,3.6,C.south);dot(ctx,x,base-gI(s)*gh,4.2,C.copper);}
+}
+
+for(var q=0;q<20;q++){m.t+=1/60;}
+calc();m.phi=R.th1;m.hold=R.hold;
+var stage=makeStage('sim4',{
+  height:function(w){return w>=640?340:554;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    calc();var L=lay(W),st=status(L.wide),nb=nums(L.wide),i;
+    if(L.wide){
+      fit(ctx,st[0],L.sx,L.st[0],C.ink,L.stF[0],600,W-2*L.sx);
+      fit(ctx,st[1],L.sx,L.st[1],C.muted,L.stF[1],500,W-2*L.sx);
+    }else{
+      var yy=L.st[0],ls0=wrapL(ctx,st[0],'600 '+L.stF[0]+'px '+FONT,W-2*L.sx),ls1=wrapL(ctx,st[1],'500 '+L.stF[1]+'px '+FONT,W-2*L.sx),li;
+      for(li=0;li<ls0.length;li++){txt(ctx,ls0[li],L.sx,yy,C.ink,L.stF[0],600);yy+=li<ls0.length-1?18:20;}
+      for(li=0;li<ls1.length;li++){txt(ctx,ls1[li],L.sx,yy,C.muted,L.stF[1],500);yy+=18;}
+    }
+    protractor(ctx,L,isDark());
+    graph(ctx,L);
+    for(i=0;i<nb.length;i++)fit(ctx,nb[i],L.nx,L.ny[i],i===nb.length-1?C.ink:C.muted,12.5,i===nb.length-1?600:500,W-L.nx-14);
+    if(L.wide)txt(ctx,'Angles are to true scale (calculated)',L.sx,H-12,C.muted,11.5,500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var rN=document.getElementById('s4-lpm'),oN=document.getElementById('s4-lpm-out');
+var rL=document.getElementById('s4-lam'),oL=document.getElementById('s4-lam-out');
+var bW=document.getElementById('s4-white');
+function syncW(){press(bW,m.white);bW.textContent=m.white?'White light: on':'White light: off';}
+rN.addEventListener('input',function(){var v=parseInt(rN.value,10);if(v!==m.lpm)m.dN=v>m.lpm?1:-1;m.lpm=v;oN.textContent=String(v);m.focus='N';m.ft=6;m.hold=0;stage.render();});
+rL.addEventListener('input',function(){var v=parseInt(rL.value,10);if(v!==m.lam)m.dL=v>m.lam?1:-1;m.lam=v;oL.textContent=v+' nm';
+  if(m.white){m.white=false;syncW();}m.focus='lam';m.ft=6;m.hold=0;stage.render();});
+bW.addEventListener('click',function(){m.white=!m.white;syncW();m.focus=m.white?'white':'scan';m.ft=m.white?6:0;m.hold=0;stage.render();});
+syncW();
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 偏振片和 Malus' law（放在 2.5 Polarisation and Malus' law）
+   顺着光束看（像 booklet Figure 2.5）：非偏振光 → polariser（轴竖直）→［中间片 45°］→ analyser（轴转 θ）。
+   真实物理（滤光片看成理想的）：
+   - 非偏振光过第一片：I = ½I₀，不管轴朝哪里；出来是 plane-polarised，振动沿这片的轴。
+   - 偏振光过一片：振幅 A 只有沿这片轴的 A cos θ 通过；I ∝ 振幅²，所以 I = I_max cos²θ。
+     θ 从前一片滤光片的轴量；I_max = 到达的偏振光强度 = ½I₀（θ = 0 时全部通过）。
+   - 中间片 45°：I = ½I₀ × cos²45° × cos²(θ − 45°)；θ = 90° 时 = ⅛I₀。
+   - 画面里振幅 ∝ √I。轴从竖直逆时针转 θ（和 Figure 2.5 一样）。
+   数据：I_max = 12.0 W m⁻² 和 13 个实验点（θ = 0°, 15°, …, 180°）来自 booklet 实验（Figure 2.6）。
+   I₀ 只用符号。“假如光是纵波”是假设：亮度画成不随 θ 变（示意）。
+   颜色：振动（电场）--violet，挡掉的部分 --muted 虚线；光束和强度条 --light；曲线 --copper；
+   0°–90° 实验点实心 --copper，105°–180° 空心 --south；纵波的预测 --violet 虚线。 */
+var IMAX=12.0,DEG=Math.PI/180,OM=TAU*1.1;
+var EXP=[12.0,11.3,8.9,6.1,3.1,0.9,0.1,0.9,3.0,6.0,9.0,11.2,12.0]; /* booklet：θ = 0°, 15°, …, 180° 时的 I（W m⁻²） */
+var rTh=document.getElementById('s5-th'),oTh=document.getElementById('s5-th-out');
+var bMid=document.getElementById('s5-mid'),bLon=document.getElementById('s5-lon');
+var m5={th:60,mid:false,lon:false,t:0,ua:0.6,ul:0.9,uT:0,seed:11};
+var IT=[],ST=['',''],RW=[],RN=[],GH=['',''],WC={k:'',a:null};
+
+function rnd(){m5.seed=(m5.seed*16807)%2147483647;return (m5.seed-1)/2147483646;}
+function cos2(a){var c=Math.cos(a*DEG);return c*c;}
+/* 轴的方向：从竖直往上开始，逆时针转 a 度（画布坐标，y 向下） */
+function dirv(a){return [-Math.sin(a*DEG),-Math.cos(a*DEG)];}
+function mns(v){return v<0?'−'+(-v):String(v);}
+function f1(v){return v<0.05?'0':v.toFixed(1);}
+function nice(v){var F=[[1,'1'],[0.75,'¾'],[0.5,'½'],[0.25,'¼'],[0.125,'⅛'],[0,'0']];
+  for(var i=0;i<F.length;i++)if(Math.abs(v-F[i][0])<1e-9)return F[i][1];
+  return v>=0.1?v.toFixed(2):v.toPrecision(2);}
+
+/* 带下标的文字：'I_max' 画成 I 加小一号、往下一点的 max。only = true 时只量宽度。 */
+var SUBRE=/([A-Za-z])_([a-z0-9]+)/g,RTP=[];
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+/* Long status lines: word wrap. A "W m⁻²" or "I_0" stays with its number; "→", "=" and "−" stay with the next word; "=" and "−" stay with the word before them. */
+function wrap(ctx,s,maxW,size,weight){
+  if(rt(ctx,s,0,0,null,size,weight,'left',null,null,true)<=maxW)return [s];
+  var raw=s.split(/ (?!W m⁻²|m⁻²|=|−|I_0|I_max)/),tk=[],i,out=[],line='',t,pv;
+  for(i=0;i<raw.length;i++){pv=tk.length?tk[tk.length-1]:'';
+    if(/[→=−]$/.test(pv))tk[tk.length-1]=pv+' '+raw[i];else tk.push(raw[i]);}
+  for(i=0;i<tk.length;i++){t=line?line+' '+tk[i]:tk[i];
+    if(line&&rt(ctx,t,0,0,null,size,weight,'left',null,null,true)>maxW){out.push(line);line=tk[i];}else line=t;}
+  if(line)out.push(line);
+  return out;
+}
+
+/* ---------- 状态 → 光路、提示、读数（只在控件改变时算） ---------- */
+function build(){
+  var th=m5.th,mid=m5.mid,lon=m5.lon,pv=mid?45:0,d=th-pv,k2=cos2(d),fin=lon?1:(mid?0.25:0.5)*k2;
+  var c=Math.cos(th*DEG),I2=IMAX*cos2(th),ex=EXP[Math.round(th/15)],it=[],u=lon?'unchanged':null;
+  var fI=fin<1e-9?'0':nice(fin)+' I_0',cs=(c<-1e-9?'−':'')+Math.abs(c).toFixed(2),k2s=cos2(th).toFixed(3),dk=k2.toFixed(3);
+  var ca=(th===60||th===120)?'½A':Math.abs(c).toFixed(2)+'A';
+  it.push({k:'src',fo:1,b1:'I_0',b2:lon?'if longitudinal':'unpolarised',n1:'I_0',n2:lon?'if longitudinal':'unpolarised'});
+  it.push({k:'filt',ax:0,prev:null,fo:lon?1:0.5,tw:'polariser · axis 0°',tn:'polariser'});
+  if(mid){
+    it.push({k:'vib',ax:0,fo:lon?1:0.5,b1:u||'½I_0',b2:'',n1:u||'½I_0',n2:''});
+    it.push({k:'filt',ax:45,prev:0,fo:lon?1:0.25,tw:'middle filter · axis 45°',tn:'middle 45°'});
+    it.push({k:'vib',ax:45,fo:lon?1:0.25,b1:u||'¼I_0',b2:lon?'':'= ½I_0 cos²45°',n1:u||'¼I_0',n2:''});
+  }else it.push({k:'vib',ax:0,fo:lon?1:0.5,b1:u||'½I_0 = I_max',b2:lon?'':'= 12.0 W m⁻²',n1:u||'½I_0 = I_max',n2:lon?'':'12.0 W m⁻²'});
+  it.push({k:'filt',ax:th,prev:pv,fo:fin,tw:'analyser · axis θ = '+th+'°',tn:'analyser'});
+  if(lon)it.push({k:'vib',ax:th,fo:1,b1:'unchanged',b2:'no change with θ',n1:'unchanged',n2:'no change with θ'});
+  else if(mid)it.push({k:'vib',ax:th,fo:fin,b1:'¼I_0 cos²(θ − 45°)',b2:'= '+fI,n1:fI,n2:''});
+  else it.push({k:'vib',ax:th,fo:fin,b1:'I_max cos²θ',b2:'= '+f1(I2)+' W m⁻²',n1:'I_max cos²θ',n2:f1(I2)+' W m⁻²'});
+  IT=it;
+  /* 状态提示：这一刻发生了什么、为什么 */
+  if(lon)ST=['If longitudinal: vibration is along the direction of travel → no direction to select','→ same brightness at every angle. But the experiment is almost dark at 90° → light is transverse'];
+  else if(mid){
+    if(th===90)ST=['Polariser and analyser at 90° (crossed): fully dark on their own','Add a 45° filter between → each filter turns the light to its own axis → bright again (I = ⅛ I_0)'];
+    else if(Math.abs(d)===90)ST=['Angle from middle filter to analyser = θ − 45° = 90°','These two filters are crossed → all blocked → I = 0'];
+    else if(d===0)ST=['Angle from middle filter to analyser = θ − 45° = 0°','Same direction → all passes → I = ¼ I_0'];
+    else ST=['Angle from middle filter to analyser = θ − 45° = '+mns(d)+'°','Each filter re-polarises the light along its own axis → I = '+fI];
+  }else{
+    if(th===0||th===180)ST=['θ = '+th+'°: analyser axis is in the same direction as the vibration','→ all passes → I = I_max = 12.0 W m⁻² (brightest)'];
+    else if(th===90)ST=['θ = 90° (crossed): vibration is perpendicular to the analyser axis','→ A cos 90° = 0 → all blocked → I = 0 (fully dark)'];
+    else ST=['θ = '+th+'°: '+(th<90?'only A cos θ = '+ca+' passes':'the part that passes is A cos θ, size '+ca),'I ∝ amplitude² → I = '+nice(cos2(th))+' I_max = '+f1(I2)+' W m⁻²'];
+  }
+  /* 读数（宽屏 2 行 RW，手机 5–6 行 RN）和图的标题 GH */
+  if(lon){
+    RW=['If longitudinal: I does not change with θ','(violet dashed line, illustrative)','Booklet experiment at θ = '+th+'°: '+ex.toFixed(1)+' W m⁻²'];
+    RN=['If longitudinal:','I does not change with θ','(violet dashed line,','illustrative)','Booklet experiment:','θ = '+th+'° → '+ex.toFixed(1)+' W m⁻²'];
+    GH=['I–θ graph · booklet data points vs longitudinal prediction','I–θ graph · data vs longitudinal'];
+  }else if(mid){
+    RW=['I = ½I_0 × cos²45° × cos²(θ − 45°)','  = ½ × ½ × '+dk+' = '+fI];
+    RN=['Middle → analyser:','θ − 45° = '+mns(d)+'°','cos² = '+dk,'I = ½I_0 × ½ × '+dk,'  = '+fI];
+    GH=['I–θ graph (two-filter experiment, no middle filter)','I–θ graph (two-filter experiment)'];
+  }else{
+    RW=['cos θ = '+cs+'    cos²θ = '+k2s,'Formula: '+f1(I2)+' W m⁻²','Booklet experiment: '+ex.toFixed(1)+' W m⁻²'];
+    RN=['θ = '+th+'°','cos θ = '+cs,'cos²θ = '+k2s,'I = 12.0 × '+k2s,'  = '+f1(I2)+' W m⁻²','Data point: '+ex.toFixed(1)+' W m⁻²'];
+    GH=['I–θ graph · curve I = 12.0 cos²θ (Malus\' law)','I–θ graph · curve I = 12.0 cos²θ'];
+  }
+}
+
+/* ---------- 画图小工具 ---------- */
+function arcA(ctx,x,y,rad,p,a,col,w){ctx.beginPath();ctx.arc(x,y,rad,-Math.PI/2-p*DEG,-Math.PI/2-a*DEG,a>p);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.setLineDash([]);ctx.stroke();}
+function darrow(ctx,x1,y1,x2,y2,col){var dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l;seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,1.8,[4,3]);arrow(ctx,x2-ux*9,y2-uy*9,x2,y2,col,1.8,8);}
+function lab(ctx,x,y,dx,s,col,fs){if(dx<-0.12)x=Math.max(x,rt(ctx,s,0,0,null,fs,600,'left',null,null,true)+6); /* English labels are wider: stay inside the canvas */
+  rt(ctx,s,x,y,col,fs,600,dx<-0.12?'right':(dx>0.12?'left':'center'),'middle');}
+
+/* 一个“振动”圆：顺着光束看到的电场振动（双箭头范围 + 这一刻的电场箭头） */
+function vibD(ctx,x,y,r,it,i){
+  dot(ctx,x,y,r,C.stage);dot(ctx,x,y,r,rgba(C.light,0.05+0.3*it.fo));ring(ctx,x,y,r,rgba(C.muted,0.75),1.2);
+  var A=r*0.8*Math.sqrt(it.fo),ph=m5.t*OM-i*0.8,k,u,dd,L;
+  if(m5.lon){var rr=r*(0.12+0.09*(1+Math.sin(ph)));dot(ctx,x,y,rr,C.violet);ring(ctx,x,y,rr+3,rgba(C.violet,0.35),1.2);return;}
+  if(it.k==='src'){
+    for(k=0;k<4;k++){u=dirv(k*45);seg(ctx,x-u[0]*A,y-u[1]*A,x+u[0]*A,y+u[1]*A,rgba(C.violet,0.22),1.3);}
+    L=A*m5.ul;arrow(ctx,x,y,x+Math.cos(m5.ua)*L,y-Math.sin(m5.ua)*L,C.violet,2.2,Math.min(8,L*0.45));
+    return;
+  }
+  if(A<1.5)return;
+  u=dirv(it.ax);
+  seg(ctx,x-u[0]*A,y-u[1]*A,x+u[0]*A,y+u[1]*A,rgba(C.violet,0.3),1.3);
+  dot(ctx,x-u[0]*A,y-u[1]*A,1.6,rgba(C.violet,0.5));dot(ctx,x+u[0]*A,y+u[1]*A,1.6,rgba(C.violet,0.5));
+  dd=A*Math.sin(ph);
+  if(Math.abs(dd)>2.5)arrow(ctx,x,y,x+u[0]*dd,y+u[1]*dd,C.violet,2.2,Math.min(8,Math.abs(dd)*0.6));
+  dot(ctx,x+u[0]*dd,y+u[1]*dd,2.4,C.violet);
+}
+/* 一片滤光片：深色线 = transmission axis；虚线 = 前一片的轴；小弧 = 两者的夹角 */
+function filtD(ctx,x,y,r,it){
+  dot(ctx,x,y,r,C.surface);dot(ctx,x,y,r,rgba(C.muted,0.16));ring(ctx,x,y,r,C.ink,1.2);
+  var u=dirv(it.ax),g;
+  if(it.prev!==null){g=dirv(it.prev);seg(ctx,x-g[0]*r,y-g[1]*r,x+g[0]*r,y+g[1]*r,rgba(C.muted,0.9),1.1,[3,3]);
+    if(Math.abs(it.ax-it.prev)>0.5)arcA(ctx,x,y,r*0.5,it.prev,it.ax,C.ink,1);}
+  seg(ctx,x-u[0]*r,y-u[1]*r,x+u[0]*r,y+u[1]*r,C.ink,2.6);
+}
+
+/* 圆下面的标签：居中，但不超出画布两边 */
+function lbl(ctx,s,x,y,col,size,weight,o){var w=rt(ctx,s,0,0,null,size,weight,'left',null,null,true);rt(ctx,s,clamp(x,o.x0-2+w/2,o.x1+2-w/2),y,col,size,weight,'center');}
+/* 光路：一排顺着光束看的圆（像 Figure 2.5），下面是强度条 */
+function strip(ctx,o){
+  var n=IT.length,p=(o.x1-o.x0)/n,r=Math.min(o.rm,p*0.36),bw=Math.min(64,p*0.8),i,it,x,x2,s2;
+  for(i=0;i<n;i++){x=o.x0+p*(i+0.5);x2=i<n-1?x+p:x+r+12;
+    if(IT[i].fo>0.004){ctx.fillStyle=rgba(C.light,0.08+0.5*IT[i].fo);ctx.fillRect(x,o.cy-o.bh/2,x2-x,o.bh);}}
+  for(i=0;i<n;i++){it=IT[i];x=o.x0+p*(i+0.5);
+    if(it.k==='filt'){filtD(ctx,x,o.cy,r+1,it);txt(ctx,o.wide?it.tw:it.tn,x,o.ty,C.ink,o.wide?12.5:11.5,600,'center');}
+    else{vibD(ctx,x,o.cy,r,it,i);
+      hbar(ctx,x-bw/2,o.by,bw,o.wide?7:6,it.fo,C.light);
+      lbl(ctx,o.wide?it.b1:it.n1,x,o.b1y,C.ink,o.wide?13:12,600,o);
+      s2=o.wide?it.b2:it.n2;if(s2)lbl(ctx,s2,x,o.b2y,C.muted,o.wide?12:11.5,500,o);}
+  }
+  var a0=o.x0+p*0.5-r,a1=o.x0+p*(n-0.5)+r+12,lb='direction of travel',lw;
+  seg(ctx,a0,o.ay,a1-6,o.ay,rgba(C.muted,0.7),1.6);arrow(ctx,a1-14,o.ay,a1,o.ay,rgba(C.muted,0.9),1.6,8);
+  ctx.font='500 11.5px '+FONT;lw=ctx.measureText(lb).width;
+  ctx.fillStyle=C.stage;ctx.fillRect((a0+a1)/2-lw/2-6,o.ay-8,lw+12,16);
+  txt(ctx,lb,(a0+a1)/2,o.ay+4,C.muted,11.5,500,'center');
+}
+
+/* 到达 analyser 的振动 A，分成沿轴（通过）和垂直于轴（挡掉）两部分（像 Figure 2.5 b） */
+function inset(ctx,cx,cy,L,wide){
+  var pv=m5.mid?45:0,th=m5.th,d=th-pv,ad=Math.abs(d),c=Math.cos(d*DEG),sd=Math.sin(d*DEG);
+  var g=dirv(pv),u=dirv(th),E=L*1.18,fs=wide?12.5:12;
+  seg(ctx,cx-g[0]*E,cy-g[1]*E,cx+g[0]*E,cy+g[1]*E,rgba(C.muted,0.85),1.2,[4,4]);
+  seg(ctx,cx-u[0]*E,cy-u[1]*E,cx+u[0]*E,cy+u[1]*E,C.ink,1.8);
+  var Ax=cx+g[0]*L,Ay=cy+g[1]*L,Px=cx+u[0]*L*c,Py=cy+u[1]*L*c,Bx=cx+Ax-Px,By=cy+Ay-Py,pl=Math.abs(c)*L,bl=Math.abs(sd)*L;
+  if(pl>3&&bl>3){seg(ctx,Ax,Ay,Px,Py,rgba(C.muted,0.75),1,[2,3]);seg(ctx,Ax,Ay,Bx,By,rgba(C.muted,0.75),1,[2,3]);}
+  /* 夹角：小于 90° 时画在对顶角那边（两条轴的延长线之间），那里没有箭头 */
+  if(ad>0.5){var o2=ad<90?180:0;arcA(ctx,cx,cy,L*0.24,pv+o2,th+o2,C.ink,1.1);var mv=dirv(ad<35?th+o2+(d>0?17:-17):(pv+th)/2+o2),rl=L*0.24+(ad<35?11:9); /* 角度小时标签放在弧外面 */
+    if(m5.mid)txt(ctx,ad+'°',cx+mv[0]*rl,cy+mv[1]*rl,C.ink,fs,600,'center','middle');
+    else txt(ctx,'θ',cx+mv[0]*rl,cy+mv[1]*rl,C.ink,fs+2,600,'center','middle',MATH);}
+  arrow(ctx,cx,cy,Ax,Ay,rgba(C.violet,0.42),2,9);
+  if(bl>4)darrow(ctx,cx,cy,Bx,By,C.muted);
+  if(pl>4)arrow(ctx,cx,cy,Px,Py,C.violet,3.2,10);
+  dot(ctx,cx,cy,3,C.ink);
+  var pd=c<0?[-u[0],-u[1]]:[u[0],u[1]],nn=[-g[1],g[0]];
+  if(bl<1){ /* 和前一片同方向：全部通过 */
+    if(nn[0]<0){nn[0]=-nn[0];nn[1]=-nn[1];}
+    lab(ctx,Ax+g[0]*6+nn[0]*8,Ay+g[1]*6+nn[1]*8,nn[0],'all passes',C.violet,fs);
+  }else if(pl<1){ /* 和前一片垂直：全部挡掉 */
+    lab(ctx,Ax+g[0]*11,Ay+g[1]*11,g[0],wide?'A: all blocked':'all blocked',C.muted,fs);
+  }else{
+    /* A 的标签放在离 A 较远的那个分量一侧，避开较近的那个分量的标签；短分量的标签至少离中心 0.6L，避开角度标签 */
+    var bd=[(Bx-cx)/bl,(By-cy)/bl],aw=Math.abs(c)>=Math.abs(sd)?pd:bd,rp=Math.max(pl+15,L*0.6),rb=Math.max(bl+10,L*0.6);
+    if(nn[0]*aw[0]+nn[1]*aw[1]>0){nn[0]=-nn[0];nn[1]=-nn[1];}
+    lab(ctx,Ax+g[0]*7+nn[0]*7,Ay+g[1]*7+nn[1]*7,nn[0],'A',C.violet,fs);
+    /* “通过”的标签：沿轴放，再往离开 A 的一侧挪 12 px，轴线就不会穿过字；轴接近竖直时字往旁边伸 */
+    var qq=[-pd[1],pd[0]];if(qq[0]*g[0]+qq[1]*g[1]>0){qq[0]=-qq[0];qq[1]=-qq[1];}
+    lab(ctx,cx+pd[0]*rp+qq[0]*12,cy+pd[1]*rp+qq[1]*12,(!wide&&ad===75&&pd[0]<0)?1:(Math.abs(pd[0])>0.12?pd[0]:qq[0]),m5.mid?(wide?'A cos '+ad+'°':'passes'):'A cos θ',C.violet,fs);
+    lab(ctx,cx+bd[0]*rb,cy+bd[1]*rb,Math.abs(bd[0])>0.12?bd[0]:-g[0],'blocked',C.muted,fs); /* arrow near vertical: the wider English word goes on the side away from A */
+  }
+}
+/* 假如是纵波：侧面看，振动顺着前进方向来回，滤光片前后一样 */
+function side(ctx,cx,cy,L){
+  var x0=cx-L*1.55,x1=cx+L*1.55,ph=m5.t*OM,a=Math.min(11,L*0.22),k,px,dd;
+  ctx.fillStyle=rgba(C.light,0.45);ctx.fillRect(x0,cy-4,x1-x0-12,8);
+  arrow(ctx,x1-18,cy,x1,cy,C.light,3,11);
+  rrect(ctx,cx-4,cy-L*0.8,8,L*1.6,3);ctx.fillStyle=rgba(C.muted,0.28);ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+  for(k=0;k<4;k++){px=k<2?lerp(x0,cx,0.3+0.4*k):lerp(cx,x1-12,0.3+0.4*(k-2));
+    arrow(ctx,px,cy-11,px+a+3,cy-11,rgba(C.violet,0.4),1.3,6);arrow(ctx,px,cy-11,px-a-3,cy-11,rgba(C.violet,0.4),1.3,6);
+    dd=a*Math.sin(ph-k*0.9);dot(ctx,px+dd,cy,3.6,C.violet);}
+  txt(ctx,'filter',cx,cy+L*0.8+16,C.muted,11.5,500,'center');
+}
+
+/* I–θ 图：Malus' law 曲线 + booklet 实验点 + 现在的点 */
+function graph(ctx,x0,y0,w,h,wide){
+  var gray=m5.mid,YM=14,i,t,v,fs=11.5,px,py,lx,ly;
+  function X(a){return x0+a/180*w;}function Y(q){return y0+h-q/YM*h;}
+  seg(ctx,x0,Y(6),x0+w,Y(6),C.grid,1);seg(ctx,x0,Y(12),x0+w,Y(12),C.grid,1);
+  seg(ctx,x0,y0,x0,y0+h,C.muted,1.2);seg(ctx,x0,y0+h,x0+w,y0+h,C.muted,1.2);
+  txt(ctx,'0',x0-12,Y(0)+4,C.muted,fs,500,'right');txt(ctx,'6',x0-12,Y(6)+4,C.muted,fs,500,'right');txt(ctx,'12',x0-12,Y(12)+4,C.muted,fs,500,'right');
+  rt(ctx,'I (W m⁻²)',wide?16:12,y0-8,C.muted,fs,500,'left');
+  for(t=0;t<=180;t+=45){seg(ctx,X(t),y0+h,X(t),y0+h+4,C.muted,1);txt(ctx,t+'°',X(t),y0+h+20,C.muted,fs,500,'center');}
+  ctx.beginPath();for(t=0;t<=180;t+=2){v=IMAX*cos2(t);if(t)ctx.lineTo(X(t),Y(v));else ctx.moveTo(X(t),Y(v));}
+  ctx.strokeStyle=gray?rgba(C.muted,0.4):C.copper;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.setLineDash([]);ctx.stroke();
+  var lbx=null; /* 纵波预测标签的范围（竖的虚线要绕开它） */
+  if(m5.lon&&!gray){seg(ctx,X(0),Y(IMAX),X(180),Y(IMAX),C.violet,2,[7,5]);
+    var lfs=wide?12.5:12,lw5=rt(ctx,'Prediction if longitudinal:',X(90),Y(IMAX)+20,C.violet,lfs,600,'center'),lw6=rt(ctx,'no change with θ (illustrative)',X(90),Y(IMAX)+37,C.violet,lfs,600,'center');
+    lw5=Math.max(lw5,lw6);lbx=[X(90)-lw5/2-4,X(90)+lw5/2+4,Y(IMAX)+37+5];}
+  for(i=0;i<13;i++){t=i*15;v=EXP[i];
+    if(t<=90)dot(ctx,X(t),Y(v),3.6,gray?rgba(C.muted,0.45):C.copper);
+    else{dot(ctx,X(t),Y(v),3.6,C.stage);ring(ctx,X(t),Y(v),3.6,gray?rgba(C.muted,0.45):C.south,1.8);}}
+  if(gray){txt(ctx,'This graph: two-filter experiment',X(90),Y(10.4),C.muted,12.5,600,'center');txt(ctx,'(not valid with middle filter)',X(90),Y(10.4)+18,C.muted,12,500,'center');}
+  else{v=m5.lon?IMAX:IMAX*cos2(m5.th);px=X(m5.th);py=Y(v);
+    var gtop=(lbx&&px>lbx[0]&&px<lbx[1])?lbx[2]:py+8;
+    if(gtop<y0+h)seg(ctx,px,y0+h,px,gtop,rgba(C.ink,0.4),1.2,[3,3]);ring(ctx,px,py,7.5,C.ink,2);}
+  /* 图例 */
+  ly=y0+h+(wide?38:35);lx=x0;
+  dot(ctx,lx+4,ly-4,3.6,gray?rgba(C.muted,0.45):C.copper);txt(ctx,'0°–90°',lx+12,ly,C.muted,fs,500);
+  ctx.font='500 '+fs+'px '+FONT;lx+=12+ctx.measureText('0°–90°').width+14;
+  dot(ctx,lx+4,ly-4,3.6,C.stage);ring(ctx,lx+4,ly-4,3.6,gray?rgba(C.muted,0.45):C.south,1.8);txt(ctx,'105°–180°',lx+12,ly,C.muted,fs,500);
+  lx+=12+ctx.measureText('105°–180°').width+12;
+  txt(ctx,'booklet data points',lx,ly,C.muted,fs,500);
+}
+
+function step5(dt){m5.t+=dt;m5.uT+=dt;if(m5.uT>0.13){m5.uT=0;m5.ua=rnd()*TAU;m5.ul=0.55+0.45*rnd();}}
+build();
+for(var q5=0;q5<20;q5++)step5(1/60);
+
+var HDY=18; /* phone: English status lines need more rows, so everything below them moves down by this */
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?512:612+HDY;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i,y,f1s=wide?15:13.5,f2s=wide?14:13,lh=wide?22:18,key=ST[0]+'|'+ST[1]+'|'+W;
+    /* 状态提示 */
+    if(WC.k!==key){WC.k=key;WC.a=[wrap(ctx,ST[0],W-32,f1s,600),wrap(ctx,ST[1],W-32,f2s,500)];}
+    y=wide?26:20;
+    for(i=0;i<WC.a[0].length;i++){rt(ctx,WC.a[0][i],16,y,C.ink,f1s,600,'left');y+=lh;}
+    for(i=0;i<WC.a[1].length;i++){rt(ctx,WC.a[1][i],16,y,C.ink,f2s,500,'left');y+=lh;}
+    var dy=wide?0:HDY,sep1=(wide?62:68)+dy,sep2=wide?246:220+dy;
+    seg(ctx,0,sep1,W,sep1,C.line,1);
+    /* 光路 */
+    if(wide)strip(ctx,{wide:true,x0:12,x1:W-12,ty:88,cy:132,rm:30,bh:12,by:170,b1y:194,b2y:211,ay:232});
+    else strip(ctx,{wide:false,x0:8,x1:W-8,ty:88+dy,cy:122+dy,rm:22,bh:9,by:152+dy,b1y:172+dy,b2y:188+dy,ay:205+dy});
+    seg(ctx,0,sep2,W,sep2,C.line,1);
+    /* 右边（手机：中间）：振动分解或侧面图 + 读数 */
+    var cx,cy,L,tx,ty,ry,rx,lgx,lgy,tl;
+    if(wide){tx=Math.round(W*0.62);ty=270;cx=Math.round((tx+W-16)/2);cy=356;L=58;lgy=440;}
+    else{tx=12;ty=240+dy;cx=Math.round(W*0.28);cy=318+dy;L=48;lgy=394+dy;}
+    tl=m5.lon?'Side view (if longitudinal)':(wide&&m5.mid?'Vibration A reaching analyser (from middle)':'Vibration A reaching the analyser');
+    rt(ctx,tl,tx,ty,C.ink,wide?13:12.5,600,'left');
+    if(m5.lon){side(ctx,cx,cy,L);
+      tl='● Vibration is along the direction of travel';lgx=wide?cx:tx;
+      txt(ctx,tl,lgx,lgy,C.violet,wide?12:11.5,600,wide?'center':'left');}
+    else{inset(ctx,cx,cy,L,wide);
+      var fl=wide?12:11.5,w1,w2;ctx.font='500 '+fl+'px '+FONT;w1=ctx.measureText('analyser axis').width;w2=ctx.measureText('previous filter axis').width;
+      lgx=wide?cx-(22+w1+16+22+w2)/2:tx;
+      seg(ctx,lgx,lgy-4,lgx+18,lgy-4,C.ink,1.8);txt(ctx,'analyser axis',lgx+22,lgy,C.muted,fl,500);
+      lgx+=22+w1+16;seg(ctx,lgx,lgy-4,lgx+18,lgy-4,rgba(C.muted,0.85),1.2,[4,4]);txt(ctx,'previous filter axis',lgx+22,lgy,C.muted,fl,500);}
+    if(wide){for(i=0;i<RW.length;i++)rt(ctx,RW[i],tx,463+i*20,i?C.muted:C.ink,12.5,i?500:600,'left');}
+    else{rx=Math.round(W*0.56);for(i=0;i<RN.length;i++)rt(ctx,RN[i],rx,262+dy+i*19,C.ink,12.5,500,'left');
+      seg(ctx,0,404+dy,W,404+dy,C.line,1);}
+    /* I–θ 图 */
+    if(wide){rt(ctx,GH[0],16,270,C.ink,13.5,600,'left');graph(ctx,52,300,Math.round(W*0.58)-52,140,true);}
+    else{rt(ctx,GH[1],12,424+dy,C.ink,12.5,600,'left');graph(ctx,40,452+dy,W-58,118,false);}
+  }
+});
+
+function sync5(){
+  press(bMid,m5.mid);bMid.textContent=m5.mid?'Remove the middle filter':'Add a 45° filter between';
+  press(bLon,m5.lon);bLon.textContent=m5.lon?'Back to transverse (real)':'If light were longitudinal';
+  oTh.textContent=m5.th+'°';build();S5.render();
+}
+rTh.addEventListener('input',function(){m5.th=clamp(Math.round(parseFloat(rTh.value)/15)*15,0,180);sync5();});
+/* 两个模式互斥：纵波的预测只对两片的实验画（中间片开着时图变灰） */
+bMid.addEventListener('click',function(){m5.mid=!m5.mid;if(m5.mid)m5.lon=false;sync5();});
+bLon.addEventListener('click',function(){m5.lon=!m5.lon;if(m5.lon)m5.mid=false;sync5();});
+})();
+</script>
+</body>
+</html>

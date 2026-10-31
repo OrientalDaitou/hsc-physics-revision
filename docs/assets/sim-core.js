@@ -50,7 +50,7 @@ function makeStage(id,o){
   s.render=function(){ctx.save();s.draw(ctx,s.W,s.H);ctx.restore();};
   s.resize=function(force){var w=Math.round(box.clientWidth)||300;if(w===s.lw&&!force)return;s.lw=w;var h=Math.round(s.height(w));var dpr=Math.min(2,window.devicePixelRatio||1);s.W=w;s.H=h;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);cv.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);s.render();};
   var pb=fig.querySelector('[data-play]');
-  s.sync=function(){if(pb)pb.textContent=s.playing?'暂停':'播放';};
+  s.sync=function(){if(pb)pb.textContent=document.documentElement.lang==='en'?(s.playing?'Pause':'Play'):(s.playing?'暂停':'播放');};
   s.setPlaying=function(v){s.playing=v;s.sync();};
   if(pb)pb.addEventListener('click',function(){s.setPlaying(!s.playing);});
   s.sync();

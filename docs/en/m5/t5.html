@@ -1,0 +1,1820 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M5 T5 Energy in Gravitational Fields</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m5">Module 5</a><span class="sep">/</span><span aria-current="page">Topic 5</span><a class="lang" lang="zh-Hans" href="../../m5/t5.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 5 · Topic 5</div>
+  <h1>Energy in Gravitational Fields</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter is about energy in space: satellites, planets and rockets. Two things confuse people the most: why U is negative, and why a higher satellite is slower but has more energy. If you remember the <b>three rules</b> below, you can work all of these out yourself.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s7">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s9">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Zero at infinity</div>
+    <p>We choose U = 0 at infinity. Moving outwards, U increases, and it reaches 0 only at infinity. So U is negative everywhere else.</p>
+    <div class="eqs"><i>U</i> = −<i>GMm</i> / <i>r</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Gravity only: E stays the same</div>
+    <p>When only gravity does work, E = K + U does not change. E &lt; 0 is <span class="t">bound</span> (trapped by gravity), so the object cannot get away. E ≥ 0 means it can escape.</p>
+    <div class="eqs"><i>E</i> = ½<i>mv</i>² − <i>GMm</i> / <i>r</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Circular-orbit shortcut</div>
+    <p>In a circular orbit E = −K and U = 2E. So in a higher orbit the satellite is slower, but its total energy is larger.</p>
+    <div class="eqs"><i>E</i> = −<i>K</i>, <i>U</i> = 2<i>E</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="In this chapter">
+  <div class="map-row head"><span>Part</span><span>Key formula</span><span>Rule used</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">5.1</span><span class="t">Potential energy&nbsp;U</span></span><span><span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span></span><span>① U = 0 at infinity, so U is negative</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">5.2</span><span class="t">Circular orbits</span></span><span><span class="m"><i>E</i> = −<i>GMm</i>/2<i>r</i></span></span><span>③ Higher means slower, but E is larger</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">5.2</span><span class="t">Elliptical orbits</span></span><span><span class="m"><i>E</i> = <i>K</i> + <i>U</i></span> stays the same</span><span>② K and U swap, E stays the same</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">5.3</span><span class="t">Escape velocity</span></span><span><span class="m"><i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>)</span></span><span>② E = 0: it only just escapes</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">5.4</span><span class="t">Moving between orbits</span></span><span><span class="m">Δ<i>E</i> = <i>E</i><sub>2</sub> − <i>E</i><sub>1</sub></span></span><span>③ ΔK = −ΔE, ΔU = 2ΔE</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">5.5</span><span class="t">Key experiments</span></span><span>8.94 / 8.95 km s<sup>−1</sup></span><span>② The sign of E decides if it escapes</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially that r is measured from the centre of the Earth.</li>
+    <li>Teach 5.1 → 5.4 in order. In each section, read the "Big idea" first, then open the animation and let the students say what they see: which energy bar gets longer and which gets shorter.</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes", especially the minus sign and "E increases = it gets less negative".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li><span class="t">Kinetic energy</span> <span class="m"><i>K</i> = ½<i>mv</i>²</span> is never negative (K = 0 at rest). <span class="t">Work</span> <span class="m"><i>W</i> = <i>Fs</i>&nbsp;cos&nbsp;<i>θ</i></span>: when a force is at 90° to the motion, that force does no work (M5 T3).</li>
+    <li><span class="m"><i>F</i> = <i>GMm</i>/<i>r</i>²</span>: r is measured from the <b>centre</b> of the planet, <span class="m"><i>r</i> = <i>r</i><sub>E</sub> + <i>h</i></span>. The farther away, the weaker the gravity (M5 T4).</li>
+    <li>In a circular orbit, gravity is the centripetal force: <span class="m"><i>GMm</i>/<i>r</i>² = <i>mv</i>²/<i>r</i></span>, so <span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span> (M5 T4).</li>
+    <li>Near the ground <span class="m">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span>. <span class="m"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></span>: when gravity does positive work, U decreases (M5 T3).</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">5.1</div>
+  <h2>Gravitational potential energy in a radial field</h2>
+  <p class="big"><span class="lbl">Big idea</span>Far from the ground, gravity gets weaker, so mgΔh works only near the surface. With U = 0 at infinity, U = −GMm/r is negative everywhere else.</p>
+  <ul class="pts">
+    <li><span class="t">Gravitational potential energy</span> (<span class="m"><i>U</i></span>): energy stored because of <b>where</b> an object is in a gravitational field. Unit: J.</li>
+    <li><span class="t">Radial field</span>: a field whose lines all point straight at the planet's centre, like the spokes of a wheel.</li>
+    <li><span class="t">Infinity</span>: so far away that the planet's gravity is too small to matter.</li>
+    <li><span class="m"><i>mg</i>Δ<i>h</i></span> assumes that g stays constant. But far from the ground g gets smaller, so you cannot use it in space.</li>
+  </ul>
+
+  <h3>Why U is negative: three steps</h3>
+  <ol class="pts">
+    <li>We <b>choose</b> U = 0 at infinity, where the pull of gravity is zero.</li>
+    <li>Moving away needs <span class="t">work against gravity</span>. So U increases as r increases.</li>
+    <li>U reaches 0 only at infinity. So U is negative at every real distance.</li>
+  </ol>
+  <p>The minus sign comes from our choice of zero. It is like calling the roof of a building 0 m: the height of every floor inside is a negative number, but going upstairs still takes you higher. Only <b>changes</b> in U can be measured.</p>
+
+  <h3>How work and U are linked</h3>
+  <ul class="pts">
+    <li>Work done by gravity: <span class="m"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></span>. When an object moves outwards, gravity pulls inwards, so gravity does negative work and U increases.</li>
+    <li>When an engine pushes an object outwards at a steady speed, all of its work is stored as U: <span class="m"><i>W</i><sub>against</sub> = +Δ<i>U</i></span>.</li>
+    <li><b>Where U comes from:</b> draw the graph of <span class="m"><i>F</i> = <i>GMm</i>/<i>r</i>²</span> against r. From <span class="m"><i>r</i><sub>1</sub></span> to <span class="m"><i>r</i><sub>2</sub></span>, the area under the graph = work against gravity = <span class="m">Δ<i>U</i> = <i>GMm</i>(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</span>.</li>
+    <li>Let <span class="m"><i>r</i><sub>1</sub> = <i>r</i></span> and <span class="m"><i>r</i><sub>2</sub> = ∞</span>, then use U(∞) = 0: <span class="m">0 − <i>U</i> = <i>GMm</i>/<i>r</i></span>, so <span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Gravitational potential energy</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>U</i> = −<i>GMm</i> / <i>r</i></div>
+    <dl class="sym">
+      <div><dt>U</dt><dd>gravitational potential energy, zero at infinity (J)</dd></div>
+      <div><dt>G</dt><dd>universal gravitational constant, 6.67 × 10<sup>−11</sup> (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M, m</dt><dd>mass of the planet (or star), mass of the object (kg)</dd></div>
+      <div><dt>r</dt><dd>distance from the <b>centre</b> of the planet (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> at any distance from a planet, moon or star. For a change, subtract: <span class="m">Δ<i>U</i> = <i>U</i><sub>2</sub> − <i>U</i><sub>1</sub> = <i>GMm</i>(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</span>.<br><b>Trap:</b> <span class="m"><i>r</i> = <i>r</i><sub>E</sub> + altitude</span> (height above the ground). Keep the minus sign.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Change in U</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq">Δ<i>U</i> = <i>GMm</i>(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</div>
+    <dl class="sym">
+      <div><dt>ΔU</dt><dd>change in U, <span class="m"><i>U</i><sub>2</sub> − <i>U</i><sub>1</sub></span> (J)</dd></div>
+      <div><dt>r<sub>1</sub></dt><dd>distance from the start point to the centre (m)</dd></div>
+      <div><dt>r<sub>2</sub></dt><dd>distance from the end point to the centre (m)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> use <span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span> from the sheet. Work it out once for each position, then subtract: <span class="m" style="white-space:nowrap">−<i>GMm</i>/<i>r</i><sub>2</sub> − (−<i>GMm</i>/<i>r</i><sub>1</sub>)</span>.<br><b>Note:</b> moving outwards (<span class="m"><i>r</i><sub>2</sub> &gt; <i>r</i><sub>1</sub></span>), ΔU is positive: U increases.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Gravity's work and the change in U</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></div>
+    <dl class="sym">
+      <div><dt>W<sub>by gravity</sub></dt><dd>work done by gravity (J)</dd></div>
+      <div><dt>ΔU</dt><dd>change in U (J)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> moving outwards, gravity does negative work and U increases. Falling inwards, gravity does positive work and U decreases.<br><b>Note:</b> when an engine pushes outwards at a steady speed, its work is <span class="m"><i>W</i><sub>against</sub> = +Δ<i>U</i></span>, with the opposite sign.</p>
+  </div>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">Animation 1 · Why U is negative: F–r area and U–r curve</span><span class="sim-tag"><span style="text-transform:none">1 kg</span> · Earth and distances to scale · data: calculated</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="At the top are Earth and gravitational field lines pointing to Earth's centre. A 1 kg object is pushed outwards at a steady speed by an applied force. The applied force is equal in size to gravity and opposite in direction, and both forces get smaller farther out. In the middle is the F–r graph: the area under the curve from the start to the object's position is shaded, and this area is the work against gravity. At the bottom is the U–r graph: U increases as r increases and gets closer and closer to 0, but stays below 0. All three parts use the same r axis, and beyond 6 r_E it is compressed out to infinity."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Start <span><i>r</i><sub>1</sub></span> <input type="range" id="s1-r1" min="1" max="5" step="0.5" value="1"><output id="s1-r1-out" for="s1-r1">1.0 r<sub>E</sub></output></label>
+    <button class="btn" type="button" id="s1-inf" aria-pressed="false">Push to infinity</button>
+    <button class="btn" type="button" id="s1-mg" aria-pressed="false">Compare mgΔh: off</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First frame: pushing from 1.0 <i>r</i><sub>E</sub> to 2.0 <i>r</i><sub>E</sub>, the shaded area under the F–r graph = work against gravity = 31.4 MJ. <i>U</i> rises from −62.8 to −31.4 MJ, and it is still negative. ② Drag the start <i>r</i><sub>1</sub> to 3.0: for the same push of 1 <i>r</i><sub>E</sub>, the area is only 5.2 MJ (gravity is weaker farther out). ③ Put the start back to 1.0 and press "Push to infinity": it takes 62.8 MJ in total for <i>U</i> to reach 0. ④ Turn on "Compare mgΔh": if you assume <i>g</i> stays constant, the straight line becomes positive after about 2 <i>r</i><sub>E</sub>. This is wrong. The numbers on the graphs use the data sheet constants (calculated).</p>
+</figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">5.2</div>
+  <h2>Kinetic, potential and total energy in orbit</h2>
+  <p class="big"><span class="lbl">Big idea</span>In a circular orbit the total energy is U + K = −GMm/2r. A lower satellite moves faster, but it has less total energy.</p>
+  <ul class="pts">
+    <li><span class="t">Total mechanical energy</span> (<span class="m"><i>E</i></span>) = kinetic energy + potential energy: <span class="m"><i>E</i> = <i>U</i> + <i>K</i></span>, unit: J.</li>
+    <li>K is always positive and U is always negative. In a circular orbit K is exactly half the size of U, so E is negative.</li>
+    <li>You can think of E as "how much more energy it needs to escape". E&nbsp;=&nbsp;−15.7&nbsp;MJ means it still needs 15.7 MJ. The lower the satellite, the more it needs, even though it moves faster.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Kinetic and total energy in a circular orbit</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .5em"><i>K</i> = <i>GMm</i> / 2<i>r</i></span> <span style="display:inline-block;margin:0 .5em"><i>E</i> = <i>U</i> + <i>K</i> = −<i>GMm</i> / 2<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>K</dt><dd>kinetic energy of the satellite (J)</dd></div>
+      <div><dt>E</dt><dd>total mechanical energy, <span class="m"><i>U</i> + <i>K</i></span> (J)</dd></div>
+      <div><dt>G</dt><dd>universal gravitational constant, 6.67 × 10<sup>−11</sup> (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M, m</dt><dd>mass of the planet, mass of the satellite (kg)</dd></div>
+      <div><dt>r</dt><dd>radius of the orbit, from the centre of the planet (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> <b>circular</b> orbits only. Shortcuts: <span class="m"><i>E</i> = −<i>K</i></span> and <span class="m"><i>U</i> = 2<i>E</i></span>.<br><b>You can also derive it:</b> gravity is the centripetal force.<br>① <span class="m"><i>mv</i>²/<i>r</i> = <i>GMm</i>/<i>r</i>²</span>, so <span class="m"><i>v</i>² = <i>GM</i>/<i>r</i></span> and <span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span>.<br>② Put in <span class="m"><i>v</i>² = <i>GM</i>/<i>r</i></span>: <span class="m"><i>K</i> = ½<i>mv</i>² = <i>GMm</i>/2<i>r</i></span>.<br>③ Add <span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i> = −2<i>GMm</i>/2<i>r</i></span>: <span class="m"><i>E</i> = −2<i>GMm</i>/2<i>r</i> + <i>GMm</i>/2<i>r</i> = −<i>GMm</i>/2<i>r</i></span>.<br><b>Trap:</b> for an ellipse use <span class="m"><i>K</i> = ½<i>mv</i>²</span>. "E increases" means it gets <b>less negative</b>.</p>
+  </div>
+
+  <h3>What changes when the orbit gets bigger?</h3>
+  <p>Figure 5.1 in the booklet shows K, U and E for 1 kg in different circular orbits (r from 1 to 6 r<sub>E</sub>, in MJ). As r increases, U rises towards 0 but never reaches 0. Using the data sheet constants, at <span class="m"><i>r</i> = 2<i>r</i><sub>E</sub></span>: K = +15.7 MJ, U = −31.4 MJ, E = −15.7 MJ. This is exactly E = −K and U = 2E.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Quantity</th><th>When the orbit gets bigger</th></tr></thead>
+      <tbody>
+        <tr><td>speed <span class="m"><i>v</i></span></td><td>decreases</td></tr>
+        <tr><td>force of gravity <span class="m"><i>F</i></span></td><td>decreases (<span class="m"><i>F</i> ∝ 1/<i>r</i>²</span>)</td></tr>
+        <tr><td>kinetic energy <span class="m"><i>K</i></span></td><td>decreases</td></tr>
+        <tr><td>potential energy&nbsp;<span class="m"><i>U</i></span></td><td>increases (less negative)</td></tr>
+        <tr><td>total energy <span class="m"><i>E</i></span></td><td>increases (less negative)</td></tr>
+        <tr><td>period <span class="m"><i>T</i></span></td><td>increases</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="duo">
+    <div class="state hot"><div class="state-h">E &lt; 0</div><p><span class="t">Bound</span>: it cannot get away. It either orbits or falls back.</p></div>
+    <div class="state"><div class="state-h">E ≥ 0</div><p>It can escape and never comes back.</p></div>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Circular orbit: lower means faster, but less total energy</span><span class="sim-tag">anticlockwise · drawn to scale · time sped up 2000× · <span style="white-space:nowrap">curves as in <span style="text-transform:none">Figure 5.1</span></span> · <span style="white-space:nowrap">data: calculated</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left, a 1 kg satellite moves anticlockwise around Earth in uniform circular motion. The velocity v is along the tangent, the green gravitational force F points to Earth's centre, and the two are at 90°. On the right are the K, U and E curves of Figure 5.1 in the booklet. A vertical line and three dots follow the current orbit radius r. Next to the curves, three energy bars K, U and E use the same vertical axis as the curves. Below are three readouts: speed v, gravitational force F and period T."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Orbit radius <span class="m"><i>r</i></span> <input type="range" id="s2-r" min="1" max="6" step="0.1" value="2"><output id="s2-r-out" for="s2-r">2.0 <i>r</i><sub>E</sub></output></label>
+    <button class="btn" type="button" id="s2-two">Go to 2 <i>r</i><sub>E</sub></button>
+    <button class="btn" type="button" id="s2-cmp" aria-pressed="false">Comparison satellite (4 <i>r</i><sub>E</sub>): off</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Drag <i>r</i> from 1 to 6: <i>v</i> gets smaller and <i>T</i> gets longer. The <i>K</i> bar gets shorter, and the <i>U</i> and <i>E</i> bars shrink towards 0 ("<i>E</i> increases" means it gets less negative, but it is always &lt; 0). ② Look at the three bars: <i>K</i> and <i>E</i> are the same length, in opposite directions (<i>E</i> = −<i>K</i>). The mark on the <i>U</i> bar is at the height of <i>E</i> (<i>U</i> = 2<i>E</i>). ③ Turn on "Comparison satellite": the inner one is faster and has larger <i>K</i>, but its <i>E</i> is more negative. ④ <i>F</i> is always at 90° to <i>v</i>, so the speed does not change. The <i>F</i> arrow on the orbit diagram only shows direction. For its size, look at the <i>F</i> bar below. The curves are the same as Figure 5.1 (1 kg). All values use the data sheet constants (calculated).</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">5.2</div>
+  <h2>Energy in elliptical orbits (Kepler's laws)</h2>
+  <p class="big"><span class="lbl">Big idea</span>With gravity only, E = K + U stays the same. When a planet gets closer to the Sun, U goes down, so K goes up and the planet moves faster.</p>
+  <p>First, a review of <span class="t">Kepler's laws</span> (covered in M5 T4):</p>
+  <ol class="pts">
+    <li><span class="t">Kepler's first law</span>: each planet moves in an <span class="t">ellipse</span>, with the Sun at one <span class="t">focus</span>.</li>
+    <li><span class="t">Kepler's second law</span>: a line from the Sun to the planet sweeps out equal areas in equal times.</li>
+    <li><span class="t">Kepler's third law</span>: <span class="m"><i>r</i>³/<i>T</i>² = <i>GM</i>/4π²</span> (on the sheet).</li>
+  </ol>
+  <p>The <span class="t">eccentricity</span> (e) tells you how stretched an ellipse is: e = 0 is a circle, and the closer e is to 1, the flatter the ellipse.</p>
+  <p>Now we link these laws to energy.</p>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Circle</div><p>Gravity is always at 90° to v. <span class="m"><i>W</i> = <i>Fs</i> cos 90° = 0</span>, so gravity does no work and the speed stays the same.</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">Ellipse</div><p>Gravity is the only force, so <span class="m"><i>E</i> = <i>K</i> + <i>U</i></span> stays the same. When U goes down, K goes up. This is called <span class="t">conservation of mechanical energy</span>.</p></div>
+  </div>
+  <ul class="pts">
+    <li><span class="t">Perihelion</span> (closest point to the Sun): U lowest, K largest, fastest.</li>
+    <li><span class="t">Aphelion</span> (farthest point from the Sun): U highest, K smallest, slowest. This agrees with Kepler's second law.</li>
+    <li>Why it speeds up (Figure 5.2 in the booklet, anticlockwise): on the way in towards the Sun, part of the force of gravity F points along v. It is as if gravity pushes the planet from behind, so it goes faster and faster.</li>
+    <li>Analogy: a skateboard in a half-pipe. Going down, it gets faster and faster (U turns into K). Going up, it gets slower and slower (K turns into U). The total energy stays the same.</li>
+  </ul>
+  <p>At any point of any path where gravity is the only force, you can write <span class="m"><i>E</i> = <i>K</i> + <i>U</i> = ½<i>mv</i>² − <i>GMm</i>/<i>r</i></span>. Use v and r at the <b>same point</b>.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Total energy, gravity only</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>E</i> = <i>K</i> + <i>U</i> = ½<i>mv</i>² − <i>GMm</i> / <i>r</i></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>total mechanical energy (J)</dd></div>
+      <div><dt>m</dt><dd>mass of the object (kg)</dd></div>
+      <div><dt>v</dt><dd>speed at this point (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>distance from this point to the centre (m)</dd></div>
+      <div><dt>M</dt><dd>mass of the central body (kg)</dd></div>
+      <div><dt>G</dt><dd>universal gravitational constant, 6.67 × 10<sup>−11</sup> (N m² kg<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> the sheet has <span class="m"><i>K</i> = ½<i>mv</i>²</span> and <span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span>. Just add them.<br><b>When to use:</b> any path with gravity only: a circle, an ellipse, something thrown. E &lt; 0: bound.<br><b>Trap:</b> v and r must be at the same point. On an ellipse you cannot use <span class="m"><i>K</i> = <i>GMm</i>/2<i>r</i></span>.</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · Elliptical orbit: K and U swap, E stays the same</span><span class="sim-tag">Sun at the right focus · anticlockwise · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A planet moves anticlockwise around the Sun in an ellipse, with the Sun at the right focus. It is fast at perihelion and slow at aphelion. The planet shows its velocity v and the gravitational force F pointing to the Sun. F can be split into a part along v and a part perpendicular to v. Beside the orbit are three energy bars, K, U and E: when K gets larger, U gets smaller; when K gets smaller, U gets larger; E never changes."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Eccentricity e <input type="range" id="s3-e" min="0" max="0.7" step="0.05" value="0.5"><output id="s3-e-out" for="s3-e">0.50</output></label>
+    <button class="btn" type="button" id="s3-split" aria-pressed="true">Split F: on</button>
+    <button class="btn" type="button" id="s3-stop">Stop at perihelion</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Watch the three energy bars: moving towards perihelion, <i>U</i> becomes more negative, <i>K</i> gets larger and <i>E</i> does not move. ② Press "Stop at perihelion", then press "Stop at aphelion": <i>K</i> is largest at one point and smallest at the other, and <i>E</i> is the same at both. ③ Look at the dashed <i>F</i><sub>∥</sub> (the part of <i>F</i> along <i>v</i>): on the way in it points along <i>v</i>, so the planet speeds up; on the way out it points against <i>v</i>, so the planet slows down; at the two end points <i>F</i> ⊥ <i>v</i>. ④ Drag eccentricity e to 0: the orbit becomes a circle, and <i>K</i> and <i>U</i> do not change. Changing e keeps the long axis of the ellipse the same, so <i>E</i> does not change. The <i>v</i> arrow is to scale; the <i>F</i> arrow shows direction only. The values are illustrative. e = 0.5 is the shape in Figure 5.2: the speed at perihelion is 3 times the speed at aphelion.</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">5.3</div>
+  <h2>Escape velocity</h2>
+  <p class="big"><span class="lbl">Big idea</span>The escape velocity is the smallest launch speed that lets a projectile get away from a planet for ever. At exactly this speed, its total energy E&nbsp;=&nbsp;0.</p>
+  <ul class="pts">
+    <li><span class="t">Escape velocity</span> (<span class="m"><i>v</i><sub>esc</sub></span>): that smallest launch speed. Any slower and the object is pulled back.</li>
+    <li><span class="t">Projectile</span>: it gets all its speed at the start, then moves with only gravity acting (no engine).</li>
+    <li>The total energy decides the path.</li>
+  </ul>
+
+  <h3>Newton's cannon</h3>
+  <p>Imagine a very tall mountain, with its top above the air. A cannon on the top fires sideways at five speeds (Figure 5.3 in the booklet; the mountain is drawn far too tall, not to scale):</p>
+  <ol class="pts">
+    <li>Slower than <span class="t">orbital speed</span>: falls back to the ground.</li>
+    <li><span class="m"><i>v</i> = √(<i>GM</i>/<i>r</i>)</span>: a circle.</li>
+    <li>Between <span class="m">√(<i>GM</i>/<i>r</i>)</span> and <span class="m"><i>v</i><sub>esc</sub></span>: an ellipse.</li>
+    <li><span class="m"><i>v</i> = <i>v</i><sub>esc</sub></span>: just escapes.</li>
+    <li><span class="m"><i>v</i> &gt; <i>v</i><sub>esc</sub></span>: escapes and is still moving when very far away.</li>
+  </ol>
+  <p>Paths 1–3 have E &lt; 0: bound. Path 4 has E = 0: it reaches infinity with K = 0 and U = 0. Path 5 has E &gt; 0.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Escape velocity</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>v</i><sub>esc</sub> = √(2<i>GM</i> / <i>r</i>)</div>
+    <dl class="sym">
+      <div><dt>v<sub>esc</sub></dt><dd>escape velocity (really a speed: the direction does not matter) (m s<sup>−1</sup>)</dd></div>
+      <div><dt>G</dt><dd>universal gravitational constant, 6.67 × 10<sup>−11</sup> (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M</dt><dd>mass of the planet, moon or star (kg)</dd></div>
+      <div><dt>r</dt><dd>distance from the centre where the object starts (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a projectile, from the surface or from an orbit.<br><b>You can also derive it:</b> energy is conserved. In the smallest case the object reaches infinity with K = 0 and U = 0, so K + U = 0 at launch too.<br>① <span class="m">½<i>mv</i>² − <i>GMm</i>/<i>r</i> = 0</span>. Add <span class="m"><i>GMm</i>/<i>r</i></span> to both sides, then divide by m (m cancels): <span class="m">½<i>v</i>² = <i>GM</i>/<i>r</i></span>.<br>② Multiply by 2, take the square root: <span class="m"><i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>)</span>.<br><b>Trap:</b> do not lose the 2. Without it you get the orbital speed <span class="m">√(<i>GM</i>/<i>r</i>)</span>.</p>
+  </div>
+
+  <ul class="pts">
+    <li>m cancels, so a pebble and a spacecraft need the same escape speed (the heavier one needs more kinetic energy). From Earth's surface, <span class="m"><i>v</i><sub>esc</sub></span> = 11.2 km s<sup>−1</sup>.</li>
+    <li>At the same r: <span class="m"><i>v</i><sub>esc</sub> = √2 × <i>v</i><sub>orbital</sub></span>.</li>
+    <li>A rocket need not reach v<sub>esc</sub>. Its engines keep adding energy, and v<sub>esc</sub> is smaller higher up. It escapes once K + U reaches 0.</li>
+  </ul>
+  <p>Animation 4 launches at the five speeds from the booklet's experiment. Watch how the sign of E decides the path.</p>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">Animation 4 · Launch speed decides where it goes: Newton's cannon</span><span class="sim-tag">drawn to scale · five launches: the booklet's experiment · the rest: calculated</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Earth is drawn to scale on the left. A probe is launched sideways to the right from r₀ = 1.00 × 10⁷ m above the centre of Earth, and its path is drawn using real gravity: too slow and it falls back to the ground, 6.33 km s⁻¹ is a circle, faster is an ellipse, 8.95 km s⁻¹ and above escapes. Paths from earlier launches stay, faded. On the right (below on a phone) are the calculation of E/m = ½v₀² − GM/r₀, the present r and v, three energy bars for K, U and E per kg, a v₀ number line (marking 6.33 and 8.95), and an experiment record table sorted by v₀."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range" style="min-width:0;max-width:100%"><span style="white-space:nowrap">Launch speed</span> <span><i>v</i><sub>0</sub></span> <input type="range" id="s4-v" min="5" max="9" step="0.01" value="7" style="flex:0 1 130px;min-width:60px"><output id="s4-v-out" for="s4-v" style="white-space:nowrap">7.00 km s<sup>−1</sup></output></label>
+    <span class="seg" role="group" aria-label="The five launch speeds of the booklet's experiment (km s⁻¹)">
+      <button class="btn" type="button" id="s4-p0" aria-pressed="false">5.00</button>
+      <button class="btn" type="button" id="s4-p1" aria-pressed="false">6.33</button>
+      <button class="btn" type="button" id="s4-p2" aria-pressed="true">7.00</button>
+      <button class="btn" type="button" id="s4-p3" aria-pressed="false">8.94</button>
+      <button class="btn" type="button" id="s4-p4" aria-pressed="false">8.95</button>
+    </span>
+    <button class="btn" type="button" id="s4-clear">Clear old paths</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Press 5.00, 6.33, 7.00, 8.94, 8.95 in turn: the "Experiment record" on the right (below on a phone) will match the table in the booklet. ② During the flight the <i>E</i>/<i>m</i> bar does not move, and <i>K</i> and <i>U</i> change into each other. ③ 8.94 and 8.95 differ by only 0.01 km s<sup>−1</sup>: 8.94 flies to about 6.9 × 10<sup>9</sup> m and is then pulled back (<i>E</i> &lt; 0, bound; the model counts only Earth's gravity); 8.95 never comes back (<i>E</i> ≥ 0). ④ Drag <i>v</i><sub>0</sub> to 6.00: slower than 6.33, but it does not hit the ground, and the launch point becomes the farthest point (it hits the ground only below about 5.58 km s<sup>−1</sup>). The five <i>E</i>/<i>m</i> values are the same as the booklet, and the other readings are calculated. Time is sped up while the probe is off screen.</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">5.4</div>
+  <h2>Moving between orbits</h2>
+  <p class="big"><span class="lbl">Big idea</span>To reach a higher orbit, the engines must add energy ΔE. But the satellite ends up slower: K falls by ΔE and U rises by 2ΔE. Air drag does the opposite.</p>
+  <ul class="pts">
+    <li>A bigger orbit has a less negative E. So the engines supply <span class="m">Δ<i>E</i> = <i>E</i><sub>2</sub> − <i>E</i><sub>1</sub></span>.</li>
+    <li>Every circular orbit has K = −E and U = 2E. So <span class="m">Δ<i>K</i> = −Δ<i>E</i></span> and <span class="m">Δ<i>U</i> = 2Δ<i>E</i></span>.</li>
+    <li>Think of it in equal parts: the engines give 1 part, K falls by 1 part, U rises by 2 parts. Of the 2 parts that U gains, 1 comes from the engines and 1 comes from K.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy to change circular orbit</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq">Δ<i>E</i> = (<i>GMm</i> / 2)(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</div>
+    <dl class="sym">
+      <div><dt>ΔE</dt><dd>change in total energy (smallest engine work) (J)</dd></div>
+      <div><dt>G</dt><dd>universal gravitational constant, 6.67 × 10<sup>−11</sup> (N m² kg<sup>−2</sup>)</dd></div>
+      <div><dt>M, m</dt><dd>mass of the planet, mass of the satellite (kg)</dd></div>
+      <div><dt>r<sub>1</sub>, r<sub>2</sub></dt><dd>radius of the starting orbit, radius of the new orbit (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> from one circular orbit to another (not a launch from the ground).<br><b>You can also derive it:</b> <span class="m">Δ<i>E</i> = <i>E</i><sub>2</sub> − <i>E</i><sub>1</sub> = −<i>GMm</i>/2<i>r</i><sub>2</sub> + <i>GMm</i>/2<i>r</i><sub>1</sub></span>, then take out <span class="m"><i>GMm</i>/2</span>.<br><b>Trap:</b> ΔE is not ΔU. The engines supply only half of the rise in U. The other half comes from the fall in K.</p>
+  </div>
+
+  <h3>From the ground</h3>
+  <ul class="pts">
+    <li>On the launch pad <span class="m"><i>K</i> ≈ 0</span>, so <span class="m"><i>E</i> = <i>U</i> = −<i>GMm</i>/<i>r</i><sub>E</sub></span>.</li>
+    <li>The smallest energy to reach a circular orbit is <span class="m">Δ<i>E</i> = −<i>GMm</i>/(2<i>r</i>) + <i>GMm</i>/<i>r</i><sub>E</sub></span>.</li>
+    <li><span class="t">Geostationary orbit</span> (GEO): above the equator, one turn per day. Used by TV and weather satellites.</li>
+    <li><span class="t">Low Earth orbit</span> (LEO): for example the space station and Starlink.</li>
+  </ul>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Where <span style="text-transform:none">1 kg</span> is going</th><th>Smallest energy</th></tr></thead>
+      <tbody>
+        <tr><td>250 km circular orbit (LEO)</td><td>32.6 MJ</td></tr>
+        <tr><td>GEO</td><td>58.1 MJ</td></tr>
+        <tr><td>Escape</td><td>62.8 MJ</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>So LEO is much cheaper.</p>
+  <p><b>During a launch:</b> the fuel's chemical energy becomes extra K and U (and heat and sound). After the engines stop, the rocket keeps going up because of its inertia. It <span class="t">coasts</span>: K turns into U, and K + U stays constant.</p>
+
+  <h3>The Hohmann transfer</h3>
+  <p>A <span class="t">Hohmann transfer</span> is a fuel-saving way to change orbit, using only two short engine firings. Each firing is called a <span class="t">burn</span>. <span class="t">Perigee</span> and <span class="t">apogee</span> are the closest and farthest points of an orbit around Earth. Figure 5.4 in the booklet: from a 250 km orbit to GEO (not to scale).</p>
+  <ol class="pts">
+    <li><b>Burn 1</b> at perigee: push <b>forwards</b> (along the motion) into the elliptical <span class="t">transfer orbit</span>. This half ellipse is called the <span class="t">Hohmann transfer orbit</span>.</li>
+    <li><b>Coast:</b> gravity slows it. K turns into U, and E is constant.</li>
+    <li><b>Burn 2</b> at apogee: push forwards again, into the big circle.</li>
+  </ol>
+  <p>Both burns speed it up, but it ends <b>slower</b>: 7.77 → 3.08 km s<sup>−1</sup>. To move <b>down</b>, push backwards.</p>
+
+  <h3>Orbital decay</h3>
+  <p><span class="t">Orbital decay</span> is a slow fall to lower orbits. A LEO satellite moves through very thin air. <span class="t">Atmospheric drag</span> (the push of this air against its motion) turns some mechanical energy into heat. Figure 5.5 in the booklet: the satellite spirals slowly inwards (the spacing is exaggerated).</p>
+  <ol class="pts">
+    <li>Drag removes energy, so E falls (more negative).</li>
+    <li><span class="m"><i>E</i> = −<i>GMm</i>/2<i>r</i></span>, so r falls. The orbit gets lower.</li>
+    <li><span class="m"><i>E</i> = −<i>K</i></span>, so K <b>rises</b>: the satellite speeds up.</li>
+    <li><span class="m"><i>U</i> = 2<i>E</i></span>, so U falls by twice the energy lost: half becomes heat, half becomes extra K.</li>
+  </ol>
+  <p>Lower orbits meet denser air, so decay speeds up until the satellite burns up. Decay is caused by drag, not by "stronger gravity".</p>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Changing orbit: Hohmann transfer and orbital&nbsp;decay</span><span class="sim-tag">anticlockwise · not to scale · <span style="white-space:nowrap">energy and speed: calculated</span> · <span style="white-space:nowrap"><span style="text-transform:none">drag</span>: illustrative</span></span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A satellite goes anticlockwise around Earth. Up mode: the satellite goes from the small LEO circle along half of an elliptical transfer orbit to the big GEO circle, with one burn pushing forwards at perigee and one at apogee. Down mode is the reverse: both burns push backwards. Drag mode: the satellite spirals down through denser and denser air and finally burns up. On the right (below on a phone) are the kinetic energy K, potential energy U and total energy E of 1 kg, and the work done by the engine or the energy that becomes heat. Dashed boxes show the values at the start."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Mode: move up, move down, drag decay">
+      <button class="btn" type="button" id="s5-up" aria-pressed="true">LEO → GEO</button>
+      <button class="btn" type="button" id="s5-down" aria-pressed="false">GEO → LEO</button>
+      <button class="btn" type="button" id="s5-drag" aria-pressed="false">Drag decay</button>
+    </span>
+    <button class="btn" type="button" id="s5-burn" aria-pressed="false">Fire Burn 1</button>
+    <button class="btn" type="button" id="s5-reset">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Choose "LEO → GEO" and press Fire Burn 1: when the satellite reaches perigee, it is pushed forwards. At that instant <i>K</i> and <i>E</i> get bigger, and <i>U</i> does not change. ② Coast: <i>K</i> turns into <i>U</i>, and <i>E</i> stays constant. Press Fire Burn 2 before it reaches apogee. ③ At GEO, compare with the dashed boxes (the values at the start): <i>E</i> is 25.5 MJ more, <i>K</i> is 25.5 MJ less, <i>U</i> is 51.0 MJ more; the speed goes 7.77 → 3.08 km s<sup>−1</sup>. ④ Choose "GEO → LEO": both burns push backwards, but it ends faster. ⑤ Choose "Drag decay": it falls lower and lower, yet moves faster and faster. Energies are for 1 kg (calculated, 25.5 = 58.1 − 32.6); the orbit sizes and the drag mode are illustrative.</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">5.5</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Launch speed, total energy and escape (simulation)</h3>
+    <dl>
+      <dt>Aim</dt><dd>To find how the launch speed decides whether a probe falls back, orbits or escapes, and to test <span class="m"><i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>)</span> using total energy.</dd>
+      <dt>Method</dt><dd>A computer orbit model (Earth's mass). A probe is launched sideways (along the tangent) from <span class="m"><i>r</i><sub>0</sub> = 1.00 × 10<sup>7</sup> m</span> at 5 to 9 km s<sup>−1</sup>. Each run gives the path and <span class="m"><i>E</i>/<i>m</i> = ½<i>v</i><sub>0</sub>² − <i>GM</i>/<i>r</i><sub>0</sub></span>.</dd>
+      <dt>Results</dt><dd>Five launches: the data are in the table below.</dd>
+    </dl>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th style="text-transform:none"><i>v</i><sub>0</sub><br>(km&nbsp;s<sup>−1</sup>)</th><th style="text-transform:none"><i>E</i>/<i>m</i><br>(MJ&nbsp;kg<sup>−1</sup>)</th><th style="text-transform:none">Path</th></tr></thead>
+        <tbody>
+          <tr><td>5.00</td><td>−27.5</td><td>falls back</td></tr>
+          <tr><td>6.33</td><td>−20.0</td><td>circle</td></tr>
+          <tr><td>7.00</td><td>−15.5</td><td>ellipse</td></tr>
+          <tr><td>8.94</td><td>−0.06</td><td>very long ellipse</td></tr>
+          <tr><td>8.95</td><td>+0.03</td><td>escapes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <dl>
+      <dt>Conclusion</dt><dd>The probe escapes only when E ≥ 0, between 8.94 and 8.95 km s<sup>−1</sup>. Theory gives <span class="m">√(2<i>GM</i>/<i>r</i><sub>0</sub>)</span> = 8.95 km s<sup>−1</sup>. Around an ellipse, E stays the same while K and U swap.</dd>
+      <dt>Significance</dt><dd>Total energy, not speed alone, decides whether an object is bound.</dd>
+    </dl>
+  </div>
+  <p class="note">The five speed buttons in Animation 4 are these five launches, so you can repeat them in the animation.</p>
+</section>
+
+<section id="s7">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>U</i> = −<i>GMm</i>/<i>r</i></td><td>Gravitational potential energy (zero at infinity)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>K</i> = <i>GMm</i>/2<i>r</i><br><i>E</i> = <i>U</i> + <i>K</i> = −<i>GMm</i>/2<i>r</i></td><td>Kinetic and total energy of a <b>circular</b> orbit</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>K</i> + <i>U</i> = ½<i>mv</i>² − <i>GMm</i>/<i>r</i></td><td>Total energy on any path with gravity only. E &lt; 0: bound</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>)</td><td>Escape velocity (no engine)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">Δ<i>E</i> = (<i>GMm</i>/2)(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</td><td>Energy to change from one circular orbit to another</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">Δ<i>U</i> = <i>GMm</i>(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</td><td>Change in U from r<sub>1</sub> to r<sub>2</sub> (U<sub>2</sub> − U<sub>1</sub>)</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></td><td>Work done by gravity and the change in U (the booklet's summary table lists it under Ch. 3 and Ch. 5)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>r</i>³/<i>T</i>² = <i>GM</i>/4π²</td><td>Kepler's third law (from M5 T4)</td><td><span class="badge on">On sheet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">ΔU and <span class="m"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></span> are under "Other formulas" in the booklet's summary table. This chapter also uses <span class="m"><i>K</i> = ½<i>mv</i>²</span> (on the sheet).</p>
+
+  <h3 id="review-must">Memorise these 6 before the exam</h3>
+  <ol class="must">
+    <li><span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span>: zero at infinity, negative everywhere else. <span class="m"><i>r</i> = <i>r</i><sub>E</sub> + altitude</span>.</li>
+    <li>Circular orbit: <span class="m"><i>K</i> = <i>GMm</i>/2<i>r</i></span> and <span class="m"><i>E</i> = <i>U</i> + <i>K</i> = −<i>GMm</i>/2<i>r</i></span>. So E = −K and U = 2E.</li>
+    <li>Gravity only: E = K + U stays constant. An elliptical orbit is fastest at perihelion. E &lt; 0: bound; E ≥ 0: escapes.</li>
+    <li>K + U = 0 gives <span class="m"><i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>)</span>, whatever the mass of the object (11.2 km s<sup>−1</sup> from Earth's surface).</li>
+    <li>A higher orbit needs <span class="m">Δ<i>E</i> = (<i>GMm</i>/2)(1/<i>r</i><sub>1</sub> − 1/<i>r</i><sub>2</sub>)</span>: E and U rise, but K falls.</li>
+    <li>Orbital decay: drag lowers the orbit and speeds the satellite up.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> using mgΔh for the change in U in space too.<br><span class="ok">Right:</span> mgΔh works only near the ground. Farther away g gets smaller, so use <span class="m"><i>U</i> = −<i>GMm</i>/<i>r</i></span>.</div>
+    <div><span class="x">Wrong:</span> using the altitude directly as r, or losing the minus sign of U.<br><span class="ok">Right:</span> <span class="m"><i>r</i> = <i>r</i><sub>E</sub> + altitude</span>, measured from the centre. Keep the minus sign.</div>
+    <div><span class="x">Wrong:</span> using <span class="m"><i>K</i> = <i>GMm</i>/2<i>r</i></span> for an elliptical orbit too.<br><span class="ok">Right:</span> it is for circular orbits only. For an ellipse use <span class="m"><i>K</i> = ½<i>mv</i>²</span>, with v and r at the same point.</div>
+    <div><span class="x">Wrong:</span> "E increases" means the number gets bigger if you ignore the minus sign, for example −15.7 MJ → −31.4 MJ.<br><span class="ok">Right:</span> E is negative. "E increases" means it gets less negative, for example −31.4 MJ → −15.7 MJ.</div>
+    <div><span class="x">Wrong:</span> <span class="m"><i>v</i><sub>esc</sub> = √(<i>GM</i>/<i>r</i>)</span>.<br><span class="ok">Right:</span> <span class="m"><i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>)</span>. Without the 2, it is the orbital speed.</div>
+    <div><span class="x">Wrong:</span> a heavier spacecraft has a larger escape velocity.<br><span class="ok">Right:</span> m cancels, so the escape velocity is the same. The heavier one only needs more kinetic energy.</div>
+    <div><span class="x">Wrong:</span> a satellite that moves to a higher orbit goes faster (because energy was added).<br><span class="ok">Right:</span> higher means slower. E has increased, but K has decreased.</div>
+    <div><span class="x">Wrong:</span> to reach a higher orbit, the engines must supply as much energy as ΔU.<br><span class="ok">Right:</span> the engines supply only ΔE, which is half of ΔU. The other half comes from the fall in K.</div>
+    <div><span class="x">Wrong:</span> orbital decay happens because the satellite is closer to Earth and gravity is stronger.<br><span class="ok">Right:</span> drag removes the energy. The satellite speeds up because it has dropped lower.</div>
+  </div>
+  <p class="jump-next"><a href="#s9">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s8">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Gravitational potential energy (U)</td><td>引力势能（地面附近：重力势能）</td><td>Energy stored because of where an object is in a gravitational field; in space U = −GMm/r</td></tr>
+        <tr><td class="t">Radial field</td><td>径向场</td><td>A field whose lines all point straight at the planet's centre, like the spokes of a wheel</td></tr>
+        <tr><td class="t">Infinity</td><td>无穷远处</td><td>So far away that the planet's gravity does not matter; U = 0</td></tr>
+        <tr><td class="t">Work against gravity</td><td>克服引力做的功</td><td>The energy an engine gives to push an object away from the planet; it is stored as U</td></tr>
+        <tr><td class="t">Kinetic energy (K)</td><td>动能</td><td>Energy of motion, K = ½mv²</td></tr>
+        <tr><td class="t">Universal gravitational constant (G)</td><td>引力常量</td><td>The fixed number that sets how strong gravity is, 6.67 × 10<sup>−11</sup> N m² kg<sup>−2</sup></td></tr>
+        <tr><td class="t">Total mechanical energy (E)</td><td>机械能</td><td>Kinetic energy plus potential energy, E = K + U</td></tr>
+        <tr><td class="t">Conservation of mechanical energy</td><td>机械能守恒</td><td>When only gravity does work, K + U does not change</td></tr>
+        <tr><td class="t">Bound</td><td>被引力束缚的</td><td>Cannot get away; its total energy is negative</td></tr>
+        <tr><td class="t">Ellipse</td><td>椭圆</td><td>A stretched circle</td></tr>
+        <tr><td class="t">Focus (plural: foci)</td><td>焦点</td><td>One of two fixed points in an ellipse; the Sun is at one of them</td></tr>
+        <tr><td class="t">Eccentricity (e)</td><td>离心率（偏心率）</td><td>How stretched an ellipse is: 0 is a circle, and closer to 1 is flatter</td></tr>
+        <tr><td class="t">Perihelion</td><td>近日点</td><td>The point of an orbit closest to the Sun; fastest</td></tr>
+        <tr><td class="t">Aphelion</td><td>远日点</td><td>The point of an orbit farthest from the Sun; slowest</td></tr>
+        <tr><td class="t">Kepler's first law (law of ellipses)</td><td>开普勒第一定律（轨道定律）</td><td>A planet moves in an ellipse, with the Sun at one focus</td></tr>
+        <tr><td class="t">Kepler's second law (law of equal areas)</td><td>开普勒第二定律（面积定律）</td><td>A line from the Sun to the planet sweeps out equal areas in equal times</td></tr>
+        <tr><td class="t">Kepler's third law (law of periods)</td><td>开普勒第三定律（周期定律）</td><td>Around the same central body: T² ∝ r³</td></tr>
+        <tr><td class="t">Escape velocity (v<sub>esc</sub>)</td><td>逃逸速度</td><td>The smallest launch speed that lets an object leave a planet for ever</td></tr>
+        <tr><td class="t">Projectile</td><td>抛体</td><td>Given its speed at the start, then no engine, only gravity</td></tr>
+        <tr><td class="t">Orbital speed (v)</td><td>环绕速度（轨道速度）</td><td>The speed needed for a circular orbit, √(GM/r)</td></tr>
+        <tr><td class="t">Newton's cannon</td><td>牛顿大炮</td><td>A cannon on a mountain top fires sideways; the speed decides if the shot falls back, orbits or escapes</td></tr>
+        <tr><td class="t">Geostationary orbit (GEO)</td><td>地球静止轨道</td><td>A circular orbit above the equator, one turn per day</td></tr>
+        <tr><td class="t">Low Earth orbit (LEO)</td><td>低地球轨道（近地轨道）</td><td>A low orbit about 200–2000 km above the ground, for example the space station</td></tr>
+        <tr><td class="t">Hohmann transfer orbit</td><td>霍曼转移轨道</td><td>A fuel-saving way to change orbit, with two short burns and half an ellipse</td></tr>
+        <tr><td class="t">Burn (engine burn)</td><td>点火（发动机点火）</td><td>A short firing of the engine that changes the speed</td></tr>
+        <tr><td class="t">Transfer orbit</td><td>转移轨道</td><td>An ellipse that joins two circular orbits</td></tr>
+        <tr><td class="t">Coast</td><td>滑行</td><td>To fly with the engines off, with only gravity and inertia</td></tr>
+        <tr><td class="t">Perigee</td><td>近地点</td><td>The point of an orbit around Earth closest to Earth</td></tr>
+        <tr><td class="t">Apogee</td><td>远地点</td><td>The point of an orbit around Earth farthest from Earth</td></tr>
+        <tr><td class="t">Orbital decay</td><td>轨道衰减</td><td>The drag of thin air makes an orbit slowly get lower</td></tr>
+        <tr><td class="t">Atmospheric drag</td><td>大气阻力</td><td>Thin air pushes against the satellite and turns mechanical energy into heat</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. Why is a satellite's U negative?</summary><p class="ans"><b>Because we choose U = 0 at infinity.</b> Moving outwards, U increases, and it rises to 0 only at infinity. So everywhere else it is less than 0. The minus sign comes from our choice of zero.</p></details>
+    <details><summary><span>2. What is U for 1 kg on the ground? (G = 6.67 × 10<sup>−11</sup> N m² kg<sup>−2</sup>, M<sub>E</sub> = 6.0 × 10<sup>24</sup> kg, r<sub>E</sub> = 6.371 × 10<sup>6</sup> m)</span></summary><p class="ans"><b>About −62.8 MJ.</b> U = −GMm/r = −6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup> × 1 / (6.371 × 10<sup>6</sup>) = −6.28 × 10<sup>7</sup> J. So it takes 62.8 MJ to send 1 kg from the ground to infinity. This is the same number as "62.8 MJ to escape" in the booklet.</p></details>
+    <details><summary><span>3. A 1 kg satellite in a circular orbit at r = 2 r<sub>E</sub> has K = 15.7 MJ. What are its E and U?</span></summary><p class="ans"><b>E = −15.7 MJ, U = −31.4 MJ.</b> Circular-orbit shortcut: E = −K = −15.7 MJ, U = 2E = −31.4 MJ. Check: U + K = −31.4 + 15.7 = −15.7 MJ.</p></details>
+    <details><summary>4. A planet moves in an elliptical orbit. Where is it fastest? Is E larger there than at other points?</summary><p class="ans"><b>Fastest at perihelion; E is the same everywhere.</b> Gravity is the only force, so E does not change. Perihelion is closest to the Sun, so U is lowest and K is largest.</p></details>
+    <details><summary><span>5. At r<sub>0</sub> = 1.00 × 10<sup>7</sup> m, what is the escape velocity? How many times as big as the orbital speed here is it?</span></summary><p class="ans"><b>8.95 km s<sup>−1</sup>, which is √2 ≈ 1.41 times 6.33 km s<sup>−1</sup>.</b> GM = 6.67 × 10<sup>−11</sup> × 6.0 × 10<sup>24</sup> = 4.002 × 10<sup>14</sup> m³ s<sup>−2</sup>. v<sub>esc</sub> = √(2 × 4.002 × 10<sup>14</sup> / (1.00 × 10<sup>7</sup>)) = 8.95 × 10³ m s<sup>−1</sup>. Orbital speed √(GM/r) = 6.33 × 10³ m s<sup>−1</sup>. These match the 8.95 and 6.33 in the booklet's experiment.</p></details>
+    <details><summary>6. Do a pebble and a 1000 kg spacecraft have the same escape velocity from the ground?</summary><p class="ans"><b>Yes, both are 11.2 km s<sup>−1</sup>.</b> m cancels in ½mv² − GMm/r = 0. The spacecraft only needs more kinetic energy.</p></details>
+    <details><summary>7. A 1 kg satellite moves from a 250 km orbit to GEO. What is the smallest energy the engines must give? How much do K and U change?</summary><p class="ans"><b>ΔE = 25.5 MJ; K falls by 25.5 MJ, U rises by 51.0 MJ.</b> The booklet: 32.6 MJ to a 250 km orbit, 58.1 MJ to GEO, so ΔE = 58.1 − 32.6 = 25.5 MJ. ΔK = −ΔE = −25.5 MJ, ΔU = 2ΔE = +51.0 MJ. So the satellite ends up slower (7.77 → 3.08 km s<sup>−1</sup>).</p></details>
+    <details><summary>8. A satellite in a low orbit feels drag. Does it speed up or slow down?</summary><p class="ans"><b>It speeds up.</b> Drag removes energy, so E falls (more negative) and r falls. E = −K, so K rises. U falls by twice the energy lost: half becomes heat, half becomes K.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m5/t4.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M5 T4 · Gravity, Orbits and Kepler&#x27;s Laws</span></a><a class="pg next" href="../m6/t1.html"><span class="pg-k">Next topic →</span><span class="pg-t">M6 T1 · Charged Particles in Electric and Magnetic Fields</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 5 Advanced Mechanics · Chapter 5. The experimental data (v<sub>0</sub> = 5.00 / 6.33 / 7.00 / 8.94 / 8.95 km s<sup>−1</sup>, E/m = −27.5 / −20.0 / −15.5 / −0.06 / +0.03 MJ kg<sup>−1</sup>), 32.6 / 58.1 / 62.8 MJ, 7.77 → 3.08 km s<sup>−1</sup> and 11.2 km s<sup>−1</sup> are from the booklet. Quick quiz questions 2 and 5 and the values at the three points on Figure 5.1 (15.7 / −31.4 / −15.7 MJ) were worked out with the data sheet constants (calculated). Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · U 为什么是负的：F–r 面积和 U–r 曲线（5.1）
+   1 kg 的物体从起点 r1 被外力匀速往外推：外力和引力一样大、方向相反（合力 0 → 匀速）。
+   上：地球（--field 浅色）、径向引力场线（--muted 虚线，箭头指向地心）、物体和两个力（--force，长度 ∝ 1/r²）。
+   中：F–r 图。r1 到现在位置之间曲线下的面积（--violet）= 克服引力做的功 W_against = +ΔU；引力做的功 = −ΔU。
+   下：U–r 图，U = −GMm/r（--violet），永远在 0 下面，到 ∞ 才等于 0。
+   三部分共用同一条 r 轴（单位 r_E），地球和距离按比例。6 r_E 以后压缩画：横坐标 ∝ 1 − 6/r（∞ 在最右边），
+   这一段 F 很小，涂色只剩一条细缝，所以把这一段的面积直接写成数字。
+   数据（计算值，data sheet 常数）：G = 6.67e-11，M_E = 6.0e24 kg，r_E = 6.371e6 m
+     → 1 kg：GM/r_E = 62.8 MJ，GM/r_E² = 9.86 N；U = −62.8/(r/r_E) MJ，F = 9.86/(r/r_E)² N（和 Figure 5.1、“62.8 MJ to escape”一致）。
+   对比 mgΔh：假设 g = 9.8 m s⁻² 一直不变，从地面起 U = −62.8 + 9.8 × r_E × (r/r_E − 1)/10⁶ MJ（直线，约 2.0 r_E 以后变成正的）；
+     F–r 图上就是 F = mg = 9.8 N 的水平线。 */
+var GM=6.67e-11*6.0e24,RE=6.371e6;
+var KU=GM/RE/1e6,F0=GM/(RE*RE),MGU=9.8*RE/1e6;
+var XL=6,VS=0.6,VF=1.6,TF=2.4,HOLD=2.6,HOLD0=1.0,D2R=Math.PI/180;
+var XE=1+(20+KU)/MGU;            /* mgΔh 直线到 U = +20 MJ（图的上边）的位置 */
+var m1={x1:1,x:2,u:0,ph:'push',t:0,inf:false,mg:false};   /* 第一帧：从 1 r_E 推到 2 r_E，面积已经涂好 */
+
+function Uof(x){return isFinite(x)?-KU/x:0;}
+function Fof(x){return isFinite(x)?F0/(x*x):0;}
+function num(v,dp,plus){var s=Math.abs(v).toFixed(dp);if(parseFloat(s)===0)return (0).toFixed(dp);return (v<0?'−':(plus?'+':''))+s;}
+function rfmt(x){return x<10?x.toFixed(2):(x<100?x.toFixed(1):x.toFixed(0));}
+function ffmt(x){var f=Fof(x);return f===0?'0':(f<0.1?f.toFixed(3):f.toFixed(2));}
+
+/* 文字里的 _x 或 _{xx} 画成下标（下标不小于 11 px）；only = true 时只量宽度 */
+function rich(ctx,s,x,y,col,size,weight,align,family,only){
+  var parts=[],subs=[],re=/_\{([^}]*)\}|_(\S)/g,i=0,mt,w=0,k,ws=[],ss=Math.max(11,size*0.74),fam=family||FONT;
+  while((mt=re.exec(s))){if(mt.index>i){parts.push(s.slice(i,mt.index));subs.push(0);}parts.push(mt[1]||mt[2]);subs.push(1);i=re.lastIndex;}
+  if(i<s.length){parts.push(s.slice(i));subs.push(0);}
+  for(k=0;k<parts.length;k++){ctx.font=(weight||500)+' '+(subs[k]?ss:size)+'px '+fam;ws.push(ctx.measureText(parts[k]).width);w+=ws[k];}
+  if(only)return w;
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(k=0;k<parts.length;k++){txt(ctx,parts[k],cx,y+(subs[k]?size*0.24:0),col,subs[k]?ss:size,weight,'left','alphabetic',fam);cx+=ws[k];}
+  return w;
+}
+/* 带底色的小标签（盖住后面的场线），只在上面的地球图里用 */
+function tag(ctx,s,x,y,col,size,weight,align){var w=rich(ctx,s,0,0,col,size,weight,'left',null,true),l=align==='right'?x-w:(align==='center'?x-w/2:x);rrect(ctx,l-3,y-size+1,w+6,size+5,3);ctx.fillStyle=rgba(C.stage,0.85);ctx.fill();rich(ctx,s,x,y,col,size,weight,align);}
+function farrow(ctx,x1,y1,x2,y2,col,w,head){var L=Math.hypot(x2-x1,y2-y1);if(L<1.5)return;if(L<head*1.5)head=Math.max(4,L*0.6);arrow(ctx,x1,y1,x2,y2,col,w,head);}
+
+/* ---------- 运动：匀速往外推 → 到 6 r_E 停一下 → 回到起点再来；“推到无穷远”时继续走进压缩区，到 ∞ 停住 ---------- */
+function adv(h){
+  if(m1.ph==='start'){m1.t-=h;if(m1.t<=0)m1.ph='push';}
+  else if(m1.ph==='push'){m1.x+=(m1.inf?VF:VS)*h;if(m1.x>=XL){m1.x=XL;if(m1.inf){m1.ph='far';m1.u=0;}else{m1.ph='end';m1.t=HOLD;}}}
+  else if(m1.ph==='far'){m1.u+=h/TF;if(m1.u>=1){m1.u=1;m1.x=Infinity;m1.ph='inf';}else m1.x=XL/(1-m1.u);}
+  else if(m1.ph==='end'){m1.t-=h;if(m1.t<=0){m1.x=m1.x1;m1.ph='start';m1.t=HOLD0;}}
+}
+function step1(dt){var n=4,h=dt/n;for(var i=0;i<n;i++)adv(h);}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){
+    o.g0=120;o.gi=W-28;o.cz=100;o.gap=10;o.sy=[24,46];o.sf=[15,13.5];
+    o.sT=62;o.sH=104;o.Lmax=100;o.bw=30;o.bh=18;o.fT=204;o.fH=104;o.uT=364;o.uH=144;
+    o.ang=[0,5,-5,11,-11,18,-18,25,-25];o.H=552;
+  }else{
+    o.g0=66;o.gi=W-20;o.cz=62;o.gap=8;o.sy=[21,39,57];o.sf=[13,13,13];
+    o.sT=70;o.sH=96;o.Lmax=48;o.bw=28;o.bh=17;o.fT=202;o.fH=92;o.uT=346;o.uH=130;
+    o.ang=[0,10,-10,20,-20,32,-32,46,-46];o.H=516;
+  }
+  o.gc=o.gi-o.cz;o.gL=o.gc-o.gap;o.unit=(o.gL-o.g0)/(XL-1);
+  o.ys=o.sT+o.sH/2;o.sB=o.sT+o.sH;o.half=o.sH/2;o.fB=o.fT+o.fH;o.uB=o.uT+o.uH;
+  LY=o;return o;
+}
+/* r（单位 r_E）→ 横坐标：1–6 线性；6 以后压缩，∞ 在 gi */
+function PX(o,x){if(x<=XL)return o.g0+(x-1)*o.unit;if(!isFinite(x))return o.gi;return o.gc+o.cz*(1-XL/x);}
+function yFx(o,x){return o.fB-o.fH*Fof(x)/10;}          /* F 轴 0–10 N */
+function yU(o,U){return o.uT+o.uH*(20-U)/90;}           /* U 轴 −70 到 +20 MJ */
+function yUx(o,x){return yU(o,Uof(x));}
+/* 沿曲线画 a → b（同一区：都 ≤ 6，或都 ≥ 6） */
+function trace(ctx,o,a,b,yv,move){
+  var N=48,k,x,p,u,ua,ub;
+  for(k=0;k<=N;k++){
+    if(b<=XL){x=a+(b-a)*k/N;p=o.g0+(x-1)*o.unit;}
+    else{ua=1-XL/a;ub=isFinite(b)?1-XL/b:1;u=ua+(ub-ua)*k/N;x=u>=1?Infinity:XL/(1-u);p=o.gc+o.cz*u;}
+    if(k===0&&move)ctx.moveTo(p,yv(o,x));else ctx.lineTo(p,yv(o,x));
+  }
+}
+function curve(ctx,o,yv,col,w){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash([]);ctx.beginPath();trace(ctx,o,1,XL,yv,true);ctx.stroke();ctx.beginPath();trace(ctx,o,XL,Infinity,yv,true);ctx.stroke();}
+function shade(ctx,o,top,h){ctx.fillStyle=rgba(C.muted,0.07);ctx.fillRect(o.gc,top,o.gi-o.gc,h);}
+function axisX(ctx,o,yb){
+  var k,x;
+  seg(ctx,o.g0,yb,o.gL,yb,C.muted,1);seg(ctx,o.gc,yb,o.gi,yb,C.muted,1);
+  seg(ctx,o.gL-2,yb+5,o.gL+3,yb-5,C.muted,1.2);seg(ctx,o.gc-3,yb+5,o.gc+2,yb-5,C.muted,1.2);
+  for(k=1;k<=XL;k++){x=PX(o,k);seg(ctx,x,yb,x,yb+4,C.muted,1);txt(ctx,String(k),x,yb+15,C.muted,11,500,'center');}
+  x=PX(o,12);seg(ctx,x,yb,x,yb+4,C.muted,1);txt(ctx,'12',x,yb+15,C.muted,11,500,'center');
+  seg(ctx,o.gi,yb,o.gi,yb+4,C.muted,1);txt(ctx,'∞',o.gi,yb+15,C.muted,12,700,'center');
+}
+
+/* ---------- 状态提示：宽屏两行，手机三行 ---------- */
+function status(wide){
+  var x=m1.x,x1=m1.x1,R1=x1.toFixed(1),U1=Uof(x1),U=Uof(x),W=U-U1,a,b,n1,n2,n3,col2=C.ink,tot,wh,um,us;
+  if(!isFinite(x)){
+    tot=num(KU/x1,1);wh=x1===1?'at the surface':'at '+R1+' r_E';
+    a='Pushed to infinity: it takes '+tot+' MJ of work in total for U to reach 0';
+    b='So '+wh+', U = −'+tot+' MJ (1 kg). The minus sign comes from choosing U = 0 at infinity';
+    n1='To infinity: '+tot+' MJ of work in total';n2='Now U = 0. So '+wh+', U = −'+tot+' MJ';n3='The minus sign: U = 0 is chosen at ∞ (1 kg)';
+  }else if(x>XL+1e-9){
+    a='r = '+rfmt(x)+' r_E: gravity is now very small (F = '+ffmt(x)+' N), but the path goes on to infinity';
+    b='Work done so far +'+num(W,1)+' MJ → U = '+num(U,1)+' MJ: closer and closer to 0, but not there yet';
+    n1=rfmt(x)+' r_E: gravity is small, but path goes to ∞';n2='Work so far +'+num(W,1)+' MJ → U = '+num(U,1)+' MJ';n3='Closer and closer to 0, but not there yet';
+  }else if(x-x1<0.005){
+    a='Start r_1 = '+R1+' r_E: U = '+num(U1,1)+' MJ. Applied force = gravity, opposite direction → pushed out at a steady speed';
+    b='Moving outwards needs work against gravity → U will increase';
+    n1='Start r_1 = '+R1+' r_E: U = '+num(U1,1)+' MJ';n2='Applied force = gravity, opposite → steady speed';n3='Work against gravity going out → U increases';
+  }else if(x>=XL-1e-9&&!m1.inf){
+    a='From '+R1+' r_E to 6.00 r_E: work = area = +'+num(W,1)+' MJ → U = '+num(U,1)+' MJ, still negative';
+    b='There is more area beyond 6 r_E. U reaches 0 only at infinity → press "Push to infinity"';
+    n1='To 6.00 r_E: work = area = +'+num(W,1)+' MJ';n2='U = '+num(U,1)+' MJ, still negative';n3='U = 0 only at ∞ → press "Push to infinity"';
+  }else{
+    a='From '+R1+' r_E to '+rfmt(x)+' r_E: work against gravity = area = +'+num(W,1)+' MJ → U rises from '+num(U1,1)+' to '+num(U,1)+' MJ';
+    b='U has increased, but it is still negative: U = 0 is at infinity';
+    n1='From '+R1+' to '+rfmt(x)+' r_E: work against gravity = area';n2='= +'+num(W,1)+' MJ → U: '+num(U1,1)+' to '+num(U,1)+' MJ';n3='U has increased, but it is still negative';
+  }
+  if(m1.mg){
+    col2=C.south;
+    if(!isFinite(x)){b='Assume g is constant (mgΔh): reaching infinity would take infinite work → wrong. g gets smaller farther out';n3='g constant: infinite work needed → wrong';}
+    else if(x<1.2){b='Very close to the surface: the mgΔh line and the U curve almost overlap → mgΔh works near the surface';n3='Near the surface: mgΔh and curve almost overlap';}
+    else{um=-KU+MGU*(x-1);us=num(um,Math.abs(um)>=100?0:1,true);
+      b='Assume g is constant (mgΔh): U = '+us+' MJ'+(um>0?', now positive':'')+'; real U = '+num(U,1)+' MJ → mgΔh fails far from the surface';
+      n3='g constant: U = '+us+', real '+num(U,1)+' MJ';}
+  }
+  return wide?[[a,C.ink,600],[b,col2,500]]:[[n1,C.ink,600],[n2,C.ink,600],[n3,col2,500]];
+}
+
+/* ---------- 上：地球、场线、物体和两个力 ---------- */
+function drawStrip(ctx,o){
+  var W=o.W,ys=o.ys,cx0=o.g0-o.unit,R=o.unit,i,a,c,s,r0,r1,rm,x=m1.x,px=PX(o,x),p1=PX(o,m1.x1),hb=o.bw/2;
+  ctx.save();ctx.beginPath();ctx.rect(0,o.sT,W,o.sH);ctx.clip();
+  shade(ctx,o,o.sT,o.sH);
+  dot(ctx,cx0,ys,R,rgba(C.field,0.28));ring(ctx,cx0,ys,R,C.field,1.6);
+  for(i=0;i<o.ang.length;i++){
+    a=o.ang[i]*D2R;c=Math.cos(a);s=Math.sin(a);r0=R+3;r1=(o.gL-cx0)/c;if(s!==0)r1=Math.min(r1,(o.half-2)/Math.abs(s));
+    if(r1<r0+8)continue;
+    seg(ctx,cx0+r0*c,ys-r0*s,cx0+r1*c,ys-r1*s,rgba(C.muted,0.5),1.1,[4,5]);
+    if(s!==0){rm=r0+(r1-r0)*0.55;arrow(ctx,cx0+(rm+10)*c,ys-(rm+10)*s,cx0+rm*c,ys-rm*s,rgba(C.muted,0.9),1.3,6);}
+  }
+  seg(ctx,o.gc,ys,o.gi,ys,rgba(C.muted,0.5),1.1,[4,5]);
+  ctx.restore();
+  seg(ctx,o.gL,ys+5,o.gL+4,ys-5,C.muted,1.2);seg(ctx,o.gc-4,ys+5,o.gc,ys-5,C.muted,1.2);
+  /* 第一行：地球、起点、∞ */
+  txt(ctx,'Earth',16,o.wide?o.sT+14:o.sT+24,C.ink,12,600);
+  seg(ctx,p1,ys-8,p1,ys+8,C.muted,1.5);tag(ctx,'Start r_1',p1+4,o.sT+14,C.muted,12,600,'left');
+  seg(ctx,o.gi,ys-6,o.gi,ys+6,C.muted,1.2);txt(ctx,'∞',o.gi,o.sT+15,C.muted,13,700,'center');
+  /* 走过的路 */
+  if(x>m1.x1){ctx.lineCap='round';seg(ctx,p1,ys,Math.min(px,o.gL),ys,rgba(C.ink,0.4),3);if(x>XL)seg(ctx,o.gc,ys,px,ys,rgba(C.ink,0.4),3);ctx.lineCap='butt';}
+  /* 两个力：引力指向地心，外力向外，一样长（∝ 1/r²） */
+  if(isFinite(x)){
+    var L=o.Lmax/(x*x);
+    farrow(ctx,px-hb-2,ys,px-hb-2-L,ys,C.force,2.6,9);
+    farrow(ctx,px+hb+2,ys,px+hb+2+L,ys,C.force,2.6,9);
+    /* 箭头短到看不见时（手机上 r ≥ 2.5 r_E）不给它们标名字，改成一句话 */
+    if(x<=XL&&L>=8){tag(ctx,'Gravity',px-hb-3,ys-12,C.force,12,700,'right');tag(ctx,'Applied force',px+hb+3,ys-12,C.force,12,700,'left');}
+    else if(x<=XL){var sm='Both forces are small (∝ 1/r²)',smw=rich(ctx,sm,0,0,C.force,11.5,600,'left',null,true);tag(ctx,sm,clamp(px,6+smw/2,W-6-smw/2),ys-15,C.force,11.5,600,'center');}
+  }
+  rrect(ctx,px-hb,ys-o.bh/2,o.bw,o.bh,4);ctx.fillStyle=C.ink;ctx.fill();
+  txt(ctx,'1 kg',px,ys+0.5,C.stage,11,600,'center','middle');
+  var rs=isFinite(x)?'r = '+rfmt(x)+' r_E':'r → ∞',rw=rich(ctx,rs,0,0,C.ink,12,600,'left',null,true);
+  tag(ctx,rs,clamp(px,6+rw/2,W-6-rw/2),ys+27,C.ink,12,600,'center');
+}
+
+/* ---------- 中：F–r 图和面积 ---------- */
+function drawF(ctx,o){
+  var T=o.fT,B=o.fB,x=m1.x,x1=m1.x1,k,y,b,px=PX(o,x),W=KU*(1/x1-(isFinite(x)?1/x:0));
+  shade(ctx,o,T,o.fH);
+  for(k=5;k<=10;k+=5){y=B-o.fH*k/10;seg(ctx,o.g0,y,o.gL,y,C.grid,1);seg(ctx,o.gc,y,o.gi,y,C.grid,1);txt(ctx,String(k),o.g0-6,y+4,C.muted,11,500,'right');}
+  txt(ctx,'0',o.g0-6,B+4,C.muted,11,500,'right');
+  seg(ctx,o.g0,T-4,o.g0,B,C.muted,1);axisX(ctx,o,B);
+  if(x>x1+1e-6){
+    ctx.fillStyle=rgba(C.violet,0.3);b=Math.min(x,XL);
+    ctx.beginPath();ctx.moveTo(PX(o,x1),B);trace(ctx,o,x1,b,yFx,false);ctx.lineTo(PX(o,b),B);ctx.closePath();ctx.fill();
+    if(x>XL){ctx.beginPath();ctx.moveTo(o.gc,B);trace(ctx,o,XL,x,yFx,false);ctx.lineTo(px,B);ctx.closePath();ctx.fill();}
+  }
+  if(m1.mg){y=B-o.fH*0.98;seg(ctx,o.g0,y,o.gL,y,C.south,2,[6,4]);seg(ctx,o.gc,y,o.gi,y,C.south,2,[6,4]);
+    txt(ctx,o.wide?'Assume g is constant: F = mg = 9.8 N (a straight line)':'g constant: F = mg = 9.8 N',o.gL-4,T+16,C.south,11.5,600,'right');}
+  curve(ctx,o,yFx,C.force,2.4);
+  seg(ctx,px,T,px,B,rgba(C.ink,0.4),1,[3,3]);
+  rich(ctx,'Gravity F = GMm/r² (N)',16,T-12,C.force,12.5,700,'left');
+  txt(ctx,'F = '+ffmt(x)+' N',o.gi,T-12,C.force,13,600,'right','alphabetic',MONO);
+  var ya=T+o.fH*0.40;
+  if(o.wide){
+    rich(ctx,'Area = work against gravity W_{against} = '+num(W,1,true)+' MJ',o.gL-4,ya,C.violet,12.5,700,'right');
+    rich(ctx,'Work done by gravity W_{by gravity} = '+num(-W,1)+' MJ'+(W>0.05?' (negative work)':''),o.gL-4,ya+18,C.muted,12,600,'right');
+  }else{
+    rich(ctx,'Area = W_{against} = '+num(W,1,true)+' MJ',o.gL-4,ya,C.violet,12,700,'right');
+    rich(ctx,'W_{by gravity} = '+num(-W,1)+' MJ',o.gL-4,ya+18,C.muted,11.5,600,'right');
+  }
+  if(x>XL)txt(ctx,(o.wide?'This part ':'')+num(KU*(1/XL-(isFinite(x)?1/x:0)),1,true)+' MJ',o.gc+o.cz/2-(o.wide?4:0),B-12,C.violet,11.5,700,'center');
+}
+
+/* ---------- 下：U–r 图 ---------- */
+function drawU(ctx,o){
+  var T=o.uT,B=o.uB,x=m1.x,x1=m1.x1,k,y,px=PX(o,x),p1=PX(o,x1),U=Uof(x),U1=Uof(x1),y1=yU(o,U1),yc=yU(o,U),y0=yU(o,0);
+  shade(ctx,o,T,o.uH);
+  for(k=-60;k<=20;k+=20){y=yU(o,k);if(k!==0){seg(ctx,o.g0,y,o.gL,y,C.grid,1);seg(ctx,o.gc,y,o.gi,y,C.grid,1);}txt(ctx,num(k,0),o.g0-6,y+4,C.muted,11,500,'right');}
+  seg(ctx,o.g0,y0,o.gL,y0,C.muted,1.3);seg(ctx,o.gc,y0,o.gi,y0,C.muted,1.3);
+  seg(ctx,o.g0,T-4,o.g0,B,C.muted,1);axisX(ctx,o,B);
+  if(x<=XL)txt(ctx,o.wide?'U = 0 only at ∞':'0 only at ∞',o.gi-8,y0-6,C.muted,11,600,'right');
+  if(m1.mg){
+    seg(ctx,PX(o,1),yU(o,-KU),PX(o,XE),T,C.south,2,[6,4]);
+    txt(ctx,o.wide?'mgΔh line (assume g is constant)':'mgΔh (g constant)',PX(o,XE)+6,T+12,C.south,11.5,600,'left');
+    if(isFinite(x)&&x<=XE)dot(ctx,px,yU(o,-KU+MGU*(x-1)),4,C.south);
+  }
+  curve(ctx,o,yUx,C.violet,2.6);
+  seg(ctx,px,T,px,B,rgba(C.ink,0.4),1,[3,3]);
+  /* ΔU：从起点的 U 升到现在的 U */
+  if(x>x1+1e-6){
+    seg(ctx,p1,y1,px,y1,rgba(C.violet,0.6),1.2,[4,4]);
+    farrow(ctx,px,y1,px,yc+7,C.violet,2,8);
+    if(y1-yc>=26&&x<=XL){
+      var s='ΔU = '+num(U-U1,1,true)+' MJ',w=rich(ctx,s,0,0,C.violet,12,700,'left',null,true),ym=(y1+yc)/2+4;
+      if(px+8+w<=o.W-4)rich(ctx,s,px+8,ym,C.violet,12,700,'left');else rich(ctx,s,px-8,ym,C.violet,12,700,'right');
+    }
+  }
+  dot(ctx,p1,y1,5,C.stage);ring(ctx,p1,y1,5,C.violet,2);
+  dot(ctx,px,yc,5.5,C.violet);
+  rich(ctx,o.wide?'Gravitational potential energy U = −GMm/r (MJ)':'Potential energy U = −GMm/r (MJ)',16,T-12,C.violet,12.5,700,'left');
+  txt(ctx,'U = '+(isFinite(x)?num(U,1):'0')+' MJ',o.gi,T-12,C.violet,13,600,'right','alphabetic',MONO);
+  rich(ctx,o.wide?'r (in r_E, same scale as the Earth above)':'r (in r_E)',o.g0,B+32,C.muted,11.5,600,'left');
+  txt(ctx,o.wide?'compressed after 6, far right is ∞':'compressed after 6',o.gi,B+32,C.muted,11.5,600,'right');
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),L=status(o.wide),i;
+    for(i=0;i<L.length;i++)rich(ctx,L[i][0],16,o.sy[i],L[i][1],o.sf[i],L[i][2],'left');
+    drawStrip(ctx,o);drawF(ctx,o);drawU(ctx,o);
+  }
+});
+
+var r1=document.getElementById('s1-r1'),o1=document.getElementById('s1-r1-out'),bI=document.getElementById('s1-inf'),bM=document.getElementById('s1-mg');
+/* 换起点：直接显示从 r1 推 1 个 r_E 的结果（和第一帧一样），方便比较“同样推 1 r_E，越远做功越少” */
+r1.addEventListener('input',function(){m1.x1=parseFloat(r1.value);o1.innerHTML=m1.x1.toFixed(1)+' r<sub>E</sub>';m1.x=Math.min(XL,m1.x1+1);m1.u=0;m1.ph='push';S1.render();});
+function syncI(){press(bI,m1.inf);bI.innerHTML=m1.inf?'Back to within 6 r<sub>E</sub>':'Push to infinity';}
+bI.addEventListener('click',function(){
+  m1.inf=!m1.inf;syncI();
+  if(m1.inf){if(m1.ph==='end'){m1.ph='far';m1.u=0;}S1.setPlaying(true);}
+  else if(m1.x>XL){m1.x=Math.min(XL,m1.x1+1);m1.u=0;m1.ph='push';}
+  S1.render();
+});
+bM.addEventListener('click',function(){m1.mg=!m1.mg;press(bM,m1.mg);bM.textContent='Compare mgΔh: '+(m1.mg?'on':'off');S1.render();});
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2：圆轨道：越低越快，但总能量越少（M5 T5，放在 5.2 第一部分）。
+   1 kg 的卫星绕地球逆时针做匀速圆周运动，r 从 1 到 6 r_E（和 Figure 5.1 一样）。
+   GM = 6.67e-11 × 6.0e24，r_E = 6.371e6 m（data sheet）→ GM/r_E = 62.8 MJ kg⁻¹：
+     K = 31.4/x，U = −62.8/x，E = −31.4/x MJ（x = r/r_E；Figure 5.1，2 r_E 处 15.7 / −31.4 / −15.7）。
+   v = √(GM/r)、T = 2πr/v、F = GMm/r²（1 kg，地面 9.86 N）：计算值（1 r_E：7.93 km s⁻¹、84 min；2 r_E：5.60 km s⁻¹）。
+   画面：地球和轨道半径按比例；时间加快 TS 倍（每条轨道同一个倍数，所以内圈真的转得快，ω ∝ r^−1.5）。
+   v 箭头长度 ∝ v ∝ 1/√r。F 从 1 到 6 r_E 差 36 倍，按比例画在轨道图上要么穿过地心、要么只剩 1 px，
+   所以轨道图上的 F 箭头只画方向，大小用下面的 F 条（严格 ∝ 1/r²）。 */
+var GM=6.67e-11*6.0e24,RE=6.371e6,U1=GM/RE/1e6,G0=GM/(RE*RE),V1=Math.sqrt(GM/RE)/1000,TS=2000,XC=4;
+var YMAX=36,YMIN=-66;
+function vk(x){return V1/Math.sqrt(x);}
+function Tsec(x){var r=x*RE;return TAU*r/Math.sqrt(GM/r);}
+var TMAX=Tsec(6);
+function Fn(x){return G0/(x*x);}
+function eK(x){return U1/(2*x);}
+function eU(x){return -U1/x;}
+function eE(x){return -U1/(2*x);}
+function sg(v){return (v<0?'−':'+')+Math.abs(v).toFixed(1);}
+function fT(x){var t=Tsec(x);return t<7200?Math.round(t/60)+' min':(t/3600).toFixed(t<36000?2:1)+' h';}
+
+var m={x:2,ph:0.62,pc:2.9,cmp:false,dir:0};
+
+/* 文字里的 _E 或 _{..} 画成下标（r_E），下标不小于 11 px */
+var RC={};
+function parts(s){var p=RC[s];if(p)return p;p=[];var re=/_\{([^}]*)\}|_(\S)/g,i=0,mt;
+  while((mt=re.exec(s))){if(mt.index>i)p.push([s.slice(i,mt.index),0]);p.push([mt[1]||mt[2],1]);i=re.lastIndex;}
+  if(i<s.length)p.push([s.slice(i),0]);RC[s]=p;return p;}
+function rich(ctx,s,x,y,col,size,weight,align,family){
+  var p=parts(s),ss=Math.max(11,size*0.74),w=0,k;
+  for(k=0;k<p.length;k++){ctx.font=(weight||500)+' '+(p[k][1]?ss:size)+'px '+(family||FONT);p[k][2]=ctx.measureText(p[k][0]).width;w+=p[k][2];}
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(k=0;k<p.length;k++){txt(ctx,p[k][0],cx,y+(p[k][1]?size*0.26:0),col,p[k][1]?ss:size,weight,'left','alphabetic',family);cx+=p[k][2];}
+  return w;
+}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){
+    o.f1=15;o.f2=13.5;o.sy=[26,48];
+    o.k=22;o.cx=166;o.cy=214;o.kv=6.8;o.lf=26;
+    o.x0=340;o.x1=W-16;
+    o.gy=94;o.gh=168;o.gx=o.x0+30;o.cw=44;o.mbw=16;o.vf=12;
+    o.r0=o.gy+o.gh+62;o.dr=24;o.lw=66;o.vw=100;
+  }else{
+    o.f1=13.5;o.f2=12.5;o.sy=[22,41,60];
+    o.k=Math.min(22,Math.floor((W/2-44)/6*10)/10);o.cx=Math.round(W/2);o.cy=228;o.kv=6.3;o.lf=24;
+    o.x0=16;o.x1=W-16;
+    o.gy=o.cy+Math.round(o.k*6)+44;o.gh=140;o.gx=o.x0+28;o.cw=40;o.mbw=13;o.vf=11;
+    o.r0=o.gy+o.gh+60;o.dr=23;o.lw=62;o.vw=90;
+  }
+  o.bx=o.x1-3*o.cw;o.gw=o.bx-(o.wide?22:16)-o.gx;
+  o.info=o.r0+3*o.dr+(o.wide?2:1);o.H=o.info+(o.wide?31:14);
+  LY=o;return o;
+}
+function X(o,x){return o.gx+(x-1)/5*o.gw;}
+function Y(o,e){return o.gy+(YMAX-e)/(YMAX-YMIN)*o.gh;}
+
+/* ---------- 状态提示（宽屏 2 行，手机 3 行） ---------- */
+function nums(x,short){
+  if(short)return 'K = '+sg(eK(x))+', U = '+sg(eU(x))+', E = '+sg(eE(x))+' MJ';
+  return 'K = '+sg(eK(x))+' MJ, U = '+sg(eU(x))+' MJ, E = '+sg(eE(x))+' MJ';
+}
+function status(wide){
+  var x=m.x,xs=x.toFixed(1);
+  if(m.cmp){
+    if(Math.abs(x-XC)<0.05)return wide?['Both satellites are at 4 r_E: v, K, U and E are exactly the same','Drag r smaller or larger, then compare the inner one and the outer one']:
+      ['Both satellites are at 4 r_E:','v, K, U and E are exactly the same','Drag r smaller or larger, then compare'];
+    var xi=Math.min(x,XC),xo=Math.max(x,XC),who=x<XC?'solid satellite ('+xs+' r_E)':'hollow satellite (4 r_E)';
+    if(wide)return ['The inner '+who+' is faster, with larger K: '+sg(eK(xi))+' > '+sg(eK(xo))+' MJ',
+      'But its E is more negative: '+sg(eE(xi))+' < '+sg(eE(xo))+' MJ → lower means faster, but less total energy'];
+    return ['The inner '+who+': faster','Larger K, but more negative E: '+sg(eE(xi))+' < '+sg(eE(xo))+' MJ','→ lower means faster, but less total energy'];
+  }
+  if(m.dir>0)return wide?['r increases: v ↓, K ↓, U ↑, E ↑ (less negative), T ↑','r = '+xs+' r_E: '+nums(x,true)+'. E is still < 0 → bound']:
+    ['r increases: v ↓, K ↓, T ↑','U ↑, E ↑ (less negative, but still < 0)',nums(x,true)];
+  if(m.dir<0)return wide?['r decreases: v ↑, K ↑, U ↓, E ↓ (more negative), T ↓','r = '+xs+' r_E: '+nums(x,true)+'. Lower means faster, but less E']:
+    ['r decreases: v ↑, K ↑, T ↓','U ↓, E ↓ (more negative): faster, but less E',nums(x,true)];
+  return wide?['r = '+xs+' r_E: '+nums(x,false),'→ E = −K, U = 2E. E < 0, so it is bound (trapped by gravity)']:
+    ['r = '+xs+' r_E: E = −K, U = 2E',nums(x,true),'E < 0, so it is bound (trapped by gravity)'];
+}
+
+/* ---------- 轨道图（按比例） ---------- */
+function drawOrbit(ctx,o){
+  var cx=o.cx,cy=o.cy,k=o.k,rho=k*m.x;
+  for(var g=2;g<=6;g++)ring(ctx,cx,cy,k*g,C.grid,1);
+  dot(ctx,cx,cy,k,rgba(C.field,0.34));ring(ctx,cx,cy,k,C.field,1.6);
+  if(m.cmp){ctx.setLineDash([5,6]);ring(ctx,cx,cy,k*XC,rgba(C.south,0.6),1.3);ctx.setLineDash([]);}
+  ctx.setLineDash([4,5]);ring(ctx,cx,cy,rho,rgba(C.copper,0.55),1.3);ctx.setLineDash([]);
+  ctx.beginPath();ctx.arc(cx,cy,rho,-m.ph+1.0,-m.ph,true);ctx.strokeStyle=rgba(C.copper,0.85);ctx.lineWidth=3;ctx.lineCap='round';ctx.stroke();ctx.lineCap='butt';
+  if(m.cmp){
+    var c2=Math.cos(m.pc),s2=Math.sin(m.pc),qx=cx+k*XC*c2,qy=cy-k*XC*s2,L2=o.kv*vk(XC);
+    arrow(ctx,qx,qy,qx-s2*L2,qy-c2*L2,rgba(C.ink,0.4),2,8);
+    dot(ctx,qx,qy,6,C.stage);ring(ctx,qx,qy,6,C.muted,2.2);
+  }
+  var c=Math.cos(m.ph),s=Math.sin(m.ph),px=cx+rho*c,py=cy-rho*s,ux=-c,uy=s,tx=-s,ty=-c;
+  var LF=Math.min(o.lf,rho-4),Lv=o.kv*vk(m.x),q=8;
+  var vx=px+(Lv+11)*tx,vy=py+(Lv+11)*ty,lf2=Math.max(LF*0.55,12),fx=px+lf2*ux-12*tx,fy=py+lf2*uy-12*ty;
+  /* 刻度圈的数字（左下 45°）：卫星或它的 v、F 标签靠近时先不写 */
+  for(var n=2;n<=6;n++){
+    var lx=cx-0.7071*k*n,ly=cy+0.7071*k*n,near=Math.min(Math.hypot(lx-px,ly-py),Math.hypot(lx-vx,ly-vy),Math.hypot(lx-fx,ly-fy));
+    if(m.cmp)near=Math.min(near,Math.hypot(lx-cx-k*XC*Math.cos(m.pc),ly-cy+k*XC*Math.sin(m.pc)));
+    var lab=n===6?'6 r_E':String(n),lw=n===6?32:8;
+    if(near<18+lw/2)continue;
+    ctx.fillStyle=C.stage;ctx.fillRect(lx-lw/2-2,ly-8,lw+4,15);
+    rich(ctx,lab,lx,ly+4,C.muted,11,500,'center');
+  }
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.beginPath();
+  ctx.moveTo(px+q*ux,py+q*uy);ctx.lineTo(px+q*ux+q*tx,py+q*uy+q*ty);ctx.lineTo(px+q*tx,py+q*ty);ctx.stroke();
+  arrow(ctx,px,py,px+LF*ux,py+LF*uy,C.force,3,10);
+  arrow(ctx,px,py,px+Lv*tx,py+Lv*ty,rgba(C.ink,0.7),2.6,10);
+  dot(ctx,px,py,6,C.ink);
+  txt(ctx,'v',vx,vy,C.muted,14,700,'center','middle');
+  txt(ctx,'F',fx,fy,C.force,14,700,'center','middle');
+}
+
+/* ---------- Figure 5.1：K、U、E 曲线 ---------- */
+function curve(ctx,o,f,col,dash){
+  ctx.beginPath();for(var i=0;i<=60;i++){var x=1+5*i/60,px=X(o,x),py=Y(o,f(x));if(i)ctx.lineTo(px,py);else ctx.moveTo(px,py);}
+  ctx.strokeStyle=col;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([]);
+}
+function drawGraph(ctx,o){
+  var gx=o.gx,gy=o.gy,gw=o.gw,gh=o.gh,y0=Y(o,0),i,yt;
+  rich(ctx,o.wide?'Figure 5.1: energy of 1 kg in a circular orbit (MJ)':'Figure 5.1: energy of 1 kg (MJ)',o.x0,gy-14,C.muted,12.5,600);
+  var ticks=[20,0,-20,-40,-60];
+  for(i=0;i<ticks.length;i++){yt=Y(o,ticks[i]);if(ticks[i])seg(ctx,gx,yt,gx+gw,yt,C.grid,1);txt(ctx,ticks[i]<0?'−'+(-ticks[i]):String(ticks[i]),gx-6,yt+4,C.muted,11,500,'right');}
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+  seg(ctx,gx,y0,o.x1,y0,rgba(C.ink,0.55),1.2);
+  for(i=1;i<=6;i++){var xt=X(o,i);seg(ctx,xt,gy+gh,xt,gy+gh+4,C.muted,1);txt(ctx,String(i),xt,gy+gh+16,C.muted,11,500,'center');}
+  rich(ctx,'r (in units of r_E)',gx+gw/2,gy+gh+33,C.muted,11.5,500,'center');
+  curve(ctx,o,eK,C.copper,[]);curve(ctx,o,eU,C.violet,[7,4]);curve(ctx,o,eE,C.ink,[2,3]);
+  txt(ctx,'K',X(o,4.2),Y(o,eK(4.2))-8,C.copper,13,700,'center');
+  txt(ctx,'E',X(o,1.6),Y(o,eE(1.6))-8,C.ink,13,700,'center');
+  txt(ctx,'U',X(o,2.5),Y(o,eU(2.5))+17,C.violet,13,700,'center');
+  if(m.cmp){var xc=X(o,XC);seg(ctx,xc,Y(o,eU(XC)),xc,Y(o,eK(XC)),rgba(C.south,0.6),1.2,[3,3]);
+    ring(ctx,xc,Y(o,eK(XC)),4,C.copper,1.8);ring(ctx,xc,Y(o,eU(XC)),4,C.violet,1.8);ring(ctx,xc,Y(o,eE(XC)),4,C.ink,1.8);}
+  var xn=X(o,m.x);seg(ctx,xn,Y(o,eU(m.x)),xn,Y(o,eK(m.x)),rgba(C.muted,0.9),1.2,[3,3]);
+  dot(ctx,xn,Y(o,eK(m.x)),4.6,C.copper);dot(ctx,xn,Y(o,eU(m.x)),4.6,C.violet);dot(ctx,xn,Y(o,eE(m.x)),4.6,C.ink);
+}
+
+/* ---------- 能量柱（和曲线同一个纵轴） ---------- */
+var QS=[[eK,'copper','K'],[eU,'violet','U'],[eE,'ink','E']];
+function drawBars(ctx,o){
+  var y0=Y(o,0),cbw=7,gp=3,xs=[],i;
+  for(i=0;i<3;i++){
+    var q=QS[i],col=C[q[1]],xc=o.bx+o.cw*(i+0.5),xm=m.cmp?xc-(o.mbw+gp+cbw)/2:xc-o.mbw/2,yv=Y(o,q[0](m.x));
+    xs.push(xm);
+    ctx.fillStyle=col;ctx.fillRect(xm,Math.min(y0,yv),o.mbw,Math.abs(yv-y0));
+    if(m.cmp){var yc=Y(o,q[0](XC)),xb=xm+o.mbw+gp;ctx.fillStyle=rgba(col,0.14);ctx.fillRect(xb,Math.min(y0,yc),cbw,Math.abs(yc-y0));
+      ctx.strokeStyle=col;ctx.lineWidth=1.4;ctx.strokeRect(xb,Math.min(y0,yc),cbw,Math.abs(yc-y0));}
+    txt(ctx,q[2],xc,o.gy+o.gh+16,col,13,700,'center');
+    txt(ctx,sg(q[0](m.x)),xc,o.gy+o.gh+33,C.ink,o.vf,600,'center','alphabetic',MONO);
+  }
+  /* U = 2E：U 柱上的刻痕正好在 E 的高度 */
+  var yE=Y(o,eE(m.x));
+  seg(ctx,xs[1]+o.mbw,yE,xs[2],yE,rgba(C.muted,0.9),1,[3,3]);
+  seg(ctx,xs[1]-2,yE,xs[1]+o.mbw+2,yE,C.stage,2.4);
+}
+
+/* ---------- v、F、T 读数条 ---------- */
+function drawRows(ctx,o){
+  var x0=o.x0,x1=o.x1,b0=x0+o.lw,b1=x1-o.vw;
+  function row(y,label,frac,col,val,fc){
+    rich(ctx,label,x0,y,C.ink,12.5,600);hbar(ctx,b0,y-9,b1-b0,10,frac,col);
+    if(m.cmp){var xx=b0+(b1-b0)*clamp(fc,0,1);seg(ctx,xx,y-13,xx,y+4,C.muted,2);}
+    txt(ctx,val,x1,y,C.ink,12.5,600,'right','alphabetic',MONO);
+  }
+  row(o.r0,'Speed v',vk(m.x)/V1,rgba(C.ink,0.7),vk(m.x).toFixed(2)+' km s⁻¹',vk(XC)/V1);
+  row(o.r0+o.dr,'Gravity F',Fn(m.x)/G0,C.force,Fn(m.x).toFixed(2)+' N',Fn(XC)/G0);
+  row(o.r0+2*o.dr,'Period T',Tsec(m.x)/TMAX,rgba(C.muted,0.75),fT(m.x),Tsec(XC)/TMAX);
+  var s,s2='';
+  if(m.cmp){if(o.wide){s='Line on each bar = hollow satellite (4 r_E):';s2='v = '+vk(XC).toFixed(2)+' km s⁻¹, F = '+Fn(XC).toFixed(2)+' N, T = '+fT(XC);}
+    else s='Line on bar = hollow satellite (4 r_E): T = '+fT(XC);}
+  else if(o.wide){s='F ⊥ v → gravity does no work → speed does not change';s2='(uniform circular motion). F is the gravity on 1 kg';}
+  else s='F ⊥ v → gravity does no work → speed does not change';
+  rich(ctx,s,x0,o.info,C.muted,12,500);
+  if(s2)rich(ctx,s2,x0,o.info+17,C.muted,12,500);
+  if(o.wide)txt(ctx,'Earth and orbits drawn to scale · time sped up 2000×',16,o.info,C.muted,11.5,500);
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){var h=dt*TS;m.ph=(m.ph+TAU/Tsec(m.x)*h)%TAU;m.pc=(m.pc+TAU/Tsec(XC)*h)%TAU;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),st=status(o.wide);
+    for(var i=0;i<st.length;i++)rich(ctx,st[i],16,o.sy[i],C.ink,i?o.f2:o.f1,i?500:600);
+    drawOrbit(ctx,o);drawGraph(ctx,o);drawBars(ctx,o);drawRows(ctx,o);
+  }
+});
+
+var rR=document.getElementById('s2-r'),oR=document.getElementById('s2-r-out'),bT=document.getElementById('s2-two'),bC=document.getElementById('s2-cmp');
+function outR(){oR.innerHTML=m.x.toFixed(1)+' <i>r</i><sub>E</sub>';}
+rR.addEventListener('input',function(){var x=Math.round(parseFloat(rR.value)*10)/10;if(x!==m.x)m.dir=x>m.x?1:-1;m.x=x;outR();S2.render();});
+bT.addEventListener('click',function(){m.x=2;m.dir=0;rR.value='2';outR();S2.render();});
+bC.addEventListener('click',function(){m.cmp=!m.cmp;m.dir=0;if(m.cmp)m.pc=(m.ph+2.3)%TAU;press(bC,m.cmp);
+  bC.innerHTML='Comparison satellite (4 <i>r</i><sub>E</sub>): '+(m.cmp?'on':'off');S2.render();});
+outR();
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 椭圆轨道：K 和 U 互换，E 不变（Figure 5.2 的样子：Sun 在右边的焦点，行星逆时针转）。数据全部示意。
+   半长轴 a 固定（改 e 时 E 和 T 都不变），能量单位取 E = −GMm/2a = −1.00，所以 U = −2a/r，K = 2a/r − 1。
+   ψ（eccentric anomaly）：相对椭圆中心 x = a cos ψ，y = b sin ψ（y 向上），Sun 在 (ae, 0)，r = a(1 − e cos ψ)。
+   时间按 Kepler 方程 M = ψ − e sin ψ 走（M 随时间均匀增加 = 第二定律：perihelion 快，aphelion 慢），一圈 TP 秒。
+   F 和 v 的夹角：cos θ = −e sin ψ / √(1 − e² cos² ψ)：去程（下半圈，sin ψ < 0）< 90°，回程 > 90°，两端 = 90°。
+   v 箭头 ∝ v ∝ √K（按比例：v_p / v_a = (1 + e)/(1 − e)，e = 0.5 时 = 3）；F 箭头只表示方向（长度固定）。*/
+var TP=10,NM=TAU/TP,EH=7;          /* 一圈 10 s；能量柱半边 = 7 个单位 */
+var m3={e:0.5,psi:4*Math.PI/3,M:0,split:true,stop:null,next:'peri',hk:null,ht:0};
+function syncM(){m3.M=m3.psi-m3.e*Math.sin(m3.psi);}
+syncM();
+function kepler(M,e){var p=M+e*Math.sin(M);for(var i=0;i<10;i++)p-=(p-e*Math.sin(p)-M)/(1-e*Math.cos(p));return p;}
+function u2(r){return Math.round(200/r)/100;}   /* 2a/r 取两位：显示的 K + U 正好 = −1.00 */
+function f2(x){return (x<-0.004?'−':'')+Math.abs(x).toFixed(2);}
+function q3(){
+  var e=m3.e,c=Math.cos(m3.psi),s=Math.sin(m3.psi),r=1-e*c,u=u2(r);
+  return {c:c,s:s,r:r,u:u,K:u-1,U:-u,cth:e<1e-6?0:-e*s/Math.sqrt(1-e*e*c*c)};
+}
+function zone(q){if(m3.e<0.01)return 'circle';if(Math.abs(q.cth)<0.1&&Math.abs(q.s)<0.2)return q.c>0?'peri':'aph';return q.s<0?'in':'out';}   /* |sin ψ| < 0.2：e 很小时不会半圈都算“端点” */
+
+/* ---------- 状态提示 ---------- */
+function status(q){
+  /* “~” = 不断开的空格，“|” = 这里可以换行（不加空格）：等式和“U 最低”这种词组不会被拆到两行 */
+  var e=m3.e;
+  if(m3.stop){
+    if(e<0.01)return ['e~=~0: a circle has no perihelion or aphelion','r~is the same everywhere → K~=~1.00, U~=~−2.00, E~=~−1.00, the same at every point'];
+    var up=u2(1-e),ua=u2(1+e);
+    if(m3.stop==='peri')return ['Stopped at perihelion: closest to the~Sun, K~largest, fastest',
+      'Here K~=~'+f2(up-1)+', U~=~'+f2(-up)+'; at aphelion K~=~'+f2(ua-1)+', U~=~'+f2(-ua)+'. E~is~−1.00 at both'];
+    return ['Stopped at aphelion: farthest from the~Sun → U~highest, K~smallest, slowest','F~⊥~v: at this instant it neither speeds up nor slows down. E~=~−1.00, the same as at perihelion'];
+  }
+  /* 端点的提示多停 0.9 s（e 大时一闪而过）；离开端点后说“刚经过”，第二句按现在的位置说 */
+  var z0=zone(q),z=z0;if((z0==='in'||z0==='out')&&m3.ht>0)z=m3.hk;var now=z===z0;
+  if(z==='circle')return ['e~=~0: a circle. F~is always ⊥~v → W~=~Fs~cos~90°~=~0','Gravity does no work → the speed does not change: K, U and~E all stay the same'];
+  if(z==='peri')return now?['Passing perihelion: closest to the~Sun → U~lowest, K~largest, fastest','Here F~⊥~v: at this instant it neither speeds up nor slows down. E~stays the same']
+    :['Just passed perihelion: there it was closest to the~Sun, K~largest, fastest','Now part of F~is against~v → gravity does negative work, so it starts to slow down. E~stays the same'];
+  if(z==='aph')return now?['Passing aphelion: farthest from the~Sun → U~highest, K~smallest, slowest','Here F~⊥~v: at this instant it neither speeds up nor slows down. E~stays the same']
+    :['Just passed aphelion: there it was farthest from the~Sun, K~smallest, slowest','Now part of F~is along~v → gravity does positive work, so it starts to speed up. E~stays the same'];
+  if(z==='in')return ['Moving towards perihelion: part of F~is along~v → gravity does positive work','U~↓, K~↑, it gets faster and faster. E~stays the same'];
+  return ['Moving towards aphelion: part of F~is against~v → gravity does negative work','U~↑, K~↓, it gets slower and slower. E~stays the same'];
+}
+function wrap(ctx,s,maxw,size,weight){ctx.font=weight+' '+size+'px '+FONT;var p=s.split(/( |\|)/),L=[],cur='',i,w,t;
+  for(i=0;i<p.length;i+=2){w=p[i].replace(/~/g,'\u00a0');t=cur?cur+(p[i-1]===' '?' ':'')+w:w;if(cur&&ctx.measureText(t).width>maxw){L.push(cur);cur=w;}else cur=t;}
+  if(cur)L.push(cur);return L;}
+function drawStatus(ctx,o,W,q){
+  var st=status(q),y=o.sy,i,L1=wrap(ctx,st[0],W-32,o.f1,600),L2=wrap(ctx,st[1],W-32,o.f2,500);
+  for(i=0;i<L1.length;i++){txt(ctx,L1[i],16,y,C.ink,o.f1,600);y+=o.lh;}
+  for(i=0;i<L2.length;i++){txt(ctx,L2[i],16,y,C.ink,o.f2,500);y+=o.lh;}
+}
+
+/* ---------- 标签放在不压住箭头和别的字的地方 ---------- */
+var OB=[],OS=[],OSo=[];   /* 字和圆点的框；箭头（硬）；轨道、r 线（软） */
+function segHit(s,b,m){
+  var x0=b[0]-m,y0=b[1]-m,x1=b[2]+m,y1=b[3]+m,dx=s[2]-s[0],dy=s[3]-s[1],t0=0,t1=1;
+  var p=[-dx,dx,-dy,dy],qq=[s[0]-x0,x1-s[0],s[1]-y0,y1-s[1]];
+  for(var i=0;i<4;i++){if(p[i]===0){if(qq[i]<0)return false;}else{var r=qq[i]/p[i];if(p[i]<0){if(r>t1)return false;if(r>t0)t0=r;}else{if(r<t0)return false;if(r<t1)t1=r;}}}
+  return true;
+}
+function blocked(b,W,H,soft){
+  if(b[0]<2||b[1]<2||b[2]>W-2||b[3]>H-2)return true;
+  var i;
+  for(i=0;i<OB.length;i++){var a=OB[i];if(b[0]<a[2]+2&&b[2]>a[0]-2&&b[1]<a[3]+2&&b[3]>a[1]-2)return true;}
+  for(i=0;i<OS.length;i++)if(segHit(OS[i],b,2))return true;
+  if(soft)for(i=0;i<OSo.length;i++)if(segHit(OSo[i],b,1))return true;
+  return false;
+}
+function place(ctx,s,cands,col,size,W,H){
+  ctx.font='700 '+size+'px '+FONT;var w=ctx.measureText(s).width,h=size*0.5,b=null,pass,i,t;
+  for(pass=0;pass<2&&!b;pass++)for(i=0;i<cands.length;i+=2){t=[cands[i]-w/2,cands[i+1]-h,cands[i]+w/2,cands[i+1]+h];if(!blocked(t,W,H,pass===0)){b=t;break;}}
+  if(!b)b=[cands[0]-w/2,cands[1]-h,cands[0]+w/2,cands[1]+h];
+  txt(ctx,s,(b[0]+b[2])/2,(b[1]+b[3])/2+1,col,size,700,'center','middle');
+  OB.push(b);
+}
+function fixedLabel(ctx,s,x,y,col,size,align){
+  txt(ctx,s,x,y,col,size,600,align);ctx.font='600 '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='right'?x-w:x;OB.push([x0,y-size,x0+w,y+3]);
+}
+function darrow(ctx,x1,y1,x2,y2,col,w,head){   /* 虚线箭头 */
+  var dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy);if(L<2)return;var ux=dx/L,uy=dy/L;
+  if(L>head+3)seg(ctx,x1,y1,x2-ux*(head+1),y2-uy*(head+1),col,w,[5,4]);
+  arrow(ctx,x2-ux*(head+2),y2-uy*(head+2),x2,y2,col,w,head);
+}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null,ELL={key:'',segs:[]};
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){
+    o.f1=15;o.f2=13.5;o.lh=21;o.sy=26;o.nl=2;o.fl=14;
+    var pw=300;
+    o.a=Math.min(136,Math.floor((W-32-pw-150)/2));
+    o.cx=16+66+o.a;o.top=o.sy+o.lh*(o.nl-1)+22;o.cy=o.top+18+o.a;
+    o.px0=o.cx+o.a+86;o.px1=W-16;
+    o.rt=18;o.rows=[0,52,78,104,122,150,174,204,226];
+    o.py=Math.round(o.cy-o.rows[8]/2+4);
+  }else{
+    o.f1=13.5;o.f2=12.5;o.lh=19;o.sy=22;o.nl=4;o.fl=13;
+    o.a=Math.min(132,Math.floor((W-44)/2));
+    o.cx=Math.round(W/2);o.top=o.sy+o.lh*(o.nl-1)+20;o.cy=o.top+16+o.a;
+    o.yl=o.cy+o.a+20;
+    o.px0=16;o.px1=W-16;
+    o.rt=18;o.rows=[0,48,72,96,113,139,161,188,208];
+    o.py=o.yl+32;
+  }
+  o.kv=Math.max(22,o.a*0.3);o.kF=o.a*0.46;
+  o.bx0=o.px0+26;o.bx1=o.px1-62;o.xm=(o.bx0+o.bx1)/2;o.ku=(o.bx1-o.bx0)/2/EH;
+  var pe=o.py+o.rows[8]+14,ob=o.wide?o.cy+o.a+16:0;
+  o.H=Math.round(Math.max(pe,ob));
+  LY=o;return o;
+}
+
+/* ---------- 椭圆、Sun、行星和箭头 ---------- */
+function drawOrbit(ctx,o,q,W,H){
+  var a=o.a,e=m3.e,b=a*Math.sqrt(1-e*e),cx=o.cx,cy=o.cy,sx=cx+a*e,i;
+  OB.length=0;OS.length=0;OSo.length=0;
+  var key=W+'|'+e;
+  if(ELL.key!==key){ELL.key=key;ELL.segs.length=0;
+    for(i=0;i<40;i++){var t0=i*TAU/40,t1=(i+1)*TAU/40;ELL.segs.push([cx+a*Math.cos(t0),cy-b*Math.sin(t0),cx+a*Math.cos(t1),cy-b*Math.sin(t1)]);}
+    var A=a+26,B=b+26;for(i=0;i<4;i++){var u0=(64+i*12)*Math.PI/180,u1=(64+(i+1)*12)*Math.PI/180;ELL.segs.push([cx+A*Math.cos(u0),cy-B*Math.sin(u0),cx+A*Math.cos(u1),cy-B*Math.sin(u1)]);}
+  }
+  for(i=0;i<ELL.segs.length;i++)OSo.push(ELL.segs[i]);
+  ctx.beginPath();ctx.ellipse(cx,cy,a,b,0,0,TAU);ctx.strokeStyle=rgba(C.muted,0.75);ctx.lineWidth=1.6;ctx.stroke();
+  /* 逆时针的方向箭头（顶上，往左） */
+  var A2=a+26,B2=b+26;ctx.beginPath();
+  for(i=0;i<=12;i++){var tt=(64+i*4)*Math.PI/180,xx=cx+A2*Math.cos(tt),yy=cy-B2*Math.sin(tt);if(i)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+  ctx.strokeStyle=C.muted;ctx.lineWidth=1.5;ctx.stroke();
+  var ta=108*Math.PI/180,tb=116*Math.PI/180;
+  arrow(ctx,cx+A2*Math.cos(ta),cy-B2*Math.sin(ta),cx+A2*Math.cos(tb),cy-B2*Math.sin(tb),C.muted,1.5,8);
+  /* 两个端点 */
+  if(e>=0.01){
+    ring(ctx,cx+a,cy,4,C.muted,1.5);ring(ctx,cx-a,cy,4,C.muted,1.5);
+    if(o.wide){
+      fixedLabel(ctx,'aphelion',cx-a-12,cy-9,C.muted,12.5,'right');
+      fixedLabel(ctx,'perihelion',cx+a+12,cy+19,C.muted,12.5,'left');
+    }else{
+      seg(ctx,cx-a,cy+8,cx-a,o.yl-14,rgba(C.muted,0.6),1,[2,3]);seg(ctx,cx+a,cy+8,cx+a,o.yl-14,rgba(C.muted,0.6),1,[2,3]);
+      fixedLabel(ctx,'aphelion',cx-a-6,o.yl,C.muted,12,'left');
+      fixedLabel(ctx,'perihelion',cx+a+6,o.yl,C.muted,12,'right');
+    }
+  }
+  /* Sun */
+  dot(ctx,sx,cy,15,rgba(C.light,0.22));dot(ctx,sx,cy,10,C.light);
+  OB.push([sx-11,cy-11,sx+11,cy+11]);
+  /* 行星的位置、切线方向 t（= v 的方向）、向外的法线 n、指向 Sun 的 f */
+  var px=cx+a*q.c,py=cy-b*q.s;
+  var tx=-a*q.s,ty=-b*q.c,tl=Math.hypot(tx,ty);tx/=tl;ty/=tl;
+  var nx=b*q.c,ny=-a*q.s,nl=Math.hypot(nx,ny);nx/=nl;ny/=nl;
+  var fx=sx-px,fy=cy-py,rp=Math.hypot(fx,fy);fx/=rp;fy/=rp;
+  seg(ctx,sx,cy,px,py,rgba(C.muted,0.7),1.2,[3,4]);OSo.push([sx,cy,px,py]);
+  /* F：长度固定（只表示方向），离 Sun 太近时缩短 */
+  var LF=Math.min(o.kF,rp-6),fx1=px+fx*LF,fy1=py+fy*LF;
+  var Lp=LF*q.cth,showSplit=m3.split&&Math.abs(Lp)>=9;
+  var ax=px+tx*Lp,ay=py+ty*Lp,bx=fx1-tx*Lp,by=fy1-ty*Lp;   /* F∥ 的尖、F⊥ 的尖 */
+  if(showSplit){
+    seg(ctx,ax,ay,fx1,fy1,rgba(C.force,0.45),1,[2,3]);seg(ctx,bx,by,fx1,fy1,rgba(C.force,0.45),1,[2,3]);
+    arrow(ctx,px,py,bx,by,rgba(C.force,0.55),2.2,8);OS.push([px,py,bx,by]);
+    darrow(ctx,px,py,ax,ay,C.force,2.4,8);OS.push([px,py,ax,ay]);
+  }
+  arrow(ctx,px,py,fx1,fy1,C.force,2.8,10);OS.push([px,py,fx1,fy1]);
+  /* v：按比例，画在轨道外侧一点，不和 F∥ 叠在一起 */
+  var Kd=2/q.r-1,Lv=o.kv*Math.sqrt(Math.max(0,Kd)),vx0=px+nx*10,vy0=py+ny*10,vx1=vx0+tx*Lv,vy1=vy0+ty*Lv;
+  arrow(ctx,vx0,vy0,vx1,vy1,rgba(C.ink,0.7),2.4,8);OS.push([vx0,vy0,vx1,vy1]);
+  dot(ctx,px,py,7,C.ink);OB.push([px-8,py-8,px+8,py+8]);
+  /* 标签 */
+  var fl=o.fl,g=fl*0.95;
+  place(ctx,'Sun',[sx,cy+25,sx,cy-25,sx-32,cy+20,sx+32,cy+20,sx-32,cy-20],C.muted,12,W,H);
+  place(ctx,'v',[vx1+tx*g,vy1+ty*g,vx1+nx*g,vy1+ny*g,vx1-nx*g,vy1-ny*g,(vx0+vx1)/2+nx*g,(vy0+vy1)/2+ny*g],C.muted,fl,W,H);
+  var pxF=-fy,pyF=fx,mxF=px+fx*LF*0.6,myF=py+fy*LF*0.6;
+  place(ctx,'F',[fx1+pxF*g,fy1+pyF*g,fx1-pxF*g,fy1-pyF*g,mxF+pxF*g,myF+pyF*g,mxF-pxF*g,myF-pyF*g,fx1+fx*g,fy1+fy*g],C.force,fl,W,H);
+  if(showSplit){
+    var sg=Lp>0?1:-1;
+    place(ctx,'F∥',[ax+tx*sg*(g+4),ay+ty*sg*(g+4),ax-nx*g,ay-ny*g,ax+nx*g,ay+ny*g,(px+ax)/2-nx*g,(py+ay)/2-ny*g],C.force,fl-1,W,H);
+    var dl=Math.hypot(bx-px,by-py)||1,dx=(bx-px)/dl,dy=(by-py)/dl;
+    place(ctx,'F⊥',[bx+dx*g,by+dy*g,bx-tx*sg*(g+4),by-ty*sg*(g+4),bx+tx*sg*(g+4),by+ty*sg*(g+4)],rgba(C.force,0.85),fl-1,W,H);
+  }
+}
+
+/* ---------- 读数：夹角和三根能量柱 ---------- */
+function zbar(ctx,o,y,lab,col,val){
+  txt(ctx,lab,o.px0+4,y,col,17,600,'left','alphabetic',MATH);
+  var x0=o.bx0,x1=o.bx1,h=12,yt=y-h+1,w=val*o.ku;
+  ctx.save();rrect(ctx,x0,yt,x1-x0,h,h/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();ctx.clip();
+  if(Math.abs(w)>0.5){ctx.fillStyle=col;ctx.fillRect(Math.min(o.xm,o.xm+w),yt,Math.abs(w),h);}
+  ctx.restore();
+  txt(ctx,(val>0?'+':'')+f2(val),o.px1,y,C.ink,13,600,'right','alphabetic',MONO);
+}
+function drawPanel(ctx,o,q){
+  var y=o.py,R=o.rows,x0=o.px0,e=m3.e;
+  var th=Math.round(Math.acos(clamp(q.cth,-1,1))*180/Math.PI);
+  var tail=e<0.01?'Gravity never does work':th===90?'Gravity does no work at this instant':(th<90?'< 90°: gravity does positive work':'> 90°: gravity does negative work');
+  txt(ctx,'Angle between F and v = '+th+'°',x0,y+R[0],C.ink,13,600);
+  txt(ctx,tail,x0,y+R[0]+o.rt,C.ink,13,600);
+  zbar(ctx,o,y+R[1],'K',C.copper,q.K);
+  zbar(ctx,o,y+R[2],'U',C.violet,q.U);
+  zbar(ctx,o,y+R[3],'E',C.ink,q.K+q.U);
+  seg(ctx,o.xm,y+R[1]-16,o.xm,y+R[3]+5,C.muted,1.2);
+  txt(ctx,'0',o.xm,y+R[4],C.muted,11,500,'center');
+  txt(ctx,'Energy units: illustrative',o.px1,y+R[4],C.muted,11,500,'right');
+  txt(ctx,'E = K + U = '+f2(q.K)+' + ('+f2(q.U)+') = '+f2(q.K+q.U),x0,y+R[5],C.ink,12.5,600,'left','alphabetic',MONO);
+  txt(ctx,e<0.01?'e = 0: a circle, same speed everywhere':'Speed at perihelion = '+((1+e)/(1-e)).toFixed(1)+' × speed at aphelion',x0,y+R[6],C.ink,12.5,500);
+  if(m3.split){
+    txt(ctx,'F∥ (dashed): along v → does work, changes speed',x0,y+R[7],C.force,12,600);
+    txt(ctx,'F⊥: at 90° to v → no work, only changes direction',x0,y+R[8],rgba(C.force,0.85),12,600);
+  }else{
+    txt(ctx,'v arrow: length to scale. F arrow: direction only',x0,y+R[7],C.muted,12,500);
+    txt(ctx,'Turn on "Split F": see how much of F is along v',x0,y+R[8],C.muted,12,500);
+  }
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){
+    m3.stop=null;
+    m3.M=(m3.M+NM*dt)%TAU;m3.psi=kepler(m3.M,m3.e);
+    if(m3.ht>0)m3.ht-=dt;
+    var z=zone(q3());if(z==='peri'||z==='aph'){m3.hk=z;m3.ht=0.9;}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),q=q3();
+    drawStatus(ctx,o,W,q);
+    drawOrbit(ctx,o,q,W,H);
+    drawPanel(ctx,o,q);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var re=document.getElementById('s3-e'),oe=document.getElementById('s3-e-out'),bSp=document.getElementById('s3-split'),bSt=document.getElementById('s3-stop');
+re.addEventListener('input',function(){
+  m3.e=Math.round(parseFloat(re.value)*100)/100;syncM();m3.ht=0;
+  oe.textContent=m3.e<0.01?'0 (circle)':m3.e.toFixed(2);S3.render();
+});
+bSp.addEventListener('click',function(){m3.split=!m3.split;press(bSp,m3.split);bSp.textContent='Split F: '+(m3.split?'on':'off');S3.render();});
+bSt.addEventListener('click',function(){
+  var t=m3.next;m3.stop=t;m3.psi=t==='peri'?0:Math.PI;syncM();m3.ht=0;
+  m3.next=t==='peri'?'aph':'peri';bSt.textContent=m3.next==='peri'?'Stop at perihelion':'Stop at aphelion';
+  S3.setPlaying(false);S3.render();
+});
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4：发射速度决定去哪（Newton's cannon + Key experiment “Launch speed, total energy and escape”）。
+   讲义实验：探测器从 r0 = 1.00 × 10⁷ m 沿切线发射（从地心正上方往右，和 Figure 5.3 一样，所以顺时针飞），
+   v0 = 5–9 km s⁻¹，E/m = ½v0² − GM/r0。GM = 6.67 × 10⁻¹¹ × 6.0 × 10²⁴（data sheet），r_E = 6.371 × 10⁶ m（data sheet）。
+   这样算出的五个 E/m（−27.5、−20.0、−15.5、−0.06、+0.03 MJ kg⁻¹）和讲义表格完全一样；√(GM/r0) = 6.33，√(2GM/r0) = 8.95 km s⁻¹。
+   路径是真实引力下的圆锥曲线 r = p/(1 + e cos ν)，p = v0²r0²/GM；只积分真近点角 ν：dν/dt = h/r²，h = r0 v0。
+   v0 < √(GM/r0) 时发射点是最远点（ν0 = π），否则是最近点（ν0 = 0）。r ≤ r_E 撞地；E ≥ 0 时飞到 r = 10¹⁰ m 停下。
+   画面时间：1 s ≙ 1200 s；r > 1.6 × 10⁷ m（画面外）时再按 (r / 1.6 × 10⁷ m)² 快进，否则 8.94 要飞 2 年才回来。
+   读数 t 是真实飞行时间（计算值）。 */
+var GM=6.67e-11*6.0e24,R0=1.00e7,RE=6.371e6,VC=Math.sqrt(GM/R0)/1000;
+var TS=1200,RW=1.6e7,REND=1.0e10,MAXRUN=5;
+var PRE=[5.00,6.33,7.00,8.94,8.95];
+var TNAME={fall:'falls back',circ:'circle',small:'small ellipse',ell:'ellipse',long:'very long ellipse',esc:'escapes'};
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+
+/* ---------- 物理 ---------- */
+var runs=[],cur=null,runId=0,drag=false;
+function mkRun(v){
+  var u=v*1000,k=u*u*R0/GM,o={v:v,u:u,k:k,p:k*R0,e:Math.abs(k-1),h:R0*u,E:0.5*u*u-GM/R0,nu0:k>=1?0:Math.PI};
+  o.nu=o.nu0;o.sw=0;o.t=0;o.done=false;o.crash=false;o.far=false;o.id=++runId;o.nend=1e9;
+  var rp=o.p/(1+o.e);
+  if(o.E>=0){o.cls='esc';o.nend=Math.acos((o.p/REND-1)/o.e);}
+  else if(Math.abs(v-VC)<0.005){o.cls='circ';o.e=0;o.p=R0;o.nu0=o.nu=0;}  /* 6.33 和 √(GM/r0) = 6.326 只差取整：按讲义画成圆（6.32 是小椭圆） */
+  else if(k<1){o.cls=rp<RE?'fall':'small';if(o.cls==='fall')o.nend=TAU-Math.acos((o.p/RE-1)/o.e);}
+  else o.cls=(o.p/(1-o.e)>20*R0)?'long':'ell';
+  return o;
+}
+function rOf(o,nu){return o.p/(1+o.e*Math.cos(nu));}
+function wOf(r){return r>RW?(r/RW)*(r/RW):1;}
+function rate(o,nu){var r=rOf(o,nu);return TS*wOf(r)*o.h/(r*r);}
+/* 推进 dt 秒画面时间：中点法，每小步 Δν ≤ 0.004 */
+function advance(o,dt){
+  if(!o||o.done)return;
+  var left=dt,g=0;
+  while(left>1e-9&&g++<800){
+    var h=Math.min(left,0.004/rate(o,o.nu)),nm=o.nu+0.5*h*rate(o,o.nu),dn=h*rate(o,nm),nn=o.nu+dn,dtp=TS*wOf(rOf(o,nm))*h;
+    if(nn>=o.nend){o.t+=dtp*(o.nend-o.nu)/dn;o.nu=o.nend;o.sw=o.nu-o.nu0;o.done=true;o.crash=o.cls==='fall';return;}
+    o.nu=nn;o.t+=dtp;o.sw=o.nu-o.nu0;left-=h;
+  }
+}
+/* 换一次发射时，旧的那次直接画完整条路径（整圈 / 到撞地点 / 到 10¹⁰ m），叠起来像 Figure 5.3 */
+function finish(o){if(o.done)return;if(o.nend<1e8){o.nu=o.nend;o.sw=o.nend-o.nu0;o.done=true;o.crash=o.cls==='fall';}else if(o.sw<TAU)o.sw=TAU;}
+function launch(v,replace){
+  v=Math.round(v*100)/100;
+  if(replace&&cur){var j=runs.indexOf(cur);if(j>=0)runs.splice(j,1);}
+  else if(cur)finish(cur);
+  for(var i=runs.length-1;i>=0;i--)if(Math.abs(runs[i].v-v)<0.001)runs.splice(i,1);
+  while(runs.length>=MAXRUN)runs.shift();
+  cur=mkRun(v);runs.push(cur);
+  syncUI();
+}
+/* 第一帧：6.33（圆）已经转完一圈、变淡；7.00 的椭圆飞了一部分（快到远地点） */
+var c0=mkRun(6.33);c0.sw=TAU;c0.nu=TAU;c0.t=2*Math.PI*R0/c0.u;runs.push(c0);
+
+/* ---------- 文字小工具 ---------- */
+function sgn(x,d){var a=Math.abs(x).toFixed(d);if(parseFloat(a)===0)return a;return (x<0?'−':'+')+a;}
+function fmtE(x){return sgn(x,Math.abs(x)>=0.995?1:2);}
+function fmtV(v){return v>=0.995?v.toFixed(2):v.toFixed(3);}
+function sci(r){var ex=Math.floor(Math.log(r)/Math.LN10+1e-9),m=r/Math.pow(10,ex);if(m>=9.995){m/=10;ex++;}
+  var s='',es=String(ex);for(var i=0;i<es.length;i++)s+=SUP[es.charAt(i)];return m.toFixed(2)+' × 10'+s+' m';}
+function fmtT(t){if(t<7200)return Math.round(t/60)+' min';if(t<172800)return (t/3600).toFixed(1)+' h';return Math.round(t/86400)+' days';}
+/* 文字里的 _x 或 _{xx} 画成下标（v_{esc}），下标不小于 11 px；measure = true 时只量宽度 */
+function rich(ctx,s,x,y,col,size,weight,align,family,measure){
+  var parts=[],re=/_\{([^}]*)\}|_(\S)/g,i=0,mt,w=0,k,ss=Math.max(11,size*0.74);
+  while((mt=re.exec(s))){if(mt.index>i)parts.push([s.slice(i,mt.index),0,0]);parts.push([mt[1]||mt[2],1,0]);i=re.lastIndex;}
+  if(i<s.length)parts.push([s.slice(i),0,0]);
+  for(k=0;k<parts.length;k++){ctx.font=(weight||500)+' '+(parts[k][1]?ss:size)+'px '+(family||FONT);parts[k][2]=ctx.measureText(parts[k][0]).width;w+=parts[k][2];}
+  if(measure)return w;
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(k=0;k<parts.length;k++){txt(ctx,parts[k][0],cx,y+(parts[k][1]?size*0.26:0),col,parts[k][1]?ss:size,weight,'left','alphabetic',family);cx+=parts[k][2];}
+  return w;
+}
+function fit(ctx,opts,size,weight,maxW){for(var i=0;i<opts.length;i++)if(rich(ctx,opts[i],0,0,null,size,weight,'left',null,true)<=maxW)return opts[i];return opts[opts.length-1];}
+function farrow(ctx,x1,y1,x2,y2,col,w,head){var L=Math.hypot(x2-x1,y2-y1);if(L<1.5)return;if(L<head*1.5)head=Math.max(4,L*0.6);arrow(ctx,x1,y1,x2,y2,col,w,head);}
+
+/* ---------- 排版（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){
+    o.f1=15;o.f2=13.5;o.s1=26;o.s2=49;
+    o.vx=16;o.vy=64;o.vw=W-32-24-286;o.vh=396;
+    o.px=o.vx+o.vw+24;o.pe=W-16;
+    o.yA=84;o.fA=13.5;o.yB=105;o.fB=13;o.yC=134;o.fC=12.5;o.yD=162;o.yb=186;o.de=24;o.yN=278;o.yT=326;
+    o.kF=12;o.kv=8;o.H=o.vy+o.vh+12;
+  }else{
+    o.f1=13.5;o.f2=13;o.s1=24;o.s2=45;
+    o.vx=16;o.vy=58;o.vw=W-32;o.vh=288;
+    o.px=16;o.pe=W-16;
+    o.yA=370;o.fA=13;o.yB=389;o.fB=12.5;o.yC=412;o.fC=12;o.yD=437;o.yb=460;o.de=23;o.yN=546;o.yT=592;
+    o.kF=10.5;o.kv=6.5;o.H=o.yT+38+5*18+8;
+  }
+  o.s0=Math.min(o.vh/2.92,o.vw/2.8);o.sc=o.s0/R0;
+  o.cx=o.vx+1.36*o.s0+Math.max(0,o.vw-2.8*o.s0)*0.3;o.cy=o.vy+1.28*o.s0;
+  o.bx0=o.px+88;o.bx1=o.pe-46;o.bz=o.bx0+(o.bx1-o.bx0)*65/110;o.bk=(o.bx1-o.bx0)/110;
+  LY=o;return o;
+}
+
+/* ---------- 画面里的标签：不出画面、不互相压住 ---------- */
+var placed=[];
+function box(x1,y1,x2,y2){placed.push([Math.min(x1,x2)-5,Math.min(y1,y2)-5,Math.max(x1,x2)+5,Math.max(y1,y2)+5]);}
+function free(b){for(var i=0;i<placed.length;i++){var q=placed[i];if(b[0]<q[2]&&b[2]>q[0]&&b[1]<q[3]&&b[3]>q[1])return false;}return true;}
+function tag(ctx,L,s,x,y,col,size,weight,align,family,force,bg){
+  ctx.font=weight+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  var x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  x0=clamp(x0,L.vx+5,L.vx+L.vw-5-w);var yb=clamp(y,L.vy+5+size,L.vy+L.vh-6);
+  var b=[x0-3,yb-size*0.95,x0+w+3,yb+size*0.3];
+  if(!force&&!free(b))return false;
+  placed.push(b);if(bg){rrect(ctx,b[0],b[1]-1,b[2]-b[0],b[3]-b[1]+1,3);ctx.fillStyle=rgba(C.stage,0.85);ctx.fill();}
+  txt(ctx,s,x0,yb,col,size,weight,'left','alphabetic',family);return true;
+}
+function scr(L,o,nu){var r=o.crash&&nu>=o.nend?RE:rOf(o,nu),ph=Math.PI/2-(nu-o.nu0);return [L.cx+r*Math.cos(ph)*L.sc,L.cy-r*Math.sin(ph)*L.sc,r];}
+function inView(L,X,Y,m){return X>=L.vx+m&&X<=L.vx+L.vw-m&&Y>=L.vy+m&&Y<=L.vy+L.vh-m;}
+
+function trail(ctx,L,o,col,lw){
+  var sw=Math.min(o.sw,TAU),n=Math.max(2,Math.ceil(sw/0.02)),pen=false;
+  ctx.beginPath();
+  for(var i=0;i<=n;i++){
+    var nu=o.nu0+sw*i/n,den=1+o.e*Math.cos(nu);
+    if(den<1e-6){pen=false;continue;}
+    var r=o.p/den;if(r>4*R0){pen=false;continue;}
+    var ph=Math.PI/2-sw*i/n,X=L.cx+r*Math.cos(ph)*L.sc,Y=L.cy-r*Math.sin(ph)*L.sc;
+    if(pen)ctx.lineTo(X,Y);else{ctx.moveTo(X,Y);pen=true;}
+  }
+  ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineJoin='round';ctx.stroke();
+}
+/* 旧轨迹的标签位置：撞地点 / 最下面那一点 / 飞出画面的那一点 / 停下的那一点 */
+function anchor(L,o){
+  var p;
+  if(o.crash){p=scr(L,o,o.nend);return [p[0]+(p[0]-L.cx)*0.12,p[1]+(p[1]-L.cy)*0.12-2,'left'];}
+  if(o.sw>=Math.PI){p=scr(L,o,o.nu0+Math.PI);if(inView(L,p[0],p[1],8))return [p[0]+6,p[1]-7,'left'];}
+  var sw=Math.min(o.sw,TAU),n=Math.max(2,Math.ceil(sw/0.05)),last=null;
+  for(var i=0;i<=n;i++){p=scr(L,o,o.nu0+sw*i/n);if(inView(L,p[0],p[1],10))last=p;else if(last)break;}
+  if(!last)return null;
+  if(i>n)return [last[0]+(last[0]<L.cx?-8:8),last[1]-8,last[0]<L.cx?'right':'left'];
+  var dx=L.cx-last[0],dy=L.cy-last[1],dl=Math.hypot(dx,dy);
+  return [last[0]+dx/dl*24,last[1]+dy/dl*24+4,'center'];
+}
+
+/* ---------- 状态提示 ---------- */
+var offNow=false;
+function status(ctx,L){
+  var o=cur,E=o.E/1e6,b='E/m = '+fmtE(E)+' MJ kg⁻¹',c=Math.cos(o.nu),s=Math.sin(o.nu),out=s>0.15,inn=s<-0.15,l1,l2;
+  if(o.cls==='fall')l1=[b+' < 0 → bound → falls back'];
+  else if(o.cls==='small')l1=[b+' < 0 → bound → ellipse (launch point is farthest)',b+' < 0 → bound → small ellipse'];
+  else if(o.cls==='circ')l1=[b+' < 0 → bound → circle (v₀ = √(GM/r₀))',b+' < 0 → bound → circle'];
+  else if(o.cls==='ell')l1=[b+' < 0 → bound → ellipse'];
+  else if(o.cls==='long')l1=[b+', still negative → bound → very long ellipse',b+' < 0 → bound → very long ellipse',b+' → bound → very long ellipse'];
+  else l1=[b+' ≥ 0 → escapes (v₀ ≥ v_{esc})',b+' ≥ 0 → escapes'];
+  if(L.wide)for(var i=0;i<l1.length;i++)l1[i]='v₀ = '+o.v.toFixed(2)+' km s⁻¹: '+l1[i];
+  if(o.crash)l2=['Hits the ground: speed too small, the closest point of the ellipse is inside Earth','Hits the ground: closest point is inside Earth'];
+  else if(o.done)l2=['At r = 10¹⁰ m, v is still '+(Math.sqrt(2*(o.E+GM/REND))/1000).toFixed(2)+' km s⁻¹: it never comes back','Still moving at r = 10¹⁰ m: never comes back'];
+  else if(o.cls==='circ')l2=['F ⊥ v → gravity does no work → K and U do not change, speed does not change','F ⊥ v → no work → K and U do not change'];
+  else if(offNow){
+    if(o.cls==='esc')l2=['Off screen (time sped up): getting slower, but K never runs out','Off screen (sped up): K never runs out'];
+    else if(s>0)l2=['Off screen (time sped up): K becomes U, getting slower','Off screen (sped up): getting slower'];   /* 画面外按 sin ν 的正负分：过了远地点（ν = π）才说“往回飞” */
+    else l2=['Off screen: pulled back before K ran out (E < 0), now flying back','Off screen: pulled back, now flying back'];
+  }
+  else if(o.cls==='fall')l2=inn?['Falling: U becomes K, getting faster; E does not change','Falling: U → K, faster; E does not change']:['Launch point is the farthest point: slower than 6.33, starts to fall in','Launch point is farthest: starts to fall in'];
+  else if(!out&&!inn)l2=c>0?(o.cls==='small'?['Perigee: fastest, K largest, U lowest']:['Perigee (launch point): fastest, K largest, U lowest','Perigee (launch): fastest, K largest, U lowest'])
+    :(o.cls==='small'?['Launch point = apogee: slowest. r₀ = 1.57 r_E, far above the ground: closest point is above the ground → no crash','Launch = apogee: perigee above ground → no crash']:['Apogee: slowest, K smallest, U highest']);
+  else if(out){
+    if(o.cls==='long')l2=['Moving away from Earth: K becomes U, getting slower. After it leaves the view, it will still come back','Moving away: slower. It will still come back'];
+    else if(o.cls==='esc')l2=['Moving away from Earth: K becomes U, getting slower, but K never runs out','Moving away: slower, but K never runs out'];
+    else l2=['Moving away from Earth: K becomes U, getting slower; E does not change','Moving away: K → U, slower; E does not change'];
+  }
+  else l2=(o.cls==='long'&&o.far)?['It came back: E < 0 → bound, it cannot escape']:['Moving towards Earth: U becomes K, getting faster; E does not change','Moving in: U → K, faster; E does not change'];
+  var mw=L.W-32;
+  rich(ctx,fit(ctx,l1,L.f1,600,mw),16,L.s1,C.ink,L.f1,600);
+  rich(ctx,fit(ctx,l2,L.f2,500,mw),16,L.s2,C.ink,L.f2,500);
+}
+
+/* ---------- 画面：地球、轨迹、探测器 ---------- */
+function drawView(ctx,L){
+  placed.length=0;
+  var cx=L.cx,cy=L.cy,s0=L.s0,i,o;
+  rrect(ctx,L.vx,L.vy,L.vw,L.vh,8);ctx.strokeStyle=rgba(C.muted,0.3);ctx.lineWidth=1;ctx.stroke();
+  ctx.save();rrect(ctx,L.vx,L.vy,L.vw,L.vh,8);ctx.clip();
+  dot(ctx,cx,cy,RE*L.sc,rgba(C.field,0.22));ring(ctx,cx,cy,RE*L.sc,C.field,1.5);
+  seg(ctx,cx,cy,cx,cy-s0,rgba(C.muted,0.9),1.2,[3,4]);dot(ctx,cx,cy,2.5,C.ink);
+  for(i=0;i<runs.length;i++){o=runs[i];if(o!==cur)trail(ctx,L,o,rgba(C.copper,0.42),1.6);}
+  if(cur)trail(ctx,L,cur,C.copper,2.6);
+  ring(ctx,cx,cy-s0,4.5,C.ink,1.5);
+  /* 探测器 */
+  var p=scr(L,cur,cur.nu),X=p[0],Y=p[1],r=p[2];
+  offNow=!inView(L,X,Y,0);if(offNow)cur.far=true;
+  var arrows=null;
+  if(!offNow){
+    if(!cur.done){
+      var g=GM/(r*r),ux=(cx-X),uy=(cy-Y),ul=Math.hypot(ux,uy);ux/=ul;uy/=ul;
+      var ph=Math.PI/2-(cur.nu-cur.nu0),vr=Math.sqrt(GM/cur.p)*cur.e*Math.sin(cur.nu),vt=cur.h/r;
+      var vx=vr*Math.cos(ph)+vt*Math.sin(ph),vy=vr*Math.sin(ph)-vt*Math.cos(ph),vl=Math.hypot(vx,vy);
+      var Lf=Math.min(g*L.kF,r*L.sc-10),Lv=vl/1000*L.kv,tx=vx/vl,ty=-vy/vl;   /* F ∝ g；快撞地时不超过地心 */
+      farrow(ctx,X,Y,X+ux*Lf,Y+uy*Lf,C.force,2.6,8);
+      farrow(ctx,X,Y,X+tx*Lv,Y+ty*Lv,rgba(C.ink,0.7),2.4,9);
+      arrows=[X+ux*(Lf+10),Y+uy*(Lf+10)+4,X+tx*(Lv+10),Y+ty*(Lv+10)+4];
+      arrows.push([X,Y,X+ux*Lf,Y+uy*Lf],[X,Y,X+tx*Lv,Y+ty*Lv]);
+    }
+    dot(ctx,X,Y,5.5,C.ink);ring(ctx,X,Y,5.5,C.stage,1.2);
+  }
+  ctx.restore();
+  /* 固定标签 */
+  tag(ctx,L,'Drawn to scale',L.vx+8,L.vy+18,C.muted,11.5,500,'left',null,true);
+  tag(ctx,L,'Earth',cx,cy+RE*L.sc*0.45,C.ink,12.5,600,'center',null,true);var eB=placed[placed.length-1];
+  tag(ctx,L,'launch point',cx,cy-s0-11,C.muted,12,600,'center',null,true);
+  tag(ctx,L,'r₀',cx-6,cy-s0*0.8+4,C.muted,13,600,'right',null,true);
+  if(arrows){
+    tag(ctx,L,'F',arrows[0],arrows[1],C.force,13,700,'center');
+    tag(ctx,L,'v',arrows[2],arrows[3],C.muted,13,700,'center');
+    box(arrows[4][0],arrows[4][1],arrows[4][2],arrows[4][3]);box(arrows[5][0],arrows[5][1],arrows[5][2],arrows[5][3]);
+  }
+  if(!offNow)box(X-3,Y-3,X+3,Y+3);
+  if(offNow){
+    var dx=X-cx,dy=Y-cy,dl=Math.hypot(dx,dy),ex,ey,t1,t2,ins=14;dx/=dl;dy/=dl;
+    t1=dx>0?(L.vx+L.vw-ins-cx)/dx:(dx<0?(L.vx+ins-cx)/dx:1e9);
+    t2=dy>0?(L.vy+L.vh-ins-cy)/dy:(dy<0?(L.vy+ins-cy)/dy:1e9);
+    var tt=Math.min(t1,t2);ex=cx+dx*tt;ey=cy+dy*tt;
+    arrow(ctx,ex-dx*26,ey-dy*26,ex,ey,C.ink,2.2,9);box(ex-dx*26,ey-dy*26,ex,ey);
+    var tl='probe r = '+sci(r);
+    if(Math.abs(dx)>0.7){
+      /* 平常写在箭头上面；探测器在左右稍偏下时，这样会压住（或紧挨着）“地球”两个字 → 改写在箭头下面 */
+      var al=dx<0?'left':'right',ty=ey-16;ctx.font='600 12px '+MONO;var tw=ctx.measureText(tl).width,tx0=clamp(al==='right'?ex-dx*4-tw:ex-dx*4,L.vx+5,L.vx+L.vw-5-tw);
+      if(tx0-3<eB[2]+30&&tx0+tw+3>eB[0]-30&&ty-11.4<eB[3]+2&&ty+3.6>eB[1]-2)ty=ey+22;
+      tag(ctx,L,tl,ex-dx*4,ty,C.ink,12,600,al,MONO,true,true);
+    }
+    else tag(ctx,L,tl,ex-dx*40,ey-dy*40+(dy>0?0:8),C.ink,12,600,'center',MONO,true,true);
+  }
+  /* 旧轨迹的 v₀ 标签（新的优先，压住别的就不写） */
+  for(i=runs.length-1;i>=0;i--){o=runs[i];if(o===cur)continue;var a=anchor(L,o);if(a)tag(ctx,L,o.v.toFixed(2),a[0],a[1],C.copper,11.5,600,a[2],MONO,false,true);}
+}
+
+/* ---------- 右边（手机上在下面）：E/m、读数、能量柱、v₀ 数轴、实验记录 ---------- */
+function drawPanel(ctx,L){
+  var o=cur,x=L.px,xe=L.pe,r=o.crash?RE:rOf(o,o.nu),E=o.E/1e6,U=-GM/r/1e6,K=Math.max(0,E-U),v=Math.sqrt(2*K*1e6)/1000,i;
+  rich(ctx,'E/m = ½v₀² − GM/r₀',x,L.yA,C.ink,L.fA,600);
+  txt(ctx,'= '+(o.u*o.u/2e6).toFixed(2)+' − '+(GM/R0/1e6).toFixed(2)+' ≈ '+fmtE(E)+' MJ kg⁻¹',x,L.yB,C.ink,L.fB,600,'left','alphabetic',MONO);
+  txt(ctx,'r = '+sci(r),x,L.yC,C.ink,L.fC,500,'left','alphabetic',MONO);
+  txt(ctx,'v = '+fmtV(v)+' km s⁻¹',xe,L.yC,C.ink,L.fC,500,'right','alphabetic',MONO);
+  txt(ctx,'Energy (MJ kg⁻¹)',x,L.yD,C.muted,12,600);
+  txt(ctx,'t = '+fmtT(o.t)+(!o.done&&wOf(r)>1.05?' · sped up':''),xe,L.yD,C.muted,12,500,'right','alphabetic',MONO);
+  function sbar(y,lab,val,col){
+    txt(ctx,lab,x,y,col,12.5,700);
+    var yy=y-10,h=11,len=val*L.bk,w;
+    rrect(ctx,L.bx0,yy,L.bx1-L.bx0,h,h/2);ctx.fillStyle=rgba(C.muted,0.14);ctx.fill();
+    if(Math.abs(val)>0.004){w=Math.max(2,Math.abs(len));ctx.fillStyle=col;ctx.fillRect(len<0?L.bz-w:L.bz,yy,w,h);}
+    txt(ctx,fmtE(val),xe,y,C.ink,12.5,600,'right','alphabetic',MONO);
+  }
+  sbar(L.yb,'K/m kinetic',K,C.copper);
+  sbar(L.yb+L.de,'U/m potential',U,C.violet);
+  sbar(L.yb+2*L.de,'E/m total',E,C.ink);
+  seg(ctx,L.bz,L.yb-15,L.bz,L.yb+2*L.de+5,C.muted,1.2);
+  txt(ctx,'0',L.bz,L.yb+2*L.de+19,C.muted,11,500,'center');
+  txt(ctx,'← negative',L.bx0,L.yb+2*L.de+19,C.muted,11,500,'left');txt(ctx,'positive →',L.bx1,L.yb+2*L.de+19,C.muted,11,500,'right');
+  /* v₀ 数轴 */
+  var xa=x+26,xb=xe,yN=L.yN;
+  function vx(q){return xa+(q-5)/4*(xb-xa);}
+  txt(ctx,'v₀',x,yN+5,C.ink,13,700);
+  rrect(ctx,xa,yN-3,xb-xa,6,3);ctx.fillStyle=rgba(C.muted,0.22);ctx.fill();
+  ctx.fillStyle=rgba(C.copper,0.35);ctx.fillRect(vx(8.95),yN-3,xb-vx(8.95),6);
+  seg(ctx,xa,yN-6,xa,yN+6,C.muted,1.2);txt(ctx,'5 km s⁻¹',xa-3,yN+20,C.muted,11.5,500,'left');
+  seg(ctx,vx(6.33),yN-7,vx(6.33),yN+7,C.ink,1.6);txt(ctx,'6.33 circle',vx(6.33),yN+20,C.ink,11.5,600,'center');
+  seg(ctx,vx(8.95),yN-7,vx(8.95),yN+7,C.ink,1.6);txt(ctx,'8.95 or more: escapes',xb,yN+20,C.ink,11.5,600,'right');
+  var mx=vx(o.v);ctx.beginPath();ctx.moveTo(mx,yN-5);ctx.lineTo(mx-5.5,yN-14);ctx.lineTo(mx+5.5,yN-14);ctx.closePath();ctx.fillStyle=C.copper;ctx.fill();
+  /* 实验记录 */
+  var y=L.yT,c2=x+80,c3=x+178,list=runs.slice().sort(function(a,b){return a.v-b.v;});
+  txt(ctx,'Experiment record (sorted by v₀, at most 5 runs)',x,y,C.muted,12,600);
+  y+=19;
+  txt(ctx,'v₀ (km s⁻¹)',x,y,C.muted,11.5,600);txt(ctx,'E/m (MJ kg⁻¹)',c2,y,C.muted,11.5,600);txt(ctx,'path',c3,y,C.muted,11.5,600);
+  seg(ctx,x,y+5,xe,y+5,C.line,1);
+  for(i=0;i<list.length;i++){
+    var q=list[i],yy=y+19+i*18,col=q===cur?C.ink:C.muted,wt=q===cur?700:500,s=TNAME[q.cls];
+    txt(ctx,q.v.toFixed(2),x,yy,col,12,wt,'left','alphabetic',MONO);
+    txt(ctx,fmtE(q.E/1e6),c2,yy,col,12,wt,'left','alphabetic',MONO);
+    txt(ctx,s,c3,yy,col,12,wt);
+  }
+}
+
+/* ---------- 控件 ---------- */
+var rV=document.getElementById('s4-v'),oV=document.getElementById('s4-v-out'),bP=[];
+function syncUI(){
+  if(!cur)return;
+  rV.value=cur.v.toFixed(2);oV.textContent=cur.v.toFixed(2)+' km s⁻¹';
+  for(var i=0;i<bP.length;i++)press(bP[i],Math.abs(cur.v-PRE[i])<0.001);
+}
+PRE.forEach(function(v,i){bP.push(document.getElementById('s4-p'+i));});
+launch(7.00,false);
+for(var q0=0;q0<300;q0++)advance(cur,1/60);
+
+var S4=makeStage('sim4',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){advance(cur,dt);},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    drawView(ctx,L);
+    status(ctx,L);
+    drawPanel(ctx,L);
+  }
+});
+
+bP.forEach(function(b,i){b.addEventListener('click',function(){drag=false;launch(PRE[i],false);S4.setPlaying(true);S4.render();});});
+rV.addEventListener('input',function(){launch(parseFloat(rV.value),drag);drag=true;S4.setPlaying(true);S4.render();});
+rV.addEventListener('change',function(){drag=false;});
+document.getElementById('s4-clear').addEventListener('click',function(){runs=[cur];S4.render();});
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 变轨：Hohmann transfer（LEO ↔ GEO）和 orbital decay（drag）。全部逆时针（booklet Figure 5.4、5.5）。
+   能量柱 = 1 kg 的真实能量（MJ），用 data sheet 常数算（计算值）：G = 6.67e-11，M = 6.0e24 kg，r_E = 6.371e6 m；
+   r1 = r_E + 250 km（booklet 的 250 km 轨道），r2 = GEO 半径（T = 1 天 = 86400 s → 4.23e7 m）。
+   算出：v1 = 7.77、v2 = 3.08 km s⁻¹（booklet），E1 = −30.2、E2 = −4.73 MJ，ΔE = 25.5 MJ（= booklet 58.1 − 32.6），ΔU = 51.0 MJ。
+   transfer orbit：a = (r1 + r2)/2，e = 0.729；perigee 10.2、apogee 1.60 km s⁻¹（计算值）。
+   画图不按比例（和 Figure 5.4 一样：地球 0.55、r1 = 1、r2 = 2.3）。图上的运动用同一个 GM（画图单位）算，所以也满足 Kepler 定律
+   （近地点快、远地点慢）；能量柱和读数按同一个方向（真近点角 θ）换算到真实轨道：r = a(1 − e²)/(1 + e cos θ)，v² = GM(2/r − 1/a)。
+   burn 很短：动画里卫星在点火点停 BT 秒，这时只有 K 在变，U 不变。
+   drag 模式全部示意（像 Figure 5.5，间距画大了）：每一刻都近似圆轨道，E = −GMm/2r，K = −E，U = 2E；drag 拿走的能量 = 热。
+   空气密度 ∝ exp(−高度/H)，越低 drag 越大，所以一圈比一圈掉得多。 */
+var GMr=6.67e-11*6.0e24,RE=6.371e6,R1=RE+250e3,R2=Math.pow(GMr*86400*86400/(4*Math.PI*Math.PI),1/3);
+var AT=(R1+R2)/2,ET=(R2-R1)/(R2+R1),PT=AT*(1-ET*ET);
+var D0=0.55,D1=1,D2=2.3,DA=(D1+D2)/2,DE=(D2-D1)/(D2+D1),DB=DA*Math.sqrt(1-DE*DE),DC=-DA*DE;
+var GMd=Math.pow(TAU/3.2,2),ND=Math.sqrt(GMd/(DA*DA*DA)),BT=0.9,HALF=2.42;
+var QE=0.9,Q0=2.15,QEND=1.02,QH=0.35,QK=0.3,QF=28/(GMd/Q0),QDMAX=Math.exp(-(QEND-QE)/QH)*GMd/QEND;
+var TRN=1600,TR=new Float32Array(TRN*2);
+var V1=Math.sqrt(GMr/R1)/1000,V2=Math.sqrt(GMr/R2)/1000,DEm=(GMr/(2*R1)-GMr/(2*R2))/1e6;
+var m5={mode:'up',ph:'c1',phi:0,Mt:0,Ea:0,arm:false,bt:0,lap:false,Kpre:0,Kpost:0,
+  qr:Q0,qphi:0,qvr:0,gone:false,tn:0,tacc:0,
+  x:0,y:0,vx:0,vy:1,v:0,r:R1,K:0,U:0,E:0,W:0,K0:0,U0:0,E0:0};
+
+function circK(R){return GMr/(2*R);}
+function tranK(R){return GMr*(2/R-1/AT)/2;}
+function kepE(M){var E=m5.Ea,d,i;for(i=0;i<20;i++){d=(E-DE*Math.sin(E)-M)/(1-DE*Math.cos(E));E-=d;if(Math.abs(d)<1e-11)break;}m5.Ea=E;return E;}
+function addTrail(){if(m5.tn<TRN){TR[m5.tn*2]=m5.qr*Math.cos(m5.qphi);TR[m5.tn*2+1]=m5.qr*Math.sin(m5.qphi);m5.tn++;}}
+
+function startBurn(n){var u=m5.mode==='up',R=(n===1)===u?R1:R2;
+  m5.ph='b'+n;m5.bt=0;m5.arm=false;
+  if(n===1){m5.Kpre=circK(R);m5.Kpost=tranK(R);}else{m5.Kpre=tranK(R);m5.Kpost=circK(R);}
+  sync5();}
+
+function stepDrag(dt){
+  if(m5.gone)return;
+  var n=4,h=dt/n,i,rho;
+  for(i=0;i<n;i++){rho=Math.exp(-(m5.qr-QE)/QH);m5.qvr=-QK*rho*Math.sqrt(m5.qr);m5.qr+=m5.qvr*h;
+    m5.qphi+=Math.sqrt(GMd/(m5.qr*m5.qr*m5.qr))*h;
+    if(m5.qr<=QEND){m5.qr=QEND;m5.gone=true;break;}}
+  m5.tacc+=dt;if(m5.tacc>=1/30||m5.gone){m5.tacc=0;addTrail();}
+  if(m5.gone)sync5();
+}
+function step5(dt){
+  if(m5.mode==='drag'){stepDrag(dt);return;}
+  var p=m5.ph,u=m5.mode==='up';
+  if(p==='c1'||p==='c2'){
+    var d=(p==='c1')===u?D1:D2,w=Math.sqrt(GMd/(d*d*d)),np=m5.phi+w*dt,tg=u?0:Math.PI;
+    if(p==='c1'&&m5.arm&&Math.floor((np-tg)/TAU)>Math.floor((m5.phi-tg)/TAU)){m5.phi=tg;startBurn(1);return;}
+    m5.phi=((np%TAU)+TAU)%TAU;
+  }else if(p==='b1'||p==='b2'){
+    m5.bt+=dt;
+    if(m5.bt>=BT){if(p==='b1'){m5.ph='co';m5.Mt=u?0:Math.PI;m5.Ea=m5.Mt;m5.lap=false;}else{m5.ph='c2';m5.phi=u?Math.PI:0;}sync5();}
+  }else{
+    var nM=m5.Mt+ND*dt,t2=u?Math.PI:0,k0=Math.floor((m5.Mt-t2)/TAU),k1=Math.floor((nM-t2)/TAU);
+    if(k1>k0){if(m5.arm){m5.Mt=t2+TAU*k1;m5.Ea=m5.Mt;startBurn(2);return;}m5.lap=true;}
+    m5.Mt=nM;
+  }
+}
+function reset5(md){
+  m5.mode=md;m5.ph='c1';m5.arm=false;m5.bt=0;m5.lap=false;m5.Mt=0;m5.Ea=0;
+  m5.phi=md==='up'?TAU-0.9:Math.PI-0.75;
+  m5.qr=Q0;m5.qphi=Math.PI*0.3;m5.qvr=0;m5.gone=false;m5.tn=0;m5.tacc=0;
+  if(md==='drag'){addTrail();for(var i=0;i<240;i++)stepDrag(1/60);}
+}
+
+/* 当前状态 → 位置（画图单位）、速度方向、真实的 r、v、K、U、E（J/kg）；drag 模式是示意单位 */
+function calc(){
+  var u=m5.mode==='up',p=m5.ph,R,d,a,c,s,vx,vy,vm;
+  if(m5.mode==='drag'){
+    var r=m5.qr,vt=Math.sqrt(GMd/r),vr=m5.gone?0:m5.qvr;c=Math.cos(m5.qphi);s=Math.sin(m5.qphi);
+    m5.x=r*c;m5.y=r*s;vx=vr*c-vt*s;vy=vr*s+vt*c;vm=Math.hypot(vx,vy);m5.vx=vx/vm;m5.vy=vy/vm;m5.v=vt;
+    m5.U=-QF*GMd/r;m5.K=-m5.U/2;m5.E=m5.U/2;m5.E0=-QF*GMd/(2*Q0);m5.K0=-m5.E0;m5.U0=2*m5.E0;m5.W=m5.E0-m5.E;return;
+  }
+  if(p==='co'){
+    var E=kepE(m5.Mt);c=Math.cos(E);s=Math.sin(E);m5.x=DA*(c-DE);m5.y=DB*s;
+    vx=-DA*s;vy=DB*c;vm=Math.hypot(vx,vy);m5.vx=vx/vm;m5.vy=vy/vm;
+    R=PT/(1+ET*Math.cos(Math.atan2(m5.y,m5.x)));m5.r=R;m5.K=tranK(R);
+  }else{
+    var first=(p==='c1'||p==='b1');
+    d=first===u?D1:D2;R=first===u?R1:R2;
+    a=(p==='c1'||p==='c2')?m5.phi:((p==='b1')===u?0:Math.PI);
+    c=Math.cos(a);s=Math.sin(a);m5.x=d*c;m5.y=d*s;m5.vx=-s;m5.vy=c;m5.r=R;
+    if(p==='b1'||p==='b2'){var f=clamp(m5.bt/(0.7*BT),0,1);f=f*f*(3-2*f);m5.K=lerp(m5.Kpre,m5.Kpost,f);}else m5.K=circK(R);
+  }
+  m5.v=Math.sqrt(2*m5.K);m5.U=-GMr/m5.r;m5.E=m5.K+m5.U;
+  m5.E0=-GMr/(2*(u?R1:R2));m5.K0=-m5.E0;m5.U0=2*m5.E0;m5.W=m5.E-m5.E0;
+}
+
+/* 状态提示（两句：发生了什么 / 为什么），按画布宽度自动换行 */
+var ST1='',ST2='';
+function sg(x){var a=Math.abs(x);return a<0.005?'0':(x<0?'−':'+')+a.toFixed(a<9.995?2:1);}
+function stat(){
+  var md=m5.mode,p=m5.ph,u=md==='up',P1=u?'perigee':'apogee',P2=u?'apogee':'perigee',dir=u?'forwards':'backwards';
+  if(md==='drag'){
+    if(m5.gone){ST1='Too low, air too dense: the satellite burns up';ST2='Decay is caused by drag, not by "stronger gravity"';return;}
+    ST1=m5.qr>1.55?'Drag acts against v: {mechanical energy becomes heat} → {E falls} → {r falls}':'Lower orbits meet denser air → more drag → it falls further on each turn';
+    ST2='{E = −K}: K rises, so it speeds up. {U = 2E}: U falls twice as much as E: {half becomes heat}, {half becomes K}';return;
+  }
+  if(p==='c1'){
+    if(!m5.arm){ST1=u?'LEO circular orbit (250 km above Earth): {v = '+V1.toFixed(2)+' km s⁻¹}':'GEO circular orbit: {v = '+V2.toFixed(2)+' km s⁻¹}';ST2='Press Fire Burn 1: when the satellite reaches '+P1+', the burn pushes '+dir;}
+    else{ST1='Burn 1 is ready: waiting for the satellite to reach '+P1;ST2='There it pushes '+dir+' → '+(u?'faster':'slower')+' → into the {transfer orbit}';}
+  }else if(p==='b1'){
+    ST1='Burn 1 at '+P1+': push '+dir+' → '+(u?'faster':'slower')+', into the {transfer orbit}';
+    ST2=u?'K and E get bigger. At this instant r has not changed, so U does not change':'K and E get smaller (E more negative). At this instant r has not changed, so U does not change';
+  }else if(p==='co'){
+    var away=u?Math.sin(m5.Ea)>=-1e-9:Math.sin(m5.Ea)<=1e-9;
+    if(away){
+      ST1=u?'Coast: moving away from Earth, gravity makes it slower and slower':'Coast: falling, gravity does positive work, so it gets faster and faster';
+      ST2=(u?'K → U':'U → K')+', E is constant. '+(m5.arm?'Burn 2 is ready: it fires at '+P2:'Press Fire Burn 2 before '+P2);
+    }else{
+      ST1='No Burn 2: it follows the {transfer orbit} back to '+P1;
+      ST2=(u?'U → K, faster and faster':'K → U, slower and slower')+', E is constant. '+(m5.arm?'Burn 2 fires at the next '+P2:'Press Fire Burn 2 before the next '+P2);
+    }
+  }else if(p==='b2'){
+    ST1=u?'Burn 2 at apogee: push forwards again → into the big GEO circle':'Burn 2 at perigee: push backwards again → into the small LEO circle';
+    ST2=u?'K gets a little bigger, E gets bigger again. U does not change at this instant':'K gets smaller, E gets smaller again. U does not change at this instant';
+  }else{
+    var dE=DEm.toFixed(1),dU=(2*DEm).toFixed(1);
+    ST1=u?'Done: {ΔE = +'+dE+' MJ}, {K is '+dE+' MJ less}, {U is '+dU+' MJ more}':'Done: {ΔE = −'+dE+' MJ}, {K is '+dE+' MJ more}, {U is '+dU+' MJ less}';
+    ST2='{ΔK = −ΔE}, {ΔU = 2ΔE}. '+(u?'Both burns speed it up, but it ends slower: {'+V1.toFixed(2)+' → '+V2.toFixed(2)+' km s⁻¹}':'Both burns slow it down, but it ends faster: {'+V2.toFixed(2)+' → '+V1.toFixed(2)+' km s⁻¹}');
+  }
+}
+/* 简单的中英混排换行：中文一个字一段，英文单词一段，{…} 里的不拆开，标点不放在行首。结果缓存，状态不变就不重算 */
+var WR={},WA=[],WB=[];
+var TOK=/\{[^}]*\}|[\u2E80-\u9FFF\u3000-\u303F\uFF00-\uFFEF“”]|[^\s{\u2E80-\u9FFF\u3000-\u303F\uFF00-\uFFEF“”]+|\s+/g;
+function wrapTo(ctx,s,maxW,font,out){
+  var key=font+'|'+maxW+'|'+s;if(WR[out.id]===key)return out;WR[out.id]=key;
+  ctx.font=font;out.length=0;var toks=s.match(TOK)||[],line='',i,t;
+  for(i=0;i<toks.length;i++){t=toks[i].replace(/[{}]/g,'');
+    if(line&&!/^[\uFF0C\u3002\uFF1A\uFF1B\u3001\uFF09”,.:;)]/.test(t)&&ctx.measureText(line+t).width>maxW&&!/^\s+$/.test(t)){out.push(line.replace(/\s+$/,''));line=t.replace(/^\s+/,'');}
+    else line+=t;}
+  if(line)out.push(line.replace(/\s+$/,''));return out;
+}
+WA.id='a';WB.id='b';
+function htxt(ctx,s,x,y,col,size,weight,align){ctx.font=(weight||500)+' '+size+'px '+FONT;ctx.textAlign=align||'left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align);}
+
+/* 一根能量柱：0 在 z，负的往左、正的往右；虚线框 = 开始时的值；数字放在 0 线的另一边 */
+function ebar(ctx,lx,y,z,x0,x1,s,label,val,v0,col,num){
+  txt(ctx,label,lx,y+4,col,12.5,700);
+  rrect(ctx,x0,y-7,x1-x0,14,4);ctx.fillStyle=rgba(C.muted,0.08);ctx.fill();
+  var w=Math.abs(val*s);if(w>0.5){rrect(ctx,val<0?z-w:z,y-6,w,12,3);ctx.fillStyle=col;ctx.fill();}
+  if(Math.abs(val-v0)>0.25&&Math.abs(v0)>0.05){var gw=Math.abs(v0*s);rrect(ctx,v0<0?z-gw:z,y-9,gw,18,4);ctx.strokeStyle=C.ink;ctx.lineWidth=1.1;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([]);}
+  if(num)txt(ctx,sg(val),val<0?z+6:z-6,y+4,C.ink,12,600,val<0?'left':'right','alphabetic',MONO);
+}
+
+var ST5=makeStage('sim5',{
+  height:function(w){return w>=640?430:680;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    calc();stat();
+    var wide=W>=640,drag=m5.mode==='drag',u=m5.mode==='up',p=m5.ph,i;
+    /* status */
+    var f1=wide?15:13.5,f2=wide?13.5:12.5,lh=wide?22:19,ty=wide?26:22;
+    wrapTo(ctx,ST1,W-32,'600 '+f1+'px '+FONT,WA);wrapTo(ctx,ST2,W-32,'500 '+f2+'px '+FONT,WB);
+    for(i=0;i<WA.length;i++){txt(ctx,WA[i],16,ty,C.ink,f1,600);ty+=lh;}
+    for(i=0;i<WB.length;i++){txt(ctx,WB[i],16,ty,C.muted,f2,500);ty+=lh;}
+    /* layout */
+    var side,top,cx,cy,un,px0,pw,py;
+    if(wide){top=66;side=Math.min(H-74,W-16-30-330-16);cx=16+side/2;cy=top+side/2;px0=16+side+30;pw=W-16-px0;py=96;}
+    else{top=96;side=W-20;cx=W/2;cy=top+side/2;px0=16;pw=W-32;py=top+side+18;}
+    un=side/2/HALF;
+    /* Earth (+ air in drag mode) */
+    var er=(drag?QE:D0)*un;
+    if(drag){var gr=ctx.createRadialGradient(cx,cy,er,cx,cy,1.75*un);gr.addColorStop(0,rgba(C.field,0.38));gr.addColorStop(1,rgba(C.field,0));ctx.fillStyle=gr;ctx.beginPath();ctx.arc(cx,cy,1.75*un,0,TAU);ctx.fill();}
+    dot(ctx,cx,cy,er,rgba(C.field,0.24));ring(ctx,cx,cy,er,rgba(C.field,0.8),1.4);
+    txt(ctx,'Earth',cx,cy+4,C.ink,12,600,'center');
+    if(!drag){
+      var dS=u?D1:D2,dF=u?D2:D1,cur1=p==='c1',cur2=p==='c2';
+      /* start circle, final circle */
+      ctx.beginPath();ctx.arc(cx,cy,dS*un,0,TAU);ctx.strokeStyle=cur1?C.copper:rgba(C.muted,0.55);ctx.lineWidth=cur1?2.2:1.3;ctx.stroke();
+      ctx.beginPath();ctx.arc(cx,cy,dF*un,0,TAU);ctx.strokeStyle=cur2?C.copper:rgba(C.muted,0.55);ctx.lineWidth=cur2?2.2:1.3;if(!cur2)ctx.setLineDash([5,5]);ctx.stroke();ctx.setLineDash([]);
+      /* transfer ellipse: focus = Earth; canvas angle −π..0 = upper half */
+      var ex=cx+DC*un,rx=DA*un,ry=DB*un,h0=u?-Math.PI:0,h1=u?0:Math.PI,o0=u?0:-Math.PI,o1=u?Math.PI:0;
+      if(p==='c1'){ctx.beginPath();ctx.ellipse(ex,cy,rx,ry,0,0,TAU);ctx.strokeStyle=rgba(C.muted,0.75);ctx.lineWidth=1.2;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);}
+      else if(p==='c2'){ctx.beginPath();ctx.ellipse(ex,cy,rx,ry,0,h0,h1);ctx.strokeStyle=rgba(C.copper,0.4);ctx.lineWidth=1.6;ctx.stroke();}
+      else{ctx.beginPath();ctx.ellipse(ex,cy,rx,ry,0,h0,h1);ctx.strokeStyle=C.copper;ctx.lineWidth=2.2;ctx.stroke();
+        ctx.beginPath();ctx.ellipse(ex,cy,rx,ry,0,o0,o1);if(m5.lap){ctx.strokeStyle=C.copper;ctx.lineWidth=2.2;}else{ctx.strokeStyle=rgba(C.copper,0.55);ctx.lineWidth=1.4;ctx.setLineDash([2,4]);}ctx.stroke();ctx.setLineDash([]);}
+      /* labels */
+      var pxp=cx+D1*un,pxa=cx-D2*un;
+      ring(ctx,pxp,cy,3.5,C.muted,1.4);ring(ctx,pxa,cy,3.5,C.muted,1.4);
+      htxt(ctx,'perigee',pxp+8,u?cy+18:cy-10,C.muted,12,600);
+      htxt(ctx,'apogee',pxa+9,u?cy-10:cy+18,C.muted,12,600);
+    }else{
+      ctx.beginPath();ctx.arc(cx,cy,Q0*un,0,TAU);ctx.strokeStyle=rgba(C.muted,0.5);ctx.lineWidth=1.1;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);
+      if(m5.tn>1){ctx.beginPath();ctx.moveTo(cx+TR[0]*un,cy-TR[1]*un);for(i=1;i<m5.tn;i++)ctx.lineTo(cx+TR[i*2]*un,cy-TR[i*2+1]*un);ctx.lineTo(cx+m5.x*un,cy-m5.y*un);
+        ctx.strokeStyle=C.copper;ctx.lineWidth=1.8;ctx.lineJoin='round';ctx.stroke();}
+    }
+    /* satellite + arrows */
+    var sx=cx+m5.x*un,sy=cy-m5.y*un,dx=m5.vx,dy=-m5.vy,gx=cx-sx,gy=cy-sy,gl=Math.hypot(gx,gy);gx/=gl;gy/=gl;
+    if(!(drag&&m5.gone)){
+      var vl=drag?m5.v*(wide?28:26):m5.v/1000*(wide?5.6:5.2),hd=clamp(vl*0.55,4,9);
+      arrow(ctx,sx+dx*7,sy+dy*7,sx+dx*(7+vl),sy+dy*(7+vl),rgba(C.ink,0.7),2.4,hd);
+      arrow(ctx,sx+gx*7,sy+gy*7,sx+gx*29,sy+gy*29,C.force,2.2,7);
+      if(drag){var rho=Math.exp(-(m5.qr-QE)/QH),dl=10+30*Math.sqrt(clamp(rho*m5.v*m5.v/QDMAX,0,1));
+        arrow(ctx,sx-dx*7,sy-dy*7,sx-dx*(7+dl),sy-dy*(7+dl),C.force,2.6,8);
+        htxt(ctx,'drag',sx-dx*(25+dl),sy-dy*(25+dl)+4,C.force,12,700,'center');}
+      if(p==='b1'||p==='b2'){var td=u?dy:-dy,al=m5.bt<0.8*BT?1:clamp((BT-m5.bt)/(0.2*BT),0,1),bx=sx+16;
+        arrow(ctx,bx,sy+td*4,bx,sy+td*40,rgba(C.force,al),3.4,10);
+        htxt(ctx,'burn '+(u?'forwards':(wide?'backwards':'back')),bx+8,sy+td*24+4,rgba(C.force,al),12,700);}
+      dot(ctx,sx,sy,6,C.ink);ring(ctx,sx,sy,6,C.stage,1.5);
+      /* 轨道名字画在箭头上面（有底色描边）；卫星正好在字上时先不写 */
+      if(!drag){
+        var olab=function(s,x,y,col,w){ctx.font=w+' 12px '+FONT;var hw=ctx.measureText(s).width/2+10;if(Math.abs(sx-x)<hw&&Math.abs(sy-(y-4))<18)return;htxt(ctx,s,x,y,col,12,w,'center');};
+        olab('transfer orbit',ex,u?cy-1.18*un+4:cy+1.18*un+4,(p==='c1'||p==='c2')?C.muted:C.copper,600);
+        olab('LEO',cx,cy+0.78*un+4,C.muted,700);
+        var gq=(D2*un+16)*Math.SQRT1_2;olab('GEO',cx+gq,cy+gq+4,C.muted,700);
+      }
+    }else{
+      ctx.save();ctx.shadowColor=C.heat;ctx.shadowBlur=16;dot(ctx,sx,sy,7,C.heat);ctx.restore();
+      htxt(ctx,'burns up',sx-gx*22,sy-gy*22+4,C.heat,12.5,700,'center');
+    }
+    /* panel: title, readouts */
+    var t1,t2,t3='';
+    if(drag){t1='Drag decay · lower = denser air (illustrative)';t2=m5.gone?'The satellite has burnt up':'r smaller ↓   v bigger ↑   drag bigger ↑';}
+    else{
+      if(p==='co')t1='Transfer orbit (ellipse, gravity only)';
+      else if(p==='b1'||p==='b2')t1='Burn '+p.charAt(1)+' · firing at '+((p==='b1')===u?'perigee':'apogee');
+      else t1=((p==='c1')===u)?'LEO circular orbit · 250 km above Earth':'GEO circular orbit · one turn per day';
+      var pw10=m5.r<1e7?6:7;t2='v = '+(m5.v/1000).toFixed(2)+' km s⁻¹';t3='r = '+(m5.r/Math.pow(10,pw10)).toFixed(2)+' × 10'+(pw10===6?'⁶':'⁷')+' m';
+    }
+    var y=py;
+    txt(ctx,t1,px0,y,C.ink,wide?14:13.5,700);
+    if(drag){txt(ctx,t2,px0,y+(wide?26:22),C.ink,12.5,600);y+=wide?48:24;}
+    else if(wide){txt(ctx,t2,px0,y+26,C.ink,15,700,'left','alphabetic',MONO);txt(ctx,t3,px0,y+48,C.muted,12.5,500,'left','alphabetic',MONO);y+=48;}
+    else{txt(ctx,t2+'    '+t3,px0,y+22,C.ink,12.5,600,'left','alphabetic',MONO);y+=22;}
+    /* energy bars */
+    y+=wide?34:26;
+    txt(ctx,drag?'Energy (illustrative) · dashed box = at start':'Energy of 1 kg (MJ) · calculated · dashed box = at start',px0,y,C.muted,12,600);
+    var lw=wide?78:72,bx0=px0+lw,bx1=px0+pw,z=bx0+(bx1-bx0)*63/118,s=(z-bx0)/63,rh=wide?32:26,y0=y+(wide?34:30),k=drag?1:1e-6;
+    txt(ctx,'0',z,y0-14,C.muted,11,600,'center');
+    seg(ctx,z,y0-10,z,y0+3*rh+10,C.muted,1.2);
+    ebar(ctx,px0,y0,z,bx0,bx1,s,'K kinetic',m5.K*k,m5.K0*k,C.copper,!drag);
+    ebar(ctx,px0,y0+rh,z,bx0,bx1,s,'U potential',m5.U*k,m5.U0*k,C.violet,!drag);
+    ebar(ctx,px0,y0+2*rh,z,bx0,bx1,s,'E total',m5.E*k,m5.E0*k,C.ink,!drag);
+    ebar(ctx,px0,y0+3*rh,z,bx0,bx1,s,drag?'Q heat':'W engine',m5.W*k,0,drag?C.heat:C.force,!drag);
+    y=y0+3*rh+(wide?36:30);
+    if(drag)txt(ctx,'Changes: ΔK : ΔU : ΔE : heat = +1 : −2 : −1 : +1',px0,y,C.ink,12.5,600);
+    else txt(ctx,'ΔK = '+sg((m5.K-m5.K0)*k)+'   ΔU = '+sg((m5.U-m5.U0)*k)+'   ΔE = '+sg((m5.E-m5.E0)*k),px0,y,C.ink,12,600,'left','alphabetic',MONO);
+    /* legend */
+    y+=wide?30:24;
+    arrow(ctx,px0,y-4,px0+22,y-4,rgba(C.ink,0.7),2.2,7);txt(ctx,'v (length ∝ speed)',px0+28,y,C.muted,11.5,500);
+    var lx=px0+(wide?150:140);
+    arrow(ctx,lx,y-4,lx+22,y-4,C.force,2.2,7);txt(ctx,drag?'gravity, drag: illustrative':'gravity, burn: direction only',lx+28,y,C.muted,11.5,500);
+  }
+});
+
+var b5u=document.getElementById('s5-up'),b5d=document.getElementById('s5-down'),b5g=document.getElementById('s5-drag'),b5b=document.getElementById('s5-burn');
+function sync5(){
+  press(b5u,m5.mode==='up');press(b5d,m5.mode==='down');press(b5g,m5.mode==='drag');
+  var off=false,on=false,t,u=m5.mode==='up',P1=u?'perigee':'apogee',P2=u?'apogee':'perigee',p=m5.ph;
+  if(m5.mode==='drag'){t='Burn (not used in drag mode)';off=true;}
+  else if(p==='c1'){t=m5.arm?'Burn 1: waiting for '+P1:'Fire Burn 1';on=m5.arm;}
+  else if(p==='b1'||p==='co'){t=m5.arm?'Burn 2: waiting for '+P2:'Fire Burn 2';on=m5.arm;}
+  else if(p==='b2'){t='Burn 2 firing';off=true;}
+  else{t='Done: you can press Restart';off=true;}
+  b5b.textContent=t;press(b5b,on);b5b.setAttribute('data-off',off?'1':'0');b5b.style.opacity=off?'0.45':'';b5b.style.cursor=off?'default':'';
+}
+function setMode5(md){reset5(md);sync5();ST5.render();}
+b5u.addEventListener('click',function(){setMode5('up');});
+b5d.addEventListener('click',function(){setMode5('down');});
+b5g.addEventListener('click',function(){setMode5('drag');});
+b5b.addEventListener('click',function(){if(b5b.getAttribute('data-off')==='1')return;m5.arm=!m5.arm;sync5();if(m5.arm)ST5.setPlaying(true);ST5.render();});
+document.getElementById('s5-reset').addEventListener('click',function(){reset5(m5.mode);sync5();ST5.setPlaying(true);ST5.render();});
+reset5('up');sync5();ST5.render();
+})();
+</script>
+</body>
+</html>

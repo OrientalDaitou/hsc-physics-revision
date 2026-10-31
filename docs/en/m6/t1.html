@@ -1,0 +1,1975 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T1 Charged Particles in Electric and Magnetic Fields</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 1</span><a class="lang" lang="zh-Hans" href="../../m6/t1.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 1</div>
+  <h1>Charged Particles in Electric and Magnetic Fields</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter is about how charged particles move in electric and magnetic fields. The force from an electric field keeps the same direction, so the path is the same as a projectile's. The force from a magnetic field is always perpendicular to the velocity, so a charge that enters at 90° moves in a circle. Remember the <b>three rules</b> below, and everything after that is simple.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s9">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s11">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Electric force</div>
+    <p>The force from an electric field on a charge has a fixed direction: a positive charge is pushed along <span class="m"><i>E</i></span>, and an electron is pushed against <span class="m"><i>E</i></span>. The force is constant, so the acceleration is constant too.</p>
+    <div class="eqs"><i>F⃗</i> = <i>qE⃗</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Work done by the field</div>
+    <p>The field pushes the charge along, and all the work it does becomes kinetic energy. When the charge goes from one plate to the other (across the whole plate gap), the work does not depend on the plate gap <span class="m"><i>d</i></span>.</p>
+    <div class="eqs"><i>W</i> = <i>qV</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Magnetic force</div>
+    <p>A magnetic force pushes only on a <b>moving</b> charge. The force is always perpendicular to <span class="m"><i>v</i></span> and <span class="m"><i>B</i></span>. It does no work. It changes only the direction, not the speed. So a charge that enters a uniform magnetic field at 90° moves in a circle.</p>
+    <div class="eqs"><i>F</i> = <i>qvB</i> sin <i>θ</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="The eight parts of this chapter">
+  <div class="map-row head"><span>Part</span><span>Force on the charge</span><span>Result</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">1.1</span><span class="t">Uniform electric field</span></span><span><i>F</i> = <i>qE</i>, constant size and direction</span><span>From rest: a straight line, faster and faster</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">1.1</span><span class="t">Work &amp; the electron gun</span></span><span>The field does work <i>W</i> = <i>qV</i></span><span>Potential energy → kinetic energy: ½<i>mv</i>² = <i>qV</i></span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">1.2</span><span class="t">Curved paths</span></span><span>A force only perpendicular to the plates</span><span>A parabola between the plates, a straight line after them</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">1.3</span><span class="t">The magnetic force</span></span><span><i>F</i> = <i>qvB</i> sin <i>θ</i></span><span>Pushes only moving charges; the palm rule gives the direction</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">1.3</span><span class="t">Circular paths</span></span><span>Always perpendicular to <i>v</i>, no work</span><span>A circle: <i>r</i> = <i>mv</i>/(<i>qB</i>)</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">1.3</span><span class="t">Comparing fields</span></span><span><i>E</i>, <i>g</i>: fixed direction; <i>B</i>: turns with <i>v</i></span><span>Parabola vs circle</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">1.3</span><span class="t">Velocity selector</span></span><span><i>qE</i> = <i>qvB</i>, the two forces cancel</span><span>Only <i>v</i> = <i>E</i>/<i>B</i> goes in a straight line</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">1.4</span><span class="t">Key experiments</span></span><span>Computer simulation</span><span><i>y</i> ∝ <i>V</i>, <i>v</i>² ∝ <i>V</i></span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 5 minutes on "Know these 4 first" below, especially projectile motion and uniform circular motion. This chapter uses them all the time.</li>
+    <li>Teach in the order 1.1 → 1.4. Compare the electric field part with projectiles all the way through, and the magnetic field part with circular motion. For each section, read the "Big idea" first, then open the animation and let students say what they see.</li>
+    <li>Afterwards, have students close the book and fill in the comparison table in 1.3 by themselves. Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li><span class="t">Projectile motion</span> (Module 5): for a ball thrown horizontally, the horizontal velocity stays the same. In the vertical direction the acceleration <span class="m"><i>g</i></span> is constant, so the path is a parabola. It uses the constant acceleration equations: <span class="m"><i>v</i> = <i>u</i> + <i>at</i></span>, <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span>, <span class="m"><i>v</i>² = <i>u</i>² + 2<i>as</i></span>.</li>
+    <li>Splitting and joining vectors: when a velocity <span class="m"><i>u</i></span> is at an angle <span class="m"><i>θ</i></span> to the horizontal, <span class="m"><i>u</i><sub>x</sub>&nbsp;=&nbsp;<i>u</i>&nbsp;cos&nbsp;<i>θ</i></span>, <span class="m"><i>u</i><sub>y</sub>&nbsp;=&nbsp;<i>u</i>&nbsp;sin&nbsp;<i>θ</i></span>. Joining the two components: <span class="m"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span>.</li>
+    <li>Force, work and kinetic energy: <span class="m"><i>F⃗</i><sub>net</sub> = <i>ma⃗</i></span>, so the acceleration points the same way as the force. Work <span class="m"><i>W</i> = <i>Fs</i> cos <i>θ</i></span>: when the force is perpendicular to the displacement, <span class="m"><i>W</i>&nbsp;=&nbsp;0</span>. Kinetic energy <span class="m"><i>K</i> = ½<i>mv</i>²</span>.</li>
+    <li><span class="t">Uniform circular motion</span>: moving in a circle at a constant speed. The velocity is along the tangent, and the net force points to the centre: <span class="m"><i>F</i><sub>c</sub>&nbsp;=&nbsp;<i>mv</i>²/<i>r</i></span>, <span class="m"><i>v</i>&nbsp;=&nbsp;2π<i>r</i>/<i>T</i></span>.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">1.1</div>
+  <h2>Charges in a uniform electric field</h2>
+  <p class="big"><span class="lbl">Big idea</span>Two charged parallel plates make a uniform electric field. A charge between them feels a constant force, so it has a constant acceleration.</p>
+  <ul class="pts">
+    <li>Join two parallel metal plates to a battery, with voltage <span class="m"><i>V</i></span>. The top plate is +, the bottom plate is −, and the plates are a distance <span class="m"><i>d</i></span> apart.</li>
+    <li>Between the plates there is an <span class="t">electric field</span>: a region where a charge feels a force. Its direction is the direction of the force on a <b>positive charge</b>.</li>
+    <li><span class="t">Electric field strength</span> <span class="m"><i>E</i></span>: the force per coulomb. Its unit is V m<sup>−1</sup>, which is the same as N C<sup>−1</sup>.</li>
+    <li><span class="t">Field lines</span> go from + to −. Between the plates they are straight, parallel and evenly spaced. This is a <span class="t">uniform field</span>: a field with the same strength and the same direction everywhere.</li>
+    <li>At the ends of the plates, the field lines bulge out a little. This is called the <span class="t">edge effect</span>. Calculations ignore it.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">+ charge</div><p>Pushed <b>along</b> <span class="m"><i>E</i></span>: from the + plate towards the − plate.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Electron (−)</div><p>Pushed <b>against</b> <span class="m"><i>E</i></span>: from the − plate towards the + plate.</p></div>
+  </div>
+  <ul class="pts">
+    <li><span class="t">Elementary charge</span>: <span class="m"><i>e</i>&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C</span>, the size of the charge on one proton or one electron. The formula sheet prints <span class="m"><i>q</i><sub>e</sub></span> as negative. In calculations, use the size and find the direction separately.</li>
+    <li>Released from rest, a charge moves in a straight line, faster and faster.</li>
+    <li>The force is constant, so the <span class="t">acceleration</span> is constant too: <span class="m"><i>a</i> = <i>qE</i>/<i>m</i> = <i>qV</i>/(<i>md</i>)</span>. This combines the three equations <span class="m"><i>F⃗</i> = <i>qE⃗</i></span>, <span class="m"><i>F⃗</i><sub>net</sub> = <i>ma⃗</i></span>, <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>.</li>
+    <li>A bigger <span class="t">charge-to-mass ratio</span> <span class="m"><i>q</i>/<i>m</i></span> gives a bigger <span class="m"><i>a</i></span>.</li>
+    <li>Ignore gravity for electrons, protons and <span class="t">ions</span> (charged atoms). In a field of only 100 V m<sup>−1</sup>, the electric force on an electron is about 2 × 10¹² times its weight. Gravity is too small to notice.</li>
+    <li>The field also does work on the charge: <span class="m"><i>W</i> = <i>qV</i></span>. It is listed in the card below first, and the second half of 1.1 explains it in detail.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Uniform electric field: field, force and work</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>E</i> = <i>V</i>/<i>d</i></span><span style="display:inline-block;margin:0 .6em"><i>F⃗</i> = <i>qE⃗</i></span><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>qV</i></span><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>qEd</i></span></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>electric field strength (V m<sup>−1</sup>)</dd></div>
+      <div><dt>V</dt><dd>potential difference, which is the voltage (V)</dd></div>
+      <div><dt>d</dt><dd>plate gap (<span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>); distance moved along <span class="m"><i>E</i></span> (<span class="m"><i>W</i> = <i>qEd</i></span>) (m)</dd></div>
+      <div><dt>F⃗</dt><dd>electric force on the charge (N)</dd></div>
+      <div><dt>q</dt><dd>the charge: with its sign in <span class="m"><i>F⃗</i> = <i>qE⃗</i></span>, its size in <span class="m"><i>W</i> = <i>qV</i></span> (C)</dd></div>
+      <div><dt>W</dt><dd>work done on the charge by the field (J)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span> and <span class="m"><i>W</i> = <i>qEd</i></span> are for a uniform field only. <span class="m"><i>F⃗</i> = <i>qE⃗</i></span> and <span class="m"><i>W</i> = <i>qV</i></span> work in any electric field.<br><b>Where it comes from:</b> across the whole plate gap, <span class="m"><i>W</i> = <i>Fd</i> = <i>qEd</i> = <i>q</i>(<i>V</i>/<i>d</i>)<i>d</i> = <i>qV</i></span>.<br><b>Trap:</b> change mm, cm and kV to m and V first. For a negative charge, <span class="m"><i>F⃗</i></span> points against <span class="m"><i>E⃗</i></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Force and acceleration</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>F⃗</i> = <i>qE⃗</i></span><span style="display:inline-block;margin:0 .6em"><i>F⃗</i><sub>net</sub> = <i>ma⃗</i></span></div>
+    <dl class="sym">
+      <div><dt>F⃗<sub>net</sub></dt><dd>net force (N)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>a⃗</dt><dd>acceleration (m s<sup>−2</sup>)</dd></div>
+      <div><dt>q</dt><dd>charge (C)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> the electric force is the net force (ignore gravity), so <span class="m"><i>ma</i> = <i>qE</i></span>, <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span>. Then put in <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>: <span class="m"><i>a</i> = <i>qV</i>/(<i>md</i>)</span>.<br><b>Note:</b> <span class="m"><i>a</i></span> is in the same direction as the force: along <span class="m"><i>E</i></span> for a positive charge, against <span class="m"><i>E</i></span> for an electron.</p>
+  </div>
+
+  <h3>Oil drops: when gravity counts</h3>
+  <p>An oil drop is much heavier than an electron, so gravity cannot be ignored. A charged oil drop is held still between the plates: electric force up = weight down, <span class="m"><i>qE</i> = <i>mg</i></span> (not on the sheet). Its charge is <span class="m"><i>q</i> = <i>ne</i></span>, where <span class="m"><i>n</i></span> is a whole number. This is Millikan's oil drop experiment, which Module 8 explains.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">A charged drop held still</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>qE</i> = <i>mg</i></span><span style="display:inline-block;margin:0 .6em"><i>q</i> = <i>ne</i></span></div>
+    <dl class="sym">
+      <div><dt>q</dt><dd>charge on the oil drop (C)</dd></div>
+      <div><dt>E</dt><dd>electric field strength (V m<sup>−1</sup>)</dd></div>
+      <div><dt>m</dt><dd>mass of the oil drop (kg)</dd></div>
+      <div><dt>g</dt><dd>9.8 m s<sup>−2</sup></dd></div>
+      <div><dt>n</dt><dd>a whole number: 1, 2, 3, ...</dd></div>
+      <div><dt>e</dt><dd>elementary charge 1.602 × 10<sup>−19</sup> C</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a charged oil drop is held still between the plates.<br><b>You can also derive it:</b> held still means the net force is 0, so the electric force up, <span class="m"><i>qE</i></span>, equals the weight down, <span class="m"><i>mg</i></span>.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">1.1</div>
+  <h2>Work, energy and the electron gun</h2>
+  <p class="big"><span class="lbl">Big idea</span>The field pushes the charge along, so it does work <i>W</i> = <i>qV</i> on the charge. The charge loses electric potential energy and gains kinetic energy.</p>
+  <ul class="pts">
+    <li>The field does <span class="t">work</span> on the charge, which means it transfers energy. The charge loses <span class="t">electric potential energy</span> and gains kinetic energy.</li>
+    <li>It is like a ball rolling downhill: its height (potential energy) goes down, and its speed (kinetic energy) goes up.</li>
+    <li>Voltage means "the change in energy per coulomb of charge": <span class="m"><i>V</i> = Δ<i>U</i>/<i>q</i></span> (on the sheet). So the work done by the field is <span class="m"><i>W</i> = <i>qV</i></span>.</li>
+    <li><b>Across the whole plate gap, the plate gap does not matter.</b> With closer plates, <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span> is bigger, so they push harder, but for a shorter distance. The two effects cancel, so <span class="m"><i>W</i> = <i>qEd</i> = <i>qV</i></span> stays the same.<br><b>Over only part of the gap, it is different.</b> If the charge moves only a fixed distance <span class="m"><i>s</i></span> along <span class="m"><i>E</i></span>, the work is <span class="m"><i>W</i> = <i>qEs</i></span>. With the voltage unchanged and the plates further apart, <span class="m"><i>E</i></span> is smaller, so <span class="m"><i>W</i></span> is also smaller.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Voltage and energy</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>V</i> = Δ<i>U</i>/<i>q</i></span><span style="display:inline-block;margin:0 .6em"><i>K</i> = ½<i>mv</i>²</span></div>
+    <dl class="sym">
+      <div><dt>V</dt><dd>voltage (V)</dd></div>
+      <div><dt>ΔU</dt><dd>change in electric potential energy (J)</dd></div>
+      <div><dt>q</dt><dd>charge (C)</dd></div>
+      <div><dt>K</dt><dd>kinetic energy (J)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>v</dt><dd>speed (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> however much work the field does, the potential energy falls by that amount and the kinetic energy rises by that amount.</p>
+  </div>
+
+  <h3>Electron volt: an energy unit for tiny particles</h3>
+  <ul class="pts">
+    <li><span class="t">Electron volt</span> (eV): the energy one electron (or one proton) gains through 1 V. <span class="m">1&nbsp;eV&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;J</span>.</li>
+    <li>Working out eV is simple: energy in eV = (charge in units of <span class="m"><i>e</i></span>) × (voltage in V).</li>
+    <li>Example: an electron through 100 V gains 100 eV. A particle with charge +2<span class="m"><i>e</i></span> through 100 V gains 200 eV.</li>
+  </ul>
+
+  <h3>Electron gun</h3>
+  <ol class="pts">
+    <li>A hot <span class="t">cathode</span> (the negative plate) gives off electrons.</li>
+    <li>The field speeds the electrons up from rest, all the way across.</li>
+    <li>The electrons leave through a small hole in the positive plate as a <span class="t">beam</span>.</li>
+  </ol>
+  <p>An electron gun uses the card below: all the work done by the field becomes the electrons' kinetic energy.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed gained from rest</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em">½<i>mv</i>² = <i>qV</i></span><span style="display:inline-block;margin:0 .6em">so <i>v</i> = √(2<i>qV</i>/<i>m</i>)</span></div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>final speed, starting from rest (m s<sup>−1</sup>)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>q</dt><dd>size of the charge (C)</dd></div>
+      <div><dt>V</dt><dd>accelerating voltage (V)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a charge sped up from rest through a voltage <span class="m"><i>V</i></span> (<span class="m"><i>v</i></span> much less than the speed of light <span class="m"><i>c</i></span>).<br><b>How to combine:</b> <span class="m"><i>W</i> = <i>qV</i></span> and <span class="m"><i>K</i> = ½<i>mv</i>²</span> from the sheet. Work done = gain in kinetic energy: <span class="m"><i>qV</i> = ½<i>mv</i>² − 0</span>.<br><b>Trap:</b> do not forget the 2 and the square root. If the charge is already moving at speed <span class="m"><i>u</i></span>: <span class="m"><i>qV</i> = ½<i>mv</i>² − ½<i>mu</i>²</span>.</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">Animation 1 · Electron gun: work done by the field becomes kinetic energy</span><span class="sim-tag"><i>E</i> points from the + plate to the − plate · speed: calculated · plate gap, pace: illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Two vertical parallel plates are connected to a power supply. A particle starts from rest on one plate. The electric field accelerates it all the way across, and it leaves through a small hole in the other plate. After that it moves in a straight line at constant speed. The bars below show potential energy U going down and kinetic energy K going up. On the v²–V graph beside them (below them on a phone), each shot adds one dot, and all the dots lie on one straight line through the origin."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <label class="range">Voltage <i>V</i> <input type="range" id="s1-V" min="100" max="1000" step="100" value="500"><output id="s1-V-out" for="s1-V">500 V</output></label>
+      <span class="seg" role="group" aria-label="Plate gap">
+        <button class="btn" type="button" id="s1-d1" aria-pressed="true">Plate gap <i>d</i></button>
+        <button class="btn" type="button" id="s1-d2" aria-pressed="false">2<i>d</i></button>
+      </span>
+      <span class="seg" role="group" aria-label="Particle">
+        <button class="btn" type="button" id="s1-e" aria-pressed="true">Electron</button>
+        <button class="btn" type="button" id="s1-p" aria-pressed="false">Proton</button>
+      </span>
+      <button class="btn" type="button" id="s1-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Watch the electron: between the plates the dots get further and further apart (faster and faster). After the hole the gaps stay the same (constant speed). The <i>U</i> bar gets shorter by the same amount that the <i>K</i> bar gets longer. ② Drag <i>V</i>: the dots on the <i>v</i>²–<i>V</i> graph all lie on one straight line through the origin. <i>V</i>&nbsp;×&nbsp;4, <i>v</i> only ×&nbsp;2. ③ Wait for a solid dot on the graph, then press "2<i>d</i>": the force is only half and the path is twice as long, so the exit speed does not change, and the hollow dot lands on the solid dot. ④ Switch to proton: the energy is still <i>qV</i>, but <i>v</i> is only about 1/43 of the electron's (the thin line on the <i>v</i> bar is the electron's speed). Speeds are calculated; <i>d</i>&nbsp;=&nbsp;1.0&nbsp;cm and the pace are illustrative.</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">1.2</div>
+  <h2>Curved paths in an electric field</h2>
+  <p class="big"><span class="lbl">Big idea</span>A charge that enters moving parallel to the plates follows a parabola, like a ball thrown horizontally. Its velocity along the plates stays the same; across the plates it has a constant acceleration.</p>
+  <p>Imagine an electron that enters between the two plates from the left at speed <span class="m"><i>u</i></span>, moving parallel to the plates. The positive plate is on top and the negative plate is below. The plate length is <span class="m"><i>L</i></span> and the plate gap is <span class="m"><i>d</i></span>.</p>
+  <ul class="pts">
+    <li>The electron's <span class="t">trajectory</span> (the path it follows): <b>along the plates</b> there is no force, so <span class="m"><i>v</i><sub>x</sub> = <i>u</i></span> is constant and <span class="m"><i>x</i> = <i>ut</i></span>.</li>
+    <li><b>Across the plates</b>: <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> is constant. At the start <span class="m"><i>u</i><sub>y</sub> = 0</span>, so <span class="m"><i>y</i> = ½<i>at</i>²</span>.</li>
+    <li>The path bends towards the plate that <b>attracts</b> the charge. The electron is negative, so it bends towards the positive plate.</li>
+    <li>After the plates there is no force, so the path is a straight line.</li>
+  </ul>
+
+  <h3>Why a parabola</h3>
+  <p>Put <span class="m"><i>t</i> = <i>x</i>/<i>u</i></span> into <span class="m"><i>y</i> = ½<i>at</i>²</span>: <span class="m"><i>y</i> = [<i>qE</i>/(2<i>mu</i>²)] <i>x</i>²</span>. So <span class="m"><i>y</i> ∝ <i>x</i>²</span>, which is a <span class="t">parabola</span>. A ball thrown horizontally has the same shape, with <span class="m"><i>qE</i>/<i>m</i></span> in place of <span class="m"><i>g</i></span>.</p>
+
+  <h3>How far it is deflected</h3>
+  <ul class="pts">
+    <li><span class="t">Deflection</span>: how far the particle is pushed sideways.</li>
+    <li>For plates of length <span class="m"><i>L</i></span>: the time between the plates is <span class="m"><i>t</i> = <i>L</i>/<i>u</i></span>, and at the exit <span class="m"><i>y</i> = <i>qEL</i>²/(2<i>mu</i>²)</span>.</li>
+    <li><span class="m"><i>L</i></span> is the <b>plate length</b>, not the plate gap <span class="m"><i>d</i></span>.</li>
+    <li>A faster particle spends less time between the plates, so it is deflected less.</li>
+    <li>Exit velocity: <span class="m"><i>v</i><sub>y</sub> = <i>at</i></span>, <span class="m"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span>, direction <span class="m"><i>θ</i> = tan<sup>−1</sup>(<i>v</i><sub>y</sub>/<i>v</i><sub>x</sub>)</span>.</li>
+    <li>Entering at an angle: first split <span class="m"><i>u</i></span> into <span class="m"><i>u</i> cos <i>θ</i></span> and <span class="m"><i>u</i> sin <i>θ</i></span>, then work out each direction separately.</li>
+  </ul>
+
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">Like a projectile</div><p>Both are parabolas: a constant force in one direction, and no force at right angles to it. The same equations are used in each direction.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Unlike a projectile</div><p><span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> depends on charge and mass, whereas <span class="m"><i>g</i></span> is the same for every mass. The force can point either way (sign of <span class="m"><i>q</i></span>). For electrons, <span class="m"><i>a</i></span> is huge.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Constant acceleration across the plates</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i> = <i>u</i> + <i>at</i></span><span style="display:inline-block;margin:0 .6em"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span><span style="display:inline-block;margin:0 .6em"><i>v</i>² = <i>u</i>² + 2<i>as</i></span></div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>starting velocity (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v</dt><dd>velocity at a later time (m s<sup>−1</sup>)</dd></div>
+      <div><dt>a</dt><dd>acceleration (m s<sup>−2</sup>)</dd></div>
+      <div><dt>t</dt><dd>time (s)</dd></div>
+      <div><dt>s</dt><dd>displacement (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> only for constant acceleration. Use them once in each direction: along the plates <span class="m"><i>a</i> = 0</span>; across the plates <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span>, <span class="m"><i>u</i><sub>y</sub> = 0</span>.<br><b>Trap:</b> do not mix the numbers for along the plates with the numbers for across the plates.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Deflection between the plates</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>t</i> = <i>L</i>/<i>u</i></span><span style="display:inline-block;margin:0 .6em"><i>y</i> = ½<i>at</i>² = <i>qEL</i>²/(2<i>mu</i>²)</span></div>
+    <dl class="sym">
+      <div><dt>t</dt><dd>time between the plates (s)</dd></div>
+      <div><dt>L</dt><dd>plate length (m)</dd></div>
+      <div><dt>u</dt><dd>entry speed, parallel to the plates (m s<sup>−1</sup>)</dd></div>
+      <div><dt>y</dt><dd>deflection at the exit (m)</dd></div>
+      <div><dt>q</dt><dd>size of the charge (C)</dd></div>
+      <div><dt>E</dt><dd>electric field strength (V m<sup>−1</sup>)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span> from the sheet (<span class="m"><i>u</i><sub>y</sub> = 0</span>) and <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span>, then put in <span class="m"><i>t</i> = <i>L</i>/<i>u</i></span>.<br><b>Trap:</b> <span class="m"><i>L</i></span> is the plate length, not the plate gap. <span class="m"><i>u</i></span> is on the bottom of the fraction and is squared: half the speed gives deflection × 4.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Path between the plates</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>y</i> = [<i>qE</i>/(2<i>mu</i>²)] <i>x</i>²</div>
+    <dl class="sym">
+      <div><dt>x</dt><dd>distance moved along the plates (m)</dd></div>
+      <div><dt>y</dt><dd>deflection across the plates (m)</dd></div>
+      <div><dt>u</dt><dd>entry speed (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> put <span class="m"><i>t</i> = <i>x</i>/<i>u</i></span> and <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> into <span class="m"><i>y</i> = ½<i>at</i>²</span>.<br><b>Note:</b> <span class="m"><i>y</i> ∝ <i>x</i>²</span>, so <span class="m"><i>y</i>/<i>x</i>²</span> is the same at every <span class="m"><i>x</i></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Splitting and joining a velocity</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span><span style="display:inline-block;margin:0 .6em"><i>θ</i> = tan<sup>−1</sup>(<i>v</i><sub>y</sub>/<i>v</i><sub>x</sub>)</span></div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>entry speed (m s<sup>−1</sup>)</dd></div>
+      <div><dt>θ</dt><dd>angle between the velocity and the plates (°)</dd></div>
+      <div><dt>u<sub>x</sub>, v<sub>x</sub></dt><dd>component along the plates (m s<sup>−1</sup>)</dd></div>
+      <div><dt>u<sub>y</sub>, v<sub>y</sub></dt><dd>component across the plates (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v</dt><dd>size of the exit velocity (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> when a charge enters at an angle, split first. To find the exit velocity, join the components.<br><b>You can also derive it:</b> draw a right-angled triangle: <span class="m">cos <i>θ</i> = <i>u</i><sub>x</sub>/<i>u</i></span>, <span class="m">sin <i>θ</i> = <i>u</i><sub>y</sub>/<i>u</i></span>; to join, use Pythagoras' theorem.<br><b>Trap:</b> giving only the speed is not enough. You must also give the direction <span class="m"><i>θ</i></span>.</p>
+  </div>
+
+<figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">Animation 2 · The parabola between parallel plates</span><span class="sim-tag"><i>E</i> down · data: illustrative + calculated</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Two horizontal parallel plates, with the positive plate on top and the negative plate below. The electric field E points down. A particle enters from the left, moving parallel to the plates. It follows a parabola between the plates and a straight line after them. It leaves a dot every 1 ns, and the vertical line from each dot to the centre line gets longer and longer. The velocity components v_x, v_y and the electric force F are drawn on the particle. The table beside it records y and y/x² at x = 1 to 5 cm. Below the table are F, a, the time between the plates and the exit angle."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <label class="range">Voltage <i>V</i> <input type="range" id="s2-v" min="0" max="300" step="10" value="200"><output id="s2-v-out" for="s2-v">200 V</output></label>
+      <span class="seg" role="group" aria-label="Entry speed">
+        <button class="btn" type="button" id="s2-u1" aria-pressed="true">Entry speed <i>u</i></button>
+        <button class="btn" type="button" id="s2-u2" aria-pressed="false">½<i>u</i></button>
+      </span>
+      <span class="seg" role="group" aria-label="Particle">
+        <button class="btn" type="button" id="s2-e" aria-pressed="true">Electron</button>
+        <button class="btn" type="button" id="s2-p" aria-pressed="false">Proton</button>
+      </span>
+      <button class="btn" type="button" id="s2-reset">Fire again</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Look at the dots: their spacing in the <i>x</i> direction stays the same (<i>v</i><sub>x</sub> does not change), and they get further and further from the centre line (<i>v</i><sub>y</sub> gets bigger). <i>y</i>/<i>x</i>² is the same in every row of the table. ② Press "½<i>u</i>": the time between the plates ×&nbsp;2, <i>y</i> ×&nbsp;4. At 200&nbsp;V the electron hits the positive plate, so set <i>V</i> below 90&nbsp;V and compare again (the thin line is the last path). ③ Drag <i>V</i>: <i>y</i> is proportional to <i>V</i>. ④ Switch to proton: it is deflected towards the negative plate, and its deflection is only about 1/1840 of the electron's (1/1837 using the data sheet). <i>L</i>, <i>d</i>, <i>u</i>, <i>V</i> are illustrative; <i>y</i>, <i>F</i>, <i>a</i>, <i>θ</i> are calculated.</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">1.3</div>
+  <h2>The magnetic force</h2>
+  <p class="big"><span class="lbl">Big idea</span>A magnetic field pushes only on a <b>moving</b> charge. The force is at right angles to both the velocity <i>v</i> and the field <i>B</i>.</p>
+  <ul class="pts">
+    <li><span class="t">Magnetic field</span>: a region where a magnet or a moving charge feels a magnetic force.</li>
+    <li><span class="m"><i>B</i></span> shows how strong the field is. It is called the <span class="t">magnetic field strength</span>. Its unit is the <span class="t">tesla</span> (T).</li>
+    <li>A charge at rest feels <b>no</b> magnetic force.</li>
+    <li>Only the part of <span class="m"><i>v</i></span> that is <span class="t">perpendicular</span> (at 90°) to <span class="m"><i>B</i></span> counts: <span class="m"><i>v</i><sub>⟂</sub> = <i>v</i> sin <i>θ</i></span>. Moving along <span class="m"><i>B</i></span>: no force.</li>
+    <li>The force is perpendicular to both <span class="m"><i>v</i></span> and <span class="m"><i>B</i></span>.</li>
+    <li>How it is drawn on paper: • • • = <span class="m"><i>B</i></span> out of the page (like looking at the tip of an arrow); × × × = <span class="m"><i>B</i></span> into the page (like looking at the tail of an arrow).</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Magnetic force on a moving charge</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>F</i> = <i>qv</i><sub>⟂</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>F</dt><dd>magnetic force on the charge (N)</dd></div>
+      <div><dt>q</dt><dd>size of the charge (C)</dd></div>
+      <div><dt>v</dt><dd>speed (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>⟂</sub></dt><dd>part of <span class="m"><i>v</i></span> perpendicular to <span class="m"><i>B</i></span> (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>magnetic field strength (T)</dd></div>
+      <div><dt>θ</dt><dd>angle between <span class="m"><i>v</i></span> and <span class="m"><i>B</i></span> (°)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a charge moving through a magnetic field.<br><b>Trap:</b> <span class="m"><i>θ</i></span> is measured from the <b>field</b> (use sin <span class="m"><i>θ</i></span>). With <span class="m"><i>v</i></span> in the page and <span class="m"><i>B</i></span> into or out of the page, <span class="m"><i>θ</i> = 90°</span>.</p>
+  </div>
+
+  <h3>Direction: the right-hand palm rule</h3>
+  <ul class="pts">
+    <li><span class="t">Right-hand palm rule</span> (gives the same result as the left-hand rule): hold your <b>right hand</b> flat. Fingers = <span class="m"><i>B</i></span>, thumb = <span class="m"><i>v</i></span> of a <b>positive charge</b>, and the palm faces <span class="m"><i>F</i></span>.</li>
+    <li>For a negative charge (such as an electron): work it out as a positive charge first, then reverse the force.</li>
+    <li>Example 1: fingers up (<span class="m"><i>B</i></span> up), thumb to the right (<span class="m"><i>v</i></span> to the right), palm faces you: <span class="m"><i>F</i></span> is out of the page.</li>
+    <li>Example 2: <span class="m"><i>B</i></span> into the page, <span class="m"><i>v</i></span> to the right: the force on a positive charge is up (towards the top of the page), and the force on an electron is down.</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="secnum">1.3</div>
+  <h2>Circular paths</h2>
+  <p class="big"><span class="lbl">Big idea</span>The magnetic force changes only the direction, not the speed. So a charge that enters a uniform magnetic field at 90° moves in a circle.</p>
+  <p>The acceleration <span class="m"><i>a</i> = <i>F</i>/<i>m</i></span> is along <span class="m"><i>F</i></span>, so it is perpendicular to the field. Why is the path a circle? There are three steps:</p>
+  <ol class="pts">
+    <li><span class="m"><i>F</i></span> is always at 90° to <span class="m"><i>v</i></span>, so <span class="m"><i>W</i> = <i>Fs</i> cos 90° = 0</span>: the magnetic force does no work.</li>
+    <li>No work, so the speed is constant. With constant speed, <span class="m"><i>F</i> = <i>qvB</i></span> keeps the same size.</li>
+    <li>A force of constant size, always at 90° to <span class="m"><i>v</i></span>, is a <span class="t">centripetal force</span> (the net force towards the centre). So the charge moves in uniform circular motion.</li>
+  </ol>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">+ charge, <i>B</i> into the page</div><p>Goes <b>anticlockwise</b>. <span class="m"><i>v</i></span> is along the tangent, and <span class="m"><i>F</i></span> points to the centre.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Electron, <i>B</i> into the page</div><p>Goes <b>clockwise</b>. The force is reversed, so the direction of turning is also reversed.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Work and centripetal force</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>W</i> = <i>F</i><sub>‖</sub><i>s</i> = <i>Fs</i> cos <i>θ</i></span><span style="display:inline-block;margin:0 .6em"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span><span style="display:inline-block;margin:0 .6em"><i>v</i> = 2π<i>r</i>/<i>T</i></span></div>
+    <dl class="sym">
+      <div><dt>W</dt><dd>work (J)</dd></div>
+      <div><dt>F<sub>‖</sub></dt><dd>part of the force along the displacement (N)</dd></div>
+      <div><dt>s</dt><dd>displacement (m)</dd></div>
+      <div><dt>θ</dt><dd>angle between the force and the displacement (°)</dd></div>
+      <div><dt>F<sub>c</sub></dt><dd>centripetal force (N)</dd></div>
+      <div><dt>r</dt><dd>radius of the circle (m)</dd></div>
+      <div><dt>T</dt><dd>period: the time for one turn (s)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> the magnetic force is always at 90° to <span class="m"><i>v</i></span>, and cos 90° = 0, so <span class="m"><i>W</i> = 0</span> and the speed does not change. In a circle, <span class="m"><i>qvB</i></span> is the centripetal force.<br><b>Trap:</b> here <span class="m"><i>θ</i></span> is the angle between the force and the displacement. It is not the same angle as the <span class="m"><i>θ</i></span> in <span class="m"><i>F</i> = <i>qvB</i> sin <i>θ</i></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Radius and period in a magnetic field</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span><span style="display:inline-block;margin:0 .6em"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span></div>
+    <dl class="sym">
+      <div><dt>r</dt><dd>radius of the circle (m)</dd></div>
+      <div><dt>T</dt><dd>period: the time for one turn (s)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>q</dt><dd>size of the charge (C)</dd></div>
+      <div><dt>v</dt><dd>speed, perpendicular to <span class="m"><i>B</i></span> (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>magnetic field strength (T)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a charge enters a uniform magnetic field at 90°, with no other force.<br><b>You can also derive it:</b> magnetic force = centripetal force (both on the sheet): <span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span>, so <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span>. Then use <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>: <span class="m"><i>T</i> = 2π<i>r</i>/<i>v</i> = 2π<i>m</i>/(<i>qB</i>)</span>.<br><b>Trap:</b> neither formula is on the sheet. Start from <span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span>.</p>
+  </div>
+
+  <h3>How big the circle is and how fast it turns</h3>
+  <ul class="pts">
+    <li>Heavier or faster: a bigger circle (<span class="m"><i>r</i> ∝ <i>v</i></span>). More charge or a stronger <span class="m"><i>B</i></span>: a smaller circle.</li>
+    <li><span class="m"><i>T</i></span> does not depend on the speed. At twice the speed, the circle is twice as big: the path is twice as long and the charge moves twice as fast, so the time for one turn stays the same.</li>
+  </ul>
+  <h3>Half a circle and the helix</h3>
+  <ul class="pts">
+    <li>Crossing the edge of a large field at 90°: half a circle, out through the same edge, with the exit 2<span class="m"><i>r</i></span> from the entry.</li>
+    <li>A <span class="t">mass spectrometer</span> uses this to sort ions: with the same charge and speed, heavier ions land further away.</li>
+    <li><span class="m"><i>v</i></span> at another angle to <span class="m"><i>B</i></span>: <span class="m"><i>v</i><sub>⟂</sub></span> makes it go in a circle, and <span class="m"><i>v</i><sub>‖</sub></span> (no force) carries it along <span class="m"><i>B</i></span>. The path is a <span class="t">helix</span>, like a stretched spring.</li>
+  </ul>
+
+<figure class="sim" id="sim3">
+    <figcaption class="sim-head"><span class="sim-title">Animation 3 · Circular paths in a magnetic field</span><span class="sim-tag"><i>B</i> into the page · data: illustrative (compare the multiples only)</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="A charge moves in a circle at constant speed in a uniform magnetic field, with B into the page. The velocity v is along the tangent, the magnetic force F points to the centre, and the two are always perpendicular. Beside it are the multiples of the speed, force, radius and time for one turn. You can also see a charge enter through the edge of the field and travel half a circle, and the helix (side view) when v and B are at an angle."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <label class="range">Speed <i>v</i> <input type="range" id="s3-v" min="0" max="2" step="0.5" value="1"><output id="s3-v-out" for="s3-v">× 1</output></label>
+      <span class="seg" role="group" aria-label="Path">
+        <button class="btn" type="button" id="s3-full" aria-pressed="true">Full circle</button>
+        <button class="btn" type="button" id="s3-semi" aria-pressed="false">From edge</button>
+        <button class="btn" type="button" id="s3-helix" aria-pressed="false">Angled · helix</button>
+      </span>
+      <span class="seg" role="group" aria-label="Charge">
+        <button class="btn" type="button" id="s3-pos" aria-pressed="true">+ charge</button>
+        <button class="btn" type="button" id="s3-neg" aria-pressed="false">Electron</button>
+      </span>
+      <button class="btn" type="button" id="s3-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① <i>F</i> and <i>v</i> are always at 90°, and the speed bar never changes. ② Drag <i>v</i> to ×&nbsp;2: the circle is twice as big, and the time for one turn <i>T</i> does not change. Drag it to 0: the charge stops and feels no force. ③ Switch to electron: it now goes clockwise (here the two charges have the same mass and the same size of charge, so we only compare direction). ④ Press "From edge": it goes half a circle and leaves through the same edge, 2<i>r</i> from the entry point. ⑤ Press "Angled · helix": <span class="m"><i>v</i><sub>‖</sub></span> carries it along <i>B</i>. The solid line is in front and the dashed line is behind. All numbers are illustrative.</p>
+  </figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">1.3</div>
+  <h2>Comparing electric, magnetic and gravitational fields</h2>
+  <p class="big"><span class="lbl">Big idea</span>In a gravitational field and in an electric field the force has a fixed direction, so the path is a parabola. In a magnetic field the force turns with the velocity, so the path is a circle.</p>
+  <p>Below is Table 1.1 from the booklet: the same charge, compared in a uniform electric field and in a uniform magnetic field.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th></th><th>Uniform electric field</th><th>Uniform magnetic field</th></tr></thead>
+      <tbody>
+        <tr><td>Charge at rest</td><td>feels a force <span class="m"><i>qE</i></span></td><td><b>feels no force</b></td></tr>
+        <tr><td>Direction of force</td><td>along the field (+) or against it (−)</td><td>perpendicular to both <span class="m"><i>v</i></span> and <span class="m"><i>B</i></span></td></tr>
+        <tr><td>Moving along the field</td><td>speeds up or slows down in a line</td><td>no force: constant velocity</td></tr>
+        <tr><td>Entering at 90°</td><td>parabola</td><td>circle (or an arc)</td></tr>
+        <tr><td>Acceleration</td><td>constant size and direction</td><td>constant size; direction keeps turning (centripetal)</td></tr>
+        <tr><td>Work and speed</td><td>work <span class="m"><i>qV</i></span> is done; speed changes</td><td>no work; speed constant</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li><b>Like all uniform circular motion</b>: a ball on a string (tension), a car going round a bend (friction), a satellite around the Earth (gravity). <span class="m"><i>F</i></span> is at 90° to <span class="m"><i>v</i></span>, so there is no work and the speed is constant.</li>
+    <li><b>Differences:</b> <span class="m"><i>qvB</i></span> exists only because the charge moves.</li>
+    <li>For a charge, <span class="m"><i>r</i> ∝ <i>v</i></span> and <span class="m"><i>T</i></span> does not depend on the speed. This is why a <span class="t">cyclotron</span> (a machine that speeds up particles in circles) works.</li>
+    <li>A satellite is different: in a bigger orbit it moves more slowly, and one turn takes longer.</li>
+  </ul>
+
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">Animation 4 · Electric field vs magnetic field: same charge, two fields</span><span class="sim-tag">two panels: electric field (or gravitational field) and magnetic field · data: illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Two panels side by side (one above the other on a phone). The left panel is a uniform electric field. The purple field lines point down, with the positive plate on top and the negative plate at the bottom. It can be changed to a gravitational field. The right panel is a uniform magnetic field, with B into the page. The same charge starts with the same velocity in each. In the electric field the force has a fixed direction, the path is a straight line or a parabola, and the speed changes. In the magnetic field the force is perpendicular to the velocity, the path is a circle, and the speed stays constant. Under each panel there is a small graph of speed against time, and whether W is 0."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <span class="seg" role="group" aria-label="Starting state">
+        <button class="btn" type="button" id="s4-rest" aria-pressed="false">At rest</button>
+        <button class="btn" type="button" id="s4-along" aria-pressed="false">Along the field</button>
+        <button class="btn" type="button" id="s4-perp" aria-pressed="true">Entering at 90°</button>
+      </span>
+      <span class="seg" role="group" aria-label="Charge">
+        <button class="btn" type="button" id="s4-pos" aria-pressed="true">+ charge</button>
+        <button class="btn" type="button" id="s4-neg" aria-pressed="false">Electron</button>
+      </span>
+      <span class="seg" role="group" aria-label="Field in the first panel">
+        <button class="btn" type="button" id="s4-fe" aria-pressed="true">Electric field <i>E</i></button>
+        <button class="btn" type="button" id="s4-fg" aria-pressed="false">Gravitational field <i>g</i></button>
+      </span>
+      <button class="btn" type="button" id="s4-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Watch "Entering at 90°": in the electric field panel the force keeps the same direction, the path is a parabola and the speed increases. In the magnetic field panel the force turns with <i>v</i>, the path is a circle and the speed stays constant (see the small speed graph below). ② Press "At rest": in the electric field the charge starts to accelerate. In the magnetic field it does not move at all. ③ Press "Along the field": in the magnetic field there is no force. In the electric field the electron first slows down, then reverses. ④ Change the electric field to "Gravitational field <i>g</i>": this is also a parabola, and it does not depend on the sign of the charge. The + charge and the electron are drawn with the same size of charge and the same mass, so only the directions are compared. All values are illustrative.</p>
+  </figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">1.3</div>
+  <h2>Crossed fields: the velocity selector</h2>
+  <p class="big"><span class="lbl">Big idea</span>When the electric and magnetic fields are at right angles, the electric force and the magnetic force can cancel. Only a particle with exactly the speed <i>v</i> = <i>E</i>/<i>B</i> goes straight through.</p>
+  <ul class="pts">
+    <li><span class="t">Crossed fields</span>: <span class="m"><i>E</i></span> and <span class="m"><i>B</i></span> in the same place, at 90° to each other.</li>
+    <li>Example: a positive charge moves to the right, <span class="m"><i>E</i></span> is down, and <span class="m"><i>B</i></span> is into the page. The electric force <span class="m"><i>qE</i></span> is down; the magnetic force <span class="m"><i>qvB</i></span> is up (palm rule, the same as Example 2 in 1.3).</li>
+    <li>When <span class="m"><i>qE</i> = <i>qvB</i></span>, the two forces cancel and the particle moves in a straight line. Cancel <span class="m"><i>q</i></span> on both sides: <span class="m"><i>v</i> = <i>E</i>/<i>B</i></span> (not on the sheet).</li>
+    <li>Only this one speed goes straight through, so this is called a <span class="t">velocity selector</span>. Too fast: <span class="m"><i>qvB</i></span> is bigger, so the particle bends towards the side the magnetic force points to. Too slow: <span class="m"><i>qE</i></span> is bigger, so it bends towards the side the electric force points to.</li>
+    <li><span class="m"><i>v</i> = <i>E</i>/<i>B</i></span> has no <span class="m"><i>q</i></span> or <span class="m"><i>m</i></span> in it: with an electron, both forces reverse and they still cancel.</li>
+    <li>Thomson used this when he measured the electron (Module 8 explains this).</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Velocity selector</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>qE</i> = <i>qvB</i></span><span style="display:inline-block;margin:0 .6em"><i>v</i> = <i>E</i>/<i>B</i></span></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>electric field strength (V m<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>magnetic field strength (T)</dd></div>
+      <div><dt>v</dt><dd>the speed that goes straight through (m s<sup>−1</sup>)</dd></div>
+      <div><dt>q</dt><dd>charge (C)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> <span class="m"><i>E</i></span> and <span class="m"><i>B</i></span> are perpendicular to each other, and the particle moves in a straight line (the two forces cancel).<br><b>You can also derive it:</b> electric force = magnetic force: <span class="m"><i>qE</i> = <i>qvB</i></span>, then cancel <span class="m"><i>q</i></span> on both sides.<br><b>Trap:</b> it is not on the sheet, so you must write the step <span class="m"><i>qE</i> = <i>qvB</i></span> yourself.</p>
+  </div>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Velocity selector (crossed fields)</span><span class="sim-tag"><i>E</i> down · <i>B</i> into the page · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Two parallel plates: the top plate is positive and the bottom plate is negative, so the electric field E points down. Between the plates there is also a magnetic field B into the page (× marks). A particle enters horizontally through a small hole on the left. Two green arrows on it show the electric force qE and the magnetic force qvB, and each arrow length shows the size of the force. Only a particle with speed v = E/B moves in a straight line and leaves through the small hole on the right. One that is too fast or too slow bends away and hits a plate or the exit barrier. On the right (below on a phone) you can see E/B, the particle's v, and a comparison of the sizes of the two forces."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Speed <i>v</i> <input type="range" id="s5-v" min="0.5" max="1.5" step="0.1" value="1"><output id="s5-v-out" for="s5-v">1.0 × 10<sup>6</sup> m s<sup>−1</sup></output></label>
+    <label class="range">Field <i>E</i> <input type="range" id="s5-e" min="0.5" max="1.5" step="0.1" value="1"><output id="s5-e-out" for="s5-e">1.0 × 10<sup>5</sup> V m<sup>−1</sup></output></label>
+    <span class="seg" role="group" aria-label="Charge">
+      <button class="btn" type="button" id="s5-pos" aria-pressed="true">+ charge</button>
+      <button class="btn" type="button" id="s5-neg" aria-pressed="false">Electron</button>
+    </span>
+    <button class="btn" type="button" id="s5-reset">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① At the start <i>v</i>&nbsp;=&nbsp;<i>E</i>/<i>B</i>: the <i>qE</i> and <i>qvB</i> arrows are the same length, and the particle goes straight through the small hole. ② Drag <i>v</i> up: <i>qvB</i> wins, and the + charge bends up. Drag it down: <i>qE</i> wins, and the + charge bends down. <i>qvB</i> turns as <i>v</i> turns, so the path is not a parabola. The dashed line is the path of the previous particle. ③ Then drag <i>E</i> to the same number as <i>v</i>: <i>E</i>/<i>B</i> equals the new <i>v</i>, so the particle goes straight through again. ④ Switch to electron: both forces reverse, and it still goes through. <i>B</i>&nbsp;=&nbsp;0.10&nbsp;T, <i>E</i> and <i>v</i> are illustrative. Both kinds of charge are drawn with the same size of charge and the same mass.</p>
+</figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">1.4</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Simulating charges between parallel plates</h3>
+    <dl>
+      <dt>Aim</dt><dd>To test the path of a charge between the plates. Also to test the speed it gains from rest.</dd>
+      <dt>Method</dt><dd>A <span class="t">computer simulation</span>.<br>(1) Deflection: an electron enters between the plates, moving parallel to them (this is the situation in 1.2). Change only <span class="m"><i>V</i></span> and record <span class="m"><i>y</i></span>; repeat with half the speed; repeat with a proton; record <span class="m"><i>y</i></span> at several <span class="m"><i>x</i></span>.<br>(2) Electron gun: record the exit speed <span class="m"><i>v</i></span> for several <span class="m"><i>V</i></span>, then double the plate gap.</dd>
+      <dt>Results</dt><dd>(1) A graph of <span class="m"><i>y</i></span> against <span class="m"><i>V</i></span> is a straight line through the origin. Half the speed gives <b>4 times</b> the deflection. At the same entry speed, a proton is deflected the <b>other way</b>, and <b>about 1840 times</b> less (its mass is about 1840 times bigger). <span class="m"><i>y</i>/<i>x</i>²</span> is the same at every <span class="m"><i>x</i></span>.<br>(2) <span class="m"><i>v</i>²</span> against <span class="m"><i>V</i></span> is a straight line through the origin. Its gradient agrees with <span class="m">2<i>e</i>/<i>m</i><sub>e</sub>&nbsp;=&nbsp;3.52&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup></span>. The plate gap makes <b>no difference</b>.</dd>
+      <dt>Conclusion</dt><dd>(1) So <span class="m"><i>y</i> ∝ <i>V</i></span> and <span class="m"><i>y</i> ∝ <i>x</i>²</span>: a parabola, like a projectile, because the force is constant.<br>(2) <span class="m"><i>v</i>² = (2<i>q</i>/<i>m</i>)<i>V</i></span> is confirmed. Across the whole plate gap, <span class="m"><i>W</i> = <i>qV</i></span> does not depend on <span class="m"><i>d</i></span>.</dd>
+      <dt>Significance</dt><dd>The same physics steered the electron beam in <span class="t">cathode-ray oscilloscopes</span> (old screens that drew voltage graphs). Electron guns, <span class="t">X-ray tubes</span> and accelerators set particle energy with the voltage.</dd>
+      <dt>Safety</dt><dd>A real <span class="t">deflection tube</span> uses a kV supply and can <span class="t">implode</span> (break inwards). Teacher demonstration only.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>E</i> = <i>V</i>/<i>d</i></td><td>uniform electric field between two parallel plates</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>F⃗</i> = <i>qE⃗</i>&emsp;<i>F⃗</i><sub>net</sub> = <i>ma⃗</i></td><td>force on a charge; acceleration <i>a</i> = <i>qE</i>/<i>m</i></td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>qE</i> = <i>mg</i>&emsp;<i>q</i> = <i>ne</i></td><td>a charged oil drop held still</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>V</i> = Δ<i>U</i>/<i>q</i></td><td>voltage: the change in energy per coulomb</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>qV</i>&emsp;<i>W</i> = <i>qEd</i></td><td>work done by the field (<i>qEd</i> for a uniform field only)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>kinetic energy of a charge</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f">½<i>mv</i>² = <i>qV</i>&emsp;<i>v</i> = √(2<i>qV</i>/<i>m</i>)</td><td>speed gained from rest through <i>V</i></td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>qV</i> = ½<i>mv</i>² − ½<i>mu</i>²</td><td>a charge already moving (at speed <i>u</i>)</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>v</i> = <i>u</i> + <i>at</i>&emsp;<i>s</i> = <i>ut</i> + ½<i>at</i>²<br><i>v</i>² = <i>u</i>² + 2<i>as</i></td><td>constant acceleration between two plates</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>t</i> = <i>L</i>/<i>u</i>&emsp;<i>y</i> = ½<i>at</i>² = <i>qEL</i>²/(2<i>mu</i>²)</td><td>time between plates of length <i>L</i>; deflection <i>y</i> at the exit</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>y</i> = [<i>qE</i>/(2<i>mu</i>²)] <i>x</i>²</td><td>path between the plates: a parabola</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i>&emsp;<i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i><br><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)&emsp;<i>θ</i> = tan<sup>−1</sup>(<i>v</i><sub>y</sub>/<i>v</i><sub>x</sub>)</td><td>splitting a velocity, then joining it again</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>F</i> = <i>qv</i><sub>⟂</sub><i>B</i> = <i>qvB</i> sin <i>θ</i></td><td>magnetic force on a moving charge</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>F</i><sub>‖</sub><i>s</i> = <i>Fs</i> cos <i>θ</i></td><td>the magnetic force does no work: speed constant</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i>&emsp;<i>v</i> = 2π<i>r</i>/<i>T</i></td><td>circles: <i>qvB</i> is the centripetal force</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>r</i> = <i>mv</i>/(<i>qB</i>)&emsp;<i>T</i> = 2π<i>m</i>/(<i>qB</i>)</td><td>radius and period of a circle in a magnetic field</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>qE</i> = <i>qvB</i>&emsp;<i>v</i> = <i>E</i>/<i>B</i></td><td>crossed fields: velocity selector</td><td><span class="badge learn">Learn it</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 6 before the exam</h3>
+  <ol class="must">
+    <li>Between plates, <span class="m"><i>E</i> = <i>V</i>/<i>d</i></span>, <span class="m"><i>F</i> = <i>qE</i></span> and <span class="m"><i>a</i> = <i>qE</i>/<i>m</i></span> are constant.</li>
+    <li><span class="m"><i>W</i> = <i>qV</i> = <i>qEd</i></span>. From rest: <span class="m"><i>qV</i> = ½<i>mv</i>²</span>.</li>
+    <li>Between the plates: a projectile path (parabola), with <span class="m"><i>qE</i>/<i>m</i></span> in place of <span class="m"><i>g</i></span>. After the plates: a straight line.</li>
+    <li><span class="m"><i>F</i> = <i>qvB</i> sin <i>θ</i></span> acts only on moving charges, at 90° to both <span class="m"><i>v</i></span> and <span class="m"><i>B</i></span> (palm rule; reverse it for negative charges).</li>
+    <li>At 90° to <span class="m"><i>B</i></span>: a circle. From <span class="m"><i>qvB</i> = <i>mv</i>²/<i>r</i></span>: <span class="m"><i>r</i> = <i>mv</i>/(<i>qB</i>)</span>, <span class="m"><i>T</i> = 2π<i>m</i>/(<i>qB</i>)</span> (not on the sheet).</li>
+    <li>An electric field can change the speed; a magnetic field does no work and changes only the direction.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> Putting mm, cm or kV straight into a formula.<br><span class="ok">Right:</span> Change to m and V first: 5 mm = 0.005 m, 2 kV = 2000 V.</div>
+    <div><span class="x">Wrong:</span> The force on an electron is in the same direction as E.<br><span class="ok">Right:</span> The force on a negative charge is against E. On the sheet, q<sub>e</sub> is negative: use e for the size, and find the direction separately.</div>
+    <div><span class="x">Wrong:</span> <span class="m"><i>v</i> = √(<i>qV</i>/<i>m</i>)</span>, or forgetting the square root.<br><span class="ok">Right:</span> <span class="m">½<i>mv</i>² = <i>qV</i></span>, so <span class="m"><i>v</i> = √(2<i>qV</i>/<i>m</i>)</span>.</div>
+    <div><span class="x">Wrong:</span> The closer the plates, the more energy the charge gains.<br><span class="ok">Right:</span> Across the whole plate gap, W = qV, which does not depend on d. Closer plates push harder, but for a shorter distance.</div>
+    <div><span class="x">Wrong:</span> W = qV never depends on d.<br><span class="ok">Right:</span> Over only a fixed distance s, W = qEs (here the V in qV is the voltage Es across that distance, not the voltage between the plates). With V unchanged and the plate gap doubled, E = V/d halves, so W also halves.</div>
+    <div><span class="x">Wrong:</span> Using the plate gap for L in the deflection formula.<br><span class="ok">Right:</span> L is the plate length; d is the plate gap.</div>
+    <div><span class="x">Wrong:</span> θ is the angle between v and the page (or the plate).<br><span class="ok">Right:</span> In F = qvB sin θ, θ is measured from the field. With v in the page and B into or out of the page, θ = 90°.</div>
+    <div><span class="x">Wrong:</span> A magnetic force can make a charge go faster.<br><span class="ok">Right:</span> F is always at 90° to v, so it does no work. The speed does not change; only the direction changes.</div>
+    <div><span class="x">Wrong:</span> r = mv/(qB) and T = 2πm/(qB) are on the formula sheet.<br><span class="ok">Right:</span> Neither is. Start from qvB = mv²/r.</div>
+    <div><span class="x">Wrong:</span> The faster the charge, the longer one turn takes.<br><span class="ok">Right:</span> T = 2πm/(qB), which does not depend on the speed. When it goes faster, the circle is also bigger.</div>
+  </div>
+  <p class="jump-next"><a href="#s11">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s10">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Electric field</td><td>电场</td><td>a region where a charge feels a force</td></tr>
+        <tr><td class="t">Electric field strength (E)</td><td>电场强度</td><td>the force per coulomb of charge, unit V m<sup>−1</sup> = N C<sup>−1</sup></td></tr>
+        <tr><td class="t">Uniform field</td><td>匀强场（匀强电场、匀强磁场）</td><td>a field with the same strength and direction everywhere</td></tr>
+        <tr><td class="t">Field lines</td><td>电场线；磁感线</td><td>lines that show the direction of a field; the closer they are, the stronger the field</td></tr>
+        <tr><td class="t">Edge effect</td><td>边缘效应</td><td>field lines bulge out at the ends of the plates; calculations ignore it</td></tr>
+        <tr><td class="t">Elementary charge (e)</td><td>元电荷</td><td>the size of the charge on one proton or electron, 1.602 × 10<sup>−19</sup> C</td></tr>
+        <tr><td class="t">Acceleration</td><td>加速度</td><td>how fast the velocity (size or direction) changes</td></tr>
+        <tr><td class="t">Charge-to-mass ratio (q/m)</td><td>荷质比（比荷）</td><td>charge divided by mass; a bigger ratio gives a bigger acceleration</td></tr>
+        <tr><td class="t">Ion</td><td>离子</td><td>an atom with extra or missing electrons, so it is charged</td></tr>
+        <tr><td class="t">Work (W)</td><td>功</td><td>the energy transferred when a force pushes something through a distance</td></tr>
+        <tr><td class="t">Electric potential energy (U)</td><td>电势能</td><td>energy a charge stores because of its position in an electric field</td></tr>
+        <tr><td class="t">Potential difference (V)</td><td>电势差（电压）</td><td>the change in energy per coulomb of charge</td></tr>
+        <tr><td class="t">Electron volt (eV)</td><td>电子伏特</td><td>the energy one electron gains through 1 V, 1.602 × 10<sup>−19</sup> J</td></tr>
+        <tr><td class="t">Electron gun</td><td>电子枪</td><td>uses a voltage to speed electrons up from rest into a beam</td></tr>
+        <tr><td class="t">Cathode</td><td>阴极</td><td>the negative plate, which gives off electrons when heated</td></tr>
+        <tr><td class="t">Beam</td><td>粒子束（电子束）</td><td>a narrow stream of fast particles</td></tr>
+        <tr><td class="t">Trajectory</td><td>轨迹</td><td>the path a moving object follows</td></tr>
+        <tr><td class="t">Parabola</td><td>抛物线</td><td>the curved path of a thrown ball: the force is constant and not in line with the starting velocity</td></tr>
+        <tr><td class="t">Deflection</td><td>偏转（偏移量）</td><td>how far a particle is pushed sideways</td></tr>
+        <tr><td class="t">Magnetic field</td><td>磁场</td><td>a region where a magnet or a moving charge feels a magnetic force</td></tr>
+        <tr><td class="t">Magnetic field strength (B)</td><td>磁感应强度</td><td>how strong a magnetic field is, unit T</td></tr>
+        <tr><td class="t">Magnetic force on a moving charge</td><td>洛伦兹力</td><td>the force on a moving charge in a magnetic field, <i>F</i> = <i>qvB</i> sin <i>θ</i></td></tr>
+        <tr><td class="t">Tesla (T)</td><td>特斯拉</td><td>the unit of B</td></tr>
+        <tr><td class="t">Perpendicular</td><td>垂直</td><td>at 90°</td></tr>
+        <tr><td class="t">Right-hand palm rule</td><td>右手掌定则（结果同左手定则）</td><td>fingers B, thumb v (positive charge), palm F</td></tr>
+        <tr><td class="t">Centripetal force</td><td>向心力</td><td>the net force towards the centre</td></tr>
+        <tr><td class="t">Uniform circular motion</td><td>匀速圆周运动</td><td>moving in a circle at a constant speed</td></tr>
+        <tr><td class="t">Period (T)</td><td>周期</td><td>the time for one turn</td></tr>
+        <tr><td class="t">Mass spectrometer</td><td>质谱仪</td><td>uses the radius of the circle in a magnetic field to sort ions by mass</td></tr>
+        <tr><td class="t">Helix</td><td>螺旋线</td><td>a path shaped like a stretched spring</td></tr>
+        <tr><td class="t">Cyclotron</td><td>回旋加速器</td><td>a machine that speeds up particles in circles</td></tr>
+        <tr><td class="t">Crossed fields</td><td>正交电磁场</td><td>E and B in the same place, perpendicular to each other</td></tr>
+        <tr><td class="t">Velocity selector</td><td>速度选择器</td><td>crossed fields that let only one speed, E/B, pass straight through</td></tr>
+        <tr><td class="t">Cathode-ray oscilloscope</td><td>阴极射线示波器</td><td>an old screen that used an electron beam to draw voltage graphs</td></tr>
+        <tr><td class="t">X-ray tube</td><td>X 射线管</td><td>a tube that uses a voltage to speed up electrons and produce X-rays</td></tr>
+        <tr><td class="t">Deflection tube</td><td>偏转管</td><td>a glass tube in which an electron beam is deflected between plates, using a kV supply</td></tr>
+        <tr><td class="t">Implode</td><td>向内爆裂</td><td>a vacuum tube breaking inwards</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. Two plates are 5 mm apart, with a voltage of 50 V. What is E between the plates? How big is the force on an electron, and which way does it point?</summary><p class="ans"><b>E = 1.0 × 10<sup>4</sup> V m<sup>−1</sup>; F = 1.602 × 10<sup>−15</sup> N, towards the positive plate.</b> Change the units first: 5 mm = 0.005 m. E = V/d = 50/0.005 = 10 000 V m<sup>−1</sup>. F = qE = 1.602 × 10<sup>−19</sup> × 10 000 = 1.602 × 10<sup>−15</sup> N. The electron is negative, so the force is against E, which means towards the positive plate.</p></details>
+    <details><summary>2. An alpha particle (charge +2e) is sped up from rest through 1000 V. How many eV does it gain? How many J?</summary><p class="ans"><b>2000 eV, which is 3.204 × 10<sup>−16</sup> J.</b> Energy in eV = (charge in units of e) × (voltage) = 2 × 1000 = 2000 eV. In J: W = qV = 2 × 1.602 × 10<sup>−19</sup> × 1000 = 3.204 × 10<sup>−16</sup> J.</p></details>
+    <details><summary><span>3. An electron is sped up from rest through 100 V. What are its kinetic energy and speed? (electron mass 9.109 × 10<sup>−31</sup> kg)</span></summary><p class="ans"><b>K = 1.602&nbsp;×&nbsp;10<sup>−17</sup>&nbsp;J (100&nbsp;eV), v ≈ 5.93&nbsp;×&nbsp;10<sup>6</sup>&nbsp;m&nbsp;s<sup>−1</sup>.</b> ½mv² = qV = 1.602 × 10<sup>−19</sup> × 100 = 1.602 × 10<sup>−17</sup> J. <span class="m"><i>v</i> = √(2<i>qV</i>/<i>m</i>) = √(2&nbsp;×&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;×&nbsp;100 ÷ (9.109&nbsp;×&nbsp;10<sup>−31</sup>)) = √(3.52&nbsp;×&nbsp;10<sup>13</sup>) ≈ 5.93&nbsp;×&nbsp;10<sup>6</sup>&nbsp;m&nbsp;s<sup>−1</sup></span>. This is much less than the speed of light, so this formula can be used.</p></details>
+    <details><summary>4. The voltage of an electron gun stays the same, and the plate gap is doubled. What happens to the exit speed of the electrons?</summary><p class="ans"><b>It does not change.</b> E = V/d becomes half, so the force also becomes half, but the electron moves 2 times as far. W = qEd = qV stays the same, so ½mv² stays the same. Note: this is because the electron crosses the whole plate gap. If it moves only a fixed distance s, W = qEs. When the plates move apart, E gets smaller, so W also gets smaller.</p></details>
+    <details><summary>5. An electron enters parallel to the plates, and its deflection at the exit is y. If the entry speed is halved, what does the deflection become? What about a proton at the same speed?</summary><p class="ans"><b>It becomes 4y. The proton is deflected the other way, about 1840 times less.</b> y = qEL²/(2mu²): when u is halved, the time between the plates × 2 and u² becomes ¼, so y × 4. The proton is positive, so it is deflected towards the negative plate. Its mass is about 1840 times bigger, so a is about 1840 times smaller.</p></details>
+    <details><summary>6. B is into the page, and a positive charge moves to the right. Which way is the magnetic force on it? What about an electron?</summary><p class="ans"><b>Positive charge: up (towards the top of the page). Electron: down.</b> Palm rule: fingers into the page, thumb to the right, palm faces up. The electron is negative, so the force is reversed.</p></details>
+    <details><summary>7. A charge moves in a circle in a uniform magnetic field. Its speed becomes 2 times as big. What happens to r and T? Will the field make it go faster?</summary><p class="ans"><b>r × 2, T does not change; the field does not change the speed.</b> r = mv/(qB), so r ∝ v. T = 2πm/(qB) has no v in it: the path is twice as long and the charge moves twice as fast. The magnetic force is always at 90° to v and does no work, so the speed does not change.</p></details>
+    <details><summary><span>8. In a velocity selector, E = 6000 V m<sup>−1</sup> and B = 0.02 T. What speed of particle goes in a straight line? Which way does a faster positive charge bend? (particle moving right, E down, B into the page)</span></summary><p class="ans"><b>v = 3&nbsp;×&nbsp;10<sup>5</sup>&nbsp;m&nbsp;s<sup>−1</sup>; a faster one bends up.</b> qE = qvB, v = E/B = 6000 ÷ 0.02 = 300&nbsp;000&nbsp;m&nbsp;s<sup>−1</sup> = 3&nbsp;×&nbsp;10<sup>5</sup>&nbsp;m&nbsp;s<sup>−1</sup>. When it is faster, qvB is bigger than qE. The upward magnetic force wins, so it bends up.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m5/t5.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M5 T5 · Energy in Gravitational Fields</span></a><a class="pg next" href="../m6/t2.html"><span class="pg-k">Next topic →</span><span class="pg-t">M6 T2 · The Motor Effect</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 6 Electromagnetism · Chapter 1. The experimental data (half the speed → 4 times the deflection; proton deflection about 1840 times less; gradient of the <i>v</i>²–<i>V</i> graph 2<i>e</i>/<i>m</i><sub>e</sub>&nbsp;=&nbsp;3.52&nbsp;×&nbsp;10<sup>11</sup>&nbsp;C&nbsp;kg<sup>−1</sup>) and the values in the text (<i>e</i>&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;C, 1&nbsp;eV&nbsp;=&nbsp;1.602&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;J, electric force about 2&nbsp;×&nbsp;10¹² times the weight) are from the booklet. The speeds and deflections in Animations 1 and 2, and the speed in Quick quiz question 3, were worked out from data sheet constants (calculated). The other practice numbers were chosen to be easy to work with. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · 电子枪：电场做功变成动能（1.1 Work, energy and the electron gun）
+   真实物理：板间匀强场 E = V/d，F = qE 大小方向都不变；从静止出发，W = qEd = qV = ½mv²，所以出口 v = √(2qV/m)，和 d 无关。
+   电子：左板是负极板（cathode），右板是正极板（有小孔）；E 从右指向左，电子受力逆着 E → 向右。
+   proton：电源反过来接，左板是正极板；E 从左指向右，proton 受力顺着 E → 向右。
+   计算值（data sheet）：e = 1.602 × 10⁻¹⁹ C，mₑ = 9.109 × 10⁻³¹ kg，mₚ = 1.673 × 10⁻²⁷ kg，c = 3.00 × 10⁸ m s⁻¹。
+   示意：d = 1.0 cm，V 的范围 100–1000 V，画面快慢。画面时间：1000 V、板距 d 时用 T0 秒穿过板间；
+   穿过时间 ∝ d/√V（和真实比例一样，所以 2d 出口速度一样、在板间多用一倍时间）。
+   proton 真实速度只有电子的 1/√(mₚ/mₑ) ≈ 1/43，画面里 proton 用自己的时间比例（放快约 43 倍）；读数和 v 条按真实比例。
+   位置 s 以 G（画面上 d 的长度）为单位，从出发板量起；运动用解析式，不会漂。 */
+var QE=1.602e-19,ME=9.109e-31,MP=1.673e-27,CL=3.00e8,D0=0.010,T0=1.0,DRIFT=1,WAIT=1.0,STB=0.12;
+var VMAXE=Math.sqrt(2*QE*1000/ME);
+var m1={V:500,dm:1,p:'e',t:0,rec:false,ev:null,pts:{e:[{V:200,dm:1},{V:800,dm:1}],p:[]},hl:null,hla:9};
+
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x,d){if(x<=0)return '0';var e=Math.floor(Math.log(x)/Math.LN10+1e-9),mm=x/Math.pow(10,e);if(+mm.toFixed(d)>=10){mm/=10;e++;}return mm.toFixed(d)+' × 10'+sup(e);}
+function rs(k){return String(Math.round(k*100)/100);}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW,align,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+/* 居中写字，但不让它超出 [lo, hi] */
+function cTxt(ctx,s,x,y,col,size,weight,lo,hi){
+  ctx.font=(weight||500)+' '+size+'px '+FONT;var w=ctx.measureText(s).width;
+  x=clamp(x,lo+w/2,hi-w/2);txt(ctx,s,x,y,col,size,weight,'center');
+}
+/* Word wrap for the status lines; returns the next y */
+function wrapTxt(ctx,s,x,y,col,size,weight,maxW,lh,maxL){
+  ctx.font=(weight||500)+' '+size+'px '+FONT;
+  var ws=s.split(' '),cur='',lines=[],i;
+  for(i=0;i<ws.length;i++){var t=cur?cur+' '+ws[i]:ws[i];if(cur&&ctx.measureText(t).width>maxW){lines.push(cur);cur=ws[i];}else cur=t;}
+  if(cur)lines.push(cur);
+  for(i=0;i<lines.length;i++)fitTxt(ctx,lines[i],x,y+i*lh,col,size,weight,maxW);
+  return y+lines.length*lh;
+}
+/* Plate label of one or two lines, centred on the same x, kept inside [lo, hi] */
+function cTxt2(ctx,a,b,x,y,col,size,weight,lo,hi,lh){
+  ctx.font=(weight||500)+' '+size+'px '+FONT;
+  var w=Math.max(ctx.measureText(a).width,b?ctx.measureText(b).width:0);
+  x=clamp(x,lo+w/2,hi-w/2);txt(ctx,a,x,y,col,size,weight,'center');
+  if(b)txt(ctx,b,x,y+lh,col,size,weight,'center');
+}
+/* 按真实比例的条（没有 hbar 那种最短一截：proton 的 v 很小就画得很短） */
+function bar(ctx,x,y,w,h,fr,col){rrect(ctx,x,y,w,h,h/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  var fw=w*clamp(fr,0,1);if(fw>0.4){ctx.save();rrect(ctx,x,y,w,h,h/2);ctx.clip();ctx.fillStyle=col;ctx.fillRect(x,y,fw,h);ctx.restore();}}
+
+function mass(){return m1.p==='e'?ME:MP;}
+function tc(){return T0*m1.dm*Math.sqrt(1000/m1.V);}
+function vExit(){return Math.sqrt(2*QE*m1.V/mass());}
+function sAt(t){var T=tc();if(t<=T){var f=t/T;return m1.dm*f*f;}return m1.dm+2*m1.dm/T*(t-T);}
+function frac(){var T=tc();return m1.t>=T?1:(m1.t/T)*(m1.t/T);}
+function tEnd(){var T=tc();return T+DRIFT*T/(2*m1.dm);}
+function addPt(){var L=m1.pts[m1.p];for(var i=0;i<L.length;i++){if(L[i].V===m1.V&&L[i].dm===m1.dm){m1.hl=L[i];m1.hla=0;return;}}
+  var o={V:m1.V,dm:m1.dm};L.push(o);m1.hl=o;m1.hla=0;}
+function restart(){m1.t=0;m1.rec=false;}
+function hasD1(){var L=m1.pts[m1.p];for(var i=0;i<L.length;i++){if(L[i].V===m1.V&&L[i].dm===1)return true;}return false;}
+function step1(dt){m1.hla+=dt;m1.t+=dt;if(!m1.rec&&m1.t>=tc()){m1.rec=true;addPt();}if(m1.t>tEnd()+WAIT){restart();m1.ev=null;}}
+for(var q1=0;q1<60;q1++)step1(1/60);
+
+/* ---------- 排版：宽屏左边电子枪 + 读数，右边 v²–V 图；手机上下排 ---------- */
+function lay(W){
+  var o={wide:W>=700};
+  if(o.wide){o.G=118;o.x0=50;o.s1=24;o.s2=46;o.vl=70;o.wy=86;o.pt=104;o.pb=232;o.lab=250;o.lab2=264;o.r1=285;o.r2=305;o.b=[331,354,377];
+    o.lw=122;o.vw=128;o.bR=420;o.gx=488;o.gw=W-18-o.gx;o.tl=458;o.ty=76;o.yl=98;o.gy=110;o.gh=170;o.sl=338;o.lg=360;o.H=392;}
+  else{o.G=Math.min(110,Math.floor((W-44)/3));o.x0=30;o.s1=20;o.lh=16;o.vl=90;o.wy=104;o.pt=120;o.pb=228;o.lab=246;o.lab2=259;o.r1=284;o.r2=303;o.b=[330,352,374];
+    o.lw=118;o.vw=120;o.bR=W-12;o.gx=46;o.gw=W-18-o.gx;o.tl=16;o.ty=410;o.yl=430;o.gy=442;o.gh=140;o.sl=640;o.lg=660;o.H=674;}
+  o.cy=(o.pt+o.pb)/2;o.xR=o.x0+2*o.G;
+  return o;
+}
+
+/* 状态提示：这一刻发生了什么、为什么 */
+function status(){
+  var e=m1.p==='e',ev=m1.ev,k;
+  if(ev){
+    if(ev.type==='d2'){
+      if(m1.t<tc())return['d becomes 2d: E = V/d halves → force F halves','But the path is 2 times as long: W = qEd = qV does not change → same exit speed'];
+      return['2d and d give the same exit speed: over the whole gap, W = qV does not depend on d',hasD1()?'Look at the graph: the hollow dot lands exactly on the solid dot for d':'First fire once at d with the same V, then compare the hollow and solid dots'];}
+    if(ev.type==='d1')return['2d goes back to d: E = V/d doubles → force F doubles','But the path is only half as long: W = qEd = qV does not change → same exit speed'];
+    if(ev.type==='V'){k=ev.to/ev.from;return['V: '+ev.from+' V → '+ev.to+' V (× '+rs(k)+') → W = qV also × '+rs(k),'v² × '+rs(k)+', v × '+rs(Math.sqrt(k))+': v² ∝ V, not v ∝ V'];}
+    if(ev.type==='p')return['Switched to proton: positive → starts from the positive plate (supply reversed)','Same energy qV, mass about 1840 times larger → v is about 1/43 of the electron\'s'];
+    if(ev.type==='e')return['Switched to electron: negative → starts from the cathode (negative plate)','Same energy qV, mass about 1840 times smaller → v is about 43 times faster'];
+    if(ev.type==='reset')return['Graph cleared: drag V, and each shot adds one dot','See if the dots all lie on one straight line through the origin'];
+  }
+  if(m1.t<tc())return e?['The electron is negative: force is opposite to E, from cathode to positive plate','The field does work: U goes down, K goes up → faster and faster (like a ball rolling downhill)']:
+    ['The proton is positive: force is along E, from positive plate to negative plate','It gets the same energy qV, but its mass is about 1840 times larger → much slower'];
+  var b;
+  if(!e)b='W = qV all becomes K, but v is only about 1/43 of the electron\'s at the same voltage';
+  else if(m1.V>=800)b='v ≈ '+(vExit()/CL).toFixed(3)+'c, still much less than c → ½mv² = qV still works';
+  else b='W = qV all becomes K: ½mv² = qV → one more dot on the graph';
+  return['Through the hole: no electric field outside → no force → constant speed in a straight line',b];
+}
+
+function graph(ctx,L){
+  var e=m1.p==='e',ym=e?4:2,unit=e?1e14:1e11,kk=2*QE/mass(),gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,i,y;
+  function X(V){return gx+V/1000*gw;}
+  function Y(v2){return gy+gh-v2/unit/ym*gh;}
+  txt(ctx,'v²–V graph: each shot adds one dot',L.tl,L.ty,C.ink,L.wide?13.5:13,600);
+  txt(ctx,'v² (× 10'+(e?'¹⁴':'¹¹')+' m² s⁻²)',L.tl,L.yl,C.muted,11.5,500);
+  for(i=1;i<=4;i++){seg(ctx,X(i*250),gy,X(i*250),gy+gh,C.grid,1);}
+  var yst=e?1:0.5;
+  for(i=0;i<=4;i++){y=gy+gh-i/4*gh;if(i)seg(ctx,gx,y,gx+gw,y,C.grid,1);txt(ctx,rs(i*yst),gx-6,y+4,C.muted,11,500,'right');}
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1.2);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1.2);
+  var xt=L.wide?[0,250,500,750,1000]:[0,500,1000];
+  for(i=0;i<xt.length;i++)txt(ctx,String(xt[i]),X(xt[i]),gy+gh+16,C.muted,11,500,'center');
+  txt(ctx,'accelerating voltage V (V)',gx+gw,gy+gh+34,C.muted,11.5,500,'right');
+  /* 理论线 v² = (2q/m)V：过原点的直线 */
+  seg(ctx,X(0),Y(0),X(1000),Y(kk*1000),rgba(C.copper,0.45),1.5,[5,5]);
+  /* 现在的 V */
+  seg(ctx,X(m1.V),gy,X(m1.V),gy+gh,rgba(C.ink,0.45),1.2,[2,4]);
+  var P=m1.pts[m1.p];
+  for(i=0;i<P.length;i++){if(P[i].dm===1)dot(ctx,X(P[i].V),Y(kk*P[i].V),5,C.copper);}
+  for(i=0;i<P.length;i++){if(P[i].dm===2)ring(ctx,X(P[i].V),Y(kk*P[i].V),8,C.copper,2.2);}
+  if(m1.hl&&P.indexOf(m1.hl)>=0&&m1.hla<1.5){var a=1-m1.hla/1.5;ring(ctx,X(m1.hl.V),Y(kk*m1.hl.V),9+10*m1.hla,rgba(C.copper,0.7*a),2);}
+  /* 斜率：下标 e / p 自己画（canvas 字体里没有 ₑ，会变成一个小点） */
+  var s0='gradient = 2e/m',s1=e?'e':'p',s2=e?' = 3.52 × 10¹¹ C kg⁻¹':' = 1.92 × 10⁸ C kg⁻¹',s3=e?'(the booklet)':'(calculated)';
+  ctx.font='600 12.5px '+FONT;var w0=ctx.measureText(s0).width;ctx.font='600 11px '+FONT;var w1=ctx.measureText(s1).width;
+  txt(ctx,s0,L.tl,L.sl,C.copper,12.5,600);txt(ctx,s1,L.tl+w0+0.5,L.sl+3,C.copper,11,600);txt(ctx,s2,L.tl+w0+w1+1.5,L.sl,C.copper,12.5,600);
+  /* the source note goes on the same line if it fits, otherwise on its own line */
+  ctx.font='600 12.5px '+FONT;var w2=ctx.measureText(s2).width,w3=ctx.measureText(' '+s3).width,one=L.tl+w0+w1+1.5+w2+w3<=gx+gw+8;
+  if(one)txt(ctx,s3,L.tl+w0+w1+1.5+w2+ctx.measureText(' ').width,L.sl,C.copper,12.5,600);else txt(ctx,s3,L.tl,L.sl+15,C.copper,12.5,600);
+  var lx=L.tl,ly=one?L.lg:L.lg+13;
+  dot(ctx,lx+5,ly-4,4.5,C.copper);txt(ctx,'plate gap d',lx+15,ly,C.muted,11.5,500);
+  ring(ctx,lx+90,ly-4,6.5,C.copper,2);txt(ctx,'2d',lx+102,ly,C.muted,11.5,500);
+  seg(ctx,lx+134,ly-11,lx+134,ly+3,rgba(C.ink,0.55),1.2,[2,3]);txt(ctx,'V now',lx+142,ly,C.muted,11.5,500);
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),wide=L.wide,e=m1.p==='e',G=L.G,cy=L.cy,PT=8,V=m1.V,i;
+    var xR=L.xR,xS=xR-m1.dm*G,f=frac(),T=tc();
+    var leftPlus=!e,lCol=leftPlus?C.north:C.south,rCol=leftPlus?C.south:C.north,pc=e?C.south:C.north;
+    var st=status();
+    if(wide){fitTxt(ctx,st[0],16,L.s1,C.ink,15,600,W-32);fitTxt(ctx,st[1],16,L.s2,C.muted,13.5,500,W-32);}
+    else{var ys=wrapTxt(ctx,st[0],16,L.s1,C.ink,13.5,600,W-32,L.lh);wrapTxt(ctx,st[1],16,ys+1,C.muted,12,500,W-32,L.lh-1);}
+
+    /* 电场线：从 + 板到 − 板（紫） */
+    /* 线的浓淡跟着 E = V/d 变：100 V、2d 最淡，1000 V、d 最浓 */
+    var dirE=leftPlus?1:-1,offs=wide?[-46,-22,22,46]:[-40,-20,20,40],mx=(xS+xR)/2,Er=(V/m1.dm)/1000,al=0.25+0.45*Er;
+    for(i=0;i<offs.length;i++){var ly=cy+offs[i];seg(ctx,xS+3,ly,xR-3,ly,rgba(C.violet,al),1.3);arrow(ctx,mx-dirE*8,ly,mx+dirE*8,ly,rgba(C.violet,Math.min(1,al+0.35)),1.4,8);}
+    txt(ctx,'E',mx+(wide?16:14),cy+offs[0]-7,C.violet,15,'italic 600','center','alphabetic',MATH);
+
+    /* 导线和电源：长细线 = 电源 +，短粗线 = 电源 − */
+    var lc=xS-PT/2,rc=xR+PT/2,bm=(lc+rc)/2,wy=L.wy,wc=rgba(C.copper,0.85);
+    seg(ctx,lc,L.pt,lc,wy,wc,1.6);seg(ctx,lc,wy,bm-5,wy,wc,1.6);
+    seg(ctx,rc,L.pt,rc,wy,wc,1.6);seg(ctx,rc,wy,bm+5,wy,wc,1.6);
+    seg(ctx,bm-5,wy-(leftPlus?11:6),bm-5,wy+(leftPlus?11:6),C.ink,leftPlus?1.8:3.6);
+    seg(ctx,bm+5,wy-(leftPlus?6:11),bm+5,wy+(leftPlus?6:11),C.ink,leftPlus?3.6:1.8);
+    txt(ctx,'V = '+V+' V',bm,L.vl,C.ink,wide?13:12.5,600,'center');
+
+    /* 两块板：出口板中间有小孔 */
+    ctx.fillStyle=lCol;ctx.fillRect(xS-PT,L.pt,PT,L.pb-L.pt);
+    ctx.fillStyle=rCol;ctx.fillRect(xR,L.pt,PT,cy-9-L.pt);ctx.fillRect(xR,cy+9,PT,L.pb-cy-9);
+    txt(ctx,leftPlus?'+':'−',xS-PT-9,L.pt+14,lCol,15,700,'center');
+    txt(ctx,leftPlus?'−':'+',xR+PT+9,L.pt+14,rCol,15,700,'center');
+    if(e){/* 热的 cathode 放出电子 */
+      ctx.beginPath();var hx=xS-PT-7;for(i=0;i<=6;i++){var yy=cy-12+i*4,xx=hx+(i%2?3:-3);if(i)ctx.lineTo(xx,yy);else ctx.moveTo(xx,yy);}
+      ctx.strokeStyle=C.heat;ctx.lineWidth=1.6;ctx.stroke();}
+    var lab=wide?12:11.5;
+    cTxt2(ctx,e?'cathode':'positive plate',e?'(negative plate)':null,xS-PT/2,L.lab,lCol,lab,600,12,xR-8,L.lab2-L.lab);
+    cTxt2(ctx,e?'positive plate':'negative plate','(with a hole)',xR+PT/2,L.lab,rCol,lab,600,xR-60,(wide?L.bR:W-12),L.lab2-L.lab);
+    var nx=xR+PT+8,ny=cy+(wide?36:30);
+    if(e){txt(ctx,'slow motion',nx,ny,C.muted,11.5,500);txt(ctx,'(illustrative)',nx,ny+15,C.muted,11.5,500);}
+    else{txt(ctx,'shown sped up',nx,ny,C.muted,11.5,500);txt(ctx,'about 43 times',nx,ny+15,C.muted,11.5,500);}
+
+    /* 每隔相同时间留一个点 */
+    var nS=Math.floor(m1.t/STB),rp=wide?7:6.5;
+    for(i=0;i<=nS;i++){var s0=sAt(i*STB);if(s0-m1.dm>DRIFT+0.01)break;dot(ctx,xS+s0*G,cy,2.6,rgba(pc,0.45));}
+
+    /* 粒子 + 力 */
+    if(m1.t<=tEnd()){
+      var px=xS+sAt(m1.t)*G;
+      if(m1.t<T){var LF=Math.max(6,(wide?60:50)*(V/1000)/m1.dm),ax=px+rp+2;
+        arrow(ctx,ax,cy,ax+LF,cy,C.force,2.6,Math.min(9,LF*0.6));txt(ctx,'F',ax+LF/2,cy-9,C.force,13,700,'center');}
+      dot(ctx,px,cy,rp,pc);txt(ctx,e?'−':'+',px,cy+0.5,'#ffffff',12,700,'center','middle');
+    }
+
+    /* 读数 */
+    var dS=m1.dm===1?'d':'2d',E=V/(D0*m1.dm),F=QE*E,Wj=QE*V;
+    fitTxt(ctx,dS+' = '+m1.dm+'.0 cm (illustrative) → E = V/'+dS+' = '+sci(E,1)+' V m⁻¹',16,L.r1,C.ink,wide?12.5:12,500,L.bR-16);
+    fitTxt(ctx,'F = qE = '+sci(F,1)+' N → W = F × '+dS+' = '+(wide?sci(Wj,1)+' J = ':'')+V+' eV',16,L.r2,C.ink,wide?12.5:12,500,L.bR-16);
+    var bx0=16+L.lw,bx1=L.bR-L.vw,bw=bx1-bx0,vNow=Math.sqrt(2*QE*V*f/mass());
+    function row(y,lb,lcol,fr,col,val,mk){
+      txt(ctx,lb,16,y,lcol,12.5,600);bar(ctx,bx0,y-9,bw,10,fr,col);
+      if(mk!=null){var xm=bx0+bw*mk;seg(ctx,xm,y-12,xm,y+4,C.ink,1.5);}
+      txt(ctx,val,L.bR,y,C.ink,12,600,'right','alphabetic',MONO);}
+    row(L.b[0],'U potential energy',C.violet,V*(1-f)/1000,C.violet,Math.round(V*(1-f))+' eV',V/1000);
+    row(L.b[1],'K kinetic energy',C.copper,V*f/1000,C.copper,Math.round(V*f)+' eV',V/1000);
+    /* v 条上的细线 = 电子在这个 V 下的出口速度（proton 时拿来对比） */
+    row(L.b[2],'v speed',C.ink,vNow/VMAXE,rgba(C.ink,0.7),(vNow>0?sci(vNow,2):'0')+' m s⁻¹',Math.sqrt(2*QE*V/ME)/VMAXE);
+
+    graph(ctx,L);
+  }
+});
+
+var rV=document.getElementById('s1-V'),oV=document.getElementById('s1-V-out');
+var bd1=document.getElementById('s1-d1'),bd2=document.getElementById('s1-d2'),be=document.getElementById('s1-e'),bp=document.getElementById('s1-p');
+function sync1(){press(bd1,m1.dm===1);press(bd2,m1.dm===2);press(be,m1.p==='e');press(bp,m1.p==='p');oV.textContent=m1.V+' V';}
+rV.addEventListener('input',function(){var nv=parseInt(rV.value,10)||500;if(nv===m1.V)return;
+  if(!m1.ev||m1.ev.type!=='V')m1.ev={type:'V',from:m1.V};m1.ev.to=nv;if(nv===m1.ev.from)m1.ev=null;
+  m1.V=nv;restart();sync1();S1.render();});
+function setD(k){if(m1.dm===k)return;m1.dm=k;m1.ev={type:k===2?'d2':'d1'};restart();sync1();S1.render();}
+function setP(p){if(m1.p===p)return;m1.p=p;m1.ev={type:p};restart();sync1();S1.render();}
+bd1.addEventListener('click',function(){setD(1);});bd2.addEventListener('click',function(){setD(2);});
+be.addEventListener('click',function(){setP('e');});bp.addEventListener('click',function(){setP('p');});
+document.getElementById('s1-reset').addEventListener('click',function(){m1.pts.e=[];m1.pts.p=[];m1.hl=null;m1.ev={type:'reset'};restart();S1.setPlaying(true);S1.render();});
+sync1();
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 平行板之间的抛物线（1.2 Curved paths in an electric field）
+   真实物理：正极板在上，E = V/d 向下。电子 q < 0，F = qE 逆着 E → 向上；proton 顺着 E → 向下；两者 F 一样大（eV/d）。
+   沿板方向没有力：x = ut，v_x = u 不变；垂直板方向 a = qE/m 不变：y = ½at² = (qE/2mu²)x²，v_y = at。
+   出了板没有力：沿出口速度方向走直线。y ∝ V，y ∝ 1/u²，y ∝ x²。
+   示意：L = 5.0 cm，d = 4.0 cm，u = 1.0 × 10⁷ m s⁻¹（= 1.0 cm/ns），V = 0–300 V，画面快慢（RATE ns 每秒）。
+   计算值：y、F、a、θ 用 data sheet 的 e = 1.602 × 10⁻¹⁹ C、mₑ = 9.109 × 10⁻³¹ kg、mₚ = 1.673 × 10⁻²⁷ kg 算。
+   画面里 x、y 用同一个比例（cm），所以路径的形状和角度是真的。运动用解析式，不会漂。 */
+var QE=1.602e-19,ME=9.109e-31,MP=1.673e-27;
+var L=5,D=4,U0=1,TDOT=1,RATE=2,HOLD=1.5;
+var rv=document.getElementById('s2-v'),ov=document.getElementById('s2-v-out');
+var bu1=document.getElementById('s2-u1'),bu2=document.getElementById('s2-u2'),be=document.getElementById('s2-e'),bp=document.getElementById('s2-p');
+var cur={V:parseFloat(rv.value)||200,half:false,pro:false},ghost=null,snap=null,dragging=false;
+var P={},G={},LY=null,RY=[0,0,0,0,0];
+var m2={x:4.3,hold:0,note:null,half:false}; /* 第一帧：电子已经在板间走了 4.3 cm，路上留着 5 个点；half：这次的提示是“速度减半” */
+
+/* ---------- 物理 ---------- */
+function calc(p,o){
+  var m=p.pro?MP:ME,u=p.half?U0/2:U0,uS=u*1e7;
+  o.u=u;o.s=p.pro?-1:1;
+  o.E=p.V/(D/100);o.F=QE*o.E;o.a=o.F/m;      /* SI：V m⁻¹、N、m s⁻² */
+  o.kS=o.a/(2*uS*uS);o.k=o.kS/100;           /* y = k x²：kS 用 m⁻¹（就是 y/x²），k 用 cm⁻¹ */
+  o.yL=o.k*L*L;o.m=2*o.k*L;                  /* 出口的 y（cm）；出口 v_y/v_x = 2kL */
+  o.hit=o.yL>=D/2;o.xHit=o.hit?Math.sqrt(D/2/o.k):Infinity;
+  return o;
+}
+function yAt(o,x){if(x<=0)return 0;if(x<=L)return o.k*x*x;return o.yL+o.m*(x-L);}
+/* 这一发在哪里结束：打到板，或者飞出画面 */
+function xEnd(o,Y){if(o.hit)return o.xHit;var e=(Y.sx1-Y.X0)/Y.cm,ym=D/2+Y.room;if(o.m>1e-12){var xe=L+(ym-o.yL)/o.m;if(xe<e)e=xe;}return e;}
+function SX(x){return LY.X0+x*LY.cm;}
+function SY(o,x){return LY.yc-o.s*yAt(o,x)*LY.cm;}
+calc(cur,P);
+
+/* ---------- 数字格式 ---------- */
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(v){if(v<=0)return '0';var e=Math.floor(Math.log(v)/Math.LN10+1e-9),mm=v/Math.pow(10,e);if(+mm.toFixed(2)>=10){mm/=10;e++;}return mm.toFixed(2)+'×10'+sup(e);}
+function f3(v){if(v===0)return '0';var a=Math.abs(v);if(a>=100)return v.toFixed(0);if(a>=10)return v.toFixed(1);if(a>=1)return v.toFixed(2);return v.toPrecision(3);}
+function small(v){return v>=0.01?f3(v):sci(v);}
+function scl(mx){return (mx>=0.1||mx<=0)?0:Math.floor(Math.log(mx)/Math.LN10+1e-9);} /* 一行太小时换成 10ⁿ 的单位 */
+function unit(p,u){return p===0?u:'10'+sup(p)+' '+u;}
+function fr(r){return String(Math.round(r*100)/100);}
+function deg(v){return v>=0.1?v.toFixed(1):(v<=0?'0':v.toPrecision(2));}
+
+/* 带下标的文字：'v_x' 画成 v 加小一号、往下一点的 x。noDraw 时只量宽度。
+   HALO：字后面先描一圈底色，压在板或线上也看得清（只给粒子旁边的标签用）。 */
+var SUBRE=/([A-Za-z])_([a-z0-9]+)/g,HALO=false;
+function hs(ctx,q,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(q,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.74),fb=weight+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;adv.push(ctx.measureText(q.slice(1)).width+1.5);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;hs(ctx,q.slice(1),xx+0.8,y+size*0.22);txt(ctx,q.slice(1),xx+0.8,y+size*0.22,col,ss,weight,'left','alphabetic',family);}
+    else if(q){ctx.font=fb;hs(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,weight,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+/* 状态提示太长时换行：在“，”“：”后面或“ →”前面断开 */
+/* English: word wrap. A formula ("a = qE/m", "t × 2"), a number and its unit, and an arrow and the word after it stay together. */
+function toks(s){return s.replace(/ ([=×≤∝]) /g,'\u00a0$1\u00a0').replace(/→ /g,'→\u00a0').replace(/(\d) (V|cm|mm|ns)\b/g,'$1\u00a0$2').split(' ');}
+function wrap(ctx,s,maxW,size,weight){var t=toks(s),out=[],line='',i,tr;
+  for(i=0;i<t.length;i++){tr=line?line+' '+t[i]:t[i];
+    if(line&&rich(ctx,tr,0,0,null,size,weight,'left',null,true)>maxW){out.push(line);line=t[i];}else line=tr;}
+  if(line)out.push(line);
+  return out.map(function(l){return l.replace(/\u00a0/g,' ');});}
+
+/* ---------- 状态提示：这一刻发生了什么、为什么 ---------- */
+var MSG={
+  pre:['The particle enters moving parallel to the plates','Outside the plates there is no electric field → no force → a straight line at constant speed'],
+  ine:['Between the plates: no force along the plates → v_x = u stays the same','Across the plates a = qE/m is constant → v_y keeps growing → a parabola, like a ball thrown horizontally'],
+  inp:['Proton: F = qE is the same size, opposite direction → deflected towards the negative plate','m is about 1840 times the electron\'s → a is only about 1/1840 → it looks almost like a straight line'],
+  v0:['V = 0: E = V/d = 0 → no force','v_y stays 0 → a straight line'],
+  out:['After the plates: no electric field → no force','A straight line in the direction of the exit velocity (v_x and v_y no longer change)'],
+  hitE:['The deflection y reached d/2 → the electron hit the positive plate','Longer time between the plates or bigger V → bigger y → make V smaller, or go back to u'],
+  hitP:['The deflection y reached d/2 → the proton hit the negative plate','Longer time between the plates or bigger V → bigger y → make V smaller, or go back to u'],
+  hitH:['Half the speed: time between the plates × 2 → y × 4','y is more than d/2 → the electron hit the positive plate (it gets out only if V ≤ 90 V)']
+};
+function status(e,x){
+  if(P.hit&&x>=e-1e-9){if(m2.half&&!cur.pro)return MSG.hitH;return cur.pro?MSG.hitP:MSG.hitE;}
+  if(m2.note)return m2.note;
+  if(x<0)return MSG.pre;
+  if(x>L)return MSG.out;
+  if(cur.V===0)return MSG.v0;
+  return cur.pro?MSG.inp:MSG.ine;
+}
+
+/* ---------- 排版：宽屏左边是板、右边是表；手机上下排 ---------- */
+var WIDE2=720,NARROW4=350; /* below these widths the English status text needs more lines */
+function lay(W){
+  var o={wide:W>=640},ex; /* ex: extra height for status lines, because English lines are longer */
+  if(o.wide){ex=W>=WIDE2?0:42;o.pw=226;o.px=W-16-o.pw;o.sx0=14;o.sx1=o.px-18;o.cm=Math.min(52,(o.sx1-o.sx0)/9.3);o.X0=o.sx0+1.3*o.cm;o.dX=o.X0-1.05*o.cm;o.xs=-0.75;
+    o.room=0.9;o.yc=92+ex+(2+o.room)*o.cm;o.VS=60;o.FS=0.17;o.pt=7;o.st=ex?[24,46,67,88]:[24,46];o.sf=[15,13.5];o.stB=54+ex;o.lim=o.px-6;}
+  else{o.pw=W-32;o.px=16;o.sx0=8;o.sx1=W-8;o.cm=Math.min(38,(o.sx1-o.sx0)/8.9);o.X0=o.sx0+1.1*o.cm;o.dX=o.X0-0.88*o.cm;o.xs=-0.45;
+    ex=W>=NARROW4?19:(W>=320?38:57);o.room=0.7;o.yc=94+ex+(2+o.room)*o.cm;o.VS=54;o.FS=0.15;o.pt=6;o.st=[22,41,60,79,98,117].slice(0,3+ex/19);o.sf=[13.5,12.5];o.stB=68+ex;o.lim=W-4;}
+  o.yT=o.yc-D/2*o.cm;o.yB=o.yc+D/2*o.cm;o.bo=o.yB+o.pt;o.Ly=o.bo+30;
+  o.pTop=o.wide?84+ex:o.bo+52;
+  o.H=o.wide?Math.max(o.pTop+350,Math.round(o.Ly+22)):Math.round(o.pTop+(W>=NARROW4?200:(W>=316?218:254)));
+  return o;
+}
+
+/* 沿路径从 xa 画到 xb（解析式取点） */
+function trace(ctx,o,xa,xb){var n=Math.max(2,Math.ceil((xb-xa)/0.08)),i,xx;
+  for(i=0;i<=n;i++){xx=xa+(xb-xa)*i/n;if(i)ctx.lineTo(SX(xx),SY(o,xx));else ctx.moveTo(SX(xx),SY(o,xx));}}
+
+/* 对照：细线是改之前的路径；每个 x 处 y 的比 = 两个 k 的比（打不打到板都成立） */
+function ratio(r){return r>10?String(Math.round(r)):(r<0.1?'1/'+Math.round(1/r):fr(r));}
+function legend(ctx,x,y,size){
+  var mw=LY.pw-24,ls,i;
+  if(!ghost){ls=wrap(ctx,'Change a value and a thin line keeps the last path',LY.pw,size,500);for(i=0;i<ls.length;i++)txt(ctx,ls[i],x,y+i*18,C.muted,size,500);return;}
+  var d=[];if(ghost.half!==cur.half)d.push(ghost.half?'½u':'u');if(ghost.pro!==cur.pro)d.push(ghost.pro?'proton':'electron');if(ghost.V!==cur.V)d.push(ghost.V+' V');
+  seg(ctx,x,y-4,x+18,y-4,rgba(C.south,0.55),2.2);
+  ls=wrap(ctx,'Thin line = last path ('+d.join(', ')+'): '+(G.hit?'hit the '+(ghost.pro?'negative':'positive')+' plate':'y = '+small(G.yL*10)+' mm'),mw,size,500);
+  for(i=0;i<ls.length;i++)txt(ctx,ls[i],x+24,y+i*18,C.muted,size,500);
+  y+=ls.length*18;
+  if(G.k>0&&P.k>0){ls=wrap(ctx,'Now y at each x × '+ratio(P.k/G.k)+(ghost.pro!==cur.pro?', opposite direction':''),mw,size,600);
+    for(i=0;i<ls.length;i++)txt(ctx,ls[i],x+24,y+i*18,C.ink,size,600);}
+}
+
+/* 表里的 y：x = 1…5 cm 处（mm）；打到板以后没有 */
+function rows(o){var mx=0;for(var i=0;i<5;i++){var xx=i+1;RY[i]=(xx<=o.xHit)?10*o.k*xx*xx:null;if(RY[i]!==null&&RY[i]>mx)mx=RY[i];}return mx;}
+function rowNote(o){
+  if(o.hit)return 'Hits '+(cur.pro?'negative':'positive')+' plate at x = '+o.xHit.toFixed(2)+' cm';
+  if(cur.V===0)return 'V = 0: every y is 0 → straight line';
+  return 'y/x² same in every row → y ∝ x²';
+}
+
+function panelWide(ctx,Y,o,x){
+  var px=Y.px,y=Y.pTop,c2=px+120,c3=px+Y.pw,i,yy,col,ok;
+  txt(ctx,'Illustrative: L = 5.0 cm, d = 4.0 cm',px,y,C.muted,12,500);
+  txt(ctx,cur.half?'Entry speed ½u = 5.0×10⁶ m s⁻¹':'Entry speed u = 1.0×10⁷ m s⁻¹',px,y+18,C.muted,12,500);
+  txt(ctx,'y at several x (1 dot every 1 ns)',px,y+42,C.ink,12.5,600);
+  var py=scl(rows(o)),pq=scl(o.kS);
+  txt(ctx,'x (cm)',px,y+61,C.muted,11.5,500);
+  txt(ctx,'y ('+unit(py,'mm')+')',c2,y+61,C.muted,11.5,500,'right');
+  txt(ctx,'y/x² ('+unit(pq,'m⁻¹')+')',c3,y+61,C.muted,11.5,500,'right');
+  for(i=0;i<5;i++){yy=y+80+i*19;ok=RY[i]!==null;col=(ok&&x>=i+1-1e-9)?C.ink:C.muted;
+    txt(ctx,i===4?'5 = L':String(i+1),px+4,yy,col,12.5,500,'left','alphabetic',MONO);
+    txt(ctx,ok?f3(RY[i]/Math.pow(10,py)):'—',c2,yy,col,12.5,500,'right','alphabetic',MONO);
+    txt(ctx,ok?f3(o.kS/Math.pow(10,pq)):'—',c3,yy,col,12.5,500,'right','alphabetic',MONO);}
+  txt(ctx,rowNote(o),px,y+178,o.hit?C.heat:C.ink,12.5,600);
+  seg(ctx,px,y+189,c3,y+189,C.line,1);
+  txt(ctx,'F = qE = '+sci(o.F)+' N',px,y+208,C.ink,12.5,500);
+  txt(ctx,'a = qE/m = '+sci(o.a)+' m s⁻²',px,y+226,C.ink,12.5,500);
+  if(o.hit){txt(ctx,'Hits plate: t = x/u = '+(o.xHit/o.u).toFixed(2)+' ns',px,y+244,C.ink,12.5,500);txt(ctx,'Cannot get out: no exit velocity',px,y+262,C.muted,12.5,500);}
+  else{txt(ctx,'Time between plates t = L/u = '+(L/o.u).toFixed(1)+' ns',px,y+244,C.ink,12.5,500);
+    rich(ctx,'Exit θ = tan⁻¹(v_y/v_x) = '+deg(Math.atan(o.m)*180/Math.PI)+'°',px,y+262,C.ink,12.5,500);}
+  legend(ctx,px,y+286,12);
+}
+function panelNarrow(ctx,Y,o,x){
+  var px=Y.px,y=Y.pTop,lw=104,cw=(Y.pw-lw)/5,i,cx,col,ok;
+  var hd=wrap(ctx,'Illustrative: L = 5.0 cm, d = 4.0 cm, '+(cur.half?'½u = 5.0×10⁶':'u = 1.0×10⁷')+' m s⁻¹',Y.pw,11.5,500);
+  for(i=0;i<hd.length;i++)txt(ctx,hd[i],px,y+i*17,C.muted,11.5,500);
+  y+=(hd.length-1)*17;
+  txt(ctx,'Record y at several x (1 dot every 1 ns)',px,y+22,C.ink,12.5,600);
+  var py=scl(rows(o)),pq=scl(o.kS);
+  txt(ctx,'x (cm)',px,y+42,C.muted,11.5,500);
+  txt(ctx,'y ('+unit(py,'mm')+')',px,y+61,C.muted,11.5,500);
+  txt(ctx,'y/x² ('+unit(pq,'m⁻¹')+')',px,y+80,C.muted,11.5,500);
+  for(i=0;i<5;i++){cx=px+lw+cw*(i+1)-2;ok=RY[i]!==null;col=(ok&&x>=i+1-1e-9)?C.ink:C.muted;
+    txt(ctx,i===4?'5=L':String(i+1),cx,y+42,col,12,500,'right','alphabetic',MONO);
+    txt(ctx,ok?f3(RY[i]/Math.pow(10,py)):'—',cx,y+61,col,12,500,'right','alphabetic',MONO);
+    txt(ctx,ok?f3(o.kS/Math.pow(10,pq)):'—',cx,y+80,col,12,500,'right','alphabetic',MONO);}
+  txt(ctx,rowNote(o),px,y+101,o.hit?C.heat:C.ink,12.5,600);
+  seg(ctx,px,y+111,px+Y.pw,y+111,C.line,1);
+  txt(ctx,'F = qE = '+sci(o.F)+' N, a = '+sci(o.a)+' m s⁻²',px,y+129,C.ink,12,500);
+  txt(ctx,o.hit?'Hits plate: x = '+o.xHit.toFixed(2)+' cm, t = '+(o.xHit/o.u).toFixed(2)+' ns':'t = L/u = '+(L/o.u).toFixed(1)+' ns, exit θ = '+deg(Math.atan(o.m)*180/Math.PI)+'°',px,y+148,C.ink,12,500);
+  legend(ctx,px,y+170,12);
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){if(!LY)return;var e=xEnd(P,LY);
+    if(m2.x>=e-1e-9){m2.x=e;m2.hold+=dt;if(m2.hold>(P.hit?2.2:HOLD)){m2.x=LY.xs;m2.hold=0;m2.note=null;m2.half=false;}return;}
+    m2.x=Math.min(e,m2.x+P.u*RATE*dt);},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var Y=lay(W);LY=Y;
+    var o=P,e=xEnd(o,Y),x=Math.min(m2.x,e),cm=Y.cm,yc=Y.yc,xL=SX(L),i,xe,gx;
+    /* 电场线 E：紫色，从正极板指向负极板（向下）；V 越大画得越浓 */
+    if(cur.V>0){var al=0.25+0.4*cur.V/300,ya=yc+0.88*cm;
+      for(xe=0.3;xe<L;xe+=0.8){gx=SX(xe);seg(ctx,gx,Y.yT+3,gx,Y.yB-3,rgba(C.violet,al*0.75),1.2);arrow(ctx,gx,ya-12,gx,ya,rgba(C.violet,Math.min(1,al+0.25)),1.4,7);}
+      rich(ctx,'E',SX(0.3)+7,yc+D/4*cm+16,C.violet,15,'italic 500','left',MATH);}
+    /* 两块板 */
+    ctx.fillStyle=C.north;ctx.fillRect(Y.X0,Y.yT-Y.pt,L*cm,Y.pt);
+    ctx.fillStyle=C.south;ctx.fillRect(Y.X0,Y.yB,L*cm,Y.pt);
+    txt(ctx,W<320?'+ positive':'+ positive plate',Y.cm>=48?Y.X0:Y.sx0,Y.yT-Y.pt-7,C.north,12.5,600);
+    txt(ctx,W<320?'− negative':'− negative plate',Y.cm>=48?Y.X0:Y.sx0,Y.bo+16,C.south,12.5,600);
+    /* 中线（没有电场时的路径）、d 和 L 的标注 */
+    seg(ctx,SX(Y.xs),yc,Y.sx1,yc,rgba(C.muted,0.5),1,[3,5]);
+    var dx=Y.dX;
+    seg(ctx,dx-4,Y.yT,Y.X0-2,Y.yT,rgba(C.muted,0.55),1,[2,3]);seg(ctx,dx-4,Y.yB,Y.X0-2,Y.yB,rgba(C.muted,0.55),1,[2,3]);
+    arrow(ctx,dx,yc,dx,Y.yT,C.muted,1.2,6);arrow(ctx,dx,yc,dx,Y.yB,C.muted,1.2,6);
+    rich(ctx,'d',dx+5,yc-D/4*cm+5,C.ink,14,'italic 500','left',MATH);
+    ctx.font='500 12.5px '+FONT;var lt='L = 5.0 cm',lw2=ctx.measureText(lt).width/2+6,lm=(Y.X0+xL)/2,ly=Y.Ly;
+    seg(ctx,Y.X0,ly-5,Y.X0,ly+5,C.muted,1);seg(ctx,xL,ly-5,xL,ly+5,C.muted,1);
+    arrow(ctx,lm-lw2,ly,Y.X0+1,ly,C.muted,1.2,6);arrow(ctx,lm+lw2,ly,xL-1,ly,C.muted,1.2,6);
+    txt(ctx,lt,lm,ly+4,C.ink,12.5,500,'center');
+    /* 刚才的路径（对照） */
+    if(ghost){var ge=xEnd(G,Y);ctx.beginPath();trace(ctx,G,Y.xs,ge);ctx.strokeStyle=rgba(C.south,0.55);ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+      if(G.hit)ring(ctx,SX(ge),SY(G,ge),5,rgba(C.south,0.7),1.5);}
+    /* 还没走的路（虚线）和已经走过的路 */
+    if(e>x+0.01){ctx.beginPath();trace(ctx,o,x,e);ctx.strokeStyle=rgba(C.copper,0.5);ctx.lineWidth=1.5;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);}
+    if(x>Y.xs+0.01){ctx.beginPath();trace(ctx,o,Y.xs,x);ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.lineJoin='round';ctx.stroke();}
+    /* 每隔 1 ns 一个点；板间的点画一根到中线的竖线（就是这一刻的 y） */
+    var dn=o.u*TDOT,xn,qx,qy;
+    for(i=0;i<40;i++){xn=i*dn;if(xn>x+1e-9)break;qx=SX(xn);qy=SY(o,xn);
+      if(xn<=L+1e-9&&Math.abs(qy-yc)>1.5)seg(ctx,qx,yc,qx,qy,rgba(C.muted,0.8),1.2);
+      dot(ctx,qx,qy,3.2,rgba(C.ink,0.8));}
+    if(!o.hit&&o.yL*cm>=16&&x>=L+1)rich(ctx,'y',xL+5,yc-o.s*o.yL*cm/2+5,C.ink,14,'italic 500','left',MATH);
+    /* 粒子、力 F、速度 v 和它的两个分量 */
+    var flying=x<e-1e-9,onPlate=o.hit&&!flying;
+    if(flying||onPlate){var px=SX(x),py=SY(o,x);
+      HALO=true;
+      if(flying&&x>=0&&x<=L&&cur.V>0){var FL=Y.FS*cur.V;arrow(ctx,px-20,py,px-20,py-o.s*FL,C.force,2.6,8);
+        if(FL>=10)rich(ctx,'F',px-26,py-o.s*FL*0.55+5,C.force,14,'italic 600','right',MATH);}
+      if(flying){var vy=x<=0?0:2*o.k*o.u*Math.min(x,L),ex=o.u*Y.VS,ey=-o.s*vy*Y.VS;
+        if(px+Math.max(ex+22,54)<=Y.lim&&py+Math.min(ey,0)-24>=Y.stB){
+          if(Math.abs(ey)<6){arrow(ctx,px,py,px+ex,py+ey,rgba(C.ink,0.7),2.6,9);rich(ctx,'v = v_x',px+10,py-11,C.ink,14,'italic 500','left',MATH);}
+          else{arrow(ctx,px,py,px+ex,py,rgba(C.ink,0.42),2,7);arrow(ctx,px,py,px,py+ey,rgba(C.ink,0.42),2,7);arrow(ctx,px,py,px+ex,py+ey,rgba(C.ink,0.7),2.6,9);
+            rich(ctx,'v',px+ex+7,py+ey+(ey<0?4:10),C.ink,14,'italic 500','left',MATH);
+            rich(ctx,'v_x',px+ex/2,ey<0?py+19:py-9,C.muted,13.5,'italic 500','center',MATH);
+            rich(ctx,'v_y',px,ey<0?py+ey-7:py+ey+17,C.muted,13.5,'italic 500','center',MATH);}}}
+      HALO=false;
+      dot(ctx,px,py,7,cur.pro?C.north:C.south);txt(ctx,cur.pro?'+':'−',px,py+0.5,'#ffffff',12,700,'center','middle');
+      if(onPlate)ring(ctx,px,py,11,rgba(C.heat,0.9),2);}
+    /* 状态提示 */
+    var S=status(e,x),a1=wrap(ctx,S[0],W-32,Y.sf[0],600),a2=wrap(ctx,S[1],W-32,Y.sf[1],500),k=0;
+    for(i=0;i<a1.length&&k<Y.st.length;i++,k++)rich(ctx,a1[i],16,Y.st[k],C.ink,Y.sf[0],600);
+    for(i=0;i<a2.length&&k<Y.st.length;i++,k++)rich(ctx,a2[i],16,Y.st[k],C.muted,Y.sf[1],500);
+    if(Y.wide)panelWide(ctx,Y,o,x);else panelNarrow(ctx,Y,o,x);
+  }
+});
+
+/* ---------- 控件 ---------- */
+function same(a,b){return a.V===b.V&&a.half===b.half&&a.pro===b.pro;}
+function copy(p){return {V:p.V,half:p.half,pro:p.pro};}
+function sync(){press(bu1,!cur.half);press(bu2,cur.half);press(be,!cur.pro);press(bp,cur.pro);ov.textContent=cur.V+' V';}
+/* 改了一个量：旧的路径留作对照；粒子留在同一个 x，马上看到新路径 */
+function changed(old,note,half){
+  ghost=same(old,cur)?null:copy(old);if(ghost)calc(ghost,G);
+  calc(cur,P);m2.note=note;m2.half=!!half;
+  if(LY){var e=xEnd(P,LY);if(m2.x>=e)m2.x=e;else m2.hold=0;}
+  sync();S2.render();
+}
+function noteSpeed(){if(cur.V===0)return null;
+  return cur.half?['Half the speed: time between the plates × 2','y = ½at²: t × 2 → y × 4 (compare with the thin line)']:['Double the speed: time between the plates is halved','t × ½ → y × ¼: a faster particle is deflected less'];}
+function notePart(){if(cur.V===0)return null;
+  return cur.pro?MSG.inp:['Back to the electron: q is negative → force opposite to E → deflected towards the positive plate','m is very small → a = qE/m is very large → the deflection is easy to see'];}
+function noteV(v0,v1){if(v1===0)return null;
+  if(v0===0)return ['Voltage on: now there is a uniform electric field E = V/d between the plates','The force keeps the same size and direction → a parabola'];
+  var r=fr(v1/v0);return ['V: '+v0+' V → '+v1+' V, so E = V/d also × '+r,'F and a both × '+r+' → y at each x also × '+r+' (y ∝ V)'];}
+bu1.addEventListener('click',function(){if(!cur.half)return;var o=copy(cur);cur.half=false;changed(o,noteSpeed());});
+bu2.addEventListener('click',function(){if(cur.half)return;var o=copy(cur);cur.half=true;changed(o,noteSpeed(),true);});
+be.addEventListener('click',function(){if(!cur.pro)return;var o=copy(cur);cur.pro=false;changed(o,notePart());});
+bp.addEventListener('click',function(){if(cur.pro)return;var o=copy(cur);cur.pro=true;changed(o,notePart());});
+rv.addEventListener('input',function(){var v=parseFloat(rv.value)||0;if(!dragging){snap=copy(cur);dragging=true;}cur.V=v;changed(snap,noteV(snap.V,v));});
+rv.addEventListener('change',function(){dragging=false;});
+document.getElementById('s2-reset').addEventListener('click',function(){if(LY)m2.x=LY.xs;m2.hold=0;m2.note=null;m2.half=false;S2.setPlaying(true);S2.render();});
+sync();
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3：磁场里的圆周（1.3 Circular paths，对照 Figure 1.4）。
+   三种路径：整圈（B 进纸面）/ 从磁场边界 90° 射入（半圈，像 Figure 1.4c）/ v 和 B 成 60°（helix，侧面看，B 向右）。
+   物理：F = qvB 永远 ⊥ v → W = 0 → 速率不变 → F 大小不变 → 匀速圆周。r = mv/(qB) ∝ v；T = 2πm/(qB) 和 v 无关。
+   palm rule（四指 B，拇指 + 电荷的 v，掌心 F）：B 进纸面时 + 电荷逆时针，electron 顺时针。
+   helix：ω 的方向和 B 相反（+ 电荷），所以顺着 B 看（B 背离观察者）+ 电荷逆时针。
+   + 电荷和 electron 用同样的 m 和 |q|，只比较方向。数据全是示意：只显示倍数（× 1 = 默认速度）。 */
+var TT=4,OM=TAU/TT,TH=Math.PI/3,SN=Math.sin(TH),CS=Math.cos(TH),PAUSE=1;   /* × 1 时转一圈 4 s（示意）；helix 模式 θ = 60° */
+var m3={mode:'full',sg:1,v:1,rs:1,ph:0.75,u:0,mk:[],msg:null,mt:0};
+var L={w:-1,h:-1},ST=['',''],VL=['','','',''],VF=[0,0,0,0],LB=['','','',''];
+var MS={
+  v0:['v = 0: a charge at rest feels no magnetic force','F = qvB = 0, so it stays where it is'],
+  full:['F ⊥ v → W = Fs cos 90° = 0 → speed is constant','F = qvB also keeps its size, always towards the centre → uniform circular motion'],
+  semiA:['Not in the field yet: no force → straight line','Crosses the edge of the field at 90°'],
+  semiBp:['In the field: F towards the centre → an arc','+ charge turns left (an electron would turn right)'],
+  semiBn:['In the field: F towards the centre → an arc','Electron turns right (a + charge would turn left)'],
+  semiC:['Half a circle: out through the same edge, 2r away','A mass spectrometer uses this to sort ions by mass'],
+  helix:['v at 60° to B: v⊥ = v sin 60° makes a circle','v∥ = v cos 60° (no force) carries it along B → helix']
+};
+
+function lay(W,H){
+  if(L.w===W&&L.h===H)return L;L.w=W;L.h=H;
+  var wide=W>=640;L.wide=wide;
+  if(wide){L.px0=16;L.py0=62;L.px1=Math.round(W*0.57);L.py1=H-14;L.s1=15;L.s2=14;L.y1=26;L.y2=48;}
+  else{L.px0=12;L.py0=73;L.px1=W-12;L.py1=389;L.s1=13.5;L.s2=13;L.y1=22;L.y2=41;}
+  L.fcx=(L.px0+L.px1)/2;L.fcy=wide?(L.py0+L.py1)/2:L.py0+150;   /* narrow: the panel is 16 px taller so the moving v label stays above the wider English direction label */
+  L.r0=Math.min(wide?60:52,(Math.min(L.px1-L.px0,L.py1-L.py0)/2-34)/2);   /* × 1 的半径（像素）；× 2 也放得下 */
+  L.ye=L.py1-(wide?96:84);L.ys=L.py1-16;                                  /* 半圈模式：磁场边界、出发点 */
+  L.hx0=L.px0+(wide?44:34);L.gap=wide?56:48;                              /* helix 模式 */
+  L.cs=wide?36:32;
+  if(wide){L.rx0=L.px1+28;L.rx1=W-16;L.ry=88;}else{L.rx0=12;L.rx1=W-12;L.ry=L.py1+30;}
+  return L;
+}
+function semiTA(g){return (g.ys-g.ye)/(g.r0*m3.v*OM);}   /* 从出发点走到边界用的时间 */
+var HK=0.7;                                               /* helix 图的半径比整圈小一点，好多画几圈 */
+function hvx(g){return HK*g.r0*m3.v*OM*CS;}               /* helix：v∥ 的屏幕速度 */
+function hLp(g){return g.r0*0.9*m3.v*CS;}                 /* v∥ 箭头长度 */
+function hEnd(g){return g.px1-31-hLp(g);}                 /* 走到这里就从头再来（留出 v∥ 箭头的位置） */
+
+function step3(dt){
+  if(m3.mt>0)m3.mt=Math.max(0,m3.mt-dt);
+  if(m3.v<=0)return;
+  if(m3.mode==='full'){m3.ph=(m3.ph+m3.sg*OM*dt)%TAU;return;}
+  var g=lay(S3.W,S3.H),tA;
+  m3.u+=dt;
+  if(m3.mode==='semi'){tA=semiTA(g);
+    if(m3.u>=tA+TT/2&&m3.mk.indexOf(m3.v)<0)m3.mk.push(m3.v);
+    if(m3.u>2*tA+TT/2+PAUSE)m3.u=0;}
+  else if(g.hx0+hvx(g)*m3.u>hEnd(g))m3.u=0;
+}
+
+/* ---------- 小工具 ---------- */
+/* × 场：标签所在的方框（EX）里不画，免得 × 被标签盖掉一半 */
+var EX=[],EXn=0;
+function exBox(ctx,s,x,y,size,weight,align,extra){ctx.font=(weight||600)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  x0-=extra||0;EX[EXn*4]=x0-4;EX[EXn*4+1]=y-size+0.5;EX[EXn*4+2]=x0+w+(extra||0)+4;EX[EXn*4+3]=y+6.5;EXn++;}
+function crosses(ctx,x0,y0,x1,y1,gap){
+  var d=4.2,nx=Math.floor((x1-x0)/gap),ny=Math.floor((y1-y0)/gap),ox=x0+((x1-x0)-nx*gap)/2,oy=y0+((y1-y0)-ny*gap)/2,i,j,k,x,y,skip;
+  ctx.strokeStyle=rgba(C.field,0.85);ctx.lineWidth=1.4;ctx.setLineDash([]);ctx.beginPath();
+  for(i=0;i<=nx;i++)for(j=0;j<=ny;j++){x=ox+i*gap;y=oy+j*gap;skip=false;
+    for(k=0;k<EXn;k++)if(x+d+2>EX[k*4]&&x-d-2<EX[k*4+2]&&y+d+2>EX[k*4+1]&&y-d-2<EX[k*4+3]){skip=true;break;}
+    if(!skip){ctx.moveTo(x-d,y-d);ctx.lineTo(x+d,y+d);ctx.moveTo(x-d,y+d);ctx.lineTo(x+d,y-d);}}
+  ctx.stroke();EXn=0;
+}
+function xmark(ctx,x,y,d){seg(ctx,x-d,y-d,x+d,y+d,rgba(C.field,0.9),1.5);seg(ctx,x-d,y+d,x+d,y-d,rgba(C.field,0.9),1.5);}
+/* 带底色的标签（盖住后面的 × 和线） */
+function tag(ctx,s,x,y,col,size,weight,align){
+  ctx.font=(weight||600)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  rrect(ctx,x0-4,y-size+0.5,w+8,size+6,4);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();txt(ctx,s,x,y,col,size,weight,align);
+}
+function charge(ctx,x,y,r,sg,a){var col=sg>0?C.north:C.south;dot(ctx,x,y,r,a<1?rgba(col,a):col);
+  txt(ctx,sg>0?'+':'−',x,y+1,'#ffffff',Math.max(11,r*1.45),700,'center','middle');}
+function rightAng(ctx,x,y,ux,uy,fx,fy,d){ctx.beginPath();ctx.moveTo(x+ux*d,y+uy*d);ctx.lineTo(x+(ux+fx)*d,y+(uy+fy)*d);ctx.lineTo(x+fx*d,y+fy*d);
+  ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.3;ctx.setLineDash([]);ctx.stroke();}
+/* 小的转向箭头：sg>0 逆时针，sg<0 顺时针 */
+function turn(ctx,x,y,r,sg,col){var a0=sg>0?0.6:Math.PI-0.6,a1=a0-sg*4.6,ex=x+r*Math.cos(a1),ey=y+r*Math.sin(a1),tx=sg*Math.sin(a1),ty=-sg*Math.cos(a1);
+  ctx.beginPath();ctx.arc(x,y,r,a0,a1,sg>0);ctx.strokeStyle=col;ctx.lineWidth=2;ctx.setLineDash([]);ctx.stroke();
+  arrow(ctx,ex-tx*6,ey-ty*6,ex+tx*3,ey+ty*3,col,2,7);}
+function sym(ctx,s,x,y,col,size){txt(ctx,s,x,y,col,size,'italic 600','center','middle',MATH);}
+/* 状态提示：两行；太长就缩小一点 */
+function wrapS(ctx,s,maxW,size,weight){ctx.font=weight+' '+size+'px '+FONT;var ws=s.split(' '),ls=[],l='',i,t;
+  for(i=0;i<ws.length;i++){t=l?l+' '+ws[i]:ws[i];if(l&&ctx.measureText(t).width>maxW){ls.push(l);l=ws[i];}else l=t;}
+  if(l)ls.push(l);return ls;}
+function fitTxt(ctx,s,x,y,col,size,weight,maxW){var z=size;ctx.font=weight+' '+z+'px '+FONT;
+  while(z>11.5&&ctx.measureText(s).width>maxW){z-=0.5;ctx.font=weight+' '+z+'px '+FONT;}txt(ctx,s,x,y,col,z,weight);}
+
+/* ---------- 三种路径 ---------- */
+function drawFull(ctx,g){
+  var cx=g.fcx,cy=g.fcy,v=m3.v,sg=m3.sg,r0=g.r0,r=r0*(v>0?v:m3.rs),a=m3.ph,c=Math.cos(a),s=Math.sin(a),x=cx+r*c,y=cy-r*s;
+  var ds=sg>0?'+ charge: anticlockwise':'Electron: clockwise';
+  ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(g.px0,g.py0,g.px1-g.px0,g.py1-g.py0);
+  exBox(ctx,'× = B into the page',g.px0+12,g.py0+22,12.5,600,'left');exBox(ctx,ds,g.px0+36,g.py1-16,12.5,600,'left',26);
+  crosses(ctx,g.px0+10,g.py0+10,g.px1-10,g.py1-10,g.cs);
+  if(v>0){
+    ctx.beginPath();ctx.arc(cx,cy,r,0,TAU);ctx.strokeStyle=rgba(C.copper,0.4);ctx.lineWidth=2;ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,r,-a,-a+sg*1.9,sg<0);ctx.strokeStyle=C.copper;ctx.lineWidth=2.8;ctx.stroke();
+    var dA=Math.atan2(Math.sin(a-Math.PI),Math.cos(a-Math.PI));
+    if(Math.abs(dA)>0.75&&r>=40){seg(ctx,cx,cy,cx-r,cy,rgba(C.muted,0.95),1.4,[4,4]);sym(ctx,'r',cx-r/2,cy-10,C.muted,14);}
+    dot(ctx,cx,cy,3.5,C.ink);
+    var ux=-sg*s,uy=-sg*c,fx=-c,fy=s,Lv=r0*0.5*v,LF=r0*0.4*v,sm=r<40,cr=sm?8:11,o=sm?10:13;     /* u：速度方向；f：指向圆心；圆小时电荷画小一点 */
+    arrow(ctx,x+fx*o,y+fy*o,x+fx*(o+LF),y+fy*(o+LF),C.force,3,LF<18?7:9);
+    arrow(ctx,x+ux*o,y+uy*o,x+ux*(o+Lv),y+uy*(o+Lv),rgba(C.ink,0.7),2.6,Lv<18?7:9);
+    if(Math.min(Lv,LF)>=16)rightAng(ctx,x,y,ux,uy,fx,fy,17);   /* 箭头太短时 90° 记号会比箭头还大，就不画 */
+    charge(ctx,x,y,cr,sg,1);
+    sym(ctx,'v',x+ux*(o+Lv+11),y+uy*(o+Lv+11),rgba(C.ink,0.85),15);
+    sym(ctx,'F',x+fx*(o+LF*0.5)-ux*13,y+fy*(o+LF*0.5)-uy*13,C.force,15);
+  }else{
+    charge(ctx,x,y,11,sg,1);
+    tag(ctx,'v = 0 → F = 0',x,y-20,C.ink,12.5,600,'center');
+  }
+  tag(ctx,'× = B into the page',g.px0+12,g.py0+22,C.muted,12.5,600,'left');
+  var qc=sg>0?C.north:C.south;
+  ctx.font='600 12.5px '+FONT;
+  rrect(ctx,g.px0+8,g.py1-34,ctx.measureText(ds).width+38,26,6);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();
+  turn(ctx,g.px0+22,g.py1-21,7,sg,qc);
+  txt(ctx,ds,g.px0+36,g.py1-16,qc,12.5,600);
+}
+
+var SD={stage:0,prog:0};
+function drawSemi(ctx,g){
+  var v=m3.v,sg=m3.sg,r0=g.r0,ye=g.ye,xe=sg>0?Math.min(g.fcx+2*r0,g.px1-70):Math.max(g.fcx-2*r0,g.px0+70),r=r0*v,cxs=xe-sg*r,i,mx;
+  ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(g.px0,g.py0,g.px1-g.px0,ye-g.py0);
+  exBox(ctx,'× = B into the page',g.px0+12,g.py0+22,12.5,600,'left');exBox(ctx,'Edge of field',sg>0?g.px1-6:g.px0+6,ye-9,11.5,600,sg>0?'right':'left');
+  crosses(ctx,g.px0+10,g.py0+10,g.px1-10,ye-14,g.cs);
+  seg(ctx,g.px0,ye,g.px1,ye,C.field,2.2);
+  /* 之前的落点 */
+  for(i=0;i<m3.mk.length;i++){mx=xe-sg*2*r0*m3.mk[i];
+    seg(ctx,mx,ye-6,mx,ye+6,C.copper,2.4);
+    txt(ctx,'× '+m3.mk[i],mx-sg*5,ye+42,C.muted,11.5,600,sg>0?'right':'left');}
+  txt(ctx,'Entry',xe+sg*16,ye+42,C.muted,11.5,600,sg>0?'left':'right');
+  SD.stage=0;SD.prog=0;
+  if(v<=0){
+    var py=ye-44;charge(ctx,xe,py,11,sg,1);tag(ctx,'v = 0 → F = 0',xe-sg*16,py+5,C.ink,12.5,600,sg>0?'right':'left');
+  }else{
+    var tA=semiTA(g),tB=TT/2,u=m3.u,vp=r0*v*OM,p0=sg>0?0:Math.PI,ph,x,y,ux,uy,xo=xe-sg*2*r;
+    SD.stage=u<tA?0:(u<tA+tB?1:2);
+    ctx.beginPath();ctx.moveTo(xe,g.ys);
+    if(SD.stage===0){x=xe;y=g.ys-vp*u;ux=0;uy=-1;ctx.lineTo(x,y);}
+    else{
+      ph=SD.stage===1?p0+sg*OM*(u-tA):p0+sg*Math.PI;
+      ctx.lineTo(xe,ye);ctx.arc(cxs,ye,r,-p0,-ph,sg>0);
+      if(SD.stage===1){x=cxs+r*Math.cos(ph);y=ye-r*Math.sin(ph);ux=-sg*Math.sin(ph);uy=-sg*Math.cos(ph);SD.prog=(u-tA)/tB;}
+      else{x=xo;y=Math.min(g.ys,ye+vp*(u-tA-tB));ux=0;uy=1;ctx.lineTo(x,y);SD.prog=1;}
+    }
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.setLineDash([]);ctx.stroke();
+    var Lv=r0*0.5*v,sm=r<40,cr=sm?8:11,o=sm?10:13;
+    if(SD.stage===1){var fx=(cxs-x)/r,fy=(ye-y)/r,LF=r0*0.4*v;dot(ctx,cxs,ye,3,rgba(C.ink,0.6));
+      arrow(ctx,x+fx*o,y+fy*o,x+fx*(o+LF),y+fy*(o+LF),C.force,3,LF<18?7:9);
+      if(Math.min(Lv,LF)>=16)rightAng(ctx,x,y,ux,uy,fx,fy,17);
+      sym(ctx,'F',x+fx*(o+LF*0.5)-ux*13,y+fy*(o+LF*0.5)-uy*13,C.force,15);}
+    if(SD.stage===2){var dy=ye+18;
+      arrow(ctx,(xe+xo)/2,dy,xe,dy,C.muted,1.4,6);arrow(ctx,(xe+xo)/2,dy,xo,dy,C.muted,1.4,6);
+      tag(ctx,'2r',(xe+xo)/2,dy+5,C.ink,13,'italic 600','center');}
+    arrow(ctx,x+ux*o,y+uy*o,x+ux*(o+Lv),y+uy*(o+Lv),rgba(C.ink,0.7),2.6,Lv<18?7:9);
+    charge(ctx,x,y,cr,sg,1);
+    if(y+uy*(o+Lv+11)<g.py1-8)sym(ctx,'v',x+ux*(o+Lv+11),y+uy*(o+Lv+11),rgba(C.ink,0.85),15);
+  }
+  tag(ctx,'× = B into the page',g.px0+12,g.py0+22,C.muted,12.5,600,'left');
+  tag(ctx,'Edge of field',sg>0?g.px1-6:g.px0+6,ye-9,C.muted,11.5,600,sg>0?'right':'left');
+  txt(ctx,'No field',sg>0?g.px1-8:g.px0+8,g.py1-12,C.muted,11.5,500,sg>0?'right':'left');
+}
+
+/* helix 一条线：front=true 画靠近观察者的一半，false 画后面的一半 */
+function hpath(ctx,g,front,tEnd,rh,vx){
+  var n=Math.max(24,Math.ceil(tEnd/TT*64)),i,t,X,Y,Z,pX=0,pY=0,pZ=0,on=false;
+  ctx.beginPath();
+  for(i=0;i<=n;i++){t=tEnd*i/n;X=g.hx0+vx*t;Y=g.fcy-rh*Math.sin(OM*t);Z=m3.sg*Math.cos(OM*t);
+    if(i>0){if((pZ+Z>0)===front){if(!on){ctx.moveTo(pX,pY);on=true;}ctx.lineTo(X,Y);}else on=false;}
+    pX=X;pY=Y;pZ=Z;}
+}
+var HD={prog:0};
+function drawHelix(ctx,g){
+  var v=m3.v,sg=m3.sg,r0=g.r0,ax=g.fcy,x0=g.hx0;
+  ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(g.px0,g.py0,g.px1-g.px0,g.py1-g.py0);
+  fieldLines(ctx,g.px0+10,g.px1-6,ax,2,g.gap);
+  sym(ctx,'B',g.px1-18,ax-2*g.gap-12,C.field,16);
+  /* θ = 60° 的标注（出发点） */
+  HD.prog=0;
+  if(v>0){
+    var d=54;seg(ctx,x0,ax,x0+d*CS,ax-d*SN,rgba(C.muted,0.8),1.2,[3,3]);
+    ctx.beginPath();ctx.arc(x0,ax,20,0,-TH,true);ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+    txt(ctx,'60°',x0+27,ax-11,C.muted,11.5,600,'left','middle');
+    var rh=HK*r0*v*SN,vx=hvx(g),tEnd=(hEnd(g)-x0)/vx,t=m3.u,X=x0+vx*t,Y=ax-rh*Math.sin(OM*t),Z=sg*Math.cos(OM*t),fr=Z>0;
+    HD.prog=(t/TT)%1;
+    hpath(ctx,g,false,tEnd,rh,vx);ctx.strokeStyle=rgba(C.copper,0.5);ctx.lineWidth=1.6;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);
+    if(!fr)charge(ctx,X,Y,9.5,sg,0.6);
+    hpath(ctx,g,true,tEnd,rh,vx);ctx.strokeStyle=C.copper;ctx.lineWidth=2.6;ctx.stroke();
+    if(fr)charge(ctx,X,Y,11,sg,1);
+    var Lp=hLp(g);
+    arrow(ctx,X+13,Y,X+13+Lp,Y,rgba(C.ink,0.7),2.6,Lp<18?7:9);
+    txt(ctx,'v∥',X+13+Lp/2,Y-13,rgba(C.ink,0.85),14,'italic 600','center','middle',MATH);
+  }else{
+    charge(ctx,x0,ax,11,sg,1);tag(ctx,'v = 0 → F = 0',x0-6,ax-24,C.ink,12.5,600,'left');
+  }
+  tag(ctx,'Side view · B in the page, to the right',g.px0+12,g.py0+22,C.muted,12.5,600,'left');
+  /* 图例：实线 = 前面，虚线 = 后面 */
+  var ly=g.py1-14,lx=g.px0+12;
+  rrect(ctx,lx-4,ly-14,g.wide?282:270,22,5);ctx.fillStyle=rgba(C.stage,0.9);ctx.fill();
+  seg(ctx,lx,ly-4,lx+20,ly-4,C.copper,2.6);txt(ctx,'Front (near you)',lx+26,ly,C.muted,11.5,600);
+  var l2=lx+(g.wide?130:124);
+  seg(ctx,l2,ly-4,l2+20,ly-4,rgba(C.copper,0.6),1.6,[4,4]);txt(ctx,'Back (far from you)',l2+26,ly,C.muted,11.5,600);
+}
+
+/* 顺着 B 看的小图（helix 模式）：B 背离观察者 = ×；右边 = +z，上面 = +y */
+function inset(ctx,cx,cy,ri){
+  var sg=m3.sg,t=m3.u,c=Math.cos(OM*t),s=Math.sin(OM*t);
+  ring(ctx,cx,cy,ri,rgba(C.copper,0.85),2);
+  xmark(ctx,cx,cy,4);
+  var e=ri+9;xmark(ctx,cx-e,cy-e,3.5);xmark(ctx,cx+e,cy-e,3.5);xmark(ctx,cx-e,cy+e,3.5);xmark(ctx,cx+e,cy+e,3.5);
+  if(m3.v>0){
+    var x=cx+ri*sg*c,y=cy-ri*s,ux=-sg*s,uy=-c,fx=-sg*c,fy=s,Lf=ri-18;
+    arrow(ctx,x+fx*10,y+fy*10,x+fx*(10+Lf),y+fy*(10+Lf),C.force,2.4,7);
+    arrow(ctx,x+ux*10,y+uy*10,x+ux*30,y+uy*30,rgba(C.ink,0.7),2.2,7);
+    charge(ctx,x,y,8,sg,1);
+  }else charge(ctx,cx+ri*sg,cy,8,sg,1);
+}
+
+/* ---------- 右边（手机上是下面）的读数 ---------- */
+function row(ctx,g,i,x1,stk){
+  var y,x0=g.rx0;
+  if(stk){y=g.ry+i*48;txt(ctx,LB[i],x0,y,C.ink,13,600);txt(ctx,VL[i],x1,y,C.muted,12.5,600,'right');hbar(ctx,x0,y+8,x1-x0,9,VF[i],i===1&&m3.mode!=='helix'?C.force:(i===2?C.copper:(i===3?rgba(C.ink,0.45):rgba(C.ink,0.7))));}
+  else{y=g.ry+i*26;var lw=m3.mode==='helix'?74:100,vw=m3.mode==='helix'?54:86;
+    txt(ctx,LB[i],x0,y,C.ink,12,600);txt(ctx,VL[i],x1,y,C.muted,12,600,'right');
+    hbar(ctx,x0+lw,y-9,x1-x0-lw-vw,9,VF[i],i===1&&m3.mode!=='helix'?C.force:(i===2?C.copper:(i===3?rgba(C.ink,0.45):rgba(C.ink,0.7))));}
+}
+function readouts(ctx,g,prog){
+  var wide=g.wide,v=m3.v,hel=m3.mode==='helix',semi=m3.mode==='semi',sv=String(v),i;
+  if(hel){
+    LB[0]=wide?'v⊥ = v sin 60° (circle)':'v⊥ (circle)';LB[1]=wide?'v∥ = v cos 60° (along B)':'v∥ (along B)';
+    LB[2]=wide?'Radius r = mv⊥/(qB)':'Radius r';LB[3]=wide?'One turn T = 2πm/(qB)':'One turn T';
+    VL[0]=v>0?(wide?'constant size':'constant'):'0';VL[1]=v>0?(wide?'constant (no force)':'constant'):'0';
+    VL[2]=v>0?'× '+sv:'—';VL[3]=v>0?(wide?'× 1 · same for any v':'× 1'):'—';
+    VF[0]=v*SN/2;VF[1]=v*CS/2;
+  }else{
+    LB[0]='Speed |v|';LB[1]=wide?'Magnetic force F = qvB':'Force F = qvB';LB[2]=wide?'Radius r = mv/(qB)':'Radius r';
+    LB[3]=semi?(wide?'Half a turn T/2 = πm/(qB)':'Half turn T/2'):(wide?'One turn T = 2πm/(qB)':'One turn T');
+    VL[0]=v>0?'× '+sv+(wide?' · stays constant':' constant'):'0';VL[1]=v>0?'× '+sv+(wide?' · constant size':' constant'):'0';
+    VL[2]=v>0?'× '+sv:'—';VL[3]=v>0?(wide?'× 1 · same for any v':'× 1 for any v'):'—';
+    VF[0]=v/2;VF[1]=v/2;
+  }
+  VF[2]=v/2;VF[3]=prog;
+  var x1=(!wide&&hel)?g.rx1-112:g.rx1;
+  for(i=0;i<4;i++)row(ctx,g,i,x1,wide);
+  var by=wide?g.ry+4*48-8:g.ry+4*26+2;
+  txt(ctx,v>0?'F ⊥ v → W = 0 → speed is constant':'v = 0 → F = qvB = 0',g.rx0,by,C.force,wide?13.5:12.5,700);
+  if(hel){
+    var icx,icy,ri,qc=m3.sg>0?C.north:C.south,dir=m3.sg>0?'anticlockwise':'clockwise';
+    if(wide){ri=34;icx=g.rx0+50;icy=g.ry+264;
+      txt(ctx,'Looking along B (B points away from you):',g.rx0,g.ry+206,C.muted,12.5,600);
+      inset(ctx,icx,icy,ri);
+      txt(ctx,(m3.sg>0?'+ charge ':'Electron ')+dir,g.rx0+108,icy-4,qc,13,700);
+      txt(ctx,'Same as with B into the page',g.rx0+108,icy+16,C.muted,12,500);}
+    else{ri=28;icx=g.rx1-50;icy=g.ry+46;
+      txt(ctx,'Looking along B',icx,g.ry-6,C.muted,11.5,600,'center');
+      inset(ctx,icx,icy,ri);
+      txt(ctx,(m3.sg>0?'+ ':'Electron ')+dir,icx,icy+ri+28,qc,12,700,'center');}
+  }else if(wide){
+    txt(ctx,'Right-hand palm rule:',g.rx0,g.ry+236,C.muted,12.5,600);
+    txt(ctx,'Fingers = B (into the page)',g.rx0,g.ry+258,C.muted,12.5,500);
+    txt(ctx,'Thumb = v of a + charge',g.rx0,g.ry+278,C.muted,12.5,500);
+    txt(ctx,'Palm = F. For an electron, F is reversed',g.rx0,g.ry+298,C.muted,12.5,500);
+  }
+}
+
+function status(){
+  if(m3.mt>0&&m3.msg){ST[0]=m3.msg[0];ST[1]=m3.msg[1];return;}
+  var M=m3.v<=0?MS.v0:(m3.mode==='full'?MS.full:(m3.mode==='helix'?MS.helix:(SD.stage===0?MS.semiA:(SD.stage===1?(m3.sg>0?MS.semiBp:MS.semiBn):MS.semiC))));
+  ST[0]=M[0];ST[1]=M[1];
+}
+
+function draw3(ctx,W,H){
+  var g=lay(W,H),prog=0;
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  ctx.save();rrect(ctx,g.px0,g.py0,g.px1-g.px0,g.py1-g.py0,10);ctx.clip();
+  if(m3.mode==='semi'){drawSemi(ctx,g);prog=SD.prog;}
+  else if(m3.mode==='helix'){drawHelix(ctx,g);prog=HD.prog;}
+  else{drawFull(ctx,g);prog=m3.v>0?(((m3.sg*m3.ph)/TAU)%1+1)%1:0;}
+  ctx.restore();
+  rrect(ctx,g.px0,g.py0,g.px1-g.px0,g.py1-g.py0,10);ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  status();
+  if(g.wide){fitTxt(ctx,ST[0],16,g.y1,C.ink,g.s1,600,W-28);fitTxt(ctx,ST[1],16,g.y2,C.ink,g.s2,500,W-28);}
+  else{var a=wrapS(ctx,ST[0],W-28,g.s1,600),b=wrapS(ctx,ST[1],W-28,g.s2,500),i3,y3=g.y1;
+    if(a.length+b.length>3){if(a.length>1)a=[a.join(' ')];if(a.length+b.length>3)b=[b.slice(0,b.length-1).join(' '),b[b.length-1]];}
+    for(i3=0;i3<a.length;i3++){fitTxt(ctx,a[i3],16,y3,C.ink,g.s1,600,W-28);y3+=19;}
+    for(i3=0;i3<b.length;i3++){fitTxt(ctx,b[i3],16,y3,C.ink,g.s2,500,W-28);y3+=19;}}
+  readouts(ctx,g,prog);
+}
+
+var S3=makeStage('sim3',{height:function(w){return w>=640?420:541;},step:step3,draw:draw3});
+
+/* ---------- 控件 ---------- */
+var bFull=document.getElementById('s3-full'),bSemi=document.getElementById('s3-semi'),bHel=document.getElementById('s3-helix');
+var bPos=document.getElementById('s3-pos'),bNeg=document.getElementById('s3-neg'),rv=document.getElementById('s3-v'),ov=document.getElementById('s3-v-out');
+function setMode(md){m3.mode=md;m3.u=0;m3.mt=0;press(bFull,md==='full');press(bSemi,md==='semi');press(bHel,md==='helix');S3.render();}
+function signMsg(){var p=m3.sg>0;
+  if(m3.mode==='semi')return p?['+ charge: palm rule, palm faces left → turns left','Leaves 2r to the left of the entry']:['Electron is negative: force reversed → turns right','Leaves 2r to the right of the entry'];
+  if(m3.mode==='helix')return p?['+ charge: looking along B, it goes anticlockwise','Same direction as with B into the page']:['Electron: force reversed, clockwise looking along B','In the side view, solid and dashed lines swap too'];
+  return p?['+ charge: fingers = B (into the page), thumb = v','Palm faces the centre → goes anticlockwise']:['Electron is negative: the force is reversed','Still towards the centre, but now goes clockwise'];}
+function vMsg(k){var s=String(k);
+  if(k===1)return ['v × 1 → r × 1 (r = mv/(qB))','T does not depend on v: T = 2πm/(qB) has no v'];
+  if(m3.mode==='semi')return ['v × '+s+' → r × '+s+' → the distance 2r is also × '+s,'T is unchanged: half a circle takes the same time'];
+  if(m3.mode==='helix')return ['v × '+s+' → v⊥ and v∥ both × '+s+' → r × '+s,'T is unchanged: distance along B per turn is also × '+s];
+  return k>1?['v × '+s+' → r × '+s+' (r = mv/(qB))','But T is unchanged: path × '+s+', speed also × '+s]:['v × '+s+' → r × '+s+' (r = mv/(qB))','But T is unchanged: half the path at half the speed'];}
+function setSign(s){if(m3.sg===s)return;m3.sg=s;m3.mk.length=0;m3.u=0;press(bPos,s>0);press(bNeg,s<0);
+  if(m3.v>0){m3.msg=signMsg();m3.mt=4.5;}S3.render();}
+bFull.addEventListener('click',function(){setMode('full');});
+bSemi.addEventListener('click',function(){setMode('semi');});
+bHel.addEventListener('click',function(){setMode('helix');});
+bPos.addEventListener('click',function(){setSign(1);});
+bNeg.addEventListener('click',function(){setSign(-1);});
+rv.addEventListener('input',function(){var k=parseFloat(rv.value);m3.v=k;if(k>0)m3.rs=k;m3.u=0;
+  ov.textContent=k>0?'× '+k:'0 (at rest)';if(k>0){m3.msg=vMsg(k);m3.mt=4.5;}else m3.mt=0;S3.render();});
+document.getElementById('s3-reset').addEventListener('click',function(){m3.mk.length=0;m3.u=0;m3.ph=0.75;m3.mt=0;S3.setPlaying(true);S3.render();});
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4：同一个电荷，左格匀强电场 E（可换成重力场 g），右格匀强磁场 B。
+   模型单位：每格是 2 × 1 的方框，y 向上。E 和 g 向下（+ 极板在上）；B 进纸面，“沿着场运动”时改成侧面看，B 在纸面内向下。
+   位置全用解析解：匀加速（电场、重力场）、匀速圆周（磁场 90°）、匀速直线（沿着 B）。数值全是示意。
+   方向：+ 电荷 F 顺着 E（向下），电子逆着 E（向上）；B 进纸面、v 向右：+ 电荷 F = qv × B 向上 → 逆时针，电子向下 → 顺时针。 */
+var BW4=2,U4=0.6,A4=0.3,R4=0.38,OM4=U4/R4,TB4=TAU/OM4,HOLD4=1.2,M4=0.055,DT4=0.3,VM4=1;
+var m4={mode:'perp',neg:false,grav:false,t:0,Tc:4,
+  e:{x0:0,y0:0,vx:0,vy:0,ay:0,tEnd:0,tStop:-1},
+  b:{kind:'circle',x0:0,y0:0,vx:0,vy:0,tEnd:1e9,cx:1,cy:0.5,th0:0,dir:1}};
+var p4={x:0,y:0,vx:0,vy:0},q4={x:0,y:0,vx:0,vy:0};
+var SL4={title:'',tc:'',l1:'',l2:'',word:'',info:''},SR4={title:'',tc:'',l1:'',l2:'',word:'',info:''};
+
+function eAt(t,o){var e=m4.e;o.x=e.x0+e.vx*t;o.y=e.y0+e.vy*t+0.5*e.ay*t*t;o.vx=e.vx;o.vy=e.vy+e.ay*t;return o;}
+function bAt(t,o){var b=m4.b,th;
+  if(b.kind==='rest'){o.x=b.x0;o.y=b.y0;o.vx=0;o.vy=0;}
+  else if(b.kind==='line'){o.x=b.x0+b.vx*t;o.y=b.y0+b.vy*t;o.vx=b.vx;o.vy=b.vy;}
+  else{th=b.th0+b.dir*OM4*t;o.x=b.cx+R4*Math.cos(th);o.y=b.cy+R4*Math.sin(th);o.vx=-b.dir*OM4*R4*Math.sin(th);o.vy=b.dir*OM4*R4*Math.cos(th);}
+  return o;}
+function inBox4(o){return o.x>=M4&&o.x<=BW4-M4&&o.y>=M4&&o.y<=1-M4;}
+function spdE(t){var v=m4.e.vy+m4.e.ay*t;return Math.sqrt(m4.e.vx*m4.e.vx+v*v);}
+function spdB(){return m4.b.kind==='rest'?0:U4;}
+
+function setup4(){
+  var e=m4.e,b=m4.b,md=m4.mode,t=0;
+  e.ay=m4.grav?-A4:(m4.neg?A4:-A4);           /* 电场：+ 向下加速，电子向上；重力场：都向下 */
+  var fromTop=e.ay<0;
+  if(md==='rest'){e.x0=1;e.y0=fromTop?0.88:0.12;e.vx=0;e.vy=0;}
+  else if(md==='along'){e.x0=1;e.y0=0.88;e.vx=0;e.vy=-U4;}   /* 顺着场（向下）运动 */
+  else{e.x0=0.12;e.y0=fromTop?0.88:0.12;e.vx=U4;e.vy=0;}      /* 向右射入，和场成 90° */
+  e.tStop=(md==='along'&&e.ay>0)?U4/e.ay:-1;
+  while(t<20&&inBox4(eAt(t+0.002,p4)))t+=0.002;
+  e.tEnd=t;
+  if(md==='rest'){b.kind='rest';b.x0=1;b.y0=0.5;b.tEnd=1e9;}
+  else if(md==='along'){b.kind='line';b.x0=1;b.y0=0.88;b.vx=0;b.vy=-U4;b.tEnd=(0.88-M4)/U4;}
+  else{b.kind='circle';b.cx=1;b.cy=0.5;b.dir=m4.neg?-1:1;b.th0=m4.neg?Math.PI/2:-Math.PI/2;b.tEnd=1e9;}
+  if(md==='rest')m4.Tc=e.tEnd+HOLD4;
+  else if(md==='along')m4.Tc=Math.max(e.tEnd,b.tEnd)+HOLD4;
+  else m4.Tc=Math.max(TB4,e.tEnd+0.8);      /* 正好一圈：重新开始时磁场里的电荷回到起点 */
+}
+function step4(dt){m4.t+=dt;if(m4.t>=m4.Tc)m4.t=m4.mode==='perp'?m4.t-m4.Tc:0;}
+function show4(){return m4.mode==='perp'?1.6:(m4.mode==='rest'?1.4:1.0);}
+setup4();m4.t=show4();
+
+/* ---------- 状态文字 ---------- */
+function stL(){
+  var e=m4.e,t=m4.t,md=m4.mode,hit=t>=e.tEnd,neg=m4.neg,o=SL4,pl;
+  o.word='increases';
+  if(m4.grav){
+    o.title='Uniform gravitational field · g down (gravity only)';o.tc=C.ink;o.info='a = g constant · W = mgΔh ≠ 0';
+    if(md==='rest'){o.l1=hit?'Reached the bottom: gravity did work all the way':'Force F = mg, down → falls from rest';o.l2='+ charge and electron alike: g ignores the sign of charge';}
+    else if(md==='along'){o.l1=hit?'Reached the bottom':'Moving down, and F = mg is down too';o.l2=hit?'Sped up all the way: straight line, faster and faster':'→ faster and faster along one straight line';}
+    else{o.l1=hit?'Reached the bottom: a parabola all the way':'mg also has a fixed direction → also a parabola';o.l2='g is the same for any mass and any sign of charge';}
+    return o;
+  }
+  o.title='Uniform electric field · E down (+ plate on top)';o.tc=C.violet;o.info='a: same size and direction · W = qV ≠ 0';
+  pl=neg?' + plate':' − plate';
+  if(md==='rest'){
+    if(hit){o.l1='Hit the'+pl+': the field did work W = qV';o.l2='All the potential energy became kinetic energy';}
+    else{o.l1=neg?'Electron: force against E (up), F = qE':'Force F = qE, along E (down)';o.l2='A force acts even at rest → accelerates from rest';}
+  }else if(md==='along'){
+    if(!neg){o.l1=hit?'Hit the − plate':'Moving along E, force also along E (down)';o.l2=hit?'Sped up all the way: straight line, faster and faster':'→ faster and faster along one straight line';}
+    else{
+      o.word='falls, then rises';o.info='a constant · W = qV ≠ 0';
+      if(hit){o.l1='Back at the + plate';o.l2='Slowed, stopped, then sped up in reverse';}
+      else if(t<e.tStop-0.2){o.l1='Electron moves along E, force is against E (up)';o.l2='→ slows down along one straight line';}
+      else if(t<=e.tStop+0.2){o.l1='Stopped: v = 0, but F = qE is still there';o.l2='→ reverses straight away';}
+      else{o.l1='Reversed: force and v both point up';o.l2='→ faster and faster, still the same straight line';}
+    }
+  }else{
+    o.l1=hit?('Hit the'+pl+': a parabola all the way'):(neg?'Electron: force up, fixed direction → parabola':'Force direction fixed (always down) → parabola');
+    o.l2=hit?'Like a ball thrown horizontally, but qE/m replaces g':'Horizontal v constant, vertical v grows → speed grows';
+  }
+  return o;
+}
+function stR(){
+  var b=m4.b,t=m4.t,md=m4.mode,o=SR4,neg=m4.neg;
+  o.tc=C.ink;
+  if(md==='along'){
+    o.title='Uniform B field · side view: B in the page (down)';o.word='constant';o.info='F = 0, a = 0 · W = 0';
+    o.l1='Along B: θ = 0, sin 0 = 0 → F = 0';o.l2=t>b.tEnd?'Out of the frame, still moving at constant speed':'No force → straight line, speed constant';
+  }else if(md==='rest'){
+    o.title='Uniform magnetic field · B into the page (×)';o.word='always 0';o.info='F = 0, a = 0 · W = 0';
+    o.l1='At rest: v = 0 → F = qvB = 0';o.l2='B does not push a charge at rest → it stays still';
+  }else{
+    o.title='Uniform magnetic field · B into the page (×)';o.word='constant';o.info='a: same size, direction turning · W = 0';
+    o.l1=neg?'Electron: F is reversed → circle (clockwise)':'F ⊥ v and B → turns with v → circle (anticlockwise)';
+    o.l2=neg?'F ⊥ v and B, does no work (W = 0) → speed constant':'F ⊥ v, does no work (W = 0) → speed constant';
+  }
+  return o;
+}
+
+/* ---------- 画图小工具 ---------- */
+function charge4(ctx,X,Y,neg,dim){
+  if(dim)ctx.globalAlpha=0.45;
+  dot(ctx,X,Y,9,neg?C.south:C.north);
+  seg(ctx,X-4.5,Y,X+4.5,Y,'#ffffff',2);if(!neg)seg(ctx,X,Y-4.5,X,Y+4.5,'#ffffff',2);
+  ctx.globalAlpha=1;
+}
+function badge4(ctx,X,Y,plus){dot(ctx,X,Y,7,plus?C.north:C.south);seg(ctx,X-3.5,Y,X+3.5,Y,'#ffffff',1.8);if(plus)seg(ctx,X,Y-3.5,X,Y+3.5,'#ffffff',1.8);}
+/* 标签：只在方框里面才画 */
+function lab4(ctx,s,cx,cy,col,size,x0,y0,x1,y1){
+  ctx.font='italic 600 '+size+'px '+MATH;var hw=ctx.measureText(s).width/2;
+  if(cx-hw<x0+1||cx+hw>x1-1||cy-size*0.5<y0+1||cy+size*0.5>y1-1)return false;
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=rgba(C.stage,0.9);ctx.strokeText(s,cx,cy);
+  txt(ctx,s,cx,cy,col,size,'italic 600','center','middle',MATH);return true;
+}
+function halo4(ctx,s,x,y,col,size){ctx.font='700 '+size+'px '+FONT;var w=ctx.measureText(s).width;
+  rrect(ctx,x-4,y-size/2-4,w+8,size+8,4);ctx.fillStyle=rgba(C.stage,0.92);ctx.fill();txt(ctx,s,x,y,col,size,700,'left','middle');}
+function hw4(ctx,s,size){ctx.font='italic 600 '+size+'px '+MATH;return ctx.measureText(s).width/2;}
+/* v 箭头（墨色 70%）和力箭头（绿色），从电荷边缘画出；同方向时左右错开 */
+function vecs4(ctx,X,Y,vx,vy,vL,fx,fy,fL,flab,x0,y0,x1,y1){
+  var vc=rgba(C.ink,0.7),hasV=vL>4,hasF=fL>0,side=false,nx=0,ny=0,o,h;
+  if(hasV&&hasF&&vx*fx+vy*fy>0.94){side=true;nx=-vy;ny=vx;}
+  if(hasV){
+    var sx=X+vx*11-nx*7,sy=Y+vy*11-ny*7;
+    arrow(ctx,sx,sy,sx+vx*vL,sy+vy*vL,vc,2.3,8);
+    h=hw4(ctx,'v',15);
+    if(side){o=9+h*Math.abs(nx)+8*Math.abs(ny);lab4(ctx,'v',sx+vx*vL*0.5-nx*o,sy+vy*vL*0.5-ny*o,vc,15,x0,y0,x1,y1);}
+    else{o=8+h*Math.abs(vx)+8*Math.abs(vy);
+      if(!lab4(ctx,'v',sx+vx*(vL+o),sy+vy*(vL+o),vc,15,x0,y0,x1,y1)){   /* 箭头尖外面放不下：放到箭头中间的旁边 */
+        var mx=sx+vx*vL*0.5,my=sy+vy*vL*0.5;
+        lab4(ctx,'v',mx+vy*13,my-vx*13,vc,15,x0,y0,x1,y1)||lab4(ctx,'v',mx-vy*13,my+vx*13,vc,15,x0,y0,x1,y1);}}
+  }
+  if(hasF){
+    var fx0=X+fx*11+nx*7,fy0=Y+fy*11+ny*7;
+    arrow(ctx,fx0,fy0,fx0+fx*fL,fy0+fy*fL,C.force,2.8,9);
+    h=hw4(ctx,flab,14);
+    if(side){o=9+h*Math.abs(nx)+8*Math.abs(ny);lab4(ctx,flab,fx0+fx*fL*0.5+nx*o,fy0+fy*fL*0.5+ny*o,C.force,14,x0,y0,x1,y1);}
+    else{o=8+h*Math.abs(fx)+8*Math.abs(fy);lab4(ctx,flab,fx0+fx*(fL+o),fy0+fy*(fL+o),C.force,14,x0,y0,x1,y1);}
+  }
+}
+
+/* ---------- 一格 ---------- */
+function panel4(ctx,x,y,pw,wide,right){
+  var sc=pw/BW4,bh=sc,top=y+(wide?84:76),bot=top+bh,t=m4.t,md=m4.mode,i,j,k,X,Y,lx;
+  var kind=right?(md==='along'?'Bside':'Bin'):(m4.grav?'g':'E');
+  var st=right?stR():stL();
+  txt(ctx,st.title,x,y+(wide?22:18),st.tc,wide?13.5:13,700);
+  txt(ctx,st.l1,x,y+(wide?44:38),C.ink,wide?13.5:13,600);
+  txt(ctx,st.l2,x,y+(wide?63:56),C.ink,wide?13:12.5,500);
+  /* 场 */
+  if(kind==='E'){
+    ctx.fillStyle=rgba(C.violet,0.05);ctx.fillRect(x,top,pw,bh);
+    for(k=0;k<10;k++){lx=x+(0.1+0.2*k)*sc;seg(ctx,lx,top,lx,bot,rgba(C.violet,0.4),1.2);arrow(ctx,lx,top+bh*0.5-9,lx,top+bh*0.5+7,rgba(C.violet,0.85),1.4,7);}
+    ctx.fillStyle=C.north;ctx.fillRect(x,top-6,pw,6);ctx.fillStyle=C.south;ctx.fillRect(x,bot,pw,6);
+    badge4(ctx,x+pw-12,top-3,true);badge4(ctx,x+pw-12,bot+3,false);
+  }else if(kind==='g'){
+    ctx.fillStyle=rgba(C.muted,0.05);ctx.fillRect(x,top,pw,bh);
+    for(k=0;k<10;k++){lx=x+(0.1+0.2*k)*sc;seg(ctx,lx,top,lx,bot,rgba(C.muted,0.5),1.2,[5,6]);arrow(ctx,lx,top+bh*0.5-9,lx,top+bh*0.5+7,rgba(C.muted,0.9),1.4,7);}
+    ctx.fillStyle=rgba(C.muted,0.45);ctx.fillRect(x,bot,pw,6);
+  }else{
+    ctx.fillStyle=rgba(C.field,0.06);ctx.fillRect(x,top,pw,bh);
+    ctx.strokeStyle=rgba(C.field,0.4);ctx.lineWidth=1;ctx.strokeRect(x+0.5,top+0.5,pw-1,bh-1);
+    if(kind==='Bin'){
+      for(i=0;i<10;i++)for(j=0;j<5;j++){X=x+(0.1+0.2*i)*sc;Y=top+(0.1+0.2*j)*sc;
+        seg(ctx,X-3.8,Y-3.8,X+3.8,Y+3.8,rgba(C.field,0.6),1.4);seg(ctx,X-3.8,Y+3.8,X+3.8,Y-3.8,rgba(C.field,0.6),1.4);}
+    }else{
+      for(k=0;k<10;k++){lx=x+(0.1+0.2*k)*sc;seg(ctx,lx,top,lx,bot,rgba(C.field,0.6),1.2,[5,6]);arrow(ctx,lx,top+bh*0.5-9,lx,top+bh*0.5+7,C.field,1.4,7);}
+    }
+  }
+  /* 轨迹、每 0.3 s 一个点、起点 */
+  var o=right?bAt(0,q4):eAt(0,q4),sx0=x+o.x*sc,sy0=top+(1-o.y)*sc;
+  ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(sx0,sy0,10,0,TAU);ctx.strokeStyle=rgba(C.ink,0.35);ctx.lineWidth=1.2;ctx.stroke();ctx.setLineDash([]);
+  var tt,p,n=60,b=m4.b;
+  if(!right){
+    tt=Math.min(t,m4.e.tEnd);
+    ctx.beginPath();for(i=0;i<=n;i++){p=eAt(tt*i/n,p4);X=x+p.x*sc;Y=top+(1-p.y)*sc;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+    for(k=1;k*DT4<=tt;k++){p=eAt(k*DT4,p4);dot(ctx,x+p.x*sc,top+(1-p.y)*sc,2.8,rgba(C.ink,0.6));}
+  }else if(b.kind==='line'){
+    tt=Math.min(t,b.tEnd);p=bAt(tt,p4);
+    seg(ctx,sx0,sy0,x+p.x*sc,top+(1-p.y)*sc,C.copper,2.2);
+    for(k=1;k*DT4<=tt;k++){p=bAt(k*DT4,p4);dot(ctx,x+p.x*sc,top+(1-p.y)*sc,2.8,rgba(C.ink,0.6));}
+  }else if(b.kind==='circle'){
+    tt=t;var ccx=x+b.cx*sc,ccy=top+(1-b.cy)*sc,a0=-b.th0,da=OM4*tt;
+    ctx.beginPath();
+    if(da>=TAU-1e-3)ctx.arc(ccx,ccy,R4*sc,0,TAU);else ctx.arc(ccx,ccy,R4*sc,a0,a0-b.dir*da,b.dir>0);
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.2;ctx.stroke();
+    for(k=1;k*DT4<=tt;k++){p=bAt(k*DT4,p4);dot(ctx,x+p.x*sc,top+(1-p.y)*sc,2.8,rgba(C.ink,0.6));}
+    dot(ctx,ccx,ccy,3,rgba(C.ink,0.6));
+  }
+  /* 电荷、v 和 F */
+  ctx.save();ctx.beginPath();ctx.rect(x-4,top-12,pw+8,bh+24);ctx.clip();
+  var neg=m4.neg,kv=0.33*sc,fL=0.17*sc;
+  if(!right){
+    var hit=t>=m4.e.tEnd;p=eAt(Math.min(t,m4.e.tEnd),p4);X=x+p.x*sc;Y=top+(1-p.y)*sc;
+    if(hit)charge4(ctx,X,Y,neg,true);
+    else{
+      var sp=Math.sqrt(p.vx*p.vx+p.vy*p.vy),ux=sp>1e-6?p.vx/sp:0,uy=sp>1e-6?-p.vy/sp:0;
+      vecs4(ctx,X,Y,ux,uy,sp*kv,0,m4.e.ay<0?1:-1,fL,m4.grav?'mg':'qE',x,top,x+pw,bot);
+      charge4(ctx,X,Y,neg,false);
+    }
+  }else{
+    p=bAt(t,p4);X=x+p.x*sc;Y=top+(1-p.y)*sc;
+    if(b.kind==='circle'){
+      var cx2=x+b.cx*sc,cy2=top+(1-b.cy)*sc,vux=p.vx/U4,vuy=-p.vy/U4,fux=(cx2-X)/(R4*sc),fuy=(cy2-Y)/(R4*sc);
+      seg(ctx,cx2,cy2,X,Y,rgba(C.muted,0.55),1,[3,4]);
+      ctx.beginPath();ctx.moveTo(X+vux*14,Y+vuy*14);ctx.lineTo(X+(vux+fux)*14,Y+(vuy+fuy)*14);ctx.lineTo(X+fux*14,Y+fuy*14);
+      ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.2;ctx.stroke();
+      vecs4(ctx,X,Y,vux,vuy,U4*kv,fux,fuy,fL,'qvB',x,top,x+pw,bot);
+      charge4(ctx,X,Y,neg,false);
+    }else if(b.kind==='line'){
+      if(t<=b.tEnd){
+        vecs4(ctx,X,Y,0,1,U4*kv,0,0,0,'',x,top,x+pw,bot);
+        charge4(ctx,X,Y,neg,false);
+        if(X+90<x+pw)halo4(ctx,'F = 0',X+16,Y,C.force,13);
+      }
+    }else{
+      charge4(ctx,X,Y,neg,false);
+      halo4(ctx,'v = 0, F = 0',X+16,Y,C.force,13);
+    }
+  }
+  ctx.restore();
+  /* 下面：速率、a、W，和速率–时间小图 */
+  var rb=bot+28,gx=x+16,gw=pw-20,gy=bot+36,gh=wide?40:36,w0;
+  txt(ctx,'Speed: ',x,rb,C.muted,12.5,500);ctx.font='500 12.5px '+FONT;w0=ctx.measureText('Speed: ').width;
+  txt(ctx,st.word,x+w0,rb,C.ink,12.5,700);
+  txt(ctx,st.info,x+pw,rb,C.ink,12,600,'right');
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1);
+  if(md!=='rest'){var yu=gy+gh-U4/VM4*gh;seg(ctx,gx,yu,gx+gw,yu,rgba(C.muted,0.55),1,[3,4]);txt(ctx,'u',gx-5,yu+4,C.muted,12,'italic 600','right','alphabetic',MATH);}
+  tt=right?t:Math.min(t,m4.e.tEnd);
+  ctx.beginPath();
+  for(i=0;i<=n;i++){var ti=tt*i/n,v=right?spdB():spdE(ti);X=gx+ti/m4.Tc*gw;Y=gy+gh-Math.min(VM4,v)/VM4*gh;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+  dot(ctx,X,Y,3.5,C.copper);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){
+    if(w>=640){var pw=Math.floor((w-60)/2);return Math.round(84+pw/BW4+82);}
+    var pn=Math.min(w-24,400);return Math.round(2*(76+pn/BW4+78)+16);
+  },
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var pw,ph;
+    if(W>=640){
+      pw=Math.floor((W-60)/2);
+      panel4(ctx,16,0,pw,true,false);
+      seg(ctx,W/2,10,W/2,H-10,C.line,1);
+      panel4(ctx,W-16-pw,0,pw,true,true);
+    }else{
+      pw=Math.min(W-24,400);ph=76+pw/BW4+78;
+      var x0=Math.round((W-pw)/2);
+      panel4(ctx,x0,0,pw,false,false);
+      seg(ctx,0,ph+8,W,ph+8,C.line,1);
+      panel4(ctx,x0,ph+16,pw,false,true);
+    }
+  }
+});
+
+var b4m={rest:document.getElementById('s4-rest'),along:document.getElementById('s4-along'),perp:document.getElementById('s4-perp')};
+var b4p=document.getElementById('s4-pos'),b4n=document.getElementById('s4-neg'),b4e=document.getElementById('s4-fe'),b4g=document.getElementById('s4-fg');
+function sync4(){press(b4m.rest,m4.mode==='rest');press(b4m.along,m4.mode==='along');press(b4m.perp,m4.mode==='perp');
+  press(b4p,!m4.neg);press(b4n,m4.neg);press(b4e,!m4.grav);press(b4g,m4.grav);}
+function restart4(){setup4();m4.t=S4.playing?0:show4();sync4();S4.render();}
+['rest','along','perp'].forEach(function(k){b4m[k].addEventListener('click',function(){m4.mode=k;restart4();});});
+b4p.addEventListener('click',function(){m4.neg=false;restart4();});
+b4n.addEventListener('click',function(){m4.neg=true;restart4();});
+b4e.addEventListener('click',function(){m4.grav=false;restart4();});
+b4g.addEventListener('click',function(){m4.grav=true;restart4();});
+document.getElementById('s4-reset').addEventListener('click',function(){setup4();m4.t=0;S4.setPlaying(true);sync4();S4.render();});
+sync4();
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 速度选择器（正交电磁场）（1.3 Crossed fields）
+   两块平行板：上板 +（--north），下板 −（--south），E 向下；两板之间还有 B 进纸面（× × ×）。粒子从左边小孔水平射入。
+   物理坐标：x 向右、y 向上，长度单位 = 板长；速度单位 v0 = 1.0 × 10⁶ m s⁻¹；时间单位 = 以 v0 走完板长的动画时间 V0T 秒。
+   方向：+ 电荷 F = qE 顺着 E → 向下；F = qv × B，v 向右、B 进纸面 → 向上（palm rule：四指进纸面，拇指向右，掌心向上）。
+         electron 两个力都反过来：qE 向上，qvB 向下。
+   运动：m dv/dt = q(E + v × B) 的精确解（不是硬画抛物线）。在以 vd = E/B 向右移动的参考系里，粒子做匀速圆周运动：
+     x = vd t + (D/ω) sin ωt，y = s (D/ω)(1 − cos ωt)，vx = vd + D cos ωt，vy = s D sin ωt，
+     D = v − E/B，s = +1（+ 电荷）或 −1（electron），ω = |q|B/m（逆时针 / 顺时针，和动画 3 一致）。
+     D = 0 时 y ≡ 0：直线穿过。粒子一偏，v 转了方向，qvB 也跟着转。
+   示意：B = 0.10 T 不变，E = 0.5–1.5 × 10⁵ V m⁻¹，v = 0.5–1.5 × 10⁶ m s⁻¹，所以 E/B = 0.5–1.5 × 10⁶ m s⁻¹；ω = 1.9（弯得多厉害）。
+     + 电荷和 electron 用一样的 |q| 和 m（只比较方向）。场只在两板之间（不考虑 edge effect）。
+   粒子半径 RPN = 0.02 板长（画的大小也一样）。滑块步长 0.1：v ≠ E/B 时至少差 0.1，到出口挡板时偏离 ≥ 0.036 板长
+   （python 算过全部 110 对），比小孔半宽 0.024 大，一定过不去。 */
+var V0T=2.4,OM=1.9,HN=0.2,SLIT=0.024,RPN=0.02,X0N=-0.065,XWN=-0.03,XEN=1.08,NMAX=1500;
+var m5={vi:10,ei:10,sg:1,ph:0,t:0,x:0,y:0,vx:1,vy:0,res:'',hold:0,bent:false,n:0,gn:0};
+var TX=new Float32Array(NMAX),TY=new Float32Array(NMAX),GX=new Float32Array(NMAX),GY=new Float32Array(NMAX);
+
+function xAt(t){var vd=m5.ei/10,D=m5.vi/10-vd;return vd*t+D/OM*Math.sin(OM*t);}
+function yAt(t){var D=m5.vi/10-m5.ei/10;return m5.sg*D/OM*(1-Math.cos(OM*t));}
+function inField(){var t=m5.t,vd=m5.ei/10,D=m5.vi/10-vd,c=Math.cos(OM*t),sn=Math.sin(OM*t);
+  m5.x=vd*t+D/OM*sn;m5.y=m5.sg*D/OM*(1-c);m5.vx=vd+D*c;m5.vy=m5.sg*D*sn;
+  if(Math.abs(Math.atan2(m5.vy,m5.vx))>0.09)m5.bent=true;}
+/* f(a) < 0 ≤ f(b) → 交点的时间 */
+function solve(a,b,f){for(var i=0;i<30;i++){var c=(a+b)/2;if(f(c)>=0)b=c;else a=c;}return b;}
+function push(x,y,force){var n=m5.n;if(n>=NMAX)return;if(n>0&&!force){var dx=x-TX[n-1],dy=y-TY[n-1];if(dx*dx+dy*dy<1.6e-5)return;}TX[n]=x;TY[n]=y;m5.n=n+1;}
+function fire(keep){
+  if(keep&&m5.n>1){GX.set(TX.subarray(0,m5.n));GY.set(TY.subarray(0,m5.n));m5.gn=m5.n;}
+  m5.ph=0;m5.t=0;m5.x=X0N;m5.y=0;m5.vx=m5.vi/10;m5.vy=0;m5.res='';m5.hold=0;m5.bent=false;m5.n=0;push(X0N,0,true);
+}
+var LIM=HN-RPN,XW=1-RPN;
+function fPlate(t){return Math.abs(yAt(t))-LIM;}
+function fWall(t){return xAt(t)-XW;}
+function adv(h){
+  var v=m5.vi/10;
+  if(m5.ph===0){m5.x+=v*h;if(m5.x>=0){m5.t=m5.x/v;m5.ph=1;push(0,0,true);inField();}push(m5.x,m5.y);return;}
+  if(m5.ph===1){
+    var t0=m5.t,t1=t0+h,tp=-1,tw=-1;
+    if(fPlate(t1)>=0)tp=solve(t0,t1,fPlate);
+    if(fWall(t1)>=0)tw=solve(t0,t1,fWall);
+    if(tp>=0&&(tw<0||tp<=tw)){m5.t=tp;inField();push(m5.x,m5.y,true);m5.res=m5.y>0?'top':'bot';m5.ph=3;m5.hold=0;return;}
+    if(tw>=0){m5.t=tw;inField();push(m5.x,m5.y,true);if(Math.abs(m5.y)>SLIT){m5.res='wall';m5.ph=3;m5.hold=0;}else m5.ph=2;return;}
+    m5.t=t1;inField();push(m5.x,m5.y);return;
+  }
+  if(m5.ph===2){m5.x+=m5.vx*h;m5.y+=m5.vy*h;if(m5.x>=XEN){m5.x=XEN;m5.res='pass';m5.ph=3;m5.hold=0;push(m5.x,m5.y,true);}else push(m5.x,m5.y);}
+}
+function step5(dt){
+  if(m5.ph===3){m5.hold+=dt;if(m5.hold>=1.2)fire(true);return;}
+  var h=dt/V0T,n=Math.max(1,Math.ceil(h/0.004)),hh=h/n;
+  for(var i=0;i<n&&m5.ph<3;i++)adv(hh);
+}
+/* 第一帧：先跑完一个粒子（变成淡色的“上一个”），再让第二个飞到板的中间 */
+function prerun(){fire(false);m5.gn=0;var k=0;while(m5.ph<3&&k++<4000)adv(0.004);fire(true);k=0;while((m5.ph<1||m5.x<0.47)&&m5.ph<3&&k++<4000)adv(0.004);}
+prerun();
+
+/* ---------- 排版 ---------- */
+var LY={w:-1};
+function lay5(W){
+  var L=LY;if(L.w===W)return L;L.w=W;L.wide=W>=640;
+  if(L.wide){L.Lp=Math.min(400,W-334);L.xL=64;L.th=10;L.lf=30;L.lv=28;L.top=84;L.fs=12.5;L.ls=13;}
+  else{L.Lp=Math.min(400,W-74);L.xL=26+Math.max(0,(W-74-L.Lp)/2);L.th=8;L.lf=22;L.lv=18;L.top=76;L.fs=11.5;L.ls=12;}
+  L.rp=Math.max(7,RPN*L.Lp);L.h=HN*L.Lp;L.cy=L.top+L.th+L.h;L.xR=L.xL+L.Lp;L.gT=L.cy-L.h;L.gB=L.cy+L.h;L.tO=L.gT-L.th;L.bO=L.gB+L.th;
+  L.xw0=L.xL+XWN*L.Lp;L.xE=L.xL+XEN*L.Lp;L.sl=SLIT*L.Lp;L.ly=L.bO+(L.wide?18:17);
+  if(L.wide){L.px=W-200;L.pw=184;L.py=92;L.H=322;}
+  else{L.px=16;L.pw=W-32;L.py=L.bO+44;L.H=Math.round(L.py+160);}
+  return L;
+}
+function X5(L,x){return L.xL+x*L.Lp;}
+function Y5(L,y){return L.cy-y*L.Lp;}
+function cross(ctx,x,y,r,col,w){seg(ctx,x-r,y-r,x+r,y+r,col,w);seg(ctx,x-r,y+r,x+r,y-r,col,w);}
+function fmt(i){return (i/10).toFixed(1);}
+/* 有底色描边的标签：压在 × 和场线上也看得清 */
+function halo(ctx,s,x,y,col,z){ctx.font='700 '+z+'px '+FONT;var w=ctx.measureText(s).width;
+  rrect(ctx,x-w/2-3,y-z/2-4,w+6,z+8,3);ctx.fillStyle=rgba(C.stage,0.92);ctx.fill();txt(ctx,s,x,y,col,z,700,'center','middle');}
+
+function status5(){
+  var c=m5.vi-m5.ei,pos=m5.sg>0,r=m5.res,l1,l2;
+  if(c===0){
+    if(pos){l1='v = E/B: qE = qvB, opposite directions';l2='→ Forces cancel → straight through the hole';}
+    else{l1='Electron: both forces reverse, still equal';l2='No q or m in v = E/B → still straight through';}
+  }else{
+    var up=(c>0)===pos,d=up?'bends up':'bends down';
+    l1=c>0?'v > E/B: qvB > qE, the magnetic force wins':'v < E/B: qE > qvB, the electric force wins';
+    if(r==='top'||r==='bot')l2='→ '+d+', hits the '+(r==='top'?'positive':'negative')+' plate';
+    else if(r==='wall')l2='→ '+d+', hits exit barrier, cannot pass';
+    else l2='→ '+d+' (towards the '+(up?'positive':'negative')+' plate)';
+  }
+  return [l1,l2];
+}
+function note5(wide){
+  if(m5.bent&&m5.ph!==0)return wide?'Once the particle bends, v changes direction → qvB turns too (always ⊥ v) → the path is not a parabola':'v turns → qvB turns too (⊥ v) → not a parabola';
+  if(m5.sg>0)return wide?'+ charge: qE is along E, down. Palm rule (fingers B into the page, thumb v to the right) → qvB is up':'+ charge: qE down, qvB up (palm rule)';
+  return wide?'Electron is negative: qE is against E, up. The palm rule result also reverses → qvB is down':'Electron: qE up, qvB down (both reverse)';
+}
+function path5(ctx,L,AX,AY,n,col,w,dash){
+  if(n<2)return;ctx.beginPath();ctx.moveTo(X5(L,AX[0]),Y5(L,AY[0]));for(var i=1;i<n;i++)ctx.lineTo(X5(L,AX[i]),Y5(L,AY[i]));
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);
+}
+/* 从粒子边上画出的箭头。力的标签放在箭头中点、往粒子身后（−v 方向）挪一点，并留在两板之间 */
+function fpos(L,x,y,ux,uy,len,bx,by){var a=L.rp+2,d=L.wide?19:17;
+  return [x+ux*(a+len/2)+bx*d,clamp(y+uy*(a+len/2)+by*d,L.gT+L.ls/2+5,L.gB-L.ls/2-5)];}   /* 标签的底框也留在两板之间 */
+function farrow(ctx,L,x,y,ux,uy,len,col,lab,bx,by){
+  if(len<2)return;var a=L.rp+2;
+  arrow(ctx,x+ux*a,y+uy*a,x+ux*(a+len),y+uy*(a+len),col,L.wide?2.8:2.4,L.wide?10:8);
+  if(!lab)return;var p=fpos(L,x,y,ux,uy,len,bx,by);
+  halo(ctx,lab,p[0],p[1],col,L.ls);
+}
+/* 标签底框的位置：先算好，画 × 和 E 箭头时碰到底框的就不画（不然底框只盖住半个 ×，像多了一个“<”） */
+var BX=[];
+function addBox(ctx,L,s,p){ctx.font='700 '+L.ls+'px '+FONT;var w=ctx.measureText(s).width;BX.push([p[0]-w/2-3,p[1]-L.ls/2-4,p[0]+w/2+3,p[1]+L.ls/2+4]);}
+function hitBox(x0,y0,x1,y1){for(var i=0;i<BX.length;i++){var b=BX[i];if(x1>b[0]&&x0<b[2]&&y1>b[1]&&y0<b[3])return true;}return false;}
+
+var S5=makeStage('sim5',{
+  height:function(w){return lay5(w).H;},
+  step:step5,
+  draw:function(ctx,W,H){
+    var L=lay5(W),wide=L.wide,i;
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    /* 状态 */
+    var st=status5();
+    txt(ctx,st[0],16,wide?28:24,C.ink,wide?15:13.5,600);
+    txt(ctx,st[1],16,wide?50:44,C.copper,wide?14:13,600);
+    /* 场：B 进纸面（×），E 向下（紫色线，条数 ∝ E） */
+    var gx=L.gT,sp=wide?40:30,cols=Math.max(2,Math.round(L.Lp/sp)),dx=L.Lp/cols;
+    var nE=Math.max(2,Math.round((wide?8:6)*m5.ei/10)),ex=L.Lp/nE;
+    /* 粒子、v 的方向和三个标签的位置（先算好：标签底框下面不画 ×） */
+    var px=X5(L,m5.x),py=Y5(L,m5.y),sp5=Math.hypot(m5.vx,m5.vy),pc=m5.sg>0?C.north:C.south,qr=L.rp+8,cr=wide?4:3.2;   /* 粒子身上不画 × */
+    var fly=m5.ph<3&&sp5>1e-6,ux=fly?m5.vx/sp5:0,uy=fly?-m5.vy/sp5:0,vp=null;
+    BX.length=0;
+    if(fly){
+      if(m5.ph===1){addBox(ctx,L,'qE',fpos(L,px,py,0,m5.sg,L.lf*m5.ei/10,-ux,-uy));addBox(ctx,L,'qvB',fpos(L,px,py,m5.sg*uy,-m5.sg*ux,L.lf*sp5,-ux,-uy));}
+      /* v 的标签放在箭头一侧；那一侧出了两板之间，就换到另一侧 */
+      var a=L.rp+2+L.lv*sp5/2,vy1=py+uy*a-ux*12,lo=L.gT+L.ls/2+5,hi=L.gB-L.ls/2-5,sd=(vy1<lo||vy1>hi)?-1:1;
+      vp=[px+ux*a+sd*uy*12,clamp(py+uy*a-sd*ux*12,lo,hi)];addBox(ctx,L,'v',vp);
+    }
+    for(i=0;i<cols;i++)for(var j=0;j<4;j++){var cxx=L.xL+(i+0.5)*dx,cyy=L.cy+(j-1.5)*L.h/2;
+      if(Math.abs(cxx-px)<qr&&Math.abs(cyy-py)<qr)continue;if(hitBox(cxx-cr-1,cyy-cr-1,cxx+cr+1,cyy+cr+1))continue;cross(ctx,cxx,cyy,cr,C.field,1.6);}
+    /* E 线在每一排 × 的地方断开，和 × 重合时也看得清 */
+    for(i=0;i<nE;i++){var xe=L.xL+(i+0.5)*ex,y0=gx+2;
+      for(var r=0;r<4;r++){var yr=L.cy+(r-1.5)*L.h/2;seg(ctx,xe,y0,xe,yr-6,rgba(C.violet,0.42),1.2,[4,5]);y0=yr+6;}
+      seg(ctx,xe,y0,xe,L.gB-2,rgba(C.violet,0.42),1.2,[4,5]);
+      if(!hitBox(xe-5,L.cy+L.h*0.36,xe+5,L.cy+L.h*0.64+2))arrow(ctx,xe,L.cy+L.h*0.36,xe,L.cy+L.h*0.64,rgba(C.violet,0.85),1.4,6);}
+    /* 极板 */
+    ctx.fillStyle=C.north;ctx.fillRect(L.xL,L.tO,L.Lp,L.th);
+    ctx.fillStyle=C.south;ctx.fillRect(L.xL,L.gB,L.Lp,L.th);
+    var np=Math.max(3,Math.round(L.Lp/(wide?44:34))),pd=L.Lp/np,k=L.th*0.3;
+    for(i=0;i<np;i++){var xp=L.xL+(i+0.5)*pd,yt=L.tO+L.th/2,yb=L.gB+L.th/2;
+      seg(ctx,xp-k,yt,xp+k,yt,'#ffffff',1.6);seg(ctx,xp,yt-k,xp,yt+k,'#ffffff',1.6);seg(ctx,xp-k,yb,xp+k,yb,'#ffffff',1.6);}
+    /* 入口、出口的挡板和小孔 */
+    ctx.fillStyle=C.muted;
+    ctx.fillRect(L.xw0-2,L.tO,4,L.cy-L.sl-L.tO);ctx.fillRect(L.xw0-2,L.cy+L.sl,4,L.bO-L.cy-L.sl);
+    ctx.fillRect(L.xR,L.tO,4,L.cy-L.sl-L.tO);ctx.fillRect(L.xR,L.cy+L.sl,4,L.bO-L.cy-L.sl);
+    txt(ctx,'Entry',L.xw0,L.ly,C.muted,L.fs,600,'center');
+    txt(ctx,'Exit',L.xR+2,L.ly,C.muted,L.fs,600,'center');
+    /* 图例 */
+    ctx.font='600 '+L.fs+'px '+FONT;
+    var t1='E down',t2='B into the page · 0.10 T',w1=ctx.measureText(t1).width,w2=ctx.measureText(t2).width;
+    var lx=(L.xL+L.xR)/2-(17+w1+18+15+w2)/2,ly=L.ly;
+    arrow(ctx,lx+5,ly-L.fs+1,lx+5,ly+2,C.violet,1.6,6);lx+=17;
+    txt(ctx,t1,lx,ly,C.violet,L.fs,600);lx+=w1+18;
+    cross(ctx,lx+4,ly-L.fs*0.36,3.6,C.field,1.8);lx+=15;
+    txt(ctx,t2,lx,ly,C.muted,L.fs,600);
+    /* 路径：虚线（--south，对照）= 上一个粒子；实线 = 现在这个 */
+    path5(ctx,L,GX,GY,m5.gn,rgba(C.south,0.5),1.6,[5,5]);
+    path5(ctx,L,TX,TY,m5.n,C.copper,2.4);
+    /* 粒子和箭头 */
+    if(fly){
+      ctx.save();ctx.beginPath();ctx.rect(L.xw0-14,L.tO,L.xE-L.xw0+60,L.bO-L.tO);ctx.clip();   /* 箭头不伸出极板外面 */
+      if(m5.ph===1){
+        farrow(ctx,L,px,py,0,m5.sg,L.lf*m5.ei/10,C.force,'qE',-ux,-uy);
+        /* qv × B（屏幕坐标）：+ 电荷 = v 逆时针转 90°；electron 反过来 */
+        farrow(ctx,L,px,py,m5.sg*uy,-m5.sg*ux,L.lf*sp5,C.force,'qvB',-ux,-uy);
+      }
+      farrow(ctx,L,px,py,ux,uy,L.lv*sp5,rgba(C.ink,0.7),'',0,0);
+      ctx.restore();
+      halo(ctx,'v',vp[0],vp[1],C.muted,L.ls);
+    }
+    dot(ctx,px,py,L.rp,pc);
+    var kk=L.rp*0.5;seg(ctx,px-kk,py,px+kk,py,'#ffffff',1.6);if(m5.sg>0)seg(ctx,px,py-kk,px,py+kk,'#ffffff',1.6);
+    if(m5.ph===3&&m5.res!=='pass')ring(ctx,px,py,L.rp+5,rgba(C.ink,0.45),1.5);
+    if(m5.ph===3&&m5.res==='pass')txt(ctx,'Passed',wide?px:W-2,py+L.rp+16,C.ink,L.ls,700,wide?'center':'right');
+    /* 读数 */
+    var x0=L.px,x1=L.px+L.pw,y=L.py,ratio=(m5.vi/m5.ei).toFixed(2);
+    if(wide){
+      txt(ctx,'Speed that passes straight',x0,y,C.muted,12,500);
+      txt(ctx,'E/B = '+fmt(m5.ei)+' × 10⁶ m s⁻¹',x0,y+21,C.ink,13.5,600,'left','alphabetic',MONO);
+      txt(ctx,"Particle's speed",x0,y+48,C.muted,12,500);
+      txt(ctx,'v = '+fmt(m5.vi)+' × 10⁶ m s⁻¹',x0,y+69,C.ink,13.5,600,'left','alphabetic',MONO);
+      y+=98;
+    }else{
+      txt(ctx,'Speed that passes straight',x0,y,C.muted,12,500);
+      txt(ctx,'E/B = '+fmt(m5.ei)+' × 10⁶ m s⁻¹',x1,y,C.ink,12.5,600,'right','alphabetic',MONO);
+      txt(ctx,"Particle's speed",x0,y+24,C.muted,12,500);
+      txt(ctx,'v = '+fmt(m5.vi)+' × 10⁶ m s⁻¹',x1,y+24,C.ink,12.5,600,'right','alphabetic',MONO);
+      y+=50;
+    }
+    txt(ctx,'Forces at entry (arrow length)',x0,y,C.muted,12,500);
+    var bx=x0+38,bw=x1-bx;
+    txt(ctx,'qE',x0,y+22,C.force,12.5,700);hbar(ctx,bx,y+13,bw,10,m5.ei/10/1.6,C.force);
+    txt(ctx,'qvB',x0,y+44,C.force,12.5,700);hbar(ctx,bx,y+35,bw,10,m5.vi/10/1.6,C.force);
+    if(wide){
+      txt(ctx,'qvB ÷ qE = '+ratio,x0,y+72,C.ink,13,600);
+      txt(ctx,'= v ÷ (E/B): q cancels',x0,y+92,C.muted,12,500);
+    }else txt(ctx,'qvB ÷ qE = v ÷ (E/B) = '+ratio+' (q cancels)',x0,y+70,C.ink,12.5,600);
+    txt(ctx,note5(wide),16,H-14,C.muted,12,500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var r5v=document.getElementById('s5-v'),o5v=document.getElementById('s5-v-out'),r5e=document.getElementById('s5-e'),o5e=document.getElementById('s5-e-out');
+var b5p=document.getElementById('s5-pos'),b5n=document.getElementById('s5-neg');
+/* 改了设置：马上射一个新的。淡色虚线一直是最近一个走完的粒子（飞到一半的不算） */
+function restart5(){fire(m5.ph===3);S5.render();}
+function sync5(){r5v.value=fmt(m5.vi);r5e.value=fmt(m5.ei);o5v.textContent=fmt(m5.vi)+' × 10⁶ m s⁻¹';o5e.textContent=fmt(m5.ei)+' × 10⁵ V m⁻¹';press(b5p,m5.sg>0);press(b5n,m5.sg<0);}
+r5v.addEventListener('input',function(){m5.vi=Math.round(parseFloat(r5v.value)*10);sync5();restart5();});
+r5e.addEventListener('input',function(){m5.ei=Math.round(parseFloat(r5e.value)*10);sync5();restart5();});
+b5p.addEventListener('click',function(){m5.sg=1;sync5();restart5();});
+b5n.addEventListener('click',function(){m5.sg=-1;sync5();restart5();});
+document.getElementById('s5-reset').addEventListener('click',function(){m5.vi=10;m5.ei=10;m5.sg=1;sync5();prerun();S5.setPlaying(true);S5.render();});
+sync5();
+})();
+</script>
+</body>
+</html>

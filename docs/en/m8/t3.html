@@ -1,0 +1,2044 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M8 T3 The Quantum Atom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m8">Module 8</a><span class="sep">/</span><span aria-current="page">Topic 3</span><a class="lang" lang="zh-Hans" href="../../m8/t3.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 8 · Topic 3</div>
+  <h1>The Quantum Atom</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter is about the electrons in an atom: Bohr's energy levels, hydrogen's spectrum, de Broglie's matter waves and Schrödinger's model. There are many names, but it all rests on just <b>two rules</b>: an electron can have only certain energies; an electron is also a wave. Once you understand these two, everything after them is just using them.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s8">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s10">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Energy is quantised</div>
+    <p>An electron in an atom can have only a few particular energies, called <span class="t">energy levels</span>. In one jump it emits or absorbs just <b>one</b> <span class="t">photon</span>. The photon's energy equals the difference between the two levels, called the <span class="t">gap</span>.</p>
+    <div class="eqs"><i>hf</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Wave–particle duality</div>
+    <p>Light can act like particles, and particles can act like waves. This is called wave–particle duality. When the electron's wave fits around an orbit to make a <span class="t">standing wave</span>, that orbit is an allowed orbit.</p>
+    <div class="eqs"><i>λ</i> = <i>h</i> / <i>mv</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="In this chapter">
+  <div class="map-row head"><span>Part</span><span>Key formula</span><span>Big idea</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">3.1</span><span class="t">Rutherford → Bohr</span></span><span>4 postulates</span><span>Why does the atom not collapse? ① The electron can have only certain energies</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">3.1</span><span class="t">Energy levels</span></span><span><span class="m"><i>E</i><sub><i>n</i></sub> = −13.6 eV/<i>n</i>²</span></span><span>① Absorption needs a photon that exactly matches a gap; 13.6 eV ionises</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">3.2</span><span class="t">Line spectrum</span></span><span>Rydberg equation</span><span>① Each line = one kind of jump</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">3.3</span><span class="t">Matter waves</span></span><span><span class="m"><i>λ</i> = <i>h</i>/<i>mv</i></span></span><span>② Particles are waves too</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">3.3</span><span class="t">Standing-wave orbits</span></span><span><span class="m">2π<i>r</i> = <i>nλ</i></span></span><span>② Whole number of waves → allowed orbit</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">3.4</span><span class="t">Bohr's limits &amp; Schrödinger</span></span><span><span class="m"><i>ψ</i>²</span> = probability</span><span>Not an orbit: a cloud of probability</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">3.5</span><span class="t">Key experiments</span></span><span>2 experiments</span><span>Balmer lines match Rydberg; electrons diffract</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes going through "Know these 4 first" below, especially eV to J and nm to m.</li>
+    <li>Teach 3.1 → 3.5 in order. In each section, first read the "Big idea", then open the animation and let students say what they see. Spend more time on the energy level ladder (Animations 1 and 2): each time, ask "What is the gap?"</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes". Students should be able to say what Bohr's four postulates and five limitations state.</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li>Three quantities of light: <span class="m"><i>c</i> = <i>fλ</i></span>, <span class="m"><i>c</i> = 3.00 × 10<sup>8</sup> m s<sup>−1</sup></span>. The shorter the wavelength <span class="m"><i>λ</i></span>, the bigger the frequency <span class="m"><i>f</i></span>. To change nm to m, use&nbsp;×&nbsp;10<sup>−9</sup>.</li>
+    <li><span class="t">Electron volt</span> (eV): a very small unit of energy, <span class="m">1 eV = 1.602 × 10<sup>−19</sup> J</span>. Before you put a value into <span class="m"><i>E</i> = <i>hf</i></span>, change eV to J first.</li>
+    <li>The <span class="t">nuclear model</span> from Chapter 2: in the middle is a very small, very heavy, positive <span class="t">nucleus</span>, and electrons move around outside it. The <span class="t">Coulomb attraction</span> holds the electron in its circle. As it circles, the direction of its velocity keeps changing, so the electron always has an acceleration.</li>
+    <li>The three types of spectrum from Chapter 1: <span class="t">continuous spectrum</span> (all wavelengths are there), <span class="t">emission spectrum</span> (a few bright lines on a black background), <span class="t">absorption spectrum</span> (a rainbow with a few dark lines). Hydrogen's dark lines and bright lines are at the same wavelengths (<a href="t1.html#s4">Figure 1.1 in M8 T1</a>).</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">3.1</div>
+  <h2>From Rutherford's atom to Bohr's energy levels</h2>
+  <p class="big"><span class="lbl">Big idea</span>Classical physics says Rutherford's atom should collapse. Bohr added some quantum rules: the electron has only certain energies. It gives out or takes in light only when it "jumps".</p>
+  <ul class="pts">
+    <li><span class="t">Classical physics</span>: physics before quantum ideas, that is, Newton's laws and Maxwell's electromagnetism.</li>
+    <li><span class="t">Quantised</span>: only certain values are allowed. It is like stairs: you can stand on a step, but not between two steps.</li>
+    <li><span class="t">Stationary state</span>: an allowed orbit. On it the electron does not <span class="t">radiate</span>, which means it does not give out EM waves.</li>
+  </ul>
+
+  <h3>Why Rutherford's atom fails</h3>
+  <p>Nuclear model (1911): a very small, dense, positive nucleus in the middle, with electrons moving around outside it. The nucleus explained the gold-foil experiment and is still accepted today. But the model has three problems:</p>
+  <ul class="pts">
+    <li><b>It should collapse.</b> The orbiting electron accelerates → by Maxwell, it gives out EM waves → it loses energy → it spirals into the nucleus in about 10<sup>−11</sup> s. But real atoms are <span class="t">stable</span>: they last for billions of years.</li>
+    <li><b>Wrong spectrum.</b> As it falls in, it turns faster and faster, so its light would have every frequency: a continuous spectrum. But real hydrogen gives a <span class="t">line spectrum</span>: only a few sharp wavelengths. It also absorbs exactly these wavelengths (<a href="t1.html#s4">Figure 1.1</a>).</li>
+    <li>It does not say what the nucleus is made of, or how the electrons are arranged.</li>
+  </ul>
+  <p class="note">To see how it collapses: <a href="#sim4">Animation 4</a> (in 3.4), Rutherford mode.</p>
+
+  <h3>Bohr's four postulates (1913)</h3>
+  <p>Bohr kept the nucleus and added some <span class="t">postulates</span> (rules assumed without proof). Books number them differently, so <b>learn them by what they say</b>, not by their numbers.</p>
+  <ol class="pts">
+    <li>Electrons move in circular <span class="t">orbits</span>, held by the electrostatic (Coulomb) attraction to the nucleus.</li>
+    <li>Only certain orbits are allowed. In these stationary states the electron does <b>not</b> radiate, so its energy stays constant.</li>
+    <li>A jump between two states emits or absorbs <b>one</b> photon. The photon's energy = the gap between the two levels: <span class="m" style="white-space:nowrap"><i>hf</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></span> (emission; for absorption it is <span class="m" style="white-space:nowrap"><i>E</i><sub>f</sub> − <i>E</i><sub>i</sub></span>). i = initial (start), f = final (end). This is <span class="t">conservation of energy</span>: the energy the atom loses is the energy of the photon.</li>
+    <li><span class="t">Angular momentum</span> (<span class="m"><i>mvr</i></span>, the amount of turning motion) is quantised: <span class="m" style="white-space:nowrap"><i>mvr</i> = <i>nh</i>/(2π)</span>, <span class="m" style="white-space:nowrap"><i>n</i> = 1, 2, 3, …</span> (not on the sheet). 3.3 explains why.</li>
+  </ol>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Photon from a drop between two levels</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>hf</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></div>
+    <dl class="sym">
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>f</dt><dd>frequency of the photon (Hz)</dd></div>
+      <div><dt>E<sub>i</sub></dt><dd>energy of the start level (J)</dd></div>
+      <div><dt>E<sub>f</sub></dt><dd>energy of the end level (J)</dd></div>
+    </dl>
+    <p class="trap"><b>Where it comes from:</b> the sheet has <span class="m"><i>E</i> = <i>hf</i></span>. The photon's energy = the energy the atom loses (conservation of energy). Put these two together and you get this formula. For emission use <span class="m"><i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></span>; for absorption use <span class="m"><i>E</i><sub>f</sub> − <i>E</i><sub>i</sub></span>.<br><b>Trap:</b> use the <b>difference</b> between two levels, not one level's own energy.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">3.1</div>
+  <h2>Energy levels, ionisation and photon energy</h2>
+  <p class="big"><span class="lbl">Big idea</span>The electron can stand on only a few "steps", called energy levels. Only the difference between two levels (the gap) can become one photon, or be filled by one photon. Only ionisation does not need to be exact: the photon energy just has to be ≥ the ionisation energy.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th style="text-transform:none"><i>n</i></th><th>Energy</th><th>Name</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>n</i> = ∞</td><td class="f">0 eV</td><td>the electron is just free and leaves the atom</td></tr>
+        <tr><td class="f"><i>n</i> = 6</td><td class="f">−0.38 eV</td><td><span class="t">excited state</span></td></tr>
+        <tr><td class="f"><i>n</i> = 5</td><td class="f">−0.54 eV</td><td>excited state</td></tr>
+        <tr><td class="f"><i>n</i> = 4</td><td class="f">−0.85 eV</td><td>excited state</td></tr>
+        <tr><td class="f"><i>n</i> = 3</td><td class="f">−1.51 eV</td><td>excited state</td></tr>
+        <tr><td class="f"><i>n</i> = 2</td><td class="f">−3.40 eV</td><td>excited state</td></tr>
+        <tr><td class="f"><i>n</i> = 1</td><td class="f">−13.6 eV</td><td><span class="t">ground state</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Energy levels of hydrogen (the booklet, Figure 3.1). The booklet draws them as a ladder, with the spacing not to scale.</p>
+  <ul class="pts">
+    <li>The allowed energies are called energy levels, named by <span class="m"><i>n</i></span>, like the rungs of a ladder. <span class="m"><i>n</i> = 1</span> is the ground state; higher levels are excited states. A jump between two levels is a <span class="t">transition</span>.</li>
+    <li><b>Energies are negative.</b> 0 eV = a just-free electron (<span class="m" style="white-space:nowrap"><i>n</i> = ∞</span>). An electron held by the atom has less energy than 0. It is like a ball in a well: the top of the well is 0, the further down, the more negative, and you must give the ball energy for it to climb out.</li>
+    <li>Hydrogen: <span class="m"><i>E</i><sub><i>n</i></sub> = −13.6 eV / <i>n</i>²</span> (not on the sheet).</li>
+    <li>Only certain gaps exist, so only certain photon energies come out: this is the line spectrum.</li>
+    <li><b><span class="t">Absorption</span>:</b> the photon's energy must <b>exactly</b> equal a gap. Even a small difference will not work. The atom does not "absorb a part".</li>
+    <li><b><span class="t">Ionisation</span>:</b> the electron reaches <span class="m"><i>n</i> = ∞</span> and leaves the atom. The <span class="t">ionisation energy</span> from <span class="m"><i>n</i> = 1</span> is 13.6 eV. Any extra energy becomes the electron's <span class="t">kinetic energy</span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Energy levels of hydrogen</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>E</i><sub><i>n</i></sub> = −13.6 eV / <i>n</i>²</div>
+    <dl class="sym">
+      <div><dt>E<sub>n</sub></dt><dd>energy of level <i>n</i> (eV)</dd></div>
+      <div><dt>n</dt><dd>number of the level, 1, 2, 3, … (no unit)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> <span class="m"><i>E</i><sub>2</sub> = −13.6 / 2² = −13.6 / 4 = −3.40 eV</span>.<br><b>Trap:</b> do not leave out the minus sign; <span class="m"><i>n</i></span> must be squared.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Photon energy</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>E</i> = <i>hf</i></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>energy of one photon (J)</dd></div>
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>f</dt><dd>frequency of the light (Hz, that is s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a photon's energy from its frequency, or the frequency from an energy-level gap.<br><b>Example:</b> <span class="m"><i>n</i> = 2 → <i>n</i> = 1</span>: gap = −3.40 − (−13.6) = 10.20 eV = 10.20 × 1.602 × 10<sup>−19</sup> = 1.634 × 10<sup>−18</sup> J. <span class="m"><i>f</i> = <i>E</i>/<i>h</i> = 1.634 × 10<sup>−18</sup> / (6.626 × 10<sup>−34</sup>) = 2.47 × 10<sup>15</sup> Hz</span>.<br><b>Trap:</b> use the gap, not one level's energy. Change eV to J first: 1 eV = 1.602 × 10<sup>−19</sup> J.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Photon energy from wavelength</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>E</i> = <i>hc</i> / <i>λ</i></div>
+    <dl class="sym">
+      <div><dt>E</dt><dd>energy of one photon (J)</dd></div>
+      <div><dt>λ</dt><dd>wavelength of the light (m)</dd></div>
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>c</dt><dd>speed of light, 3.00 × 10<sup>8</sup> (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> wavelength ↔ photon energy. The shorter <span class="m"><i>λ</i></span> is, the more energy.<br><b>Where it comes from:</b> combine <span class="m" style="white-space:nowrap"><i>E</i> = <i>hf</i></span> and <span class="m" style="white-space:nowrap"><i>v</i> = <i>fλ</i></span> (both on the sheet). For light <span class="m" style="white-space:nowrap"><i>v</i> = <i>c</i></span>, so <span class="m" style="white-space:nowrap"><i>f</i> = <i>c</i>/<i>λ</i></span>. Put it in <span class="m" style="white-space:nowrap"><i>E</i> = <i>hf</i></span>.<br><b>Example:</b> the 656 nm red line: <span class="m"><i>E</i> = 6.626 × 10<sup>−34</sup> × 3.00 × 10<sup>8</sup> / (656 × 10<sup>−9</sup>) = 3.03&nbsp;×&nbsp;10<sup>−19</sup>&nbsp;J = 1.89&nbsp;eV</span>, which is exactly <span class="m" style="white-space:nowrap"><i>E</i><sub>3</sub> − <i>E</i><sub>2</sub></span>.<br><b>Trap:</b> nm to m: × 10<sup>−9</sup>. This formula is not for particles with mass.</p>
+  </div>
+
+  <p>Animation 1: hit a hydrogen atom with photons of different energies. See whether the photon is absorbed, passes straight through, or knocks the electron out.</p>
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">Animation 1 · A photon hits a hydrogen atom: absorbed, passes through or <span style="white-space:nowrap">ionised?</span></span><span class="sim-tag"><span style="text-transform:none">Levels: the booklet, Figure 3.1 ·</span> <span style="text-transform:none">conversions and <i>n</i> ≥ 7: calculated ·</span> <span style="text-transform:none">11.00 / 2.00 eV, speeds, directions: illustrative</span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="In the middle is the energy level ladder of a hydrogen atom: n = 1 to 6 and n = ∞, with the energy of each level on the right. The blue dot is the electron. An amber photon flies in from the left along the level the electron is on. If its energy exactly equals an energy level difference (a gap), it is absorbed: the electron jumps up, and after a while it falls back in one or more steps, and each step emits one photon in a random direction. If its energy does not equal any gap, it passes straight through. If its energy is greater than or equal to the ionisation energy, it knocks the electron out of the atom: the electron flies away with a velocity arrow, and the copper bar at the top is the extra kinetic energy. Below is an eV axis that marks all the gaps from the starting level and the ionisation energy. The amber pointer is the energy of the photon now. The top line converts the photon energy from eV to J, then calculates the frequency f."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <span class="seg" role="group" aria-label="Which level the electron starts from">
+        <button class="btn" type="button" id="s1-n1" aria-pressed="true">Start <i>n</i> = 1</button>
+        <button class="btn" type="button" id="s1-n2" aria-pressed="false">Start <i>n</i> = 2</button>
+      </span>
+      <label class="range">Photon energy <i>E</i> <input type="range" id="s1-e" min="0.5" max="15" step="0.01" value="12.09"><output id="s1-e-out" for="s1-e">12.09 eV</output></label>
+      <span role="group" aria-label="Common photon energies" style="display:inline-flex;flex-wrap:wrap;gap:8px">
+        <button class="btn" type="button" id="s1-p0" aria-pressed="false">10.20 eV</button>
+        <button class="btn" type="button" id="s1-p1" aria-pressed="false">11.00 eV</button>
+        <button class="btn" type="button" id="s1-p2" aria-pressed="true">12.09 eV</button>
+        <button class="btn" type="button" id="s1-p3" aria-pressed="false">13.60 eV</button>
+        <button class="btn" type="button" id="s1-p4" aria-pressed="false">15.00 eV</button>
+      </span>
+    </div>
+    <p class="try"><b>Try it:</b> ① First look at 12.09&nbsp;eV: it exactly equals <i>E</i><sub>3</sub> − <i>E</i><sub>1</sub>, so the photon is absorbed and the electron jumps to <i>n</i>&nbsp;=&nbsp;3. Then it falls back in one or more steps, and each step emits one photon. ② Press 11.00&nbsp;eV: it does not equal any gap, so the photon passes straight through. ③ Press 13.60 and 15.00&nbsp;eV: ≥ 13.6&nbsp;eV ionises the atom, and it does not need to be exact. At 15.00&nbsp;eV, the extra 1.40&nbsp;eV becomes the kinetic energy of the electron (copper bar). ④ Change to "Start <i>n</i>&nbsp;=&nbsp;2" and try 1.89, 2.00 and 3.40&nbsp;eV. Top line: first convert eV to J, then calculate <i>f</i>&nbsp;=&nbsp;<i>E</i>/<i>h</i>.</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">3.2</div>
+  <h2>Hydrogen's line spectrum and the Rydberg equation</h2>
+  <p class="big"><span class="lbl">Big idea</span>Each line in hydrogen's spectrum is one kind of jump between two energy levels. The Rydberg equation gives the wavelength of every line.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Series</th><th>Jumps to</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td><span class="t">Lyman series</span></td><td class="f"><i>n</i> = 1</td><td>UV, 91&nbsp;nm to 122&nbsp;nm</td></tr>
+        <tr><td><span class="t">Balmer series</span></td><td class="f"><i>n</i> = 2</td><td>four visible lines, then UV</td></tr>
+        <tr><td><span class="t">Paschen series</span></td><td class="f"><i>n</i> = 3</td><td>IR, 820&nbsp;nm to 1875&nbsp;nm</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="pts">
+    <li>Each element's lines are like a fingerprint: no other element has the same lines. Astronomers use them to find hydrogen in stars.</li>
+    <li>Balmer and Rydberg first found formulas for the lines. Bohr explained why hydrogen has these lines.</li>
+    <li>A bigger drop (bigger gap) → more photon energy → shorter <span class="m"><i>λ</i></span>. So the Lyman lines, which fall back to <span class="m"><i>n</i> = 1</span>, are all in the UV, and the Paschen lines, which fall back to <span class="m"><i>n</i> = 3</span>, are all in the IR.</li>
+  </ul>
+
+  <h3>The four visible Balmer lines</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Wavelength</th><th>Colour</th><th>Jump</th></tr></thead>
+      <tbody>
+        <tr><td>656 nm</td><td>red</td><td class="f">3 → 2</td></tr>
+        <tr><td>486 nm</td><td>cyan</td><td class="f">4 → 2</td></tr>
+        <tr><td>434 nm</td><td>blue-violet</td><td class="f">5 → 2</td></tr>
+        <tr><td>410 nm</td><td>violet</td><td class="f">6 → 2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Then come UV lines, more and more crowded, down to the <span class="t">series limit</span> (a jump from <span class="m"><i>n</i> = ∞</span>), 365 nm. These four lines are also in <a href="t1.html#s4">Figure 1.1 in M8 T1</a>. There they are written to 0.1&nbsp;nm (656.3, 486.2, 434.1, 410.2&nbsp;nm). The only difference is the rounding.</p>
+
+  <h3>How the lines link to the levels</h3>
+  <ol class="pts">
+    <li>Put <span class="m"><i>E</i><sub><i>n</i></sub> = −13.6 eV/<i>n</i>²</span> into <span class="m"><i>hc</i>/<i>λ</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></span>.</li>
+    <li>Rearrange: <span class="m"><i>hc</i>/<i>λ</i> = 13.6 eV × (1/<i>n</i><sub>f</sub>² − 1/<i>n</i><sub>i</sub>²)</span>. Divide both sides by <span class="m"><i>hc</i></span>, and this is the Rydberg equation.</li>
+    <li>Here <span class="m"><i>R</i> = 13.6 eV / (<i>hc</i>)</span>. Work it out: 13.6 × 1.602 × 10<sup>−19</sup> / (6.626 × 10<sup>−34</sup> × 3.00 × 10<sup>8</sup>) ≈ 1.096 × 10<sup>7</sup> m<sup>−1</sup> (calculated), almost the same as <span class="m" style="white-space:nowrap"><i>R</i> = 1.097 × 10<sup>7</sup> m<sup>−1</sup></span> (13.6 is given to only 3 figures).</li>
+  </ol>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">The Rydberg equation (hydrogen)</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq">1/<i>λ</i> = <i>R</i>(1/<i>n</i><sub>f</sub>² − 1/<i>n</i><sub>i</sub>²)</div>
+    <dl class="sym">
+      <div><dt>λ</dt><dd>wavelength of the emitted (or absorbed) photon (m)</dd></div>
+      <div><dt>R</dt><dd><span class="t">Rydberg constant</span> for hydrogen, 1.097 × 10<sup>7</sup> (m<sup>−1</sup>)</dd></div>
+      <div><dt>n<sub>f</sub></dt><dd>number of the final (end) level (no unit)</dd></div>
+      <div><dt>n<sub>i</sub></dt><dd>number of the initial (start) level (no unit)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> hydrogen lines only. Emission: <span class="m"><i>n</i><sub>i</sub> &gt; <i>n</i><sub>f</sub></span>. In absorption the electron jumps up, but when you calculate the wavelength the smaller number still goes first in the bracket: <span class="m">1/<i>λ</i> = <i>R</i>(1/<i>n</i><sub>low</sub>² − 1/<i>n</i><sub>high</sub>²)</span>. For example, 2 → 6 absorption uses <span class="m">1/2² − 1/6²</span>; otherwise you get a negative number. Series limit: <span class="m"><i>n</i><sub>i</sub> = ∞</span> (1/∞² = 0).<br><b>Example:</b> 4 → 2: <span class="m">1/<i>λ</i> = 1.097 × 10<sup>7</sup> × (1/2² − 1/4²) = 1.097 × 10<sup>7</sup> × 0.1875 = 2.057 × 10<sup>6</sup> m<sup>−1</sup></span>, <span class="m"><i>λ</i> = 1/(2.057 × 10<sup>6</sup>) = 4.86 × 10<sup>−7</sup> m = 486 nm</span>.<br><b>Trap:</b> square each <span class="m"><i>n</i></span> first. The equation gives <span class="m">1/<i>λ</i></span>: take the reciprocal at the end to get <span class="m"><i>λ</i></span>. <span class="m"><i>R</i></span> is not resistance.</p>
+  </div>
+
+  <p>In Animation 2 you can turn on the <span class="t">discharge tube</span> (a tube of low-pressure gas that glows when a current passes). Many atoms in it jump down together, and the lines of all three series light up. The experiment in 3.5 uses it.</p>
+<figure class="sim" id="sim2">
+    <figcaption class="sim-head"><span class="sim-title">Animation 2 · Energy-level jumps and the hydrogen spectrum: Rydberg equation</span><span class="sim-tag"><span style="white-space:nowrap;text-transform:none">Levels: the booklet, Figure 3.1 ·</span> <span style="white-space:nowrap;text-transform:none"><i>λ</i>: from Rydberg (calculated) ·</span> <span style="white-space:nowrap;text-transform:none">Speed, line brightness: illustrative</span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="On the left is the energy-level ladder of hydrogen (n = 1 to 6 and ∞, spacing not to scale). The electron jumps down from the start level to the end level. A downward arrow is drawn and one photon is emitted. The photon flies to the spectrum strip and leaves a line: visible lines are in their true colour, UV and IR lines are grey dashed lines. The readout below first uses the Rydberg equation to find 1/λ, then takes the reciprocal to get λ. Another row subtracts the two level energies to get the photon energy. When the discharge tube is on, many atoms jump down together, and the Lyman, Balmer and Paschen spectrum strips slowly all light up."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s2-tube" aria-pressed="false">Discharge tube: off</button>
+      <span class="seg" role="group" aria-label="Series: the level the jump ends on (end n_f)">
+        <button class="btn" type="button" id="s2-ly" aria-pressed="false" aria-label="Lyman: jumps to n = 1">Lyman → 1</button>
+        <button class="btn" type="button" id="s2-ba" aria-pressed="true" aria-label="Balmer: jumps to n = 2">Balmer → 2</button>
+        <button class="btn" type="button" id="s2-pa" aria-pressed="false" aria-label="Paschen: jumps to n = 3">Paschen → 3</button>
+      </span>
+      <span class="seg" role="group" aria-label="Start n_i: the level the jump starts from">
+        <button class="btn" type="button" id="s2-n2" aria-pressed="false" aria-label="Start n = 2">2</button>
+        <button class="btn" type="button" id="s2-n3" aria-pressed="true" aria-label="Start n = 3">3</button>
+        <button class="btn" type="button" id="s2-n4" aria-pressed="false" aria-label="Start n = 4">4</button>
+        <button class="btn" type="button" id="s2-n5" aria-pressed="false" aria-label="Start n = 5">5</button>
+        <button class="btn" type="button" id="s2-n6" aria-pressed="false" aria-label="Start n = 6">6</button>
+        <button class="btn" type="button" id="s2-n7" aria-pressed="false" aria-label="Start n = ∞ (series limit)">∞ series limit</button>
+      </span>
+    </div>
+    <p class="try"><b>Try it:</b> ① In Balmer, in the second group, press start 3, 4, 5, 6, ∞ in turn. The higher the start, the bigger the drop, the shorter the <i>λ</i> and the more crowded the lines, ending at the series limit 365&nbsp;nm (UV). ② Look at the readout: it finds 1/<i>λ</i> first, and only the last step takes the reciprocal to get <i>λ</i>. ③ Change to Lyman: biggest gap, all UV. Change to Paschen: small gap, all IR. A start that is not higher than the end (for example 2 in Balmer) gives a reminder: in emission, <i>n</i><sub>i</sub> &gt; <i>n</i><sub>f</sub>. ④ Turn on "Discharge tube": the three spectrum strips slowly all light up. Only the 4 Balmer lines are visible. This is the spectrum in experiment 3.5.</p>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">3.3</div>
+  <h2>De Broglie's matter waves</h2>
+  <p class="big"><span class="lbl">Big idea</span>Light waves can act like particles. De Broglie (1924) proposed the reverse: particles can act like waves. <span class="t">Electron diffraction</span> confirmed it.</p>
+  <ul class="pts">
+    <li>Wave–particle duality: light and matter both show wave and particle behaviour.</li>
+    <li>Photons carry <span class="t">momentum</span> (<span class="m"><i>p</i></span>, the amount of motion): <span class="m"><i>p</i> = <i>h</i>/<i>λ</i></span> (not on the sheet).</li>
+    <li>De Broglie's <span class="t">hypothesis</span> (an idea to be tested): particles follow the same rule, with <span class="m" style="white-space:nowrap"><i>p</i> = <i>mv</i></span>. So <span class="m" style="white-space:nowrap"><i>λ</i> = <i>h</i>/<i>mv</i></span>. This wave is called a <span class="t">matter wave</span>.</li>
+    <li><span class="t">Diffraction</span>: a wave spreads out after it passes through a gap. It is clear only when the gap is about the same size as the wavelength. <b>Only waves diffract.</b> Sound can go around a doorway into a corridor: that is diffraction.</li>
+    <li>A ball's <span class="m"><i>mv</i></span> is large, so its <span class="m"><i>λ</i></span> is far too small to notice. An electron at lab speeds has <span class="m"><i>λ</i> ≈ 10<sup>−10</sup> m</span>, about the same as the spacing of atoms in a crystal. So crystals diffract electrons.</li>
+    <li><b>Evidence (1927):</b> Davisson and Germer, and G.&nbsp;P.&nbsp;Thomson (see 3.5). The evidence is that <span class="m"><i>λ</i></span> from the pattern matched <span class="m"><i>h</i>/<i>mv</i></span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">de Broglie wavelength</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>λ</i> = <i>h</i> / <i>mv</i></div>
+    <dl class="sym">
+      <div><dt>λ</dt><dd><span class="t">de Broglie wavelength</span> of the particle (m)</dd></div>
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>m</dt><dd>mass of the particle (kg)</dd></div>
+      <div><dt>v</dt><dd>speed of the particle (m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> any moving particle with mass (electron, proton, neutron, ball). Not photons. Above about 0.1<i>c</i>, use <span class="m"><i>λ</i> = <i>h</i>/<i>p</i><sub>v</sub></span> (the formula for <span class="m"><i>p</i><sub>v</sub></span> is on the sheet).<br><b>Example:</b> a 0.1 kg ball at 10 m s<sup>−1</sup>: <span class="m"><i>λ</i> = 6.626 × 10<sup>−34</sup> / (0.1 × 10) = 6.6 × 10<sup>−34</sup> m</span>, far too small to notice.<br><b>Trap:</b> faster means a <b>shorter</b> wavelength and less diffraction. This <span class="m"><i>λ</i></span> is not the decay constant (Chapter 4).</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Wavelength faster than about 0.1c</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>λ</i> = <i>h</i> / <i>p</i><sub>v</sub></div>
+    <dl class="sym">
+      <div><dt>λ</dt><dd>de Broglie wavelength of the particle (m)</dd></div>
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>p<sub>v</sub></dt><dd><span class="t">relativistic momentum</span>; its formula is on the sheet (kg m s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> the particle's speed is above about 0.1<i>c</i>. For slower particles use <span class="m" style="white-space:nowrap"><i>λ</i> = <i>h</i>/<i>mv</i></span>.<br><b>Note:</b> the booklet's summary table lists it with <span class="m" style="white-space:nowrap"><i>r</i> = <i>p</i><sub>v</sub>/(<i>qB</i>)</span> under Ch. 3, 5. Chapter 5 shows how to calculate <span class="m"><i>p</i><sub>v</sub></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Momentum of a photon</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>p</i> = <i>h</i> / <i>λ</i></div>
+    <dl class="sym">
+      <div><dt>p</dt><dd>momentum of the photon (kg m s<sup>−1</sup>)</dd></div>
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>λ</dt><dd>wavelength of the light (m)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> a 656 nm photon: <span class="m"><i>p</i> = 6.626 × 10<sup>−34</sup> / (656 × 10<sup>−9</sup>) = 1.01 × 10<sup>−27</sup> kg m s<sup>−1</sup></span>.<br><b>Note:</b> rearranged, this is <span class="m"><i>λ</i> = <i>h</i>/<i>p</i></span>. De Broglie said particles follow this rule too, with <span class="m"><i>p</i> = <i>mv</i></span>.</p>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="secnum">3.3</div>
+  <h2>Standing waves explain Bohr's orbits</h2>
+  <p class="big"><span class="lbl">Big idea</span>Treat the electron as a wave: an orbit is allowed only if one lap fits a whole number of wavelengths exactly. Then the wave joins itself and becomes a standing wave, which carries no energy away.</p>
+  <ul class="pts">
+    <li>An allowed orbit fits a whole number of wavelengths in one lap: <span class="m">2π<i>r</i> = <i>nλ</i></span> (not on the sheet). The wave goes round once and joins itself exactly: a standing wave.</li>
+    <li>A standing wave has some points that never move, called <span class="t">nodes</span>. The wave only moves up and down in place. It does not travel forward.</li>
+    <li>A standing wave does not travel, so it carries no energy away: this is "no radiation". In other orbits the wave does not line up from lap to lap, and it cancels itself.</li>
+    <li>The booklet, Figure 3.2 (not to scale): <span class="m"><i>n</i> = 3, 4, 5</span>: a whole number of waves fits exactly, so they are allowed. 3.4 waves: two laps drawn, with lap 2 out of step with lap 1, so it is not allowed.</li>
+  </ul>
+  <h3>Getting Bohr's rule from standing waves</h3>
+  <ol class="pts">
+    <li>An allowed orbit: <span class="m">2π<i>r</i> = <i>nλ</i></span>.</li>
+    <li>Put in <span class="m"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span>: <span class="m">2π<i>r</i> = <i>nh</i>/(<i>mv</i>)</span>.</li>
+    <li>Multiply both sides by <span class="m"><i>mv</i></span>, then divide by 2π: <span class="m"><i>mvr</i> = <i>nh</i>/(2π)</span>. Bohr's angular momentum postulate is <b>explained</b>. Before, it was only an assumption.</li>
+  </ol>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Bohr's allowed orbits (whole waves fit)</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>mvr</i> = <i>nh</i> / (2π)</span><span style="display:inline-block;margin:0 .6em">2π<i>r</i> = <i>nλ</i></span></div>
+    <dl class="sym">
+      <div><dt>m</dt><dd>mass of the electron (kg)</dd></div>
+      <div><dt>v</dt><dd>speed of the electron (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the orbit (m)</dd></div>
+      <div><dt>n</dt><dd>1, 2, 3, … (no unit)</dd></div>
+      <div><dt>h</dt><dd>Planck constant, 6.626 × 10<sup>−34</sup> (J s)</dd></div>
+      <div><dt>λ</dt><dd>de Broglie wavelength of the electron (m)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> these are the three steps above: <span class="m">2π<i>r</i> = <i>nλ</i></span>, put in <span class="m"><i>λ</i> = <i>h</i>/(<i>mv</i>)</span>, and rearrange to get <span class="m"><i>mvr</i> = <i>nh</i>/(2π)</span>.<br><b>Trap:</b> <span class="m">2π<i>r</i></span> is the length of one full lap, not <span class="m"><i>r</i></span>.</p>
+  </div>
+
+  <p>Animation 3: drag the slider to change how many waves are in one lap. Only a whole number of waves can join up.</p>
+<figure class="sim" id="sim3">
+    <figcaption class="sim-head"><span class="sim-title">Animation 3 · The electron wave goes round once: which orbits are allowed?</span><span class="sim-tag">the booklet, Figure 3.2 · circle size fixed, not to scale · data: illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="On the left is a dashed circular orbit, with the nucleus in the middle. The electron wave rises and falls around the circle. When one lap fits a whole number of wavelengths exactly, the wave joins itself, the nodes do not move, and it is a blue standing wave. When it is not a whole number, lap 2 is out of step with lap 1, and it is red. On the right, this lap is cut open and pulled straight, and you can see how much amplitude is left after adding 10 laps."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s3-lap2" aria-pressed="true">Draw lap 2: on</button>
+      <label class="range"><span>Wavelengths in one lap 2π<i>r</i>/<i>λ</i></span><input type="range" id="s3-k" min="2" max="6" step="0.1" value="4"><output id="s3-k-out" for="s3-k">4.0</output></label>
+      <span class="seg" role="group" aria-label="The four examples in the booklet, Figure 3.2">
+        <button class="btn" type="button" id="s3-n3" aria-pressed="false"><i>n</i> = 3</button>
+        <button class="btn" type="button" id="s3-n4" aria-pressed="true"><i>n</i> = 4</button>
+        <button class="btn" type="button" id="s3-n5" aria-pressed="false"><i>n</i> = 5</button>
+        <button class="btn" type="button" id="s3-n34" aria-pressed="false">3.4 waves</button>
+      </span>
+    </div>
+    <p class="try"><b>Try it:</b> ① Press "<i>n</i> = 3", "<i>n</i> = 4" and "<i>n</i> = 5": the wave goes round once and joins itself exactly. The small dots on the circle are nodes. They never move: this is a standing wave. ② Press "3.4 waves": lap 2 is out of step with lap 1, and after adding 10 laps the wave cancels to 0. This orbit is not allowed. ③ Drag the slider slowly: only whole numbers turn blue. ④ Turn off "Draw lap 2" and see whether the wave joins up at the start point at the top.</p>
+  </figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">3.4</div>
+  <h2>Bohr's limits and Schrödinger's quantum model</h2>
+  <p class="big"><span class="lbl">Big idea</span>Bohr's model works only for atoms with one electron (like hydrogen). Schrödinger (1926) treated the electron fully as a wave. His model gives probabilities, not orbits. This is the basis of today's model of the atom.</p>
+  <p><b>What Bohr got right:</b> stable atoms (by assumption); hydrogen's line spectrum can be calculated (the Rydberg equation).</p>
+
+  <h3>Five limitations of Bohr's model</h3>
+  <ol class="pts">
+    <li>It works only for hydrogen and one-electron <span class="t">ions</span> (such as He<sup>+</sup>).</li>
+    <li>It cannot explain why some lines are brighter than others (their <span class="t">intensity</span>).</li>
+    <li>It cannot explain <span class="t">fine structure</span>: one line is really several very close lines. It also cannot explain the <span class="t">Zeeman effect</span> (lines split in a magnetic field) or the <span class="t">Stark effect</span> (lines split in an electric field).</li>
+    <li>Its rules are assumed, not explained. It mixes classical orbits with quantum rules.</li>
+    <li>It gives the electron an exact path. But the <span class="t">uncertainty principle</span> (explained below) forbids this.</li>
+  </ol>
+
+  <h3>What Schrödinger added</h3>
+  <ul class="pts">
+    <li>A <span class="t">wave equation</span> for the electron in 3-D, built on de Broglie's matter waves. Its solutions are <span class="t">wave functions</span>, written <span class="m"><i>ψ</i></span>.</li>
+    <li>Max Born (1926): <span class="m"><i>ψ</i>²</span> gives the <span class="t">probability</span> of finding the electron at each place.</li>
+    <li>Heisenberg's <span class="t">uncertainty principle</span> (1927): exact position and exact momentum cannot both be known. So there are no exact orbits.</li>
+    <li>An <span class="t">orbital</span> (1s, 2p, …) is a 3-D "cloud" showing where <b>one</b> electron is likely to be. It is not a path. In 1s the most likely distance is the <span class="t">Bohr radius</span>, 5.29&nbsp;×&nbsp;10<sup>−11</sup>&nbsp;m, often written <span class="m"><i>a</i><sub>0</sub></span>.</li>
+    <li>Energy levels and <span class="t">quantum numbers</span> come out of the maths by themselves. They are not assumed.</li>
+    <li>It predicts how bright the lines are, and the simplest Zeeman splitting. Add <span class="t">electron spin</span> (built-in turning of the electron) and the <span class="t">Pauli exclusion principle</span> (no two electrons in an atom are in the same state): then it explains the periodic table. Add relativity (Dirac, 1928): then it explains fine structure.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">orbit · Bohr</div><p>An exact line. The electron moves along it, like a train on a track.</p></div>
+    <div class="state hot"><div class="state-h t" style="font-family:var(--body);font-size:17px">orbital · Schrödinger</div><p>A cloud of probability, with <b>no path</b>. Where the cloud is denser (<span class="m"><i>ψ</i>²</span> is larger), the electron is more likely to be found.</p></div>
+  </div>
+
+  <h3>The three models together (the booklet, Table 3.1)</h3>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th></th><th style="text-transform:none">Rutherford (1911)</th><th style="text-transform:none">Bohr (1913)</th><th style="text-transform:none">Schrödinger (1926)</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap"><b>Electron</b></td><td>a particle</td><td>a particle</td><td>a wave, described by <span class="m"><i>ψ</i></span></td></tr>
+        <tr><td style="white-space:nowrap"><b>Where</b></td><td>any orbit</td><td>fixed circular orbits</td><td>orbitals: probabilities only</td></tr>
+        <tr><td style="white-space:nowrap"><b>Energy</b></td><td>any value</td><td>quantised by a postulate</td><td>quantised by the wave maths</td></tr>
+        <tr><td style="white-space:nowrap"><b>Stability</b></td><td>no: should collapse</td><td>yes, by assumption</td><td>yes: standing waves</td></tr>
+        <tr><td style="white-space:nowrap"><b>Quantum numbers</b></td><td>none</td><td><span class="m"><i>n</i></span> only (assumed)</td><td><span class="m"><i>n</i>, <i>l</i>, <i>m</i><sub><i>l</i></sub></span> (from the maths)</td></tr>
+        <tr><td style="white-space:nowrap"><b>Works for</b></td><td>α scattering only; no stable atom</td><td>hydrogen and one-electron ions only</td><td>all atoms (approximately)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">The quantum numbers <span class="m"><i>l</i></span> and <span class="m"><i>m</i><sub><i>l</i></sub></span> give an orbital's shape and direction.</p>
+
+  <p>Animation 4: the same hydrogen atom, seen through three models. Rutherford's electron collapses, Bohr's electron keeps orbiting, and Schrödinger has only a cloud of dots.</p>
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">Animation 4 · Three atom models: Rutherford, Bohr, Schrödinger</span><span class="sim-tag"><span style="text-transform:none">Years, collapse time, Bohr radius: the booklet ·</span> <span style="text-transform:none">Rutherford's energy: calculated ·</span> <span style="text-transform:none">Starting point, speed: illustrative</span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="The same hydrogen atom, seen through three models. Rutherford: the electron orbits the nucleus and gives out rings of EM waves. The total energy bar falls, the radius gets smaller and smaller, the electron turns faster and faster, and the spectrum bar below fills from red to violet. Finally the electron falls into the nucleus. Bohr: the electron keeps orbiting on a fixed orbit of radius a₀, with no EM waves and constant energy. Schrödinger: no orbit line. Dots appear one by one and build up into a cloud. The histogram beside it counts the electron's distance from the nucleus, with its peak at a₀. The bottom row shows this model's three cells from Table 3.1 in the booklet."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <span class="seg" role="group" aria-label="Atom model: Rutherford 1911, Bohr 1913, Schrödinger 1926">
+        <button class="btn" type="button" id="s4-ru" aria-pressed="true">Rutherford</button>
+        <button class="btn" type="button" id="s4-bo" aria-pressed="false">Bohr</button>
+        <button class="btn" type="button" id="s4-sc" aria-pressed="false">Schrödinger</button>
+      </span>
+      <span class="seg" role="group" aria-label="Schrödinger's orbital (only available in Schrödinger)">
+        <button class="btn" type="button" id="s4-1s" aria-pressed="true" disabled style="opacity:.5">1s</button>
+        <button class="btn" type="button" id="s4-2p" aria-pressed="false" disabled style="opacity:.5">2p</button>
+      </span>
+      <button class="btn" type="button" id="s4-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① First watch Rutherford: the electron is always accelerating (the violet <i>a</i> points to the nucleus). As it orbits it gives out EM waves, loses energy, turns faster and faster, and finally falls into the nucleus. The further in, the larger <i>a</i> is (<i>a</i> ∝ 1/<i>r</i><sup>2</sup>) and the stronger the radiation, so it falls faster and faster (the arrow only shows direction). A fully coloured spectrum bar = continuous spectrum. ② Switch to Bohr: the electron keeps orbiting at <i>r</i> = <i>a</i><sub>0</sub> (Bohr radius) and gives out no EM waves. Why? Bohr did not explain it: it is an assumption. ③ Switch to Schrödinger: each dot = one measurement of where the electron is. The histogram's peak is exactly at <i>a</i><sub>0</sub>. ④ Now press 2p: two lobes, top and bottom, with the peak at about 4<i>a</i><sub>0</sub> (calculated; the 2p scale is smaller, and the small dashed circle is <i>a</i><sub>0</sub>). Press "Restart" to clear it and watch again.</p>
+  </figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">3.5</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Investigating the Balmer series of hydrogen (student experiment)</h3>
+    <dl>
+      <dt>Aim</dt><dd>To measure hydrogen's visible lines and compare them with the Rydberg equation.</dd>
+      <dt>Method</dt><dd>A hydrogen discharge tube (glowing gas) shines into a grating <span class="t">spectrometer</span>. Inside it is a <span class="t">diffraction grating</span> (slit spacing <span class="m"><i>d</i></span>), with a scale to measure angles. Measure each line's first-order angle <span class="m"><i>θ</i></span>, and get <span class="m"><i>λ</i></span> from <span class="m"><i>λ</i> = <i>d</i> sin <i>θ</i></span>. Then plot <span class="m">1/<i>λ</i></span> against <span class="m">(1/2² − 1/<i>n</i><sub>i</sub>²)</span>.</dd>
+      <dt>Results</dt><dd>Four lines (red, cyan, blue-violet, violet), each within 1% of the Rydberg value. The graph is a straight line through the origin, gradient 1.10&nbsp;×&nbsp;10<sup>7</sup>&nbsp;m<sup>−1</sup> ≈ <span class="m"><i>R</i></span>.</dd>
+      <dt>Why</dt><dd>With <span class="m"><i>n</i><sub>f</sub> = 2</span>, the Rydberg equation is just <span class="m" style="white-space:nowrap">1/<i>λ</i> = <i>R</i> × (1/2² − 1/<i>n</i><sub>i</sub>²)</span>, which is like <span class="m" style="white-space:nowrap"><i>y</i> = <i>R</i> × <i>x</i></span>. So the graph goes through the origin and its gradient is <span class="m"><i>R</i></span>.</dd>
+      <dt>Conclusion</dt><dd>Each line is a jump down to <span class="m"><i>n</i> = 2</span> (from <span class="m"><i>n</i> = 3</span> to 6): energy levels are quantised.</dd>
+      <dt>Significance</dt><dd>These are the lines Bohr's model was built to explain. Astronomers use them to find hydrogen in stars.</dd>
+    </dl>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">A diffraction grating</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>d</i> sin <i>θ</i> = <i>mλ</i></div>
+    <dl class="sym">
+      <div><dt>d</dt><dd>slit spacing (m)</dd></div>
+      <div><dt>θ</dt><dd>angle of the bright line of order <i>m</i> (°)</dd></div>
+      <div><dt>m</dt><dd>order, 0, 1, 2, … (no unit)</dd></div>
+      <div><dt>λ</dt><dd>wavelength of the light (m)</dd></div>
+    </dl>
+    <p class="trap"><b>This experiment:</b> uses first order, <span class="m"><i>m</i> = 1</span>, so <span class="m" style="white-space:nowrap"><i>λ</i> = <i>d</i> sin <i>θ</i></span>.<br><b>Trap:</b> here <span class="m"><i>m</i></span> is the order, not mass.</p>
+  </div>
+
+  <div class="exp">
+    <h3>Electron diffraction (1927): <span style="white-space:nowrap">Davisson–Germer</span> and G.&nbsp;P.&nbsp;Thomson</h3>
+    <dl>
+      <dt>Aim</dt><dd>To test de Broglie's matter waves.</dd>
+      <dt>Method</dt><dd>Davisson and Germer fired electrons, accelerated through 54 V, at a nickel crystal in a vacuum. A <span class="t">detector</span> counted them at each angle. G.&nbsp;P.&nbsp;Thomson fired fast electrons through a thin metal film.</dd>
+      <dt>Results</dt><dd>Davisson–Germer: a peak at 50° that moved when the voltage changed. <span class="m" style="white-space:nowrap"><i>λ</i> = 1.65 × 10<sup>−10</sup> m</span> from the pattern, <span class="m" style="white-space:nowrap"><i>h</i>/<i>mv</i> = 1.67 × 10<sup>−10</sup> m</span>. Thomson: rings appeared on the screen; the higher the voltage, the smaller the rings.</dd>
+      <dt>Why</dt><dd>The higher the voltage, the faster the electrons, the shorter <span class="m"><i>λ</i> = <i>h</i>/<i>mv</i></span> and the less they spread out. So the rings get smaller and the peak moves.</dd>
+      <dt>Conclusion</dt><dd>Electrons diffract, so they act as waves. <span class="m"><i>λ</i></span> matched <span class="m"><i>h</i>/<i>mv</i></span>.</dd>
+      <dt>Significance</dt><dd>This was the first direct evidence of matter waves. <span class="t">Electron microscopes</span> use the same idea.</dd>
+    </dl>
+  </div>
+
+  <p>Animation 5: the electron gun at the top accelerates electrons and fires them. You can switch between the two experiments, and you can also see what would happen "If electrons were only particles".</p>
+<figure class="sim" id="sim5">
+    <figcaption class="sim-head"><span class="sim-title">Animation 5 · Electron diffraction: <span style="white-space:nowrap">Davisson–Germer</span> and G.&nbsp;P.&nbsp;Thomson</span><span class="sim-tag"><span style="white-space:nowrap;text-transform:none">54 V, 50°, 1.65 / 1.67 × 10<sup>−10</sup> m:</span> <span style="white-space:nowrap;text-transform:none">the booklet ·</span> <span style="white-space:nowrap;text-transform:none"><i>v</i>, <i>λ</i>, peak angle: calculated ·</span> <span style="white-space:nowrap;text-transform:none"><i>d</i>, curve and rings: illustrative</span></span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="You can switch between two experiments. Davisson–Germer: the electron gun at the top fires electrons straight down onto rows of nickel atoms, and the electrons bounce off in all directions. The detector sweeps along an arc from 0° to 90° (θ is measured from the normal to the crystal surface: 0° = facing the electron gun, which is the direction straight back along the path of the electrons). On the right, the number of electrons counted at each angle (counts) is drawn little by little. At 54 V there is a peak at 50°, and the peak moves when the voltage changes. G. P. Thomson: electrons pass through a thin metal film and hit a screen. Each electron is one dot, and many dots build up rings. The higher the voltage, the smaller the rings. Turn on &quot;If electrons were only particles&quot;: the counts graph has only a smooth violet dashed line, and the screen has only one blurry spot. The bottom lines calculate the speed v and the wavelength λ = h/mv of the electron."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <span class="seg" role="group" aria-label="Choose an experiment">
+        <button class="btn" type="button" id="s5-dg" aria-pressed="true" aria-label="Davisson–Germer: electrons hit a nickel crystal">Davisson–Germer</button>
+        <button class="btn" type="button" id="s5-th" aria-pressed="false" aria-label="G. P. Thomson: electrons pass through a thin metal film">G. P. Thomson</button>
+      </span>
+      <label class="range" style="min-width:0;max-width:100%"><span style="white-space:nowrap">Accelerating voltage <i>V</i></span> <input type="range" id="s5-v" min="40" max="100" step="1" value="54" style="flex:0 1 130px;min-width:60px"><output id="s5-v-out" for="s5-v" style="white-space:nowrap">54 V</output></label>
+      <button class="btn" type="button" id="s5-part" aria-pressed="false">If electrons were only particles: off</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① First look at Davisson–Germer (54&nbsp;V): the detector sweeps from 0° to 90°, and the counts have a peak near 50°. <i>θ</i> is measured from the normal to the crystal surface: 0° = facing the electron gun, which is the direction straight back along the path of the electrons. Only waves diffract, so electrons act like waves. ② Drag the voltage: the higher the voltage, the shorter <i>λ</i> = <i>h</i>/<i>mv</i>, and the peak moves to a smaller angle (100&nbsp;V about 34°, 40&nbsp;V about 63°). ③ Turn on "If electrons were only particles": the prediction is a smooth line with no peak. ④ Switch to G.&nbsp;P.&nbsp;Thomson: each electron is one dot, and many dots build up rings. Raise the voltage from 1.0 to 2.5&nbsp;kV: the rings shrink to 63%.</p>
+  </figure>
+</section>
+
+<section id="s8">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>E</i> = <i>hf</i></td><td>energy of one photon</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>E</i> = <i>hc</i>/<i>λ</i></td><td>photon energy from its wavelength</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>hf</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></td><td>photon from a drop between two levels</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>E</i><sub><i>n</i></sub> = −13.6 eV/<i>n</i>²</td><td>energy levels of hydrogen</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">1/<i>λ</i> = <i>R</i>(1/<i>n</i><sub>f</sub>² − 1/<i>n</i><sub>i</sub>²)</td><td>any hydrogen line (Balmer: <i>n</i><sub>f</sub> = 2)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>mvr</i> = <i>nh</i>/(2π), 2π<i>r</i> = <i>nλ</i></td><td>Bohr's allowed orbits (whole waves fit)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>p</i> = <i>h</i>/<i>λ</i></td><td>momentum of a photon</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>λ</i> = <i>h</i>/<i>mv</i></td><td>matter waves (below about 0.1<i>c</i>); the booklet's summary table lists it under Ch. 3, 5</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>λ</i> = <i>h</i>/<i>p</i><sub>v</sub></td><td>wavelength at speeds above about 0.1<i>c</i>; the booklet's summary table lists it under Ch. 3, 5</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i> = <i>fλ</i></td><td>the wave equation; for light <i>c</i> = <i>fλ</i>; the booklet's summary table lists it under Ch. 1, 3</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>d</i> sin <i>θ</i> = <i>mλ</i></td><td>diffraction grating (Balmer experiment)</td><td><span class="badge on">On sheet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 5 before the exam</h3>
+  <ol class="must">
+    <li>Rutherford's atom should collapse and give a continuous spectrum.</li>
+    <li>Bohr: stationary states do <b>not</b> radiate; a jump gives one photon, <span class="m"><i>hf</i> = <i>E</i><sub>i</sub> − <i>E</i><sub>f</sub></span> (conservation of energy).</li>
+    <li>Balmer series: jumps that end on <span class="m"><i>n</i> = 2</span>; visible lines 656, 486, 434, 410 nm.</li>
+    <li>De Broglie: <span class="m"><i>λ</i> = <i>h</i>/<i>mv</i></span>, shown by electron diffraction; <span class="m">2π<i>r</i> = <i>nλ</i></span>.</li>
+    <li>Schrödinger: <span class="m"><i>ψ</i>²</span> = probability; orbitals, not orbits; levels from the maths.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> a photon's energy = the energy of one level, such as −3.40&nbsp;eV.<br><span class="ok">Right:</span> a photon's energy = the difference between two levels (the gap), such as <span class="m" style="white-space:nowrap"><i>E</i><sub>3</sub> − <i>E</i><sub>2</sub> = 1.89 eV</span>.</div>
+    <div><span class="x">Wrong:</span> putting eV and nm straight into a formula.<br><span class="ok">Right:</span> eV × 1.602 × 10<sup>−19</sup> gives J; nm × 10<sup>−9</sup> gives m.</div>
+    <div><span class="x">Wrong:</span> <span class="m"><i>E</i><sub><i>n</i></sub> = 13.6 eV/<i>n</i></span>.<br><span class="ok">Right:</span> <span class="m"><i>E</i><sub><i>n</i></sub> = −13.6 eV/<i>n</i>²</span>: there is a minus sign, and <span class="m"><i>n</i></span> must be squared.</div>
+    <div><span class="x">Wrong:</span> if a photon's energy is a bit bigger than a gap, the atom absorbs a part of it.<br><span class="ok">Right:</span> for absorption, the photon's energy must <b>exactly</b> equal a gap. Only in ionisation does the extra energy become the electron's kinetic energy.</div>
+    <div><span class="x">Wrong:</span> the Rydberg equation gives <span class="m"><i>λ</i></span> directly.<br><span class="ok">Right:</span> it gives <span class="m">1/<i>λ</i></span>, so take the reciprocal at the end. Square each <span class="m"><i>n</i></span> first. <span class="m"><i>R</i></span> is not resistance.</div>
+    <div><span class="x">Wrong:</span> using <span class="m" style="white-space:nowrap"><i>E</i> = <i>hc</i>/<i>λ</i></span> for an electron's wavelength, and <span class="m" style="white-space:nowrap"><i>λ</i> = <i>h</i>/<i>mv</i></span> for a photon.<br><span class="ok">Right:</span> <span class="m"><i>hc</i>/<i>λ</i></span> is only for light; particles with mass use <span class="m"><i>λ</i> = <i>h</i>/<i>mv</i></span>.</div>
+    <div><span class="x">Wrong:</span> the faster the electron, the longer its de Broglie wavelength.<br><span class="ok">Right:</span> the faster it is, the shorter <span class="m"><i>λ</i></span> is and the less it diffracts. This <span class="m"><i>λ</i></span> is also not the decay constant.</div>
+    <div><span class="x">Wrong:</span> an allowed orbit is <span class="m"><i>r</i> = <i>nλ</i></span>.<br><span class="ok">Right:</span> <span class="m">2π<i>r</i> = <i>nλ</i></span>: 2π<i>r</i> is the length of one full lap.</div>
+    <div><span class="x">Wrong:</span> an orbital is a path the electron moves along.<br><span class="ok">Right:</span> an orbital is a cloud of probability. An orbit with an exact path is Bohr's idea, and the uncertainty principle forbids it.</div>
+  </div>
+  <p class="jump-next"><a href="#s10">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s9">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Classical physics</td><td>经典物理学</td><td>physics before quantum ideas: Newton's laws and Maxwell's electromagnetism</td></tr>
+        <tr><td class="t">Quantised</td><td>量子化的</td><td>only certain values are allowed</td></tr>
+        <tr><td class="t">Stationary state</td><td>定态</td><td>an allowed orbit, where the electron does not radiate</td></tr>
+        <tr><td class="t">Nuclear model</td><td>核式结构模型</td><td>Rutherford's atom: a very small, dense nucleus in the middle</td></tr>
+        <tr><td class="t">Nucleus</td><td>原子核</td><td>the very small, dense, positive part in the middle of an atom</td></tr>
+        <tr><td class="t">Stable</td><td>稳定的</td><td>lasts for a long time and does not change</td></tr>
+        <tr><td class="t">Continuous spectrum</td><td>连续光谱</td><td>all wavelengths are there, with no gaps</td></tr>
+        <tr><td class="t">Line spectrum</td><td>线状光谱</td><td>only a few sharp wavelengths</td></tr>
+        <tr><td class="t">Emission spectrum</td><td>发射光谱</td><td>a few bright lines on a black background</td></tr>
+        <tr><td class="t">Absorption spectrum</td><td>吸收光谱</td><td>a few dark lines on a continuous spectrum</td></tr>
+        <tr><td class="t">Postulate</td><td>公设</td><td>a rule assumed without proof</td></tr>
+        <tr><td class="t">Orbit</td><td>轨道</td><td>the exact circle that Bohr's electron moves along</td></tr>
+        <tr><td class="t">Angular momentum</td><td>角动量</td><td>the amount of turning motion; in an orbit it is <i>mvr</i></td></tr>
+        <tr><td class="t">Photon</td><td>光子</td><td>one small packet of light energy, <i>E</i> = <i>hf</i></td></tr>
+        <tr><td class="t">Electron volt (eV)</td><td>电子伏特</td><td>1 eV = 1.602 × 10<sup>−19</sup> J</td></tr>
+        <tr><td class="t">Energy level</td><td>能级</td><td>an energy allowed for an electron in an atom</td></tr>
+        <tr><td class="t">Ground state</td><td>基态</td><td>the lowest energy level (<i>n</i> = 1)</td></tr>
+        <tr><td class="t">Excited state</td><td>激发态</td><td>any level higher than the ground state</td></tr>
+        <tr><td class="t">Transition</td><td>跃迁</td><td>one jump between two energy levels</td></tr>
+        <tr><td class="t">Ionisation</td><td>电离</td><td>the electron reaches <i>n</i> = ∞ and leaves the atom</td></tr>
+        <tr><td class="t">Ionisation energy</td><td>电离能</td><td>the least energy needed to remove the electron (hydrogen from <i>n</i> = 1: 13.6 eV)</td></tr>
+        <tr><td class="t">Balmer series</td><td>巴耳末系</td><td>lines from jumps that end on <i>n</i> = 2 (four visible)</td></tr>
+        <tr><td class="t">Lyman series</td><td>莱曼系</td><td>lines from jumps that end on <i>n</i> = 1 (UV)</td></tr>
+        <tr><td class="t">Paschen series</td><td>帕邢系</td><td>lines from jumps that end on <i>n</i> = 3 (IR)</td></tr>
+        <tr><td class="t">Series limit</td><td>线系极限</td><td>the shortest wavelength in a series (<i>n</i><sub>i</sub> = ∞)</td></tr>
+        <tr><td class="t">Rydberg constant (R)</td><td>里德伯常量</td><td>1.097 × 10<sup>7</sup> m<sup>−1</sup>, used to calculate hydrogen's lines</td></tr>
+        <tr><td class="t">Wave–particle duality</td><td>波粒二象性</td><td>light and matter both show wave and particle behaviour</td></tr>
+        <tr><td class="t">Momentum (p)</td><td>动量</td><td>the amount of motion; particle <i>p</i> = <i>mv</i>, photon <i>p</i> = <i>h</i>/<i>λ</i></td></tr>
+        <tr><td class="t">Hypothesis</td><td>假说</td><td>an idea to be tested</td></tr>
+        <tr><td class="t">Matter wave</td><td>物质波</td><td>the wave that goes with a moving particle</td></tr>
+        <tr><td class="t">de Broglie wavelength</td><td>德布罗意波长</td><td>the wavelength of a moving particle, <i>h</i>/<i>mv</i></td></tr>
+        <tr><td class="t">Diffraction</td><td>衍射</td><td>a wave spreads out after it passes a gap or an edge</td></tr>
+        <tr><td class="t">Electron diffraction</td><td>电子衍射</td><td>electrons make a pattern that only waves make</td></tr>
+        <tr><td class="t">Standing wave</td><td>驻波</td><td>a wave with fixed nodes that does not travel forward</td></tr>
+        <tr><td class="t">Node</td><td>波节</td><td>a point on a standing wave that never moves</td></tr>
+        <tr><td class="t">Ion</td><td>离子</td><td>an atom that has lost or gained electrons</td></tr>
+        <tr><td class="t">Intensity</td><td>强度</td><td>how bright a line is</td></tr>
+        <tr><td class="t">Fine structure</td><td>精细结构</td><td>one line is really several very close lines</td></tr>
+        <tr><td class="t">Zeeman effect</td><td>塞曼效应</td><td>lines split in a magnetic field</td></tr>
+        <tr><td class="t">Stark effect</td><td>斯塔克效应</td><td>lines split in an electric field</td></tr>
+        <tr><td class="t">Wave equation</td><td>薛定谔方程</td><td>describes how the electron's wave in an atom changes</td></tr>
+        <tr><td class="t">Wave function (ψ)</td><td>波函数</td><td>the electron's wave; <i>ψ</i>² gives the probability</td></tr>
+        <tr><td class="t">Probability</td><td>概率</td><td>how likely something is: 0 is impossible, 1 is certain</td></tr>
+        <tr><td class="t">Uncertainty principle</td><td>不确定性关系</td><td>exact position and exact momentum cannot both be known</td></tr>
+        <tr><td class="t">Orbital</td><td>原子轨道</td><td>a 3-D cloud of probability where an electron is likely to be; not a path</td></tr>
+        <tr><td class="t">Bohr radius</td><td>玻尔半径</td><td>the most likely distance in 1s, 5.29 × 10<sup>−11</sup> m</td></tr>
+        <tr><td class="t">Quantum number</td><td>量子数</td><td>a whole number that labels a state, such as <i>n</i></td></tr>
+        <tr><td class="t">Electron spin</td><td>电子自旋</td><td>built-in turning of the electron</td></tr>
+        <tr><td class="t">Pauli exclusion principle</td><td>泡利不相容原理</td><td>no two electrons in an atom are in the same state</td></tr>
+        <tr><td class="t">Discharge tube</td><td>放电管</td><td>a tube of low-pressure gas that glows when a current passes</td></tr>
+        <tr><td class="t">Spectrometer</td><td>分光计</td><td>an instrument that measures the angles of spectral lines</td></tr>
+        <tr><td class="t">Diffraction grating</td><td>衍射光栅</td><td>many equally spaced slits that split light into different colours</td></tr>
+        <tr><td class="t">Detector</td><td>探测器</td><td>an instrument that counts how many particles hit it</td></tr>
+        <tr><td class="t">Electron microscope</td><td>电子显微镜</td><td>uses electron waves to see very small things</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s10" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. By classical physics, why should Rutherford's atom collapse?</summary><p class="ans"><b>The orbiting electron accelerates, so it keeps giving out EM waves and losing energy.</b> By Maxwell, an accelerating charge radiates. The electron has less and less energy, and in about 10<sup>−11</sup> s it spirals into the nucleus. But real atoms last for billions of years.</p></details>
+    <details><summary>2. An electron in a hydrogen atom falls from n = 3 to n = 2. What is the energy of the emitted photon in eV? In J? What is its frequency?</summary><p class="ans"><b>1.89 eV; 3.03 × 10<sup>−19</sup> J; 4.57 × 10<sup>14</sup> Hz.</b> Gap = −1.51 − (−3.40) = 1.89 eV. In J: 1.89 × 1.602 × 10<sup>−19</sup> = 3.03 × 10<sup>−19</sup> J. <i>f</i> = <i>E</i>/<i>h</i> = 3.03 × 10<sup>−19</sup> / (6.626 × 10<sup>−34</sup>) = 4.57 × 10<sup>14</sup> Hz.</p></details>
+    <details><summary>3. A hydrogen atom in the ground state meets an 11.00 eV photon. Does it absorb it? What about a 15.00 eV photon?</summary><p class="ans"><b>11.00 eV: not absorbed, it passes straight through. 15.00 eV: the electron is knocked out (ionisation) and takes away 1.40 eV of kinetic energy.</b> The gaps from <i>n</i> = 1 are only 10.20, 12.09, 12.75 … eV. 11.00 eV does not equal any of them, and the atom does not absorb a part. 15.00 eV ≥ 13.6 eV, which is enough to ionise; the extra 15.00 − 13.6 = 1.40 eV becomes the electron's kinetic energy.</p></details>
+    <details><summary>4. Use the Rydberg equation to find the wavelength of the second Balmer line (4 → 2).</summary><p class="ans"><b>486 nm.</b> 1/<i>λ</i> = 1.097 × 10<sup>7</sup> × (1/2² − 1/4²) = 1.097 × 10<sup>7</sup> × (0.25 − 0.0625) = 1.097 × 10<sup>7</sup> × 0.1875 = 2.057 × 10<sup>6</sup> m<sup>−1</sup>. Take the reciprocal: <i>λ</i> = 4.86 × 10<sup>−7</sup> m = 486 nm (cyan).</p></details>
+    <details><summary>5. Why are the Lyman series lines all in the UV, and the Paschen series lines all in the IR?</summary><p class="ans"><b>Falling back to n = 1 means the biggest gaps, and falling back to n = 3 means small gaps.</b> Lyman gaps are at least 10.20 eV, so the photon energy is large and <i>λ</i> is short (91–122 nm): UV. Paschen gaps are small, so the photon energy is small and <i>λ</i> is long (820–1875 nm): IR.</p></details>
+    <details><summary><span>6. In the Davisson–Germer experiment, electrons accelerated through 54 V have a speed of about 4.36 × 10<sup>6</sup> m s<sup>−1</sup>. What is their de Broglie wavelength?</span></summary><p class="ans"><b>1.67 × 10<sup>−10</sup> m.</b> <i>λ</i> = <i>h</i>/<i>mv</i> = 6.626 × 10<sup>−34</sup> / (9.109 × 10<sup>−31</sup> × 4.36 × 10<sup>6</sup>) = 1.67 × 10<sup>−10</sup> m. This is exactly the <i>h</i>/<i>mv</i> in the booklet, and it matches the 1.65 × 10<sup>−10</sup> m measured from the pattern. (The speed is a calculated value, from <i>v</i> = √(2<i>qV</i>/<i>m</i>) in Chapter 2.)</p></details>
+    <details><summary>7. Why must an allowed orbit fit a whole number of wavelengths in one lap?</summary><p class="ans"><b>Only a whole number of waves can join up and become a standing wave.</b> A standing wave does not travel and carries no energy away, so the electron does not radiate. If it is not a whole number, the wave does not line up from lap to lap and cancels itself, so this orbit does not exist. From 2π<i>r</i> = <i>nλ</i> and <i>λ</i> = <i>h</i>/<i>mv</i> you can also get Bohr's <i>mvr</i> = <i>nh</i>/(2π).</p></details>
+    <details><summary>8. What is the difference between Bohr's orbit and Schrödinger's orbital?</summary><p class="ans"><b>An orbit is an exact path; an orbital is a cloud of probability.</b> Schrödinger treated the electron as a wave <i>ψ</i>, and <i>ψ</i>² gives the probability of finding the electron at each place. The uncertainty principle says exact position and exact momentum cannot both be known, so an exact path is not possible.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m8/t2.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M8 T2 · Structure of the Atom</span></a><a class="pg next" href="../m8/t4.html"><span class="pg-k">Next topic →</span><span class="pg-t">M8 T4 · Properties of the Nucleus</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 8 From the Universe to the Atom · Chapter 3. Booklet data: energy levels (−13.6 / −3.40 / −1.51 / −0.85 / −0.54 / −0.38 / 0&nbsp;eV, ionisation energy 13.6&nbsp;eV); Balmer lines 656 / 486 / 434 / 410&nbsp;nm, series limit 365&nbsp;nm; Lyman <span style="white-space:nowrap">91–122&nbsp;nm</span>, Paschen <span style="white-space:nowrap">820–1875&nbsp;nm</span>; about 10<sup>−11</sup>&nbsp;s; Bohr radius 5.29&nbsp;×&nbsp;10<sup>−11</sup>&nbsp;m; experimental data (Balmer: each line within 1% of the Rydberg value, gradient 1.10&nbsp;×&nbsp;10<sup>7</sup>&nbsp;m<sup>−1</sup>; Davisson–Germer: 54&nbsp;V, 50°, 1.65&nbsp;×&nbsp;10<sup>−10</sup>&nbsp;m, 1.67&nbsp;×&nbsp;10<sup>−10</sup>&nbsp;m). Constants are from the data sheet. Numbers marked "calculated" were calculated with constants from the booklet and the data sheet. The 0.1&nbsp;kg, 10&nbsp;m&nbsp;s<sup>−1</sup> ball and the 11.00 / 15.00&nbsp;eV photons are numbers chosen for practice. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · photon 打到氢原子：吸收、穿过还是电离？（3.1 Energy levels, ionisation and photon energy）
+   数据：能级 −13.6、−3.40、−1.51、−0.85、−0.54、−0.38、0 eV（booklet Figure 3.1）。gap 一律用这些两位小数的能级相减：
+   从 n = 1 是 10.20、12.09、12.75、13.06、13.22 eV，电离 13.6 eV；从 n = 2 是 1.89、2.55、2.86、3.02 eV，电离 3.40 eV。
+   n ≥ 7（booklet 图上没画）：E_n = −13.6 eV/n²，取两位小数（计算值），例如 n = 7 是 −0.28 eV，从 n = 1 的 gap 13.32 eV。
+   这样 13.23–13.59 eV 之间的能量也按真实物理判断（越接近 13.6 eV 能级越密）。
+   1 eV = 1.602 × 10⁻¹⁹ J，h = 6.626 × 10⁻³⁴ J s：E(J) 和 f = E/h 是计算值（E 先取 4 位有效数字再除以 h）。
+   吸收要完全相等：能量都用整数的 0.01 eV 比较，等价于 |E − gap| < 0.005 eV；电离只要 E ≥ 电离能，K = E − 电离能。
+   梯子纵向位置照 booklet Figure 3.1（n = 1 在 0，2 在 3.0，3 在 4.3，4 在 5.1，5 在 5.7，6 在 6.2，∞ 在 6.8；不按比例）；
+   n ≥ 7 放在 6.8 − 0.6 × 36/n²（n = 6 到 ∞ 之间按真实能量比例）。
+   示意：11.00 eV 和 2.00 eV（“对不上”的例子）、动画快慢、掉回去走哪条路和放出的 photon 往哪个方向（随机）、
+   电离后电子在画面上的速度（∝ v ∝ √K，按比例，没有数）。这个动画不显示 λ（λ 留给动画 2，用 Rydberg 算）。
+   颜色：photon 和跃迁箭头 --light，电子 --south，K 能量柱 --copper。 */
+var EVJ=1.602e-19,HP=6.626e-34,NMAX=52,EMAX=15;
+var T_IN=1.5,T_UP=0.5,T_HOLD=1.5,T_FALL=0.4,T_GAP=1.0,T_BACK=2.6,T_PASS=1.6,T_PW=1.0,T_RISE=0.7,T_FLY=2.6,T_IW=0.4,T_EM=1.9;
+var U6=[0,0,3.0,4.3,5.1,5.7,6.2],UINF=6.8;
+var BOOKC=[0,-1360,-340,-151,-85,-54,-38],BOOKS=['','−13.6','−3.40','−1.51','−0.85','−0.54','−0.38'];
+var LV=new Int32Array(NMAX+1),SUBN=[''],DIG='₀₁₂₃₄₅₆₇₈₉',i0,j0;
+for(i0=1;i0<=NMAX;i0++){LV[i0]=i0<=6?BOOKC[i0]:Math.round(-1360/(i0*i0));var sb='',ds=String(i0);for(j0=0;j0<ds.length;j0++)sb+=DIG.charAt(+ds.charAt(j0));SUBN.push(sb);}
+var PRE={1:[1020,1100,1209,1360,1500],2:[189,200,255,340,400]},DEF={1:1209,2:255};
+
+function cS(c){return (c/100).toFixed(2);}
+function lvS(n){return n<=6?BOOKS[n]:'−'+cS(-LV[n]);}
+function iS(s){return s===1?'13.6':'3.40';}
+function uOf(n){return n<=6?U6[n]:UINF-0.6*36/(n*n);}
+function ease(x){x=clamp(x,0,1);return x*x*(3-2*x);}
+/* 带底色描边的字：飞过的 photon 不会盖住它 */
+function htxt(ctx,s,x,y,col,size,weight,align){ctx.save();ctx.font=weight+' '+size+'px '+FONT;ctx.textAlign=align||'left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);ctx.restore();txt(ctx,s,x,y,col,size,weight,align);}
+var LB=[];
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){return String(n).split('').map(function(c){return SUP[c]||c;}).join('');}
+function sci(x,d){var e=Math.floor(Math.log(x)/Math.LN10+1e-9),mm=x/Math.pow(10,e);if(+mm.toFixed(d)>=10){mm/=10;e++;}return mm.toFixed(d)+' × 10'+sup(e);}
+
+/* 固定种子的随机数：同样的设置，第一帧每次都一样 */
+var seed=1;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+
+var rE=document.getElementById('s1-e'),oE=document.getElementById('s1-e-out'),bN1=document.getElementById('s1-n1'),bN2=document.getElementById('s1-n2'),PB=[];
+for(i0=0;i0<5;i0++)PB.push(document.getElementById('s1-p'+i0));
+
+/* type：'abs' 吸收（k = 跳到哪一级）、'pass' 穿过（lo、hi = 两边最近的 gap 到哪一级，hi = −1 表示电离能）、'ion' 电离（K 单位 0.01 eV） */
+var m={s:1,Ec:1209,t:0,tot:1,fadeIn:false,type:'',k:0,K:0,lo:0,hi:-1};
+var PATH=new Int32Array(12),ANG=new Float64Array(12),ND=0;
+function makePath(){var s=m.s,cur=m.k,n=0;PATH[0]=cur;
+  /* 掉回去：每一步随便跳到下面某一级（n ≥ 7 时先跳到 n ≤ 6），一直到起点；每一步一个 photon，方向随机 */
+  while(cur>s){var top=Math.min(cur-1,6),j=s+Math.floor(rnd()*(top-s+1));ANG[n]=rnd()*TAU;PATH[++n]=j;cur=j;}
+  ND=n;}
+function total(){if(m.type==='abs')return T_IN+T_UP+T_HOLD+ND*(T_FALL+T_GAP)+T_BACK;if(m.type==='pass')return T_IN+T_PASS+T_PW;return T_IN+T_RISE+T_FLY+T_IW;}
+function newCycle(){
+  var s=m.s,Ec=m.Ec,I=-LV[s],k,g,gl=-1;
+  m.k=0;m.K=0;m.lo=0;m.hi=-1;ND=0;
+  if(Ec>=I){m.type='ion';m.K=Ec-I;}
+  else{
+    m.type='pass';
+    for(k=s+1;k<=NMAX;k++){g=LV[k]-LV[s];
+      if(g===Ec){m.type='abs';m.k=k;break;}
+      if(g<Ec){if(g!==gl){m.lo=k;gl=g;}}else{m.hi=k;break;}}
+    if(m.type==='abs')makePath();
+  }
+  m.t=0;m.tot=total();
+}
+/* 暂停时改了设置：直接放到最能说明问题的那一刻 */
+function keyT(){if(m.type==='abs')return T_IN+T_UP+0.8;if(m.type==='pass')return T_IN+0.8;return T_IN+T_RISE+(m.K>0?0.9:0.5);}
+function restart(play){seed=20261039+m.s*7919+m.Ec;newCycle();m.fadeIn=false;if(!play)m.t=keyT();}
+function step(dt){m.t+=dt;if(m.t>=m.tot){var wi=m.type==='ion';newCycle();m.fadeIn=wi;}}
+restart(false);
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+function lay(W){
+  if(W>=640){var xR=W-250;
+    return {wide:true,W:W,xL:24,xR:xR,xe:Math.round(24+(xR-24)*0.56),sc:30,y1:294,ry:22,ry2:0,kY:50,yFly:70,nX:xR+10,eX:xR+122,mX:xR+138,
+      note:312,note2:0,yAx:352,ax0:40,ax1:W-60,lw:52,sep:410,st:434,lh:21,stF:14,stMax:3,H:492};}
+  var xR2=W-110;
+  return {wide:false,W:W,xL:16,xR:xR2,xe:Math.round(16+(xR2-16)*0.56),sc:30,y1:304,ry:20,ry2:38,kY:62,yFly:82,nX:xR2+6,eX:W-10,mX:0,
+    note:322,note2:337,yAx:378,ax0:30,ax1:W-48,lw:44,sep:436,st:458,lh:19,stF:13.5,stMax:6,H:568};
+}
+function Yu(L,u){return L.y1-u*L.sc;}
+function Yn(L,n){return Yu(L,uOf(n));}
+function AX(L,v){return L.ax0+clamp(v,0,EMAX)/EMAX*(L.ax1-L.ax0);}
+function pxEV(L){return (L.ax1-L.ax0)/EMAX;}
+function vpx(){return 150*Math.sqrt(m.K/1160);} /* 画面速度 ∝ v ∝ √K（示意） */
+
+/* ---------- 电子在哪 ---------- */
+var EP=[0,0,1];
+function elec(L){
+  var t=m.t,ys=Yn(L,m.s),x=L.xe,y=ys,a=m.fadeIn?clamp(t/0.5,0,1):1,tD0=T_IN+T_UP+T_HOLD,tBk=tD0+ND*(T_FALL+T_GAP);
+  if(m.type==='abs'&&t>=T_IN){var yk=Yn(L,m.k);
+    if(t<T_IN+T_UP)y=lerp(ys,yk,ease((t-T_IN)/T_UP));
+    else if(t<tD0)y=yk;
+    else if(t<tBk){var i=Math.min(ND-1,Math.floor((t-tD0)/(T_FALL+T_GAP))),tau=t-tD0-i*(T_FALL+T_GAP);y=lerp(Yn(L,PATH[i]),Yn(L,PATH[i+1]),ease(tau/T_FALL));}
+    else y=ys;}
+  else if(m.type==='ion'&&t>=T_IN){var yt=m.K>0?L.yFly:Yu(L,UINF);
+    if(t<T_IN+T_RISE)y=lerp(ys,yt,ease((t-T_IN)/T_RISE));
+    else{y=yt;x=L.xe+vpx()*(t-T_IN-T_RISE);a=clamp((L.xR-8-x)/40,0,1);}}
+  EP[0]=x;EP[1]=y;EP[2]=a;
+}
+
+/* photon 的波包：沿 (ux, uy) 方向 */
+function packet(ctx,cx,cy,ux,uy,a,len){
+  ctx.beginPath();
+  for(var q=-len;q<=len;q++){var env=Math.exp(-q*q/(len*len*0.35)),off=5*env*Math.sin(TAU*q/8),x=cx+ux*q-uy*off,y=cy+uy*q+ux*off;if(q===-len)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+  ctx.strokeStyle=rgba(C.light,a);ctx.lineWidth=2.3;ctx.lineJoin='round';ctx.stroke();
+}
+
+/* ---------- 最上面一行：eV → J → f ---------- */
+function readout(ctx,L){
+  var Ej=m.Ec/100*EVJ,Ej4=+Ej.toPrecision(4),f=Ej4/HP,a='Photon: ',b='E = '+cS(m.Ec)+' eV = '+sci(Ej4,3)+' J',c='→ f = E/h = '+sci(f,2)+' Hz';
+  ctx.font='700 13px '+FONT;var aw=ctx.measureText(a).width;
+  txt(ctx,a,L.xL,L.ry,C.light,13,700);
+  if(L.wide){txt(ctx,b+'  '+c,L.xL+aw,L.ry,C.ink,13,600);
+    /* 图例 */
+    ctx.font='500 11.5px '+FONT;var w2=ctx.measureText('photon').width,w1=ctx.measureText('electron').width,x=L.W-16-w2;
+    txt(ctx,'photon',x,L.ry,C.muted,11.5,500);packet(ctx,x-18,L.ry-4,1,0,1,10);
+    var x2=x-34-w1;txt(ctx,'electron',x2,L.ry,C.muted,11.5,500);dot(ctx,x2-9,L.ry-4,5.5,C.south);}
+  else{txt(ctx,b,L.xL+aw,L.ry,C.ink,12.5,600);txt(ctx,c,L.xL+aw,L.ry2,C.ink,12.5,600);}
+}
+
+/* ---------- 能级梯子 ---------- */
+function ladder(ctx,L){
+  var n,y,yInf=Yu(L,UINF);
+  for(n=7;n<=12;n++){y=Yn(L,n);seg(ctx,L.xL,y,L.xR,y,rgba(C.muted,0.4),1);}
+  for(n=1;n<=6;n++){y=Yn(L,n);seg(ctx,L.xL,y,L.xR,y,rgba(C.ink,n===m.s?0.95:0.7),n===m.s?2.2:1.4);
+    txt(ctx,'n = '+n,L.nX,y+4,C.ink,12,600);txt(ctx,BOOKS[n]+' eV',L.eX,y+4,C.muted,L.wide?12:11.5,500,'right');}
+  seg(ctx,L.xL,yInf,L.xR,yInf,rgba(C.ink,0.7),1.4,[6,5]);
+  txt(ctx,'n = ∞',L.nX,yInf+4,C.ink,12,600);txt(ctx,'0 eV',L.eX,yInf+4,C.muted,L.wide?12:11.5,500,'right');
+  if(L.wide){
+    txt(ctx,'E > 0: free',L.nX,yInf-14,C.muted,11.5,500);
+    txt(ctx,'ground state',L.mX,L.y1+4,C.muted,11.5,500);
+    var b0=Yn(L,6)-3,b1=Yn(L,2)+3,bx=L.mX;
+    seg(ctx,bx,b0,bx,b1,rgba(C.muted,0.8),1.2);seg(ctx,bx-4,b0,bx,b0,rgba(C.muted,0.8),1.2);seg(ctx,bx-4,b1,bx,b1,rgba(C.muted,0.8),1.2);
+    txt(ctx,'excited states',bx+8,(b0+b1)/2+4,C.muted,11.5,500);
+    txt(ctx,'Level spacing not to scale (as in the booklet, Figure 3.1) · n ≥ 7 are squeezed between n = 6 and ∞',L.xL,L.note,C.muted,11.5,500);
+  }else{
+    txt(ctx,'E > 0: free',L.eX,yInf-14,C.muted,11,500,'right');
+    txt(ctx,'n = 1: ground state; n ≥ 2: excited states',L.xL,L.note,C.muted,11,500);
+    txt(ctx,'Level spacing not to scale (booklet Figure 3.1)',L.xL,L.note2,C.muted,11,500);
+  }
+}
+
+/* ---------- 跃迁箭头、photon、电子 ---------- */
+function action(ctx,L){
+  var t=m.t,s=m.s,xe=L.xe,ys=Yn(L,s),yInf=Yu(L,UINF),E=cS(m.Ec),tD0=T_IN+T_UP+T_HOLD,tBk=tD0+ND*(T_FALL+T_GAP),i,y0,y1,tau,lab;
+  var x0p=L.xL+26,xHit=xe-8,v=(xHit-x0p)/T_IN;
+  elec(L);LB.length=0;
+  /* photon 走过的路（淡虚线），停住的画面也看得出它从哪来 */
+  if(t>=T_IN&&(m.type!=='abs'||t<tD0)){var xEnd=m.type==='pass'?Math.min(L.xR-10,xHit+v*(t-T_IN)):xHit;seg(ctx,L.xL,ys,xEnd,ys,rgba(C.light,0.45),1.6,[4,5]);}
+  /* 往上的箭头：吸收 / 电离 */
+  if((m.type==='abs'||m.type==='ion')&&t>=T_IN){
+    var yTop=m.type==='abs'?Yn(L,m.k):yInf;if(t<T_IN+T_UP&&m.type==='abs')yTop=EP[1];if(m.type==='ion'&&t<T_IN+T_RISE)yTop=Math.max(yInf,EP[1]);
+    var ax=xe-14;if(ys-yTop>6)arrow(ctx,ax,ys,ax,yTop,C.light,2.2,8);
+    var lmY=(ys+yTop)/2+4;
+    if(m.type==='abs')LB.push(['absorbs '+E+' eV',xe-22,lmY,L.wide?12.5:12,'right']);
+    else if(L.wide)LB.push(['ionisation energy '+iS(s)+' eV',xe-22,lmY,12.5,'right']);
+    else{LB.push(['ionisation energy',xe-22,lmY-14,12,'right']);LB.push([iS(s)+' eV',xe-22,lmY,12,'right']);}
+  }
+  /* 往下的箭头：每一步放出一个 photon */
+  if(m.type==='abs'&&t>=tD0){
+    var dx=xe+14,prev=-1e9;
+    for(i=0;i<ND;i++){var tdi=tD0+i*(T_FALL+T_GAP);if(t<tdi)break;
+      y0=Yn(L,PATH[i]);y1=Yn(L,PATH[i+1]);tau=t-tdi;var yb=tau<T_FALL?lerp(y0,y1,ease(tau/T_FALL)):y1;
+      if(yb-y0>6)arrow(ctx,dx,y0,dx,yb,C.light,2.2,8);
+      var ly=Math.max((y0+y1)/2+4,prev+14);prev=ly;
+      LB.push(['emits '+cS(LV[PATH[i]]-LV[PATH[i+1]])+' eV',xe+22,ly,L.wide?12.5:11.5,'left']);}
+  }
+  /* photon（只画在梯子的范围里） */
+  ctx.save();ctx.beginPath();ctx.rect(L.xL-4,L.wide?32:46,L.xR-L.xL+8,L.y1+12-(L.wide?32:46));ctx.clip();
+  var px=-1;
+  if(t<T_IN)px=x0p+v*t;else if(m.type==='pass'&&t<T_IN+T_PASS)px=xHit+v*(t-T_IN);
+  if(px>=0){var pa=clamp(t/0.25,0,1)*clamp((L.xR-10-px)/40,0,1);
+    if(pa>0.02){packet(ctx,px,ys,1,0,pa,18);if(px<L.xR-48)txt(ctx,E+' eV',Math.max(px,L.xL+30),ys-13,rgba(C.light,pa),12,700,'center');}}
+  /* 被吸收的一下：一圈光 */
+  if((m.type==='abs'||m.type==='ion')&&t>=T_IN&&t<T_IN+0.45){var fr=(t-T_IN)/0.45;ring(ctx,xe,ys,8+18*fr,rgba(C.light,0.9*(1-fr)),2.4);}
+  /* 掉回去时放出的 photon：方向随机 */
+  if(m.type==='abs'){for(i=0;i<ND;i++){var te=t-(tD0+i*(T_FALL+T_GAP));if(te<0||te>T_EM)continue;
+    var ux=Math.cos(ANG[i]),uy=Math.sin(ANG[i]),d=16+80*te,ea=clamp(1-(te-1.3)/0.6,0,1);
+    packet(ctx,xe+ux*d,Yn(L,PATH[i])+uy*d,ux,uy,ea,15);}}
+  ctx.restore();
+  /* 跃迁箭头旁的字：画在 photon 后面，带底色描边 */
+  for(i=0;i<LB.length;i++)htxt(ctx,LB[i][0],LB[i][1],LB[i][2],C.light,LB[i][3],700,LB[i][4]);
+  /* 电子 */
+  if(EP[2]>0.02){
+    ctx.save();ctx.beginPath();ctx.rect(0,0,L.xR+2,L.H);ctx.clip(); /* 飞走的电子不进右边的文字栏 */
+    if(m.type==='ion'&&t>=T_IN+T_RISE&&m.K>0){var al=8+56*Math.sqrt(m.K/1160),ex=EP[0]+11;
+      arrow(ctx,ex,EP[1],ex+al,EP[1],rgba(C.ink,0.7*EP[2]),2.2,7);
+      if(ex+al<L.xR-14)txt(ctx,'v',ex+al-3,EP[1]-8,rgba(C.ink,0.75*EP[2]),12,700,'center');}
+    dot(ctx,EP[0],EP[1],9,rgba(C.stage,EP[2]));dot(ctx,EP[0],EP[1],7,rgba(C.south,EP[2]));
+    ctx.restore();
+  }
+  /* 跳到 n ≥ 7：在左边标出是哪一级 */
+  if(m.type==='abs'&&m.k>=7&&t>=T_IN&&t<tD0+T_FALL){var yk=Yn(L,m.k),hl='n = '+m.k;
+    seg(ctx,L.xL,yk,L.xR,yk,rgba(C.ink,0.85),1.3);
+    ctx.font='600 11.5px '+FONT;var hw=ctx.measureText(hl).width;
+    rrect(ctx,L.xL,yk-17,hw+8,15,3);ctx.fillStyle=C.stage;ctx.fill();txt(ctx,hl,L.xL+4,yk-5,C.ink,11.5,600);}
+  /* 电离：多出来的能量 = K（铜色柱，和 eV 轴同一个比例） */
+  if(m.type==='ion'&&t>=T_IN+T_RISE*0.8){
+    var ks=L.wide?('K = '+E+' − '+iS(s)+' = '+cS(m.K)+' eV'):('K = '+cS(m.K)+' eV');
+    ctx.font='700 12.5px '+FONT;var kw=ctx.measureText(ks).width;
+    txt(ctx,ks,L.xL,L.kY,C.copper,12.5,700);
+    var bl=m.K/100*pxEV(L),bx=L.xL+kw+10,kl=m.K>0?'kinetic energy':'just free, not moving';if(bl>0.5){rrect(ctx,bx,L.kY-9,Math.max(bl,3),9,2);ctx.fillStyle=C.copper;ctx.fill();}
+    ctx.font='500 11.5px '+FONT;var lw2=ctx.measureText(kl).width;
+    if(bx+bl+6+lw2<=L.W-16)txt(ctx,kl,bx+bl+6,L.kY,C.muted,11.5,500); /* 柱子太长时不写（状态提示里有） */
+  }
+}
+
+/* ---------- eV 轴：从起点出发的所有 gap、电离能，和现在的 photon ---------- */
+var FX=new Float64Array(8),FN=0;
+function fan(L){
+  var s=m.s,n=0,k,i,it,lw=L.lw,lo=16+lw/2-4,hi=L.W-16-lw/2+4;
+  for(k=s+1;k<=6;k++)FX[n++]=AX(L,(LV[k]-LV[s])/100);
+  FX[n++]=AX(L,-LV[s]/100);FN=n;
+  for(it=0;it<80;it++){
+    for(i=1;i<n;i++){var dd=FX[i]-FX[i-1];if(dd<lw){var sh=(lw-dd)/2;FX[i-1]-=sh;FX[i]+=sh;}}
+    if(FX[0]<lo)FX[0]=lo;if(FX[n-1]>hi)FX[n-1]=hi;
+  }
+  for(i=1;i<n;i++)if(FX[i]<FX[i-1]+lw)FX[i]=FX[i-1]+lw;
+  if(FX[n-1]>hi){FX[n-1]=hi;for(i=n-2;i>=0;i--)if(FX[i]>FX[i+1]-lw)FX[i]=FX[i+1]-lw;}
+}
+function axis(ctx,L){
+  var s=m.s,ya=L.yAx,I=-LV[s],xI=AX(L,I/100),xE=AX(L,m.Ec/100),k,i,g,x;
+  ctx.fillStyle=rgba(C.copper,0.12);ctx.fillRect(xI,ya-7,L.ax1-xI,14);
+  /* photon 的能量：从 0 到 E 的一段；电离时 I 到 E 是 K（铜色） */
+  ctx.fillStyle=rgba(C.light,0.5);ctx.fillRect(L.ax0,ya-2.5,xE-L.ax0,5);
+  if(m.Ec>I){ctx.fillStyle=C.copper;ctx.fillRect(xI,ya-2.5,xE-xI,5);}
+  seg(ctx,L.ax0,ya,L.ax1,ya,C.muted,1.2);
+  for(i=0;i<=EMAX;i++){x=AX(L,i);seg(ctx,x,ya,x,ya+(i%5?3:5),C.muted,1);}
+  txt(ctx,'0',L.ax0-6,ya+4,C.muted,11,500,'right');txt(ctx,'15 eV',L.ax1+6,ya+4,C.muted,11,500);
+  /* n ≥ 7 的 gap：越来越密 */
+  for(k=7;k<=NMAX;k++){if(LV[k]===LV[k-1])continue;x=AX(L,(LV[k]-LV[s])/100);seg(ctx,x,ya-4,x,ya+4,rgba(C.ink,0.35),1);}
+  /* n ≤ 6 的 gap 和电离能：刻度 + 引线 + 标签（挤的时候散开） */
+  fan(L);
+  var hit=m.type==='abs'?m.k:-1;
+  for(i=0;i<FN;i++){
+    var isI=i===FN-1;k=isI?0:s+1+i;g=isI?I:LV[k]-LV[s];x=AX(L,g/100);
+    var on=isI?m.Ec>=I:hit===k,col=on?(isI?C.copper:C.light):(isI?C.copper:C.ink);
+    seg(ctx,x,ya-7,x,ya+7,col,on?2.6:1.6);
+    seg(ctx,x,ya+8,FX[i],ya+18,rgba(C.muted,0.7),1);
+    txt(ctx,isI?iS(s):cS(g),FX[i],ya+30,on?col:C.ink,11.5,on?700:600,'center');
+    txt(ctx,isI?'ionisation':'n = '+k,FX[i],ya+44,on?col:C.muted,11,on?700:500,'center');
+  }
+  /* 指针：现在的 photon */
+  ctx.beginPath();ctx.moveTo(xE,ya-1);ctx.lineTo(xE-5,ya-9);ctx.lineTo(xE+5,ya-9);ctx.closePath();ctx.fillStyle=C.light;ctx.fill();
+  var pl='E = '+cS(m.Ec)+' eV';ctx.font='700 12.5px '+FONT;var pw=ctx.measureText(pl).width/2;
+  txt(ctx,pl,clamp(xE,16+pw,L.W-16-pw),ya-14,C.light,12.5,700,'center');
+}
+
+/* ---------- 状态提示：A = 现在怎样、为什么，B = 所以 ---------- */
+function status(){
+  var t=m.t,s=m.s,E=cS(m.Ec),I=iS(s),A,B,i,tD0=T_IN+T_UP+T_HOLD,tBk=tD0+ND*(T_FALL+T_GAP);
+  if(t<T_IN){A=['Photon flies towards the electron: E = '+E+' eV'];B=['What happens? It depends: does it exactly equal ','one of the gaps up from n = '+s+', ','or is it ≥ the ionisation energy (axis below)?'];}
+  else if(m.type==='abs'){var k=m.k;
+    if(t<tD0){A=[E+' eV = E'+SUBN[k]+' − E'+SUBN[s]+' = '+lvS(k)+' − ('+lvS(s)+') ','→ exactly equals a gap'];
+      B=['→ the photon is absorbed (it disappears), ','the electron jumps to n = '+k+' (excited state)'];if(k>=7)B.push(' (n ≥ 7: E = −13.6/n², calculated)');}
+    else if(t<tBk){i=Math.min(ND-1,Math.floor((t-tD0)/(T_FALL+T_GAP)));var a=PATH[i],b=PATH[i+1];
+      A=['The electron falls back: n = '+a+' → '+b+', ','emits one photon, ','E'+SUBN[a]+' − E'+SUBN[b]+' = '+cS(LV[a]-LV[b])+' eV'];
+      B=['The photon flies off in a random direction, ','so this line is dark in the absorption spectrum'];}
+    else{if(ND===1)A=['One jump back to n = '+s+': ','emits '+E+' eV = the '+E+' eV absorbed'];
+      else{var sm='';for(i=0;i<ND;i++)sm+=(i?' + ':'')+cS(LV[PATH[i]]-LV[PATH[i+1]]);A=['Back at n = '+s+': emitted ',sm+' = '+E+' eV ','= the '+E+' eV absorbed'];}
+      B=['Energy is conserved: the atom emits ','as much as it absorbs'];if(s===2)B.push(' (a real atom then also falls from n = 2 to n = 1)');}
+  }
+  else if(m.type==='pass'){
+    if(!m.lo)A=[E+' eV is smaller than the smallest gap ','('+cS(LV[s+1]-LV[s])+' eV, to n = '+(s+1)+')'];
+    else{var hs=m.hi<0?I+' (ionisation)':cS(LV[m.hi]-LV[s])+' (→ n = '+m.hi+')';
+      A=[E+' eV is between '+cS(LV[m.lo]-LV[s])+' (→ n = '+m.lo+') ','and '+hs+': ','it does not equal any gap'];}
+    B=['→ it cannot be "partly absorbed" ','→ the photon passes straight through, the electron does not move'];
+  }
+  else{
+    if(m.K===0){A=[E+' eV = '+I+' eV (ionisation energy of n = '+s+') ','→ just ionised'];B=['The electron just reaches n = ∞: ','K = 0, it is free but not moving'];}
+    else{A=[E+' eV > '+I+' eV (ionisation energy of n = '+s+') ','→ ionisation'];B=['→ the electron leaves the atom, ','the extra '+E+' − '+I+' = '+cS(m.K)+' eV ','becomes the kinetic energy of the electron'];}
+  }
+  return [A,B];
+}
+/* 按“块”换行：只在块和块之间断开（块太长时再按字断开） */
+function wrap(ctx,chunks,maxW,out){
+  var line='',i,t;
+  for(i=0;i<chunks.length;i++){
+    t=line+chunks[i];
+    if(line&&ctx.measureText(t).width>maxW){out.push(line.replace(/\s+$/,''));line=chunks[i].replace(/^\s+/,'');}
+    else line=t;
+    while(ctx.measureText(line).width>maxW&&line.length>1){var k=line.length-1;while(k>1&&ctx.measureText(line.slice(0,k)).width>maxW)k--;var sp=line.lastIndexOf(' ',k);if(sp>0)k=sp;out.push(line.slice(0,k).replace(/\s+$/,''));line=line.slice(k).replace(/^\s+/,'');}
+  }
+  if(line)out.push(line.replace(/\s+$/,''));
+}
+
+var LINES=[];
+var ST=makeStage('sim1',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    readout(ctx,L);
+    ladder(ctx,L);
+    action(ctx,L);
+    axis(ctx,L);
+    seg(ctx,0,L.sep,W,L.sep,C.line,1);
+    var sb=status(),fs=L.stF,i,maxW=W-32,na;
+    for(;;){LINES.length=0;ctx.font='600 '+fs+'px '+FONT;wrap(ctx,sb[0],maxW,LINES);na=LINES.length;ctx.font='500 '+fs+'px '+FONT;wrap(ctx,sb[1],maxW,LINES);
+      if(LINES.length<=L.stMax||fs<=12.5)break;fs-=0.5;}
+    for(i=0;i<LINES.length;i++)txt(ctx,LINES[i],16,L.st+i*L.lh,i<na?C.ink:C.muted,fs,i<na?600:500);
+  }
+});
+
+/* ---------- 控件 ---------- */
+function sync(){
+  press(bN1,m.s===1);press(bN2,m.s===2);
+  var P=PRE[m.s];for(var i=0;i<5;i++){PB[i].textContent=cS(P[i])+' eV';press(PB[i],P[i]===m.Ec);}
+  oE.textContent=cS(m.Ec)+' eV';
+}
+function setE(c){m.Ec=c;rE.value=cS(c);sync();restart(ST.playing);ST.render();}
+rE.addEventListener('input',function(){setE(Math.round(parseFloat(rE.value)*100));});
+function setStart(s){m.s=s;setE(DEF[s]);}
+bN1.addEventListener('click',function(){setStart(1);});
+bN2.addEventListener('click',function(){setStart(2);});
+PB.forEach(function(b,i){b.addEventListener('click',function(){setE(PRE[m.s][i]);});});
+sync();
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 能级跃迁和氢光谱：Rydberg equation（3.2 Hydrogen's line spectrum and the Rydberg equation）
+   能级（讲义图 3.1）：−13.6、−3.40、−1.51、−0.85、−0.54、−0.38、0 eV。梯子的纵向位置照 Figure 3.1 的比例
+   （n = 1 在 0，2 在 3.0，3 在 4.3，4 在 5.1，5 在 5.7，6 在 6.2，∞ 在 6.8），间距不按比例。
+   λ 一律用 Rydberg equation 算：1/λ = R(1/n_f² − 1/n_i²)，R = 1.097 × 10⁷ m⁻¹（booklet）。
+   能量差一律用 booklet 两位小数的能级相减：hf = E_i − E_f。两者不互相换算显示（0.66 eV 用 hc/E 是 1880 nm，Rydberg 是 1875 nm，只是取整）。
+   可见光取 380–700 nm（410 nm 看得见，365 nm 是 UV，和 booklet 一致）。可见光的 photon、箭头、线用 lambdaColor（真实颜色）；
+   UV / IR 的 photon 和箭头用 --light（CONVENTIONS），光谱条上的 UV / IR 线用灰色虚线，下面写 UV / IR。
+   光谱条底色两种主题都是深色（--ink 和 --bg 里更暗的那个），像分光计里看到的。
+   一次一种跳法：选系列（n_f）和起点 n_i，每 4 s 一次：电子在 n_i → 掉到 n_f（箭头）→ photon 飞到光谱条 → 留下一条线。
+   放电管：9 个原子，各自被撞到 n = 2…6（随机），再一步或几步往下跳，每一步放一个 photon。每一步的终点随机取 n = 1、2、3 里
+   比现在低的（所以只有 Lyman / Balmer / Paschen 三个系列；真实原子也会跳到 n = 4、5，那些线在更远的 IR，这里不画）。
+   跳的快慢、每条线多亮：示意（真实亮度 Bohr 模型解释不了，见 3.4）。 */
+
+/* 带下标的文字：'E_i' 画成 E 加小一号、往下一点的 i（下标不小于 11 px）。没有 '_' 时和原来的 txt 一样。 */
+var SUBRE=/([A-Za-zλ])_([a-z0-9]+)/g,RTP=[],txtC=txt,HALO=0;
+/* HALO > 0：先用底色描一圈边（飞过的 photon 不会盖住字） */
+function txt0(ctx,s,x,y,col,size,weight,align,base,family){
+  if(HALO){ctx.save();ctx.font=(weight||500)+' '+(size||13)+'px '+(family||FONT);ctx.textAlign=align||'left';ctx.textBaseline=base||'alphabetic';
+    ctx.lineJoin='round';ctx.lineWidth=HALO;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);ctx.restore();}
+  txtC(ctx,s,x,y,col,size,weight,align,base,family);}
+function rt(ctx,s,x,y,col,size,weight,align,base,family,only){
+  family=family||FONT;weight=weight||500;base=base||'alphabetic';size=size||13;
+  var ss=Math.max(11,size*0.78),n=0,last=0,mm,w=0,i,p,xx;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){RTP[n++]=[s.slice(last,mm.index+1),0,0];RTP[n++]=[mm[2],1,0];last=SUBRE.lastIndex;}
+  if(last<s.length)RTP[n++]=[s.slice(last),0,0];
+  for(i=0;i<n;i++){p=RTP[i];ctx.font=weight+' '+(p[1]?ss:size)+'px '+family;p[2]=ctx.measureText(p[0]).width+(p[1]?1:0);w+=p[2];}
+  if(only)return w;
+  xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){p=RTP[i];if(p[0])txt0(ctx,p[0],xx+(p[1]?0.5:0),y+(p[1]?size*0.28:0),col,p[1]?ss:size,weight,'left',base,family);xx+=p[2];}
+  return w;
+}
+txt=function(ctx,s,x,y,col,size,weight,align,base,family){s=String(s);if(s.indexOf('_')<0)txt0(ctx,s,x,y,col,size,weight,align,base,family);else rt(ctx,s,x,y,col,size,weight,align,base,family);};
+function tw(ctx,s,size,weight,family){return rt(ctx,String(s),0,0,null,size,weight,'left',null,family,true);}
+/* 太长就缩小字号（不小于 minS） */
+function fitTxt(ctx,s,x,y,col,size,weight,maxW,align,family,minS){
+  var w=tw(ctx,s,size,weight||500,family);
+  if(w>maxW)size=Math.max(minS||11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+var SUP={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup(n){var s=String(n),o='';for(var i=0;i<s.length;i++)o+=SUP[s.charAt(i)]||s.charAt(i);return o;}
+function sci(x,p){var e=Math.floor(Math.log(x)/Math.LN10+1e-9),m=x/Math.pow(10,e);if(+m.toFixed(p-1)>=10){m/=10;e++;}return m.toFixed(p-1)+' × 10'+sup(e);}
+
+/* ---------- 物理和数据 ---------- */
+var R=1.097e7,INF=7;
+var EV=[0,-13.6,-3.40,-1.51,-0.85,-0.54,-0.38,0];
+var ES=['','−13.6','−3.40','−1.51','−0.85','−0.54','−0.38','0'];
+var POS=[0,0,3.0,4.3,5.1,5.7,6.2,6.8];
+var NL=['','n = 1','n = 2','n = 3','n = 4','n = 5','n = 6','n = ∞'];
+var SER=[
+  {name:'Lyman',nf:1,lo:86,hi:126,ticks:[90,100,110,120],t1:'Lyman (jumps to n = 1): biggest gap → all UV, 91–122 nm',t2:'Lyman (jumps to n = 1) · all UV'},
+  {name:'Balmer',nf:2,lo:350,hi:670,ticks:[400,500,600],t1:'Balmer (jumps to n = 2): 4 visible lines, then UV',t2:'Balmer (jumps to n = 2) · 4 visible'},
+  {name:'Paschen',nf:3,lo:780,hi:1950,ticks:[1000,1500],t1:'Paschen (jumps to n = 3): small gap → all IR, 820–1875 nm',t2:'Paschen (jumps to n = 3) · all IR'}
+];
+var CNAME=['','','','red','cyan','blue-violet','violet',''];
+function inv2(n){return n===INF?0:1/(n*n);}
+function mkStatus(s,ni,ln){
+  var sp=SER[s],nf=sp.nf,head='n = '+(ni===INF?'∞':ni)+' → n = '+nf+': ',lam=ln.lab+' nm'+ln.tag;
+  if(ni===INF)return [head+'series limit '+ln.lab+' nm',s===0?'Biggest gap = 13.6 eV = ionisation energy → shortest λ':(s===1?'Already UV: the eye cannot see it':'Still IR: the eye cannot see it')];
+  if(ni===nf+1)return [head+'first '+sp.name+' line, smallest drop','→ lowest photon energy → longest λ: '+lam];
+  if(ni===nf+2)return [head+'bigger drop than the first line','→ higher photon energy → shorter λ: '+lam];
+  return [head+lam,'Higher start → lines more crowded, up to series limit'];
+}
+var LN=[[],[],[]],WARN=[];
+for(var s0=0;s0<3;s0++){
+  var nf0=SER[s0].nf;
+  WARN[s0]=[SER[s0].name+' ends on n = '+nf0+': start must be higher than '+nf0,'In emission n_i > n_f: only a jump down emits a photon'];
+  for(var k0=nf0+1;k0<=INF;k0++){
+    var fac=inv2(nf0)-inv2(k0),inv=R*fac,nm=1e9/inv,vis=nm>=380&&nm<=700,lab=nm<100?nm.toFixed(1):String(Math.round(nm));
+    var de=Math.round((EV[k0]-EV[nf0])*100)/100,nis=k0===INF?'∞':String(k0);
+    /* 1/λ 写 4 位有效数字；如果用写出来的 4 位数取倒数会得到不一样的 λ（97.2 / 93.8 nm 两条），就多写一位 */
+    var pr=4,nm4=1e9/(+inv.toPrecision(4));if((nm4<100?nm4.toFixed(1):String(Math.round(nm4)))!==lab)pr=5;
+    var ln={nm:nm,lab:lab,vis:vis,tag:' ('+(vis?CNAME[k0]:(nm<380?'UV':'IR'))+')',
+      r1:'1/λ = 1.097 × 10⁷ × (1/'+nf0+'² − 1/'+nis+'²)',
+      r2:'= 1.097 × 10⁷ × '+fac.toPrecision(4)+' = '+sci(inv,pr)+' m⁻¹',
+      r3:'→ λ = 1/('+sci(inv,pr)+') = '+lab+' nm',
+      e:'hf = E_i − E_f = '+ES[k0]+' − ('+ES[nf0]+') = '+de.toFixed(2)+' eV'};
+    ln.rw=ln.r1+' '+ln.r2+' → λ = '+lab+' nm';
+    ln.st=mkStatus(s0,k0,ln);
+    LN[s0][k0]=ln;
+  }
+}
+var TS0=['Tube: atoms hit to high levels, then jump down','One step or several: each step emits one photon'];
+var TS1=['The lines of all three series slowly light up','Only 4 Balmer lines are visible → the spectrum in 3.5'];
+
+/* ---------- 状态 ---------- */
+function mkArr(){return [new Float64Array(8),new Float64Array(8),new Float64Array(8)];}
+var CN1=mkArr(),FL1=mkArr(),DN1=mkArr(),CN2=mkArr(),FL2=mkArr();
+var m2={tube:false,s:1,ni:3,t:0,warn:0,tt:0,cs:[0,0,0],exT:99,ex1:'',ex2:''};
+var T_UP=0.7,T_DR=0.55,T_FL=1.0,T_HO=1.8,TL=T_UP+T_DR+T_FL,TC=TL+T_HO;
+var NA=9,AT=[],NP=40,PH=[];
+for(var a0=0;a0<NA;a0++)AT.push({n:1,w:0,from:1,ar:0,ln:null,path:new Int8Array(6),pn:0});
+for(var p0=0;p0<NP;p0++)PH.push({on:false,a:0,lv:1,s:0,ni:2,t:0,d:1});
+function land(s,ni,tube){if(tube){CN2[s][ni]+=1;FL2[s][ni]=1;m2.cs[s]++;}else{CN1[s][ni]+=1;FL1[s][ni]=1;DN1[s][ni]=1;}}
+function stepOne(h){var t0=m2.t;m2.t+=h;if(t0<TL&&m2.t>=TL)land(m2.s,m2.ni,false);if(m2.t>=TC)m2.t-=TC;}
+function emit(i,n,m){for(var j=0;j<NP;j++){var p=PH[j];if(!p.on){p.on=true;p.a=i;p.lv=m;p.s=m-1;p.ni=n;p.t=0;p.d=0.85+Math.random()*0.3;return;}}land(m-1,n,true);}
+function setEx(a){
+  var s1='Example: an atom n = '+a.path[0],s2='',k;
+  for(k=1;k<a.pn;k++)s1+=' → '+a.path[k];
+  s1+=' emits '+(a.pn-1)+(a.pn===2?' photon':' photons');
+  for(k=1;k<a.pn;k++){var ln=LN[a.path[k]-1][a.path[k-1]];s2+=(k>1?' + ':'')+ln.lab+' nm'+ln.tag;}
+  m2.ex1=s1;m2.ex2=s2;m2.exT=0;
+}
+function stepTube(h){
+  m2.tt+=h;m2.exT+=h;
+  for(var i=0;i<NA;i++){
+    var a=AT[i];a.ar=Math.max(0,a.ar-h*1.4);a.w-=h;
+    if(a.w>0)continue;
+    if(a.n===1){a.n=2+Math.floor(Math.random()*5);a.pn=1;a.path[0]=a.n;a.ar=0;a.w=0.5+Math.random()*1.0;}
+    else{
+      var m=1+Math.floor(Math.random()*Math.min(3,a.n-1));
+      emit(i,a.n,m);a.ln=LN[m-1][a.n];a.from=a.n;a.n=m;a.ar=1;if(a.pn<6)a.path[a.pn++]=m;
+      if(m===1){a.w=0.6+Math.random()*1.4;if(a.pn>=3&&m2.exT>3)setEx(a);}else a.w=0.3+Math.random()*0.8;
+    }
+  }
+  for(var j=0;j<NP;j++){var p=PH[j];if(!p.on)continue;p.t+=h;if(p.t>=p.d){p.on=false;land(p.s,p.ni,true);}}
+}
+function step2(dt){
+  var n=4,h=dt/n,i,s,k;
+  for(i=0;i<n;i++){if(m2.tube)stepTube(h);else stepOne(h);}
+  for(s=0;s<3;s++)for(k=2;k<=INF;k++){FL1[s][k]=Math.max(0,FL1[s][k]-dt*1.2);FL2[s][k]=Math.max(0,FL2[s][k]-dt*1.6);}
+  if(m2.warn>0)m2.warn=Math.max(0,m2.warn-dt);
+}
+function startTube(){
+  var s,k,i;m2.tube=true;m2.tt=0;m2.exT=99;m2.ex1='';m2.ex2='';m2.cs[0]=m2.cs[1]=m2.cs[2]=0;
+  for(s=0;s<3;s++)for(k=0;k<8;k++){CN2[s][k]=0;FL2[s][k]=0;}
+  for(i=0;i<NP;i++)PH[i].on=false;
+  for(i=0;i<NA;i++){var a=AT[i];a.n=1+Math.floor(Math.random()*6);a.pn=1;a.path[0]=a.n;a.w=Math.random()*1.0;a.ar=0;}
+  for(i=0;i<90;i++)stepTube(1/60);
+}
+function stopTube(){m2.tube=false;for(var i=0;i<NP;i++)PH[i].on=false;}
+/* 换了跳法：在播放就从头演；暂停时直接跳到“photon 刚落到光谱条上”，画面马上有意义 */
+function restartJump(playing){if(playing)m2.t=0;else{m2.t=TL+0.02;land(m2.s,m2.ni,false);}}
+/* 第一帧：先演完一次 3 → 2（光谱条上已经有 656 nm 的线），再演到第二次 photon 飞到一半 */
+for(var q=0;q<Math.round((TC+T_UP+T_DR+0.5)*60);q++)step2(1/60);
+
+/* ---------- 画图 ---------- */
+var Lo={},DK='',LT='';
+function lum(c){var h=String(c).replace('#','').trim();if(h.length===3)h=h.split('').map(function(x){return x+x;}).join('');var n=parseInt(h,16);
+  if(isNaN(n)||h.length!==6)return 0.5;return (0.2126*((n>>16)&255)+0.7152*((n>>8)&255)+0.0722*(n&255))/255;}
+function lay(W,wide){
+  Lo.wide=wide;Lo.x1=W-16;
+  if(wide){Lo.s1=26;Lo.s2=47;Lo.f1=14.5;Lo.f2=13.5;Lo.lt=92;Lo.yT=114;Lo.yB=300;Lo.nx=16;Lo.xa=62;Lo.xb=244;Lo.ex=252;
+    Lo.x0=344;Lo.tt=72;Lo.ys=110;Lo.hs=48;Lo.band=Lo.ys+Lo.hs+3;Lo.tk=Lo.ys+Lo.hs+22;Lo.rg=Lo.ys+Lo.hs+38;Lo.lg=Lo.ys+Lo.hs+57;
+    Lo.b0=66;Lo.bh=80;Lo.bs=36;Lo.bsh=22;Lo.sep=314;Lo.r0=336;Lo.rd=22;Lo.rf=12.5;}
+  else{Lo.s1=22;Lo.s2=41;Lo.f1=13.5;Lo.f2=12.5;Lo.lt=62;Lo.yT=80;Lo.yB=260;Lo.nx=12;Lo.xa=52;Lo.xb=W-74;Lo.ex=W-66;
+    Lo.x0=16;Lo.tt=290;Lo.ys=332;Lo.hs=40;Lo.band=Lo.ys+Lo.hs+3;Lo.tk=Lo.ys+Lo.hs+22;Lo.rg=Lo.ys+Lo.hs+38;Lo.lg=Lo.ys+Lo.hs+55;
+    Lo.b0=272;Lo.bh=60;Lo.bs=35;Lo.bsh=19;Lo.sep=m2.tube?458:444;Lo.r0=m2.tube?478:464;Lo.rd=18;Lo.rf=11.5;}
+}
+function ly(n){return Lo.yB-POS[n]/6.8*(Lo.yB-Lo.yT);}
+function sX(s,nm){var sp=SER[s];return Lo.x0+(nm-sp.lo)/(sp.hi-sp.lo)*(Lo.x1-Lo.x0);}
+function aX(s,ni){var nf=SER[s].nf,c=INF-nf,k=ni-nf-1;return Lo.xa+(Lo.xb-Lo.xa)*(0.12+0.76*k/(c-1));}
+function colX(i){return Lo.xa+(Lo.xb-Lo.xa)*(i+0.5)/NA;}
+/* 放电管里的三段光谱条：从上到下 Paschen、Balmer、Lyman（和梯子上 n = 3、2、1 的上下顺序一样） */
+function bY(s){return Lo.b0+(2-s)*Lo.bh;}
+function colA(ln,a){return ln.vis?lambdaColor(ln.nm,a):rgba(C.light,a);}
+function ease(u){u=clamp(u,0,1);return u*u*(3-2*u);}
+
+/* 一个 photon 波包：沿 (ux, uy) 方向，波长按 λ 的对数缩放（示意：λ 越短，画得越密） */
+function packet(ctx,x,y,ux,uy,ln,amp,alpha){
+  var f=clamp(Math.log(ln.nm/90)/Math.log(1900/90),0,1),vw=5+14*f,Lh=Math.max(9,vw*1.5),first=true,s,e,off,px,py;
+  ctx.beginPath();
+  for(s=-Lh;s<=Lh+0.01;s+=1.2){e=Math.cos(Math.PI*s/(2*Lh));e*=e;off=amp*e*Math.sin(TAU*s/vw);px=x+ux*s-uy*off;py=y+uy*s+ux*off;if(first){ctx.moveTo(px,py);first=false;}else ctx.lineTo(px,py);}
+  ctx.strokeStyle=colA(ln,alpha);ctx.lineWidth=2;ctx.setLineDash(ln.vis?[]:[3,2.5]);ctx.stroke();ctx.setLineDash([]);
+}
+function photonAt(ctx,x0,y0,x1,y1,u,ln,amp,alpha){
+  var dx=x1-x0,dy=y1-y0,L=Math.hypot(dx,dy)||1;
+  packet(ctx,x0+dx*u,y0+dy*u,dx/L,dy/L,ln,amp,alpha);
+}
+
+/* 梯子 */
+function drawLadder(ctx){
+  var tube=m2.tube,nf=SER[m2.s].nf,ni=m2.ni,n,y,isF,isI;
+  txt(ctx,tube?'Hydrogen levels (not to scale) · each dot = one atom':'Energy levels of hydrogen (spacing not to scale)',Lo.nx,Lo.lt,C.muted,11.5,600);
+  for(n=1;n<=INF;n++){
+    y=ly(n);isF=!tube&&n===nf;isI=!tube&&n===ni;
+    if(n===INF)seg(ctx,Lo.xa,y,Lo.xb,y,rgba(C.muted,0.9),1.3,[5,4]);
+    else seg(ctx,Lo.xa,y,Lo.xb,y,isF?C.ink:rgba(C.muted,0.75),isF?2.2:1.3);
+  }
+}
+/* 梯子两边的字：画在 photon 后面（调用时 HALO = 4，带底色描边） */
+function ladderLabels(ctx){
+  var tube=m2.tube,nf=SER[m2.s].nf,ni=m2.ni,n,y,isF,isI;
+  for(n=1;n<=INF;n++){
+    y=ly(n);isF=!tube&&n===nf;isI=!tube&&n===ni;
+    txt(ctx,NL[n],Lo.nx,y+4,isI?C.south:(isF?C.ink:C.muted),11.5,(isI||isF)?700:500);
+    txt(ctx,ES[n]+' eV',Lo.ex,y+4,C.muted,11,500,'left','alphabetic',MONO);
+  }
+}
+function electron(ctx,x,y,r,a){dot(ctx,x,y,r+1.5,rgba(C.stage,a));dot(ctx,x,y,r,rgba(C.south,a));}
+
+/* 光谱条上的标签：一行一行放，放不下就换一行，再放不下就不写（当前那条先放） */
+var OCC=new Float64Array(64),OCN=[0,0];
+function canPut(r,l,rr){for(var k=0;k<OCN[r];k++){var a=OCC[r*32+2*k],b=OCC[r*32+2*k+1];if(l<b+5&&rr>a-5)return false;}return true;}
+function putLab(ctx,s,ln,rows,ys,isCur){
+  var x=sX(s,ln.nm),str=isCur?ln.lab+' nm':ln.lab,wt=isCur?700:500,sz=11.5,w,l,r,i;
+  ctx.font=wt+' '+sz+'px '+FONT;w=ctx.measureText(str).width;l=clamp(x-w/2,Lo.x0,Lo.x1-w);
+  for(r=0;r<rows;r++){if(canPut(r,l,l+w)){i=OCN[r]++;OCC[r*32+2*i]=l;OCC[r*32+2*i+1]=l+w;txt(ctx,str,l,ys-7-r*14,isCur?C.ink:C.muted,sz,wt);return;}}
+}
+function drawStrip(ctx,s,ys,hs,CN,FL,kk,rows,cur){
+  var x0=Lo.x0,x1=Lo.x1,nf=SER[s].nf,ni,ln,c,b,f,x;
+  rrect(ctx,x0,ys,x1-x0,hs,6);ctx.fillStyle=DK;ctx.fill();ctx.strokeStyle=rgba(LT,0.28);ctx.lineWidth=1;ctx.stroke();
+  for(ni=nf+1;ni<=INF;ni++){
+    c=CN[s][ni];if(c<=0)continue;ln=LN[s][ni];x=sX(s,ln.nm);b=1-Math.exp(-c/kk);f=FL[s][ni];
+    if(ln.vis){ctx.save();ctx.shadowColor=lambdaColor(ln.nm,1);ctx.shadowBlur=4+10*f;seg(ctx,x,ys+3,x,ys+hs-3,lambdaColor(ln.nm,0.45+0.55*b),2.5+1.5*f);ctx.restore();}
+    else seg(ctx,x,ys+3,x,ys+hs-3,rgba(LT,0.3+0.4*b+0.3*f),2+f,[4,3]);
+  }
+  OCN[0]=OCN[1]=0;
+  if(cur>0&&CN[s][cur]>0)putLab(ctx,s,LN[s][cur],rows,ys,true);
+  for(ni=nf+1;ni<=INF;ni++)if(ni!==cur&&CN[s][ni]>0)putLab(ctx,s,LN[s][ni],rows,ys,false);
+}
+function drawTicks(ctx,s,yb,ty){
+  var sp=SER[s],i,v,x;
+  for(i=0;i<sp.ticks.length;i++){v=sp.ticks[i];x=sX(s,v);seg(ctx,x,yb,x,yb+4,C.muted,1);txt(ctx,String(v),x,ty,C.muted,11,500,'center');}
+  txt(ctx,'nm',Lo.x1,ty,C.muted,11,500,'right');
+}
+function region(ctx,s,lo,hi,str,y){
+  if(hi<=lo)return;var xa=sX(s,lo),xb=sX(s,hi);
+  ctx.font='600 11px '+FONT;var w=ctx.measureText(str).width;
+  if(xb-xa>=w+4)txt(ctx,str,(xa+xb)/2,y,C.muted,11,600,'center');
+}
+function drawBand(ctx,s){
+  var sp=SER[s],x0=Lo.x0,x1=Lo.x1,y=Lo.band,x,nm,whole;
+  for(x=Math.floor(x0);x<x1;x++){nm=sp.lo+(x+0.5-x0)/(x1-x0)*(sp.hi-sp.lo);ctx.fillStyle=(nm>=380&&nm<=700)?lambdaColor(nm,0.9):rgba(C.muted,0.25);ctx.fillRect(x,y,1,5);}
+  whole=sp.hi<=380||sp.lo>=700;
+  region(ctx,s,sp.lo,Math.min(sp.hi,380),whole?'UV: not visible':'UV',Lo.rg);
+  region(ctx,s,Math.max(sp.lo,380),Math.min(sp.hi,700),'visible',Lo.rg);
+  region(ctx,s,Math.max(sp.lo,700),sp.hi,whole?'IR: not visible':'IR',Lo.rg);
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return w>=640?372:530;},
+  step:step2,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i,s,k,st,y0,ln,x,y;
+    lay(W,wide);
+    DK=lum(C.ink)<lum(C.bg)?C.ink:C.bg;LT=DK===C.ink?C.bg:C.ink;
+    /* 状态 */
+    if(m2.tube)st=m2.tt<6?TS0:TS1;
+    else if(m2.warn>0)st=WARN[m2.s];
+    else st=LN[m2.s][m2.ni].st;
+    fitTxt(ctx,st[0],16,Lo.s1,(!m2.tube&&m2.warn>0)?C.north:C.ink,Lo.f1,600,W-32,'left',FONT,12);
+    fitTxt(ctx,st[1],16,Lo.s2,C.ink,Lo.f2,500,W-32,'left',FONT,12);
+    drawLadder(ctx);
+    if(!m2.tube){
+      /* ---- 一次一种跳法 ---- */
+      var sp=SER[m2.s],nf=sp.nf,ni=m2.ni,yf=ly(nf),yi=ly(ni),ax=aX(m2.s,ni),t=m2.t,ey,ea=1,tx,tyy;
+      ln=LN[m2.s][ni];
+      /* 以前跳过的（淡） */
+      for(k=nf+1;k<=INF;k++){if(k===ni||!DN1[m2.s][k])continue;x=aX(m2.s,k);arrow(ctx,x,ly(k)+2,x,yf-1,colA(LN[m2.s][k],0.5),2,7);}
+      /* 现在这一次 */
+      if(t<T_UP){ey=yi;ea=clamp(t/0.3,0,1);}
+      else if(t<T_UP+T_DR){ey=lerp(yi,yf,ease((t-T_UP)/T_DR));if(ey-yi>16)arrow(ctx,ax,yi+2,ax,ey-7,colA(ln,1),2.6,8);}
+      else{ey=yf;arrow(ctx,ax,yi+2,ax,yf-7,colA(ln,1),2.6,9);}
+      electron(ctx,ax,ey,6,ea);
+      /* photon：宽屏飞到光谱条的下边，手机飞到上边 */
+      tx=sX(m2.s,ln.nm);tyy=wide?Lo.ys+Lo.hs:Lo.ys;
+      if(t>=T_UP+T_DR&&t<TL)photonAt(ctx,ax,yf,tx,tyy,(t-T_UP-T_DR)/T_FL,ln,4,1);
+      /* 光谱条和它的字画在 photon 后面（字带底色描边） */
+      HALO=4;
+      ladderLabels(ctx);
+      fitTxt(ctx,sp.t1,Lo.x0,Lo.tt,C.ink,wide?12.5:11.5,600,Lo.x1-Lo.x0,'left',FONT,11);
+      drawStrip(ctx,m2.s,Lo.ys,Lo.hs,CN1,FL1,1.2,2,ni);
+      drawBand(ctx,m2.s);
+      drawTicks(ctx,m2.s,Lo.ys+Lo.hs+9,Lo.tk);
+      txt(ctx,'Grey dashed = UV / IR, not visible (needs instruments)',Lo.x0,Lo.lg,C.muted,11,500);
+      HALO=0;
+      /* 读数 */
+      seg(ctx,0,Lo.sep,W,Lo.sep,C.line,1);
+      if(wide){
+        fitTxt(ctx,ln.rw,16,Lo.r0,C.ink,Lo.rf,500,W-32,'left',MONO,11);
+        fitTxt(ctx,ln.e,16,Lo.r0+Lo.rd,C.ink,Lo.rf,500,W-32,'left',MONO,11);
+      }else{
+        fitTxt(ctx,ln.r1,16,Lo.r0,C.ink,Lo.rf,500,W-32,'left',MONO,11);
+        fitTxt(ctx,ln.r2,16,Lo.r0+Lo.rd,C.ink,Lo.rf,500,W-32,'left',MONO,11);
+        fitTxt(ctx,ln.r3,16,Lo.r0+2*Lo.rd,C.ink,Lo.rf,500,W-32,'left',MONO,11);
+        fitTxt(ctx,ln.e,16,Lo.r0+3*Lo.rd,C.ink,Lo.rf,500,W-32,'left',MONO,11);
+      }
+    }else{
+      /* ---- 放电管：很多原子一起跳 ---- */
+      for(i=0;i<NA;i++){
+        var a=AT[i];x=colX(i);
+        if(a.ar>0.02&&a.ln)arrow(ctx,x,ly(a.from)+2,x,ly(a.n)-6,colA(a.ln,a.ar),2.2,7);
+        electron(ctx,x,ly(a.n),4.5,1);
+      }
+      for(i=0;i<NP;i++){
+        var p=PH[i];if(!p.on)continue;
+        var u=p.t/p.d,pl=LN[p.s][p.ni],px0=colX(p.a),py0=ly(p.lv),qx=sX(p.s,pl.nm),qy;
+        if(wide){qy=bY(p.s)+Lo.bs+Lo.bsh;photonAt(ctx,px0,py0,qx,qy,u,pl,3,1);}
+        else if(u<0.45){qy=bY(p.s)+Lo.bs;photonAt(ctx,px0,py0,qx,qy,u,pl,3,1-u/0.45);}
+      }
+      /* 光谱条和它的字画在 photon 后面（字带底色描边） */
+      HALO=4;
+      ladderLabels(ctx);
+      for(s=2;s>=0;s--){
+        y0=bY(s);
+        /* 这里不画刻度：photon 从下面飞进光谱条，刻度会挡路；亮了的线都写着 λ */
+        fitTxt(ctx,SER[s].t2,Lo.x0,y0+12,C.ink,wide?12:11.5,600,Lo.x1-Lo.x0-56,'left',FONT,11);
+        txt(ctx,'λ (nm)',Lo.x1,y0+12,C.muted,11,500,'right');
+        drawStrip(ctx,s,y0+Lo.bs,Lo.bsh,CN2,FL2,3,1,0);
+      }
+      HALO=0;
+      seg(ctx,0,Lo.sep,W,Lo.sep,C.line,1);
+      var cnt='Photons: Lyman '+m2.cs[0]+' · Balmer '+m2.cs[1]+' · Paschen '+m2.cs[2];
+      if(!m2.ex1){
+        if(wide){
+          fitTxt(ctx,'Each atom: hit up to n = 2…6, then falls back to n = 1 in one step or several',16,Lo.r0,C.ink,Lo.rf+0.5,500,W-32,'left',FONT,11);
+          fitTxt(ctx,cnt,16,Lo.r0+Lo.rd,C.muted,Lo.rf,500,W-32,'left',MONO,11);
+        }else{
+          fitTxt(ctx,'Each atom: hit up to n = 2…6,',16,Lo.r0,C.ink,Lo.rf+0.5,500,W-32,'left',FONT,11);
+          fitTxt(ctx,'then falls back to n = 1 in one step or several',16,Lo.r0+Lo.rd,C.ink,Lo.rf+0.5,500,W-32,'left',FONT,11);
+          fitTxt(ctx,cnt,16,Lo.r0+2*Lo.rd,C.muted,Lo.rf,500,W-32,'left',MONO,11);
+        }
+      }else if(wide){
+        fitTxt(ctx,m2.ex1+': '+m2.ex2,16,Lo.r0,C.ink,Lo.rf+0.5,500,W-32,'left',FONT,11);
+        fitTxt(ctx,cnt,16,Lo.r0+Lo.rd,C.muted,Lo.rf,500,W-32,'left',MONO,11);
+      }else{
+        fitTxt(ctx,m2.ex1,16,Lo.r0,C.ink,Lo.rf+0.5,500,W-32,'left',FONT,11);
+        fitTxt(ctx,m2.ex2,16,Lo.r0+Lo.rd,C.ink,Lo.rf+0.5,500,W-32,'left',FONT,11);
+        fitTxt(ctx,cnt,16,Lo.r0+2*Lo.rd,C.muted,Lo.rf,500,W-32,'left',MONO,11);
+      }
+    }
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bS=[document.getElementById('s2-ly'),document.getElementById('s2-ba'),document.getElementById('s2-pa')];
+var bN=[],bT=document.getElementById('s2-tube');
+for(var n0=2;n0<=INF;n0++)bN[n0]=document.getElementById('s2-n'+n0);
+function sync2(){
+  var s,n,ok;
+  for(s=0;s<3;s++)press(bS[s],!m2.tube&&m2.s===s);
+  for(n=2;n<=INF;n++){ok=n>SER[m2.s].nf;press(bN[n],!m2.tube&&m2.ni===n);bN[n].setAttribute('data-off',ok?'0':'1');bN[n].style.opacity=(ok||m2.tube)?'':'0.45';}
+  press(bT,m2.tube);bT.textContent=m2.tube?'Discharge tube: on':'Discharge tube: off';
+}
+function setSeries(s){
+  if(m2.tube)stopTube();
+  m2.warn=0;m2.s=s;if(m2.ni<=SER[s].nf)m2.ni=SER[s].nf+1;
+  restartJump(S2.playing);sync2();S2.render();
+}
+function setNi(n){
+  if(m2.tube)stopTube();
+  if(n<=SER[m2.s].nf){m2.warn=3;sync2();S2.render();return;}
+  m2.warn=0;m2.ni=n;restartJump(S2.playing);sync2();S2.render();
+}
+bS.forEach(function(b,s){b.addEventListener('click',function(){setSeries(s);});});
+for(var n1=2;n1<=INF;n1++)(function(n){bN[n].addEventListener('click',function(){setNi(n);});})(n1);
+bT.addEventListener('click',function(){
+  if(m2.tube){stopTube();m2.warn=0;restartJump(S2.playing);}else{startTube();S2.setPlaying(true);}
+  sync2();S2.render();
+});
+sync2();
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3 · 电子的波绕一圈：哪些轨道允许？（3.3 Standing waves explain Bohr's orbits，讲义 Figure 3.2）
+   k = 2πr/λ = 一圈放下几个波长（slider 2.0–6.0，步长 0.1）。
+   波：r(φ) = r₀ + A sin(kφ) cos(ωt)。node 在 sin(kφ) = 0，位置不随时间变 → standing wave，只在原地“呼吸”。
+   第 j 圈把 φ + 2πj 代入同一个式子：k 是整数时第 2 圈和第 1 圈完全重合；不是整数时在起点断开、错位（Figure 3.2 的 3.4 个波）。
+   绕 10 圈叠加后剩下的振幅 = |Σ e^(i2πkj)|/10（j = 0…9）：整数 = 1；步长 0.1 的非整数正好 = 0（10 圈的相位刚好绕满整数圈）。
+   全部是示意：圆的大小固定（只为比较“接不接得上”），不按比例，不代表真实轨道；振幅和“呼吸”快慢示意。
+   注意：不说“n 越大电子越快”（真实原子里 n 越大轨道越大，圆在这里是固定的）。
+   颜色：允许 --south，不允许 --north，nucleus --north 小实心点，node --ink 小点。 */
+var m3={k:4,t:0,lap2:true};
+var OM=TAU/1.8,PER=1.8,NS=240;
+function isInt3(k){return Math.abs(k-Math.round(k))<1e-6;}
+function amp10(k){var re=0,im=0;for(var j=0;j<10;j++){re+=Math.cos(TAU*k*j);im+=Math.sin(TAU*k*j);}var a=Math.hypot(re,im)/10;return a<1e-9?0:a;}
+function fit3(ctx,s,x,y,col,size,weight,maxW,align,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+function badge3(ctx,s,xr,yc,col){
+  ctx.font='700 12.5px '+FONT;var w=ctx.measureText(s).width+18;
+  rrect(ctx,xr-w,yc-12,w,24,12);ctx.fillStyle=col;ctx.fill();
+  txt(ctx,s,xr-w/2,yc+0.5,'#ffffff',12.5,700,'center','middle');
+}
+/* 圆上的波：第 j 圈（φ 从 0 到 2π，从顶部顺时针），c = cos(ωt)。淡色 lobes = 包络（最大振幅时的位置），波变平的瞬间也看得出形状 */
+function orbitPath(ctx,cx,cy,R,A,k,j,c,move){
+  for(var i=0;i<=NS;i++){var p=i/NS*TAU,r=R+A*Math.sin(k*(p+TAU*j))*c,x=cx+r*Math.sin(p),y=cy-r*Math.cos(p);
+    if(i===0&&move)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+}
+function orbitLobes(ctx,cx,cy,R,A,k,j){
+  ctx.beginPath();
+  for(var i=0;i<=NS;i++){var p=i/NS*TAU,r=R+A*Math.sin(k*(p+TAU*j));if(i)ctx.lineTo(cx+r*Math.sin(p),cy-r*Math.cos(p));else ctx.moveTo(cx+r*Math.sin(p),cy-r*Math.cos(p));}
+  for(var i2=NS;i2>=0;i2--){var p2=i2/NS*TAU,r2=R-A*Math.sin(k*(p2+TAU*j));ctx.lineTo(cx+r2*Math.sin(p2),cy-r2*Math.cos(p2));}
+  ctx.closePath();
+}
+/* 拉直的一圈：x0 → x1 是长度 2πr */
+function stripPath(ctx,x0,x1,mid,a,k,j,c){
+  ctx.beginPath();
+  for(var i=0;i<=NS;i++){var p=i/NS*TAU,x=x0+(x1-x0)*i/NS,y=mid-a*Math.sin(k*(p+TAU*j))*c;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+}
+function stripLobes(ctx,x0,x1,mid,a,k,j){
+  ctx.beginPath();
+  for(var i=0;i<=NS;i++){var p=i/NS*TAU,x=x0+(x1-x0)*i/NS,y=mid-a*Math.sin(k*(p+TAU*j));if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  for(var i2=NS;i2>=0;i2--){var p2=i2/NS*TAU,x2=x0+(x1-x0)*i2/NS,y2=mid+a*Math.sin(k*(p2+TAU*j));ctx.lineTo(x2,y2);}
+  ctx.closePath();
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?420:700;},
+  step:function(dt){m3.t=(m3.t+dt)%PER;},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,k=m3.k,ok=isInt3(k),n=Math.round(k),c=Math.cos(OM*m3.t);
+    var col=ok?C.south:C.north,ks=ok?String(n):k.toFixed(1),laps=m3.lap2?2:1;
+    var ocx,ocy,R,A,top,px0,px1,y0,note;
+    if(wide){var ow=Math.min(380,W*0.5);R=118;A=16;top=100;ocx=ow/2+6;px0=ow+16;px1=W-18;y0=112;note=H-14;}
+    else{R=Math.min(108,W/2-56);A=15;top=116;ocx=W/2;px0=16;px1=W-16;y0=432;note=384;}
+    ocy=top+R+A;
+    var pw=px1-px0;
+
+    /* ---- status ---- */
+    var p1='2πr = '+ks+'λ: '+(ok?'the wave joins itself':'not a whole number of waves');
+    var p2=ok?'→ standing wave, nodes never move':(m3.lap2?'→ lap 2 does not match lap 1':'→ back at the start, it does not join up');
+    var p3=ok?'→ does not travel, carries no energy away':'→ laps add up and cancel each other';
+    var p4=ok?'→ no radiation → allowed (n = '+n+')':'→ this orbit is not allowed';
+    if(wide){fit3(ctx,p1+' '+p2,16,30,C.ink,15,600,W-32);fit3(ctx,p3+' '+p4,16,53,col,15,600,W-32);}
+    else{fit3(ctx,p1,16,24,C.ink,13.5,600,W-32);fit3(ctx,p2,16,44,C.ink,13.5,600,W-32);fit3(ctx,p3,16,64,col,13.5,600,W-32);fit3(ctx,p4,16,84,col,13.5,600,W-32);}
+
+    /* ---- orbit ---- */
+    var j;
+    ctx.setLineDash([4,5]);ring(ctx,ocx,ocy,R,rgba(C.muted,0.75),1.3);ctx.setLineDash([]);
+    for(j=laps-1;j>=0;j--){orbitLobes(ctx,ocx,ocy,R,A,k,j);ctx.fillStyle=rgba(col,j?0.07:0.11);ctx.fill();}
+    /* start mark */
+    seg(ctx,ocx,ocy-R-A-5,ocx,ocy-R+A+5,rgba(C.muted,0.9),1.2,[2,3]);
+    if(ok)txt(ctx,'start',ocx,top-8,C.muted,12,600,'center');
+    else txt(ctx,'start: does not join up',ocx,top-8,C.north,12,700,'center');
+    ctx.lineJoin='round';
+    if(laps===2){ctx.beginPath();orbitPath(ctx,ocx,ocy,R,A,k,1,c,true);ctx.strokeStyle=rgba(col,0.5);ctx.lineWidth=2.2;ctx.stroke();}
+    ctx.beginPath();orbitPath(ctx,ocx,ocy,R,A,k,0,c,true);ctx.strokeStyle=col;ctx.lineWidth=2.8;ctx.stroke();
+    if(ok){for(var m=0;m<2*n;m++){var pa=m*Math.PI/n;dot(ctx,ocx+R*Math.sin(pa),ocy-R*Math.cos(pa),3.2,C.ink);}}
+    dot(ctx,ocx,ocy,5.5,C.north);
+    txt(ctx,'nucleus',ocx,ocy+22,C.muted,11.5,500,'center');
+    if(wide)fit3(ctx,'illustrative · not to scale: circle size does not show the real orbit',ocx,note,C.muted,11.5,500,px0-16,'center');
+    else{fit3(ctx,'illustrative · not to scale:',ocx,note,C.muted,11.5,500,W-32,'center');fit3(ctx,'circle size does not show the real orbit',ocx,note+14,C.muted,11.5,500,W-32,'center');}
+
+    /* ---- readout ---- */
+    txt(ctx,'2πr/λ = '+k.toFixed(1),px0,y0,C.ink,20,700,'left','alphabetic',MONO);
+    badge3(ctx,ok?'allowed · n = '+n:'not allowed',px1,y0-7,col);
+    fit3(ctx,'Each λ = 1/'+ks+' of a lap · more waves, shorter λ',px0,y0+24,C.muted,12.5,500,pw);
+
+    /* ---- strip: 把这一圈剪开拉直 ---- */
+    var x0=px0+4,x1=px1-4,mid=y0+100,a=16,lw=(x1-x0)/k;
+    txt(ctx,'Cut this lap open and pull it straight (length 2πr)',px0,y0+52,C.muted,12,600);
+    for(j=laps-1;j>=0;j--){stripLobes(ctx,x0,x1,mid,a,k,j);ctx.fillStyle=rgba(col,j?0.07:0.11);ctx.fill();}
+    seg(ctx,x0,mid,x1,mid,rgba(C.muted,0.6),1);
+    seg(ctx,x0,mid-a-6,x0,mid+a+6,C.muted,1.3);seg(ctx,x1,mid-a-6,x1,mid+a+6,C.muted,1.3);
+    for(var q=1;q<=Math.floor(k+1e-6);q++){var xt=x0+q*lw;if(xt<x1-1)seg(ctx,xt,mid+a+1,xt,mid+a+7,C.muted,1.2);}
+    if(laps===2){stripPath(ctx,x0,x1,mid,a,k,1,c);ctx.strokeStyle=rgba(col,0.5);ctx.lineWidth=2;ctx.stroke();}
+    stripPath(ctx,x0,x1,mid,a,k,0,c);ctx.strokeStyle=col;ctx.lineWidth=2.5;ctx.stroke();
+    if(ok){for(var m2=0;m2<=2*n;m2++)dot(ctx,x0+m2*lw/2,mid,2.8,C.ink);}
+    var by=y0+74;
+    seg(ctx,x0,by,x0+lw,by,C.ink,1.3);seg(ctx,x0,by-4,x0,by+4,C.ink,1.3);seg(ctx,x0+lw,by-4,x0+lw,by+4,C.ink,1.3);
+    txt(ctx,'λ',x0+lw/2,by-5,C.ink,13,700,'center','alphabetic',MATH);
+    txt(ctx,'start',x0,y0+134,C.muted,11.5,500,'left');
+    txt(ctx,'back at the start (2πr)',x1,y0+134,ok?C.muted:C.north,11.5,ok?500:700,'right');
+
+    /* ---- 10 laps bar ---- */
+    var am=amp10(k);
+    txt(ctx,'Amplitude left after adding 10 laps',px0,y0+162,C.ink,12.5,600);
+    txt(ctx,Math.round(am*100)+'%',px1,y0+162,col,14,700,'right','alphabetic',MONO);
+    hbar(ctx,px0,y0+170,pw,11,am,col);
+    fit3(ctx,ok?'Every lap lines up → they add together, the wave stays':'Each lap is a bit out of step → 10 laps cancel exactly',px0,y0+198,C.muted,12,500,pw);
+
+    /* ---- formula ---- */
+    if(ok)fit3(ctx,'2πr = nλ → mvr = nh/(2π), n = '+n,px0,y0+226,C.south,13.5,700,pw);
+    else fit3(ctx,ks+' is not a whole number → no n gives 2πr = nλ',px0,y0+226,C.north,13.5,700,pw);
+
+    /* ---- legend ---- */
+    var lx=px0,ly=y0+252;
+    seg(ctx,lx,ly-4,lx+20,ly-4,col,2.8);txt(ctx,'lap 1',lx+26,ly,C.muted,12,500);lx+=26+ctx.measureText('lap 1').width+16;
+    if(laps===2){seg(ctx,lx,ly-4,lx+20,ly-4,rgba(col,0.5),2.2);var l2=ok?'lap 2 (on top of lap 1)':'lap 2 (out of step)';txt(ctx,l2,lx+26,ly,C.muted,12,500);lx+=26+ctx.measureText(l2).width+16;}
+    if(ok){dot(ctx,lx+4,ly-4,3.2,C.ink);txt(ctx,'node',lx+12,ly,C.muted,12,500);}
+  }
+});
+
+var r3=document.getElementById('s3-k'),o3=document.getElementById('s3-k-out'),b3l=document.getElementById('s3-lap2');
+var PR3=[[document.getElementById('s3-n3'),3],[document.getElementById('s3-n4'),4],[document.getElementById('s3-n5'),5],[document.getElementById('s3-n34'),3.4]];
+function setK3(v){
+  m3.k=Math.round(clamp(v,2,6)*10)/10;r3.value=m3.k.toFixed(1);o3.textContent=m3.k.toFixed(1);
+  for(var i=0;i<PR3.length;i++)press(PR3[i][0],Math.abs(PR3[i][1]-m3.k)<1e-6);
+  S3.render();
+}
+/* 暂停时改 k、或按预设：回到最大振幅那一刻（t = 0），画面不会停在“刚好变平”的瞬间 */
+r3.addEventListener('input',function(){if(!S3.playing)m3.t=0;setK3(parseFloat(r3.value));});
+PR3.forEach(function(p){p[0].addEventListener('click',function(){m3.t=0;setK3(p[1]);});});
+b3l.addEventListener('click',function(){m3.lap2=!m3.lap2;press(b3l,m3.lap2);b3l.textContent='Draw lap 2: '+(m3.lap2?'on':'off');S3.render();});
+setK3(4);
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 三个原子模型：Rutherford、Bohr、Schrödinger（3.4 Bohr's limits and Schrödinger's quantum model，对照讲义表 3.1）
+   booklet：1911 / 1913 / 1926；Rutherford 的电子约 10⁻¹¹ s 螺旋掉进 nucleus；Bohr radius a₀ = 5.29 × 10⁻¹¹ m；
+   E₁ = −13.6 eV、E₂ = −3.40 eV（Figure 3.1）；表 3.1 的“电子 / 在哪 / 稳定吗”三格（中文和页面上的表 3.1 一样）。
+   同一个比例尺（k 像素 = 1 a₀）：Rutherford 的起点、Bohr 的 n = 1 轨道、1s 直方图的峰都在 a₀。
+   Rutherford（经典物理，比例关系是真的）：
+     能量 E = −ke²/(2r) = −13.6 eV × a₀/r（计算值：r = a₀ 时 ke²/(2a₀) = 13.6 eV）；
+     辐射功率 P ∝ a² ∝ 1/r⁴，E ∝ −1/r → dr/dt ∝ −1/r² → r³ = a₀³(1 − t/τ)；
+     绕圈频率 f ∝ r^(−3/2)（库仑力当向心力）→ 转过的角度 φ = 2ω₀τ(1 − √(1 − t/τ))，发出的 EM 波频率 = 绕圈频率。
+     τ = 9 s、f₀ = 0.6 圈/s 是示意（真实约 10⁻¹¹ s）；从 r = a₀ 出发是示意（Rutherford 的模型里任何轨道都行）。
+     EM 波的圈每半圈发一个（越转越快 → 圈越密），亮度 ∝ 辐射功率（∝ 1/r⁴，有上限）：示意。
+     光谱条的颜色只表示“频率越来越高”（横轴只保证单调），不是真实波长：真实的频率从 UV 开始，越塌越高。
+   Bohr：r = a₀ 的圆轨道，f 不变，不辐射，E = −13.6 eV 不变。
+   Schrödinger（Born：ψ² = 概率密度），每个点 = 一次测量，用固定种子的随机数抽样：
+     1s：3-D 距离 r 的分布 ∝ r² e^(−2r/a₀) → r = −(a₀/2) ln(U₁U₂U₃)，方向在 3-D 里均匀 → 峰在 a₀。
+     2p（m_l = 0）：r 的分布 ∝ r⁴ e^(−r/a₀) → r = −a₀ ln(U₁…U₅)，方向密度 ∝ cos²θ（|cos θ| = U^(1/3)）→ 峰在 4a₀（计算值）。
+     点按 (x, z) 投影到屏幕（z 朝上，所以 2p 是上下两瓣）；直方图统计 3-D 的 r（不是投影后的距离）。
+     2p 的画面比例尺缩小（示意），小虚线圈仍是 a₀。
+   颜色：电子和点 --south，nucleus --north，EM 波 --light，总能量柱 --ink，轨道 / 轨迹 --copper，加速度 a --violet，
+   直方图的理论曲线 --copper。 */
+var TC=9,F0=0.6,W0=TAU*F0,PHT=2*W0*TC,UEND=0.1,TEND=TC*(1-UEND*UEND*UEND),HOLD=4,VRA=1.3,RMX=3.3,EMX=54.4,T_PRE=0.8*TC;
+var NR=48,RGX=new Float32Array(NR),RGY=new Float32Array(NR),RGT=new Float64Array(NR),RGA=new Float32Array(NR),rHead=0;
+var NP=1800,NFILL=900,PX=new Float32Array(NP),PY=new Float32Array(NP),NB=24,BIN=new Int32Array(NB);
+var NAME=['Rutherford (1911)','Bohr (1913)','Schrödinger (1926)'],TH=['Electron','Where','Stability'];
+var TB=[['a particle','any orbit','no: should collapse'],['a particle','fixed circular orbits','yes, by assumption'],['a wave, described by ψ','orbitals: probabilities only','yes: standing waves']];
+/* 状态提示：'|' 是可以换行的地方 */
+var ST_RA='Rutherford: the electron orbits → it always accelerates| → it gives out EM waves (Maxwell)| → it loses energy → the radius slowly gets smaller';
+var ST_RB='Smaller radius → it turns faster and faster → the frequency given out keeps rising| → every frequency appears = continuous spectrum.| Real hydrogen has only a few lines';
+var ST_RC='It spirals into the nucleus: the atom collapses!| In reality this takes only about 10⁻¹¹ s (greatly slowed down here).| But real atoms are stable: they last for billions of years';
+var ST_B='Bohr: the electron also accelerates,| but a stationary state does not radiate| → the energy stays the same → no collapse.| Why? Bohr did not explain it: it is an assumption';
+var ST_SG='Schrödinger: no path, only probabilities.| Each dot = one measurement of where the electron is.| Where the dots are denser, ψ² is larger';
+var ST_S1='1s: densest in the middle,| but further out, each spherical shell is larger| → most likely distance r = a₀ = 5.29 × 10⁻¹¹ m| = Bohr radius (see the histogram peak)';
+var ST_S2='2p: two lobes, top and bottom.| The electron is never found on the flat plane through the middle.| Quantum numbers l and mₗ set the shape (illustrative)';
+
+/* 固定种子的随机数：同样的设置，第一帧每次都一样 */
+var seed=1;
+function rnd(){seed=(seed+0x6D2B79F5)|0;var t=Math.imul(seed^(seed>>>15),1|seed);t=(t+Math.imul(t^(t>>>7),61|t))^t;return ((t^(t>>>14))>>>0)/4294967296;}
+
+var m={mode:0,orb:0,t:0,clk:0,lastRing:-9,done:false,hold:0,xm:0,phB:0.6,n:0,acc:0,ts:0,age:9};
+
+/* ---------- Rutherford：解析解，状态只有时间 t ---------- */
+function uR(t){return Math.pow(Math.max(0,1-t/TC),1/3);}            /* r/a₀ */
+function phR(t){return PHT*(1-Math.sqrt(Math.max(0,1-t/TC)));}     /* 转过的角度 */
+function specX(u){return clamp((1-u)/(1-UEND),0,1);}               /* 光谱条上的位置（示意，随 f 单调） */
+function resetR(){m.t=0;m.done=false;m.hold=0;m.xm=0;m.lastRing=-9;for(var i=0;i<NR;i++)RGA[i]=0;}
+function emit(){var u=uR(m.t),p=phR(m.t);RGX[rHead]=u*Math.cos(p);RGY[rHead]=u*Math.sin(p);RGT[rHead]=m.clk;
+  RGA[rHead]=clamp(0.3+0.7*(Math.pow(u,-4)-1)/15,0.3,1);rHead=(rHead+1)%NR;m.lastRing=m.clk;}
+function stepR(h){
+  m.clk+=h;
+  if(m.done){m.hold+=h;if(m.hold>HOLD)resetR();return;}
+  var t0=m.t;m.t=Math.min(TEND,m.t+h);
+  if(Math.floor(phR(m.t)/Math.PI)>Math.floor(phR(t0)/Math.PI)&&m.clk-m.lastRing>0.06)emit();
+  m.xm=Math.max(m.xm,specX(uR(m.t)));
+  if(m.t>=TEND){m.done=true;m.hold=0;m.xm=1;}
+}
+/* 暂停时也要有意义：直接演到 0.8τ（螺旋、EM 波、半张光谱都有了） */
+function preR(){resetR();m.clk=0;for(var i=0,n=Math.round(T_PRE*60);i<n;i++)stepR(1/60);}
+
+/* ---------- Schrödinger：一个点 = 一次测量 ---------- */
+function addPt(){
+  var r,c,u,i;
+  if(m.orb===0){r=-0.5*Math.log((1-rnd())*(1-rnd())*(1-rnd()));c=2*rnd()-1;}
+  else{u=1;for(i=0;i<5;i++)u*=1-rnd();r=-Math.log(u);c=Math.pow(rnd(),1/3)*(rnd()<0.5?-1:1);}
+  var sn=Math.sqrt(Math.max(0,1-c*c)),p=TAU*rnd();
+  PX[m.n]=r*sn*Math.cos(p);PY[m.n]=r*c;
+  var b=Math.floor(r/(m.orb?12:4)*NB);if(b<NB)BIN[b]++;
+  m.n++;m.age=0;
+}
+function clearS(){m.n=0;m.acc=0;m.ts=0;m.age=9;for(var i=0;i<NB;i++)BIN[i]=0;seed=4041+m.orb*7919;}
+function fillS(k){while(m.n<k)addPt();m.ts=99;m.age=9;}
+function stepS(h){m.ts+=h;m.age+=h;var rate=m.ts<2?5:Math.min(240,5+90*(m.ts-2));m.acc+=rate*h;while(m.acc>=1&&m.n<NP){addPt();m.acc-=1;}}
+
+function step(dt){var n=4,h=dt/n;for(var i=0;i<n;i++){if(m.mode===0)stepR(h);else if(m.mode===1)m.phB+=W0*h;else stepS(h);}}
+preR();
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+var L=null;
+function lay(W){
+  if(L&&L.W===W)return L;
+  if(W>=740)L={wide:true,W:W,st:[24,45],stF:14,stW:W-32,ax0:12,ax1:338,ay0:58,ay1:370,cx:175,cy:214,k:56,k2:17,
+    ex:362,ew:26,ey0:98,ey1:332,et:[82],px0:478,px1:W-18,rd:[110,134,154],rdF:13.5,sT:206,sy:216,sh:30,sL:268,
+    hT:80,hy0:96,hy1:300,hL:316,hC:336,tS:384,H:448};
+  else L={wide:false,W:W,st:[20,38,56,74],stF:13.5,stW:W-28,ax0:4,ax1:W-80,ay0:84,ay1:340,cx:Math.round((W-76)/2),cy:214,k:46,k2:13.5,
+    ex:W-28,ew:18,ey0:124,ey1:314,et:[96,110],px0:16,px1:W-16,rd:[364,382],rdF:12.5,sT:408,sy:416,sh:24,sL:462,
+    hT:362,hy0:374,hy1:454,hL:468,hC:484,tS:496,H:592};
+  /* very narrow phone: English needs a fifth status line, so everything below moves down 18 */
+  if(!L.wide&&W<300){L.st=[20,38,56,74,92];L.et=[114,128];L.rd=[382,400];['ay0','ay1','cy','ey0','ey1','sT','sy','sL','hT','hy0','hy1','hL','hC','tS','H'].forEach(function(k){L[k]+=18;});}
+  return L;
+}
+function lum(c){var h=String(c).replace('#','').trim();if(h.length===3)h=h.split('').map(function(x){return x+x;}).join('');var n=parseInt(h,16);
+  if(isNaN(n))return 0.5;return (0.299*((n>>16)&255)+0.587*((n>>8)&255)+0.114*(n&255))/255;}
+var DK,LT,GR=null,GRk='';
+function grad(ctx,x0,x1){var key=x0+'_'+x1;if(GR&&GRk===key)return GR;GR=ctx.createLinearGradient(x0,0,x1,0);
+  for(var i=0;i<=10;i++)GR.addColorStop(i/10,lambdaColor(700-30*i));GRk=key;return GR;}
+function pill(ctx,x,y,w,h){rrect(ctx,x,y,w,h,4);ctx.fillStyle=rgba(C.stage,0.88);ctx.fill();}
+function tw(ctx,s,size,weight){ctx.font=(weight||500)+' '+size+'px '+FONT;return ctx.measureText(s).width;}
+
+/* ---------- 状态提示（自动换行） ---------- */
+var SL=['','','','',''];
+function wrap(ctx,s,maxW,size){ctx.font='600 '+size+'px '+FONT;var parts=s.split('|'),n=0,cur='',i,j,t,ws;
+  for(i=0;i<parts.length;i++){t=cur+parts[i];if(ctx.measureText(t).width<=maxW){cur=t;continue;}
+    if(cur){SL[n++]=cur;cur='';}
+    /* English: a part that is still too long breaks between words */
+    ws=parts[i].replace(/^ +/,'').split(' ');
+    for(j=0;j<ws.length;j++){t=cur?cur+' '+ws[j]:ws[j];if(cur&&ctx.measureText(t).width>maxW){SL[n++]=cur;cur=ws[j];}else cur=t;}
+  }
+  if(cur)SL[n++]=cur;return n;}
+function status(ctx,L){
+  var s,col=C.ink;
+  if(m.mode===0){if(m.done){s=ST_RC;col=C.north;}else s=m.t<0.55*TC?ST_RA:ST_RB;}
+  else if(m.mode===1)s=ST_B;
+  else s=m.n<250?ST_SG:(m.orb?ST_S2:ST_S1);
+  /* 很窄的手机上行数放不下：字号一点点变小（最小 12 px） */
+  var f=L.stF,n=wrap(ctx,s,L.stW,f);
+  while(n>L.st.length&&f>12){f-=0.5;n=wrap(ctx,s,L.stW,f);}
+  n=Math.min(n,L.st.length);
+  for(var i=0;i<n;i++)txt(ctx,SL[i],16,L.st[i],col,f,600);
+}
+
+/* ---------- 原子 ---------- */
+function atom(ctx,L){
+  var cx=L.cx,cy=L.cy,two=m.mode===2&&m.orb===1,kk=two?L.k2:L.k,i,ex=cx,ey=cy,u,p;
+  ctx.save();ctx.beginPath();ctx.rect(L.ax0,L.ay0,L.ax1-L.ax0,L.ay1-L.ay0);ctx.clip();
+  if(m.mode===2){
+    var d=L.wide?2.4:2.2;ctx.beginPath();
+    for(i=0;i<m.n;i++)ctx.rect(cx+PX[i]*kk-d/2,cy-PY[i]*kk-d/2,d,d);
+    ctx.fillStyle=rgba(C.south,lum(C.stage)<0.5?0.72:0.5);ctx.fill();
+    if(m.n>0&&m.age<0.45&&m.ts<3){var lx=cx+PX[m.n-1]*kk,ly=cy-PY[m.n-1]*kk;dot(ctx,lx,ly,3.2,C.south);ring(ctx,lx,ly,6+10*m.age,rgba(C.south,1-m.age/0.45),1.8);}
+  }
+  if(m.mode===0){
+    for(i=0;i<NR;i++){if(RGA[i]<=0)continue;var rad=(m.clk-RGT[i])*VRA;if(rad>RMX||rad<0.02)continue;
+      ring(ctx,cx+RGX[i]*kk,cy-RGY[i]*kk,rad*kk,rgba(C.light,RGA[i]*(1-rad/RMX)*0.9),1.8);}
+  }
+  /* a₀ 虚线圈（Bohr 模式里就是轨道本身） */
+  if(m.mode===1)ring(ctx,cx,cy,kk,rgba(C.copper,0.9),2);
+  else{ctx.setLineDash([4,5]);ring(ctx,cx,cy,kk,rgba(C.ink,0.55),1.3);ctx.setLineDash([]);}
+  /* Rutherford：最近 1.5 圈的螺旋轨迹 */
+  if(m.mode===0){
+    var ph=phR(m.t),dq=Math.PI/24,c,j,q,first;
+    for(c=0;c<6;c++){ctx.beginPath();first=true;
+      for(j=0;j<=12;j++){q=ph-(c*12+j)*dq;if(q<0)break;u=Math.pow(1-q/PHT,2/3);var x=cx+u*kk*Math.cos(q),y=cy-u*kk*Math.sin(q);if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+      ctx.strokeStyle=rgba(C.copper,0.75*(1-c/6));ctx.lineWidth=2;ctx.stroke();}
+  }
+  /* nucleus */
+  dot(ctx,cx,cy,5,C.north);
+  /* 电子 + 加速度 a（指向 nucleus） */
+  if(m.mode!==2){
+    if(m.mode===0){u=m.done?0:uR(m.t);p=phR(m.t);}else{u=1;p=m.phB;}
+    ex=cx+u*kk*Math.cos(p);ey=cy-u*kk*Math.sin(p);
+    if(m.mode===0&&m.done){ex=cx+5;ey=cy-4;if(m.hold<0.8)ring(ctx,cx,cy,8+26*m.hold,rgba(C.north,1-m.hold/0.8),2.2);}
+    var dd=Math.hypot(cx-ex,cy-ey);
+    /* a 的箭头一样长（只表示方向）；离 nucleus 太近时才变短。真实的 a ∝ 1/r²，越往里越大 */
+    if(dd>21){var ux=(cx-ex)/dd,uy=(cy-ey)/dd,La=Math.min(34,dd-5.5);
+      arrow(ctx,ex+ux*7.5,ey+uy*7.5,ex+ux*La,ey+uy*La,C.violet,2.2,Math.min(7,(La-7.5)*0.6));
+      txt(ctx,'a',ex+ux*(La*0.6)-uy*11,ey+uy*(La*0.6)+ux*11,C.violet,14,700,'center','middle',MATH);}
+    dot(ctx,ex,ey,6.5,C.south);
+  }
+  ctx.restore();
+  /* a₀ 的标签 */
+  var al=m.mode===0?'r = a₀ at the start':(m.mode===1?'n = 1 orbit: r = a₀':(two?'a₀':'a₀ = Bohr\'s orbit'));
+  var aw=tw(ctx,al,11.5,600),ay=cy-kk-(two?6:10);
+  if(two){pill(ctx,cx+kk+3,cy-8,aw+8,16);txt(ctx,al,cx+kk+7,cy+4,C.ink,11.5,600);}
+  else{pill(ctx,cx-aw/2-4,ay-12,aw+8,16);txt(ctx,al,cx,ay,C.ink,11.5,600,'center');}
+  /* 图例 */
+  var fs=L.wide?11.5:11,x=L.ax0+10,y=L.ay0+14,lw;
+  var w1=tw(ctx,'nucleus',fs),dl=L.W<320?'dot = 1 measurement':'each dot = one measurement',w2=m.mode===2?tw(ctx,dl,fs):tw(ctx,'electron',fs),w3=m.mode===0?tw(ctx,'EM wave',fs)+24:0;
+  lw=12+w1+22+w2+w3+8;pill(ctx,x-6,y-11,lw,17);
+  dot(ctx,x+4,y-4,4,C.north);txt(ctx,'nucleus',x+12,y,C.muted,fs,500);x+=12+w1+14;
+  if(m.mode===2){ctx.fillStyle=C.south;ctx.fillRect(x+2,y-5.5,3,3);}else dot(ctx,x+4,y-4,4.5,C.south);
+  txt(ctx,m.mode===2?dl:'electron',x+12,y,C.muted,fs,500);x+=12+w2+14;
+  if(m.mode===0){ring(ctx,x+4,y-4,4.5,C.light,1.8);txt(ctx,'EM wave',x+13,y,C.muted,fs,500);}
+}
+
+/* ---------- 总能量柱：0 在上面，越往下能量越少 ---------- */
+function energy(ctx,L){
+  var x=L.ex,w=L.ew,y0=L.ey0,y1=L.ey1,hh=y1-y0,E,wide=L.wide,i;
+  if(m.mode===0)E=-13.6/Math.max(uR(m.t),1e-6);else if(m.mode===2&&m.orb===1)E=-3.4;else E=-13.6;
+  var clipped=m.mode===0&&(m.done||-E>EMX),ym=y0+Math.min(1,-E/EMX)*hh;
+  if(wide)txt(ctx,'Total energy E',x,L.et[0],C.ink,12.5,700);
+  else{txt(ctx,'Total energy',L.W-6,L.et[0],C.ink,12,700,'right');txt(ctx,'E (eV)',L.W-6,L.et[1],C.ink,12,700,'right');}
+  rrect(ctx,x,y0,w,hh,4);ctx.fillStyle=rgba(C.muted,0.1);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.2;ctx.stroke();
+  ctx.fillStyle=rgba(C.ink,0.6);ctx.fillRect(x+2,y0+2,w-4,Math.max(0,ym-y0-2));
+  if(wide)txt(ctx,'0 eV',x+w+7,y0+4,C.muted,11.5,500);else txt(ctx,'0',x-5,y0+4,C.muted,11.5,500,'right');
+  /* Rutherford：开始时的 −13.6 eV */
+  var y13=y0+13.6/EMX*hh,lx=wide?x+w+7:x-5,al=wide?'left':'right';
+  if(m.mode===0&&ym-y13>16){seg(ctx,x-4,y13,x+w+4,y13,C.ink,1.2,[3,3]);txt(ctx,wide?'−13.6 at start':'start −13.6',lx,y13+4,C.muted,11,500,al);}
+  var vy=Math.max(ym+4,y0+18);
+  if(clipped){
+    arrow(ctx,x+w/2,y1+2,x+w/2,y1+16,C.ink,2,7);
+    txt(ctx,m.done?(wide?'into nucleus':'collapsed'):(wide?'lower ↓':'lower'),lx,y1-6,m.done?C.north:C.ink,wide?13:12,700,al);
+  }else{
+    seg(ctx,x-4,ym,x+w+4,ym,C.ink,2.2);
+    var v=m.mode===2&&m.orb===1?'−3.40':'−'+(-E).toFixed(1);
+    txt(ctx,wide?v+' eV':v,lx,vy,C.ink,wide?13:12,700,al);
+    var sub=m.mode===0?'decreasing':(m.mode===2&&m.orb===1?'E₂ constant':'E₁ constant');
+    if(wide)txt(ctx,sub,lx,vy+16,C.muted,11.5,500,al);
+  }
+  if(wide)txt(ctx,'↓ down = less energy',x,y1+(clipped?32:18),C.muted,11.5,500);
+  else if(!clipped)txt(ctx,'↓ less',L.W-6,y1+16,C.muted,11,500,'right');
+}
+
+/* ---------- 光谱条（Rutherford / Bohr） ---------- */
+function spectrum(ctx,L){
+  var x0=L.px0,x1=L.px1,w=x1-x0,y=L.sy,h=L.sh,wide=L.wide,R=m.mode===0,u=uR(m.t),r0=L.rd[0],r1=L.rd[1];
+  /* 读数 */
+  if(wide){
+    if(R){txt(ctx,m.done?'radius r → 0: into the nucleus':'radius r = '+u.toFixed(2)+' a₀',x0,r0,m.done?C.north:C.ink,L.rdF,600);
+      txt(ctx,m.done?'f keeps rising until it falls in':'orbit frequency f = '+Math.pow(u,-1.5).toFixed(1)+' × starting f',x0,r1,C.ink,L.rdF,600);
+      txt(ctx,'(f is also the frequency of the EM waves)',x0,L.rd[2],C.muted,11.5,500);}
+    else{txt(ctx,'radius r = a₀, never changes (n = 1)',x0,r0,C.ink,L.rdF,600);txt(ctx,'orbit frequency f: does not change',x0,r1,C.ink,L.rdF,600);
+      txt(ctx,'no EM waves → no energy lost',x0,L.rd[2],C.muted,11.5,500);}
+  }else{
+    if(R)txt(ctx,m.done?'r → 0: into the nucleus':'r = '+u.toFixed(2)+' a₀ · f = '+Math.pow(u,-1.5).toFixed(1)+' × starting f',x0,r0,m.done?C.north:C.ink,L.rdF,600);
+    else txt(ctx,'r = a₀ constant (n = 1) · f constant',x0,r0,C.ink,L.rdF,600);
+    txt(ctx,R?'f = orbit frequency = frequency of the EM waves':'no EM waves → no energy lost',x0,r1,C.muted,11.5,500);
+  }
+  /* 光谱条：两种主题都用深色底，像分光计里看到的 */
+  if(R&&wide){txt(ctx,'Light given out: continuous spectrum',x0,L.sT-17,C.ink,12.5,700);txt(ctx,'(colours illustrative)',x0,L.sT,C.ink,12.5,700);}
+  else txt(ctx,R?'Light given out (colours illustrative)':'Light given out',x0,L.sT,C.ink,12.5,700);
+  rrect(ctx,x0,y,w,h,4);ctx.fillStyle=DK;ctx.fill();ctx.strokeStyle=rgba(C.muted,0.7);ctx.lineWidth=1;ctx.stroke();
+  if(R&&m.xm>0){ctx.save();rrect(ctx,x0,y,w,h,4);ctx.clip();ctx.fillStyle=grad(ctx,x0,x1);ctx.fillRect(x0,y,w*m.xm,h);ctx.restore();}
+  if(R&&!m.done){var xn=x0+w*specX(u);seg(ctx,xn,y+2,xn,y+h-2,LT,2);
+    ctx.beginPath();ctx.moveTo(xn,y+h+1);ctx.lineTo(xn-5,y+h+8);ctx.lineTo(xn+5,y+h+8);ctx.closePath();ctx.fillStyle=C.ink;ctx.fill();}
+  if(!R)txt(ctx,'No light: stationary states do not radiate',x0+w/2,y+h/2+1,LT,wide?12:11.5,600,'center','middle');
+  /* 第一行：“现在”跟着三角形走；第二行：横轴两端 */
+  if(R&&m.done)txt(ctx,'every frequency',x0+w/2,L.sL,C.ink,11.5,700,'center');
+  else if(R){var nw=tw(ctx,'frequency now',11.5,600);txt(ctx,'frequency now',clamp(x0+w*specX(u),x0+nw/2,x1-nw/2),L.sL,C.ink,11.5,600,'center');}
+  txt(ctx,'← low frequency',x0,L.sL+17,C.muted,11.5,500);txt(ctx,'high frequency →',x1,L.sL+17,C.muted,11.5,500,'right');
+}
+
+/* ---------- 直方图：离 nucleus 的 3-D 距离 r（Schrödinger） ---------- */
+function pdf(r){return m.orb?r*r*r*r*Math.exp(-r)/24:4*r*r*Math.exp(-2*r);}
+function hist(ctx,L){
+  var x0=L.px0,x1=L.px1,y0=L.hy0,y1=L.hy1,w=x1-x0,hh=y1-y0,R=m.orb?12:4,bw=w/NB,bA=R/NB,pk=m.orb?0.1954:0.5413,mb=0,i,wide=L.wide;
+  for(i=0;i<NB;i++)if(BIN[i]>mb)mb=BIN[i];
+  var sc=Math.max(m.n*bA*pk,mb,1)*1.3;
+  txt(ctx,'3-D distance r from nucleus',x0,L.hT,C.ink,12.5,700);
+  txt(ctx,m.n+' dots',x1,L.hT,C.muted,12,600,'right','alphabetic',MONO);
+  ctx.fillStyle=rgba(C.south,0.5);
+  for(i=0;i<NB;i++){var bh=BIN[i]/sc*hh;if(bh>0.3)ctx.fillRect(x0+i*bw+1,y1-bh,bw-2,bh);}
+  if(m.n>0){ctx.beginPath();for(i=0;i<=96;i++){var r=R*i/96,yy=y1-m.n*bA*pdf(r)/sc*hh;if(i)ctx.lineTo(x0+w*i/96,yy);else ctx.moveTo(x0,yy);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+    seg(ctx,x1-118,y0+6,x1-100,y0+6,C.copper,2);txt(ctx,'theory (from ψ²)',x1,y0+10,C.muted,11,500,'right');}
+  else txt(ctx,'Press Play: dots appear one by one',x0+w/2,(y0+y1)/2,C.muted,12,500,'center');
+  seg(ctx,x0,y1,x1,y1,C.muted,1.2);seg(ctx,x0,y0-4,x0,y1,C.muted,1);
+  var xa=x0+w/R;seg(ctx,xa,y0-4,xa,y1,rgba(C.ink,0.7),1.3,[4,4]);
+  txt(ctx,m.orb?'a₀':'a₀ peak',xa+4,y0+8,C.ink,12,700);
+  var st=m.orb?4:1;for(i=0;i<=R;i+=st){var xt=x0+w*i/R;seg(ctx,xt,y1,xt,y1+4,C.muted,1);txt(ctx,String(i),xt,L.hL,C.muted,11.5,500,i===0?'left':(i===R?'right':'center'));}
+  txt(ctx,wide?'r (unit: a₀ = 5.29 × 10⁻¹¹ m)':'r (unit a₀ = 5.29 × 10⁻¹¹ m)',x0+w/2,L.hC,C.muted,11.5,500,'center');
+}
+
+/* ---------- 讲义表 3.1：这个模型的三格 ---------- */
+function table(ctx,L){
+  var W=L.W,y=L.tS,row=TB[m.mode],i;
+  seg(ctx,0,y,W,y,C.line,1);
+  if(L.wide){
+    txt(ctx,NAME[m.mode],16,y+28,C.ink,14,700);txt(ctx,'the booklet, Table 3.1',16,y+48,C.muted,11.5,500);
+    for(i=0;i<3;i++){var cx=16+(W-32)*[0.215,0.44,0.73][i];
+      txt(ctx,TH[i],cx,y+22,C.muted,11.5,500);txt(ctx,row[i],cx,y+44,(m.mode===0&&i===2)?C.north:C.ink,13.5,600);}
+  }else{
+    txt(ctx,NAME[m.mode],16,y+22,C.ink,13.5,700);
+    txt(ctx,'· the booklet, Table 3.1',22+tw(ctx,NAME[m.mode],13.5,700),y+22,C.muted,11.5,500);
+    for(i=0;i<3;i++){txt(ctx,TH[i],16,y+44+20*i,C.muted,11.5,500);txt(ctx,row[i],96,y+44+20*i,(m.mode===0&&i===2)?C.north:C.ink,13,600);}
+  }
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=740?448:(w<300?610:592);},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W);
+    DK=lum(C.ink)<lum(C.bg)?C.ink:C.bg;LT=DK===C.ink?C.bg:C.ink;
+    status(ctx,L);atom(ctx,L);energy(ctx,L);
+    if(m.mode===2)hist(ctx,L);else spectrum(ctx,L);
+    table(ctx,L);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var BM=[document.getElementById('s4-ru'),document.getElementById('s4-bo'),document.getElementById('s4-sc')],
+    BO=[document.getElementById('s4-1s'),document.getElementById('s4-2p')];
+function enter(){if(m.mode===0){resetR();if(!S4.playing)preR();}else if(m.mode===1)m.phB=0.6;else{clearS();if(!S4.playing)fillS(NFILL);}}
+function sync(){var i;for(i=0;i<3;i++)press(BM[i],m.mode===i);
+  for(i=0;i<2;i++){press(BO[i],m.orb===i);BO[i].disabled=m.mode!==2;BO[i].style.opacity=m.mode===2?'':'0.5';}}
+BM.forEach(function(b,i){b.addEventListener('click',function(){if(m.mode===i)return;m.mode=i;enter();sync();S4.render();});});
+BO.forEach(function(b,i){b.addEventListener('click',function(){if(m.mode!==2||m.orb===i)return;m.orb=i;enter();sync();S4.render();});});
+document.getElementById('s4-reset').addEventListener('click',function(){S4.setPlaying(true);enter();S4.render();});
+sync();
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 电子衍射：Davisson–Germer 和 G. P. Thomson（3.5 Key experiments）
+   两种模式：
+   - Davisson–Germer：electron gun 竖直往下（沿晶体表面的法线）打到镍晶体上。detector 在圆弧上从 0° 扫到 90°，
+     θ 从晶体表面的法线量起（0° = 正对电子枪，就是电子原路弹回的方向）。右边画 counts – θ。
+     v = √(2qV/m)，λ = h/mv，峰：d sin θ = λ（first order，正入射的一排原子）。V = 40–100 V。
+     d = 2.18 × 10⁻¹⁰ m 是示意值：选它是为了让 54 V 时 θ = 50°（booklet）。V 低于约 32 V 时 λ > d，没有峰，所以从 40 V 开始。
+     counts 曲线的形状是示意：平滑的背景 0.22 + 0.28 cos θ，加一个在峰角度的高斯峰（σ = 6°）。
+     “如果电子只是粒子”：只有平滑的背景，没有峰（紫色虚线）；实际曲线淡色画在后面做对照。
+   - G. P. Thomson：快电子穿过金属薄膜，屏幕上出现环。环的半径 ∝ λ（小角度），λ ∝ 1/√V。
+     1.0–2.5 kV 是示意；2.5 kV 时 v = 2.97 × 10⁷ m/s ≈ 0.099c < 0.1c，还可以用 h/mv（booklet：超过约 0.1c 用 h/p_v）。
+     四个环的半径比 √3 : √4 : √8 : √11、各环的亮度、1.0 kV 时最外环 = 0.9 个屏幕半径：都是示意。
+     每个电子在屏幕上是一个点（粒子一样一个一个到达），很多点拼出环（分布像波）。
+     “如果电子只是粒子”：一团模糊的光斑（二维高斯），没有环；实际的环用虚线画出来做对照。
+   常数（data sheet）：e = 1.602 × 10⁻¹⁹ C，m_e = 9.109 × 10⁻³¹ kg，h = 6.626 × 10⁻³⁴ J s，c = 3.00 × 10⁸ m/s。
+   计算值：54 V → v = 4.36 × 10⁶ m/s，λ = 1.67 × 10⁻¹⁰ m，θ = 50°；40 V → 1.94 × 10⁻¹⁰ m，63°；100 V → 1.23 × 10⁻¹⁰ m，34°；
+   1.0 kV → v = 1.88 × 10⁷ m/s，λ = 3.88 × 10⁻¹¹ m；2.5 kV → 2.45 × 10⁻¹¹ m（环是 1.0 kV 时的 63%）。
+   booklet：54 V，峰在 50°，图样给出 λ = 1.65 × 10⁻¹⁰ m，h/mv = 1.67 × 10⁻¹⁰ m；Thomson：rings that shrank at higher voltage。
+   颜色：电子 --south，镍原子 --muted，counts 曲线 --copper，粒子预测 --violet 虚线。电子飞的快慢示意（∝ √V）。 */
+var QE=1.602e-19,ME=9.109e-31,HP=6.626e-34,CL=3.00e8,DNI=2.18e-10,DEG=Math.PI/180;
+var SUP5={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
+function sup5(n){var s=String(n),o='';for(var i=0;i<s.length;i++)o+=SUP5[s.charAt(i)]||s.charAt(i);return o;}
+function sci5(x,d){var e=Math.floor(Math.log(x)/Math.LN10+1e-9),mm=x/Math.pow(10,e);if(+mm.toFixed(d)>=10){mm/=10;e++;}return mm.toFixed(d)+' × 10'+sup5(e);}
+function vel5(V){return Math.sqrt(2*QE*V/ME);}
+function lam5(V){return HP/(ME*vel5(V));}
+function peak5(V){var s=lam5(V)/DNI;return s<1?Math.asin(s)/DEG:90;}
+/* counts(θ)：相对值，示意 */
+function cnt5(th,V,part){var b=0.22+0.28*Math.cos(th*DEG);if(part)return b;var z=(th-peak5(V))/6;return b+0.55*Math.exp(-0.5*z*z);}
+function gauss5(){var u=Math.random()||1e-9;return Math.sqrt(-2*Math.log(u))*Math.cos(TAU*Math.random());}
+/* Thomson 的环：半径（以屏幕半径为 1）∝ λ，1.0 kV 时最外环 = 0.9 */
+var RS5=[3,4,8,11],RW5=[0.34,0.2,0.26,0.2];
+function ringR5(i,kV){return 0.9*Math.sqrt(RS5[i]/11)*lam5(kV*1000)/lam5(1000);}
+
+var m5={mode:'dg',Vdg:54,Vth:1.0,part:false,th:0,hold:0,sp:0,hs:0};
+var ED5=[],ET5=[],k5;
+for(k5=0;k5<60;k5++){ED5.push({on:false,s:0,a:0});ET5.push({on:false,s:0,x:0,y:0});}
+var HN5=2000,HX5=new Float32Array(HN5),HY5=new Float32Array(HN5),hI5=0,hC5=0,SMP5={x:0,y:0};
+var G5={x:0,w:1,b:0,h:1},ST5=['','',''];
+
+/* 一个电子打到屏幕上的位置（屏幕半径 = 1） */
+function hit5(o){
+  var x,y,r,a,u=Math.random(),w,i,acc;
+  if(m5.part){do{x=gauss5()*0.26;y=gauss5()*0.26;}while(x*x+y*y>0.95);o.x=x;o.y=y;return;}
+  if(u<0.2){o.x=gauss5()*0.03;o.y=gauss5()*0.03;return;}
+  a=Math.random()*TAU;
+  if(u<0.27)r=0.97*Math.sqrt(Math.random());
+  else{w=Math.random();i=0;acc=RW5[0];while(w>acc&&i<3){i++;acc+=RW5[i];}r=ringR5(i,m5.Vth)+gauss5()*0.016;}
+  o.x=r*Math.cos(a);o.y=r*Math.sin(a);
+}
+function addHit5(x,y){HX5[hI5]=x;HY5[hI5]=y;hI5=(hI5+1)%HN5;if(hC5<HN5)hC5++;}
+function refill5(){hI5=0;hC5=0;for(var i=0;i<1400;i++){hit5(SMP5);addHit5(SMP5.x,SMP5.y);}for(var j=0;j<ET5.length;j++)ET5[j].on=false;}
+/* Davisson–Germer：弹开的方向（−90°…90°，从法线量），按 counts 分布抽样 */
+function ang5(){for(var k=0;k<80;k++){var a=(Math.random()*2-1)*90;if(Math.random()*1.05<cnt5(Math.abs(a),m5.Vdg,m5.part))return a;}return 0;}
+function free5(arr){for(var i=0;i<arr.length;i++)if(!arr[i].on)return arr[i];return null;}
+
+function step5(dt){
+  var e,i;
+  if(m5.mode==='dg'){
+    if(m5.hold>0){m5.hold-=dt;if(m5.hold<=0)m5.th=0;}
+    else{m5.th+=18*dt;if(m5.th>=90){m5.th=90;m5.hold=1.6;}}
+    var sp=Math.sqrt(m5.Vdg/54);
+    m5.sp+=dt*24;
+    while(m5.sp>=1){m5.sp-=1;e=free5(ED5);if(e){e.on=true;e.s=0;e.a=ang5();}}
+    for(i=0;i<ED5.length;i++){e=ED5[i];if(!e.on)continue;e.s+=dt*sp*(e.s<1?2.2:1.0);if(e.s>=2)e.on=false;}
+  }else{
+    var sq=Math.sqrt(m5.Vth);
+    m5.sp+=dt*8;
+    while(m5.sp>=1){m5.sp-=1;e=free5(ET5);if(e){e.on=true;e.s=0;hit5(SMP5);e.x=SMP5.x;e.y=SMP5.y;}}
+    for(i=0;i<ET5.length;i++){e=ET5[i];if(!e.on)continue;e.s+=dt*0.75*sq;if(e.s>=1){addHit5(e.x,e.y);e.on=false;}}
+    m5.hs+=dt*120;
+    while(m5.hs>=1){m5.hs-=1;hit5(SMP5);addHit5(SMP5.x,SMP5.y);}
+  }
+}
+
+/* 太长就缩小字号（不小于 11 px） */
+function fit5(ctx,s,x,y,col,size,weight,maxW,align,family){
+  ctx.font=(weight||500)+' '+size+'px '+(family||FONT);var w=ctx.measureText(s).width;
+  if(w>maxW)size=Math.max(11,size*maxW/w);
+  txt(ctx,s,x,y,col,size,weight,align||'left','alphabetic',family);
+}
+/* 图例：一小段线 + 文字，返回下一个的 x */
+function leg5(ctx,x,y,col,w,dash,label){
+  seg(ctx,x,y-4,x+18,y-4,col,w,dash);txt(ctx,label,x+24,y,C.muted,12,500);
+  return x+24+ctx.measureText(label).width+16;
+}
+function legC5(ctx,cx,y,col,dash,label){
+  ctx.font='500 12px '+FONT;var tw=ctx.measureText(label).width,x=cx-(24+tw)/2;
+  leg5(ctx,x,y,col,1.4,dash,label);
+}
+/* counts 曲线：θ 从 0 到 t1（G5 = 图的位置） */
+function path5(ctx,V,part,t1){
+  ctx.beginPath();var t=0,tt,x,y;
+  for(;;){tt=Math.min(t,t1);x=G5.x+tt/90*G5.w;y=G5.b-cnt5(tt,V,part)/1.1*G5.h;if(t===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);if(tt>=t1)break;t+=1;}
+}
+
+function status5(){
+  var c=C.ink,a,b,V,p;
+  if(m5.mode==='dg'){V=m5.Vdg;p=Math.round(peak5(V));
+    if(m5.part){a='If only particles: no angle gets extra electrons';b='→ No peak. But a peak is seen, so electrons diffract';c=C.violet;}
+    else if(V===54){a='54 V: peak at 50° → the crystal diffracts electrons';b='→ Only waves diffract, so electrons act like waves';}
+    else if(V>54){a='Higher voltage → faster electrons → shorter λ';b='→ Peak moves to a smaller angle: now at '+p+'°';}
+    else{a='Lower voltage → slower electrons → longer λ';b='→ Peak moves to a larger angle: now at '+p+'°';}
+  }else{
+    if(m5.part){a='If only particles: just one blurry spot';b='→ No rings. But rings are seen, so electrons diffract';c=C.violet;}
+    else if(m5.Vth<1.05){a='Electrons pass through the film → rings on screen';b='→ A diffraction pattern, so electrons act like waves';}
+    else{a='Higher voltage → faster electrons → shorter λ';b='→ Rings get smaller (dashed: first ring at 1.0 kV)';}
+  }
+  ST5[0]=a;ST5[1]=b;ST5[2]=c;
+}
+
+function drawDG5(ctx,W,H,wide){
+  var V=m5.Vdg,lam=lam5(V),v=vel5(V),tp=peak5(V),part=m5.part,i,e;
+  var lw=wide?Math.min(380,W*0.5):W,cx=wide?lw/2+6:W/2,R=wide?150:Math.min(128,W/2-50),cy=wide?268:222;
+  var gTop=cy-R+26,gBot=cy-R*0.46;
+  /* 圆弧：detector 走右边 0°–90° */
+  ctx.beginPath();ctx.arc(cx,cy,R,Math.PI,TAU);ctx.strokeStyle=rgba(C.muted,0.3);ctx.lineWidth=1;ctx.setLineDash([3,5]);ctx.stroke();ctx.setLineDash([]);
+  ctx.beginPath();ctx.arc(cx,cy,R,-Math.PI/2,0);ctx.strokeStyle=rgba(C.muted,0.85);ctx.lineWidth=1.6;ctx.stroke();
+  for(i=0;i<=9;i++){var ta=i*10*DEG,sa=Math.sin(ta),ca=Math.cos(ta);seg(ctx,cx+(R-4)*sa,cy-(R-4)*ca,cx+(R+4)*sa,cy-(R+4)*ca,rgba(C.muted,0.85),1.2);}
+  var lr=R+(wide?24:22);
+  for(i=0;i<=3;i++){var tb=i*30*DEG;txt(ctx,(i*30)+'°',cx+lr*Math.sin(tb),cy-lr*Math.cos(tb)+4,C.muted,11.5,500,'center');}
+  /* 镍晶体：两排原子，间距 d */
+  var cw=R*0.82,kmax=Math.floor((cw-8)/16);
+  rrect(ctx,cx-cw,cy+0.5,2*cw,26,4);ctx.fillStyle=rgba(C.muted,0.1);ctx.fill();
+  for(i=-kmax;i<=kmax;i++){dot(ctx,cx+i*16,cy+6,4.8,C.muted);dot(ctx,cx+i*16,cy+18,4.8,rgba(C.muted,0.45));}
+  var dx0=cx+48,dx1=cx+64;
+  seg(ctx,dx0,cy-7,dx1,cy-7,C.ink,1.2);seg(ctx,dx0,cy-11,dx0,cy-3,C.ink,1.2);seg(ctx,dx1,cy-11,dx1,cy-3,C.ink,1.2);
+  txt(ctx,'d',(dx0+dx1)/2,cy-12,C.ink,14,600,'center','alphabetic',MATH);
+  txt(ctx,'nickel crystal',cx,cy+44,C.muted,12,500,'center');
+  /* 入射电子束 + 电子 */
+  seg(ctx,cx,gBot,cx,cy,rgba(C.south,0.3),1.2,[3,4]);
+  for(i=0;i<ED5.length;i++){e=ED5[i];if(!e.on)continue;
+    if(e.s<1)dot(ctx,cx,gBot+(cy-gBot)*e.s,3,C.south);
+    else{var rr=(e.s-1)*R*0.96,ea=e.a*DEG;dot(ctx,cx+rr*Math.sin(ea),cy-rr*Math.cos(ea),3,rgba(C.south,1-0.6*(e.s-1)));}}
+  /* 电子枪 */
+  rrect(ctx,cx-9,gTop,18,gBot-gTop,3);ctx.fillStyle=C.stage;ctx.fill();ctx.fillStyle=rgba(C.muted,0.22);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+  var gm=(gTop+gBot)/2;ctx.font='500 12px '+FONT;var gw0=ctx.measureText('electron gun').width+8;
+  rrect(ctx,cx-16-gw0,gm-17,gw0+4,38,5);ctx.fillStyle=rgba(C.stage,0.85);ctx.fill();
+  txt(ctx,'electron gun',cx-16,gm-2,C.muted,12,500,'right');
+  txt(ctx,V+' V',cx-16,gm+14,C.ink,12,600,'right');
+  /* detector：角度 θ、引线、盒子 */
+  var td=m5.th*DEG,dxp=cx+R*Math.sin(td),dyp=cy-R*Math.cos(td);
+  seg(ctx,cx,cy,dxp,dyp,rgba(C.ink,0.35),1.2,[4,4]);
+  if(m5.th>6){ctx.beginPath();ctx.arc(cx,cy,30,-Math.PI/2,-Math.PI/2+td);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+    txt(ctx,'θ',cx+43*Math.sin(td/2),cy-43*Math.cos(td/2)+5,C.ink,15,600,'center','alphabetic',MATH);}
+  var lx=cx+R*0.8,ly=cy-R-(wide?26:22);
+  seg(ctx,lx,ly+4,dxp,dyp,rgba(C.muted,0.7),1,[2,3]);
+  txt(ctx,'detector',lx,ly,C.ink,12,600,'center');
+  ctx.save();ctx.translate(dxp,dyp);ctx.rotate(td);rrect(ctx,-13,-8,26,16,3);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;ctx.stroke();
+  ctx.fillStyle=C.copper;ctx.fillRect(-7,4,14,3);ctx.restore();
+
+  /* counts – θ 图 */
+  var gx,gw,gt,gb;
+  if(wide){gx=lw+40;gw=W-gx-20;gt=98;gb=264;}else{gx=20;gw=W-36;gt=cy+80;gb=gt+110;}
+  G5.x=gx;G5.w=gw;G5.b=gb;G5.h=gb-gt;
+  txt(ctx,'counts (electrons, illustrative)',gx,gt-14,C.muted,12.5,600);
+  txt(ctx,'detector θ = '+Math.round(m5.th)+'°',gx+gw,gt-14,C.ink,12.5,600,'right');
+  for(i=1;i<=2;i++)seg(ctx,gx+i/3*gw,gt,gx+i/3*gw,gb,C.grid,1);
+  seg(ctx,gx,gt,gx,gb,C.muted,1);seg(ctx,gx,gb,gx+gw,gb,C.muted,1);
+  for(i=0;i<=3;i++){var xt=gx+i/3*gw;seg(ctx,xt,gb,xt,gb+4,C.muted,1);txt(ctx,(i*30)+'°',xt,gb+17,C.muted,11.5,500,'center');}
+  var xp=gx+tp/90*gw,yp=gb-cnt5(tp,V,false)/1.1*G5.h;
+  if(part){
+    path5(ctx,V,false,90);ctx.strokeStyle=rgba(C.copper,0.55);ctx.lineWidth=1.6;ctx.lineJoin='round';ctx.stroke();
+    txt(ctx,'real peak '+Math.round(tp)+'°',xp,yp-9,C.muted,12,600,'center');
+  }else if(V!==54){
+    path5(ctx,54,false,90);ctx.strokeStyle=rgba(C.copper,0.5);ctx.lineWidth=1.5;ctx.setLineDash([4,4]);ctx.stroke();ctx.setLineDash([]);
+  }
+  var th=m5.th,col=part?C.violet:C.copper,yc=gb-cnt5(th,V,part)/1.1*G5.h,xc=gx+th/90*gw;
+  seg(ctx,xc,gt,xc,gb,rgba(C.ink,0.25),1,[3,3]);
+  if(th>0.2){
+    if(!part){path5(ctx,V,false,th);ctx.lineTo(xc,gb);ctx.lineTo(gx,gb);ctx.closePath();ctx.fillStyle=rgba(C.copper,0.12);ctx.fill();}
+    path5(ctx,V,part,th);ctx.strokeStyle=col;ctx.lineWidth=part?2.2:2.4;ctx.lineJoin='round';ctx.setLineDash(part?[6,4]:[]);ctx.stroke();ctx.setLineDash([]);
+  }
+  dot(ctx,xc,yc,4.5,col);
+  if(!part&&th>=tp-1){seg(ctx,xp,yp+6,xp,gb,rgba(C.copper,0.7),1.2,[3,3]);txt(ctx,'peak '+Math.round(tp)+'°',xp,yp-9,C.copper,12.5,700,'center');}
+  /* 图例 */
+  var gy=gb+38,nx=gx;
+  if(part){nx=leg5(ctx,nx,gy,C.violet,2.2,[6,4],'Only particles (predicted)');leg5(ctx,nx,gy,rgba(C.copper,0.6),1.6,null,'Real (has a peak)');}
+  else{nx=leg5(ctx,nx,gy,C.copper,2.4,null,'Now '+V+' V');if(V!==54)leg5(ctx,nx,gy,rgba(C.copper,0.6),1.5,[4,4],'54 V (the booklet: peak at 50°)');}
+
+  /* 读数 */
+  var sy=wide?352:462,mw=W-32,vs=sci5(v,2),ls=sci5(lam,2),p=Math.round(tp),at=(V===54);
+  /* 和 54 V 比：电压高 → λ 短 → 峰的角度小；电压低 → 反过来 */
+  var up=V>54,dl=up?'λ shorter → sin θ = λ/d smaller':'λ longer → sin θ = λ/d larger',dp=up?'peak angle smaller':'peak angle larger';
+  seg(ctx,0,sy,W,sy,C.line,1);
+  if(wide){
+    fit5(ctx,'v = √(2qV/m) = '+vs+' m s⁻¹  →  λ = h/mv = '+ls+' m',16,sy+22,C.ink,13.5,600,mw);
+    fit5(ctx,'Peak position: d sin θ = λ → sin θ = '+(lam/DNI).toFixed(3)+' → θ = '+p+'° (d = 2.18 × 10⁻¹⁰ m, illustrative)',16,sy+44,C.ink,13,500,mw);
+    fit5(ctx,at?'The booklet: the real pattern gives λ = 1.65 × 10⁻¹⁰ m, h/mv = 1.67 × 10⁻¹⁰ m → only about 1% apart, they agree':dl+' → '+dp+' (the booklet: at 54 V the peak is at 50°)',16,sy+66,at?C.ink:C.muted,13,at?700:500,mw);
+  }else{
+    fit5(ctx,'v = √(2qV/m) = '+vs+' m s⁻¹',16,sy+22,C.ink,13,600,mw);
+    fit5(ctx,'λ = h/mv = '+ls+' m',16,sy+42,C.ink,13,600,mw);
+    fit5(ctx,'d sin θ = λ → θ = '+p+'° (d is illustrative)',16,sy+62,C.ink,12.5,500,mw);
+    fit5(ctx,at?'The booklet: the real pattern gives λ = 1.65 × 10⁻¹⁰ m':dl,16,sy+82,at?C.ink:C.muted,12.5,at?700:500,mw);
+    fit5(ctx,at?'h/mv = 1.67 × 10⁻¹⁰ m → they agree to about 1%':'→ '+dp+' (at 54 V it is 50°)',16,sy+102,at?C.ink:C.muted,12.5,at?700:500,mw);
+  }
+}
+
+function drawTH5(ctx,W,H,wide){
+  var kV=m5.Vth,lam=lam5(kV*1000),v=vel5(kV*1000),part=m5.part,i,e,x,y,u;
+  var lw=wide?Math.min(380,W*0.5):W;
+  var cyS=wide?206:120,gx0=wide?22:14,gx1=gx0+(wide?54:38),fx=wide?gx0+(lw-gx0)*0.42:gx0+(W-44)*0.42;
+  var sx=wide?lw-14:W-22,RsS=wide?108:46,fh=wide?60:36;
+  /* 侧面看：电子枪 → 薄膜 → 屏幕 */
+  if(part){ctx.beginPath();ctx.moveTo(fx,cyS);ctx.lineTo(sx,cyS-0.55*RsS);ctx.lineTo(sx,cyS+0.55*RsS);ctx.closePath();ctx.fillStyle=rgba(C.violet,0.1);ctx.fill();}
+  else{seg(ctx,fx,cyS,sx,cyS,rgba(C.south,0.3),1.2);for(i=0;i<4;i++){var ry=ringR5(i,kV)*RsS;seg(ctx,fx,cyS,sx,cyS-ry,rgba(C.south,0.2),1.2);seg(ctx,fx,cyS,sx,cyS+ry,rgba(C.south,0.2),1.2);}}
+  seg(ctx,gx1,cyS,fx,cyS,rgba(C.south,0.3),1.2,[3,4]);
+  for(i=0;i<ET5.length;i++){e=ET5[i];if(!e.on)continue;
+    if(e.s<0.4){x=gx1+(fx-gx1)*e.s/0.4;y=cyS;}else{u=(e.s-0.4)/0.6;x=fx+(sx-fx)*u;y=cyS+e.y*RsS*u;}
+    dot(ctx,x,y,2.8,C.south);}
+  rrect(ctx,gx0,cyS-10,gx1-gx0,20,3);ctx.fillStyle=rgba(C.muted,0.22);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+  txt(ctx,'electron gun',gx0,cyS-18,C.muted,12,500);
+  txt(ctx,'V = '+kV.toFixed(1)+' kV',gx0,cyS+30,C.ink,12,600);
+  ctx.fillStyle=rgba(C.muted,0.75);ctx.fillRect(fx-2,cyS-fh,4,2*fh);
+  txt(ctx,'thin metal film',fx,cyS-fh-9,C.muted,12,500,'center');
+  seg(ctx,sx,cyS-RsS,sx,cyS+RsS,rgba(C.muted,0.75),4);
+  txt(ctx,'screen',sx,cyS-RsS-9,C.muted,12,500,'center');
+
+  /* 屏幕正面：每个点 = 一个电子 */
+  var fcx,fcy,Rs;
+  if(wide){var gx=lw+40,gw=W-gx-20;fcx=gx+gw/2;fcy=206;Rs=Math.min(112,gw/2);}else{fcx=W/2;fcy=316;Rs=Math.min(108,W/2-20);}
+  txt(ctx,'Screen from the front: each dot = one electron',fcx,fcy-Rs-12,C.muted,12.5,600,'center');
+  dot(ctx,fcx,fcy,Rs,rgba(C.muted,0.08));ring(ctx,fcx,fcy,Rs,rgba(C.muted,0.45),1.2);
+  ctx.fillStyle=rgba(C.south,0.5);
+  for(i=0;i<hC5;i++)ctx.fillRect(fcx+HX5[i]*Rs-1.1,fcy+HY5[i]*Rs-1.1,2.2,2.2);
+  var legY=fcy+Rs+(wide?24:22);
+  if(part){
+    ctx.setLineDash([4,4]);for(i=0;i<4;i++){ctx.beginPath();ctx.arc(fcx,fcy,ringR5(i,kV)*Rs,0,TAU);ctx.strokeStyle=rgba(C.ink,0.7);ctx.lineWidth=1.5;ctx.stroke();}ctx.setLineDash([]);
+    legC5(ctx,fcx,legY,rgba(C.ink,0.6),[4,4],'Dashed = the rings really seen');
+  }else if(kV>1.05){
+    ctx.beginPath();ctx.arc(fcx,fcy,ringR5(0,1)*Rs,0,TAU);ctx.strokeStyle=rgba(C.ink,0.6);ctx.lineWidth=1.3;ctx.setLineDash([4,4]);ctx.stroke();ctx.setLineDash([]);
+    legC5(ctx,fcx,legY,rgba(C.ink,0.6),[4,4],'Dashed = first ring at 1.0 kV');
+  }else txt(ctx,'Ring radius ∝ λ: higher voltage, smaller rings',fcx,legY,C.muted,12,500,'center');
+
+  /* 读数 */
+  var sy=wide?352:462,mw=W-32,vs=sci5(v,2),ls=sci5(lam,2),vc=(v/CL).toFixed(3),pct=Math.round(100*lam/lam5(1000)),big=kV>1.05;
+  seg(ctx,0,sy,W,sy,C.line,1);
+  if(wide){
+    fit5(ctx,'v = √(2qV/m) = '+vs+' m s⁻¹ = '+vc+'c (< 0.1c → can use h/mv)',16,sy+22,C.ink,13.5,600,mw);
+    fit5(ctx,'λ = h/mv = '+ls+' m  →  ring radius ∝ λ ∝ 1/√V',16,sy+44,C.ink,13,600,mw);
+    fit5(ctx,big?'The rings are now '+pct+'% of their size at 1.0 kV (λ is also only '+pct+'% of its value then)':'Higher voltage → v larger → λ shorter → rings smaller',16,sy+66,big?C.ink:C.muted,13,big?600:500,mw);
+  }else{
+    fit5(ctx,'v = √(2qV/m) = '+vs+' m s⁻¹',16,sy+22,C.ink,13,600,mw);
+    fit5(ctx,'= '+vc+'c < 0.1c → can use h/mv',16,sy+42,C.muted,12.5,500,mw);
+    fit5(ctx,'λ = h/mv = '+ls+' m',16,sy+62,C.ink,13,600,mw);
+    fit5(ctx,'Ring radius ∝ λ ∝ 1/√V',16,sy+82,C.ink,12.5,500,mw);
+    fit5(ctx,big?'The rings are now '+pct+'% of their size at 1.0 kV':'Higher voltage → λ shorter → rings smaller',16,sy+102,big?C.ink:C.muted,12.5,big?600:500,mw);
+  }
+}
+
+refill5();
+for(k5=0;k5<220;k5++)step5(1/60);
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?430:578;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640;
+    status5();
+    fit5(ctx,ST5[0],16,wide?26:24,ST5[2],wide?15:14,600,W-32);
+    fit5(ctx,ST5[1],16,wide?48:44,C.ink,wide?13.5:13,500,W-32);
+    if(m5.mode==='dg')drawDG5(ctx,W,H,wide);else drawTH5(ctx,W,H,wide);
+  }
+});
+
+var b5dg=document.getElementById('s5-dg'),b5th=document.getElementById('s5-th'),b5p=document.getElementById('s5-part');
+var r5=document.getElementById('s5-v'),o5=document.getElementById('s5-v-out');
+function out5(){o5.textContent=m5.mode==='dg'?(m5.Vdg+' V'):(m5.Vth.toFixed(1)+' kV');}
+function setMode5(md){
+  m5.mode=md;press(b5dg,md==='dg');press(b5th,md==='th');m5.sp=0;m5.hs=0;
+  if(md==='dg'){r5.min='40';r5.max='100';r5.step='1';r5.value=String(m5.Vdg);}
+  else{r5.min='1';r5.max='2.5';r5.step='0.1';r5.value=m5.Vth.toFixed(1);refill5();for(var i=0;i<75;i++)step5(1/60);}
+  out5();S5.render();
+}
+b5dg.addEventListener('click',function(){if(m5.mode!=='dg')setMode5('dg');});
+b5th.addEventListener('click',function(){if(m5.mode!=='th')setMode5('th');});
+r5.addEventListener('input',function(){
+  var x=parseFloat(r5.value);
+  if(m5.mode==='dg')m5.Vdg=Math.round(clamp(x,40,100));
+  else{m5.Vth=Math.round(clamp(x,1,2.5)*10)/10;refill5();}
+  out5();S5.render();
+});
+b5p.addEventListener('click',function(){
+  m5.part=!m5.part;press(b5p,m5.part);b5p.textContent='If electrons were only particles: '+(m5.part?'on':'off');
+  if(m5.mode==='th')refill5();
+  S5.render();
+});
+out5();
+})();
+</script>
+</body>
+</html>

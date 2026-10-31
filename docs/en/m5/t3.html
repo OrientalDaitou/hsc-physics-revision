@@ -1,0 +1,1719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M5 T3 Circular Motion: Angles, Energy, Work and Torque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m5">Module 5</a><span class="sep">/</span><span aria-current="page">Topic 3</span><a class="lang" lang="zh-Hans" href="../../m5/t3.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 5 · Topic 3</div>
+  <h1>Circular Motion: Angles, Energy, Work and Torque</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter continues circular motion and looks at three things: how big the angle turned is, how the energy changes, and how a force makes things turn. It looks like a lot of formulas, but it really uses only <b>three rules</b>. Once these three are clear, the rest is simple.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s7">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s9">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Angular velocity</div>
+    <p>Angles are measured in <span class="t">radians</span>: one turn = 2π rad = 360°. On a spinning object, every point turns equally fast (same ω). Points further out move faster.</p>
+    <div class="eqs"><i>ω</i> = Δ<i>θ</i> / <i>t</i>&emsp;<i>v</i> = <i>ωr</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Work &amp; energy</div>
+    <p>A force at 90° to the motion does no work. When only gravity does work, <span class="m"><i>E</i> = <i>K</i> + <i>U</i></span> stays the same. <span class="m"><i>E</i></span> changes only when another force does work.</p>
+    <div class="eqs"><i>W</i> = <i>Fs</i> cos <i>θ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Torque</div>
+    <p>The turning effect of a force about a point is called <span class="t">torque</span>. If the torques balance, the rotation does not change.</p>
+    <div class="eqs"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i> = <i>rF</i> sin <i>θ</i></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="In this chapter">
+  <div class="map-row head"><span>Part</span><span>Key formula</span><span>Rules used</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">3.1</span><span class="t">Angular velocity</span></span><span><span class="m"><i>v</i> = <i>ωr</i></span></span><span>① Every point has the same ω; further out is faster</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">3.2</span><span class="t">Work &amp; energy</span></span><span><span class="m"><i>W</i> = <i>Fs</i> cos <i>θ</i></span></span><span>② <span class="m"><i>F</i><sub>c</sub> ⊥ <i>v</i></span>: no work, K does not change</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">3.2</span><span class="t">Vertical circles</span></span><span><span class="m"><i>K</i> + <i>U</i></span> stays the same</span><span>② Only gravity does work: slow at the top, fast at the bottom</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">3.3</span><span class="t">Torque</span></span><span><span class="m"><i>τ</i> = <i>rF</i> sin <i>θ</i></span></span><span>③ Bigger force, further out, closer to 90°: easier to turn</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">3.3</span><span class="t">Balanced torques</span></span><span><span class="m">∑<i>τ</i></span> clockwise = <span class="m">∑<i>τ</i></span> anticlockwise</span><span>③ Balanced torques: the rotation does not change</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">3.4</span><span class="t">Key experiments</span></span><span>0.59 N m · 0.24 J</span><span>Torque on a metre rule; energy while going round a circle</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially cos 90° = 0.</li>
+    <li>Teach 3.1 → 3.3 in order. For each section, read the "Big idea" first, then open the animation and let the student say what they see.</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li>Circular motion from the last chapter: <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>, <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span>, <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> (all on the sheet).</li>
+    <li><span class="t">Centripetal force</span> <span class="m"><i>F</i><sub>c</sub></span> is the <span class="t">net force</span> towards the centre: add up the real forces in the direction towards the centre. It is not an extra force.</li>
+    <li>Kinetic energy <span class="m"><i>K</i> = ½<i>mv</i>²</span>, and the change in gravitational potential energy <span class="m">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span> (from Year 11, both on the sheet).</li>
+    <li>Trigonometry: sin 90° = 1, cos 90° = 0, sin 0° = 0. A slanted force can be split into two parts at 90° to each other. Each part is called a <span class="t">component</span>.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">3.1</div>
+  <h2>Angles and angular velocity</h2>
+  <p class="big"><span class="lbl">Big idea</span>Every point on a spinning object turns through the same angle in the same time, so it has the same ω. Points further out move faster.</p>
+  <ul class="pts">
+    <li><span class="t">Radian</span> (rad): a unit for angles. One turn = 2π rad = 360°, so 1 rad ≈ 57.3°.</li>
+    <li><span class="t">Angular displacement</span> (<span class="m">Δ<i>θ</i></span>): the angle turned through, measured at the centre.</li>
+    <li><span class="t">Angular velocity</span> (<span class="m"><i>ω</i></span>): the angle turned each second. Unit: rad s<sup>−1</sup>.</li>
+  </ul>
+
+  <h3>How to change to rad</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Starting unit</th><th>To rad</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Degrees</td><td class="f">× π/180</td><td>90° = π/2 rad</td></tr>
+        <tr><td>Turns</td><td class="f">× 2π</td><td>3 turns = 6π rad</td></tr>
+        <tr><td><span class="t">rpm</span> (turns per minute)</td><td class="f">× 2π/60</td><td>60 rpm = 2π rad s<sup>−1</sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Same ω: further out is faster</h3>
+  <ul class="pts">
+    <li>Look at two points, A and B, on a spinning disc. They are on the same radius. B is 2 times as far from the centre as A.</li>
+    <li>When the disc turns, A and B turn through the same angle, so they have the same ω.</li>
+    <li>B's circle is bigger. For the same angle, B's arc is 2 times as long as A's, so B's speed is also 2 times A's.</li>
+    <li><span class="t">Arc length</span>: the distance along the edge of the circle, <span class="m"><i>s</i> = <i>rθ</i></span>. Here θ must be in rad.</li>
+    <li>Analogy: a merry-go-round. Horses on the inner ring and the outer ring take the same time for one turn. A horse on the outer ring must go round a bigger circle, so it moves faster.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">The same for every point</div><p><span class="m"><i>ω</i></span>, period <span class="m"><i>T</i></span>, frequency <span class="m"><i>f</i></span>: the whole object turns together, so they are the <b>same</b> for every point.</p></div>
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">Bigger further out</div><p><span class="t">Tangential speed</span> (speed along the circle) <span class="m"><i>v</i> = <i>ωr</i></span>, and also <span class="m"><i>a</i><sub>c</sub> = <i>ω</i>²<i>r</i></span>: with the same ω, the bigger r is, <b>the bigger they are</b>.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Angular velocity</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>ω</i> = Δ<i>θ</i> / <i>t</i></div>
+    <dl class="sym">
+      <div><dt>ω</dt><dd>angular velocity: angle turned each second (rad s<sup>−1</sup>)</dd></div>
+      <div><dt>Δθ</dt><dd>angular displacement: angle turned (rad)</dd></div>
+      <div><dt>t</dt><dd>time taken (s)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> anything that spins or moves round a circle: wheels, fans.<br><b>Trap:</b> one turn is 2π rad, not 1 rad. Change turns or degrees to rad first.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">From the period, and the speed of a point</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .5em"><i>ω</i> = 2π/<i>T</i> = 2π<i>f</i></span> <span style="display:inline-block;margin:0 .5em"><i>v</i> = <i>ωr</i></span> <span style="display:inline-block;margin:0 .5em"><i>a</i><sub>c</sub> = <i>ω</i>²<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>T</dt><dd>period, the time for one turn (s)</dd></div>
+      <div><dt>f</dt><dd>frequency (Hz)</dd></div>
+      <div><dt>r</dt><dd>radius (m), not the diameter</dd></div>
+      <div><dt>v</dt><dd>speed of this point (m s<sup>−1</sup>)</dd></div>
+      <div><dt>a<sub>c</sub></dt><dd>centripetal acceleration (m s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> one turn (2π rad) takes one period, so <span class="m"><i>ω</i> = 2π/<i>T</i></span>. The sheet gives <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>, so <span class="m"><i>v</i> = (2π/<i>T</i>) × <i>r</i> = <i>ωr</i></span>. Put <span class="m"><i>v</i> = <i>ωr</i></span> into <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span> to get <span class="m"><i>a</i><sub>c</sub> = <i>ω</i>²<i>r</i></span>.<br><b>Trap:</b> r is the radius, not the diameter.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Arc length</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>s</i> = <i>rθ</i></div>
+    <dl class="sym">
+      <div><dt>s</dt><dd>arc length: distance along the edge of the circle (m)</dd></div>
+      <div><dt>r</dt><dd>radius (m)</dd></div>
+      <div><dt>θ</dt><dd>angle turned (rad)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> <span class="m"><i>r</i> = 2.0 m</span>, turning 90° = π/2 rad: <span class="m"><i>s</i> = 2.0 × π/2 = π ≈ 3.14 m</span>.<br><b>Trap:</b> θ must be in rad. Putting in 90 directly is wrong.</p>
+  </div>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">Animation 1 · Same ω: points further out move faster</span><span class="sim-tag">Seen from above · turning anticlockwise · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A disc turns anticlockwise. Two points, A and B, are on the same radius, and B is further from the centre. Both points turn through the same angle Δθ from the start line. B has the longer arc length and the longer velocity arrow. A table beside the disc compares r, Δθ, s, ω, T, f, v and a_c for A and B."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Turning rate <input type="range" id="s1-rpm" min="6" max="30" step="3" value="24"><output id="s1-rpm-out" for="s1-rpm">24 rpm</output></label>
+    <label class="range"><span>Radius of B, <i>r</i><sub>B</sub></span> <input type="range" id="s1-rb" min="1" max="3" step="0.5" value="2"><output id="s1-rb-out" for="s1-rb">2.0 r<sub>A</sub></output></label>
+    <button class="btn" type="button" id="s1-one">Turn 1 rad, then stop</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Press "Turn 1 rad, then stop": A and B turn 1 rad (≈ 57.3°) together from the start line, then stop. Look at the table: the arc length s of each point is exactly equal to its radius r. This is what 1 rad means. ② Drag "Radius of B": in the table, Δθ, ω, T and f always say "same". r, s, v and a<sub>c</sub> change with the slider: however many times further out B is, they are that many times bigger. ③ Drag "Turning rate" from 6 to 30 rpm: ω gets bigger and T gets shorter, but A and B are still the same. The velocity arrows get longer, and the purple a<sub>c</sub> arrows grow faster (a<sub>c</sub> = ω²r). r<sub>A</sub> = 0.10 m, the turning rate and the arrow lengths are illustrative.</p>
+</figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">3.2</div>
+  <h2>Work and energy in circular motion</h2>
+  <p class="big"><span class="lbl">Big idea</span>In <span class="t">uniform circular motion</span> the net force is at 90° to the motion. So it does no work, and the speed stays constant.</p>
+  <ul class="pts">
+    <li><span class="t">Work</span> (<span class="m"><i>W</i></span>): energy transferred by a force when the object moves along the direction of the force (or of part of it). Unit: joule (J).</li>
+    <li><span class="t">Total mechanical energy</span> (<span class="m"><i>E</i></span>): kinetic energy plus potential energy, <span class="m"><i>E</i> = <i>K</i> + <i>U</i></span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Work</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>W</i> = <i>F</i><sub>∥</sub><i>s</i> = <i>Fs</i> cos <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>W</dt><dd>work (J)</dd></div>
+      <div><dt>F</dt><dd>size of the force (N)</dd></div>
+      <div><dt>F<sub>∥</sub></dt><dd>the part of the force along the displacement (N)</dd></div>
+      <div><dt>s</dt><dd>displacement (m)</dd></div>
+      <div><dt>θ</dt><dd>angle between the force and the displacement</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> <span class="m"><i>F</i> = 10 N, <i>s</i> = 2 m, <i>θ</i> = 60°</span>: <span class="m"><i>W</i> = 10 × 2 × cos 60° = 10 J</span>.<br><b>Trap:</b> <span class="m"><i>F</i><sub>c</sub></span> does no work, because θ = 90° and cos 90° = 0.</p>
+  </div>
+
+  <h3>Going round a circle: how much work does the centripetal force do?</h3>
+  <ul class="pts">
+    <li>The centripetal force <span class="m"><i>F</i><sub>c</sub></span> always points to the centre. The velocity <span class="m"><i>v</i></span> is always along the tangent. They are at 90° at <b>every instant</b>.</li>
+    <li>Split one turn into many tiny steps <span class="m">Δ<i>s</i></span>. For each tiny step: <span class="m"><i>W</i> = <i>F</i><sub>c</sub> Δ<i>s</i> cos 90° = 0</span>.</li>
+    <li><span class="t">Work–energy theorem</span>: the work done by the net force = the change in kinetic energy, <span class="m"><i>W</i><sub>net</sub> = Δ<i>K</i></span>.</li>
+    <li>The work done by the net force is 0, so <span class="m">Δ<i>K</i> = 0</span>. <span class="m"><i>K</i> = ½<i>mv</i>²</span> stays constant, and so does the speed. Only the <b>direction</b> of the velocity changes.</li>
+    <li>Analogy: above your head, whirl a small ball on a string in a horizontal circle. The string pulls inwards all the time. It only changes the direction. It does not make the ball faster or slower.</li>
+    <li>If the object is speeding up, part of the net force must be <b>along the path</b> (<span class="t">tangential</span>). This part does the work.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Work–energy theorem</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>W</i><sub>net</sub> = Δ<i>K</i></div>
+    <dl class="sym">
+      <div><dt>W<sub>net</sub></dt><dd>work done by the net force (J)</dd></div>
+      <div><dt>ΔK</dt><dd>change in kinetic energy (J)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> in uniform circular motion <span class="m"><i>W</i><sub>net</sub> = 0</span>, so <span class="m">Δ<i>K</i> = 0</span>: the speed stays constant.</p>
+  </div>
+
+  <h3>Energy: a horizontal circle and a Ferris wheel</h3>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Horizontal circle / circular orbit</div><p>The height (or the radius of a satellite's orbit) does not change, so <span class="m"><i>U</i></span> is constant. <span class="m"><i>K</i></span> is constant too, so <span class="m"><i>E</i> = <i>K</i> + <i>U</i></span> is <b>constant</b>.</p></div>
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px"><span class="t">Ferris wheel</span></div><p>Steady speed, so <span class="m"><i>K</i></span> stays the same. But as a rider rises, <span class="m"><i>U</i></span> gets bigger, so <span class="m"><i>E</i></span> <b>gets bigger</b>. The seat does positive work on the rider. The energy comes from the motor.</p></div>
+  </div>
+  <p>Gravity's work is already counted in <span class="m">Δ<i>U</i></span>. So <span class="m"><i>E</i></span> changes only when forces <b>other than gravity</b> (a push, a motor, friction) do work.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Gravity's work</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></div>
+    <dl class="sym" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+      <div><dt style="flex:none">W<sub>by gravity</sub></dt><dd>work done by gravity (J)</dd></div>
+      <div><dt>ΔU</dt><dd>change in potential energy (J)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> going up, <span class="m"><i>U</i></span> gets bigger and gravity does negative work. Going down, <span class="m"><i>U</i></span> gets smaller and gravity does positive work.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Work and total energy</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>W</i><sub>other</sub> = Δ<i>E</i> = Δ<i>K</i> + Δ<i>U</i></div>
+    <dl class="sym" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+      <div><dt style="flex:none">W<sub>other</sub></dt><dd>work done by all forces except gravity (J)</dd></div>
+      <div><dt>ΔE</dt><dd>change in total mechanical energy (J)</dd></div>
+      <div><dt style="flex:none">ΔK, ΔU</dt><dd>change in kinetic energy, change in potential energy (J)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a push, a motor or friction does work on the object.<br><b>You can also derive it:</b> gravity's work is <span class="m">−Δ<i>U</i></span>, so <span class="m"><i>W</i><sub>net</sub> = −Δ<i>U</i> + <i>W</i><sub>other</sub> = Δ<i>K</i></span>. Add <span class="m">Δ<i>U</i></span> to both sides.<br><b>Trap:</b> do not count gravity twice. Its work is already in <span class="m">Δ<i>U</i></span>.</p>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Why the centripetal force does no work</span><span class="sim-tag">Top view · slowed 10 times · 0.24 J from Experiment A · the rest illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Seen from above, a stopper on a string moves anticlockwise in a horizontal circle. The green centripetal force F_c points along the string to the centre. The grey velocity v is along the tangent. A right-angle mark is drawn between them. The circle has 8 measuring points. When the stopper passes a point, it writes the kinetic energy K at that moment. On the right (below it on a phone) is an enlarged diagram of the horizontal forces: F_c, the tangential push F∥ and the net force, and the angle θ between the net force and v. Below that are three energy bars, K, U and E, and two readouts: the work done by the net force W_net, and ΔK."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range" style="flex-wrap:wrap"><span style="white-space:nowrap">Tangential push <span class="m"><i>F</i><sub>∥</sub></span></span> <span style="display:inline-flex;align-items:center;gap:8px"><input type="range" id="s2-f" min="-0.4" max="0.4" step="0.1" value="0"><output id="s2-f-out" for="s2-f" style="min-width:9.2em">0</output></span></label>
+    <button class="btn" type="button" id="s2-reset">Restart (K = 0.24 J)</button>
+    <button class="btn" type="button" id="s2-pts" aria-pressed="true">8 measuring points: on</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First watch: the green <i>F</i><sub>c</sub> is always at 90° to <i>v</i> (the right-angle mark). The 8 measuring points all write <i>K</i> = 0.24 J, the same as Experiment A. ② Drag <span class="m"><i>F</i><sub>∥</sub></span> to the right (push forward): the top view gets an extra <i>F</i><sub>∥</sub> along the tangent (it only shows the direction; see the "Horizontal forces" diagram for the size). The angle between the net force and <i>v</i> is less than 90°. <i>K</i> increases, the <i>v</i> arrow gets longer, and the <i>F</i><sub>c</sub> needed (= <i>mv</i>²/<i>r</i>) also increases. Below, <i>W</i><sub>net</sub> and Δ<i>K</i> are always equal. ③ Drag back to 0: <i>K</i> stays at the new value and does not change any more. ④ Drag to the left (like friction): the angle is greater than 90° and <i>K</i> decreases. m = 0.030 kg, r = 0.50 m, <span class="m"><i>F</i><sub>∥</sub></span>, the height h = 1.0 m used for U, and the limits on K of 0.06–0.54 J are all illustrative values. v, <i>F</i><sub>c</sub> and U are calculated from them.</p>
+</figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">3.2</div>
+  <h2>Vertical circles</h2>
+  <p class="big"><span class="lbl">Big idea</span>On a vertical circle, gravity slows the ball down when it goes up, and speeds it up when it goes down. So it is slowest at the top and fastest at the bottom.</p>
+  <p>If only gravity does work (no motor, push or friction), the ball's speed changes round a vertical circle. This is <span class="t">non-uniform circular motion</span> (moving in a circle with a changing speed).</p>
+  <ul class="pts">
+    <li>The <span class="t">tension</span> (<span class="m"><i>F</i><sub>T</sub></span>) of the string points along the string, to the centre, at 90° to the motion. So it <b>does no work</b>.</li>
+    <li>Gravity always points down. Going up, part of gravity pulls backwards and the ball slows down. Going down, gravity speeds the ball up.</li>
+    <li>So the ball is <b>slowest at the top</b> and <b>fastest at the bottom</b>.</li>
+    <li><span class="m"><i>K</i> + <i>U</i></span> stays the same: this is the <span class="t">conservation of mechanical energy</span>.</li>
+  </ul>
+
+  <h3>Speed: use energy</h3>
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Kinetic energy and change in U</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .5em"><i>K</i> = ½<i>mv</i>²</span> <span style="display:inline-block;margin:0 .5em">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span></div>
+    <dl class="sym">
+      <div><dt>K</dt><dd>kinetic energy (J)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>v</dt><dd>speed (m s<sup>−1</sup>)</dd></div>
+      <div><dt>ΔU</dt><dd>change in gravitational potential energy (J)</dd></div>
+      <div><dt>g</dt><dd>9.8 m s<sup>−2</sup></dd></div>
+      <div><dt>Δh</dt><dd>change in height (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> to find kinetic energy; to find how much the potential energy changes when the height changes. You learned these in Year 11.<br><b>Trap:</b> <span class="m">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span> only works near the ground.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speeds on a vertical circle</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .15em">½<i>mv</i><sub>1</sub>² + <i>mgh</i><sub>1</sub></span><span style="display:inline-block;margin:0 .15em">= ½<i>mv</i><sub>2</sub>² + <i>mgh</i><sub>2</sub></span></div>
+    <dl class="sym">
+      <div><dt style="flex:none">v<sub>1</sub>, v<sub>2</sub></dt><dd>speeds at the two positions (m s<sup>−1</sup>)</dd></div>
+      <div><dt style="flex:none">h<sub>1</sub>, h<sub>2</sub></dt><dd>heights at the two positions (m)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>g</dt><dd>9.8 m s<sup>−2</sup></dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> use <span class="m"><i>K</i> = ½<i>mv</i>²</span> and <span class="m">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span> from the sheet. It only works when there is no friction.<br><b>Simplify:</b> multiply both sides by 2/<i>m</i>: <span class="m"><i>v</i><sub>2</sub>² = <i>v</i><sub>1</sub>² + 2<i>g</i>(<i>h</i><sub>1</sub> − <i>h</i><sub>2</sub>)</span>.<br><b>Trap:</b> from top to bottom, the drop is the diameter, 2<i>r</i>, not <i>r</i>. So <span class="m"><i>v</i><sub>bottom</sub>² = <i>v</i><sub>top</sub>² + 4<i>gr</i></span>.</p>
+  </div>
+
+  <h3>Forces: write equations only at the very top and bottom</h3>
+  <ul class="pts">
+    <li>Add up the <b>real forces</b>, taking "towards the centre" as positive.</li>
+    <li>Their sum is <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> (on the sheet). <span class="m"><i>F</i><sub>c</sub></span> is not an extra force. Do not draw it on a free-body diagram.</li>
+    <li>At the top, <span class="m"><i>mg</i></span> points down, which is exactly <b>towards the centre</b>. So write <span class="m">+<i>mg</i></span>, not <span class="m">−<i>mg</i></span>.</li>
+    <li>At the bottom, <span class="m"><i>F</i><sub>T</sub></span> points up, towards the centre (+). <span class="m"><i>mg</i></span> points down, away from the centre (−).</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Tension at the top and bottom</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .5em">top: <i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span> <span style="display:inline-block;margin:0 .5em">bottom: <i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>F<sub>T</sub></dt><dd>tension of the string (N)</dd></div>
+      <div><dt>mg</dt><dd>weight (N)</dd></div>
+      <div><dt>v</dt><dd>speed at that point (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the circle (m)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> taking towards the centre as positive, add up the real forces. The sum equals <span class="m"><i>mv</i>²/<i>r</i></span>. Top is the highest point and bottom is the lowest point. Inside a <span class="t">loop</span> (a circular track), use the push of the track <span class="m"><i>F</i><sub>N</sub></span> in place of <span class="m"><i>F</i><sub>T</sub></span>.<br><b>Trap:</b> writing <span class="m"><i>F</i><sub>T</sub> − <i>mg</i></span> at the top is wrong. At the top, mg points to the centre, so it is +mg.</p>
+  </div>
+
+  <h3>On a track: dip and crest</h3>
+  <p>When a cart moves on a track, there is no string. The push of the track or seat is called the <span class="t">normal force</span> (<span class="m"><i>F</i><sub>N</sub></span>). It replaces <span class="m"><i>F</i><sub>T</sub></span>. <span class="t">Apparent weight</span> is the seat's push on you, <span class="m"><i>F</i><sub>N</sub></span>: it is the weight you feel.</p>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px"><span class="t">Dip</span></div><p>The low point of a valley, with the centre above. <span class="m"><i>F</i><sub>N</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span>, so <span class="m"><i>F</i><sub>N</sub></span> is <b>larger than</b> <span class="m"><i>mg</i></span>: you feel heavier.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px"><span class="t">Crest</span></div><p>The top of a hill, with the centre below. <span class="m"><i>mg</i> − <i>F</i><sub>N</sub> = <i>mv</i>²/<i>r</i></span>, so <span class="m"><i>F</i><sub>N</sub></span> is <b>smaller than</b> <span class="m"><i>mg</i></span>: you feel lighter.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Dip and crest</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .5em">dip: <i>F</i><sub>N</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span> <span style="display:inline-block;margin:0 .5em">crest: <i>mg</i> − <i>F</i><sub>N</sub> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>F<sub>N</sub></dt><dd>push of the track or seat = apparent weight (N)</dd></div>
+      <div><dt>mg</dt><dd>weight (N)</dd></div>
+      <div><dt>v</dt><dd>speed (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the circular arc at the dip or crest (m)</dd></div>
+    </dl>
+    <p class="trap"><b>How to remember:</b> "towards the centre" is still positive. For a dip the centre is above, so <span class="m"><i>F</i><sub>N</sub></span> is positive. For a crest the centre is below, so <span class="m"><i>mg</i></span> is positive.</p>
+  </div>
+
+  <h3>When does the string go slack?</h3>
+  <ul class="pts">
+    <li>The slower the ball is at the top, the looser the string is. When <span class="m"><i>F</i><sub>T</sub> = 0</span>, the string just goes <span class="t">slack</span> (loose).</li>
+    <li>Then only gravity provides the centripetal force: <span class="m"><i>mg</i> = <i>mv</i>²/<i>r</i></span>, so <span class="m"><i>v</i> = √(<i>gr</i>)</span>. This is the <b>smallest speed</b> at the top. Any slower and the ball cannot get over the top: the string goes slack before the top, and the ball leaves the circle and falls inwards.</li>
+    <li>A cart going over a crest: if <span class="m"><i>v</i> &gt; √(<i>gr</i>)</span>, the cart leaves the track.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Smallest speed at the top</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>v</i> = √(<i>gr</i>)</div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>smallest speed at the top (m s<sup>−1</sup>)</dd></div>
+      <div><dt>g</dt><dd>9.8 m s<sup>−2</sup></dd></div>
+      <div><dt>r</dt><dd>radius of the circle (m)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> <span class="m"><i>r</i> = 1.0 m</span>: <span class="m"><i>v</i> = √(9.8 × 1.0) = 3.13 m s<sup>−1</sup></span>.<br><b>Note:</b> the m on both sides of <span class="m"><i>mg</i> = <i>mv</i>²/<i>r</i></span> cancels, so there is no m in the formula.</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · Vertical circle: ball on a string vs Ferris wheel</span><span class="sim-tag">Side view · anticlockwise · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Side view of a vertical circle, with a ball turning anticlockwise. String mode: the ball shows its velocity v, the tension F_T along the string to the centre and the weight mg downwards. A pale arrow is the part of mg along the path. The ball gets slower going up and is fastest at the bottom. Beside it are a height scale, the sizes of F_T and mg, and energy bars for K, U, E and W_other. Ferris wheel mode: steady speed, K does not change, U and E change with height."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Mode">
+      <button class="btn" type="button" id="s3-rope" aria-pressed="true">Gravity only</button>
+      <button class="btn" type="button" id="s3-wheel" aria-pressed="false">Ferris wheel</button>
+    </span>
+    <label class="range"><span id="s3-v-lab">At top v<sub>top</sub></span> <input type="range" id="s3-v" min="3.13" max="6" step="0.01" value="3.13"><output id="s3-v-out" for="s3-v">3.13 m s<sup>−1</sup></output></label>
+    <button class="btn" type="button" id="s3-stop">Stop at top</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Watch the ball go round once. Going up on the right, K gets smaller and U gets bigger, and the E bar does not move. F<sub>T</sub> is largest at the bottom. ② Press "Stop at top", then press again for "Stop at bottom", and look at the two equations with numbers. With v<sub>top</sub> at the far left, it is √(gr) = 3.13&nbsp;m&nbsp;s<sup>−1</sup>: at the top F<sub>T</sub> = 0, and the string just goes slack. Drag it to the right, and look at F<sub>T</sub> at the top again. ③ Switch to "Ferris wheel". The motor turns it at a steady speed, so v does not change and K does not change. Going up, U and E both get bigger, and W<sub>other</sub> = ΔE is positive (the seat does positive work). Going down, it is negative. r = 1.0 m, m = 0.50 kg and the Ferris wheel's v are illustrative values, and g = 9.8&nbsp;m&nbsp;s<sup>−2</sup>. The readings are all calculated from these values.</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">3.3</div>
+  <h2>Torque: what makes things turn</h2>
+  <p class="big"><span class="lbl">Big idea</span>A force can make an object turn about a point. Its turning effect is the torque: <span class="m"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i></span>. If the torques balance, the rotation does not change.</p>
+  <ul class="pts">
+    <li><span class="t">Torque</span> (<span class="m"><i>τ</i></span>): the turning effect of a force. Unit: newton metre (N m).</li>
+    <li><span class="t">Pivot</span>: the point or line that an object turns about, such as the hinge of a door.</li>
+    <li><span class="t">Line of action</span>: the line along which a force acts, drawn longer in both directions.</li>
+    <li><span class="t">Perpendicular distance</span> (<span class="m"><i>r</i><sub>⊥</sub></span>): the shortest distance from the pivot to the line of action.</li>
+  </ul>
+
+  <h3>What makes torque bigger?</h3>
+  <ul class="pts">
+    <li><b>A bigger force.</b></li>
+    <li><b>Further from the pivot.</b> A door handle is placed as far from the hinges as possible. Pushing the handle is easy. Pushing next to the hinges is hard.</li>
+    <li><b>Closer to 90° to the <span class="t">lever</span> (the bar that turns).</b> If you push at a slant, part of the force is wasted.</li>
+  </ul>
+
+  <h3>Two ways to find it, same result</h3>
+  <p>A force <span class="m"><i>F</i></span> pulls on a spanner. θ is the angle between <span class="m"><i>r</i></span> and <span class="m"><i>F</i></span>.</p>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">(a) Perpendicular distance <span class="m"><i>r</i><sub>⊥</sub></span></div><p>Draw the line of action longer in both directions. From the pivot, draw a line to it at 90°. <span class="m"><i>r</i><sub>⊥</sub> = <i>r</i> sin <i>θ</i></span>, <span class="m"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i></span>.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">(b) Perpendicular force <span class="m"><i>F</i> sin <i>θ</i></span></div><p>Split F into two components. <span class="m"><i>F</i> sin <i>θ</i></span> is perpendicular to the spanner and <span class="t">turns</span> it. <span class="m"><i>F</i> cos <i>θ</i></span> is along the spanner: <span class="t">no turning</span>. <span class="m"><i>τ</i> = <i>r</i> × <i>F</i> sin <i>θ</i></span>.</p></div>
+  </div>
+  <ul class="pts">
+    <li>sin 90° = 1, so the torque is <b>largest</b> when the force is perpendicular to the spanner.</li>
+    <li>When the line of action passes through the pivot, <span class="m"><i>r</i><sub>⊥</sub> = 0</span>, and there is <b>no torque</b>. If you push a door straight towards its hinges, the door does not move.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Torque</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i> = <i>rF</i> sin <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>τ</dt><dd>torque: turning effect of the force (N m)</dd></div>
+      <div><dt>r<sub>⊥</sub></dt><dd>perpendicular distance: pivot to line of action (m)</dd></div>
+      <div><dt>F</dt><dd>size of the force (N)</dd></div>
+      <div><dt>r</dt><dd>distance from the pivot to where the force acts (m)</dd></div>
+      <div><dt>θ</dt><dd>angle between r and F (°, use degree mode on your calculator)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a force turns an object about a pivot: doors, spanners, motors.<br><b>Example:</b> <span class="m"><i>F</i> = 40 N, <i>r</i> = 0.25 m, <i>θ</i> = 30°</span>: <span class="m"><i>τ</i> = 0.25 × 40 × sin 30° = 5.0 N m</span>.<br><b>Trap:</b> measure r from the pivot. If the angle is given from a line at 90° to the lever, use θ = 90° minus that angle. The unit is N m, not J.</p>
+  </div>
+  <p><b>Note:</b> this chapter has three different θ.</p>
+  <ul class="pts">
+    <li><span class="m">Δ<i>θ</i></span>: the angle turned through, in rad.</li>
+    <li>θ in <span class="m"><i>W</i> = <i>Fs</i> cos <i>θ</i></span>: the angle between the force and the displacement.</li>
+    <li>θ in <span class="m"><i>τ</i> = <i>rF</i> sin <i>θ</i></span>: the angle between r and F, with the calculator in degree mode.</li>
+  </ul>
+
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">Animation 4 · Torque on a spanner: two ways to find it</span><span class="sim-tag"><span style="text-transform:none">Figure 3.4</span> in motion · F = 40 N · data: illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="The pivot (a nut) is on the left and the spanner points right. A force F acts at a distance r from the pivot. The direction of F slowly turns about the point where it acts. θ is the angle between r and F. View (a) draws the line of action of the force and the perpendicular distance r⊥ from the pivot to the line of action. View (b) splits F into F sin θ, perpendicular to the spanner, and F cos θ, along the spanner. Beside this (below it on a phone) is a graph of τ against θ. The bottom two rows find the same τ in two ways."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <span class="seg" role="group" aria-label="Which way to show">
+        <button class="btn" type="button" id="s4-va" aria-pressed="true">(a) Show r⊥</button>
+        <button class="btn" type="button" id="s4-vb" aria-pressed="false">(b) Show F sin θ</button>
+      </span>
+      <label class="range"><i>θ</i> <input type="range" id="s4-th" min="0" max="180" step="1" value="30"><output id="s4-th-out" for="s4-th">30°</output></label>
+      <label class="range"><i>r</i> <input type="range" id="s4-r" min="0.10" max="0.30" step="0.01" value="0.25"><output id="s4-r-out" for="s4-r">0.25 m</output></label>
+    </div>
+    <p class="try"><b>Try it:</b> ① Press Play. The direction of F swings back and forth. At θ = 90°, F is perpendicular to the spanner, <i>r</i><sub>⊥</sub> = <i>r</i> and torque is at its maximum. At θ = 0° or 180°, the line of action passes through the pivot, <i>r</i><sub>⊥</sub> = 0 and torque = 0. ② Drag θ to 30°: <i>r</i><sub>⊥</sub> is only half of <i>r</i>, and τ = 5.0 N m, only half the maximum. ③ Switch between (a) and (b): the drawings are different, but the two ways at the bottom, (a) and (b), give exactly the same τ. ④ Make <i>r</i> bigger: with the same force, the whole τ–θ curve gets higher (this is why a door handle is far from the hinges). F = 40 N and the range of <i>r</i> are illustrative values.</p>
+  </figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">3.3</div>
+  <h2>How torque changes rotation</h2>
+  <p class="big"><span class="lbl">Big idea</span>A force changes straight-line motion. A torque changes turning motion. If the <span class="t">net torque</span> (the result of all the torques together) is not 0, the rotation changes. If it is 0 (the torques balance), the rotation does not change.</p>
+  <div class="duo">
+    <div class="state hot"><div class="state-h">net torque ≠ 0</div><p>The object starts to turn, speeds up or slows down. <b>A bigger net torque changes the rotation faster</b> (whether it is speeding up or slowing down).</p></div>
+    <div class="state"><div class="state-h">net torque = 0</div><p><span class="t">Balanced torques</span>: the rotation does not change. A still object stays still, and a turning object keeps turning at the same rate.</p></div>
+  </div>
+  <ul class="pts">
+    <li><span class="t">Clockwise</span> and <span class="t">anticlockwise</span> torques cancel each other. What is left is the net torque.</li>
+    <li>About one pivot, the condition for balanced torques is: all the clockwise torques added up = all the anticlockwise torques added up.</li>
+    <li>Analogy: a seesaw. If the torques on the two sides are equal, the seesaw stays still. A heavier person sitting closer and a lighter person sitting further away can also balance.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Balanced torques</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq">∑<i>τ</i><sub>clockwise</sub> = ∑<i>τ</i><sub>anticlockwise</sub></div>
+    <dl class="sym" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+      <div><dt style="flex:none">∑τ<sub>clockwise</sub></dt><dd>sum of all clockwise torques (N m)</dd></div>
+      <div><dt style="flex:none">∑τ<sub>anticlockwise</sub></dt><dd>sum of all anticlockwise torques (N m)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> net torque = 0 means the clockwise and anticlockwise torques are equal and cancel each other.<br><b>Example:</b> on a metre rule, the anticlockwise torque of the load is 0.59 N m. Pull straight down at <span class="m"><i>r</i> = 0.30 m</span>: <span class="m"><i>F</i> = 0.59/0.30 = 1.97 N</span>, and the two sides balance.<br><b>Trap:</b> all torques must be found about the <b>same</b> pivot.</p>
+  </div>
+
+  <h3>Torque in everyday life</h3>
+  <ul class="pts">
+    <li>Door handles are far from the hinges, and a long spanner is used on a tight nut. With a big r, the same force gives more torque.</li>
+    <li>A bicycle <span class="t">crank</span> (the arm that joins the pedal to the axle): the torque is largest when the crank is <b>horizontal</b> and the foot pushes <b>straight down</b>. Then the force is at 90° to the crank.</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Metre rule experiment: balanced and unbalanced torque</span><span class="sim-tag"><span style="text-transform:none">0.59 N m</span> from the booklet experiment · other values and speed of turning: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A metre rule on a pivot at its middle. On the left, a hanging load pulls down and gives an anticlockwise torque. On the right, a spring balance pulls down at an angle and gives a clockwise torque. The angle between F and the rule is θ, and F splits into F sin θ and F cos θ. Three bars below compare the anticlockwise torque, the clockwise torque and the angular velocity of the rule. Beside this (below it on a phone) is a graph of F sin θ against 1/r when balanced. The points all lie on a straight line through the origin."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range"><i>r</i> <input type="range" id="s5-r" min="0.10" max="0.50" step="0.05" value="0.30"><output id="s5-r-out" for="s5-r">0.30 m</output></label>
+    <label class="range"><i>θ</i> <input type="range" id="s5-th" min="30" max="90" step="5" value="90"><output id="s5-th-out" for="s5-th">90°</output></label>
+    <button class="btn" type="button" id="s5-unb" aria-pressed="false" style="min-width:10.5em">Unbalance torque</button>
+    <button class="btn" type="button" id="s5-reset">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Drag <i>r</i>: the closer the <span class="t">spring balance</span> is to the pivot, the bigger the F needed to keep the rule level, but <i>Fr</i> stays at 0.59 N m. Each new <i>r</i> adds a point to the graph on the right (below on a phone), and the points are all on a straight line through the origin. ② Drag θ to 30°: F becomes twice as big, but F sin θ does not change. Only the part perpendicular to the rule turns the rule. ③ Press "Unbalance torque": the rule starts from rest and turns anticlockwise, faster and faster. Press again: the net torque is bigger, and the rule reaches the stop block sooner. The pivot is at the <span class="t">centre of mass</span> of the rule, so the weight of the rule gives no torque. 0.59 N m comes from the booklet experiment. The position of the load, how much F drops when unbalanced, and the speed of turning (slow motion) are illustrative. When F is very small, its arrow is drawn a little longer than to scale.</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">3.4</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Investigating torque: <span class="m"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i></span></h3>
+    <dl>
+      <dt>Aim</dt><dd>To test <span class="m"><i>τ</i> = <i>rF</i> sin <i>θ</i></span>, and to see how an unbalanced torque changes the rotation.</dd>
+      <dt>Method</dt><dd>A <span class="t">metre rule</span> is pivoted at its <span class="t">centre of mass</span> (where its weight seems to act). A <span class="t">spring balance</span> keeps it level against a fixed load. This is repeated at different r and angles. Then the torques are made unbalanced.</dd>
+      <dt>Results</dt><dd><span class="m"><i>Fr</i></span> stayed at about 0.59 N m: <span class="m"><i>F</i></span> against <span class="m">1/<i>r</i></span> is a straight line through the origin. At an angle, <span class="m"><i>F</i> sin <i>θ</i></span> stayed the same. A bigger net torque changed the rotation of the rule faster.</dd>
+      <dt>Conclusion</dt><dd>Only the part of F at 90° to the rule turns it: <span class="m"><i>τ</i> = <i>rF</i> sin <i>θ</i></span>.</dd>
+      <dt>Significance</dt><dd>It explains door handles, spanners and levers, and motor torque (Module 6). Animation 5 is this experiment.</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Work and energy in circular motion</h3>
+    <dl>
+      <dt>Aim</dt><dd>To relate the work done on an object moving in a circle to its total energy.</dd>
+      <dt>Method</dt><dd><b>A:</b> a <span class="t">stopper</span> on a string is whirled in a horizontal circle. A video gives <span class="m"><i>K</i> = ½<i>mv</i>²</span> at 8 points. <b>B:</b> a ball swings down from rest through a height <span class="m"><i>h</i></span>. A <span class="t">light gate</span> (a beam that times how long the ball blocks it) gives its speed.</dd>
+      <dt>Results</dt><dd><b>A:</b> <span class="m"><i>K</i></span> stayed at 0.24 J all the way round, at the same height. <b>B:</b> <span class="m"><i>K</i></span> at the bottom was 97 % of the <span class="m"><i>U</i></span> lost (<span class="m"><i>mgh</i></span>), at every height.</dd>
+      <dt>Conclusion</dt><dd><b>A:</b> <span class="m"><i>E</i> = <i>K</i> + <i>U</i></span> was constant: the tension is at 90° to the motion and does no work. <b>B:</b> gravity does the work. The missing 3 % is a <span class="t">systematic error</span> (an error in the same direction in every reading): the light-gate beam is not a thin line, so every speed comes out slightly too low. Within this error, the K gained = the U lost.</dd>
+      <dt>Significance</dt><dd>Energy conservation explains pendulums, rollercoasters and satellites. The 8 measuring points and 0.24 J in Animation 2 are Experiment A.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>ω</i> = Δ<i>θ</i>/<i>t</i></td><td>Angular velocity (Δθ in rad)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>ω</i> = 2π/<i>T</i> = 2π<i>f</i></td><td>ω from T or f</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i> = <i>ωr</i></td><td>Speed of a point on a spinning object</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>a</i><sub>c</sub> = <i>ω</i>²<i>r</i></td><td>Centripetal acceleration of a point on a spinning object</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>W</i> = <i>F</i><sub>∥</sub><i>s</i> = <i>Fs</i> cos <i>θ</i></td><td>Work done by a force (F<sub>c</sub> does no work)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>W</i><sub>other</sub> = Δ<i>E</i> = Δ<i>K</i> + Δ<i>U</i></td><td>Work done by forces other than gravity</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">½<i>mv</i><sub>1</sub>² + <i>mgh</i><sub>1</sub><br>= ½<i>mv</i><sub>2</sub>² + <i>mgh</i><sub>2</sub></td><td>Speed on a vertical circle (no friction)</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f">top: <i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i><br>bottom: <i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></td><td>Tension at the top and bottom of a vertical circle (normal force inside a loop)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">dip: <i>F</i><sub>N</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i><br>crest: <i>mg</i> − <i>F</i><sub>N</sub> = <i>mv</i>²/<i>r</i></td><td>Normal force (apparent weight) at a dip or crest</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i> = <i>rF</i> sin <i>θ</i></td><td>Torque (θ is between r and F)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f">∑<i>τ</i><sub>clockwise</sub><br>= ∑<i>τ</i><sub>anticlockwise</sub></td><td>Balanced torques: the rotation does not change</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>Kinetic energy (Year 11)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></td><td>Change in U (only near the ground)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>s</i> = <i>rθ</i></td><td>Arc length (θ in rad)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>W</i><sub>net</sub> = Δ<i>K</i></td><td>Work–energy theorem</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i> = √(<i>gr</i>)</td><td>Smallest speed at the top (string just goes slack)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>W</i><sub>by gravity</sub> = −Δ<i>U</i></td><td>Work done by gravity and the change in U (the booklet's summary table lists it under Ch. 3 and Ch. 5)</td><td><span class="badge learn">Learn it</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">The last 6 rows are under "Other formulas" in the booklet's summary table. This chapter also uses <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>, <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span>, <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> from the last chapter (all on the sheet).</p>
+
+  <h3 id="review-must">Memorise these 5 before the exam</h3>
+  <ol class="must">
+    <li>One turn is 2π rad. <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i> = 2π/<i>T</i></span>, <span class="m"><i>v</i> = <i>ωr</i></span>: every point has the same ω.</li>
+    <li>Uniform circular motion: <span class="m"><i>F</i><sub>c</sub></span> is at 90° to <span class="m"><i>v</i></span>, so <span class="m"><i>W</i> = 0</span> and <span class="m"><i>K</i></span> is constant.</li>
+    <li>Only forces other than gravity change <span class="m"><i>E</i></span>: <span class="m"><i>W</i><sub>other</sub> = Δ<i>E</i> = Δ<i>K</i> + Δ<i>U</i></span>.</li>
+    <li>Vertical circle: use energy for the speed (top to bottom: drop 2<i>r</i>). Top: <span class="m"><i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span>; bottom: <span class="m"><i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span>.</li>
+    <li><span class="m"><i>τ</i> = <i>r</i><sub>⊥</sub><i>F</i> = <i>rF</i> sin <i>θ</i></span>, r from the pivot. A net torque changes the rotation.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> one turn is 1 rad; or putting degrees directly into <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span>.<br><span class="ok">Right:</span> one turn is 2π rad. Change turns and degrees to rad first.</div>
+    <div><span class="x">Wrong:</span> using the diameter for r in <span class="m"><i>v</i> = <i>ωr</i></span>.<br><span class="ok">Right:</span> r is the radius.</div>
+    <div><span class="x">Wrong:</span> the centripetal force does work on the object and makes it go faster and faster.<br><span class="ok">Right:</span> <span class="m"><i>F</i><sub>c</sub></span> is at 90° to v, so <span class="m"><i>W</i> = 0</span>. It only changes the direction, not the speed.</div>
+    <div><span class="x">Wrong:</span> using <span class="m"><i>W</i><sub>other</sub> = Δ<i>K</i> + Δ<i>U</i></span> and also counting gravity's work in <span class="m"><i>W</i><sub>other</sub></span>.<br><span class="ok">Right:</span> gravity's work is already in <span class="m">Δ<i>U</i></span>. Do not count it twice.</div>
+    <div><span class="x">Wrong:</span> from top to bottom, the drop in height is r.<br><span class="ok">Right:</span> the drop is the diameter, 2r: <span class="m"><i>v</i><sub>bottom</sub>² = <i>v</i><sub>top</sub>² + 4<i>gr</i></span>.</div>
+    <div><span class="x">Wrong:</span> writing <span class="m"><i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span> at the top.<br><span class="ok">Right:</span> at the top, mg points to the centre, so it is +mg: <span class="m"><i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span>.</div>
+    <div><span class="x">Wrong:</span> treating <span class="m"><i>F</i><sub>c</sub></span> as an extra force and drawing it on a free-body diagram.<br><span class="ok">Right:</span> <span class="m"><i>F</i><sub>c</sub></span> is the result of adding up the real forces.</div>
+    <div><span class="x">Wrong:</span> measuring r as the whole length of the spanner, or from some other point.<br><span class="ok">Right:</span> measure r from the pivot to where the force acts.</div>
+    <div><span class="x">Wrong:</span> the question gives the angle between the force and a line at 90° to the lever, and you use it directly as θ.<br><span class="ok">Right:</span> θ is the angle between r and F. Use 90° minus the given angle.</div>
+    <div><span class="x">Wrong:</span> writing the unit of torque as J.<br><span class="ok">Right:</span> the unit of torque is N m.</div>
+  </div>
+  <p class="jump-next"><a href="#s9">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s8">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Radian (rad)</td><td>弧度</td><td>a unit for angles: one turn = 2π rad = 360°</td></tr>
+        <tr><td class="t">Angular displacement (Δθ)</td><td>角位移</td><td>the angle turned through, measured at the centre</td></tr>
+        <tr><td class="t">Angular velocity (ω)</td><td>角速度</td><td>the angle turned each second, unit rad s<sup>−1</sup></td></tr>
+        <tr><td class="t">Revolutions per minute (rpm)</td><td>转每分（r/min）</td><td>the number of turns each minute</td></tr>
+        <tr><td class="t">Arc length (s)</td><td>弧长</td><td>the distance along the edge of the circle, s = rθ</td></tr>
+        <tr><td class="t">Tangential speed (v)</td><td>线速度</td><td>the speed of a point along the circle, v = ωr</td></tr>
+        <tr><td class="t">Component</td><td>分量（分力）</td><td>the part of a force in one direction</td></tr>
+        <tr><td class="t">Work (W)</td><td>功</td><td>energy transferred by a force when the object moves along the direction of the force, unit J</td></tr>
+        <tr><td class="t">Work–energy theorem</td><td>动能定理</td><td>the work done by the net force = the change in kinetic energy</td></tr>
+        <tr><td class="t">Total mechanical energy (E)</td><td>机械能</td><td>kinetic energy plus potential energy, E = K + U</td></tr>
+        <tr><td class="t">Uniform circular motion</td><td>匀速圆周运动</td><td>moving in a circle with a constant speed</td></tr>
+        <tr><td class="t">Non-uniform circular motion</td><td>变速圆周运动</td><td>moving in a circle with a changing speed</td></tr>
+        <tr><td class="t">Conservation of mechanical energy</td><td>机械能守恒</td><td>when only gravity does work, K + U stays the same</td></tr>
+        <tr><td class="t">Tension (F<sub>T</sub>)</td><td>拉力（张力）</td><td>the pull of a string, along the string</td></tr>
+        <tr><td class="t">Normal force (F<sub>N</sub>)</td><td>支持力（法向力）</td><td>the push of a track or seat, at 90° to the surface</td></tr>
+        <tr><td class="t">Dip</td><td>谷底</td><td>the low point of a valley on a track, with the centre above</td></tr>
+        <tr><td class="t">Crest</td><td>坡顶</td><td>the top of a hill on a track, with the centre below</td></tr>
+        <tr><td class="t">Apparent weight</td><td>视重</td><td>the seat's push on you: the weight you feel</td></tr>
+        <tr><td class="t">Torque (τ)</td><td>力矩</td><td>the turning effect of a force, unit N m</td></tr>
+        <tr><td class="t">Pivot</td><td>支点（转轴；悬点）</td><td>the point or line that an object turns about, such as a hinge</td></tr>
+        <tr><td class="t">Line of action</td><td>力的作用线</td><td>the line along which a force acts, drawn longer in both directions</td></tr>
+        <tr><td class="t">Perpendicular distance (r<sub>⊥</sub>)</td><td>力臂</td><td>the shortest distance from the pivot to the line of action</td></tr>
+        <tr><td class="t">Lever</td><td>杠杆</td><td>a bar that turns about a pivot, such as a spanner or a door</td></tr>
+        <tr><td class="t">Net torque</td><td>合力矩</td><td>the result of all the torques together; if it is not 0, the rotation changes</td></tr>
+        <tr><td class="t">Balanced torques</td><td>力矩平衡</td><td>clockwise and anticlockwise torques are equal, so the rotation does not change</td></tr>
+        <tr><td class="t">Crank</td><td>曲柄</td><td>the arm that joins a bicycle pedal to the axle</td></tr>
+        <tr><td class="t">Centre of mass</td><td>质心</td><td>where the weight seems to act</td></tr>
+        <tr><td class="t">Light gate</td><td>光电门</td><td>a beam and a timer that measure how long an object blocks the beam</td></tr>
+        <tr><td class="t">Systematic error</td><td>系统误差</td><td>an error in the same direction every time; repeating the measurement does not remove it</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary><span>1. A fan makes 30 turns each minute (30 rpm). What is ω in rad s<sup>−1</sup>? How long is the period?</span></summary><p class="ans"><b>ω = π ≈ 3.14 rad s<sup>−1</sup>, T = 2.0 s.</b> ω = 30 × 2π/60 = π rad s<sup>−1</sup>. T = 2π/ω = 2π/π = 2.0 s (30 turns in one minute, so 2 s for each turn).</p></details>
+    <details><summary><span>2. A disc has ω = 10 rad s<sup>−1</sup>. Point A is 0.10 m from the centre, and point B is 0.20 m from the centre. What is the speed of each?</span></summary><p class="ans"><b>v<sub>A</sub> = 1.0 m s<sup>−1</sup>, v<sub>B</sub> = 2.0 m s<sup>−1</sup>.</b> They have the same ω, so use v = ωr: 10 × 0.10 = 1.0, 10 × 0.20 = 2.0. B is 2 times as far out, so it is 2 times as fast.</p></details>
+    <details><summary>3. A stopper goes once round a horizontal circle at a steady speed. How much work does the tension of the string do?</summary><p class="ans"><b>0.</b> The tension points to the centre and is always at 90° to the velocity, and cos 90° = 0. So K does not change, and the speed stays the same all the time.</p></details>
+    <details><summary>4. A Ferris wheel lifts a rider at a steady speed. How do the rider's K, U and E change? Where does the energy come from?</summary><p class="ans"><b>K does not change, U gets bigger, E gets bigger.</b> The speed does not change, so K does not change. The rider gets higher, so U gets bigger. The seat does positive work on the rider (W<sub>other</sub> = ΔE). The energy comes from the motor.</p></details>
+    <details><summary>5. A ball on a string of length r = 1.0 m goes round a vertical circle. What is the smallest speed at the top? What is the speed at the bottom in this case?</summary><p class="ans"><b>Top 3.13 m s<sup>−1</sup>, bottom 7.0 m s<sup>−1</sup>.</b> Smallest speed v = √(gr) = √(9.8 × 1.0) = 3.13 m s<sup>−1</sup>. The drop is 2r, so v<sub>bottom</sub>² = v<sub>top</sub>² + 4gr = 9.8 + 4 × 9.8 × 1.0 = 49, v<sub>bottom</sub> = 7.0 m s<sup>−1</sup>.</p></details>
+    <details><summary>6. Continuing from question 5, the ball has mass m = 0.50 kg. What is the tension in the string at the bottom?</summary><p class="ans"><b>29.4 N.</b> At the bottom: F<sub>T</sub> − mg = mv²/r. F<sub>T</sub> = 0.50 × 49/1.0 + 0.50 × 9.8 = 24.5 + 4.9 = 29.4 N.</p></details>
+    <details><summary>7. When a rollercoaster goes through a dip, do you feel heavier or lighter? Why?</summary><p class="ans"><b>Heavier.</b> The centre of a dip is above: F<sub>N</sub> − mg = mv²/r, so F<sub>N</sub> = mg + mv²/r, which is larger than mg. The weight you feel (apparent weight) is F<sub>N</sub>.</p></details>
+    <details><summary>8. A 40 N force pulls on a spanner and acts 0.25 m from the pivot. The force is at 60° to the line perpendicular to the spanner. What is the torque?</summary><p class="ans"><b>5.0 N m.</b> θ is the angle between r and F: θ = 90° − 60° = 30°. τ = rF sin θ = 0.25 × 40 × sin 30° = 5.0 N m.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m5/t2.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M5 T2 · Circular Motion: Forces</span></a><a class="pg next" href="../m5/t4.html"><span class="pg-k">Next topic →</span><span class="pg-t">M5 T4 · Gravity, Orbits and Kepler&#x27;s Laws</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 5 Advanced Mechanics · Chapter 3. The experimental data (0.59 N m, 0.24 J, 97 %) are from the booklet. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1 · 同一个 ω，越外面越快（3.1）
+   A、B 在同一条半径上，圆盘逆时针转（从上往下看）。r_A = 0.10 m、转速范围、箭头比例都是示意。
+   箭头：v = ωr 的长度 = ω × KV × r（像素）；a_c = ω²r 的长度 = 0.45 (ω/ω_max)² × r（不会越过圆心，B 的箭头也碰不到 A）。
+   短箭头的箭头头按长度缩小（最多是长度的一半），箭杆才看得见。
+   “转 1 rad 就停”的时候不画 a_c，画面只看 Δθ 和两段弧长。 */
+var RA=0.10,EXT=1.25,KV=0.27,WMAX=30*TAU/60;
+var m1={dth:1.6,rpm:24,k:2,goal:false,at1:false,laps:0,lapT:99};
+function om1(){return m1.rpm*TAU/60;}
+function kstr(k){return k%1?k.toFixed(1):String(k);}
+
+/* 带下标的文字："v_A" → v + 下标 A（下标只取 _ 后面一个字符） */
+var RUNS={};
+function runs(s){var r=RUNS[s];if(r)return r;r=[];var re=/_(.)/g,last=0,mm;
+  while((mm=re.exec(s))){if(mm.index>last)r.push([s.slice(last,mm.index),0]);r.push([mm[1],1]);last=re.lastIndex;}
+  if(last<s.length)r.push([s.slice(last),0]);RUNS[s]=r;return r;}
+function subSz(z){return Math.max(11,z*0.78);}
+function runFont(r,z,wt,fam){return (r[1]?String(wt).replace('italic ',''):wt)+' '+(r[1]?subSz(z):z)+'px '+fam;}
+function mw(ctx,s,z,wt,fam){var r=runs(s),w=0;for(var i=0;i<r.length;i++){ctx.font=runFont(r[i],z,wt||500,fam||FONT);w+=ctx.measureText(r[i][0]).width+(r[i][1]?1:0);}return w;}
+function mt(ctx,s,x,y,col,z,wt,align,base,fam,halo){
+  wt=wt||500;fam=fam||FONT;var r=runs(s),w=mw(ctx,s,z,wt,fam);
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(var i=0;i<r.length;i++){
+    var sb=r[i][1];if(sb)xx+=0.5;
+    var yy=y+(sb?z*0.3:0);
+    ctx.font=runFont(r[i],z,wt,fam);ctx.textAlign='left';ctx.textBaseline=base||'alphabetic';
+    if(halo){ctx.lineWidth=4;ctx.lineJoin='round';ctx.strokeStyle=C.stage;ctx.strokeText(r[i][0],xx,yy);}
+    ctx.fillStyle=col;ctx.fillText(r[i][0],xx,yy);
+    xx+=ctx.measureText(r[i][0]).width+(sb?0.5:0);
+  }
+  return w;
+}
+function fitTxt(ctx,s,x,y,col,z,wt,maxW){ctx.font=wt+' '+z+'px '+FONT;var w=ctx.measureText(s).width;if(w>maxW)z=Math.max(11.5,Math.floor(z*maxW/w*2)/2);txt(ctx,s,x,y,col,z,wt,'left');}
+function arrowS(ctx,x1,y1,x2,y2,col,w,head){var l=Math.hypot(x2-x1,y2-y1);if(l<3)return;arrow(ctx,x1,y1,x2,y2,col,w,Math.min(head,l*0.5));}
+
+/* 画面上的文字框（只用来决定“起始线”这几个字要不要画） */
+var BX=[];
+function addBox(x,y,w,h){BX.push(x-w/2,y-h/2,x+w/2,y+h/2);}
+function hitBox(l,t,r,b){for(var i=0;i<BX.length;i+=4){if(l<BX[i+2]&&r>BX[i]&&t<BX[i+3]&&b>BX[i+1])return true;}return false;}
+
+var L1={};
+function lay1(W,H){
+  var L=L1;L.wide=W>=640;
+  if(L.wide){L.D=Math.min(150,(H/2-10)/EXT,(W-370)/(2*EXT));L.cx=12+L.D*EXT;L.cy=H/2;L.px=L.cx+L.D*EXT+18;L.pw=W-L.px-14;
+    L.x0=4;L.x1=L.px-8;L.y0=6;L.y1=H-6;}
+  else{L.D=Math.min(118,(W/2-12)/EXT);L.cx=W/2;L.cy=56+L.D*EXT;L.px=16;L.pw=W-32;
+    L.x0=4;L.x1=W-4;L.y0=54;L.y1=L.cy+L.D*EXT+4;}
+  return L;
+}
+
+/* 文字标签：中心放在 (ax, ay)，不出画面区域 */
+function label(ctx,L,s,ax,ay,col,z){
+  var w=mw(ctx,s,z,'italic 500',MATH),h=z*1.05;
+  var x=clamp(ax,L.x0+w/2,L.x1-w/2),y=clamp(ay,L.y0+h/2,L.y1-h/2);
+  mt(ctx,s,x,y,col,z,'italic 500','center','middle',MATH,true);addBox(x,y,w,h);
+}
+/* 放在半径 r 的圆弧外面、角度 a 处的标签 */
+function arcLabel(ctx,L,s,r,a,col,z){
+  var w=mw(ctx,s,z,'italic 500',MATH),h=z*1.05,ca=Math.cos(a),sa=Math.sin(a);
+  var d=r+7+w/2*Math.abs(ca)+h/2*Math.abs(sa);
+  label(ctx,L,s,L.cx+ca*d,L.cy-sa*d,col,z);
+}
+function badge(ctx,x,y,s){var r=s.length>1?11:8;dot(ctx,x,y,r,C.ink);txt(ctx,s,x,y+0.5,C.stage,s.length>1?11:11.5,700,'center','middle');addBox(x,y,2*r,2*r);}
+
+function status1(w,T,ks,same){
+  if(m1.at1)return ['Δθ = 1 rad ≈ 57.3°: arc length s equals radius r',same?'B as far out as A → same arc → same speed':'B '+ks+'× as far → arc '+ks+'× → speed '+ks+'×; same ω'];
+  if(m1.goal)return ['Turn 1 rad: A, B leave the start line together','They always turn the same angle; stops at 1 rad'];
+  if(m1.laps>0&&m1.lapT<Math.min(1,0.3*T))return ['One turn: Δθ = 2π rad = 360°, time T = '+T.toFixed(2)+' s','A, B take the same time → ω = 2π/T = '+(TAU/T).toFixed(2)+' rad s⁻¹'];
+  if(same)return ['B moved as far out as A: the points overlap','Same distance → same arc length → same speed'];
+  return ['A, B turn the same Δθ in the same time → same ω','B '+ks+'× as far → arc '+ks+'× → speed v also '+ks+'×'];
+}
+
+var LEG_L=['v velocity (along tangent)','a_c centripetal acceleration (towards centre)','s arc length'],LEG_S=['v velocity','a_c centripetal acceleration','s arc length'];
+function legend1(ctx,x,y,maxW,z){
+  var items=LEG_L,i,tot=0;
+  for(i=0;i<3;i++)tot+=24+mw(ctx,items[i],z,500,FONT)+(i?16:0);
+  if(tot>maxW)items=LEG_S;
+  var xx=x;
+  for(i=0;i<3;i++){
+    if(i&&xx-x+24+mw(ctx,items[i],z,500,FONT)>maxW){xx=x;y+=18;}
+    var yy=y-4;
+    if(i===0)arrow(ctx,xx,yy,xx+18,yy,rgba(C.ink,0.7),2.4,8);
+    else if(i===1)arrow(ctx,xx,yy,xx+18,yy,C.violet,2,7);
+    else seg(ctx,xx,yy,xx+18,yy,C.copper,3.2);
+    xx+=24;xx+=mt(ctx,items[i],xx,y,C.muted,z,500,'left','alphabetic',FONT)+16;
+  }
+}
+
+function panel1(ctx,L,W,same){
+  var w=om1(),T=60/m1.rpm,k=m1.k,ks=kstr(k),x=L.px,pw=L.pw,wd=L.wide,y;
+  var st=status1(w,T,ks,same);
+  if(wd){fitTxt(ctx,st[0],x,34,C.ink,15,600,pw);fitTxt(ctx,st[1],x,58,C.ink,14,500,pw);y=88;}
+  else{fitTxt(ctx,st[0],16,24,C.ink,13.5,600,W-32);fitTxt(ctx,st[1],16,44,C.ink,13.5,500,W-32);y=L.cy+EXT*L.D+28;}
+  var th=m1.dth,thr=Math.round(th*100)/100,t=th/w;
+  txt(ctx,'Δθ = '+thr.toFixed(2)+' rad = '+(th*180/Math.PI).toFixed(1)+'°   t = '+t.toFixed(2)+' s',x,y,C.muted,wd?13:12,500,'left','alphabetic',MONO);
+  txt(ctx,'ω = '+m1.rpm+' rpm × 2π/60 = '+w.toFixed(2)+' rad s⁻¹',x,y+(wd?24:22),C.ink,wd?13.5:13,600);
+  /* 表：A 和 B 比一比 */
+  var ty=y+(wd?54:50),rh=wd?22:21,lw=wd?134:122,cw=(pw-lw)/3,fz=wd?13:12;
+  var c1=x+lw+cw*0.5,c2=x+lw+cw*1.5,c3=x+lw+cw*2.5;
+  badge(ctx,c1,ty-4,'A');badge(ctx,c2,ty-4,'B');
+  txt(ctx,'B vs A',c3,ty,C.muted,12,600,'center');
+  var cmp=same?'same':'× '+ks,rB=RA*k;
+  function row(i,lab,a,b,cm,col){
+    var yy=ty+rh*(i+1);
+    if(cm==='same'){rrect(ctx,x-6,yy-fz-3,pw+10,rh-2,5);ctx.fillStyle=rgba(C.muted,0.09);ctx.fill();}
+    mt(ctx,lab,x,yy,col,fz,col===C.ink?500:600,'left','alphabetic',FONT);
+    txt(ctx,a,c1,yy,C.ink,fz,500,'center','alphabetic',MONO);txt(ctx,b,c2,yy,C.ink,fz,500,'center','alphabetic',MONO);
+    txt(ctx,cm,c3,yy,C.ink,fz,700,'center');
+  }
+  row(0,'r (m)',RA.toFixed(2),rB.toFixed(2),cmp,C.ink);
+  row(1,'Δθ (rad)',thr.toFixed(2),thr.toFixed(2),'same',C.ink);
+  row(2,'s = rΔθ (m)',(RA*thr).toFixed(3),(rB*thr).toFixed(3),cmp,C.copper);
+  row(3,'ω (rad s⁻¹)',w.toFixed(2),w.toFixed(2),'same',C.ink);
+  row(4,'T (s)',T.toFixed(2),T.toFixed(2),'same',C.ink);
+  row(5,'f (Hz)',(m1.rpm/60).toFixed(2),(m1.rpm/60).toFixed(2),'same',C.ink);
+  row(6,'v = ωr (m s⁻¹)',(w*RA).toFixed(3),(w*rB).toFixed(3),cmp,C.ink);
+  row(7,'a_c = ω²r (m s⁻²)',(w*w*RA).toFixed(3),(w*w*rB).toFixed(3),cmp,C.violet);
+  legend1(ctx,x,ty+rh*8+(wd?22:28),pw,wd?12.5:12);
+}
+
+function draw1(ctx,W,H){
+  ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+  BX.length=0;
+  var L=lay1(W,H),D=L.D,cx=L.cx,cy=L.cy,th=m1.dth,c=Math.cos(th),s=Math.sin(th);
+  var urx=c,ury=-s,utx=-s,uty=-c,w=om1(),k=m1.k,same=k<1.01;
+  var rA=0.31*D,rB=rA*k,rD=0.13*D,lz=L.wide?14:13,demo=m1.goal||m1.at1;
+  var fa=demo?0:0.45*(w/WMAX)*(w/WMAX);
+  /* 圆盘、边上的刻度（跟着转）、起始线、A 和 B 所在的半径 */
+  dot(ctx,cx,cy,D,rgba(C.muted,0.07));ring(ctx,cx,cy,D,rgba(C.muted,0.5),1.5);
+  for(var j=0;j<12;j++){var a=th+j*TAU/12,ca=Math.cos(a),sa=Math.sin(a);seg(ctx,cx+ca*D*0.93,cy-sa*D*0.93,cx+ca*D,cy-sa*D,rgba(C.muted,0.5),1.5);}
+  seg(ctx,cx,cy,cx+D+8,cy,rgba(C.muted,0.9),1.3,[5,5]);
+  seg(ctx,cx,cy,cx+urx*D,cy+ury*D,rgba(C.ink,0.4),1.6);
+  /* Δθ（在圆心量）和两段弧长 s = rθ */
+  if(th>0.002){
+    ctx.lineCap='round';
+    ctx.beginPath();ctx.arc(cx,cy,rD,0,-th,true);ctx.strokeStyle=C.ink;ctx.lineWidth=1.6;ctx.stroke();
+    ctx.beginPath();ctx.arc(cx,cy,rA,0,-th,true);ctx.strokeStyle=C.copper;ctx.lineWidth=3.2;ctx.stroke();
+    if(!same){ctx.beginPath();ctx.arc(cx,cy,rB,0,-th,true);ctx.stroke();}
+    ctx.lineCap='butt';
+  }
+  /* 箭头：v 沿切线、指向转的方向；a_c 指向圆心（A 的画在前面，B 的画在后面，免得叠在一起） */
+  var ax=cx+urx*rA,ay=cy+ury*rA,bx=cx+urx*rB,by=cy+ury*rB,br=same?11:8,off=br+4;
+  var LvA=w*KV*rA,LvB=w*KV*rB,LaA=fa*rA,LaB=fa*rB,sx,sy;
+  if(!same&&LaA>=4){sx=ax+utx*off-urx*7;sy=ay+uty*off-ury*7;arrowS(ctx,sx,sy,sx-urx*LaA,sy-ury*LaA,C.violet,2,7);}
+  if(LaB>=4){sx=bx-utx*off-urx*2;sy=by-uty*off-ury*2;arrowS(ctx,sx,sy,sx-urx*LaB,sy-ury*LaB,C.violet,2,7);}
+  if(!same)arrowS(ctx,ax+utx*(br+1.5),ay+uty*(br+1.5),ax+utx*(br+1.5+LvA),ay+uty*(br+1.5+LvA),rgba(C.ink,0.7),2.6,9);
+  arrowS(ctx,bx+utx*(br+1.5),by+uty*(br+1.5),bx+utx*(br+1.5+LvB),by+uty*(br+1.5+LvB),rgba(C.ink,0.7),2.6,9);
+  if(same)badge(ctx,bx,by,'AB');else{badge(ctx,ax,ay,'A');badge(ctx,bx,by,'B');}
+  dot(ctx,cx,cy,3.5,C.ink);
+  /* 标签 */
+  function vLab(px,py,Lv,s2){var ww=mw(ctx,s2,lz,'italic 500',MATH),d=br+1.5+Lv+5+ww/2*Math.abs(utx)+lz*0.55*Math.abs(uty);label(ctx,L,s2,px+utx*d,py+uty*d,C.ink,lz);}
+  if(same)vLab(bx,by,LvB,'v_A = v_B');else{vLab(ax,ay,LvA,'v_A');vLab(bx,by,LvB,'v_B');}
+  /* s 的标签放在弧外；不在“转 1 rad”时，A 的标签离半径远一点，给 B 的 a_c 箭头让路 */
+  if(th>=0.8){
+    if(same)arcLabel(ctx,L,'s_A = s_B',rB,0.5*th,C.copper,lz);
+    else{arcLabel(ctx,L,'s_A',rA,demo?0.42*th:Math.min(0.42*th,th-0.6),C.copper,lz);arcLabel(ctx,L,'s_B',rB,0.58*th,C.copper,lz);}
+  }
+  /* Δθ 的标签放在 Δθ 弧和 A 的弧中间 */
+  if(demo?th>=0.8:th>=1.5){var aD=demo?0.5*th:Math.min(0.5*th,th-1),rc=(rD+rA)/2;label(ctx,L,'Δθ',cx+Math.cos(aD)*rc,cy-Math.sin(aD)*rc,C.ink,lz-1);}
+  /* “起始线”：只在不和别的字、点重叠时画 */
+  ctx.font='500 11.5px '+FONT;var sw=ctx.measureText('start line').width,sxr=cx+D-6,syb=cy+16;
+  if(th>=0.35&&th<=TAU-1&&!hitBox(sxr-sw-2,syb-11,sxr+2,syb+3))txt(ctx,'start line',sxr,syb,C.muted,11.5,500,'right');
+  panel1(ctx,L,W,same);
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){if(w>=640)return 372;var D=Math.min(118,(w/2-12)/EXT);return Math.round(2*EXT*D+362);},
+  step:function(dt){
+    if(m1.at1&&!S1.playing)return;
+    m1.at1=false;
+    var n=4,h=dt/n,w=om1();
+    for(var i=0;i<n;i++){
+      m1.dth+=w*h;m1.lapT+=h;
+      if(m1.goal&&m1.dth>=1){m1.dth=1;m1.goal=false;m1.at1=true;S1.setPlaying(false);return;}
+      if(m1.dth>=TAU){m1.dth-=TAU;m1.laps++;m1.lapT=0;}
+    }
+  },
+  draw:draw1
+});
+
+var r1=document.getElementById('s1-rpm'),o1=document.getElementById('s1-rpm-out');
+r1.addEventListener('input',function(){m1.rpm=parseFloat(r1.value);o1.textContent=m1.rpm+' rpm';S1.render();});
+var r1b=document.getElementById('s1-rb'),o1b=document.getElementById('s1-rb-out');
+r1b.addEventListener('input',function(){m1.k=parseFloat(r1b.value);o1b.innerHTML=m1.k.toFixed(1)+' r<sub>A</sub>';S1.render();});
+document.getElementById('s1-one').addEventListener('click',function(){m1.dth=0;m1.goal=true;m1.at1=false;m1.lapT=99;S1.setPlaying(true);S1.render();});
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2：向心力为什么不做功。从上往下看，塞子在水平圆上逆时针转（画面慢放 10 倍）。
+   K 起点 0.24 J（booklet 实验 A）。m = 0.030 kg、r = 0.50 m（示意）→ v = 4.0 m s⁻¹，F_c = mv²/r = 0.96 N（计算值）。
+   切向推力 F_∥（示意）沿切线做功：W = F_∥ Δs；F_c ⊥ v，每一小步 W = F_c Δs cos 90° = 0。
+   K 限制在 0.06–0.54 J（示意，v = 2–6 m s⁻¹），到边界 F_∥ 自动归 0。
+   U = mgh，h = 1.0 m（示意，水平圆高度不变）。
+   俯视图：F_c 按比例（kM），从塞子边上画起；F_∥ ≠ 0 时在塞子外侧沿切线画 F_∥，长度按同一比例但最短 16 px（只表示方向，大小看受力图）。
+   受力图：F_c、F_∥ 和合力用同一比例 kF（按宽度算，最大 85 / 90 px/N），所以画出的夹角就是算出的 θ。 */
+var M=0.030,R0=0.50,K0=0.24,KMIN=0.06,KMAX=0.54,G=9.8,HU=1.0,TS=0.1;
+var V0=Math.sqrt(2*K0/M),VMIN=Math.sqrt(2*KMIN/M),VMAX=Math.sqrt(2*KMAX/M),FCMAX=M*VMAX*VMAX/R0;
+var UU=Math.round(M*G*HU*100)/100;
+var NP=8,DP=TAU/NP;
+var m2={tot:0,phi:0,v:V0,K:K0,W:0,f:0,pts:true,lab:[],last:0,lim:null,moved:false};
+var rF=document.getElementById('s2-f'),oF=document.getElementById('s2-f-out');
+function clearPts(){for(var i=0;i<NP;i++)m2.lab[i]=null;m2.last=Math.floor(m2.tot/DP);}
+clearPts();
+function fOut(){var f=m2.f;oF.textContent=f===0?'0':(f>0?'+':'−')+Math.abs(f).toFixed(1)+' N '+(f>0?'forward':'backward');}
+function hit(which){m2.f=0;m2.lim=which;rF.value='0';fOut();}
+
+/* 推进 h 秒（物理时间）：v 沿切线按 F_∥/m 变，W_net 累加 F_∥ Δs（F_c 的功是 0） */
+function adv(h){
+  var v0=m2.v,f=m2.f,v1=v0+f/M*h,ds=0.5*(v0+v1)*h,dw=f*ds;
+  if(f>0&&v1>=VMAX){v1=VMAX;dw=0.5*M*VMAX*VMAX-m2.K;ds=0.5*(v0+v1)*h;hit('top');}
+  else if(f<0&&v1<=VMIN){v1=VMIN;dw=0.5*M*VMIN*VMIN-m2.K;ds=0.5*(v0+v1)*h;hit('bot');}
+  m2.v=v1;m2.K=0.5*M*v1*v1;m2.W+=dw;m2.tot+=ds/R0;
+  while(Math.floor(m2.tot/DP)>m2.last){m2.last++;m2.lab[m2.last%NP]=m2.K;}
+  m2.phi=m2.tot%TAU;
+}
+/* 第一帧：先转一圈多一点，8 个点都已经写上 0.24 J，塞子停在右边（和 booklet Figure 3.2 一样） */
+while(m2.tot<TAU+0.3)adv(0.002);
+
+function sgn(x){return Math.abs(x)<0.005?'0.00':(x>0?'+':'−')+Math.abs(x).toFixed(2);}
+
+/* 文字里的 _x 或 _{xx} 画成下标（F_c、W_{net}），下标不小于 11 px；下标 ∥ 用两条竖线画（中文字体会把 ∥ 画成斜的） */
+function rich(ctx,s,x,y,col,size,weight,align,family){
+  var parts=[],re=/_\{([^}]*)\}|_(\S)/g,i=0,mt,w=0,k;
+  while((mt=re.exec(s))){if(mt.index>i)parts.push([s.slice(i,mt.index),0]);parts.push([mt[1]||mt[2],1]);i=re.lastIndex;}
+  if(i<s.length)parts.push([s.slice(i),0]);
+  var ss=Math.max(11,size*0.74),ws=[];
+  for(k=0;k<parts.length;k++){
+    if(parts[k][0]==='∥'){ws.push(ss*0.52);}
+    else{ctx.font=(weight||500)+' '+(parts[k][1]?ss:size)+'px '+(family||FONT);ws.push(ctx.measureText(parts[k][0]).width);}
+    w+=ws[k];
+  }
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(k=0;k<parts.length;k++){
+    var sub=parts[k][1],yb=y+(sub?size*0.26:0);
+    if(parts[k][0]==='∥'){var lw=weight>=700?1.5:1.25;seg(ctx,cx+ss*0.16,yb-ss*0.74,cx+ss*0.16,yb+ss*0.06,col,lw);seg(ctx,cx+ss*0.38,yb-ss*0.74,cx+ss*0.38,yb+ss*0.06,col,lw);}
+    else txt(ctx,parts[k][0],cx,yb,col,sub?ss:size,weight,'left','alphabetic',family);
+    cx+=ws[k];
+  }
+  return w;
+}
+function farrow(ctx,x1,y1,x2,y2,col,w,head){var L=Math.hypot(x2-x1,y2-y1);if(L<1.5)return;if(L<head*2.2)head=Math.max(3.5,L*0.45);arrow(ctx,x1,y1,x2,y2,col,w,head);}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640},cw;
+  if(o.wide){
+    o.f1=15;o.f2=13.5;o.s1=26;o.s2=48;
+    cw=Math.min(400,Math.round(W*0.5));
+    o.R=Math.min(132,cw/2-58);o.cx=16+cw/2;o.cy=98+o.R;o.kv=11;
+    o.xr=16+cw+24;o.xe=W-16;o.kF=Math.min(90,Math.floor((o.xe-o.xr-100)/FCMAX));o.kvf=10;
+    o.ft=86;o.Sy=o.ft+76;
+    o.ra=o.Sy+60;o.rb=o.ra+23;o.e0=o.rb+36;o.de=26;o.wl=o.e0+2*o.de+32;
+    o.H=Math.round(Math.max(o.cy+o.R+42,o.wl+24));
+  }else{
+    o.f1=13.5;o.f2=12.5;o.s1=24;o.s2=45;
+    o.R=Math.min(112,W/2-62);o.cx=W/2;o.cy=80+o.R;o.kv=9;
+    o.xr=16;o.xe=W-16;o.kF=Math.min(85,Math.floor((o.xe-o.xr-100)/FCMAX));o.kvf=8;
+    o.ft=o.cy+o.R+48;o.Sy=o.ft+64;
+    o.ra=o.Sy+58;o.rb=o.ra+22;o.e0=o.rb+34;o.de=24;o.wl=o.e0+2*o.de+30;
+    o.H=Math.round(o.wl+20);
+  }
+  o.kM=0.78*o.R/FCMAX;
+  o.Sx=Math.round((o.xr+40+o.kF*FCMAX+o.xe-60)/2);
+  LY=o;return o;
+}
+
+/* ---------- 状态提示（两行） ---------- */
+function status(){
+  var K=m2.K.toFixed(2),up=m2.K>K0;
+  if(m2.f>0)return ['F_∥ forward: net force at angle θ < 90° to v','F_∥ does positive work → K increases (W_{net} = ΔK > 0)'];
+  if(m2.f<0)return ['F_∥ backward (like friction): angle θ > 90°','F_∥ does negative work → K decreases (W_{net} = ΔK < 0)'];
+  if(m2.lim)return ['K at '+(m2.lim==='top'?'upper':'lower')+' limit '+K+' J (illustrative) → F_∥ resets to 0','Only F_c ⊥ v again → K constant. Press "Restart" for 0.24 J'];
+  var same=Math.abs(m2.K-K0)<0.005;
+  if(!m2.moved&&same)return ['F_c ⊥ v → for each tiny step W = F_c Δs cos 90° = 0','→ K stays at '+K+' J. Only the direction of v changes'];
+  if(same)return ['F_∥ = 0: only F_c is left again, at 90° to v → W = 0','K stays at '+K+' J, the same as at the start'];
+  return ['F_∥ = 0: only F_c is left again, at 90° to v → W = 0','K stays at '+K+' J. v is '+(up?'larger':'smaller')+', so F_c = mv²/r is '+(up?'larger':'smaller')];
+}
+
+/* ---------- 俯视图：塞子、绳子、F_c、v、8 个测量点 ---------- */
+function drawTop(ctx,o){
+  var cx=o.cx,cy=o.cy,R=o.R,phi=m2.phi,c=Math.cos(phi),s=Math.sin(phi),i;
+  var px=cx+R*c,py=cy-R*s,ux=-c,uy=s,tx=-s,ty=-c;
+  ctx.setLineDash([4,5]);ring(ctx,cx,cy,R,rgba(C.muted,0.55),1.3);ctx.setLineDash([]);
+  ctx.beginPath();ctx.arc(cx,cy,R,-phi+1.1,-phi,true);ctx.strokeStyle=rgba(C.copper,0.85);ctx.lineWidth=3;ctx.lineCap='round';ctx.stroke();ctx.lineCap='butt';
+  var PB=[];
+  if(m2.pts){
+    for(i=0;i<NP;i++){
+      var a=i*DP,ca=Math.cos(a),sa=Math.sin(a),qx=cx+R*ca,qy=cy-R*sa,k=m2.lab[i];
+      dot(ctx,qx,qy,3.5,k==null?rgba(C.muted,0.7):C.copper);
+      if(k!=null){var al=ca>0.3?'left':(ca<-0.3?'right':'center'),rr=R+(Math.abs(ca)>0.9?12:(Math.abs(ca)>0.3?15:17)),pz=o.wide?12.5:11.5,ks=k.toFixed(2)+' J';
+        txt(ctx,ks,cx+rr*ca,cy-rr*sa,C.copper,pz,600,al,'middle',MONO);
+        ctx.font='600 '+pz+'px '+MONO;var pw=ctx.measureText(ks).width,lx0=al==='left'?cx+rr*ca:(al==='right'?cx+rr*ca-pw:cx+rr*ca-pw/2);
+        PB.push([lx0,cy-rr*sa-pz*0.6,lx0+pw,cy-rr*sa+pz*0.6]);}
+    }
+  }
+  dot(ctx,cx,cy,4.5,C.ink);
+  txt(ctx,'centre (hand)',cx-8,cy+17,C.muted,11.5,600,'right');
+  seg(ctx,cx,cy,px,py,rgba(C.muted,0.9),1.5);
+  var Fc=M*m2.v*m2.v/R0,a1=Fc*o.kM,Lv=m2.v*o.kv;
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.beginPath();
+  ctx.moveTo(px+13*ux,py+13*uy);ctx.lineTo(px+13*ux+13*tx,py+13*uy+13*ty);ctx.lineTo(px+13*tx,py+13*ty);ctx.stroke();
+  dot(ctx,px,py,7,C.muted);ring(ctx,px,py,7,C.ink,1.5);
+  farrow(ctx,px+7*ux,py+7*uy,px+(7+a1)*ux,py+(7+a1)*uy,C.force,3.2,11);
+  arrow(ctx,px,py,px+Lv*tx,py+Lv*ty,rgba(C.ink,0.7),2.5,9);
+  /* F_∥：在塞子外侧沿切线（往前或往后），长度按 kM，最短 16 px（只表示方向） */
+  if(m2.f!==0){
+    var sg=m2.f>0?1:-1,Lp=Math.max(16,Math.abs(m2.f)*o.kM),ox=px-11*ux,oy=py-11*uy;
+    farrow(ctx,ox,oy,ox+sg*Lp*tx,oy+sg*Lp*ty,C.force,2.6,8);
+    ctx.font='700 14px '+FONT;var fw=ctx.measureText('F').width+9,fh=16,cands=[[ox-16*ux+sg*Lp*0.5*tx,oy-16*uy+sg*Lp*0.5*ty],[ox+sg*(Lp+12)*tx,oy+sg*(Lp+12)*ty],[ox-16*ux+sg*(Lp+10)*tx,oy-16*uy+sg*(Lp+10)*ty]];
+    for(var ci=0;ci<cands.length;ci++){var lx=cands[ci][0],ly=cands[ci][1],ok=lx-fw/2>2&&lx+fw/2<o.W-2&&ly-fh/2>2;
+      for(var pi=0;ok&&pi<PB.length;pi++){var b=PB[pi];if(lx-fw/2<b[2]+2&&lx+fw/2>b[0]-2&&ly-fh/2<b[3]+2&&ly+fh/2>b[1]-2)ok=false;}
+      if(ok){rich(ctx,'F_∥',lx,ly+5,C.force,14,700,'center');break;}}
+  }
+  var lu=Math.max(a1/2,18);
+  rich(ctx,'F_c',px+lu*ux-15*tx,py+lu*uy-15*ty+5,C.force,14,700,'center');
+  var lt=Math.max(Lv*0.55,25);
+  txt(ctx,'v',px+18*ux+lt*tx,py+18*uy+lt*ty+5,C.muted,14,700,'center');
+}
+
+/* ---------- 放大的水平受力图（固定方向：圆心在左，v 向上） ---------- */
+function drawFBD(ctx,o){
+  var Sx=o.Sx,Sy=o.Sy,Fc=M*m2.v*m2.v/R0,f=m2.f,a=Fc*o.kF,b=f*o.kF,cf=C.force;
+  txt(ctx,'Horizontal forces (enlarged, centre on the left)',o.xr,o.ft,C.muted,12,600);
+  seg(ctx,Sx,Sy,Sx,Sy-44,rgba(C.muted,0.75),1.2,[3,3]);
+  ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(Sx-10,Sy);ctx.lineTo(Sx-10,Sy-10);ctx.lineTo(Sx,Sy-10);ctx.stroke();
+  dot(ctx,Sx,Sy,5.5,C.muted);ring(ctx,Sx,Sy,5.5,C.ink,1.3);
+  var vx=Sx+40,Lv=m2.v*o.kvf;
+  arrow(ctx,vx,Sy,vx,Sy-Lv,rgba(C.ink,0.7),2.5,9);
+  txt(ctx,'v',vx+9,Sy-Lv/2+5,C.muted,13,700);
+  if(f===0){
+    farrow(ctx,Sx,Sy,Sx-a,Sy,cf,3.4,11);
+    rich(ctx,'F_c (= net force)',Sx-a/2,Sy+21,cf,13,700,'center');
+  }else{
+    seg(ctx,Sx-a,Sy,Sx-a,Sy-b,rgba(cf,0.55),1.2,[4,3]);
+    seg(ctx,Sx,Sy-b,Sx-a,Sy-b,rgba(cf,0.55),1.2,[4,3]);
+    farrow(ctx,Sx,Sy,Sx-a,Sy,rgba(cf,0.7),2,8);
+    farrow(ctx,Sx,Sy,Sx,Sy-b,rgba(cf,0.7),2,8);
+    farrow(ctx,Sx,Sy,Sx-a,Sy-b,cf,3.4,11);
+    var an=Math.atan2(-b,-a),sw=((-Math.PI/2-an)%TAU+TAU)%TAU,mid=-Math.PI/2-sw/2;
+    ctx.beginPath();ctx.arc(Sx,Sy,22,-Math.PI/2,an,true);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+    txt(ctx,'θ',Sx+34*Math.cos(mid),Sy+34*Math.sin(mid)+5,C.ink,14,500,'center','alphabetic',MATH);
+    rich(ctx,'F_∥',Sx+8,Sy-b/2+5,cf,13,700,'left');
+    txt(ctx,'net force',Sx-a-7,Sy-b+(b>0?0:9),cf,13,700,'right');
+    var fx=-Math.max(a+4,46);
+    rich(ctx,'F_c',Sx+fx,Sy+(b>0?17:-8),cf,13,700,'right');
+  }
+  /* 读数 */
+  var th=Math.atan2(Fc,f)*180/Math.PI,x0=o.xr;
+  var w1=txt2(ctx,'v = '+m2.v.toFixed(2)+' m s⁻¹',x0,o.ra,C.ink,13,600,MONO);
+  rich(ctx,'F_c = mv²/r = '+Fc.toFixed(2)+' N',x0+w1+18,o.ra,cf,13,600,'left',MONO);
+  var s2=f===0?'F_∥ = 0   angle θ = 90° → cos θ = 0 → W = 0':
+    'F_∥ = '+(f>0?'+':'−')+Math.abs(f).toFixed(1)+' N   angle θ = '+Math.round(th)+'° → W '+(f>0?'> 0':'< 0');
+  rich(ctx,s2,x0,o.rb,C.ink,o.wide?13:12.5,600,'left');
+}
+function txt2(ctx,s,x,y,col,size,weight,family){txt(ctx,s,x,y,col,size,weight,'left','alphabetic',family);ctx.font=weight+' '+size+'px '+family;return ctx.measureText(s).width;}
+
+/* ---------- 能量条和 W_net ---------- */
+function drawEnergy(ctx,o){
+  var x0=o.xr,x1=o.xe,lw=o.wide?84:80,bx0=x0+lw,bx1=x1-58,Kd=Math.round(m2.K*100)/100;
+  function row(y,label,frac,col,val){txt(ctx,label,x0,y,col,12.5,700);hbar(ctx,bx0,y-10,bx1-bx0,11,frac,col);txt(ctx,val,x1,y,C.ink,12.5,600,'right','alphabetic',MONO);}
+  row(o.e0,'K (kinetic)',m2.K,C.copper,Kd.toFixed(2)+' J');
+  row(o.e0+o.de,'U (constant)',UU,C.violet,UU.toFixed(2)+' J');
+  row(o.e0+2*o.de,'E = K + U',Kd+UU,C.ink,(Kd+UU).toFixed(2)+' J');
+  var y=o.wl;
+  rich(ctx,'W_{net} (total so far) = '+sgn(m2.W)+' J',x0,y,C.force,13,700,'left');
+  txt(ctx,'ΔK = '+sgn(m2.K-K0)+' J',x1,y,C.copper,13,700,'right');
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){var n=6,h=dt*TS/n;for(var i=0;i<n;i++)adv(h);},
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),st=status();
+    rich(ctx,st[0],16,o.s1,C.ink,o.f1,600);
+    rich(ctx,st[1],16,o.s2,C.ink,o.f2,500);
+    drawTop(ctx,o);
+    drawFBD(ctx,o);
+    drawEnergy(ctx,o);
+  }
+});
+
+rF.addEventListener('input',function(){var f=Math.round(parseFloat(rF.value)*10)/10;m2.f=f;m2.lim=null;if(f!==0)m2.moved=true;fOut();if(f!==0)S2.setPlaying(true);S2.render();});
+document.getElementById('s2-reset').addEventListener('click',function(){m2.v=V0;m2.K=K0;m2.W=0;m2.f=0;m2.lim=null;m2.moved=false;rF.value='0';fOut();clearPts();S2.setPlaying(true);S2.render();});
+var bP=document.getElementById('s2-pts');
+bP.addEventListener('click',function(){m2.pts=!m2.pts;press(bP,m2.pts);bP.textContent='8 measuring points: '+(m2.pts?'on':'off');S2.render();});
+fOut();
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 竖直圆：绳子上的球（只有重力做功）vs 摩天轮（电机，匀速）。
+   示意值：r = 1.0 m，m = 0.50 kg；g = 9.8 m s⁻²（data sheet）。U 以最低点为 0。
+   φ 从正上方量，球逆时针转（和 booklet Figure 3.3 一样：最高点 v 向左，右边 v 向上，最低点 v 向右）。
+   绳子：h = r(1 + cos φ)，v² = v_top² + 2g(2r − h)，F_T = mv²/r − mg cos φ（沿绳指向圆心）。
+   摩天轮：v 不变，K 不变；W_other = ΔE = ΔU（这半圈从最低点或最高点算起）。
+   画面慢放 4 倍；圆上的力箭头长度 ∝ F^0.4（不按比例，只保持大小顺序），旁边的条按比例。
+   F_T 的箭头短于 14 px（藏在球里）时不画箭头和标签，大小看旁边的条。 */
+var G=9.8,R0=1.0,M0=0.5,MG=M0*G,VMIN=Math.sqrt(G*R0),TS=0.25,EMAX=20,FMAX=45,FTOP=M0*36/R0+5*MG;
+var m3={mode:'rope',vt:VMIN,vf:2.0,phi:4.9,stop:null,next:'top',msg:null,age:0};
+function vAt(ph){return m3.mode==='rope'?Math.sqrt(m3.vt*m3.vt+2*G*R0*(1-Math.cos(ph))):m3.vf;}
+function ftAt(ph){var v=vAt(ph);return Math.max(0,M0*v*v/R0-MG*Math.cos(ph));}
+function hAt(ph){return R0*(1+Math.cos(ph));}
+/* 摩天轮：座位做的功 = ΔE，往上这半圈从最低点算，往下这半圈从最高点算 */
+function wOther(){
+  if(m3.mode!=='wheel')return 0;
+  if(m3.stop==='top')return MG*2*R0;
+  if(m3.stop==='bottom')return -MG*2*R0;
+  var h=hAt(m3.phi);return m3.phi>Math.PI?MG*h:MG*(h-2*R0);
+}
+function n2(x){return String(+x.toFixed(2));}
+function v2(x){var s=x.toFixed(2);return s.charAt(s.length-1)==='0'?s.slice(0,-1):s;}
+function f1(x){return Math.abs(x)<0.05?'0':x.toFixed(1);}
+function sJ(x){return (x>0.005?'+':(x<-0.005?'−':''))+Math.abs(x).toFixed(2)+' J';}
+
+/* ---------- 文字：_x 或 _{xx} 画成下标（不小于 11 px），按空格换行 ---------- */
+function parts(s){var out=[],re=/_\{([^}]*)\}|_(.)/g,last=0,mm;
+  while((mm=re.exec(s))){if(mm.index>last)out.push(s.slice(last,mm.index),0);out.push(mm[1]!==undefined?mm[1]:mm[2],1);last=re.lastIndex;}
+  if(last<s.length)out.push(s.slice(last),0);return out;}
+function rw(ctx,s,size,weight,family){var p=parts(s),w=0,ss=Math.max(11,size*0.74);
+  for(var i=0;i<p.length;i+=2){ctx.font=(weight||500)+' '+(p[i+1]?ss:size)+'px '+(family||FONT);w+=ctx.measureText(p[i]).width;}return w;}
+function rich(ctx,s,x,y,col,size,weight,align,family){
+  var p=parts(s),ss=Math.max(11,size*0.74),w=rw(ctx,s,size,weight,family);
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(var i=0;i<p.length;i+=2){var sz=p[i+1]?ss:size;ctx.font=(weight||500)+' '+sz+'px '+(family||FONT);
+    if(p[i])txt(ctx,p[i],cx,y+(p[i+1]?size*0.26:0),col,sz,weight,'left','alphabetic',family);cx+=ctx.measureText(p[i]).width;}
+  return w;
+}
+function toks(s){var T=[],cur='';
+  for(var i=0;i<s.length;i++){var ch=s.charAt(i);if(ch===' '){T.push(cur+' ');cur='';}else{cur+=ch;}}
+  if(cur)T.push(cur);return T;}
+function trimR(s){return s.replace(/ +$/,'');}
+/* 只在空格和 ，：； 后面换行；公式里用 nb() 把空格换成不断行的空格 */
+function wrap(ctx,s,maxw,size,weight){var T=toks(s),L=[],cur='';
+  for(var i=0;i<T.length;i++){var t=cur+T[i];if(cur&&rw(ctx,trimR(t),size,weight)>maxw){L.push(trimR(cur));cur=T[i];}else cur=t;}
+  if(cur)L.push(trimR(cur));return L;}
+function nb(s){return s.replace(/ /g,'\u00a0');}
+
+/* ---------- 标签放在不压住箭头和别的字的位置 ---------- */
+var OB={segs:[],boxes:[]};
+function obReset(){OB.segs.length=0;OB.boxes.length=0;}
+function obSeg(x1,y1,x2,y2){OB.segs.push([x1,y1,x2,y2]);}
+function obBox(x0,y0,x1,y1){OB.boxes.push([x0,y0,x1,y1]);}
+function free(b,W,H){
+  if(b[0]<2||b[1]<2||b[2]>W-2||b[3]>H-2)return false;
+  for(var i=0;i<OB.boxes.length;i++){var a=OB.boxes[i];if(b[0]<a[2]+2&&b[2]>a[0]-2&&b[1]<a[3]+2&&b[3]>a[1]-2)return false;}
+  for(var j=0;j<OB.segs.length;j++){var s=OB.segs[j];
+    for(var k=0;k<=12;k++){var t=k/12,x=s[0]+(s[2]-s[0])*t,y=s[1]+(s[3]-s[1])*t;if(x>b[0]-2&&x<b[2]+2&&y>b[1]-2&&y<b[3]+2)return false;}}
+  return true;
+}
+/* cands = [x1,y1,x2,y2,…]（字的中心）；must=false 时找不到空位就不写 */
+function label(ctx,s,cands,col,size,weight,family,W,H,must){
+  var w=rw(ctx,s,size,weight,family),b=null,i;
+  for(i=0;i<cands.length;i+=2){var t=[cands[i]-w/2,cands[i+1]-size*0.5,cands[i]+w/2,cands[i+1]+size*0.55];if(free(t,W,H)){b=t;break;}}
+  if(!b){if(!must)return;b=[cands[0]-w/2,cands[1]-size*0.5,cands[0]+w/2,cands[1]+size*0.55];}
+  rich(ctx,s,(b[0]+b[2])/2,b[1]+size*0.86,col,size,weight,'center',family);
+  obBox(b[0],b[1],b[2],b[3]);
+}
+/* 候选位置：箭头尖 T、方向 d、侧向 n、中点 M；先近后远 */
+function around(Tx,Ty,dx,dy,nx,ny,Mx,My,side){
+  var c=[],k,D=[[12,0],[0,15],[0,-15],[10,15],[10,-15],[24,0],[0,26],[0,-26],[20,24],[20,-24],[34,0]];
+  if(side){c.push(Tx+nx*15,Ty+ny*15-2,Tx-nx*15,Ty-ny*15-2);}
+  for(k=0;k<D.length;k++){c.push(Tx+dx*D[k][0]+nx*D[k][1],Ty+dy*D[k][0]+ny*D[k][1]);}
+  c.push(Mx+nx*16,My+ny*16,Mx-nx*16,My-ny*16);
+  return c;
+}
+function textBox(ctx,s,x,y,size,weight,align){ctx.font=(weight||500)+' '+size+'px '+FONT;var w=ctx.measureText(s).width,x0=align==='center'?x-w/2:(align==='right'?x-w:x);obBox(x0,y-size,x0+w,y+3);}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.f1=15;o.f2=13.5;o.lh=22;o.sy=26;o.nl=2;o.R=112;o.gx=46;}
+  else{o.f1=13.5;o.f2=12.5;o.lh=19;o.sy=22;o.nl=4;o.R=Math.max(80,Math.min(96,Math.floor((W-150)/2)));o.gx=34;}
+  o.cx=o.gx+60+o.R;
+  var sb=o.sy+(o.nl-1)*o.lh+8;
+  o.cy=sb+(o.wide?24:14)+46+o.R;
+  o.yT=o.cy-o.R-46;o.yB=o.cy+o.R+60;
+  o.kF=0.82*o.R/Math.pow(FTOP,0.4);o.kv=9;
+  o.rs=o.wide?[0,28,52,76,108,132,156,180,204,232,254]:[0,24,44,64,90,110,130,150,170,192,212];
+  if(o.wide){o.px0=o.cx+o.R+64;o.px1=W-16;o.py=sb+40;}
+  else{o.px0=16;o.px1=W-16;o.py=o.yB+34;}
+  o.bx0=o.px0+64;o.bx1=o.px1-64;
+  var pe=o.py+o.rs[10]+8;
+  o.H=Math.round(o.wide?Math.max(o.yB+16,pe+16):pe+16);
+  LY=o;return o;
+}
+
+/* ---------- 状态提示 ---------- */
+function status(){
+  var rope=m3.mode==='rope',p=m3.phi,vt=m3.vt,ftop=M0*vt*vt/R0-MG;
+  if(m3.stop&&rope){
+    if(m3.stop==='top')return ['Stopped at the top: F_T and mg both point to the centre, both + → '+nb('F_T + mg = mv²/r'),
+      nb('v_{top} = '+v2(vt)+' m s⁻¹')+' → '+nb('F_T = 0.50 × '+n2(vt*vt)+'/1.0 − 4.9 = '+f1(ftop)+' N')+(ftop<0.05?', the string just goes slack':'')];
+    var vb2=vt*vt+4*G*R0;
+    return ['Stopped at the bottom: '+nb('v² = v_{top}² + 4gr')+' = '+nb(n2(vt*vt)+' + 39.2')+' = '+n2(vb2)+' → '+nb('v = '+v2(Math.sqrt(vb2))+' m s⁻¹'),
+      nb('F_T − mg = mv²/r')+' → '+nb('F_T = 0.50 × '+n2(vb2)+'/1.0 + 4.9 = '+f1(M0*vb2/R0+MG)+' N')];
+  }
+  if(m3.stop){
+    if(m3.stop==='top')return ['Stopped at the top: coming up from the bottom, '+nb('ΔK = 0')+', '+nb('ΔU = mg(2r) = +9.8 J'),nb('W_{other} = ΔE = ΔK + ΔU = +9.8 J')+': the seat does positive work, the energy comes from the motor'];
+    return ['Stopped at the bottom: coming down from the top, '+nb('ΔK = 0')+', '+nb('ΔU = −mg(2r) = −9.8 J'),nb('W_{other} = ΔE = ΔK + ΔU = −9.8 J')+': the seat does negative work'];
+  }
+  if(m3.msg==='min')return [nb('v_{top} = √(gr) = 3.13 m s⁻¹')+': the smallest speed at the top','Any slower and it cannot get over the top: the string goes slack before the top '+nb('(F_T cannot be less than 0)')];
+  if(m3.msg==='rope')return ['Only gravity does work: F_T ⊥ v, so F_T does no work','K + U = E stays the same: slower going up, faster going down'];
+  if(m3.msg==='wheel')return ['Ferris wheel: the motor turns it at a steady speed → v does not change, K does not change','U changes with height, and E changes too: W_{other} = ΔE'];
+  if(rope){
+    if(p<0.3||p>TAU-0.3)return ['Top: slowest, K smallest, U largest',ftop<0.05?'F_T = 0: the string just goes slack, mg alone provides mv²/r':'F_T and mg both point to the centre: F_T + mg = mv²/r'];
+    if(Math.abs(p-Math.PI)<0.3)return ['Bottom: fastest, K largest, U = 0','F_T up (+), mg down (−): F_T − mg = mv²/r'];
+    if(p>Math.PI)return ['Going up on the right: F_T ⊥ v, no work','Part of mg pulls backwards → the ball slows down, K turns into U'];
+    return ['Going down on the left: F_T ⊥ v, still no work','Part of mg pulls forwards → the ball speeds up, U turns into K'];
+  }
+  if(p>Math.PI)return ['Ferris wheel going up: K does not change, U gets bigger → E gets bigger','The seat does positive work (W_{other} > 0), the energy comes from the motor'];
+  return ['Ferris wheel going down: K does not change, U gets smaller → E gets smaller','The seat does negative work (W_{other} < 0)'];
+}
+function drawStatus(ctx,o,W){
+  var st=status(),y=o.sy,i,L1=wrap(ctx,st[0],W-32,o.f1,600),L2=wrap(ctx,st[1],W-32,o.f2,500);
+  for(i=0;i<L1.length;i++){rich(ctx,L1[i],16,y,C.ink,o.f1,600);y+=o.lh;}
+  for(i=0;i<L2.length;i++){rich(ctx,L2[i],16,y,C.ink,o.f2,500);y+=o.lh;}
+}
+
+/* ---------- 竖直圆 ---------- */
+function drawScene(ctx,o,W,H){
+  var cx=o.cx,cy=o.cy,R=o.R,rope=m3.mode==='rope',ph=m3.phi,s=Math.sin(ph),c=Math.cos(ph);
+  var bx=cx-R*s,by=cy-R*c,rx=-s,ry=-c,tx=-c,ty=s,br=8;   /* r̂ 向外，t̂ 运动方向（屏幕坐标） */
+  obReset();
+  var tl=rope?'Top · slowest':'Top · U largest',bl=rope?'Bottom · fastest':'Bottom · U = 0';
+  txt(ctx,tl,cx,o.yT,C.muted,12.5,600,'center');textBox(ctx,tl,cx,o.yT,12.5,600,'center');
+  txt(ctx,bl,cx,o.yB,C.muted,12.5,600,'center');textBox(ctx,bl,cx,o.yB,12.5,600,'center');
+  txt(ctx,'4× slow motion',16,o.yB,C.muted,11.5,500);
+  /* 高度刻度 h */
+  var gx=o.gx,g0=cy+R,g1=cy-R,dy=by-cy,xl=cx-Math.sqrt(Math.max(0,R*R-dy*dy));
+  seg(ctx,gx,g0,gx,g1,rgba(C.muted,0.6),1.5);
+  seg(ctx,gx-5,g0,gx+5,g0,C.muted,1.5);seg(ctx,gx-5,g1,gx+5,g1,C.muted,1.5);
+  txt(ctx,'2r',gx-9,g1+5,C.muted,13,500,'right','alphabetic',MATH);
+  txt(ctx,'0',gx-9,g0+5,C.muted,13,500,'right','alphabetic',MATH);
+  if(xl-gx>16)seg(ctx,gx+6,by,xl-3,by,rgba(C.violet,0.55),1.2,[2,4]);
+  seg(ctx,gx,g0,gx,by,C.violet,3);dot(ctx,gx,by,4.5,C.violet);
+  txt(ctx,'h',gx+9,by-7,C.violet,14,600,'left','alphabetic',MATH);obBox(gx+7,by-19,gx+19,by-3);
+  /* 圆 / 摩天轮 */
+  if(rope){
+    ctx.beginPath();ctx.arc(cx,cy,R,0,TAU);ctx.strokeStyle=rgba(C.copper,0.6);ctx.lineWidth=1.6;ctx.setLineDash([6,5]);ctx.stroke();ctx.setLineDash([]);
+    seg(ctx,cx,cy,bx,by,rgba(C.ink,0.75),1.8);obSeg(cx,cy,bx,by);
+  }else{
+    ring(ctx,cx,cy,R,rgba(C.muted,0.75),3);
+    for(var k=0;k<8;k++){var a=ph+k*TAU/8;seg(ctx,cx,cy,cx-R*Math.sin(a),cy-R*Math.cos(a),rgba(C.muted,0.5),1.5);}
+    obSeg(cx,cy,bx,by);
+  }
+  var v=vAt(ph),Lv=o.kv*v;
+  if(rope){
+    var ft=ftAt(ph),LT=ft>0.05?o.kF*Math.pow(ft,0.4):0,Lg=o.kF*Math.pow(MG,0.4),Lc=Lg*s;
+    if(LT<14)LT=0;
+    /* mg 沿路径的部分（淡色）：s > 0 往前（变快），s < 0 往后（变慢） */
+    if(Math.abs(Lc)>3){arrow(ctx,bx,by,bx+tx*Lc,by+ty*Lc,rgba(C.force,0.42),3,8);obSeg(bx,by,bx+tx*Lc,by+ty*Lc);}
+    var gx0=bx-5*tx,gy0=by-5*ty;
+    arrow(ctx,gx0,gy0,gx0,gy0+Lg,C.force,2.6,9);obSeg(gx0,gy0,gx0,gy0+Lg);
+    var fx0=bx+5*tx,fy0=by+5*ty,fx1=fx0-rx*LT,fy1=fy0-ry*LT;
+    if(LT>0){arrow(ctx,fx0,fy0,fx1,fy1,C.force,2.6,9);obSeg(fx0,fy0,fx1,fy1);}
+    /* F_T ⊥ v 的直角记号 */
+    var q=13;ctx.beginPath();ctx.moveTo(bx-rx*q,by-ry*q);ctx.lineTo(bx-rx*q+tx*q,by-ry*q+ty*q);ctx.lineTo(bx+tx*q,by+ty*q);
+    ctx.strokeStyle=rgba(C.ink,0.7);ctx.lineWidth=1.2;ctx.stroke();
+    obSeg(bx-rx*q,by-ry*q,bx-rx*q+tx*q,by-ry*q+ty*q);obSeg(bx-rx*q+tx*q,by-ry*q+ty*q,bx+tx*q,by+ty*q);
+  }
+  var vx0=bx+rx*12,vy0=by+ry*12,vx1=vx0+tx*Lv,vy1=vy0+ty*Lv;
+  arrow(ctx,vx0,vy0,vx1,vy1,rgba(C.ink,0.7),2.4,9);obSeg(vx0,vy0,vx1,vy1);
+  /* 球（摩天轮：人坐在座位上） */
+  if(!rope){seg(ctx,bx-11,by+br+3,bx+11,by+br+3,C.ink,2.2);seg(ctx,bx-11,by+br+3,bx-11,by-2,C.ink,2.2);seg(ctx,bx+11,by+br+3,bx+11,by-2,C.ink,2.2);}
+  dot(ctx,bx,by,br,rgba(C.muted,0.6));ring(ctx,bx,by,br,C.ink,1.6);
+  obBox(bx-br-2,by-br-2,bx+br+2,by+br+(rope?2:6));
+  if(rope){dot(ctx,cx,cy,4.5,C.ink);}
+  else{dot(ctx,cx,cy,17,C.surface);ring(ctx,cx,cy,17,C.muted,1.5);txt(ctx,'motor',cx,cy+1,C.muted,11,600,'center','middle');}
+  obBox(cx-6,cy-6,cx+6,cy+6);
+  /* 标签 */
+  if(rope){
+    if(LT>0)label(ctx,'F_T',around(fx1,fy1,-rx,-ry,tx,ty,fx0-rx*LT*0.55,fy0-ry*LT*0.55,false),C.force,14,700,FONT,W,H,true);
+    var sx=Math.abs(bx-cx)>0.3*R?(cx>bx?1:-1):(tx>0?-1:1);
+    label(ctx,'mg',around(gx0,gy0+Lg,0,1,sx,0,gx0,gy0+Lg*0.55,true),C.force,14,700,FONT,W,H,true);
+  }
+  label(ctx,'v',around(vx1,vy1,tx,ty,rx,ry,(vx0+vx1)/2,(vy0+vy1)/2,false),C.muted,14,700,FONT,W,H,true);
+  if(rope&&Math.abs(s)>0.75){var px=bx+tx*Lc,py=by+ty*Lc,sg=Lc>0?1:-1;
+    label(ctx,s>0?'speeds up':'slows down',around(px,py,tx*sg,ty*sg,-rx,-ry,bx+tx*Lc*0.5,by+ty*Lc*0.5,true),rgba(C.force,0.9),12,600,FONT,W,H,false);}
+}
+
+/* ---------- 读数：力和能量 ---------- */
+function bar(ctx,o,y,lab,lcol,frac,col,val){
+  rich(ctx,lab,o.px0,y,lcol,13,700);
+  hbar(ctx,o.bx0,y-10,o.bx1-o.bx0,11,frac,col);
+  txt(ctx,val,o.px1,y,C.ink,12.5,600,'right','alphabetic',MONO);
+}
+function drawPanel(ctx,o){
+  var rope=m3.mode==='rope',ph=m3.phi,v=vAt(ph),h=hAt(ph),K=0.5*M0*v*v,U=MG*h,E=K+U,Wo=wOther(),y=o.py,r=o.rs;
+  txt(ctx,'h = '+h.toFixed(2)+' m   v = '+v.toFixed(2)+' m s⁻¹'+(rope?'':' (constant)'),o.px0,y,C.ink,13,600,'left','alphabetic',MONO);
+  if(rope){
+    var ft=ftAt(ph);
+    txt(ctx,'Forces: bars to scale (arrows on the circle are not)',o.px0,y+r[1],C.muted,12,600);
+    bar(ctx,o,y+r[2],'F_T',C.force,ft/FMAX,C.force,f1(ft)+' N');
+    bar(ctx,o,y+r[3],'mg',C.force,MG/FMAX,rgba(C.force,0.5),'4.9 N');
+  }else{
+    txt(ctx,'Forces: the seat force is not along the radius, not drawn',o.px0,y+r[1],C.muted,12,600);
+    txt(ctx,'Motor gives a steady speed → v same → K same',o.px0,y+r[2],C.ink,12.5,500);
+    txt(ctx,'Just look at the energy bars below',o.px0,y+r[3],C.muted,12,500);
+  }
+  txt(ctx,'Energy: E = K + U (U = 0 at the bottom)',o.px0,y+r[4],C.muted,12,600);
+  bar(ctx,o,y+r[5],'K',C.copper,K/EMAX,C.copper,K.toFixed(2)+' J');
+  bar(ctx,o,y+r[6],'U',C.violet,U/EMAX,C.violet,U.toFixed(2)+' J');
+  bar(ctx,o,y+r[7],'E',C.ink,E/EMAX,C.ink,E.toFixed(2)+' J');
+  /* W_other：0 在中间，往右正、往左负，和上面同一个比例 */
+  var yw=y+r[8],x0=o.bx0,x1=o.bx1,xm=(x0+x1)/2,fw=Wo/EMAX*(x1-x0);
+  rich(ctx,'W_{other}',o.px0,yw,C.force,13,700);
+  rrect(ctx,x0,yw-10,x1-x0,11,5.5);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  if(Math.abs(fw)>0.5){ctx.fillStyle=C.force;ctx.fillRect(Math.min(xm,xm+fw),yw-10,Math.abs(fw),11);}
+  seg(ctx,xm,yw-14,xm,yw+5,C.muted,1.2);
+  txt(ctx,sJ(Wo),o.px1,yw,C.ink,12.5,600,'right','alphabetic',MONO);
+  var note,leg,lc=C.muted;
+  if(rope){note='W_{other} = 0: F_T ⊥ v, no work → E stays the same';
+    var sn=Math.sin(ph);leg=Math.abs(sn)<0.15?'mg is now ⊥ v: its part along the path ≈ 0':('Pale green arrow = part of mg along path: ball '+(sn>0?'speeds up':'slows down'));lc=C.force;}
+  else{var up=m3.stop?m3.stop==='top':ph>Math.PI;
+    note='W_{other} = ΔE, '+(up?'counted from the bottom (half going up)':'counted from the top (half going down)');
+    leg='ΔK = 0, so W_{other} = ΔE = ΔU';}
+  rich(ctx,note,o.px0,y+r[9],C.ink,12.5,500);
+  rich(ctx,leg,o.px0,y+r[10],lc,12,600);
+}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){
+    m3.stop=null;
+    var n=8,h=dt*TS/n;for(var i=0;i<n;i++){m3.phi+=vAt(m3.phi)/R0*h;}
+    m3.phi=m3.phi%TAU;
+    if(m3.msg){m3.age+=dt;if(m3.age>4.5)m3.msg=null;}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W);
+    drawStatus(ctx,o,W);
+    drawScene(ctx,o,W,H);
+    drawPanel(ctx,o);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bR=document.getElementById('s3-rope'),bW=document.getElementById('s3-wheel'),bS=document.getElementById('s3-stop');
+var rv=document.getElementById('s3-v'),ov=document.getElementById('s3-v-out'),lv=document.getElementById('s3-v-lab');
+function syncOut(){
+  if(m3.mode==='rope')ov.textContent=(m3.vt<=VMIN+1e-9?'3.13':m3.vt.toFixed(2))+' m s⁻¹';
+  else ov.textContent=m3.vf.toFixed(1)+' m s⁻¹';
+}
+function syncSlider(){
+  if(m3.mode==='rope'){rv.min='3.13';rv.max='6';rv.step='0.01';rv.value=m3.vt<=VMIN+1e-9?'3.13':m3.vt.toFixed(2);lv.innerHTML='At top v<sub>top</sub>';}
+  else{rv.min='1';rv.max='3';rv.step='0.1';rv.value=m3.vf.toFixed(1);lv.textContent='Steady v';}
+  syncOut();
+}
+rv.addEventListener('input',function(){
+  var x=parseFloat(rv.value);
+  if(m3.mode==='rope'){var at=x<=3.13+1e-6;m3.vt=at?VMIN:x;if(at){m3.msg='min';m3.age=0;}else if(m3.msg==='min')m3.msg=null;}
+  else m3.vf=x;
+  syncOut();S3.render();
+});
+function setMode(md){m3.mode=md;press(bR,md==='rope');press(bW,md==='wheel');m3.msg=md;m3.age=0;syncSlider();S3.render();}
+bR.addEventListener('click',function(){setMode('rope');});
+bW.addEventListener('click',function(){setMode('wheel');});
+bS.addEventListener('click',function(){
+  var t=m3.next;m3.stop=t;m3.phi=t==='top'?0:Math.PI;m3.next=t==='top'?'bottom':'top';
+  bS.textContent=m3.next==='top'?'Stop at top':'Stop at bottom';m3.msg=null;S3.setPlaying(false);S3.render();
+});
+syncSlider();
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 扳手上的 torque：两种算法（Figure 3.4 动起来）
+   pivot（六角螺母）在左，扳手向右；力 F 作用在离 pivot r 的点 P。
+   θ = r（pivot → P，沿扳手向右）和 F 的夹角，和 booklet 一样从 r 的延长线量起；F 往上转为正。
+   y 向上时 F 的方向 u = (cos θ, sin θ)。τ = rF sin θ；0° < θ < 180° 时 F 有向上的部分 → 逆时针。
+   (a) 作用线过 P、方向 u。pivot 到作用线的垂足 Q = P − (r cos θ) u，|OQ| = r⊥ = r sin θ。
+       θ < 90° 时 Q 在扳手下方、P 的“后面”（和 Figure 3.4(a) 一样）；θ > 90° 时 Q 在扳手上方。
+   (b) F sin θ 垂直于扳手（转），F cos θ 顺着扳手（不转）。τ = r × F sin θ，和 (a) 的 r⊥F 一样。
+   数据：F = 40 N，r = 0.10–0.30 m 都是示意（力作用在扳手末端附近，r 大 = 扳手长）（页面例子：r = 0.25 m，θ = 30° → r⊥ = 0.125 m，
+   F sin θ = 20 N，τ = 5.0 N m）。读数都用取整后的 θ（和 slider、状态提示一致）。
+   θ < 8° 时 θ 的弧看不见，不写“θ”；(a) 里 r⊥ 短到藏在螺母里时不写“r⊥”（状态提示里有 r⊥ 的值）。
+   “pivot”放的时候避开 line of action 和 r 的标注线。 */
+var FN=40,DEG=Math.PI/180,STOPS=[0,30,90,150,180],SPD=20,YM=15;
+var m4={th:30,r:0.25,view:'a',dir:1,hold:1.8};
+var rT=document.getElementById('s4-th'),oT=document.getElementById('s4-th-out');
+var rR=document.getElementById('s4-r'),oR=document.getElementById('s4-r-out');
+var bA=document.getElementById('s4-va'),bB=document.getElementById('s4-vb');
+var shown=30;
+function syncTh(){var d=Math.round(m4.th);if(d!==shown){shown=d;rT.value=String(d);oT.textContent=d+'°';}}
+/* 播放：θ 在 0°–180° 之间来回扫，在 0°、30°、90°、150°、180° 停一下 */
+function step4(dt){
+  var n=4,h=dt/n;
+  for(var i=0;i<n;i++){
+    if(m4.hold>0){m4.hold-=h;continue;}
+    var a=m4.th,b=a+m4.dir*SPD*h;
+    for(var k=0;k<STOPS.length;k++){var s=STOPS[k];if((a<s&&b>=s)||(a>s&&b<=s)){b=s;m4.hold=s===90?1.6:1.1;break;}}
+    m4.th=clamp(b,0,180);
+    if(m4.th>=180)m4.dir=-1;else if(m4.th<=0)m4.dir=1;
+  }
+  syncTh();
+}
+
+/* ---- 标签放置：按候选位置依次试，避开已经放好的标签和箭头 ---- */
+var BX=[],nb=0,LB=[0,0,0,0],RING=[0,-1,0.71,-0.71,-0.71,-0.71,1,0,-1,0,0,1,0.71,0.71,-0.71,0.71],GAPS=[14,30,48,66];
+function bReset(l,t,r,b){nb=0;LB[0]=l;LB[1]=t;LB[2]=r;LB[3]=b;}
+function addb(l,t,r,b){if(nb>=BX.length)BX.push([0,0,0,0]);var q=BX[nb++];q[0]=l;q[1]=t;q[2]=r;q[3]=b;}
+function free(l,t,r,b){if(l<LB[0]||t<LB[1]||r>LB[2]||b>LB[3])return false;for(var i=0;i<nb;i++){var q=BX[i];if(l<q[2]&&r>q[0]&&t<q[3]&&b>q[1])return false;}return true;}
+function obst(x1,y1,x2,y2,p){var len=Math.hypot(x2-x1,y2-y1),n=Math.max(1,Math.ceil(len/7));for(var i=0;i<=n;i++){var x=x1+(x2-x1)*i/n,y=y1+(y2-y1)*i/n;addb(x-p,y-p,x+p,y+p);}}
+/* 一个标签 1–2 行。an = [x,y,ux,uy,gap, ...]：从点 (x,y) 沿方向 (ux,uy) 推开 gap，标签框贴着那一点 */
+function lab(ctx,a,ca,sa,fa,b,cb,sb,an){
+  ctx.font='700 '+sa+'px '+(fa||FONT);var w=ctx.measureText(a).width,h=sa;
+  if(b){ctx.font='600 '+sb+'px '+FONT;w=Math.max(w,ctx.measureText(b).width);h=sa+3+sb;}
+  var n=an.length/5,cx=0,cy=0,i,j,ok=false,g;
+  for(i=0;i<n;i++){g=an[5*i+4]+w/2*Math.abs(an[5*i+2])+h/2*Math.abs(an[5*i+3]);
+    cx=an[5*i]+an[5*i+2]*g;cy=an[5*i+1]+an[5*i+3]*g;
+    if(free(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2)){ok=true;break;}}
+  /* 都不行：绕第一个点一圈一圈往外找 */
+  for(j=0;!ok&&j<RING.length;j+=2){for(i=0;i<GAPS.length;i++){var ux=RING[j],uy=RING[j+1];g=GAPS[i]+w/2*Math.abs(ux)+h/2*Math.abs(uy);
+    cx=an[0]+ux*g;cy=an[1]+uy*g;if(free(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2)){ok=true;break;}}}
+  if(!ok){g=an[4]+w/2*Math.abs(an[2])+h/2*Math.abs(an[3]);
+    cx=clamp(an[0]+an[2]*g,LB[0]+w/2+3,LB[2]-w/2-3);cy=clamp(an[1]+an[3]*g,LB[1]+h/2+2,LB[3]-h/2-2);}
+  addb(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2);
+  rrect(ctx,cx-w/2-3,cy-h/2-2,w+6,h+4,4);ctx.fillStyle=rgba(C.stage,0.86);ctx.fill();
+  if(b){txt(ctx,a,cx,cy-h/2+sa/2+1,ca,sa,700,'center','middle',fa);txt(ctx,b,cx,cy+h/2-sb/2,cb,sb,600,'center','middle');}
+  else txt(ctx,a,cx,cy+1,ca,sa,700,'center','middle',fa);
+}
+function hexa(ctx,x,y,R){ctx.beginPath();for(var i=0;i<6;i++){var a=i*Math.PI/3,px=x+R*Math.cos(a),py=y-R*Math.sin(a);if(i)ctx.lineTo(px,py);else ctx.moveTo(px,py);}ctx.closePath();}
+/* 状态提示：几段，太长就在段之间换行（下一行去掉开头的空格） */
+function wrapP(ctx,P,maxW,size){ctx.font='600 '+size+'px '+FONT;var out=[],cur='';
+  for(var i=0;i<P.length;i++){var t=cur+P[i];if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=P[i].replace(/^\s+/,'');}else cur=t;}
+  out.push(cur);return out;}
+function stat(d,v){
+  var s=Math.sin(d*DEG),sv=s.toFixed(2),p=Math.round(s*100),h='θ = '+d+'°: ';
+  if(v==='a'){
+    if(d===0)return [h,'The line of action of F',' passes through the pivot',' → r⊥ = 0',' → τ = 0,',' the spanner does not turn'];
+    if(d===180)return [h,'F pushes straight at the pivot',' → the line of action',' passes through the pivot',' → r⊥ = 0, τ = 0'];
+    if(d===90)return [h,'F is perpendicular to the spanner',' → sin 90° = 1',' → r⊥ = r',' → maximum torque'];
+    if(d===30)return [h,'r⊥ = r sin 30° = 0.5 r',' → torque is only half the maximum'];
+    if(d===150)return [h,'r⊥ = r sin 150° = 0.5 r',' → torque is also only half the maximum'];
+    return [h,'r⊥ = r sin '+d+'° = '+sv+' r',' → τ is '+p+'% of the maximum'];
+  }
+  if(d===0)return [h,'All of F is along the spanner',' → F sin θ = 0',' → τ = 0,',' the spanner does not turn'];
+  if(d===180)return [h,'All of F pushes towards the pivot',' → F sin θ = 0',' → τ = 0'];
+  if(d===90)return [h,'F is perpendicular to the spanner',' → F sin θ = F, F cos θ = 0',' → maximum torque'];
+  if(d===30)return [h,'F sin 30° = 0.5 F turns the spanner',' → torque is only half the maximum'];
+  if(d===150)return [h,'F sin 150° = 0.5 F turns the spanner',' → torque is also only half the maximum'];
+  return [h,'Only F sin θ = '+sv+' F turns the spanner',' → τ is '+p+'% of the maximum'];
+}
+
+/* θ 的标签：放在 θ 角里面，挤的话放在靠近 r 延长线的地方 */
+function thLab(ctx,Px,wy){if(m4.th<8)return;var TA=[m4.th>=12?Math.min(m4.th/2,40):m4.th+10,Math.max(6,Math.min(m4.th-10,24)),6],TR=[32,44,56],an=[],ai,ri;
+  for(ai=0;ai<3;ai++)for(ri=0;ri<3;ri++)an.push(Px+TR[ri]*Math.cos(TA[ai]*DEG),wy-TR[ri]*Math.sin(TA[ai]*DEG),0,0,0);
+  lab(ctx,'θ',C.ink,15,MATH,null,0,0,an);}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=720?392:(w>=640?440:(w>=340?600:616));},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,d=Math.round(m4.th),sd=Math.sin(d*DEG),r=m4.r,act=m4.view;
+    var rp=r*sd,Fs=FN*sd,tau=r*FN*sd,i;
+    /* status */
+    var ss=wide?15:13.5,lh=wide?21:19,sy=wide?26:22,L=wrapP(ctx,stat(d,act),W-32,ss);
+    for(i=0;i<L.length;i++)txt(ctx,L[i],16,sy+i*lh,C.ink,ss,600);
+    /* layout */
+    var dT,dB,dR,px0,Lf,nutR,gx,gy,gw,gh,ry;
+    if(wide){dT=60;dB=318;dR=W-268;px0=116;Lf=86;nutR=17;gx=W-232;gw=208;gy=96;gh=146;ry=354;}
+    else{dT=54;dB=290;dR=W;px0=114;Lf=70;nutR=15;gx=46;gw=W-70;gy=326;gh=104;ry=482;}
+    var wy=(dT+dB)/2,k=Math.min(((dB-dT)/2-12)/0.15,(dR-px0-Lf-(wide?40:14))/0.3);
+    var Px=px0+r*k,th=m4.th*DEG,ux=Math.cos(th),uy=-Math.sin(th),tx=Px+Lf*ux,ty=wy+Lf*uy;
+    /* r 的标注线：一般在扳手上方；(a) 里 θ > 90° 时 r⊥ 在上方，标注线移到下方 */
+    var dup=act==='b'||m4.th<=90,Lw=r*k+12,dyl=dup?wy-30:wy+30,dsg=dup?-1:1,Ra=nutR+13;
+    bReset(2,dT-6,dR-2,dB+6);
+    /* (a) line of action: 往两头画长 */
+    if(act==='a'){ctx.save();ctx.beginPath();ctx.rect(0,dT-6,dR,dB-dT+12);ctx.clip();
+      seg(ctx,Px-ux*900,wy-uy*900,Px+ux*900,wy+uy*900,rgba(C.muted,0.75),1.3,[6,5]);ctx.restore();}
+    /* wrench + nut */
+    rrect(ctx,px0,wy-6,Lw,12,6);ctx.fillStyle=rgba(C.muted,0.2);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.75);ctx.lineWidth=1.2;ctx.stroke();
+    dot(ctx,px0,wy,nutR+7,C.stage);dot(ctx,px0,wy,nutR+7,rgba(C.muted,0.2));ring(ctx,px0,wy,nutR+7,rgba(C.muted,0.75),1.2);
+    hexa(ctx,px0,wy,nutR);ctx.fillStyle=rgba(C.muted,0.35);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+    dot(ctx,px0,wy,3.5,C.ink);
+    addb(px0-nutR-9,wy-nutR-9,px0+nutR+9,wy+nutR+9);addb(px0,wy-8,px0+Lw+2,wy+8);
+    /* r 的延长线（θ 从这里量起） */
+    seg(ctx,Px+5,wy,Px+(wide?60:50),wy,rgba(C.muted,0.85),1.2,[4,4]);
+    /* r: pivot → P */
+    var mx=(px0+Px)/2;
+    seg(ctx,px0,dyl-5,px0,dyl+5,rgba(C.ink,0.6),1);seg(ctx,Px,dyl-5,Px,dyl+5,rgba(C.ink,0.6),1);
+    arrow(ctx,mx,dyl,px0+1,dyl,rgba(C.ink,0.65),1.2,7);arrow(ctx,mx,dyl,Px-1,dyl,rgba(C.ink,0.65),1.2,7);
+    /* θ arc */
+    if(m4.th>0.5){ctx.beginPath();ctx.arc(Px,wy,24,-th,0);ctx.strokeStyle=rgba(C.ink,0.8);ctx.lineWidth=1.2;ctx.stroke();}
+    /* torque 方向：绕 pivot 逆时针，越大越粗 */
+    var tf=tau/12;
+    if(tau>0.05){var a0=-118*DEG,a1=-232*DEG,tc=rgba(C.ink,0.35+0.6*tf),tw=1.5+2*tf;
+      ctx.beginPath();ctx.arc(px0,wy,Ra,a0,a1,true);ctx.strokeStyle=tc;ctx.lineWidth=tw;ctx.stroke();
+      arrow(ctx,px0+Ra*Math.cos(a1+0.3),wy+Ra*Math.sin(a1+0.3),px0+Ra*Math.cos(a1),wy+Ra*Math.sin(a1),tc,tw,9);
+      addb(px0-Ra-5,wy-Ra,px0-Ra*0.35,wy+Ra+3);}
+    var qx=0,qy=0,rpx=0,sg=1,sx=Px,sy2=wy-Lf*Math.sin(th),cx2=Px+Lf*ux;
+    if(act==='a'){
+      var t0=-r*k*ux;qx=Px+t0*ux;qy=wy+t0*uy;rpx=Math.hypot(qx-px0,qy-wy);sg=ux>-0.02?1:-1;
+      if(rpx>2){ctx.lineCap='round';seg(ctx,px0,wy,qx,qy,C.force,3.6);ctx.lineCap='butt';obst(px0,wy,qx,qy,3);}
+      if(rpx>14){var ex=(qx-px0)/rpx,ey=(qy-wy)/rpx,mk=8;
+        ctx.beginPath();ctx.moveTo(qx-ex*mk,qy-ey*mk);ctx.lineTo(qx-ex*mk+sg*ux*mk,qy-ey*mk+sg*uy*mk);ctx.lineTo(qx+sg*ux*mk,qy+sg*uy*mk);
+        ctx.strokeStyle=C.ink;ctx.lineWidth=1.1;ctx.stroke();}
+      arrow(ctx,Px,wy,tx,ty,C.force,3.4,12);obst(Px,wy,tx,ty,3);
+    }else{
+      seg(ctx,tx,ty,sx,sy2,rgba(C.muted,0.85),1.1,[3,4]);seg(ctx,tx,ty,cx2,wy,rgba(C.muted,0.85),1.1,[3,4]);
+      arrow(ctx,Px,wy,tx,ty,rgba(C.force,0.32),2.2,10);obst(Px,wy,tx,ty,3);
+      if(wy-sy2>4){arrow(ctx,Px,wy,sx,sy2,C.force,3.4,11);obst(Px,wy,sx,sy2,3);}
+      if(Math.abs(cx2-Px)>4){arrow(ctx,Px,wy,cx2,wy,C.force,3.4,11);obst(Px,wy,cx2,wy,3);}
+    }
+    dot(ctx,Px,wy,3.6,C.ink);
+    /* labels（先放固定的，再放会动的） */
+    /* pivot：先临时加上 line of action（靠近 pivot 的一段）和 r 标注线当障碍，放好后去掉，只留 pivot 的框 */
+    var n0=nb;obst(px0,dyl,Px,dyl,2);
+    if(act==='a')obst(qx-90*ux,qy-90*uy,qx+90*ux,qy+90*uy,3);
+    lab(ctx,'pivot',C.muted,12,FONT,null,0,0,[px0-Ra-4,wy+16,-1,0,4, px0-Ra*0.7,wy+Ra*0.8,-0.7,0.7,6, px0+6,wy+nutR+7,0,1,12, px0-Ra-4,wy+30,-1,0,4]);
+    var kp=BX[nb-1],k0=BX[n0];k0[0]=kp[0];k0[1]=kp[1];k0[2]=kp[2];k0[3]=kp[3];nb=n0+1;
+    if(tau>0.05)lab(ctx,'τ',C.ink,16,MATH,'anticlockwise',C.ink,11.5,[px0-Ra-4,wy-18,-1,0,4, px0-Ra*0.7,wy-Ra*0.8,-0.7,-0.7,6, px0-Ra-4,wy-30,-1,0,4]);
+    var dl=Px-px0;
+    lab(ctx,'r',C.ink,16,MATH,null,0,0,[mx,dyl,0,dsg,4, px0+dl*0.3,dyl,0,dsg,4, px0+dl*0.7,dyl,0,dsg,4, mx,dyl,0,-dsg,4, px0+dl*0.3,dyl,0,-dsg,4, px0+dl*0.7,dyl,0,-dsg,4, px0+dl*0.15,dyl,0,dsg,4, px0+dl*0.85,dyl,0,dsg,4]);
+    obst(px0,dyl,Px,dyl,2);
+    var n1x=-uy,n1y=ux;
+
+    if(act==='a'){
+      if(rpx>=nutR+4){var hx=(px0+qx)/2,hy=(wy+qy)/2,oex=(qx-px0)/rpx,oey=(qy-wy)/rpx;
+        if(rpx<nutR+30){hx=px0+oex*(nutR+14);hy=wy+oey*(nutR+14);}
+        lab(ctx,'r⊥',C.force,15,MATH,null,0,0,[px0,wy,oex,oey,nutR+12, hx,hy,-sg*ux,-sg*uy,8, hx,hy,sg*ux,sg*uy,8, qx,qy,(qx-px0)/rpx,(qy-wy)/rpx,8, (px0+hx)/2,(wy+hy)/2,-sg*ux,-sg*uy,8, hx,hy,-sg*ux,-sg*uy,22, qx,qy,-sg*ux,-sg*uy,10, qx,qy,sg*ux,sg*uy,14]);}
+      else if(rpx<=2)lab(ctx,'r⊥ = 0',C.force,13.5,FONT,null,0,0,[px0+nutR+10,wy+10,0.6,0.8,4, px0+nutR+10,wy-10,0.6,-0.8,4, px0,wy+nutR+24,0,1,4]);
+      thLab(ctx,Px,wy);
+      lab(ctx,'F = 40 N',C.force,13.5,FONT,null,0,0,[tx,ty,ux,uy,8, tx,ty,n1x,n1y,8, tx,ty,-n1x,-n1y,8, tx,ty,0,-1,10, tx,ty,0,-1,30, (Px+tx)/2,(wy+ty)/2,n1x,n1y,8, (Px+tx)/2,(wy+ty)/2,-n1x,-n1y,8]);
+    }else{
+      var side=ux>=0?-1:1,cs=ux>=0?1:-1;
+      var fsz=!(wy-sy2>4),fcz=!(Math.abs(cx2-Px)>4);
+      thLab(ctx,Px,wy);
+      if(fsz)lab(ctx,'F cos θ',C.force,13.5,FONT,'no turning',C.force,11.5,[cx2,wy,0,1,12, cx2,wy,cs,0,8, cx2,wy,0,-1,12]);
+      if(!fsz)lab(ctx,'F sin θ',C.force,13.5,FONT,'turns',C.force,11.5,[sx,sy2+12,side,0,8, sx,sy2,0,-1,8, sx,sy2+12,-side,0,8, sx,(wy+sy2)/2,side,0,8, sx,(wy+sy2)/2,-side,0,8, sx,sy2,0,-1,24]);
+      else lab(ctx,'F sin θ = 0',C.force,13.5,FONT,null,0,0,[Px,wy,0,-1,40, Px,wy,-0.6,0.8,14, Px,wy,0.6,0.8,14, Px,wy,0,1,40]);
+      if(fcz)lab(ctx,'F cos θ = 0',C.force,13.5,FONT,null,0,0,[Px,wy,0,1,14, Px,wy,1,0.6,10, Px,wy,-1,0.6,10]);
+      else if(!fsz)lab(ctx,'F cos θ',C.force,13.5,FONT,'no turning',C.force,11.5,[cx2,wy,0,1,12, (Px+cx2)/2,wy,0,1,12, cx2,wy,cs,0,8, (Px+cx2)/2,wy,0,1,28, cx2,wy,0,-1,12, cx2,wy,0,1,30]);
+      lab(ctx,'F',rgba(C.force,0.7),14,MATH,null,0,0,[tx,ty,ux,uy,8, tx,ty,n1x,n1y,8, tx,ty,-n1x,-n1y,8]);
+    }
+    /* graph: τ against θ for this r */
+    var gb=gy+gh,YT=[0,5,10,15],XT=[0,30,90,150,180];
+    seg(ctx,gx,gy,gx,gb,C.muted,1);seg(ctx,gx,gb,gx+gw,gb,C.muted,1);
+    for(i=0;i<YT.length;i++){var yy=gb-YT[i]/YM*gh;if(i)seg(ctx,gx,yy,gx+gw,yy,C.grid,1);txt(ctx,String(YT[i]),gx-6,yy+4,C.muted,11,500,'right');}
+    for(i=0;i<XT.length;i++){var xx=gx+XT[i]/180*gw;seg(ctx,xx,gb,xx,gb+4,C.muted,1);txt(ctx,XT[i]+'°',xx,gb+17,C.muted,11,500,'center');}
+    txt(ctx,'θ',gx+gw+9,gb+4,C.muted,13,600,'left','alphabetic',MATH);
+    txt(ctx,'τ (N m, anticlockwise) = rF sin θ',wide?gx-30:16,gy-14,C.ink,12.5,600);
+    var ymx=gb-r*FN/YM*gh;
+    seg(ctx,gx,ymx,gx+gw,ymx,rgba(C.muted,0.8),1,[4,4]);
+    txt(ctx,'maximum rF = '+(r*FN).toFixed(1)+' N m',gx+gw,ymx-5,C.muted,11,600,'right');
+    ctx.beginPath();for(i=0;i<=60;i++){var ga=i*3,gxx=gx+ga/180*gw,gyy=gb-r*FN*Math.sin(ga*DEG)/YM*gh;if(i)ctx.lineTo(gxx,gyy);else ctx.moveTo(gxx,gyy);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+    var xd=gx+m4.th/180*gw,yd=gb-r*FN*Math.sin(th)/YM*gh;
+    seg(ctx,xd,yd,xd,gb,rgba(C.copper,0.6),1.2,[3,3]);dot(ctx,xd,yd,5,C.copper);
+    /* 题目可能给“和扳手垂线的夹角” */
+    var ph=d<=90?'= 90° − θ = '+(90-d)+'°':'= θ − 90° = '+(d-90)+'°';
+    if(wide){txt(ctx,'Angle between F and the line',gx-30,gb+34,C.muted,12,600);txt(ctx,'perpendicular to spanner '+ph,gx-30,gb+51,C.muted,12,600);txt(ctx,'(A question may give this: find θ first.)',gx-30,gb+69,C.muted,12,500);}
+    else{var PL=wrapP(ctx,['Angle',' between',' F',' and',' the',' line',' perpendicular',' to',' the',' spanner',' '+ph,' (a',' question',' may',' give',' it)'],W-32,11.5);
+      for(i=0;i<PL.length;i++)txt(ctx,PL[i],16,ry+86+i*16,C.muted,11.5,600);}
+    /* two ways, same τ */
+    seg(ctx,0,ry-24,W,ry-24,C.line,1);
+    /* r⊥ 写 4 位小数、F sin θ 写 2 位小数，这样两行的乘法和 τ（1 位小数）对得上 */
+    var A1='(a) r⊥ = r sin θ = '+r.toFixed(2)+' × sin '+d+'° = '+rp.toFixed(4)+' m',A2='τ = r⊥ × F = '+rp.toFixed(4)+' × 40 = '+tau.toFixed(1)+' N m';
+    var B1='(b) F sin θ = 40 × sin '+d+'° = '+Fs.toFixed(2)+' N',B2='τ = r × F sin θ = '+r.toFixed(2)+' × '+Fs.toFixed(2)+' = '+tau.toFixed(1)+' N m';
+    var ca=act==='a'?C.ink:C.muted,cb=act==='b'?C.ink:C.muted,wa=act==='a'?600:500,wb=act==='b'?600:500;
+    if(wide&&W>=720){var c2=16+366;
+      txt(ctx,A1,16,ry,ca,13,wa,'left','alphabetic',MONO);txt(ctx,A2,c2,ry,ca,13,wa,'left','alphabetic',MONO);
+      txt(ctx,B1,16,ry+23,cb,13,wb,'left','alphabetic',MONO);txt(ctx,B2,c2,ry+23,cb,13,wb,'left','alphabetic',MONO);}
+    else if(wide){
+      txt(ctx,A1,16,ry,ca,13,wa,'left','alphabetic',MONO);txt(ctx,A2,44,ry+19,ca,13,wa,'left','alphabetic',MONO);
+      txt(ctx,B1,16,ry+44,cb,13,wb,'left','alphabetic',MONO);txt(ctx,B2,44,ry+63,cb,13,wb,'left','alphabetic',MONO);}
+    else{
+      var ms=clamp((W-30)/(46*0.6),11,12);
+      txt(ctx,A1,16,ry,ca,ms,wa,'left','alphabetic',MONO);txt(ctx,A2,40,ry+18,ca,ms,wa,'left','alphabetic',MONO);
+      txt(ctx,B1,16,ry+42,cb,ms,wb,'left','alphabetic',MONO);txt(ctx,B2,40,ry+60,cb,ms,wb,'left','alphabetic',MONO);}
+  }
+});
+rT.addEventListener('input',function(){m4.th=parseFloat(rT.value);shown=Math.round(m4.th);oT.textContent=shown+'°';m4.hold=0;S4.setPlaying(false);S4.render();});
+rR.addEventListener('input',function(){m4.r=parseFloat(rR.value);oR.textContent=m4.r.toFixed(2)+' m';S4.render();});
+function setView(v){m4.view=v;press(bA,v==='a');press(bB,v==='b');S4.render();}
+bA.addEventListener('click',function(){setView('a');});
+bB.addEventListener('click',function(){setView('b');});
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 米尺实验：torque 平衡和不平衡（3.3 How torque changes rotation；3.4 Investigating torque）
+   米尺在 centre of mass（50 cm 处）架在 pivot 上 → 尺子自己的重量没有 torque。
+   左边 0.30 m 处挂 load，往下拉 → 逆时针 torque = 0.59 N m（booklet：Fr stayed at about 0.59 N m；load 的位置是示意）。
+   右边离 pivot r 的地方用 spring balance 往下、往外斜着拉；θ = r（pivot → 作用点，沿尺子向右）和 F 的夹角
+   → 顺时针 torque = rF sin θ。平衡：rF sin θ = 0.59 N m → F = 0.59/(r sin θ)。
+   不平衡（示意）：F 变小，顺时针 torque = 0.44 N m（net torque 小）或 0.19 N m（net torque 大）。
+   转动：I α = net τ。load 竖直挂着，尺子转过 φ 后它的力臂是 0.30 cos φ → 逆时针 τ = 0.59 cos φ；
+   手让 spring balance 和尺子保持 θ、读数不变 → 顺时针 τ 不变。I = 1.2 kg m²（示意，相当于慢放），转到 20° 碰到挡块（示意）。
+   方向检查（y 向上）：尺子方向 t = (cos φ, sin φ)，F 的方向 = (cos(φ−θ), sin(φ−θ))；
+   τ = r × F = −rF sin θ（顺时针）；load：(−0.30 t) × (0, −W) = +0.30 W cos φ（逆时针）。
+   spring balance 的力箭头（和它的两个分量）最短 16 px：F 很小时不按比例（标签写着 F 的值）；load 的箭头一直按比例。 */
+var DEG=Math.PI/180,TL=0.59,RL=0.30,WL=TL/RL,TCW=[0.59,0.44,0.19],PHM=20*DEG,IE=1.2,WMX=0.5,XM=10.5,YM=12,TM=0.7;
+var m5={r:0.30,th:90,mode:0,phi:0,w:0,t:0,hit:false,pts:{},tm:[0,0,0]};
+function f2(v){return (Math.round(v*100+1e-6)/100).toFixed(2);}
+function initPts(){m5.pts={50:1,40:1,30:1};}
+initPts();
+function Fsb(){return TCW[m5.mode]/(m5.r*Math.sin(m5.th*DEG));}
+function tauA(){return TL*Math.cos(m5.phi);}
+function release(){m5.phi=0;m5.w=0;m5.t=0;m5.hit=false;}
+function step5(dt){
+  if(m5.mode===0||m5.hit)return;
+  var n=8,h=dt/n;
+  for(var i=0;i<n;i++){m5.w+=(tauA()-TCW[m5.mode])/IE*h;m5.phi+=m5.w*h;m5.t+=h;
+    if(m5.phi>=PHM){m5.phi=PHM;m5.w=0;m5.hit=true;m5.tm[m5.mode]=m5.t;break;}}
+}
+
+/* ---- 标签放置（和动画 4 一样）：按候选位置依次试，避开已经放好的标签和图形 ---- */
+var BX=[],nb=0,LB=[0,0,0,0];
+function bReset(l,t,r,b){nb=0;LB[0]=l;LB[1]=t;LB[2]=r;LB[3]=b;}
+function addb(l,t,r,b){if(nb>=BX.length)BX.push([0,0,0,0]);var q=BX[nb++];q[0]=l;q[1]=t;q[2]=r;q[3]=b;}
+function free(l,t,r,b){if(l<LB[0]||t<LB[1]||r>LB[2]||b>LB[3])return false;for(var i=0;i<nb;i++){var q=BX[i];if(l<q[2]&&r>q[0]&&t<q[3]&&b>q[1])return false;}return true;}
+function obst(x1,y1,x2,y2,p){var len=Math.hypot(x2-x1,y2-y1),n=Math.max(1,Math.ceil(len/7));for(var i=0;i<=n;i++){var x=x1+(x2-x1)*i/n,y=y1+(y2-y1)*i/n;addb(x-p,y-p,x+p,y+p);}}
+/* 一个标签 1–2 行。an = [x,y,ux,uy,gap, ...]：从点 (x,y) 沿方向 (ux,uy) 推开 gap，标签框贴着那一点 */
+function lab(ctx,a,ca,sa,fa,b,cb,sb,an){
+  ctx.font='700 '+sa+'px '+(fa||FONT);var w=ctx.measureText(a).width,h=sa;
+  if(b){ctx.font='600 '+sb+'px '+FONT;w=Math.max(w,ctx.measureText(b).width);h=sa+3+sb;}
+  var n=an.length/5,cx=0,cy=0,i,ok=false,g;
+  for(i=0;i<n;i++){g=an[5*i+4]+w/2*Math.abs(an[5*i+2])+h/2*Math.abs(an[5*i+3]);
+    cx=an[5*i]+an[5*i+2]*g;cy=an[5*i+1]+an[5*i+3]*g;
+    if(free(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2)){ok=true;break;}
+    cx=clamp(cx,LB[0]+w/2+3,LB[2]-w/2-3);if(free(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2)){ok=true;break;}}
+  if(!ok){g=an[4]+w/2*Math.abs(an[2])+h/2*Math.abs(an[3]);var c0x=an[0]+an[2]*g,c0y=an[1]+an[3]*g,rd,kk;
+    /* 候选位置都被占了：在第一个候选附近一圈一圈找空位 */
+    for(rd=8;rd<=104&&!ok;rd+=8)for(kk=0;kk<16;kk++){cx=c0x+rd*Math.cos(kk*TAU/16);cy=c0y+rd*Math.sin(kk*TAU/16);
+      if(free(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2)){ok=true;break;}}
+    if(!ok){cx=clamp(c0x,LB[0]+w/2+3,LB[2]-w/2-3);cy=clamp(c0y,LB[1]+h/2+2,LB[3]-h/2-2);}}
+  addb(cx-w/2-3,cy-h/2-2,cx+w/2+3,cy+h/2+2);
+  rrect(ctx,cx-w/2-3,cy-h/2-2,w+6,h+4,4);ctx.fillStyle=rgba(C.stage,0.86);ctx.fill();
+  if(b){txt(ctx,a,cx,cy-h/2+sa/2+1,ca,sa,700,'center','middle',fa);txt(ctx,b,cx,cy+h/2-sb/2,cb,sb,600,'center','middle');}
+  else txt(ctx,a,cx,cy+1,ca,sa,700,'center','middle',fa);
+}
+/* 状态提示：几段，太长就在段之间换行（下一行去掉开头的空格） */
+function wrapP(ctx,P,maxW,size,wt){ctx.font=wt+' '+size+'px '+FONT;var out=[],cur='';
+  for(var i=0;i<P.length;i++){var t=cur+P[i];if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=P[i].replace(/^\s+/,'');}else cur=t;}
+  out.push(cur);return out;}
+function status(){
+  var F=Fsb(),th=m5.th,net=tauA()-TCW[m5.mode];
+  if(m5.mode===0){
+    if(th===90)return [['Balanced: clockwise τ = anticlockwise τ',' → the rule does not turn'],['r × F = '+f2(m5.r)+' m × '+f2(F)+' N = 0.59 N m']];
+    return [['Angled pull, θ = '+th+'°:',' F must be '+f2(F)+' N to balance'],['F sin θ = '+f2(F)+' × sin '+th+'° = '+f2(F*Math.sin(th*DEG))+' N',' → only this part turns the rule']];
+  }
+  if(!m5.hit)return [['net torque = '+f2(net)+' N m ≠ 0',' → turns anticlockwise from rest, getting faster'],['F drops to '+f2(F)+' N (illustrative):',' anticlockwise '+f2(tauA())+' > clockwise '+f2(TCW[m5.mode])+' N m']];
+  var t=m5.t.toFixed(1)+' s';
+  if(m5.mode===1)return [['Hit the stop block and stopped:',' from rest to here took '+t],['(slow motion, illustrative)',' Press the button again for a bigger net torque']];
+  return [['Bigger net torque → ω increases faster:',' took only '+t],m5.tm[1]>0?['With the small net torque it took '+m5.tm[1].toFixed(1)+' s',' (slow motion, illustrative)']:['(slow motion, illustrative)']];
+}
+
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?424:636;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i,sc=wide?1:Math.min(1,W/356);
+    var km,kF,bL,bw,rh,px,py,gx,gy,gw,gh,Ls,bh,lbw,by0,rowH,fs,lw,brR,top,rodH;
+    if(wide){gw=Math.min(230,W*0.27);gx=W-18-gw;gy=98;gh=190;km=Math.min(340,gx-156);kF=14;bL=64;bw=12;rh=12;
+      px=20+km/2;py=160;Ls=36;bh=24;lbw=30;by0=356;rowH=26;fs=12.5;lw=160;brR=gx-34;top=56;rodH=86;}
+    else{km=250*sc;kF=11*sc;bL=48*sc;bw=10;rh=10;px=20+km/2;py=170;Ls=28;bh=22;lbw=26;
+      gx=46;gw=W-46-18;gy=444;gh=130;by0=334;rowH=24;fs=12;lw=132;brR=W-16;top=90;rodH=74;}
+    /* ---- status ---- */
+    var ss=wide?15:13.5,s2=wide?13:12,lh=wide?21:19,ST=status();
+    var a1=wrapP(ctx,ST[0],W-32,ss,600),a2=wrapP(ctx,ST[1],W-32,s2,500),yy=wide?24:22;
+    for(i=0;i<a1.length;i++){txt(ctx,a1[i],16,yy,C.ink,ss,600);yy+=lh;}
+    for(i=0;i<a2.length;i++){txt(ctx,a2[i],16,yy,C.muted,s2,500);yy+=lh-1;}
+    /* ---- apparatus geometry（尺子坐标 s 沿尺子向右，u 垂直于尺子向上，单位 px） ---- */
+    var ph=m5.phi,cp=Math.cos(ph),sp=Math.sin(ph),th=m5.th*DEG,F=Fsb(),Fs=F*Math.sin(th),Fc=F*Math.cos(th);
+    function RX(s,u){return px+s*cp-u*sp;}
+    function RY(s,u){return py-(s*sp+u*cp);}
+    var sA=m5.r*km,Ax=RX(sA,0),Ay=RY(sA,0);
+    var tx=cp,ty=-sp,dnx=sp,dny=cp,nux=-sp,nuy=-cp,ux=Math.cos(ph-th),uy=-Math.sin(ph-th);
+    bReset(2,top-14,wide?gx-34:W-2,by0-28);
+    /* rod（夹子把 pivot 的钉子固定住） */
+    seg(ctx,px,py,px,py-rodH,rgba(C.muted,0.7),4);
+    rrect(ctx,px-11,py-rodH-6,22,8,3);ctx.fillStyle=rgba(C.muted,0.45);ctx.fill();
+    addb(px-4,py-rodH-6,px+4,py);
+    /* 挡块（示意 20°）：尺子转到 20° 时下边缘碰到它 */
+    var s0=-0.45*km,stx=px+s0*Math.cos(PHM)+rh/2*Math.sin(PHM),sty=py-(s0*Math.sin(PHM)-rh/2*Math.cos(PHM));
+    var gnd=py+(wide?108:90);
+    ctx.fillStyle=rgba(C.muted,0.22);ctx.fillRect(stx-7,sty,14,gnd-sty);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.strokeRect(stx-7,sty,14,gnd-sty);
+    seg(ctx,stx-24,gnd,stx+24,gnd,C.muted,2);
+    addb(stx-8,sty-2,stx+8,gnd+2);addb(stx-24,gnd-2,stx+24,gnd+2);
+    /* load：竖直挂着 */
+    var sL=-RL*km,lx=RX(sL,-rh/2),ly=RY(sL,-rh/2);
+    seg(ctx,lx,ly,lx,ly+Ls,C.muted,1.4);
+    rrect(ctx,lx-lbw/2,ly+Ls,lbw,bh,3);ctx.fillStyle=rgba(C.muted,0.55);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    addb(lx-lbw/2-2,ly+Ls-2,lx+lbw/2+2,ly+Ls+bh+2);
+    /* spring balance：沿 F 的方向，被手往下拉 */
+    var kE=Math.max(kF,16/F),aL=kE*F,d0=aL+4,ang=Math.atan2(uy,ux);
+    seg(ctx,Ax,Ay,Ax+ux*d0,Ay+uy*d0,C.muted,1.4);
+    ctx.save();ctx.translate(Ax,Ay);ctx.rotate(ang);
+    rrect(ctx,d0,-bw/2,bL,bw,bw/2);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+    for(i=0;i<6;i++){var xk=d0+7+i*(bL-14)/5;seg(ctx,xk,-bw/2+2,xk,-bw/2+(i%5?4:6),C.muted,1);}
+    var pk=d0+7+(bL-14)*Math.min(1,F/12);seg(ctx,pk,-bw/2+1.5,pk,bw/2-1.5,C.ink,2);
+    seg(ctx,d0+bL,0,d0+bL+6,0,C.muted,1.4);ring(ctx,d0+bL+10,0,4,C.muted,1.6);
+    ctx.restore();
+    obst(Ax+ux*d0,Ay+uy*d0,Ax+ux*(d0+bL+14),Ay+uy*(d0+bL+14),bw/2+1);
+    /* metre rule（转 φ） */
+    ctx.save();ctx.translate(px,py);ctx.rotate(-ph);
+    rrect(ctx,-km/2,-rh/2,km,rh,2);ctx.fillStyle=C.surface;ctx.fill();ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    for(i=-9;i<=9;i++){var tkx=i*km/20;seg(ctx,tkx,-rh/2,tkx,-rh/2+(i%2?rh*0.3:rh*0.55),rgba(C.muted,0.8),1);}
+    ctx.restore();
+    obst(RX(-km/2,0),RY(-km/2,0),RX(km/2,0),RY(km/2,0),rh/2+1);
+    dot(ctx,px,py,4.5,C.surface);ring(ctx,px,py,4.5,C.ink,1.6);dot(ctx,px,py,1.8,C.ink);
+    /* θ 从 r 的延长线量起：尺子外面那一段画虚线 */
+    var e0=Math.max(sA,km/2),e1=sA+(wide?48:40);
+    if(e1>e0+2)seg(ctx,RX(e0,0),RY(e0,0),RX(e1,0),RY(e1,0),rgba(C.muted,0.85),1.2,[4,4]);
+    /* r：pivot → 作用点（尺子平的时候才画） */
+    var level=ph<1e-4,dyl=py-rh/2-12,mx=(px+Ax)/2;
+    if(level){
+      seg(ctx,px,dyl-5,px,dyl+5,rgba(C.ink,0.6),1);seg(ctx,Ax,dyl-5,Ax,dyl+5,rgba(C.ink,0.6),1);
+      arrow(ctx,mx,dyl,px+1,dyl,rgba(C.ink,0.65),1.2,7);arrow(ctx,mx,dyl,Ax-1,dyl,rgba(C.ink,0.65),1.2,7);
+      obst(px,dyl,Ax,dyl,2);
+    }
+    /* forces */
+    var wL=kF*WL;
+    arrow(ctx,lx,ly,lx,ly+wL,C.force,3,9);obst(lx,ly,lx,ly+wL,3);
+    var Fx=Ax+ux*aL,Fy=Ay+uy*aL,sx=Ax+dnx*kE*Fs,sy=Ay+dny*kE*Fs,cx2=Ax+tx*kE*Fc,cy2=Ay+ty*kE*Fc;
+    var vb=m5.th<90,hs=kE*Fs,hc=kE*Fc;
+    if(!vb){arrow(ctx,Ax,Ay,Fx,Fy,C.force,3.4,Math.min(11,aL*0.6));}
+    else{
+      seg(ctx,sx,sy,Fx,Fy,rgba(C.muted,0.85),1.1,[3,4]);if(hc>4)seg(ctx,cx2,cy2,Fx,Fy,rgba(C.muted,0.85),1.1,[3,4]);
+      arrow(ctx,Ax,Ay,Fx,Fy,rgba(C.force,0.32),2.2,Math.min(10,aL*0.6));
+      arrow(ctx,Ax,Ay,sx,sy,C.force,3.4,Math.min(11,hs*0.6));obst(Ax,Ay,sx,sy,3);
+      if(hc>4){arrow(ctx,Ax,Ay,cx2,cy2,C.force,3.4,Math.min(11,hc*0.6));obst(Ax,Ay,cx2,cy2,3);}
+    }
+    obst(Ax,Ay,Fx,Fy,3);
+    dot(ctx,Ax,Ay,3.4,C.ink);
+    /* θ：arc（90° 时画直角记号） */
+    if(!vb){var q=9;ctx.beginPath();ctx.moveTo(Ax+tx*q,Ay+ty*q);ctx.lineTo(Ax+tx*q+dnx*q,Ay+ty*q+dny*q);ctx.lineTo(Ax+dnx*q,Ay+dny*q);ctx.strokeStyle=rgba(C.ink,0.8);ctx.lineWidth=1.2;ctx.stroke();}
+    else{ctx.beginPath();ctx.arc(Ax,Ay,20,-ph,th-ph,false);ctx.strokeStyle=rgba(C.ink,0.8);ctx.lineWidth=1.2;ctx.stroke();}
+    /* ---- labels：先放固定的，再放会动的 ---- */
+    lab(ctx,'pivot',C.muted,12,FONT,null,0,0,[px-8,py-rh/2-12,-1,0,2, px-8,py-rh/2-26,-1,0,2, px-8,py+rh/2+6,-0.7,0.7,2]);
+    lab(ctx,'load',C.ink,12,FONT,null,0,0,[lx+lbw/2,ly+Ls+bh/2,1,0,5, lx-lbw/2,ly+Ls+bh/2,-1,0,5, lx,ly+Ls+bh,0,1,4]);
+    lab(ctx,'stop block',C.muted,11.5,FONT,null,0,0,[stx,gnd+2,0,1,2, stx-8,(sty+gnd)/2,-1,0,3, stx+8,(sty+gnd)/2,1,0,3]);
+    if(level)lab(ctx,'r = '+f2(m5.r)+' m',C.ink,12,FONT,null,0,0,[mx,dyl-3,0,-1,2, Ax+4,dyl-3,0.7,-0.7,2, px+6,dyl-3,0.7,-0.7,2]);
+    var bmx=Ax+ux*(d0+bL/2),bmy=Ay+uy*(d0+bL/2),qx=-uy,qy=ux;
+    if(vb){
+      var bis=(th/2-ph),bcx=Math.cos(bis),bsy=Math.sin(bis),rr=th<50*DEG?40:30;
+      lab(ctx,'θ',C.ink,15,MATH,null,0,0,[Ax+bcx*rr,Ay+bsy*rr,bcx,bsy,1, Ax+bcx*(rr+12),Ay+bsy*(rr+12),bcx,bsy,1, Ax+bcx*(rr+24),Ay+bsy*(rr+24),bcx,bsy,1, Ax+tx*30,Ay+ty*30,nux,nuy,rh/2+2]);
+      var smx=(Ax+sx)/2,smy=(Ay+sy)/2,lgx=-tx*0.7+dnx*0.7,lgy=-ty*0.7+dny*0.7;
+      lab(ctx,'F sin θ',C.force,13,FONT,'turns',C.force,11.5,[smx,smy,-tx,-ty,10, sx,sy,-tx,-ty,10, sx,sy,lgx,lgy,4, sx,sy,dnx,dny,4, smx,smy,-tx,-ty,30, sx,sy,lgx,lgy,24, smx,smy,tx,ty,6]);
+      if(hc>4)lab(ctx,'F cos θ',C.force,13,FONT,'no turning',C.force,11.5,[(Ax+cx2)/2,(Ay+cy2)/2,nux,nuy,rh/2+3, cx2,cy2,nux,nuy,rh/2+3, Ax+tx*8,Ay+ty*8,nux,nuy,rh/2+3, cx2,cy2,tx,ty,6, cx2,cy2,nux,nuy,rh/2+22, Ax,Ay,nux,nuy,rh/2+22]);
+    }else{
+      lab(ctx,'θ',C.ink,15,MATH,null,0,0,[Ax+tx*16+dnx*16,Ay+ty*16+dny*16,0.7,0.7,1, Ax-tx*14+dnx*16,Ay-ty*14+dny*16,-0.7,0.7,1, Ax+tx*28+dnx*10,Ay+ty*28+dny*10,1,0,1]);
+    }
+    lab(ctx,'F = '+f2(F)+' N',C.force,13,FONT,'spring balance',C.muted,11.5,[bmx,bmy,qx,qy,bw/2+5, bmx,bmy,-qx,-qy,bw/2+5, Ax+ux*(d0+bL+16),Ay+uy*(d0+bL+16),ux,uy,2, Fx,Fy,qx,qy,6, Ax+ux*(d0+bL+14),Ay+uy*(d0+bL+14),0,1,8, bmx,bmy,qx,qy,bw/2+40, bmx,bmy,-qx,-qy,bw/2+40, Ax+ux*(d0+bL+16),Ay+uy*(d0+bL+16),qx,qy,8]);
+    /* ---- bars：逆时针 τ、顺时针 τ、转动速度 ---- */
+    seg(ctx,16,by0-22,brR,by0-22,C.line,1);
+    var bx0=16+lw,bx1=brR-(wide?76:70),ta=tauA(),tc=TCW[m5.mode];
+    function row(y,label,frac,col,val,fam){txt(ctx,label,16,y,C.ink,fs,600);hbar(ctx,bx0,y-9,bx1-bx0,10,frac,col);txt(ctx,val,brR,y,C.ink,fs,600,'right','alphabetic',fam);}
+    row(by0,'Anticlockwise τ (load)',ta/TM,C.force,f2(ta)+' N m',MONO);
+    row(by0+rowH,'Clockwise τ = rF sin θ',tc/TM,C.force,f2(tc)+' N m',MONO);
+    row(by0+2*rowH,'Angular velocity ω',m5.w/WMX,rgba(C.ink,0.7),m5.mode===0?'0':(m5.hit?'0 (blocked)':'increasing'),FONT);
+    /* ---- graph：平衡时 F sin θ 对 1/r ---- */
+    var gb=gy+gh,XT=[0,2,4,6,8,10],YT=[0,4,8,12];
+    function GX(v){return gx+v/XM*gw;}
+    function GY(v){return gb-v/YM*gh;}
+    txt(ctx,'When balanced: F sin θ against 1/r',gx-28,gy-30,C.ink,12.5,600);
+    txt(ctx,'F sin θ (N)',gx-28,gy-12,C.muted,11,600);
+    seg(ctx,gx,gy,gx,gb,C.muted,1);seg(ctx,gx,gb,gx+gw,gb,C.muted,1);
+    for(i=0;i<YT.length;i++){var gyy=GY(YT[i]);if(i)seg(ctx,gx,gyy,gx+gw,gyy,C.grid,1);txt(ctx,String(YT[i]),gx-6,gyy+4,C.muted,11,500,'right');}
+    for(i=0;i<XT.length;i++){var gxx=GX(XT[i]);seg(ctx,gxx,gb,gxx,gb+4,C.muted,1);txt(ctx,String(XT[i]),gxx,gb+17,C.muted,11,500,'center');}
+    txt(ctx,'1/r (m⁻¹)',gx+gw,gb+33,C.muted,11,600,'right');
+    seg(ctx,GX(0),GY(0),GX(XM),GY(TL*XM),rgba(C.copper,0.75),1.5,[6,5]);
+    txt(ctx,'gradient = τ = 0.59 N m',gx+gw-2,GY(0.6),C.copper,11.5,600,'right');
+    for(var k in m5.pts){if(!m5.pts.hasOwnProperty(k))continue;var iv=100/k;dot(ctx,GX(iv),GY(TL*iv),4.5,C.copper);}
+    if(m5.mode===0){
+      var cvx=GX(1/m5.r),cvy=GY(TL/m5.r);ring(ctx,cvx,cvy,8,C.ink,1.5);
+      if(vb){var rfy=GY(F);seg(ctx,cvx,cvy-9,cvx,rfy+6,rgba(C.south,0.7),1.2,[2,3]);ring(ctx,cvx,rfy,5,C.south,2);
+        txt(ctx,'F reading',cvx,rfy-9,C.south,11.5,600,'center');}
+    }
+    txt(ctx,'At θ = 90°, F sin θ is just F',gx-28,gb+(wide?54:52),C.muted,11,500);
+  }
+});
+
+var r5=document.getElementById('s5-r'),o5r=document.getElementById('s5-r-out'),t5=document.getElementById('s5-th'),o5t=document.getElementById('s5-th-out'),b5u=document.getElementById('s5-unb');
+var LBL=['Unbalance torque','Bigger net torque','Back to balanced'];
+function sync5(){press(b5u,m5.mode>0);b5u.textContent=LBL[m5.mode];o5r.textContent=m5.r.toFixed(2)+' m';o5t.textContent=m5.th+'°';}
+/* 换了 r 或 θ：重新调 F 让尺子平衡，记一个点 */
+function balance(){m5.mode=0;release();m5.pts[Math.round(m5.r*100)]=1;sync5();S5.render();}
+r5.addEventListener('input',function(){m5.r=Math.round(parseFloat(r5.value)*100)/100;balance();});
+t5.addEventListener('input',function(){m5.th=parseInt(t5.value,10);balance();});
+b5u.addEventListener('click',function(){m5.mode=(m5.mode+1)%3;release();if(m5.mode>0)S5.setPlaying(true);sync5();S5.render();});
+document.getElementById('s5-reset').addEventListener('click',function(){m5.r=0.30;m5.th=90;r5.value='0.30';t5.value='90';m5.mode=0;release();initPts();m5.tm=[0,0,0];sync5();S5.render();});
+sync5();
+})();
+</script>
+</body>
+</html>

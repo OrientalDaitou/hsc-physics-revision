@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M6 T3 Electromagnetic Induction: Flux, Faraday and Lenz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m6">Module 6</a><span class="sep">/</span><span aria-current="page">Topic 3</span><a class="lang" lang="zh-Hans" href="../../m6/t3.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 6 · Topic 3</div>
+  <h1>Electromagnetic Induction: Flux, Faraday and Lenz</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter shows how to make electricity from a magnetic field. The most important idea: when the <span class="t">flux</span> through a coil <b>changes</b>, an <span class="t">emf</span> is produced. You will learn three things: how much flux there is, how big the emf is, and which way the current flows. The moving wire, the magnet and the two coils later in the chapter all follow the same rules.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s8">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s10">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Magnetic flux</div>
+    <p>How many field lines pass through a loop. The angle θ is measured from the <span class="t">normal</span>, not from the plane of the loop.</p>
+    <div class="eqs">Φ = <i>BA</i> cos <i>θ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Faraday's law</div>
+    <p>Only a <b>changing</b> flux produces an emf. However big the flux is, if it does not change, there is no emf.</p>
+    <div class="eqs"><i>ε</i> = −<i>N</i> ΔΦ / Δ<i>t</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Lenz's law</div>
+    <p>The magnetic field made by the induced current is called induced <i>B</i>. It opposes the <b>change</b> in flux that produced it. It is the minus sign in the formula, and it comes from conservation of energy.</p>
+    <div class="eqs">Φ rises → induced <i>B</i> opposite<br>Φ falls → induced <i>B</i> same way</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="In this chapter">
+  <div class="map-row head"><span>Part</span><span>Key formula</span><span>Rules used</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">3.1</span><span class="t">Magnetic flux</span></span><span><span class="m">Φ = <i>BA</i> cos <i>θ</i></span></span><span>① Φ changes when <i>B</i>, <i>A</i> or <i>θ</i> changes</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">3.2</span><span class="t">Faraday's law</span></span><span><span class="m"><i>ε</i> = −<i>N</i> ΔΦ/Δ<i>t</i></span></span><span>② Only how fast Φ changes matters</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">3.3</span><span class="t">Lenz's law</span></span><span>Opposes the "change"</span><span>③ Three steps, pole method</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">3.4</span><span class="t">Motional emf</span></span><span><span class="m"><i>ε</i> = <i>lvB</i></span></span><span>② The rod sweeps out area; ③ the force opposes the motion</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">3.5</span><span class="t">Magnets &amp; eddy currents</span></span><span>Two opposite pulses</span><span>②③ Opposite directions entering and leaving; eddy current braking</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">3.5</span><span class="t">Two coils</span></span><span><span class="m">|<i>ε</i><sub>s</sub>| ∝ |Δ<i>I</i><sub>p</sub>|/Δ<i>t</i></span></span><span>② An emf only while <i>I</i><sub>p</sub> changes</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">3.6</span><span class="t">Key experiments</span></span><span>0.41 / 0.56 / 3.57 s</span><span>Faraday 1831; eddy current experiment</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially the grip rule.</li>
+    <li>Teach 3.1 → 3.5 in order. For each section, read the "Big idea" first, then open the animation and let the student say: which way the flux points, whether it is growing or shrinking, and which way the current flows.</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li><b>Field lines and <span class="m"><i>B</i></span>:</b> field lines come out of the N pole and go into the S pole. The closer together the lines are, the stronger the field is. The unit of <span class="m"><i>B</i></span> is T (<span class="t">tesla</span>).</li>
+    <li><span class="t">Right-hand grip rule</span>: hold the coil in your right hand, with your fingers curling along the current. Your thumb points the way of the magnetic field inside the coil.</li>
+    <li><span class="t">Right-hand palm rule</span>: hold your right hand flat. Fingers = field <span class="m"><i>B</i></span>, thumb = velocity <span class="m"><i>v</i></span> of a positive charge (or current <span class="m"><i>I</i></span>), the way the palm pushes = force <span class="m"><i>F</i></span>.</li>
+    <li><b>Three cos values:</b> <span class="m" style="white-space:nowrap">cos 0° = 1</span>, <span class="m" style="white-space:nowrap">cos 90° = 0</span>, <span class="m" style="white-space:nowrap">cos 180° = −1</span>.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">3.1</div>
+  <h2>Magnetic flux</h2>
+  <p class="big"><span class="lbl">Big idea</span>Magnetic flux tells you how much magnetic field passes through a loop. It depends on three things: the field strength, the area and the angle.</p>
+  <ul class="pts">
+    <li><span class="t">Magnetic flux</span> (<span class="m">Φ</span>): how much magnetic field passes through an area. You can think of it as "how many field lines pass through the loop". Unit: <span class="t">weber</span> (Wb).</li>
+    <li><span class="t">Plane</span>: the flat surface inside a loop, like the skin of a drum.</li>
+    <li><span class="t">Normal</span>: an imaginary arrow at 90° to the plane of the loop.</li>
+    <li><span class="m"><i>θ</i></span> is the angle between <span class="m"><i>B</i></span> and the normal, <b>not</b> the angle between <span class="m"><i>B</i></span> and the plane. If a question gives "the angle to the plane", use <span class="m" style="white-space:nowrap"><i>θ</i> = 90° − that angle</span>.</li>
+    <li>Only the part of the field along the normal passes through: <span class="m" style="white-space:nowrap"><i>B</i><sub>∥</sub> = <i>B</i> cos <i>θ</i></span>.</li>
+    <li>Analogy: catching rain in a bucket. With the open top facing up, you catch the most rain. With the bucket tilted, you catch less. With the open top facing sideways, you catch none.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h"><i>θ</i> = 0°</div><p>plane ⊥ <i>B</i>. <b>All</b> the field lines pass through. <span class="m">Φ = <i>BA</i></span>, the <b>largest</b>.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Tilted</div><p>Only some of them pass through. <span class="m">Φ = <i>BA</i> cos <i>θ</i></span>.</p></div>
+    <div class="state" style="grid-column:1 / -1"><div class="state-h"><i>θ</i> = 90°</div><p>plane ∥ <i>B</i>. The field lines slide along the loop and <b>none pass through</b>. <span class="m">Φ = 0</span>.</p></div>
+  </div>
+  <ul class="pts">
+    <li><span class="m">1 Wb = 1 T m²</span>. With <span class="m"><i>B</i></span> perpendicular to the plane, <span class="m"><i>B</i> = Φ/<i>A</i></span>, the flux per square metre. So <span class="m"><i>B</i></span> is also called the <span class="t">magnetic flux density</span>.</li>
+    <li>Reversing the field (or turning the loop over) takes the flux from <span class="m">+<i>BA</i></span> to <span class="m">−<i>BA</i></span>. So <span class="m">|ΔΦ| = 2<i>BA</i></span>, <b>not 0</b>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Magnetic flux</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq">Φ = <i>B</i><sub>∥</sub><i>A</i> = <i>BA</i> cos <i>θ</i></div>
+    <dl class="sym">
+      <div><dt>Φ</dt><dd>flux through the loop (Wb = T m²)</dd></div>
+      <div><dt>B<sub>∥</sub></dt><dd>the part of <i>B</i> along the normal (T)</dd></div>
+      <div><dt>B</dt><dd><span class="t">magnetic field strength</span>, also called flux density (T)</dd></div>
+      <div><dt>A</dt><dd>area of the loop <b>inside</b> the field (m²)</dd></div>
+      <div><dt>θ</dt><dd>angle between <i>B</i> and the normal (°; SI unit: rad)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> a flat loop in a uniform field. Φ is the flux for <b>one turn</b>.<br><b>Trap:</b> when the plane is <b>parallel</b> to the field, <span class="m" style="white-space:nowrap"><i>θ</i> = 90°</span>, so <span class="m" style="white-space:nowrap">Φ = 0</span>. If a question says "the plane of the loop is at 30° to <i>B</i>", then <span class="m" style="white-space:nowrap"><i>θ</i> = 90° − 30° = 60°</span>. If the area is in cm², change it to m² (× 10<sup>−4</sup>).</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Change in flux</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq">ΔΦ = Φ<sub>final</sub> − Φ<sub>initial</sub></div>
+    <dl class="sym">
+      <div><dt>ΔΦ</dt><dd>change in flux (Wb)</dd></div>
+      <div><dt>Φ<sub>final</sub></dt><dd>flux afterwards (Wb)</dd></div>
+      <div><dt>Φ<sub>initial</sub></dt><dd>flux at the start (Wb)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> the field reverses: <span class="m"><span style="white-space:nowrap">ΔΦ = (−<i>BA</i>) − (+<i>BA</i>)</span> <span style="white-space:nowrap">= −2<i>BA</i></span></span>, so the size is <span class="m">2<i>BA</i></span>.</p>
+  </div>
+
+  <h3>Three ways to change the flux</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th style="white-space:nowrap">What to change</th><th>How</th></tr></thead>
+      <tbody>
+        <tr><td class="f">Change <i>B</i></td><td>Move a magnet closer or away; change the current in an electromagnet; switch the field on, off, or reverse it.</td></tr>
+        <tr><td class="f">Change <i>A</i></td><td>Slide the loop into or out of the field; squash it.</td></tr>
+        <tr><td class="f">Change <i>θ</i></td><td>Rotate the loop, as in a <span class="t">generator</span>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Note:</b> a loop sliding around <b>inside</b> a large uniform field keeps the same flux, so there is no emf.</p>
+
+<figure class="sim" id="sim1">
+  <figcaption class="sim-head"><span class="sim-title">Animation 1 · Flux and the angle θ</span><span class="sim-tag">Loop seen from the side · uniform B · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A loop in a uniform magnetic field, seen from the side, turns slowly. The field lines that pass through the loop light up, and their number changes with the angle. The picture shows the normal of the loop, the angle θ between B and the normal, and the part of B along the normal, B∥. A Φ bar beside it runs from −BA to +BA."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Angle θ <input type="range" id="s1-th" min="0" max="180" step="5" value="40"><output id="s1-th-out" for="s1-th">40°</output></label>
+    <button class="btn" type="button" id="s1-flip" aria-pressed="false">Reverse B (now →)</button>
+    <button class="btn" type="button" id="s1-plane" aria-pressed="false">Angle to plane: off</button>
+    <button class="btn" type="button" id="s1-reset">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① Drag θ (dragging pauses it) from 0° to 90°. The larger θ is, the fewer field lines light up and the shorter the Φ bar is. ② Drag to 90°: plane ∥ B, no field line passes through, Φ = 0. Drag further and the loop has turned over: the field lines pass through against the normal, and Φ becomes negative. ③ Drag back to 0° and press "Reverse B": Φ jumps from +BA to −BA, <span style="white-space:nowrap">|ΔΦ| = 2BA</span>, not 0. ④ Turn on "Angle to plane": if a question gives this angle, first change it to <span style="white-space:nowrap">θ = 90° − that angle</span>. The numbers in the picture are all illustrative: Φ is only written as a multiple of BA.</p>
+</figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">3.2</div>
+  <h2>Faraday's law</h2>
+  <p class="big"><span class="lbl">Big idea</span>Only a <b>changing</b> flux induces an emf. A steady flux induces nothing, however big it is.</p>
+  <ul class="pts">
+    <li><span class="t">Electromagnetic induction</span>: making an emf by changing flux. To <span class="t">induce</span> an emf means to produce it.</li>
+    <li>emf (<span class="m"><i>ε</i></span>, <span class="t">electromotive force</span>): the name has "force" in it, but it is <b>not a force</b>. It is the energy given to each coulomb of charge. Unit: volt (V).</li>
+    <li>A faster magnet, a stronger magnet or more turns give a bigger emf.</li>
+    <li><span class="t">Faraday's law</span>: the induced emf is proportional to the <span class="t">rate of change</span> of magnetic flux through the circuit.</li>
+    <li>In a coil with <span class="m"><i>N</i></span> turns, the emfs of the turns add, like cells in a battery.</li>
+    <li><b><span class="t">Closed circuit</span>:</b> an <span class="t">induced current</span> flows, <span class="m"><i>I</i> = <i>ε</i>/<i>R</i></span>. <b><span class="t">Open circuit</span>:</b> an emf, but no current.</li>
+    <li>Analogy: flux is like the balance in a bank account, and emf is like the money going in or out each day. However big the balance is, if no money moves, the money going in or out is 0.</li>
+  </ul>
+
+  <h3>Reading the emf from a Φ–t graph</h3>
+  <ul class="pts">
+    <li><span class="m">|<i>ε</i>| = <i>N</i> × gradient</span>. <span class="t">Gradient</span> is how steep the line is.</li>
+    <li>Steep line: big emf. Flat line: emf = 0.</li>
+    <li>The rising and falling parts of the graph give emfs of opposite signs.</li>
+    <li>In <a href="#sim4">Animation 4</a> in 3.5, the Φ–t graph and the <i>ε</i>–t graph are lined up one above the other, so you can see this directly.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Faraday's law of induction</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>ε</i> = −<i>N</i> ΔΦ / Δ<i>t</i></div>
+    <dl class="sym">
+      <div><dt>ε</dt><dd>average induced emf (V)</dd></div>
+      <div><dt>N</dt><dd>number of turns in the coil (no unit)</dd></div>
+      <div><dt>ΔΦ</dt><dd>change in flux through one turn: Φ<sub>final</sub> − Φ<sub>initial</sub> (Wb)</dd></div>
+      <div><dt>Δt</dt><dd>time taken for the change (s)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> the size of the emf for any change of flux. The minus sign is Lenz's law (next section).<br><b>Trap:</b> ΔΦ is the <b>change</b> in flux: a huge steady flux gives emf = 0. Units: <span class="m" style="white-space:nowrap">Wb s<sup>−1</sup> = V</span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Ohm's law</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>V</i> = <i>IR</i></div>
+    <dl class="sym">
+      <div><dt>V</dt><dd>voltage (V)</dd></div>
+      <div><dt>I</dt><dd>current (A)</dd></div>
+      <div><dt>R</dt><dd>resistance (Ω)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> use it for a resistor, a coil or a transmission <span class="t">line</span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Induced current</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>I</i> = <i>ε</i> / <i>R</i></div>
+    <dl class="sym">
+      <div><dt>I</dt><dd>induced current (A)</dd></div>
+      <div><dt>ε</dt><dd>induced emf (V)</dd></div>
+      <div><dt>R</dt><dd>resistance of the circuit (Ω)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> the sheet has <span class="m"><i>V</i> = <i>IR</i></span>. Just replace <span class="m"><i>V</i></span> with <span class="m"><i>ε</i></span>. Use it only for a <b>closed</b> circuit. In an open circuit there is no current.</p>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="secnum">3.3</div>
+  <h2>Lenz's law: the direction of the current</h2>
+  <p class="big"><span class="lbl">Big idea</span>An induced current always fights the change that made it. <span class="t">Lenz's law</span> (learn the exact words): the induced current flows in the direction that makes a magnetic field <b>opposing</b> the change in flux that produced it.</p>
+  <p>In the exam you must write this sentence (the booklet's own words, learn it):<br><i>"The induced current flows in the direction that makes a magnetic field opposing the change in flux that produced it."</i><br>Key words: <span class="t">induced current</span>, <span class="t">magnetic field</span>, <span class="t">opposing the change in flux</span>.</p>
+  <ul class="pts">
+    <li>Lenz's law is the minus sign in Faraday's formula. It comes from conservation of energy (covered at the end of this section).</li>
+    <li>In an open circuit there is no current. The direction of the emf is then the direction of the current it "wants" to drive.</li>
+    <li>The induced current also makes its own magnetic field. Below we call it <span class="t">induced <i>B</i></span>.</li>
+    <li>It opposes the <b>change</b>, not the field itself. Analogy: a person who hates change. If you push something in, they push it out. If you take something out, they pull it back.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Flux increasing</div><p>Induced <i>B</i> points <b>opposite</b> to the original <i>B</i>, trying to push the flux back down.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Flux decreasing</div><p>Induced <i>B</i> points the <b>same way</b> as the original <i>B</i>, trying to bring the flux back up.</p></div>
+  </div>
+  <ul class="pts">
+    <li>Right-hand grip rule: fingers curl with the current, thumb = the field inside the coil. It also works the other way: if the current looks <b>anticlockwise</b> to you, that face is an <b>N face</b>. If it looks <b>clockwise</b>, it is an <b>S face</b>.</li>
+  </ul>
+
+  <h3>Three steps to find the current direction</h3>
+  <ol class="pts">
+    <li>Which way does the original <span class="m"><i>B</i></span> point? Is the flux growing or shrinking?</li>
+    <li>Use Lenz's law to find which way induced <span class="m"><i>B</i></span> points.</li>
+    <li>Use the grip rule to find the current direction from induced <span class="m"><i>B</i></span>.</li>
+  </ol>
+  <p><b>Note:</b> when you say "clockwise" or "anticlockwise", you must say <b>which side it is seen from</b> (for example, "seen from the magnet"). If you do not say which side, the answer has no meaning.</p>
+
+  <h3>A faster way: the pole method</h3>
+  <ul class="pts">
+    <li><span class="t">Pole method</span>: when a pole <b>approaches</b>, the near face of the coil becomes the <b>same</b> pole and repels it. When a pole <b>leaves</b>, the near face becomes the <b>opposite</b> pole and attracts it.</li>
+    <li>In both cases, the coil opposes the motion of the magnet.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">N pole approaching</div><p>The near face becomes <b>N</b> and <b>repels</b> the magnet. Induced <i>B</i> points towards the magnet. Seen from the magnet: <b>anticlockwise</b>.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">N pole leaving</div><p>The near face becomes <b>S</b> and <b>attracts</b> the magnet. Induced <i>B</i> points away from the magnet. Seen from the magnet: <b>clockwise</b>.</p></div>
+  </div>
+
+  <h3>Lenz's law and conservation of energy</h3>
+  <ul class="pts">
+    <li>Suppose the coil <b>attracted</b> an approaching magnet. The magnet would speed up and gain energy from nothing. That breaks the <span class="t">law of conservation of energy</span>: energy cannot be created or destroyed.</li>
+    <li>So the coil must push back. The work you do against this push → electrical energy → heat.</li>
+    <li>Open circuit: no current, so no push back.</li>
+  </ul>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Lenz: a magnet approaching and leaving a coil</span><span class="sim-tag">Coil drawn in cross-section: ⊙ out of the page ⊗ into the page · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A bar magnet moves back and forth along the axis of a coil and stops for 1 second at each end. The coil is drawn in cross-section. The top and bottom rows of wires use ⊙ and ⊗ to show the direction of the induced current. The dashed lines are the original field of the magnet, and the field lines that pass through the coil become brighter. The thick arrow inside the coil is the induced B. Above the coil, labels show whether each end becomes N or S. The green arrow below the magnet is the force of the coil on the magnet. A galvanometer is connected below the coil. At the side, three steps give the direction, and a drawing shows whether the current is clockwise or anticlockwise as seen from the magnet."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Pole facing the coil">
+      <button class="btn" type="button" id="s2-pn" aria-pressed="true">N pole facing coil</button>
+      <button class="btn" type="button" id="s2-ps" aria-pressed="false">S pole facing coil</button>
+    </span>
+    <span class="seg" role="group" aria-label="Circuit">
+      <button class="btn" type="button" id="s2-cl" aria-pressed="true">Closed circuit</button>
+      <button class="btn" type="button" id="s2-op" aria-pressed="false">Open circuit</button>
+    </span>
+    <label class="range">Speed <input type="range" id="s2-speed" min="0.5" max="2" step="0.25" value="1"><output id="s2-speed-out" for="s2-speed">× 1.0</output></label>
+  </div>
+  <p class="try"><b>Try it:</b> ① First watch the N pole approach: the near face of the coil becomes N, like poles repel, and the green force F pushes the magnet back. Seen from the magnet, the current is anticlockwise, and the needle moves to one side. When the magnet leaves, the near face becomes S, unlike poles attract, the current becomes clockwise, and the needle moves to the other side. When the magnet stops, the flux does not change and the needle returns to 0. ② Press "S pole facing coil": all the directions reverse, but the coil still opposes the motion of the magnet. ③ Press "Open circuit": the flux still changes and the emf is still there, but there is no current, no induced B and no force. ④ Set the speed to × 2: the flux changes faster, and at the same position the needle moves 2 times as far. The sizes of the magnet and coil and the speed are illustrative.</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">3.4</div>
+  <h2>Motional emf: a straight wire moving in a field</h2>
+  <p class="big"><span class="lbl">Big idea</span>A metal rod moving across a magnetic field has an emf between its ends.</p>
+  <h3>A rod alone</h3>
+  <ul class="pts">
+    <li>Use the palm rule: fingers = <span class="m"><i>B</i></span>, thumb = <span class="m"><i>v</i></span> of a <b>positive charge</b>, the way the palm pushes = force.</li>
+    <li>Rod moving right, <span class="m"><i>B</i></span> into the page (×): positive charge is pushed <b>up</b>. <span class="t">Free electrons</span> (electrons that can move in the metal) are pushed <b>down</b>.</li>
+    <li>So the top end becomes + and the bottom end becomes −, like a battery. This is called <span class="t">motional emf</span>.</li>
+    <li>As more charge builds up, it makes an electric field that pushes back. When the electric and magnetic forces are the same size, the charge stops building up.</li>
+  </ul>
+
+  <h3>On rails</h3>
+  <ul class="pts">
+    <li>Put the rod on two rails, and join a resistor <span class="m"><i>R</i></span> to the <b>left end</b> of the rails. This makes a closed circuit (as in Animation 3). When the rod moves right, away from <span class="m"><i>R</i></span>, the current flows <b>up</b> the rod, and it goes <b>anticlockwise</b> around the whole loop (seen from the front of the page).</li>
+    <li>The rod carries a current and is in a field, so it feels a force <span class="m"><i>F</i> = <i>lIB</i></span>. This force <b>opposes</b> the motion (Lenz).</li>
+    <li>So you must keep pushing for the rod to move at constant speed. The work done by the push ends up as heat in <span class="m"><i>R</i></span>.</li>
+    <li>Faraday's view: as the rod moves forward, it sweeps out area, so the flux through the loop grows, and there is an emf. Both views give the same answer.</li>
+    <li>Rod moving along the field lines, or sliding along its own length: it does not cut across the field lines, so <span class="m"><i>ε</i> = 0</span>.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">Induction (this chapter)</div><p><b>Motion → current.</b> A wire moving in a field produces a current.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Motor effect</div><p><b>Current → motion.</b> <span class="t">Motor effect</span>: a wire carrying a current in a magnetic field is pushed.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Motional emf</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>ε</i> = <i>lvB</i></div>
+    <dl class="sym">
+      <div><dt>ε</dt><dd>emf between the ends of the rod (V)</dd></div>
+      <div><dt>l</dt><dd>length of the rod <b>inside</b> the field (m)</dd></div>
+      <div><dt>v</dt><dd>speed of the rod across the field (m s<sup>−1</sup>)</dd></div>
+      <div><dt>B</dt><dd>magnetic field strength (T)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> rod, velocity and field all at 90° to each other.<br><b>You can also derive it:</b> in time Δ<i>t</i> the rod sweeps an area <span class="m" style="white-space:nowrap">Δ<i>A</i> = <i>lv</i>Δ<i>t</i></span>, so <span class="m" style="white-space:nowrap">ΔΦ = <i>Blv</i>Δ<i>t</i></span>. Faraday's law with <span class="m" style="white-space:nowrap"><i>N</i> = 1</span>: <span class="m" style="white-space:nowrap">|<i>ε</i>| = ΔΦ/Δ<i>t</i> = <i>lvB</i></span>.<br><b>Trap:</b> <span class="m"><i>l</i></span> is the length <b>inside</b> the field, not the whole wire.</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · A rod cutting across a field on rails</span><span class="sim-tag">B into the page (×) · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="B is into the page, drawn as a grid of ×. A metal rod slides at constant speed along two rails. The left end of the rails is connected to a resistor R. The picture shows the rod's velocity v, the + and − at the two ends of the rod, the direction of the current in the loop, the force F = lIB on the rod and the push. The light area is the area inside the loop, and the darker narrow strip is the area the rod has just swept. At the side are readouts of ε, I, F and heat."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Circuit">
+      <button class="btn" type="button" id="s3-alone" aria-pressed="false">Rod alone <span style="white-space:nowrap">(open circuit)</span></button>
+      <button class="btn" type="button" id="s3-rails" aria-pressed="true">On rails <span style="white-space:nowrap">(closed circuit)</span></button>
+    </span>
+    <span class="seg" role="group" aria-label="Push direction">
+      <button class="btn" type="button" id="s3-right" aria-pressed="true">Push right →</button>
+      <button class="btn" type="button" id="s3-left" aria-pressed="false">← Push left</button>
+    </span>
+    <label class="range">Speed v <input type="range" id="s3-v" min="0.5" max="3" step="0.5" value="2"><output id="s3-v-out" for="s3-v">2.0 m/s</output></label>
+  </div>
+  <p class="try"><b>Try it:</b> ① First look at the rod on rails: the rod moves right, the current flows up the rod, and it goes anticlockwise around the whole loop (seen from the front of the page). The green F = lIB points left. It is the same size as the push and it opposes the motion. Look at the readouts at the side (below, on a phone): the power of the push Fv (the work done each second) is exactly equal to the heat produced in R each second, I²R. ② Press "Rod alone (open circuit)": + and − slowly build up at the two ends. The electric force qE on a +q in the rod grows until it is as big as the magnetic force qvB, and then no more charge builds up. There is no current, and no push is needed. (The real build-up is almost instant. It is slowed down here.) ③ Press "← Push left": the + end moves to the bottom, the current becomes clockwise, and F now points right. It still opposes the motion. ④ Drag v: ε, I and F are all proportional to v, and the heat is proportional to v². The light area is the area inside the loop. The darker narrow strip is the area the rod sweeps in Δt, ΔA = lvΔt. Multiply it by B to get the change in flux, ΔΦ = BlvΔt. <span style="white-space:nowrap">l = 0.50 m</span>, <span style="white-space:nowrap">B = 0.80 T</span> and <span style="white-space:nowrap">R = 2.0 Ω</span> are all illustrative values.</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">3.5</div>
+  <h2>A magnet moving through a solenoid · Metal plates: eddy currents</h2>
+  <p class="big"><span class="lbl">Big idea</span>Any change in flux induces an emf, whatever causes it. Magnets in a solenoid, metal plates and nearby coils all follow the same rules.</p>
+  <p><span class="t">Solenoid</span>: a long coil with many turns.</p>
+
+  <h3>A magnet moving through a solenoid</h3>
+  <ol class="pts">
+    <li><b>Approaching:</b> the flux increases, so an emf is induced one way. This is <span class="t">pulse</span> 1.</li>
+    <li><b>Centre:</b> the flux is largest, but it is not changing at this moment, so <span class="m" style="white-space:nowrap"><i>ε</i> = 0</span>.</li>
+    <li><b>Leaving:</b> the flux decreases, so the emf is the other way. This is pulse 2.</li>
+  </ol>
+  <ul class="pts">
+    <li>The faster the magnet, the taller and narrower the pulse.</li>
+    <li>A falling magnet leaves faster than it enters. So pulse 2 is taller and narrower.</li>
+    <li>The two pulses have the same area, <span class="m"><i>N</i>|ΔΦ|</span>. Faster means taller, but the time is also shorter.</li>
+    <li>Closed circuit: the coil repels the magnet above it and attracts it below. Both forces point up, and both oppose the fall. Some <span class="t">gravitational potential energy</span> becomes heat, so the magnet falls slower.</li>
+  </ul>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">Animation 4 · Magnet through a coil: two opposite pulses</span><span class="sim-tag">Magnet: N pole down · time slowed 40 times · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left, a bar magnet with its N pole down passes through a horizontal coil. On the right, two graphs with the same time axis, one above the other: the top graph shows the flux Φ through one turn against time, and the bottom graph shows the induced emf ε against time. A tangent moves along the Φ graph: the steeper the tangent, the larger the emf. When the magnet is at the centre, Φ is largest and ε = 0. The two pulses are in opposite directions and their shaded areas are the same."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="How the magnet moves">
+      <button class="btn" type="button" id="s4-fall" aria-pressed="true">Fall from rest</button>
+      <button class="btn" type="button" id="s4-const" aria-pressed="false">Constant speed</button>
+    </span>
+    <label class="range">Speed <input type="range" id="s4-speed" min="0.5" max="2" step="0.25" value="1"><output id="s4-speed-out" for="s4-speed">× 1.0</output></label>
+    <button class="btn" type="button" id="s4-turns" aria-pressed="false">Turns: N</button>
+    <button class="btn" type="button" id="s4-reset">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First watch "Fall from rest": the magnet approaches and Φ rises. The steeper the tangent, the larger ε (pulse 1). At the centre Φ is highest, the tangent is flat and ε = 0. As the magnet leaves, Φ falls and ε reverses (pulse 2). The magnet falls faster and faster, so pulse 2 is taller and narrower. ② Click "Constant speed": the two pulses are the same height. Then drag the speed to ×&nbsp;2: height ×&nbsp;2, width ÷&nbsp;2, area unchanged (the dashed line shows how it was before the change). ③ Press "Turns: 2N": Φ is the flux through one turn, so it does not change; ε and the area both ×&nbsp;2. The two areas are always equal, both N|ΔΦ|. The first pulse is drawn as positive; which one is positive depends only on how the meter is connected. The green F is the force of the coil on the magnet when the coil is part of a closed circuit: it repels above the coil and attracts below it, and both forces are upward (in an open circuit there is no current, so no F). The current here is very small, so how much it slows the magnet is not calculated. All numbers on the graphs are illustrative.</p>
+</figure>
+
+  <h3>Metal plates: eddy currents</h3>
+  <ul class="pts">
+    <li><span class="t">Eddy currents</span>: loops of induced current inside solid metal. They appear only where the flux changes. Lenz's law gives their direction.</li>
+    <li>Below, a metal plate moves right through a field into the page (×), seen from the front of the page:</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">The part entering the field</div><p>Flux increases → <b>anticlockwise</b> eddy current.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">The part leaving the field</div><p>Flux decreases → <b>clockwise</b> eddy current.</p></div>
+    <div class="state" style="grid-column:1 / -1"><div class="state-h" style="font-family:var(--body);font-size:17px">The part fully inside the field</div><p>Flux does not change → <b>no</b> eddy current.</p></div>
+  </div>
+  <ul class="pts">
+    <li>The force on each eddy loop opposes the motion. The plate slows, and its kinetic energy becomes heat. This is called <span class="t">magnetic braking</span>.</li>
+    <li>Uses: brakes, <span class="t">induction cooktops</span>, <span class="t">metal detectors</span>.</li>
+    <li>Problem: there are also eddy currents in the core of a <span class="t">transformer</span>, and they waste energy (next chapter).</li>
+    <li>To see a magnet falling into a copper tube and being slowed by eddy currents, go to <a href="t5.html#sim5">Animation 5 of Topic 5</a>.</li>
+  </ul>
+</section>
+
+<section id="s6">
+  <div class="secnum">3.5</div>
+  <h2>One solenoid near another</h2>
+  <p class="big"><span class="lbl">Big idea</span>When the current in one coil changes, there is an emf in a nearby coil. If the current does not change, there is no emf.</p>
+  <ul class="pts">
+    <li><span class="t">Mutual induction</span>: a changing current in the <span class="t">primary coil</span> (joined to the supply) induces an emf in a nearby <span class="t">secondary coil</span>.</li>
+    <li>A coil with a steady current, moved in or out of another coil, acts like a bar magnet.</li>
+  </ul>
+  <h3>Closing and opening the switch</h3>
+  <ol class="pts">
+    <li><b>Switch closed:</b> the primary current grows from 0, and there is a <b>brief</b> emf in the secondary. The secondary's induced <span class="m"><i>B</i></span> opposes the growing field.</li>
+    <li><b>Kept closed:</b> the current is steady, the flux is steady, and there is <b>no</b> emf.</li>
+    <li><b>Switch opened:</b> the current falls, and there is another brief emf, the <b>other way</b>.</li>
+  </ol>
+  <ul class="pts">
+    <li>Analogy: riding in a lift. You feel it only when it starts and when it stops. You feel nothing while it moves at constant speed.</li>
+    <li>A <span class="t">soft iron core</span> is easily magnetised. It guides more flux into the secondary, so the emf is bigger.</li>
+    <li><span class="t">AC</span> (current keeps changing size and direction) supply: the current keeps changing, so there is an emf all the time. This is a transformer (next chapter). A steady <span class="t">DC</span> supply: an emf only at the moment of switching on or off.</li>
+    <li>Where does the secondary's energy come from? From the supply. If the emf is made by moving a coil, it comes from the work you do.</li>
+  </ul>
+
+  <h3>A coil wound on a long solenoid</h3>
+  <ul class="pts">
+    <li>A long air-core solenoid is the primary, and a coil wound around the outside of it is the secondary. <b>All</b> the primary's flux passes through the secondary.</li>
+    <li>Flux through each turn of the secondary: <span class="m">Φ = <i>BA</i></span>, with <span class="m" style="white-space:nowrap"><i>B</i> = <i>μ</i><sub>0</sub><i>N</i><sub>p</sub><i>I</i><sub>p</sub>/<i>L</i></span>.</li>
+    <li>Faraday's law then gives the formula below. The faster <span class="m"><i>I</i><sub>p</sub></span> changes, the bigger the emf.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Emf in a coil wound on a solenoid</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq">|<i>ε</i><sub>s</sub>| = <i>N</i><sub>s</sub> (<i>μ</i><sub>0</sub><i>N</i><sub>p</sub><i>A</i> / <i>L</i>) (|Δ<i>I</i><sub>p</sub>| / Δ<i>t</i>)</div>
+    <dl class="sym">
+      <div><dt>ε<sub>s</sub></dt><dd>emf in the secondary (V)</dd></div>
+      <div><dt>N<sub>s</sub></dt><dd>turns of the secondary</dd></div>
+      <div><dt>N<sub>p</sub></dt><dd>turns of the primary</dd></div>
+      <div><dt>A</dt><dd>cross-section area of the primary (m²)</dd></div>
+      <div><dt>L</dt><dd>length of the primary (m)</dd></div>
+      <div><dt>ΔI<sub>p</sub>/Δt</dt><dd>how fast the primary current changes (A&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>μ<sub>0</sub></dt><dd><span class="t">magnetic permeability constant</span> = 4π × 10<sup>−7</sup> N A<sup>−2</sup></dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> <span class="m"><i>B</i> = <i>μ</i><sub>0</sub><i>NI</i>/<i>L</i></span> (on the sheet, Chapter 2) gives the <span class="m"><i>B</i></span> inside the primary. Each turn has <span class="m">Φ = <i>BA</i></span>. Then put this into <span class="m" style="white-space:nowrap"><i>ε</i> = −<i>N</i> ΔΦ/Δ<i>t</i></span> and take only the size. <span class="m"><i>μ</i><sub>0</sub></span> is on the data sheet.<br><b>Note:</b> use it only for a coil wound on a long air-core solenoid, with all the flux passing through the coil.</p>
+  </div>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Switch on, switch off: mutual induction</span><span class="sim-tag">Left: primary. Right: secondary · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="The primary coil on the left is joined to a battery and a switch. The secondary coil on the right is joined to a galvanometer G. The two coils can sit on the same soft iron core. The flux in the secondary changes only at the moment the switch closes or opens, and only then does the galvanometer deflect. The two graphs on the right (below on a phone) show the flux and the emf in the secondary against time."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <button class="btn" type="button" id="s5-sw" aria-pressed="true">Open switch</button>
+    <span class="seg" role="group" aria-label="How fast the primary current changes">
+      <button class="btn" type="button" id="s5-fast" aria-pressed="true">I<sub>p</sub> changes fast</button>
+      <button class="btn" type="button" id="s5-slow" aria-pressed="false">I<sub>p</sub> changes slowly</button>
+    </span>
+    <button class="btn" type="button" id="s5-core" aria-pressed="true">Soft iron core: in</button>
+    <button class="btn" type="button" id="s5-reset">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First watch it close and open by itself a few times: the galvanometer deflects only at the moment of closing or opening. While the switch stays closed, the flux is large but does not change, so emf = 0. Closing and opening move the needle in opposite directions. ② Press "Open switch / Close switch" to do it yourself (the automatic switching then stops; press "Restart" to bring it back). ③ Change to "I<sub>p</sub> changes slowly": the pulse gets lower and wider, but the shaded area stays the same, because ΔΦ is the same. ④ Take away the soft iron core: with the same I<sub>p</sub>, the flux is only 1/3 of what it was (illustrative), and the emf is also only 1/3. On the Φ<sub>s</sub> graph, ×1 is the flux with no iron core at maximum I<sub>p</sub>, and ×3 is the flux with the iron core. An AC supply keeps I<sub>p</sub> changing, so there is an emf all the time: this is a transformer (see <a href="t4.html#sim1">Animation 1 of Topic 4</a>). All numbers on the graphs are illustrative. The pulse at closing is drawn positive, as in Animation 4. Positive or negative depends only on how the meter is connected.</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">3.6</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Faraday's induction experiments (1831)</h3>
+    <dl>
+      <dt>Aim</dt><dd>To show that a changing flux induces an emf.</dd>
+      <dt>Method</dt><dd>① A magnet was pushed into and pulled out of a coil joined to a <span class="t">galvanometer</span> (a meter for very small currents). ② A wire was moved across a magnet's field. ③ On two coils sharing an iron ring, a switch was closed and opened.</dd>
+      <dt>Results</dt><dd>The needle flicked only while something changed. Opposite changes gave opposite flicks. Faster changes gave bigger flicks.</dd>
+      <dt>Conclusion</dt><dd>An emf is induced only while the flux changes. Only <span class="t">relative motion</span> matters.</dd>
+      <dt>Significance</dt><dd>With Ørsted's work (1820), it linked electricity and magnetism.</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Eddy currents: falling magnets and swinging plates</h3>
+    <dl>
+      <dt>Aim</dt><dd>To show that eddy currents oppose the motion that causes them.</dd>
+      <dt>Method</dt><dd>A magnet fell through PVC, copper and slotted copper tubes. Solid and slotted metal plates swung between magnet poles.</dd>
+      <dt>Results</dt><dd>Fall times: PVC 0.41 s (free fall), slotted copper 0.56 s, copper 3.57 s. The solid plate stopped fast; the slotted one kept swinging.</dd>
+      <dt>Conclusion</dt><dd>Eddy currents in the copper oppose the fall (Lenz). The lost gravitational potential energy becomes heat. Slots break the current loops, so braking is weaker.</dd>
+      <dt>Significance</dt><dd>Evidence for Lenz's law and energy conservation. Magnetic brakes use this idea.</dd>
+    </dl>
+  </div>
+  <p>You can see these fall times in <a href="t5.html#sim5">Animation 5 of Topic 5</a>.</p>
+</section>
+
+<section id="s8">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f">Φ = <i>B</i><sub>∥</sub><i>A</i> = <i>BA</i> cos <i>θ</i></td><td>flux through a loop (θ measured from the normal)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f">ΔΦ = Φ<sub>final</sub> − Φ<sub>initial</sub></td><td>change in flux (when reversed, |ΔΦ| = 2<i>BA</i>)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>ε</i> = −<i>N</i> ΔΦ/Δ<i>t</i></td><td>Faraday's law (the minus sign is Lenz's law)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>V</i> = <i>IR</i></td><td>Ohm's law: a resistor, a coil or a transmission line</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>I</i> = <i>ε</i>/<i>R</i></td><td>induced current in a closed circuit</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>ε</i> = <i>lvB</i></td><td>emf of a rod moving across a field</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">|<i>ε</i><sub>s</sub>| = <i>N</i><sub>s</sub> (<i>μ</i><sub>0</sub><i>N</i><sub>p</sub><i>A</i>/<i>L</i>)(|Δ<i>I</i><sub>p</sub>|/Δ<i>t</i>)</td><td>emf in a coil wound on a solenoid</td><td><span class="badge comb">Combine</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 5 before the exam</h3>
+  <ol class="must">
+    <li><span class="m">Φ = <i>BA</i> cos <i>θ</i></span>, with θ measured from the normal. Φ changes if <i>B</i>, <i>A</i> or <i>θ</i> changes.</li>
+    <li>Only a <b>changing</b> flux induces an emf: <span class="m"><i>ε</i> = −<i>N</i> ΔΦ/Δ<i>t</i></span>.</li>
+    <li>Lenz: the induced current opposes the <b>change</b> in flux, because energy is conserved.</li>
+    <li>Moving rod: <span class="m"><i>ε</i> = <i>lvB</i></span> (not on the sheet).</li>
+    <li>Magnet through a coil: two pulses in opposite directions. Two coils: an emf only while the primary current changes.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> θ is the angle between B and the plane of the loop.<br><span class="ok">Right:</span> θ is the angle between B and the normal. When plane ∥ B, <span style="white-space:nowrap">θ = 90°</span> and <span style="white-space:nowrap">Φ = 0</span>.</div>
+    <div><span class="x">Wrong:</span> putting in 200 directly for an area of 200 cm².<br><span class="ok">Right:</span> first change it to m²: 200 × 10<sup>−4</sup> = 0.02 m².</div>
+    <div><span class="x">Wrong:</span> the field reverses and the flux has the same size, so ΔΦ = 0.<br><span class="ok">Right:</span> it goes from +BA to −BA, so |ΔΦ| = 2BA.</div>
+    <div><span class="x">Wrong:</span> a big flux means a big emf.<br><span class="ok">Right:</span> the emf depends on how fast the flux changes. However big the flux is, if it does not change, the emf is 0.</div>
+    <div><span class="x">Wrong:</span> induced B always points opposite to the original B.<br><span class="ok">Right:</span> opposite when the flux increases, the same way when the flux decreases. It opposes the change.</div>
+    <div><span class="x">Wrong:</span> answering only "the current is clockwise".<br><span class="ok">Right:</span> say which side it is seen from, for example "clockwise, seen from the magnet".</div>
+    <div><span class="x">Wrong:</span> in <i>ε</i> = <i>lvB</i>, using the length of the whole wire for l.<br><span class="ok">Right:</span> l is the part inside the field.</div>
+    <div><span class="x">Wrong:</span> with the switch kept closed, there is an emf in the secondary all the time.<br><span class="ok">Right:</span> DC gives an emf only at the moment of switching on or off. For an emf all the time, you need AC.</div>
+  </div>
+  <p class="jump-next"><a href="#s10">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s9">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Magnetic flux (Φ)</td><td>磁通量</td><td>how much magnetic field passes through an area; unit: Wb</td></tr>
+        <tr><td class="t">Weber (Wb)</td><td>韦伯</td><td>the unit of flux: 1 Wb = 1 T m²</td></tr>
+        <tr><td class="t">Normal</td><td>法线</td><td>a line at 90° to the plane of the loop</td></tr>
+        <tr><td class="t">Plane (of a loop)</td><td>线圈平面</td><td>the flat surface inside a loop, like the skin of a drum</td></tr>
+        <tr><td class="t">Magnetic field strength (B)</td><td>磁感应强度</td><td>how strong the magnetic field is, also called flux density; unit: T</td></tr>
+        <tr><td class="t">Magnetic flux density</td><td>磁通密度</td><td>another name for B: the flux through each square metre</td></tr>
+        <tr><td class="t">Tesla (T)</td><td>特斯拉</td><td>the unit of B: 1 T = 1 Wb m<sup>−2</sup></td></tr>
+        <tr><td class="t">Electromagnetic induction</td><td>电磁感应</td><td>making an emf by changing flux</td></tr>
+        <tr><td class="t">Electromotive force (emf, ε)</td><td>电动势</td><td>not a force: the energy given to each coulomb of charge; unit: V</td></tr>
+        <tr><td class="t">Induced emf</td><td>感应电动势</td><td>an emf produced by a changing flux</td></tr>
+        <tr><td class="t">Induced current</td><td>感应电流</td><td>the current that an induced emf drives around a closed circuit</td></tr>
+        <tr><td class="t">Faraday's law</td><td>法拉第电磁感应定律</td><td>emf = number of turns × rate of change of flux</td></tr>
+        <tr><td class="t">Rate of change of flux</td><td>磁通量的变化率</td><td>how much the flux changes each second, Wb s<sup>−1</sup></td></tr>
+        <tr><td class="t">Gradient</td><td>斜率</td><td>how steep a line on a graph is</td></tr>
+        <tr><td class="t">Lenz's law</td><td>楞次定律</td><td>an induced current's magnetic field opposes the change in flux</td></tr>
+        <tr><td class="t">Right-hand grip rule</td><td>右手螺旋定则</td><td>fingers curl with the current, thumb = the field inside the coil</td></tr>
+        <tr><td class="t">Right-hand palm rule</td><td>右手掌定则</td><td>fingers B, thumb v or I, the way the palm pushes = F</td></tr>
+        <tr><td class="t">Pole method</td><td>磁极法</td><td>approaching: the same pole; leaving: the opposite pole</td></tr>
+        <tr><td class="t">Law of conservation of energy</td><td>能量守恒定律</td><td>energy cannot be created or destroyed</td></tr>
+        <tr><td class="t">Motional emf</td><td>动生电动势</td><td>the emf in a conductor because it moves across a field</td></tr>
+        <tr><td class="t">Free electrons</td><td>自由电子</td><td>electrons that can move in a metal</td></tr>
+        <tr><td class="t">Motor effect</td><td>磁场对电流的作用</td><td>the force on a wire carrying a current in a magnetic field</td></tr>
+        <tr><td class="t">Solenoid</td><td>螺线管</td><td>a long coil with many turns</td></tr>
+        <tr><td class="t">Eddy currents</td><td>涡流</td><td>loops of induced current inside solid metal</td></tr>
+        <tr><td class="t">Magnetic braking</td><td>电磁制动</td><td>slowing moving metal with eddy currents, without contact</td></tr>
+        <tr><td class="t">Mutual induction</td><td>互感</td><td>a changing current in one coil induces an emf in a nearby coil</td></tr>
+        <tr><td class="t">Primary coil</td><td>原线圈</td><td>the coil joined to the supply</td></tr>
+        <tr><td class="t">Secondary coil</td><td>副线圈</td><td>the coil in which the emf is induced</td></tr>
+        <tr><td class="t">Core (soft-iron core)</td><td>铁芯</td><td>easily magnetised iron that carries flux from one coil to the other</td></tr>
+        <tr><td class="t">Alternating current (AC)</td><td>交流电</td><td>a current that keeps reversing direction</td></tr>
+        <tr><td class="t">Direct current (DC)</td><td>直流电</td><td>a current that flows in one direction only</td></tr>
+        <tr><td class="t">Transformer</td><td>变压器</td><td>a device that changes an AC voltage (next chapter)</td></tr>
+        <tr><td class="t">Galvanometer</td><td>灵敏电流计</td><td>a meter for very small currents; its needle can move both ways</td></tr>
+        <tr><td class="t">Relative motion</td><td>相对运动</td><td>how one thing moves compared with another</td></tr>
+        <tr><td class="t">Magnetic permeability constant (μ<sub>0</sub>)</td><td>真空磁导率</td><td>4π × 10<sup>−7</sup> N A<sup>−2</sup>, on the data sheet</td></tr>
+        <tr><td class="t">Induction cooktop</td><td>电磁炉</td><td>uses eddy currents to heat the base of a pot</td></tr>
+        <tr><td class="t">Metal detector</td><td>金属探测器</td><td>uses induced currents to find metal</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s10" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. The plane of a loop is parallel to the field. What is θ? What is Φ?</summary><p class="ans"><b>θ = 90°, Φ = 0.</b> θ is the angle between B and the normal. When plane ∥ B, normal ⊥ B and cos 90° = 0, so no field lines pass through.</p></details>
+    <details><summary>2. A loop has an area of 200 cm². B = 0.5 T, and the plane of the loop is at 30° to B. What is Φ?</summary><p class="ans"><b>Φ = 0.005 Wb (5 × 10<sup>−3</sup> Wb).</b> First change the unit: <i>A</i> = 200 × 10<sup>−4</sup> = 0.02 m². Then change the angle: <i>θ</i> = 90° − 30° = 60°. Φ = 0.5 × 0.02 × cos 60° = 0.005 Wb.</p></details>
+    <details><summary>3. A very strong magnet sits inside a coil and does not move. Does the galvanometer show a reading?</summary><p class="ans"><b>No.</b> The flux is large but does not change, so ΔΦ = 0 and <i>ε</i> = 0. Only a changing flux induces an emf.</p></details>
+    <details><summary><span><span>4. A coil of 100 turns with an area of 0.02 m² faces directly into a field of <span style="white-space:nowrap">B = 0.5 T</span>. The field reverses in 0.1 s. What is the average emf? The circuit resistance is 4 Ω. What is the current?</span></span></summary><p class="ans"><b><i>ε</i> = 20 V, <i>I</i> = 5 A.</b> The flux goes from +<i>BA</i> to −<i>BA</i>: <span style="white-space:nowrap">|ΔΦ| = 2<i>BA</i></span> = 2 × 0.5 × 0.02 = 0.02 Wb (not 0). <span style="white-space:nowrap">|<i>ε</i>| = <i>N</i>|ΔΦ|/Δ<i>t</i></span> = 100 × 0.02 / 0.1 = 20 V. <i>I</i> = <i>ε</i>/<i>R</i> = 20/4 = 5 A.</p></details>
+    <details><summary>5. The S pole of a bar magnet moves away from a coil. What pole does the near face of the coil become? Does it push or pull?</summary><p class="ans"><b>The near face becomes N, and it pulls the magnet.</b> Pole method: when a pole leaves, the near face becomes the opposite pole. They attract, which opposes the magnet leaving.</p></details>
+    <details><summary><span><span>6. A rod on rails: <span style="white-space:nowrap">l = 0.50 m</span>, <span style="white-space:nowrap">B = 0.80 T</span>, <span style="white-space:nowrap">v = 2.0 m s<sup>−1</sup></span>, <span style="white-space:nowrap">R = 2.0 Ω</span>. Find ε, I and the force on the rod.</span></span></summary><p class="ans"><b><i>ε</i> = 0.80 V, <i>I</i> = 0.40 A, <i>F</i> = 0.16 N, opposite to the motion.</b> <i>ε</i> = <i>lvB</i> = 0.50 × 2.0 × 0.80 = 0.80 V. <i>I</i> = <i>ε</i>/<i>R</i> = 0.80/2.0 = 0.40 A. <i>F</i> = <i>lIB</i> = 0.50 × 0.40 × 0.80 = 0.16 N. By Lenz, this force opposes the motion, so you must keep pushing.</p></details>
+    <details><summary>7. A magnet falls down through a coil. Why is the second pulse taller and narrower? What about the areas of the two pulses?</summary><p class="ans"><b>The magnet is faster when leaving; the areas are the same.</b> The magnet keeps speeding up as it falls, so it leaves faster than it enters. The flux changes faster, so the emf is bigger and the time is shorter. Both pulses have an area equal to <span style="white-space:nowrap"><i>N</i>|ΔΦ|</span>.</p></details>
+    <details><summary><span><span>8. A long air-core solenoid: N<sub>p</sub> = 1000, <span style="white-space:nowrap">L = 0.50 m</span>, <span style="white-space:nowrap">A = 4.0 × 10<sup>−4</sup> m²</span>, with N<sub>s</sub> = 50 turns wound around the outside. I<sub>p</sub> rises from 0 to 2.0 A in 0.010 s. What is ε<sub>s</sub>? What is it after that, if I<sub>p</sub> stays at 2.0 A?</span></span></summary><p class="ans"><b>About 0.010 V; then 0.</b> At 2.0 A, <i>B</i> = <i>μ</i><sub>0</sub><i>N</i><sub>p</sub><i>I</i><sub>p</sub>/<i>L</i> = 4π × 10<sup>−7</sup> × 1000 × 2.0 / 0.50 = <span style="white-space:nowrap">5.03 × 10<sup>−3</sup> T</span>. For each turn, Φ = <i>BA</i> = 5.03 × 10<sup>−3</sup> × 4.0 × 10<sup>−4</sup> = <span style="white-space:nowrap">2.01 × 10<sup>−6</sup> Wb</span>. |<i>ε</i><sub>s</sub>| = <i>N</i><sub>s</sub>ΔΦ/Δ<i>t</i> = 50 × 2.01 × 10<sup>−6</sup> / 0.010 = <span style="white-space:nowrap">1.0 × 10<sup>−2</sup> V</span>. Once the current is steady, the flux does not change, so emf = 0.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m6/t2.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M6 T2 · The Motor Effect</span></a><a class="pg next" href="../m6/t4.html"><span class="pg-k">Next topic →</span><span class="pg-t">M6 T4 · Transformers and Power Transmission</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 6 Electromagnetism · Chapter 3. The experimental data (0.41 s / 0.56 s / 3.57 s) and <span style="white-space:nowrap"><i>μ</i><sub>0</sub> = 4π × 10<sup>−7</sup> N A<sup>−2</sup></span> are from the booklet. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1：Flux 和角度 θ（像 Figure 3.1，侧面看线圈，线圈画成一条粗线）。
+   a = normal 在画面上的方向（度，逆时针，0 = 向右）；bd = B 的方向（+1 向右，−1 向左）。
+   θ = B 和 normal 的夹角（0–180°）；Φ/BA = cos θ = bd·cos a。
+   穿过线圈的那一束磁感线：|y − cy| < r|cos a|（线圈在 B 方向上挡住的高度是 2r|cos a|），所以点亮的条数 ∝ |cos θ|。
+   数据全是示意：Φ 只写成 BA 的倍数，不编 B 和 A 的数。 */
+var SPD=24,HOLD=1.2,NL=5,D2R=Math.PI/180;   /* 自己转：24°/s（示意）；每到 0°、90°、180°、270° 停 1.2 s；磁感线 j = −5…5 */
+var m1={a:40,bd:1,hold:0,plane:false,memo:null,lastTh:-1};
+var rg1=document.getElementById('s1-th'),ro1=document.getElementById('s1-th-out');
+var bf1=document.getElementById('s1-flip'),bp1=document.getElementById('s1-plane');
+function wrapA(x){x=x%TAU;if(x>Math.PI)x-=TAU;else if(x<=-Math.PI)x+=TAU;return x;}
+function thetaDeg(){return Math.abs(wrapA(m1.a*D2R-(m1.bd>0?0:Math.PI)))/D2R;}
+function cosT(){return m1.bd*Math.cos(m1.a*D2R);}
+function dp(a){return a>=0.995&&a<0.9995?3:2;}   /* 0.995–0.9995：多写一位，免得 0.996 被写成 1.00（= BA） */
+function fBA(v){var s,a=Math.abs(v);if(a<0.005)return '0';s=v>0?'+':'−';return a>=0.9995?s+'BA':s+a.toFixed(dp(a))+' BA';}
+function fN(v){var a=Math.abs(v);return a<0.005?'0.00':(v<0?'−':'')+a.toFixed(dp(a));}
+/* 先取整再乘 2，屏幕上的乘法才对得上（2 × 0.77 = 1.54） */
+function rd(a){var k=Math.pow(10,dp(a));return Math.round(a*k)/k;}
+function twice(a){return a>=0.9995?'2BA':(2*rd(a)).toFixed(dp(a))+' BA';}
+function hx(h){h=String(h).replace('#','').trim();if(h.length===3)h=h.charAt(0)+h.charAt(0)+h.charAt(1)+h.charAt(1)+h.charAt(2)+h.charAt(2);
+  var n=parseInt(h,16);return isNaN(n)?null:[(n>>16)&255,(n>>8)&255,n&255];}
+function isDark(){var p=hx(C.stage);return p?p[0]*0.3+p[1]*0.59+p[2]*0.11<128:false;}
+/* 两个主题色按比例混合（用来把 --field 调得更醒目：浅色主题更深，深色主题更亮） */
+function mix(a,b,t){var p=hx(a),q=hx(b);if(!p||!q)return a;return 'rgb('+Math.round(p[0]+(q[0]-p[0])*t)+','+Math.round(p[1]+(q[1]-p[1])*t)+','+Math.round(p[2]+(q[2]-p[2])*t)+')';}
+/* 文字加一圈底色描边，压在磁感线上也看得清 */
+function lab(ctx,s,x,y,col,size,weight,align,base,family){ctx.font=weight+' '+size+'px '+(family||FONT);ctx.textAlign=align;ctx.textBaseline=base;
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align,base,family);}
+/* 图上的 B∥：B 斜体，∥ 做下标 */
+function labBp(ctx,x,y,col,size){var ss=12,wB,wP;ctx.font='italic 600 '+size+'px '+MATH;wB=ctx.measureText('B').width;
+  ctx.font='600 '+ss+'px '+MATH;wP=ctx.measureText('∥').width;var x0=x-(wB+wP)/2;
+  lab(ctx,'B',x0,y,col,size,'italic 600','left','middle',MATH);lab(ctx,'∥',x0+wB,y+size*0.22,col,ss,600,'left','middle',MATH);}
+/* word wrap for English canvas text: split on ordinary spaces (a no-break space keeps a formula whole). Set ctx.font first. */
+function wrapW(ctx,s,mw){var ws=s.split(' '),out=[],l='',i,t;for(i=0;i<ws.length;i++){t=l?l+' '+ws[i]:ws[i];if(l&&ctx.measureText(t).width>mw){out.push(l);l=ws[i];}else l=t;}if(l)out.push(l);return out;}
+function syncUI1(){var th=Math.round(thetaDeg());if(th!==m1.lastTh){m1.lastTh=th;rg1.value=String(th);ro1.textContent=th+'°';}}
+function syncBtns1(){press(bf1,m1.bd<0);bf1.textContent='Reverse B (now '+(m1.bd>0?'→':'←')+')';
+  press(bp1,m1.plane);bp1.textContent='Angle to plane: '+(m1.plane?'on':'off');}
+function step1(dt){
+  if(m1.hold>0){m1.hold-=dt;if(m1.hold>0)return;dt=-m1.hold;m1.hold=0;}
+  var a0=m1.a,k=Math.floor(m1.a/90+1e-9),na=m1.a+SPD*dt;
+  if(Math.floor(na/90+1e-9)>k){m1.a=(k+1)*90;m1.hold=HOLD;}else m1.a=na;   /* 到 90° 的倍数就停一下 */
+  if(m1.a>=360)m1.a-=360;
+  if(m1.a!==a0)m1.memo=null;
+  syncUI1();
+}
+var S1=makeStage('sim1',{
+  height:function(w){return w>=640?330:500;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,g,fx0,fx1,cx,cy,px0,px1,LB,rT,rP,j,y,on,col;
+    if(wide){g=19;px1=W-16;px0=W-278;fx0=16;fx1=px0-22;cx=Math.round((fx0+fx1)/2);cy=190;rT=30;rP=46;}
+    else{g=14;fx0=12;fx1=W-12;cx=Math.round(W/2);cy=165;rT=25;rP=34;px0=16;px1=W-16;}
+    var r=4.5*g;LB=r+8;   /* B 箭头比半个线圈长：θ = 90° 时箭头尖也露在线圈外面 */
+    var Ln=r+(wide?18:16),ar=m1.a*D2R,ca=Math.cos(ar),sa=Math.sin(ar),bd=m1.bd,bB=bd>0?0:Math.PI;
+    var nx=ca,ny=-sa,ux=sa,uy=ca;                 /* 画布坐标：n = normal，u = 线圈平面方向 */
+    var cT=bd*ca,th=thetaDeg(),half=r*Math.abs(ca),dk=isDark(),fs=wide?13:12,FE=mix(C.field,C.ink,0.3);
+    /* 穿过线圈的那一束磁感线 */
+    if(half>0.5){ctx.fillStyle=rgba(C.field,dk?0.2:0.13);ctx.fillRect(fx0,cy-half,fx1-fx0,2*half);}
+    var nOn=0,len=fx1-fx0,hx1=bd>0?fx0+len*0.16:fx1-len*0.16,hx2=bd>0?fx1-3:fx0+3;
+    for(j=-NL;j<=NL;j++){
+      y=cy+j*g;on=Math.abs(j)*g<half-1e-6;if(on)nOn++;
+      col=on?FE:rgba(C.field,dk?0.6:0.45);
+      seg(ctx,fx0,y,fx1,y,col,on?2:1.1,on?[9,4]:[4,6]);
+      arrow(ctx,hx1-bd*12,y,hx1,y,col,on?2:1.3,on?8:7);arrow(ctx,hx2-bd*12,y,hx2,y,col,on?2:1.3,on?8:7);
+    }
+    txt(ctx,'B',bd>0?fx1-4:fx0+4,cy-NL*g-9,C.muted,15,'italic 600',bd>0?'right':'left','alphabetic',MATH);
+    /* θ 的弧：从 B 量到 normal */
+    var d=wrapA(ar-bB);
+    if(th>=1){ctx.beginPath();ctx.arc(cx,cy,rT,-bB,-(bB+d),d>0);ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.stroke();}
+    /* 和 plane 的夹角：从 B 量到最近的那一半线圈 */
+    var pa=0,psi=0;
+    if(m1.plane){var p1=wrapA(ar+Math.PI/2-bB),p2=wrapA(ar-Math.PI/2-bB);psi=Math.abs(p1)<=Math.abs(p2)?p1:p2;pa=Math.abs(psi)/D2R;
+      if(pa>0.5){ctx.beginPath();ctx.arc(cx,cy,rP,-bB,-(bB+psi),psi>0);ctx.strokeStyle=C.muted;ctx.lineWidth=1.5;ctx.setLineDash([4,3]);ctx.stroke();ctx.setLineDash([]);}}
+    /* normal（先画，B∥ 压在它上面） */
+    arrow(ctx,cx,cy,cx+nx*Ln,cy+ny*Ln,C.ink,2,10);
+    /* B∥ = B cos θ：B 在 normal 上的投影 */
+    var pr=LB*cT,Fx=cx+nx*pr,Fy=cy+ny*pr,Bx=cx+bd*LB,By=cy;
+    if(Math.abs(cT)>0.04){
+      seg(ctx,Bx,By,Fx,Fy,rgba(C.muted,0.9),1.2,[3,3]);
+      if(Math.abs(pr)>16)arrow(ctx,cx,cy,Fx,Fy,FE,wide?8:7,wide?15:13);else seg(ctx,cx,cy,Fx,Fy,FE,wide?8:7);
+    }
+    /* 线圈（侧面看是一条线）和磁感线穿过的点 */
+    ctx.lineCap='round';seg(ctx,cx-ux*r,cy-uy*r,cx+ux*r,cy+uy*r,C.copper,wide?7:6);ctx.lineCap='butt';
+    if(Math.abs(ca)>1e-6)for(j=-NL;j<=NL;j++){if(Math.abs(j)*g<half-1e-6){var t=j*g/ca;dot(ctx,cx+ux*t,cy+j*g,wide?2.6:2.3,C.stage);}}
+    /* B 画在线圈上面 */
+    arrow(ctx,cx,cy,Bx,By,FE,3,10);
+    dot(ctx,cx,cy,3.5,C.ink);
+    /* 图上的字 */
+    lab(ctx,'normal',cx+nx*(Ln+8),cy+ny*(Ln+8),C.ink,fs,600,nx>0.35?'left':(nx<-0.35?'right':'center'),Math.abs(nx)>0.35?'middle':(ny<0?'bottom':'top'));
+    if(th<20){var sv=Math.sin(d)>0.001?1:-1;              /* normal 差不多沿着 B：字放到 B 箭头旁边，避开 normal */
+      lab(ctx,'B',Bx-bd*4,By+sv*14,C.muted,15,'italic 600','center','middle',MATH);}
+    else{var bo=LB+11+(m1.plane?6:0);   /* B 的字放在箭头尖外面（箭头比半个线圈长） */
+      lab(ctx,'B',cx+bd*bo,By,C.muted,15,'italic 600',bd>0?'left':'right','middle',MATH);}
+    if(th>=18){var tm=th<=90?bB+d/2:bB+d-(d>0?1:-1)*Math.PI/4,tr=rT+12;   /* θ > 90° 时弧会跨过线圈，字放在 normal 旁边 */
+      lab(ctx,'θ',cx+Math.cos(tm)*tr,cy-Math.sin(tm)*tr,C.ink,15,'italic 600','center','middle',MATH);}
+    if(m1.plane&&pa>=14.5){var pm=bB+psi/2;            /* 弧旁边只写度数，算式写在右边 */
+      var rq=wide?rP+13:rP+17;lab(ctx,Math.round(pa)+'°',cx+Math.cos(pm)*rq,cy-Math.sin(pm)*rq,C.muted,12,600,'center','middle');}
+    if(Math.abs(cT)>=0.15){var sg=pr>0?1:-1,tmid=bB+d/2,sd=ux*Math.cos(tmid)-uy*Math.sin(tmid),kk=Math.abs(sd)<0.05?(uy>0?-1:1):(sd>0?1:-1);   /* 放在 θ 弧和虚线的另一边 */
+      if(th<20)kk=(Math.sin(d)>0.001?1:-1)*(uy>=0?1:-1);   /* θ 很小：B∥ 的字和 B 的字分在箭头两边 */
+      if(Math.abs(cT)>0.7)labBp(ctx,cx+nx*pr/2-kk*15*ux,cy+ny*pr/2-kk*15*uy,C.ink,14);          /* 长：放在箭头中间旁边 */
+      else labBp(ctx,Fx+sg*nx*12-kk*13*ux,Fy+sg*ny*12-kk*13*uy,C.ink,14);}                     /* 短：放在箭头外面，离开线圈 */
+    /* 状态提示 */
+    var thR=Math.round(th),cD=Math.cos(thR*D2R),s1,s2;
+    if(m1.memo){var v=m1.memo.b,av=Math.abs(v);
+      if(av<0.005){s1='plane ∥ B: Φ = 0 before and after reversing';s2='ΔΦ = 0: reversing B leaves Φ unchanged only at θ = 90°';}
+      else{s1='Reverse B: Φ goes from '+fBA(v)+' to '+fBA(-v);s2='|ΔΦ| = '+(av>=0.9995?'2BA':'2 × '+rd(av).toFixed(dp(av))+' BA = '+twice(av))+', not 0';}}
+    else if(thR===0){s1='θ = 0°: plane ⊥ B → all field lines pass through';s2='Φ = BA, the largest';}
+    else if(thR===90){s1='θ = 90°: plane ∥ B → no field lines pass through';s2='Φ = 0';}
+    else if(thR===180){s1='θ = 180°: loop turned over → all field lines pass through backwards';s2='Φ = −BA, the most negative';}
+    else if(thR<90){s1='θ = '+thR+'°: only B∥\u00a0=\u00a0B\u00a0cos\u00a0θ passes through the loop';s2='Φ = BA cos θ = '+fBA(cD)+', less than BA';}
+    else{s1='θ = '+thR+'° > 90°: the loop has turned over';s2='Φ is now negative: Φ = '+fBA(cD);}
+    var sf=wide?15:13.5,one=s1+' → '+s2;ctx.font='600 '+sf+'px '+FONT;
+    if(wide&&ctx.measureText(one).width<=W-32)txt(ctx,one,16,28,C.ink,sf,600);
+    else{var sl=wrapW(ctx,s1,W-32).concat(wrapW(ctx,'→ '+s2,W-32)),si;for(si=0;si<sl.length;si++)txt(ctx,sl[si],16,(wide?26:22)+si*(wide?21:19),C.ink,sf,600);}
+    /* 读数 */
+    var pmid=(px0+px1)/2,hw=(px1-px0)/2,yy=wide?78:288;
+    txt(ctx,'θ = '+thR+'°',px0,yy,C.ink,wide?18:16,700,'left','alphabetic',MONO);
+    txt(ctx,'cos θ = '+fN(cD),px1,yy,C.muted,13,500,'right','alphabetic',MONO);
+    yy+=wide?26:24;
+    txt(ctx,'B∥ = B cos θ = '+fN(cD)+' B',px0,yy,C.ink,13,600);
+    yy+=wide?24:22;
+    ctx.font='500 12.5px '+FONT;var bl=wrapW(ctx,'Band through loop (pale) = widest × '+fN(Math.abs(cT))+(nOn&&cT<0?', backwards':''),px1-px0),bi;for(bi=0;bi<bl.length;bi++)txt(ctx,bl[bi],px0,yy+bi*15,C.ink,12.5,500);
+    yy+=wide?40:36;
+    txt(ctx,'Φ = BA cos θ = '+fBA(cD),px0,yy,C.south,wide?15:14,700,'left','alphabetic',MONO);
+    var by=yy+10,bh=wide?14:12;
+    rrect(ctx,px0,by,px1-px0,bh,bh/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+    if(Math.abs(cT)>0.003){ctx.save();rrect(ctx,px0,by,px1-px0,bh,bh/2);ctx.clip();ctx.fillStyle=C.south;ctx.fillRect(Math.min(pmid,pmid+cT*hw),by,Math.abs(cT*hw),bh);ctx.restore();}
+    seg(ctx,pmid,by-4,pmid,by+bh+4,C.muted,1.2);
+    yy=by+bh+15;
+    txt(ctx,'−BA',px0,yy,C.muted,11.5,500,'left');txt(ctx,'0',pmid,yy,C.muted,11.5,500,'center');txt(ctx,'+BA',px1,yy,C.muted,11.5,500,'right');
+    if(m1.memo){var v0=m1.memo.b,xo=pmid+v0*hw,xn=pmid-v0*hw,ay=yy+13;
+      if(Math.abs(v0)>0.02){seg(ctx,xo,by-5,xo,by+bh+5,C.ink,2,[3,2]);arrow(ctx,xo,ay,xn,ay,C.ink,2,8);}
+      txt(ctx,Math.abs(v0)<0.005?'ΔΦ = 0':'|ΔΦ| = '+twice(Math.abs(v0)),pmid,ay+21,C.ink,13,600,'center','alphabetic',MONO);}
+    yy+=wide?62:56;
+    if(m1.plane){var pa2=Math.abs(90-thR);
+      txt(ctx,'Angle to plane = '+pa2+'°',px0,yy,C.ink,13,600);
+      txt(ctx,thR<=90?('→ θ = 90° − '+pa2+'° = '+thR+'°'):('Loop turned over → θ = 90° + '+pa2+'° = '+thR+'°'),px0,yy+20,C.muted,12.5,500);}
+    else{txt(ctx,'θ is measured from the normal, not the plane',px0,yy,C.muted,12.5,500);
+      txt(ctx,'plane ⊥ B: θ = 0°    plane ∥ B: θ = 90°',px0,yy+20,C.muted,12,500);}
+  }
+});
+syncBtns1();syncUI1();
+rg1.addEventListener('input',function(){var th=parseFloat(rg1.value);m1.a=m1.bd>0?th:180-th;m1.hold=0;m1.memo=null;m1.lastTh=th;ro1.textContent=th+'°';S1.setPlaying(false);S1.render();});
+bf1.addEventListener('click',function(){var v=cosT();m1.bd=-m1.bd;m1.memo={b:v};m1.hold=0;S1.setPlaying(false);syncBtns1();syncUI1();S1.render();});
+bp1.addEventListener('click',function(){m1.plane=!m1.plane;syncBtns1();S1.render();});
+document.getElementById('s1-reset').addEventListener('click',function(){m1.a=40;m1.bd=1;m1.hold=0;m1.memo=null;m1.plane=false;syncBtns1();syncUI1();S1.setPlaying(true);S1.render();});
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · Lenz：磁铁靠近和离开线圈（pole method，对应 booklet Figure 3.2）
+   模型（示意，长度单位 = 线圈半径 a = 1）：磁铁 = 两个点磁极，前极在端面里 DL 处，两极相距 LP。
+   一圈线圈的 flux（向右为正）Φ = p/2·[g(z) − g(z+LP)]，g(z) = 1 − z/√(z²+1)，z = 前极到这一圈的距离；
+   p = +1：N 极朝线圈（线圈处原来的 B 向右）；p = −1：S 极朝线圈（原来的 B 向左）。
+   ε = −dΛ/dt（Λ = 5 圈 flux 之和），闭合时 I = ε/R。约定 ε > 0 ↔ induced B 向右（+x）。
+   方向（grip rule 逐个查过）：induced B 向右 ↔ 剖面上排 ⊙、下排 ⊗ ↔ 近端（左端）是 S ↔ 从磁铁看顺时针；
+   induced B 向左 ↔ 上排 ⊗、下排 ⊙ ↔ 近端 N ↔ 从磁铁看逆时针。
+   N 靠近：向右的 Φ 增加 → ε < 0 → induced B 向左 → 近端 N、相斥。N 离开 → 近端 S、相吸。S 朝线圈时全部反过来。
+   线圈对磁铁的力：F·v = ε²/R → F ∝ v·(dΦ/dx)²，方向永远和磁铁速度相反；断开时 I = 0 → F = 0。
+   磁感线：在两个磁极的场里数值追踪，起点按“每条线带同样多的 flux”分布，所以穿过线圈的条数跟着 Φ 变。 */
+var TURNS=[0,0.42,0.84,1.26,1.68],CL=1.68,LM=2.0,HM=0.36,DL=0.25,LP=LM-2*DL,DN=0.55,DF=3.0,V0=1.25,HOLD=1;
+var SPAN=DF+LM+CL+0.5,D2R=Math.PI/180;
+function gg(z){return 1-z/Math.sqrt(z*z+1);}
+function g1(z){return -1/Math.pow(z*z+1,1.5);}
+function flux(d){var s=0;for(var i=0;i<TURNS.length;i++){var z=d+DL+TURNS[i];s+=gg(z)-gg(z+LP);}return s/2;}
+function rate(d){var s=0;for(var i=0;i<TURNS.length;i++){var z=d+DL+TURNS[i];s+=g1(z)-g1(z+LP);}return s/2;}
+var EMAX=2*V0*Math.abs(rate(DN)),PHMAX=flux(DN);
+
+/* ---------- 磁感线（前极在原点，后极在 x = −LP；只算上半，下半镜像） ---------- */
+var FL=[];
+(function(){
+  function B(x,y,o){var r1=Math.pow(x*x+y*y,1.5),dx=x+LP,r2=Math.pow(dx*dx+y*y,1.5);o[0]=x/r1-dx/r2;o[1]=y/r1-y/r2;}
+  var o=[0,0],K=28,hs=0.025;
+  for(var k=1;k<=7;k++){
+    var ph=Math.acos(1-(2*k-1)/K),x=0.03*Math.cos(ph),y=0.03*Math.sin(ph),xs=[],ys=[];
+    for(var i=0;i<900;i++){
+      xs.push(x);ys.push(y);
+      B(x,y,o);var bl=Math.hypot(o[0],o[1]),mx=x+o[0]/bl*hs/2,my=y+o[1]/bl*hs/2;
+      B(mx,my,o);bl=Math.hypot(o[0],o[1]);x+=o[0]/bl*hs;y+=o[1]/bl*hs;
+      if(x>6||y>3||x<-LP-1||Math.hypot(x+LP,y)<0.05)break;
+    }
+    FL.push({x:new Float32Array(xs),y:new Float32Array(ys),n:xs.length});
+  }
+})();
+/* 这条线第一次穿过 x = X 时的 y（穿不到返回 −1） */
+function cross(F,X){for(var i=1;i<F.n;i++){if(F.x[i]<F.x[i-1])return -1;if(F.x[i]>=X){var t=(X-F.x[i-1])/(F.x[i]-F.x[i-1]);return F.y[i-1]+t*(F.y[i]-F.y[i-1]);}}return -1;}
+
+/* ---------- 运动：靠近 → 停 1 s → 离开 → 停 1 s ---------- */
+var m={d:DF,ph:0,ht:0,p:1,closed:true,mul:1,vx:0,e:0,nv:0};
+function sub(h){
+  var v=V0*m.mul;
+  if(m.ph===0){m.d-=v*h;m.vx=v;if(m.d<=DN){m.d=DN;m.ph=1;m.ht=HOLD;m.vx=0;}}
+  else if(m.ph===2){m.d+=v*h;m.vx=-v;if(m.d>=DF){m.d=DF;m.ph=3;m.ht=HOLD;m.vx=0;}}
+  else{m.vx=0;m.ht-=h;if(m.ht<=0)m.ph=(m.ph+1)%4;}
+  m.e=m.p*rate(m.d)*m.vx/EMAX;                       /* ε / (×2 速度在最近处的 ε) */
+  var tg=m.closed?-m.e:0;                            /* 电流计：N 极靠近时指针向右 */
+  m.nv+=(tg-m.nv)*(1-Math.exp(-h/0.015));
+}
+function step(dt){var n=4,h=dt/n;for(var i=0;i<n;i++)sub(h);}
+for(var q=0;q<103;q++)step(1/60);
+function moving(){return (m.ph===0||m.ph===2)&&m.vx!==0;}
+function iBdir(){return m.e>0?1:(m.e<0?-1:0);}       /* +1：induced B 向右 */
+
+/* ---------- 小工具 ---------- */
+/* --field 往 --ink 混 30%（和动画 1 一样）：浅色主题更深，深色主题更亮 */
+function hx(h){h=String(h).replace('#','').trim();if(h.length===3)h=h.charAt(0)+h.charAt(0)+h.charAt(1)+h.charAt(1)+h.charAt(2)+h.charAt(2);
+  var n=parseInt(h,16);return isNaN(n)?null:[(n>>16)&255,(n>>8)&255,n&255];}
+function fieldA(al){var p=hx(C.field),q=hx(C.ink),t=0.3;if(!p||!q)return rgba(C.field,al);
+  return 'rgba('+Math.round(p[0]+(q[0]-p[0])*t)+','+Math.round(p[1]+(q[1]-p[1])*t)+','+Math.round(p[2]+(q[2]-p[2])*t)+','+al+')';}
+function lab(ctx,s,x,y,col,size,weight,align,family){
+  ctx.font=(weight||600)+' '+size+'px '+(family||FONT);ctx.textAlign=align||'center';ctx.textBaseline='middle';
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);
+  txt(ctx,s,x,y,col,size,weight||600,align||'center','middle',family);
+}
+/* 一行里几段不同颜色的字：parts = [[文字, 颜色, 粗细], …] */
+function runs(ctx,x,y,parts,size){for(var i=0;i<parts.length;i++){var p=parts[i];ctx.font=(p[2]||500)+' '+size+'px '+FONT;var w=ctx.measureText(p[0]).width;txt(ctx,p[0],x,y,p[1],size,p[2]||500);x+=w;}return x;}
+function tri(ctx,x,y,ux,uy,sz,col){ctx.beginPath();ctx.moveTo(x+ux*sz,y+uy*sz);ctx.lineTo(x-ux*sz*0.7-uy*sz*0.62,y-uy*sz*0.7+ux*sz*0.62);ctx.lineTo(x-ux*sz*0.7+uy*sz*0.62,y-uy*sz*0.7-ux*sz*0.62);ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+/* 小圆圈箭头：ccw = 看上去逆时针 */
+function curl(ctx,x,y,r,ccw,col,w){
+  var s=ccw?-Math.PI/2-0.45:-Math.PI/2+0.45,e=ccw?s-5.1:s+5.1;
+  ctx.beginPath();ctx.arc(x,y,r,s,e,ccw);ctx.strokeStyle=col;ctx.lineWidth=w;ctx.stroke();
+  var ex=x+r*Math.cos(e),ey=y+r*Math.sin(e),tx=ccw?Math.sin(e):-Math.sin(e),ty=ccw?-Math.cos(e):Math.cos(e);
+  tri(ctx,ex,ey,tx,ty,6,col);
+}
+
+/* ---------- 排版 ---------- */
+function lay(W){
+  var L={wide:W>=640},sx0,sx1;
+  if(L.wide){L.px1=W-16;L.px0=L.px1-Math.min(280,Math.round(W*0.34));sx0=16;sx1=L.px0-28;
+    L.k=Math.min(58,(sx1-sx0)/SPAN);L.ay=176;L.R=28;L.stF=15;L.st=[24,46,68];}
+  else{sx0=12;sx1=W-12;L.px0=16;L.px1=W-16;L.k=Math.min(52,(sx1-sx0)/SPAN);L.ay=172;L.R=24;L.stF=13.5;L.st=[24,46,68];}
+  var k=L.k;L.wr=Math.max(7,0.15*k);
+  L.cx0=sx0+((sx1-sx0)-SPAN*k)/2+(DF+LM)*k;L.cx1=L.cx0+CL*k;
+  var ys2=L.ay+k+L.wr+26;L.sw=[ys2-16,ys2];
+  L.my=ys2+8+L.R+10;
+  var off=[26,52,82,108,130,160,190,214],y0;
+  if(L.wide){y0=80;L.title=y0;}else{y0=L.my+46;L.sep=y0;}
+  L.py=[];for(var i=0;i<off.length;i++)L.py.push(y0+off[i]);
+  return L;
+}
+
+/* ---------- 状态提示：a → b（宽屏放一行，再加一行原因 h） ---------- */
+function status(){
+  var P=m.p>0?'N':'S',fd=m.p>0?'to the right':'to the left',app=m.ph===0;
+  if(!moving())return {a:'Magnet stopped → flux does not change →',b:'no emf, no current, needle returns to 0',h:'Even a large flux gives no emf if it does not change'};
+  var go=P+' pole '+(app?'approaches':'leaves');
+  if(!m.closed)return {a:go+' → flux '+(app?'increases':'decreases')+' → emf,',b:'but open circuit → no current → '+(app?'no push on':'no pull on')+' magnet',
+    h:'No current → coil is not a magnet → no force, no heating'};
+  var r=iBdir()>0;
+  return {a:go+' → flux '+fd+' '+(app?'increases':'decreases')+' →',b:'induced B '+(r?'right':'left')+' → near face is '+(r?'S':'N')+' → '+(app?'pushes magnet':'pulls magnet'),
+    h:app?'Lenz: coil opposes the magnet approaching (like poles repel)':'Lenz: coil opposes the magnet leaving (unlike poles attract)'};
+}
+
+/* Very narrow phones: drop words one at a time until the line fits (same meaning, same font size). */
+var SHORT=[[' pole ',' '],[' to the ',' '],['coil is not','not'],['not a magnet','no magnet'],[' is ',' '],[/ (pushes|pulls) magnet$/,' $1'],[/ on magnet$/,''],['Even a large','Large'],['the magnet ','it '],['coil opposes','opposes']];
+function fit(ctx,s,max){for(var i=0;i<SHORT.length&&ctx.measureText(s).width>max;i++)s=s.replace(SHORT[i][0],SHORT[i][1]);return s;}
+
+/* ---------- 画面 ---------- */
+function drawScene(ctx,L){
+  var k=L.k,ay=L.ay,cx0=L.cx0,cx1=L.cx1,cr=k,wr=L.wr,i,j;
+  var fx=cx0-m.d*k,px=fx-DL*k,mc=fx-LM*k/2,hm=HM*k;
+  var mv=moving(),ib=iBdir(),on=m.closed&&mv&&ib!==0;
+  /* 线圈骨架 */
+  ctx.fillStyle=rgba(C.copper,0.06);ctx.fillRect(cx0-wr,ay-cr,cx1-cx0+2*wr,2*cr);
+  seg(ctx,cx0,ay-cr,cx1,ay-cr,rgba(C.copper,0.45),2);seg(ctx,cx0,ay+cr,cx1,ay+cr,rgba(C.copper,0.45),2);
+  /* 原来的 B：磁感线（只画磁铁前面），穿过线圈的变亮 */
+  var fy=18,iah=Math.round((DL+0.45*m.d+0.12)/0.025);   /* 箭头放在磁铁端面和线圈中间 */
+  ctx.save();ctx.beginPath();ctx.rect(fx+1,ay-cr-fy,cx1+0.5*k-fx-1,2*(cr+fy));ctx.clip();
+  for(j=0;j<FL.length;j++){
+    var F=FL[j],yc=cross(F,m.d+DL),lit=yc>=0&&yc<0.95;
+    for(var sd=-1;sd<=1;sd+=2){
+      ctx.beginPath();
+      for(i=0;i<F.n;i++){var X=px+F.x[i]*k,Y=ay-sd*F.y[i]*k;if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+      ctx.strokeStyle=fieldA(lit?1:0.7);ctx.lineWidth=lit?2.2:1.1;ctx.setLineDash([5,5]);ctx.stroke();ctx.setLineDash([]);
+      if(j%2===0){var ia=clamp(iah,3,F.n-3),ux=F.x[ia+2]-F.x[ia-2],uy=-sd*(F.y[ia+2]-F.y[ia-2]),ul=Math.hypot(ux,uy)||1;   /* 隔一条画箭头，不挤 */
+        tri(ctx,px+F.x[ia]*k,ay-sd*F.y[ia]*k,m.p*ux/ul,m.p*uy/ul,lit?6:5,fieldA(lit?1:0.8));}
+    }
+  }
+  ctx.restore();
+  /* 导线剖面：⊙ 出纸面、⊗ 进纸面 */
+  for(i=0;i<TURNS.length;i++){var xw=cx0+TURNS[i]*k;wire(ctx,xw,ay-cr,on?ib:0,wr);wire(ctx,xw,ay+cr,on?-ib:0,wr);}
+  /* induced B 和线圈两端的磁极 */
+  if(on){
+    var sI=Math.min(1,Math.abs(m.e)*1.8),full=cx1-cx0+0.5*k,len=18+sI*(full-18),xm=(cx0+cx1)/2;
+    arrow(ctx,xm-ib*len/2,ay,xm+ib*len/2,ay,C.stage,9,15);
+    arrow(ctx,xm-ib*len/2,ay,xm+ib*len/2,ay,fieldA(1),5,14);
+    lab(ctx,'induced B',xm,ay+Math.round(k*0.42),C.ink,12,600);
+    var nearN=ib<0,pw=24,ph=20,pt=ay-cr-wr-8-ph;
+    pole(ctx,cx0-pw/2,pt,pw,ph,nearN?'N':'S',nearN?C.north:C.south);
+    pole(ctx,cx1-pw/2,pt,pw,ph,nearN?'S':'N',nearN?C.south:C.north);
+    txt(ctx,'near face',cx0-pw/2-6,pt+ph/2+1,C.ink,12,600,'right','middle');
+  }
+  /* 磁铁 */
+  var mx0=fx-LM*k;
+  rrect(ctx,mx0,ay-hm,LM*k,2*hm,4);ctx.save();ctx.clip();
+  ctx.fillStyle=m.p>0?C.south:C.north;ctx.fillRect(mx0,ay-hm,LM*k/2,2*hm);
+  ctx.fillStyle=m.p>0?C.north:C.south;ctx.fillRect(mc,ay-hm,LM*k/2,2*hm);ctx.restore();
+  var ms=L.wide?15:13;
+  txt(ctx,m.p>0?'S':'N',mx0+LM*k/4,ay+1,'#ffffff',ms,700,'center','middle');
+  txt(ctx,m.p>0?'N':'S',mc+LM*k/4,ay+1,'#ffffff',ms,700,'center','middle');
+  /* v 和线圈对磁铁的力 */
+  var vy=ay-hm-13;
+  if(mv){var dv=m.vx>0?1:-1,vl=12+14*m.mul;
+    arrow(ctx,mc-dv*vl/2,vy,mc+dv*vl/2,vy,rgba(C.ink,0.7),2.4,8);
+    txt(ctx,'v',mc+dv*(vl/2+10),vy+4,C.muted,15,500,'center','alphabetic',MATH);}
+  else txt(ctx,'stopped',mc,vy+4,C.muted,12,600,'center');
+  if(on){var f=m.e*m.e*2*V0/Math.abs(m.vx),df=m.vx>0?-1:1,fl=22+36*Math.min(1,f),fyy=ay+hm+14;   /* 有电流就有力：最短 22 px */
+    arrow(ctx,mc,fyy,mc+df*fl,fyy,C.force,3,10);
+    txt(ctx,'F (coil on magnet)',mc,fyy+19,C.force,L.wide?12:11.5,700,'center');}
+  /* 导线、开关、灵敏电流计 */
+  var yb=ay+cr+wr,s1=L.sw[0],s2=L.sw[1],gx=(cx0+cx1)/2,gy=L.my,R=L.R,bl=gx-R-8,br=gx+R+8,yl=gy-R*0.35;
+  ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';
+  ctx.beginPath();ctx.moveTo(cx0,yb);ctx.lineTo(cx0,s1);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx0,s2);ctx.lineTo(cx0,yl);ctx.lineTo(bl,yl);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx1,yb);ctx.lineTo(cx1,yl);ctx.lineTo(br,yl);ctx.stroke();
+  if(m.closed)seg(ctx,cx0,s2,cx0,s1,C.copper,2.4);else{seg(ctx,cx0,s2,cx0-11,s1-2,C.copper,2.4);txt(ctx,'open',cx0-16,(s1+s2)/2+4,C.ink,12,600,'right');}
+  dot(ctx,cx0,s1,3,C.copper);dot(ctx,cx0,s2,3,C.copper);
+  rrect(ctx,bl,gy-R-10,br-bl,R+22,6);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.stroke();
+  ctx.beginPath();ctx.arc(gx,gy,R,-Math.PI/2-1,-Math.PI/2+1);ctx.strokeStyle=rgba(C.muted,0.7);ctx.lineWidth=1.2;ctx.stroke();
+  for(i=-2;i<=2;i++){var ta=i*25*D2R,tl=i?5:8;seg(ctx,gx+Math.sin(ta)*(R-tl),gy-Math.cos(ta)*(R-tl),gx+Math.sin(ta)*R,gy-Math.cos(ta)*R,C.muted,1.2);}
+  var na=clamp(m.nv,-1.1,1.1)*50*D2R;
+  seg(ctx,gx,gy,gx+Math.sin(na)*(R-3),gy-Math.cos(na)*(R-3),C.north,2.2);dot(ctx,gx,gy,3.5,C.ink);
+  txt(ctx,'G galvanometer',gx,gy+28,C.muted,11.5,600,'center');
+}
+
+function drawPanel(ctx,L){
+  var x0=L.px0,x1=L.px1,y=L.py,fs=12.5,mv=moving(),ib=iBdir(),on=m.closed&&mv&&ib!==0,app=m.ph===0;
+  if(L.wide)txt(ctx,'Three steps to find the direction',x0,L.title,C.muted,12.5,700);
+  else seg(ctx,0,L.sep,L.px1+16,L.sep,C.line,1);
+  var fd=m.p>0?'right':'left';
+  runs(ctx,x0,y[0],[['① Original B: ',C.muted,600],[fd+(m.p>0?' →':' ←'),C.ink,700]],fs);
+  var xe=runs(ctx,x0,y[1],[['flux ('+fd+'): ',C.muted,600],[mv?(app?'increases':'decreases'):'no change',C.ink,700]],fs);
+  var bx=Math.max(xe+10,x0+150);
+  hbar(ctx,bx,y[1]-9,x1-bx,9,flux(m.d)/PHMAX,C.south);
+  runs(ctx,x0,y[2],[['② Lenz → induced B: ',C.muted,600],[on?(ib>0?'right →':'left ←'):'none',C.ink,700]],fs);
+  txt(ctx,x1-x0<240?'③ grip rule → current':'③ grip rule → current direction',x0,y[3],C.muted,fs,600);
+  runs(ctx,x0,y[4],[[x1-x0<240?'From magnet: ':'Seen from magnet: ',C.muted,600],[on?(ib>0?'clockwise':'anticlockwise'):'no current',C.ink,700]],fs);
+  var cx=x1-20,cy=(y[3]+y[4])/2-4;
+  if(on){var nN=ib<0;curl(ctx,cx,cy,14,nN,C.copper,2.4);txt(ctx,nN?'N':'S',cx,cy+1,nN?C.north:C.south,13,700,'center','middle');}
+  else ring(ctx,cx,cy,14,rgba(C.muted,0.35),1.5);
+  if(on){var nN2=ib<0;runs(ctx,x0,y[5],[['Near face: ',C.muted,600],[nN2?'N':'S',nN2?C.north:C.south,700],[app?' → like poles repel,':' → unlike poles attract,',C.ink,700]],fs);
+    txt(ctx,app?'pushes magnet away':'pulls magnet back',x0,y[5]+15,C.ink,fs,700);}
+  else runs(ctx,x0,y[5],[['Near face: ',C.muted,600],[m.closed?'no pole (no current)':'no pole (open circuit)',C.ink,700]],fs);
+  var lw=62,b0=x0+lw,b1=x1-44,ae=Math.abs(m.e),ai=m.closed?ae:0;
+  txt(ctx,'emf ε',x0,y[6],C.ink,fs,600);hbar(ctx,b0,y[6]-9,b1-b0,9,ae,C.copper);
+  txt(ctx,'current I',x0,y[7],C.ink,fs,600);hbar(ctx,b0,y[7]-9,b1-b0,9,ai,C.copper);
+  txt(ctx,ae<0.004?'0':'',x1,y[6],C.muted,fs,600,'right');
+  txt(ctx,ai<0.004?'0':'',x1,y[7],C.muted,fs,600,'right');
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){var L=lay(w);return L.wide?360:Math.round(L.py[7]+20);},
+  step:step,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var L=lay(W),st=status(),one=st.a+' '+st.b;
+    ctx.font='600 '+L.stF+'px '+FONT;
+    if(L.wide&&ctx.measureText(one).width<=W-32){txt(ctx,one,16,L.st[0],C.ink,L.stF,600);txt(ctx,st.h,16,L.st[1],C.muted,12.5,600);}
+    else{ctx.font='600 '+L.stF+'px '+FONT;var fa=fit(ctx,st.a,W-20),fb=fit(ctx,st.b,W-20);ctx.font='600 12px '+FONT;var fh=fit(ctx,st.h,W-20);
+      txt(ctx,fa,16,L.st[0],C.ink,L.stF,600);txt(ctx,fb,16,L.st[1],C.ink,L.stF,600);if(L.st[2])txt(ctx,fh,16,L.st[2],C.muted,12,600);}
+    drawScene(ctx,L);
+    drawPanel(ctx,L);
+  }
+});
+
+/* ---------- 控件 ---------- */
+var bN=document.getElementById('s2-pn'),bS=document.getElementById('s2-ps'),bC=document.getElementById('s2-cl'),bO=document.getElementById('s2-op');
+var r2=document.getElementById('s2-speed'),o2=document.getElementById('s2-speed-out');
+function setPole(p){m.p=p;press(bN,p>0);press(bS,p<0);m.e=m.p*rate(m.d)*m.vx/EMAX;S2.render();}
+function setClosed(c){m.closed=c;if(!c)m.nv=0;press(bC,c);press(bO,!c);S2.render();}
+bN.addEventListener('click',function(){setPole(1);});bS.addEventListener('click',function(){setPole(-1);});
+bC.addEventListener('click',function(){setClosed(true);});bO.addEventListener('click',function(){setClosed(false);});
+r2.addEventListener('input',function(){m.mul=parseFloat(r2.value);o2.textContent='× '+m.mul.toFixed(m.mul%1?2:1);
+  if(m.vx!==0){m.vx=(m.vx>0?1:-1)*V0*m.mul;m.e=m.p*rate(m.d)*m.vx/EMAX;}S2.render();});
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3：导体棒在导轨上切割（像 Figure 3.3 / 3.4）。B 进纸（×）。画布坐标 y 向下。
+   palm rule 用正电荷：v 向右、B 进纸 → F = qv × B = x̂ × (−ẑ) = +ŷ，向上 → 上端 +；向左时下端 +。
+   闭路（导轨 + R）：ε = lvB，I = ε/R，F = lIB。向右：电流沿棒向上 → 整圈逆时针（从纸前看），
+   F = I l × B = ŷ × (−ẑ) = −x̂，向左；向左推：电流向下 → 顺时针，F 向右。两种情况 F 都反对运动。
+   Lenz 检查：向右时回路面积变大，进纸的 flux 增加 → induced B 出纸 → 逆时针，一致。
+   开路（棒单独）：电荷堆积，直到电场力 qE = 磁场力 qvB（真实中几乎一瞬间，这里放慢：τ = 0.35 s）；没有电流、没有阻力。
+   数据示意：l = 0.50 m，B = 0.80 T，R = 2.0 Ω（v = 2.0 m/s → ε = 0.80 V，I = 0.40 A，F = 0.16 N，Fv = I²R = 0.32 W）。
+   画面上的移动是放慢的示意：每秒走过行程的 0.15 v；扫过的窄条是 Δt = 0.8 s（示意）里走过的路。 */
+var L3=0.50,B3=0.80,R3=2.0,VMAX=3,TQ=0.35,DTS=0.8,KV=0.15;
+var EMAX=L3*VMAX*B3,IMAX=EMAX/R3,FMAX=L3*IMAX*B3,PMAX=IMAX*IMAX*R3;
+var m3={mode:'rails',dir:1,v:2,p:0.42,trav:1,q:0,s0:0,fade:1};
+var G={},P={x:0,y:0,ux:0,uy:0};
+function emf3(){return L3*m3.v*B3;}
+function cur3(){return m3.mode==='rails'?emf3()/R3:0;}
+function frc3(){return L3*cur3()*B3;}
+function qT3(){return m3.dir*m3.v/VMAX;}                 /* 堆积的电荷（相对值），平衡时 qE = qvB → 正比于 v */
+function settled3(){return Math.abs(m3.q-qT3())<=0.05*Math.max(Math.abs(qT3()),0.05);}
+function step3(dt){var n=4,h=dt/n;for(var i=0;i<n;i++){
+  m3.p+=KV*m3.v*h;m3.trav+=KV*m3.v*h;
+  if(m3.p>=1){m3.p-=1;m3.trav=m3.p;m3.fade=0;}           /* 走到头：回到起点重新走 */
+  if(m3.mode==='rails')m3.q=qT3();else m3.q+=(qT3()-m3.q)*h/TQ;
+  m3.s0=(m3.s0+150*cur3()*h)%1e4;                       /* 电流箭头的移动速度 ∝ I */
+  m3.fade=Math.min(1,m3.fade+h/0.3);}}
+m3.q=qT3();
+for(var q3=0;q3<60;q3++)step3(1/60);
+function hx(h){h=String(h).replace('#','').trim();if(h.length===3)h=h.charAt(0)+h.charAt(0)+h.charAt(1)+h.charAt(1)+h.charAt(2)+h.charAt(2);
+  var n=parseInt(h,16);return isNaN(n)?null:[(n>>16)&255,(n>>8)&255,n&255];}
+function isDark(){var p=hx(C.stage);return p?p[0]*0.3+p[1]*0.59+p[2]*0.11<128:false;}
+/* 文字加一圈底色描边，压在 × 点阵上也看得清 */
+function lab(ctx,s,x,y,col,size,weight,align,base,family){ctx.font=weight+' '+size+'px '+(family||FONT);ctx.textAlign=align;ctx.textBaseline=base;
+  ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align,base,family);}
+/* 带正负号的小圆片：+ 用 --north，− 用 --south */
+function badge(ctx,x,y,r,sg){var col=sg>0?C.north:C.south,d=r*0.5;dot(ctx,x,y,r,C.surface);ring(ctx,x,y,r,col,r>6?2:1.5);
+  seg(ctx,x-d,y,x+d,y,col,r>6?2:1.5);if(sg>0)seg(ctx,x,y-d,x,y+d,col,r>6?2:1.5);}
+function chev(ctx,x,y,ux,uy){var a=5.5,b=4.5;ctx.beginPath();ctx.moveTo(x+ux*a,y+uy*a);ctx.lineTo(x-ux*a-uy*b,y-uy*a+ux*b);ctx.lineTo(x-ux*a+uy*b,y-uy*a-ux*b);ctx.closePath();
+  ctx.fillStyle=C.copper;ctx.fill();ctx.strokeStyle=C.stage;ctx.lineWidth=1.2;ctx.stroke();}
+/* 回路上弧长 s 处的点（逆时针：棒向上 → 上导轨向左 → 电阻向下 → 下导轨向右） */
+function onLoop(s,xr,xL,yT,yB){var a=yB-yT,b=xr-xL;
+  if(s<a){P.x=xr;P.y=yB-s;P.ux=0;P.uy=-1;}
+  else if((s-=a)<b){P.x=xr-s;P.y=yT;P.ux=-1;P.uy=0;}
+  else if((s-=b)<a){P.x=xL;P.y=yT+s;P.ux=0;P.uy=1;}
+  else{s-=a;P.x=xL+s;P.y=yB;P.ux=1;P.uy=0;}}
+/* English status lines wrap on a phone, so the narrow layout starts lower */
+function top3(W){return W>=330?84:118;}
+function lay3(W){var w=W>=640;G.wide=w;
+  if(w){G.sx0=16;G.sx1=W-286;G.sy0=64;G.sy1=346;G.M=80;G.g=31;G.px0=G.sx1+22;G.px1=W-16;G.py=84;G.xL=G.sx0+30;}
+  else{G.sx0=12;G.sx1=W-12;G.sy0=top3(W);G.sy1=G.sy0+240;G.M=74;G.g=36;G.px0=16;G.px1=W-16;G.py=G.sy1+28;G.xL=G.sx0+26;}
+  G.yT=G.sy0+48;G.yB=G.sy1-48;G.mid=(G.yT+G.yB)/2;G.l=G.yB-G.yT;G.xE=G.sx1-26;
+  var rails=m3.mode==='rails',lb=rails?G.xL:G.sx0,rb=rails?G.xE:G.sx1;G.span=rb-lb-2*G.M;
+  G.xr=m3.dir>0?lb+G.M+m3.p*G.span:rb-G.M-m3.p*G.span;}
+function f2(v,u){return v<0.0005?'0 '+u:v.toFixed(2)+' '+u;}
+/* word wrap for English text on the canvas; \u00a0 keeps a formula on one line */
+function wrap3(ctx,s,maxW,size,weight){ctx.font=weight+' '+size+'px '+FONT;var ws=s.split(' '),ls=[],l='',i,t;
+  for(i=0;i<ws.length;i++){t=l?l+' '+ws[i]:ws[i];if(l&&ctx.measureText(t).width>maxW){ls.push(l);l=ws[i];}else l=t;}
+  if(l)ls.push(l);return ls;}
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?360:(w>=480?572:(w>=330?610:664));},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    lay3(W);
+    var wide=G.wide,dk=isDark(),rails=m3.mode==='rails',d=m3.dir,xr=G.xr,xL=G.xL,yT=G.yT,yB=G.yB,mid=G.mid,l=G.l;
+    var eps=emf3(),I=cur3(),F=frc3(),Pw=I*I*R3,ok=settled3(),qs=m3.q>0?1:-1,i,k;
+    /* 状态提示 */
+    var s1,s2,up=d>0?'up':'down',dn=d>0?'down':'up';
+    if(rails){s1='On rails: the current flows '+up+' the rod, '+(d>0?'anticlockwise':'clockwise')+' (seen from the front of the page)';s2='F\u00a0=\u00a0lIB points '+(d>0?'left':'right')+' and opposes the motion (Lenz) → you must keep pushing';}
+    else if(!ok){s1='Rod moving '+(d>0?'right':'left')+' → positive charge pushed '+up+' → '+(d>0?'top':'bottom')+' end +, like a battery';s2='Electrons are pushed '+dn+'. Charge keeps building up (really very fast, slowed here).';}
+    else{s1='Electric force qE\u00a0=\u00a0magnetic force qvB → charge stops building up';s2='Open circuit: ε\u00a0=\u00a0lvB between the ends, but no current and no opposing force';}
+    var ls=wrap3(ctx,s1,W-32,wide?15:13.5,600),ys=wide?28:19,il;
+    for(il=0;il<ls.length;il++){txt(ctx,ls[il],16,ys,C.ink,wide?15:13.5,600);ys+=wide?22:17;}
+    if(!wide)ys+=2;
+    ls=wrap3(ctx,s2,W-32,wide?13.5:12.5,500);
+    for(il=0;il<ls.length;il++){txt(ctx,ls[il],16,ys,C.muted,wide?13.5:12.5,500);ys+=wide?20:16;}
+    /* 场景框 */
+    rrect(ctx,G.sx0,G.sy0,G.sx1-G.sx0,G.sy1-G.sy0,8);ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+    /* 回路面积（浅）和 Δt 里扫过的窄条 lvΔt（深） */
+    if(rails){
+      ctx.fillStyle=rgba(C.field,dk?0.2:0.12);ctx.fillRect(xL,yT,xr-xL,l);
+      var ws=Math.min(KV*m3.v*DTS,m3.trav)*G.span;
+      if(ws>0.5){var xs=d>0?xr-ws:xr;ctx.fillStyle=rgba(C.field,dk?0.55:0.34);ctx.fillRect(xs,yT,ws,l);
+        seg(ctx,d>0?xs:xs+ws,yT,d>0?xs:xs+ws,yB,rgba(C.field,0.9),1,[4,3]);}
+    }
+    /* B 进纸：× 点阵（导轨刚好在两行中间） */
+    var g=G.g,hs=wide?4.5:4,x0=xL-g/2,y;
+    while(x0-g>G.sx0+6)x0-=g;
+    ctx.beginPath();
+    for(k=0;;k++){var dy=(k+0.5)*g;if(mid-dy<G.sy0+8)break;
+      for(i=0;i<2;i++){y=i?mid+dy:mid-dy;for(var x=x0;x<G.sx1-6;x+=g){ctx.moveTo(x-hs,y-hs);ctx.lineTo(x+hs,y+hs);ctx.moveTo(x-hs,y+hs);ctx.lineTo(x+hs,y-hs);}}}
+    ctx.strokeStyle=rgba(C.field,dk?1:0.95);ctx.lineWidth=1.5;ctx.stroke();
+    ctx.font='600 12px '+FONT;ctx.fillStyle=C.stage;ctx.fillRect(G.sx0+3,G.sy1-37,ctx.measureText('into page').width+10,33);   /* two-line label: clear the × behind it */
+    lab(ctx,'× = B',G.sx0+8,G.sy1-25,C.muted,12,600,'left','alphabetic');
+    lab(ctx,'into page',G.sx0+8,G.sy1-10,C.muted,12,600,'left','alphabetic');
+    /* 导轨和电阻 R */
+    var Rw=wide?16:14,Rh=wide?52:46,hf=Pw/PMAX;
+    if(rails){
+      seg(ctx,xr,yT,G.xE,yT,rgba(C.copper,0.4),3);seg(ctx,xr,yB,G.xE,yB,rgba(C.copper,0.4),3);
+      ctx.beginPath();ctx.moveTo(xr,yT);ctx.lineTo(xL,yT);ctx.lineTo(xL,yB);ctx.lineTo(xr,yB);ctx.strokeStyle=C.copper;ctx.lineWidth=3;ctx.lineJoin='miter';ctx.stroke();
+      var xd=G.sx1-12;arrow(ctx,xd,mid-13,xd,yT+2,C.muted,1.2,6);arrow(ctx,xd,mid+13,xd,yB-2,C.muted,1.2,6);
+      lab(ctx,'l',xd,mid,C.muted,15,'italic 600','center','middle',MATH);
+    }
+    /* 棒（走到头重新出现时淡入） */
+    ctx.save();ctx.globalAlpha=m3.fade;
+    rrect(ctx,xr-5,yT-16,10,l+32,4);ctx.fillStyle=rgba(C.muted,0.9);ctx.fill();
+    ctx.restore();
+    /* 电流：沿回路移动的小箭头 */
+    if(rails&&I>0){
+      var tot=2*l+2*(xr-xL),gap=30,o=m3.s0%gap;
+      for(var s=o;s<tot;s+=gap){
+        onLoop(d>0?s:tot-s,xr,xL,yT,yB);
+        if(P.x===xL&&Math.abs(P.y-mid)<Rh/2+7)continue;
+        chev(ctx,P.x,P.y,d>0?P.ux:-P.ux,d>0?P.uy:-P.uy);
+      }
+      /* R：越热越亮（亮度 ∝ I²R） */
+      ctx.save();if(hf>0.02){ctx.shadowColor=C.heat;ctx.shadowBlur=22*hf;}
+      ctx.fillStyle=C.surface;ctx.fillRect(xL-Rw/2,mid-Rh/2,Rw,Rh);ctx.restore();
+      ctx.fillStyle=rgba(C.heat,0.1+0.8*hf);ctx.fillRect(xL-Rw/2,mid-Rh/2,Rw,Rh);
+      ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.strokeRect(xL-Rw/2,mid-Rh/2,Rw,Rh);
+      lab(ctx,'R',xL+Rw/2+6,mid,C.ink,15,'italic 600','left','middle',MATH);
+      var xa=xL-Rw/2-9;arrow(ctx,xa,mid-d*14,xa,mid+d*14,C.copper,2,7);
+      lab(ctx,'I',xa,mid-d*25,C.copper,14,'italic 700','center','middle',MATH);
+    }
+    ctx.save();ctx.globalAlpha=m3.fade;
+    /* 棒两端的 + 和 − */
+    var qa=rails?1:Math.min(1,Math.abs(m3.q)/0.08);
+    if(qa>0.02){ctx.globalAlpha=m3.fade*qa;badge(ctx,xr,yT-30,9,qs);badge(ctx,xr,yB+30,9,-qs);ctx.globalAlpha=m3.fade;}
+    /* 速度 v */
+    var yv=yT+0.22*l,Lv=Math.max(14,(wide?18:16)*m3.v);
+    arrow(ctx,xr+d*9,yv,xr+d*(9+Lv),yv,rgba(C.ink,0.7),2.4,Math.min(9,4+Lv*0.3));
+    lab(ctx,'v',xr+d*(9+Lv-4),yv-13,rgba(C.ink,0.8),15,'italic 600','center','middle',MATH);
+    var fs=wide?13:12.5;
+    if(rails){
+      /* F = lIB 反对运动；推力和它一样大、方向相反（匀速） */
+      var yf=yT+0.62*l,Lf=Math.max(17,(wide?20:18)*VMAX*F/FMAX);   /* 最短 17 px，看得出箭杆；v = 3 时也碰不到 R */
+      var hf2=Math.min(10,4+Lf*0.3);arrow(ctx,xr-d*9,yf,xr-d*(9+Lf),yf,C.force,3,hf2);
+      arrow(ctx,xr+d*9,yf,xr+d*(9+Lf),yf,rgba(C.force,0.55),3,hf2);
+      lab(ctx,'F = lIB',xr-d*12,yf+15,C.force,fs,'italic 700',d>0?'right':'left','middle',MATH);   /* 写在箭头下面：棒刚出发时不会贴到 R 上 */
+      lab(ctx,'push',xr+d*12,yf-13,rgba(C.force,0.85),fs,600,d>0?'left':'right','middle');
+      if(ws>0.5)lab(ctx,'vΔt',xr-d*12,yB-12,C.ink,fs,'italic 600',d>0?'right':'left','middle',MATH);
+    }else{
+      /* 开路：两端越堆越多的电荷，和棒中间一个 +q 受的两个力 */
+      var nq=Math.min(5,Math.round(Math.abs(m3.q)*6));
+      for(k=0;k<nq;k++){badge(ctx,xr,yT-8+k*12,4.6,qs);badge(ctx,xr,yB+8-k*12,4.6,-qs);}
+      badge(ctx,xr,mid,7,1);
+      lab(ctx,'+q',xr+d*12,mid,C.north,fs,700,d>0?'left':'right','middle',MATH);
+      var u=wide?18:16,LB=u*m3.v,LE=u*VMAX*Math.abs(m3.q),xt=xr-d*18,dB=-d,dE=qs,xe=dB===dE?xt-d*12:xt;
+      arrow(ctx,xt,mid+dB*4,xt,mid+dB*(4+LB),C.force,2.4,Math.min(8,4+LB*0.3));
+      if(LE>2)arrow(ctx,xe,mid+dE*4,xe,mid+dE*(4+LE),C.force,2.4,Math.min(8,4+LE*0.3));
+      lab(ctx,'qvB',xt-d*7,mid+dB*Math.max(12,4+LB/2),C.force,fs,'italic 600',d>0?'right':'left','middle',MATH);
+      if(LE>2)lab(ctx,'qE',xe-d*7,mid+dE*Math.max(12,4+LE/2),C.force,fs,'italic 600',d>0?'right':'left','middle',MATH);
+    }
+    ctx.restore();
+    /* 读数 */
+    var px0=G.px0,px1=G.px1,py=G.py,lw=wide?78:74,bx0=px0+lw,bx1=px1-62;
+    var hd='l = 0.50 m · B = 0.80 T · R = 2.0 Ω',hu=' · illustrative',y0=py;
+    ctx.font='500 12px '+FONT;
+    if(ctx.measureText(hd+hu).width<=px1-px0){txt(ctx,hd+hu,px0,py,C.muted,12,500);}
+    else{if(wide)y0=py-17;else py+=17;txt(ctx,hd,px0,y0,C.muted,12,500);txt(ctx,'illustrative',px0,y0+17,C.muted,12,500);}
+    function row(yy,label,frac,col,val){txt(ctx,label,px0,yy,C.ink,12.5,600);hbar(ctx,bx0,yy-9,bx1-bx0,10,frac,col);txt(ctx,val,px1,yy,C.ink,12.5,600,'right','alphabetic',MONO);}
+    row(py+30,'ε = lvB',eps/EMAX,C.copper,f2(eps,'V'));
+    row(py+56,'I = ε/R',I/IMAX,C.copper,f2(I,'A'));
+    row(py+82,'F = lIB',F/FMAX,C.force,f2(F,'N'));
+    row(py+108,'Heat I²R',Pw/PMAX,C.heat,f2(Pw,'W'));
+    var ty=py+140;
+    function para(s,col,wt){var q=wrap3(ctx,s,px1-px0,12,wt);for(var a=0;a<q.length;a++){txt(ctx,q[a],px0,ty,col,12,wt);ty+=19;}}
+    if(rails){
+      para('Push power Fv = '+F.toFixed(2)+' × '+m3.v.toFixed(1)+' = '+(F*m3.v).toFixed(2)+' W',C.force,600);
+      para('= heat per second in R, I²R\u00a0=\u00a0'+Pw.toFixed(2)+'\u00a0W (conservation of energy)',C.heat,600);
+      ty+=8;
+      para('Faraday: area '+(d>0?'grows':'shrinks')+' → flux into the page '+(d>0?'increases':'decreases'),C.ink,600);
+      para('→ induced B '+(d>0?'out of':'into')+' the page → '+(d>0?'anticlockwise':'clockwise')+', both views agree',C.muted,500);
+    }else{
+      para('Open circuit: no current → no F → no push needed',C.ink,600);
+      para('emf between the ends: ε\u00a0=\u00a0lvB\u00a0=\u00a0'+eps.toFixed(2)+'\u00a0V',C.copper,600);
+      ty+=8;
+      para('+q in the rod: magnetic force qvB, electric force qE',C.force,600);
+      para(ok?'qE = qvB → balanced, no more build-up':'qE < qvB → charge keeps building up',C.muted,500);
+    }
+  }
+});
+var b3a=document.getElementById('s3-alone'),b3r=document.getElementById('s3-rails'),b3R=document.getElementById('s3-right'),b3L=document.getElementById('s3-left');
+var rg3=document.getElementById('s3-v'),ro3=document.getElementById('s3-v-out');
+function sync3(){press(b3a,m3.mode==='alone');press(b3r,m3.mode==='rails');press(b3R,m3.dir>0);press(b3L,m3.dir<0);}
+b3a.addEventListener('click',function(){if(m3.mode!=='alone'){m3.mode='alone';m3.p=0;m3.trav=0;m3.q=0;m3.fade=0;}sync3();S3.setPlaying(true);S3.render();});
+b3r.addEventListener('click',function(){if(m3.mode!=='rails'){m3.mode='rails';m3.q=qT3();m3.trav=0;}sync3();S3.render();});
+/* 开路时换方向：电荷重新从 0 堆起（真实中一瞬间就换过来） */
+function setDir3(dd){if(m3.dir!==dd){m3.dir=dd;m3.p=1-m3.p;m3.trav=0;m3.q=m3.mode==='rails'?qT3():0;}sync3();S3.render();}
+b3R.addEventListener('click',function(){setDir3(1);});
+b3L.addEventListener('click',function(){setDir3(-1);});
+rg3.addEventListener('input',function(){m3.v=parseFloat(rg3.value);ro3.textContent=m3.v.toFixed(1)+' m/s';if(m3.mode==='rails')m3.q=qT3();S3.render();});
+sync3();
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4：磁铁（N 朝下）穿过一个水平线圈，Φ–t 和 ε–t 两张图上下对齐（像 Figure 3.5，t = 0 是磁铁在线圈中心）。
+   模型（全部示意）：线圈半径 a = 1 cm；磁铁长 2a，两极看成轴上的两个点（s 是磁铁中心到线圈的距离，单位 a，向下为正）。
+   穿过一圈的 flux f(s) ∝ g(s+1) − g(s−1)，g(d) = d/√(d²+1)。磁铁从 s = −5a 走到 s = +5a，
+   Φ 归一化成 Φ(±5a) = 0、Φ(0) = Φmax，所以每个 pulse 的 |ΔΦ| = Φmax，面积 = N|ΔΦ| = NΦmax。
+   从静止下落：在 s = −5a 放手，g = 9.8 m/s²，到中心 v = 0.99 m/s，落到 s = +5a 的垫子上停住。
+   匀速：v = 1.0 m/s × 倍数（用线吊着匀速放下）。
+   ε = N dΦ/dt，第一个 pulse 画成正的（正负只看电表怎么接）；单位：匀速 × 1、N 圈时峰高 = 1（任意单位）。
+   线圈对磁铁的力 F ∝ N²v(dΦ/ds)²，只画方向和大概大小，不改变运动（电流很小）。
+   时间：模型里 25 ms 用 1 s 播放（放慢 40 倍）；到中心停 1.1 s，播完停 2.2 s 再重播。 */
+var T0=-110,T1=110,DT=0.25,NS=Math.round((T1-T0)/DT)+1;
+var ZA=5,GA=9.8e-4,TF=Math.sqrt(2*ZA/GA),VU=0.1;   /* g = 9.8 m/s² = 9.8e-4 a/ms²；放手到中心 ≈ 101 ms；1.0 m/s = 0.1 a/ms */
+var RATE=25,HOLD0=1.1,HOLD1=2.2;
+function gf(d){return d/Math.sqrt(d*d+1);}
+function gd(d){var q=d*d+1;return 1/(q*Math.sqrt(q));}
+var FZ=gf(ZA+1)-gf(ZA-1),FN=gf(1)-gf(-1)-FZ;
+function Pn(s){return (gf(s+1)-gf(s-1)-FZ)/FN;}          /* Φ / Φmax */
+function dPn(s){return (gd(s+1)-gd(s-1))/FN;}             /* dΦ/ds（每 a） */
+var DPM=0;(function(){for(var s=-3;s<=0;s+=0.001){var d=dPn(s);if(d>DPM)DPM=d;}})();
+var KE=DPM*VU,KF=VU*DPM*DPM;                              /* ε 和 F 的单位：匀速 × 1、N 圈时的峰值 */
+function sAt(p,t){if(p.mode==='fall'){var u=t+TF;if(u<=0)return -ZA;var s=-ZA+0.5*GA*u*u;return s>ZA?ZA:s;}
+  var s2=VU*p.mul*t;return s2<-ZA?-ZA:(s2>ZA?ZA:s2);}
+function vAt(p,t){if(p.mode==='fall'){var u=t+TF;if(u<=0)return 0;return -ZA+0.5*GA*u*u>=ZA?0:GA*u;}
+  var v=VU*p.mul,s2=v*t;return (s2<=-ZA||s2>=ZA)?0:v;}
+function Curve(){this.P=new Float64Array(NS);this.E=new Float64Array(NS);this.pk1=0;this.pk2=0;this.t1=0;this.t2=0;}
+function fillCurve(c,p){var n=p.n2?2:1,pk1=0,pk2=0;
+  for(var i=0;i<NS;i++){var t=T0+i*DT,s=sAt(p,t),e=n*dPn(s)*vAt(p,t)/KE;c.P[i]=Pn(s);c.E[i]=e;
+    if(e>pk1){pk1=e;c.t1=t;}if(-e>pk2){pk2=-e;c.t2=t;}}
+  c.pk1=pk1;c.pk2=pk2;}
+function fmul(x){var s=String(Math.round(x*100)/100);return s.indexOf('.')<0?s+'.0':s;}
+function desc(p){return (p.mode==='fall'?'falling':'constant × '+fmul(p.mul))+' · '+(p.n2?'2N':'N');}
+var m4={mode:'fall',mul:1,n2:false,t:-10,hold:0,end:false,cHeld:false,drag:false,ghost:false,gdesc:''};
+var cur=new Curve(),gho=new Curve();
+fillCurve(cur,m4);
+function restart4(){m4.t=T0;m4.end=false;m4.cHeld=false;m4.hold=0;}
+function step4(dt){
+  if(m4.hold>0){m4.hold-=dt;if(m4.hold>0)return;dt=-m4.hold;m4.hold=0;if(m4.end){restart4();return;}}
+  var t0=m4.t;m4.t+=RATE*dt;
+  if(!m4.cHeld&&t0<0&&m4.t>=0){m4.t=0;m4.cHeld=true;m4.hold=HOLD0;return;}   /* 到中心停一下 */
+  if(m4.t>=T1){m4.t=T1;m4.end=true;m4.hold=HOLD1;}
+}
+function yScale(){var a=Math.max(cur.pk1,cur.pk2);if(m4.ghost)a=Math.max(a,gho.pk1,gho.pk2);a*=1.08;return a<=1.25?1.25:(a<=2.5?2.5:5);}
+function lay4(W){
+  var o={wide:W>=640};
+  if(o.wide){o.A=24;o.mx=74;o.top=66;o.x0=16;o.gx=250;o.gw=W-16-o.gx;o.tx=o.gx-40;
+    o.ty1=80;o.g1=90;o.h1=84;o.ty2=204;o.g2=214;o.h2=112;o.tk=342;o.ax=362;o.gl=362;o.r1=390;o.r2=412;o.st1=27;o.st2=49;o.fs1=15;o.fs2=13;o.H=426;}
+  else{o.dy=34;o.A=16;o.mx=58;o.top=60+o.dy;o.x0=146;o.gx=46;o.gw=W-12-o.gx;o.tx=12;   /* English status lines wrap on a phone: everything below moves down by dy */
+    o.ty1=284+o.dy;o.g1=292+o.dy;o.h1=70;o.ty2=388+o.dy;o.g2=396+o.dy;o.h2=100;o.tk=510+o.dy;o.ax=528+o.dy;o.gl=546+o.dy;o.st1=22;o.st2=41;o.fs1=13.5;o.fs2=12;o.H=558+o.dy;}
+  o.yc=o.top+6*o.A;return o;
+}
+/* 状态提示：现在发生了什么、为什么 */
+var SL1='',SL2='';
+/* word wrap for the status lines */
+function wrap4(ctx,s,font,maxW){ctx.font=font;var w=s.split(' '),L=[],l='';for(var i=0;i<w.length;i++){var c=l?l+' '+w[i]:w[i];if(l&&ctx.measureText(c).width>maxW){L.push(l);l=w[i];}else l=c;}L.push(l);return L;}
+function status4(t,s,v,e){
+  var fall=m4.mode==='fall',NL=m4.n2?'2N':'N',endL='Two opposite pulses, same area: both = '+NL+'|ΔΦ|';
+  if(m4.end||(s>=ZA-1e-9&&v===0)){SL1=fall?'Magnet on the pad → flux stops changing → ε = 0':'Magnet has stopped → flux stops changing → ε = 0';SL2=endL;return;}
+  if((m4.hold>0&&t===0)||Math.abs(s)<0.12){SL1='Magnet at the centre → flux is largest, but not changing at this moment → ε = 0';SL2='The tangent on the Φ graph is flat: gradient = 0';return;}
+  if(s<=-ZA+1e-9&&v===0){SL1=fall?'Magnet still in the hand → flux not changing → ε = 0':'Magnet not moving yet → flux not changing → ε = 0';SL2=fall?'Soon it is let go and falls from rest':'Wait: it will pass through the coil at constant speed';return;}
+  var pk=s<0?cur.pk1:cur.pk2;
+  if(Math.abs(e)<0.12*pk){
+    if(s<0){SL1='Magnet still far → flux increases slowly → ε small';SL2='The closer to the coil, the faster the flux changes';}
+    else{SL1='Magnet now far → flux decreases slowly → ε small';SL2='The area of pulse 2 is nearly complete: = '+NL+'|ΔΦ|';}
+    return;}
+  if(s<0){SL1='Magnet approaching → flux increases → emf is one way (pulse 1)';SL2='Closed circuit: the coil repels the magnet above it. F is up, opposing the motion';}
+  else{SL1='Magnet leaving → flux decreases → emf is the other way (pulse 2)';SL2=fall?'Falling faster → pulse 2 is taller and narrower. F is still up':'Constant speed → both pulses: same height, same width';}
+}
+var S4=makeStage('sim4',{
+  height:function(w){return lay4(w).H;},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay4(W),A=o.A,mx=o.mx,yc=o.yc,wide=o.wide,n=m4.n2?2:1;
+    var t=m4.t,s=sAt(m4,t),v=vAt(m4,t),dp=dPn(s),P=Pn(s),e=n*dp*v/KE,i,k,x,y;
+    /* 状态 */
+    status4(t,s,v,e);
+    if(wide){txt(ctx,SL1,16,o.st1,C.ink,o.fs1,600);txt(ctx,SL2,16,o.st2,C.muted,o.fs2,500);}
+    else{var L1=wrap4(ctx,SL1,'600 '+o.fs1+'px '+FONT,W-28),L2=wrap4(ctx,SL2,'500 '+o.fs2+'px '+FONT,W-28),ys=o.st1;
+      for(i=0;i<L1.length;i++){txt(ctx,L1[i],16,ys,C.ink,o.fs1,600);ys+=17;}
+      ys+=2;for(i=0;i<L2.length;i++){txt(ctx,L2[i],16,ys,C.muted,o.fs2,500);ys+=16;}}
+    /* ---------- 左边：磁铁和线圈 ---------- */
+    var mw=Math.round(A*1.25),mh=2*A,my0=yc+(s-1)*A,ymc=my0+mh/2;
+    if(m4.mode==='const'||t<-TF)seg(ctx,mx,o.top-12,mx,my0,C.muted,1.3);          /* 线 / 手拿着 */
+    if(m4.mode==='fall'){rrect(ctx,mx-A-6,yc+6*A+2,2*A+12,6,3);ctx.fillStyle=rgba(C.muted,0.45);ctx.fill();
+      txt(ctx,'pad',mx+A+12,yc+6*A+8,C.muted,11,500);}   /* 垫子 */
+    var nt=m4.n2?6:3,sp=m4.n2?4:5,ry=A*0.34;
+    for(k=0;k<nt;k++){y=yc+(k-(nt-1)/2)*sp;ctx.beginPath();ctx.ellipse(mx,y,A,ry,0,Math.PI,TAU);ctx.strokeStyle=rgba(C.copper,0.5);ctx.lineWidth=2;ctx.stroke();}
+    rrect(ctx,mx-mw/2,my0,mw,mh,3);ctx.save();ctx.clip();
+    ctx.fillStyle=C.south;ctx.fillRect(mx-mw/2,my0,mw,mh/2);ctx.fillStyle=C.north;ctx.fillRect(mx-mw/2,my0+mh/2,mw,mh/2);ctx.restore();
+    txt(ctx,'S',mx,my0+mh/4+1,'#ffffff',11,700,'center','middle');txt(ctx,'N',mx,my0+mh*0.75+1,'#ffffff',11,700,'center','middle');
+    for(k=0;k<nt;k++){y=yc+(k-(nt-1)/2)*sp;ctx.beginPath();ctx.ellipse(mx,y,A,ry,0,0,Math.PI);ctx.strokeStyle=m4.n2?rgba(C.copper,0.75):C.copper;ctx.lineWidth=2.4;ctx.stroke();}   /* 2N：前面的弧淡一点，挡不住 N 字 */
+    /* v（向下）和线圈对磁铁的力 F（向上） */
+    if(v>0){var vm=v*10,lv=Math.min(44,20*vm),xv=mx-A-8;
+      arrow(ctx,xv,ymc,xv,ymc+lv,rgba(C.ink,0.7),2.2,8);
+      txt(ctx,'v',xv-5,ymc+lv/2+4,rgba(C.ink,0.75),13,'italic 600','right','alphabetic',MATH);}
+    var Fr=n*n*v*dp*dp/KF,lf=Math.min(wide?46:40,(wide?28:24)*Fr);
+    if(lf>4){var xf=mx+A+10;arrow(ctx,xf,ymc,xf,ymc-lf,C.force,2.6,8);
+      if(wide)txt(ctx,s<0?'F repels':'F attracts',xf+6,ymc-lf/2+4,C.force,12,600);else{txt(ctx,'F',xf+6,ymc-lf/2-3,C.force,12,600);txt(ctx,s<0?'repels':'attracts',xf+6,ymc-lf/2+11,C.force,12,600);}}
+    /* ---------- 右边（手机：下面）：两张图 ---------- */
+    var gx=o.gx,gw=o.gw,g1=o.g1,h1=o.h1,g2=o.g2,h2=o.h2,mid=g2+h2/2,half=h2/2,ymax=yScale();
+    var kx=gw/(T1-T0),b1=g1+h1,k1=h1/1.15,k2=half/ymax;
+    var ic=Math.max(0,Math.min(NS-1,Math.round((t-T0)/DT))),xc=gx+(t-T0)*kx;
+    for(var q=-100;q<=100;q+=50){x=gx+(q-T0)*kx;seg(ctx,x,g1,x,b1,C.grid,1);seg(ctx,x,g2,x,g2+h2,C.grid,1);
+      seg(ctx,x,g2+h2,x,g2+h2+4,C.muted,1);txt(ctx,(q<0?'−':'')+Math.abs(q),x,o.tk,C.muted,11,500,'center');}
+    /* Φ 图的轴 */
+    y=b1-k1;seg(ctx,gx,y,gx+gw,y,C.grid,1,[2,4]);
+    txt(ctx,'Φmax',gx-6,y+4,C.muted,11,500,'right');txt(ctx,'0',gx-6,b1+4,C.muted,11,500,'right');
+    seg(ctx,gx,g1,gx,b1,C.muted,1);seg(ctx,gx,b1,gx+gw,b1,C.muted,1);
+    /* ε 图的轴 */
+    var tks=ymax<2?[1,-1]:(ymax<4?[2,1,-1,-2]:[4,2,-2,-4]);
+    for(i=0;i<tks.length;i++){y=mid-tks[i]*k2;seg(ctx,gx,y,gx+gw,y,C.grid,1,[2,4]);txt(ctx,(tks[i]<0?'−':'')+Math.abs(tks[i]),gx-6,y+4,C.muted,11,500,'right');}
+    txt(ctx,'0',gx-6,mid+4,C.muted,11,500,'right');
+    seg(ctx,gx,g2,gx,g2+h2,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+    function poly(arr,i0,i1,y0,kk,col,w,dash){ctx.beginPath();for(var j=i0;j<=i1;j++){var px=gx+j*DT*kx,py=y0-arr[j]*kk;if(j===i0)ctx.moveTo(px,py);else ctx.lineTo(px,py);}
+      ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);}
+    ctx.save();ctx.beginPath();ctx.rect(gx,g1-6,gw+1,h1+7);ctx.rect(gx,g2,gw+1,h2);ctx.clip();
+    if(m4.ghost){poly(gho.P,0,NS-1,b1,k1,rgba(C.muted,0.85),1.5,[4,4]);poly(gho.E,0,NS-1,mid,k2,rgba(C.muted,0.85),1.5,[4,4]);}
+    poly(cur.P,ic,NS-1,b1,k1,rgba(C.south,0.45),1.6);poly(cur.E,ic,NS-1,mid,k2,rgba(C.copper,0.45),1.6);
+    /* 阴影：到现在为止的面积 */
+    ctx.beginPath();ctx.moveTo(gx,mid);for(i=0;i<=ic;i++)ctx.lineTo(gx+i*DT*kx,mid-cur.E[i]*k2);ctx.lineTo(gx+ic*DT*kx,mid);ctx.closePath();
+    ctx.fillStyle=rgba(C.copper,0.2);ctx.fill();
+    poly(cur.P,0,ic,b1,k1,C.south,2.4);poly(cur.E,0,ic,mid,k2,C.copper,2.4);
+    ctx.restore();
+    /* 时间光标、切线、点 */
+    seg(ctx,xc,g1,xc,g2+h2,rgba(C.ink,0.45),1.2,[3,3]);
+    var yP=b1-P*k1,sl=-(dp*v)*k1/kx,nl=Math.sqrt(1+sl*sl),hl=wide?26:22;
+    ctx.save();ctx.beginPath();ctx.rect(gx,g1-6,gw+1,h1+7);ctx.clip();
+    seg(ctx,xc-hl/nl,yP-hl*sl/nl,xc+hl/nl,yP+hl*sl/nl,C.copper,2.2);ctx.restore();
+    dot(ctx,xc,yP,4.5,C.south);dot(ctx,xc,mid-e*k2,4.5,C.copper);
+    /* pulse 名字：pulse 1 在波峰左上方，pulse 2 在波谷右下方（都在自己那一边），带底色描边，光标线切不断字 */
+    function plab(s,x,y,al){ctx.font='600 11.5px '+FONT;ctx.textAlign=al;ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;
+      ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,C.copper,11.5,600,al);}
+    ctx.font='600 11.5px '+FONT;var lw1=ctx.measureText('pulse 1').width;
+    plab('pulse 1',Math.max(gx+lw1+4,gx+(cur.t1-T0)*kx-10),Math.max(g2+12,mid-cur.pk1*k2-4),'right');
+    plab('pulse 2',Math.min(gx+gw-lw1-2,gx+(cur.t2-T0)*kx+10),Math.min(g2+h2-4,mid+cur.pk2*k2+13),'left');
+    /* 标题 */
+    txt(ctx,wide?'Φ (flux through one turn)':'Φ (flux, one turn)',o.tx,o.ty1,C.south,12.5,700);
+    txt(ctx,'Steeper tangent → larger |ε|',gx+gw,o.ty1,C.copper,12,600,'right');
+    txt(ctx,wide?'ε induced emf (arbitrary units)':'ε (arbitrary units)',o.tx,o.ty2,C.copper,12.5,700);
+    txt(ctx,'|ε| = '+(m4.n2?'2N':'N')+' × gradient',gx+gw,o.ty2,C.copper,12,600,'right');
+    txt(ctx,wide?'t (ms), t = 0: magnet at centre of coil':'t (ms), t = 0: magnet at centre',gx+gw,o.ax,C.muted,11.5,500,'right');
+    if(m4.ghost)txt(ctx,'Dashed = before the change ('+m4.gdesc+')',wide?gx:12,o.gl,C.muted,11.5,500);
+    /* 读数：峰高（到现在为止）和面积（= N|ΔΦ|，单位 NΦmax） */
+    var pa=0,pb=0;for(i=0;i<=ic;i++){var ee=cur.E[i];if(ee>pa)pa=ee;if(-ee>pb)pb=-ee;}
+    var a1=n*(t<=0?P:1),a2=t>0?n*(1-P):0,two=t>0;
+    var vs='v = '+(v*10).toFixed(2)+' m/s',ns='Coil: '+(m4.n2?'2N':'N')+' turns, closed circuit';
+    if(wide){
+      txt(ctx,vs,16,o.r1,C.ink,13,500,'left','alphabetic',MONO);txt(ctx,ns,16,o.r2,C.ink,13,600);
+      var rows=[[o.r1,'pulse 1','+'+pa.toFixed(2),a1.toFixed(2)],[o.r2,'pulse 2',two?'−'+pb.toFixed(2):'—',two?a2.toFixed(2):'—']];
+      for(i=0;i<2;i++){var r=rows[i];txt(ctx,r[1],gx,r[0],C.copper,13,700);txt(ctx,'Peak',gx+70,r[0],C.muted,12.5,500);
+        txt(ctx,r[2],gx+104,r[0],C.ink,13,600,'left','alphabetic',MONO);txt(ctx,'Area',gx+176,r[0],C.muted,12.5,500);
+        txt(ctx,r[3]+(r[3]==='—'?'':' NΦmax'),gx+210,r[0],C.ink,13,600,'left','alphabetic',MONO);}
+      txt(ctx,'Area = '+(m4.n2?'2N':'N')+'|ΔΦ|',gx+gw,o.r1,C.muted,12,500,'right');txt(ctx,'Peak: arbitrary units',gx+gw,o.r2,C.muted,12,500,'right');
+    }else{
+      var X0=o.x0,c1=X0+40,c2=X0+112;
+      txt(ctx,m4.mode==='fall'?'Falling from rest':'Constant speed × '+fmul(m4.mul),X0,80+o.dy,C.ink,12.5,600);
+      txt(ctx,vs,X0,99+o.dy,C.ink,12,500,'left','alphabetic',MONO);txt(ctx,ns,X0,118+o.dy,C.ink,12,600);
+      txt(ctx,'pulse 1',c1,148+o.dy,C.copper,11.5,700);txt(ctx,'pulse 2',c2,148+o.dy,C.copper,11.5,700);
+      txt(ctx,'Peak',X0,168+o.dy,C.muted,12,500);txt(ctx,'+'+pa.toFixed(2),c1,168+o.dy,C.ink,12,600,'left','alphabetic',MONO);
+      txt(ctx,two?'−'+pb.toFixed(2):'—',c2,168+o.dy,C.ink,12,600,'left','alphabetic',MONO);
+      txt(ctx,'Area',X0,188+o.dy,C.muted,12,500);txt(ctx,a1.toFixed(2),c1,188+o.dy,C.ink,12,600,'left','alphabetic',MONO);
+      txt(ctx,two?a2.toFixed(2):'—',c2,188+o.dy,C.ink,12,600,'left','alphabetic',MONO);
+      txt(ctx,'Area = '+(m4.n2?'2N':'N')+'|ΔΦ|, unit: NΦmax',X0,207+o.dy,C.muted,11,500);
+    }
+  }
+});
+var b4f=document.getElementById('s4-fall'),b4c=document.getElementById('s4-const'),b4n=document.getElementById('s4-turns');
+var r4=document.getElementById('s4-speed'),o4=document.getElementById('s4-speed-out');
+function sync4(){press(b4f,m4.mode==='fall');press(b4c,m4.mode==='const');press(b4n,m4.n2);b4n.textContent='Turns: '+(m4.n2?'2N':'N');o4.textContent='× '+fmul(m4.mul);}
+/* 改控件：把改之前的曲线留下来当虚线（拖一次 slider 算一次）；时间不动，曲线马上按新的条件重画 */
+function change4(fn,keep){
+  if(!keep){gho.P.set(cur.P);gho.E.set(cur.E);gho.pk1=cur.pk1;gho.pk2=cur.pk2;gho.t1=cur.t1;gho.t2=cur.t2;m4.ghost=true;m4.gdesc=desc(m4);}
+  fn();fillCurve(cur,m4);sync4();S4.render();
+}
+b4f.addEventListener('click',function(){if(m4.mode!=='fall')change4(function(){m4.mode='fall';});});
+b4c.addEventListener('click',function(){if(m4.mode!=='const')change4(function(){m4.mode='const';});});
+r4.addEventListener('input',function(){var v=parseFloat(r4.value),k=m4.drag;m4.drag=true;change4(function(){m4.mul=v;m4.mode='const';},k);});   /* 拖速度 → 自动换成匀速 */
+r4.addEventListener('change',function(){m4.drag=false;});
+b4n.addEventListener('click',function(){change4(function(){m4.n2=!m4.n2;});});
+document.getElementById('s4-reset').addEventListener('click',function(){restart4();S4.setPlaying(true);S4.render();});
+sync4();
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5：开关一开一关：互感（3.5 One solenoid near another）。
+   左边 primary 线圈接电池和开关，右边 secondary 线圈接灵敏电流计 G，两个线圈可以套在同一根 soft iron 铁芯上。
+   模型（全部示意）：Ip 按指数规律升到终值、或降到 0（时间常数 τ：快 0.15 s，慢 0.40 s；断开和闭合用同一个 τ）。
+   secondary 每圈的 flux Φs = k·Ip（单位 = 空心、Ip 到终值时的 flux；k = 1 空心，k = 3 有铁芯；铁芯放进/拿走用 0.3 s 渐变）。
+   εs = Ns·dΦs/dt（任意单位，Ns = 1）。flux 增加时的 pulse 画成正的（和 booklet Figure 3.5 一样；
+   ε = −N ΔΦ/Δt 的负号说的是方向，图上正负只看电表怎么接）。快、慢两种情况 ΔΦ 一样，所以 pulse 面积一样。
+   方向（grip rule 已查）：线圈画成螺线，参数 φ 增大时往右走，前面那一段从上往下。电流沿 φ 增大 → B 向右。
+   primary：电流从电池 + 极（左边的长板）出来 → 左引线向上 → 线圈（前面的线向下）→ 右引线向下 → 开关 → − 极，所以 primary 的 B 向右。
+   secondary：闭合时向右的 flux 增加 → induced B 向左 → 电流沿 φ 减小（前面的线向上）→ 左引线向下、经 G 从左到右、右引线向上
+   → 指针向右；断开时全部反过来（induced B 向右，和原来的场同向）。 */
+var TF=0.15,TSL=0.40,KC=3,TK=0.3,AUTO=4,TW=9,PMAX=3.4,EMAX=1.08*KC/TF,D2R=Math.PI/180;
+var OFF=[-0.52,-0.34,-0.17,0.17,0.34,0.52];   /* 磁感线的位置（× r）；±0.34 两条空心时也有，其余四条只在铁芯里 */
+var LIP=['I','_p'],LPHI=['Φ','_s','  secondary flux per turn'],LEPS=['ε','_s','  emf in the secondary'],LAREA=['shaded area = N','_s','|ΔΦ|'],LX1=['×1 = no core'];
+var m5;
+var CAP=1500,hT=new Float64Array(CAP),hP=new Float64Array(CAP),hE=new Float64Array(CAP),hS=0,hN=0;
+var EC=8,eT=new Float64Array(EC),eC=new Uint8Array(EC),eS=0,eN=0;
+var b5sw=document.getElementById('s5-sw'),b5f=document.getElementById('s5-fast'),b5s=document.getElementById('s5-slow'),b5c=document.getElementById('s5-core');
+function rec(){var i=(hS+hN)%CAP;if(hN<CAP)hN++;else hS=(hS+1)%CAP;hT[i]=m5.t;hP[i]=m5.phi;hE[i]=m5.eps;m5.lastRec=m5.t;}
+/* 这一刻的 εs = d(k·Ip)/dt = k·dIp/dt + Ip·dk/dt */
+function emf(){var kt=m5.core?KC:1;return m5.k*((m5.closed?1:0)-m5.I)/m5.tau+m5.I*(kt-m5.k)/TK;}
+function setSw(v){m5.phi=m5.k*m5.I;m5.eps=emf();rec();m5.closed=v;m5.since=0;m5.eps=emf();rec();
+  var i=(eS+eN)%EC;if(eN<EC)eN++;else eS=(eS+1)%EC;eT[i]=m5.t;eC[i]=v?1:0;}
+function sync5(){press(b5sw,m5.closed);b5sw.textContent=m5.closed?'Open switch':'Close switch';
+  press(b5f,m5.tau===TF);press(b5s,m5.tau!==TF);press(b5c,m5.core);b5c.textContent='Soft iron core: '+(m5.core?'in':'out');}
+function step5(dt){
+  var n=Math.max(1,Math.ceil(dt/0.004)),h=dt/n;
+  for(var i=0;i<n;i++){
+    if(m5.auto){m5.autoT+=h;if(m5.autoT>=AUTO){m5.autoT-=AUTO;setSw(!m5.closed);sync5();}}
+    var tg=m5.closed?1:0,kt=m5.core?KC:1;
+    m5.I+=(tg-m5.I)*(1-Math.exp(-h/m5.tau));if(Math.abs(tg-m5.I)<3e-4)m5.I=tg;
+    m5.k+=(kt-m5.k)*(1-Math.exp(-h/TK));if(Math.abs(kt-m5.k)<1e-3)m5.k=kt;
+    m5.t+=h;m5.since+=h;m5.coreSince+=h;
+  }
+  m5.phi=m5.k*m5.I;m5.eps=emf();
+  if(m5.t-m5.lastRec>=1/125)rec();
+}
+/* 开始：自动开关，1 s 时闭合、5 s 时断开、9 s 时再闭合；预先走到 9.15 s，第一帧就有两个相反的 pulse，第三个刚开始 */
+function reset5(){m5={t:0,I:0,k:KC,closed:false,core:true,tau:TF,auto:true,autoT:AUTO-1,since:99,coreSince:99,phi:0,eps:0,lastRec:-1};
+  hS=0;hN=0;eS=0;eN=0;rec();for(var q=0;q<549;q++)step5(1/60);sync5();}
+
+/* 文字带下标：parts 里以 '_' 开头的是下标 */
+function rich(ctx,parts,x,y,col,size,weight,align){
+  var i,s,sb,w=0,ss=Math.max(11,Math.round(size*0.72));
+  for(i=0;i<parts.length;i++){s=parts[i];sb=s.charAt(0)==='_';ctx.font=weight+' '+(sb?ss:size)+'px '+FONT;w+=ctx.measureText(sb?s.slice(1):s).width;}
+  var x0=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<parts.length;i++){s=parts[i];sb=s.charAt(0)==='_';if(sb)s=s.slice(1);
+    txt(ctx,s,x0,sb?y+size*0.3:y,col,sb?ss:size,weight,'left','alphabetic');x0+=ctx.measureText(s).width;}
+  return w;}
+/* 螺线管侧面图：front = true 画前面那一半（在铁芯前面），false 画后面那一半 */
+function helix(ctx,xs,n,p,cy,r,front,col,w){
+  var rx=r*0.3,N=n*28,px=xs,py=cy+r,pen=false;ctx.beginPath();
+  for(var j=1;j<=N;j++){var ph=Math.PI+TAU*n*j/N,x=xs+p*n*j/N+rx*Math.sin(ph),y=cy-r*Math.cos(ph),f=Math.sin(ph-Math.PI*n/N)>0;
+    if(f===front){if(!pen){ctx.moveTo(px,py);pen=true;}ctx.lineTo(x,y);}else pen=false;px=x;py=y;}
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();ctx.lineCap='butt';}
+/* --field 和 --ink 按比例混合：浅色主题更深、深色主题更亮，磁感线和 B 的字在铁芯上也看得清 */
+function hx5(h){h=String(h).replace('#','').trim();if(h.length===3)h=h.charAt(0)+h.charAt(0)+h.charAt(1)+h.charAt(1)+h.charAt(2)+h.charAt(2);
+  var n=parseInt(h,16);return isNaN(n)?null:[(n>>16)&255,(n>>8)&255,n&255];}
+function fieldC(al){var p=hx5(C.field),q=hx5(C.ink),t=0.45;if(!p||!q)return rgba(C.field,al);
+  return 'rgba('+Math.round(p[0]+(q[0]-p[0])*t)+','+Math.round(p[1]+(q[1]-p[1])*t)+','+Math.round(p[2]+(q[2]-p[2])*t)+','+al+')';}
+function tri(ctx,x,y,ux,uy,s,col){ctx.beginPath();ctx.moveTo(x+ux*s,y+uy*s);ctx.lineTo(x-ux*s*0.7-uy*s*0.75,y-uy*s*0.7+ux*s*0.75);
+  ctx.lineTo(x-ux*s*0.7+uy*s*0.75,y-uy*s*0.7-ux*s*0.75);ctx.closePath();ctx.fillStyle=col;ctx.fill();}
+/* 前面每一段的上部（铁芯上面，φ = 2π(j+1) + 0.72）画一个小三角：d = +1 电流沿 φ 增大（前面向下），−1 反过来 */
+var SA=0.72;
+function strand(ctx,xs,n,p,cy,r,d,col){var rx=r*0.3,tx=(p/TAU+rx*Math.cos(SA))*d,ty=r*Math.sin(SA)*d,l=Math.hypot(tx,ty);tx/=l;ty/=l;
+  for(var j=0;j<n;j++)tri(ctx,xs+p*(j+0.5+SA/TAU)+rx*Math.sin(SA),cy-r*Math.cos(SA),tx,ty,5.5,col);}
+
+reset5();
+var S5=makeStage('sim5',{
+  height:function(w){return w>=640?380:632;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,PW,r,cy,np,ns,pp=22,P0,P1,S0,S1,yc,gr,yI,gx,gw,g1,gh1,g2,gh2,i,x,y;
+    if(wide){PW=Math.max(400,Math.round(W*0.55));r=40;cy=150;np=6;ns=5;P0=40;S1=PW-46;yc=cy+r+78;gr=22;yI=338;gx=PW+36;gw=W-gx-18;g1=92;gh1=78;g2=208;gh2=136;}
+    else{PW=W;r=32;cy=136;np=5;ns=5;P0=26;S1=W-26;yc=cy+r+62;gr=19;yI=298;gx=40;gw=W-58;g1=350;gh1=76;g2=468;gh2=132;}
+    P1=P0+np*pp;S0=S1-ns*pp;
+    var Pc=(P0+P1)/2,Sc=(S0+S1)/2,gm=(P1+S0)/2,ch=r*0.62;
+    var I=m5.I,cf=(m5.k-1)/(KC-1),eps=m5.eps,fr=Math.min(1,Math.abs(eps)/(m5.k/m5.tau)),son=fr>0.04,sd=eps>0?-1:1;
+    /* status */
+    /* 按这一刻有没有 emf 来写（son，和画面上的 induced B、指针一致），不是按固定时间；pulse 刚结束时再提示一下。
+       字符串数组交给 rich()：'_p'、'_s' 是下标 */
+    var st1,st2,st3=null,c2=C.muted,hold=Math.max(1.8,5.5*m5.tau),kt=m5.core?KC:1,just=m5.since<hold;
+    if(Math.abs(m5.k-kt)>0.01&&I>0.05){c2=C.copper;
+      if(m5.core){st1=['Core in: same battery and switch, but flux grows'];st2=['→ Flux is changing, so there is an emf now too'];}
+      else{st1=['Core out: same battery and switch, but flux falls'];st2=['→ Flux is changing, and the emf reverses'];}}
+    else if(just&&son&&m5.closed){st1=['Just closed: ','I','_p',' grows → flux increases'];st2=['→ A brief emf; induced B opposes the growing field'];c2=C.copper;}
+    else if(just&&son){st1=['Just opened: ','I','_p',' falls → flux decreases'];if(wide)st2=['→ A brief emf the other way; induced B is in the same direction as the original field'];else{st2=['→ A brief emf the other way;'];st3=['induced B is in the same direction as the original field'];}c2=C.copper;}
+    else if(just&&m5.closed){st1=['Just closed: now ','I','_p',' has almost stopped changing'];st2=['→ The brief emf is over, ','ε','_s',' ≈ 0'];}
+    else if(just){st1=['Just opened: now ','I','_p',' ≈ 0, almost not changing'];st2=['→ The brief emf is over, ','ε','_s',' ≈ 0'];}
+    else if(m5.closed){st1=['Kept closed: ','I','_p',' is steady → flux is steady'];st2=['→ emf = 0: a large but steady flux gives no emf'];}
+    else{st1=['Switch open: ','I','_p',' = 0 → no flux'];st2=['→ emf = 0'];}
+    rich(ctx,st1,16,wide?26:24,C.ink,wide?15:13.5,600,'left');
+    rich(ctx,st2,16,wide?48:44,c2,wide?13:12,600,'left');
+    if(st3)rich(ctx,st3,16,60,c2,12,600,'left');
+    txt(ctx,'primary coil',Pc,cy-r-16,C.ink,wide?12.5:12,600,'center');
+    txt(ctx,'secondary coil',Sc,cy-r-16,C.ink,wide?12.5:12,600,'center');
+    /* back halves → core → field → front halves */
+    helix(ctx,P0,np,pp,cy,r,false,rgba(C.copper,0.3),2);
+    helix(ctx,S0,ns,pp,cy,r,false,rgba(C.copper,0.3),2);
+    var cx0=P0-14,cx1=S1+14,fx0=P0-10,fx1=S1+18;
+    if(cf>0.01){rrect(ctx,cx0,cy-ch,cx1-cx0,2*ch,4);ctx.fillStyle=rgba(C.muted,0.16*cf);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.75*cf);ctx.lineWidth=1.3;ctx.stroke();}
+    txt(ctx,m5.core?'iron core':'no iron core',gm,cy+ch+15,C.muted,11.5,600,'center');
+    for(i=0;i<6;i++){var main=(i===1||i===4),a=I*(main?1:cf);if(a<0.03)continue;y=cy+OFF[i]*r;
+      seg(ctx,fx0,y,fx1-8,y,fieldC(0.8*a),1.3,[5,5]);
+      if(main){arrow(ctx,gm-9,y,gm+9,y,fieldC(a),1.6,8);arrow(ctx,fx1-14,y,fx1,y,fieldC(a),1.6,8);}}
+    if(I>0.05)txt(ctx,'B',gm,cy-ch-7,fieldC(Math.min(1,0.3+I)),13,700,'center');
+    ctx.save();if(I>0.05){ctx.shadowColor=C.copper;ctx.shadowBlur=5*I;}
+    helix(ctx,P0,np,pp,cy,r,true,rgba(C.copper,0.45+0.55*I),3);ctx.restore();
+    ctx.save();if(son){ctx.shadowColor=C.copper;ctx.shadowBlur=5*fr;}
+    helix(ctx,S0,ns,pp,cy,r,true,rgba(C.copper,0.45+(son?0.55*fr:0)),3);ctx.restore();
+    if(I>0.03)strand(ctx,P0,np,pp,cy,r,1,rgba(C.ink,Math.min(1,0.25+I)));
+    if(son){strand(ctx,S0,ns,pp,cy,r,sd,rgba(C.ink,Math.min(1,0.3+1.5*fr)));
+      var Lb=(S1-S0)*(0.4+0.45*fr),dir=eps>0?-1:1;
+      arrow(ctx,Sc-dir*Lb/2,cy,Sc+dir*Lb/2,cy,fieldC(0.45+0.55*fr),4,12);
+      txt(ctx,'induced B',Sc,cy+r+17,fieldC(0.5+0.5*fr),12,700,'center');}
+    /* primary circuit: battery (+ = long plate on the left) and switch */
+    var cw=rgba(C.copper,0.9),bx=P0+(wide?30:16),sx=P0+(wide?66:50),sw=wide?34:28,ym=(cy+r+yc)/2,la=m5.closed?0:28*D2R;
+    seg(ctx,P0,cy+r,P0,yc,cw,2.5);seg(ctx,P0,yc,bx,yc,cw,2.5);
+    seg(ctx,bx,yc-12,bx,yc+12,C.ink,2.2);seg(ctx,bx+8,yc-6,bx+8,yc+6,C.ink,4.5);
+    seg(ctx,bx+8,yc,sx,yc,cw,2.5);
+    seg(ctx,sx,yc,sx+sw*Math.cos(la),yc-sw*Math.sin(la),C.ink,2.6);dot(ctx,sx,yc,3.2,C.ink);dot(ctx,sx+sw,yc,3.2,C.ink);
+    seg(ctx,sx+sw,yc,P1,yc,cw,2.5);seg(ctx,P1,yc,P1,cy+r,cw,2.5);
+    txt(ctx,'+',bx-8,yc-8,C.ink,12,700,'center');txt(ctx,'−',bx+17,yc-8,C.ink,12,700,'center');
+    txt(ctx,'battery',bx+4,yc+26,C.muted,11.5,500,'center');
+    txt(ctx,'switch: '+(m5.closed?'closed':'open'),sx-2,yc+26,m5.closed?C.ink:C.muted,11.5,600,'left');
+    if(I>0.03){var ca=rgba(C.ink,Math.min(1,0.25+I));tri(ctx,P0,ym,0,-1,5.5,ca);tri(ctx,P1,ym,0,1,5.5,ca);}
+    /* secondary circuit: galvanometer G */
+    seg(ctx,S0,cy+r,S0,yc,cw,2.5);seg(ctx,S0,yc,Sc-gr,yc,cw,2.5);seg(ctx,Sc+gr,yc,S1,yc,cw,2.5);seg(ctx,S1,yc,S1,cy+r,cw,2.5);
+    if(son){var cs=rgba(C.ink,Math.min(1,0.3+1.5*fr));tri(ctx,S0,ym,0,-sd,5.5,cs);tri(ctx,S1,ym,0,sd,5.5,cs);}
+    dot(ctx,Sc,yc,gr,C.surface);ring(ctx,Sc,yc,gr,C.ink,1.8);
+    var pvy=yc+gr*0.45;
+    for(i=-2;i<=2;i++){var ta=i*30*D2R;seg(ctx,Sc+Math.sin(ta)*gr*0.78,pvy-Math.cos(ta)*gr*0.78,Sc+Math.sin(ta)*gr*0.93,pvy-Math.cos(ta)*gr*0.93,i?C.muted:C.ink,1.2);}
+    var na=clamp(eps/EMAX,-1,1)*60*D2R;seg(ctx,Sc,pvy,Sc+Math.sin(na)*gr*0.95,pvy-Math.cos(na)*gr*0.95,C.north,2.2);dot(ctx,Sc,pvy,2.8,C.ink);
+    txt(ctx,'G galvanometer',Sc,yc+gr+16,C.muted,11.5,500,'center');
+    /* Ip readout */
+    var lx=wide?24:16,b0=lx+28,b1=wide?b0+170:W-112;
+    rich(ctx,LIP,lx,yI+5,C.ink,15,600,'left');
+    hbar(ctx,b0,yI-5,b1-b0,10,I,C.copper);
+    txt(ctx,Math.round(I*100)+'%',b1+8,yI+5,C.ink,12.5,600,'left','alphabetic',MONO);
+    txt(ctx,m5.tau===TF?'fast':'slow',wide?b1+58:W-16,yI+5,C.copper,12,600,wide?'left':'right');
+    /* graphs (time window TW, now at the right edge) */
+    var t0=m5.t-TW,mid=g2+gh2/2,k,idx,first;
+    var wp=rich(ctx,LPHI,gx,g1-12,C.south,12.5,700,'left');
+    ctx.font='500 11px '+FONT;if(wp+ctx.measureText('×1 = no core').width+16<gw)rich(ctx,LX1,gx+gw,g1-12,C.muted,11,500,'right');
+    seg(ctx,gx,g1,gx,g1+gh1,C.muted,1);seg(ctx,gx,g1+gh1,gx+gw,g1+gh1,C.muted,1);
+    for(i=1;i<=3;i+=2){y=g1+gh1-i/PMAX*gh1;seg(ctx,gx,y,gx+gw,y,C.grid,1,[2,4]);txt(ctx,'×'+i,gx-6,y+4,C.muted,11,500,'right');}
+    rich(ctx,LEPS,gx,g2-10,C.copper,12.5,700,'left');
+    rich(ctx,LAREA,gx,g2+gh2+18,C.muted,11.5,500,'left');
+    seg(ctx,gx,g2,gx,g2+gh2,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);txt(ctx,'0',gx-6,mid+4,C.muted,11,500,'right');
+    /* switch events */
+    var lastLx=-1e9;
+    for(k=0;k<eN;k++){idx=(eS+k)%EC;if(eT[idx]<t0)continue;x=gx+(eT[idx]-t0)/TW*gw;
+      seg(ctx,x,g1,x,g2+gh2,rgba(C.muted,0.55),1,[3,4]);
+      if(x-44>gx&&x-lastLx>46){txt(ctx,eC[idx]?'closed':'opened',x-4,g2+13,C.muted,11,600,'right');lastLx=x;}}
+    ctx.save();ctx.beginPath();ctx.rect(gx,g1-4,gw+2,g2+gh2-g1+8);ctx.clip();
+    ctx.beginPath();first=true;
+    for(k=0;k<hN;k++){idx=(hS+k)%CAP;if(hT[idx]<t0-0.05)continue;x=gx+(hT[idx]-t0)/TW*gw;y=g1+gh1-hP[idx]/PMAX*gh1;if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+    ctx.strokeStyle=C.south;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();
+    ctx.beginPath();first=true;var lxp=gx;
+    for(k=0;k<hN;k++){idx=(hS+k)%CAP;if(hT[idx]<t0-0.05)continue;x=gx+(hT[idx]-t0)/TW*gw;y=mid-hE[idx]/EMAX*(gh2/2);if(first){ctx.moveTo(x,mid);first=false;}ctx.lineTo(x,y);lxp=x;}
+    ctx.lineTo(lxp,mid);ctx.closePath();ctx.fillStyle=rgba(C.copper,0.16);ctx.fill();
+    ctx.beginPath();first=true;
+    for(k=0;k<hN;k++){idx=(hS+k)%CAP;if(hT[idx]<t0-0.05)continue;x=gx+(hT[idx]-t0)/TW*gw;y=mid-hE[idx]/EMAX*(gh2/2);if(first){ctx.moveTo(x,y);first=false;}else ctx.lineTo(x,y);}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.stroke();ctx.restore();
+    seg(ctx,gx+gw,g1,gx+gw,g2+gh2,rgba(C.muted,0.6),1,[3,4]);
+    dot(ctx,gx+gw,g1+gh1-m5.phi/PMAX*gh1,4.5,C.south);dot(ctx,gx+gw,mid-eps/EMAX*(gh2/2),4.5,C.copper);
+    txt(ctx,'time → (now at right edge)',gx+gw,g2+gh2+18,C.muted,11,500,'right');
+  }
+});
+b5sw.addEventListener('click',function(){m5.auto=false;setSw(!m5.closed);sync5();S5.setPlaying(true);S5.render();});
+b5f.addEventListener('click',function(){m5.tau=TF;sync5();S5.render();});
+b5s.addEventListener('click',function(){m5.tau=TSL;sync5();S5.render();});
+b5c.addEventListener('click',function(){m5.core=!m5.core;m5.coreSince=0;sync5();S5.setPlaying(true);S5.render();});
+document.getElementById('s5-reset').addEventListener('click',function(){reset5();S5.setPlaying(true);S5.render();});
+})();
+</script>
+</body>
+</html>

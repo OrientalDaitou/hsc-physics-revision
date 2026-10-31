@@ -1,0 +1,1597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M5 T2 Circular Motion: Forces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m5">Module 5</a><span class="sep">/</span><span aria-current="page">Topic 2</span><a class="lang" lang="zh-Hans" href="../../m5/t2.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 5 · Topic 2</div>
+  <h1>Circular Motion: Forces</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter is about the forces on objects moving in a circle. The core idea is only one sentence: <b>net force towards the centre = <span class="m"><i>mv</i>²/<i>r</i></span></b>. The only hard part is finding which real force does this job in each situation.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s7">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s9">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Uniform circular motion</div>
+    <p>Moving in a circle at a constant speed is still accelerating: the size of the velocity stays the same, but its direction keeps changing. The acceleration points to the centre.</p>
+    <div class="eqs"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Centripetal force</div>
+    <p>The centripetal force is not a new kind of force. It is the <b>net force</b> towards the centre. Draw only real forces: the parts towards the centre add up to <span class="m"><i>mv</i>²/<i>r</i></span>, and the vertical parts (horizontal circle) add up to 0.</p>
+    <div class="eqs"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">No centrifugal force</div>
+    <p>No force pushes outwards. The feeling of being thrown outwards is <span class="t">inertia</span>. If the string breaks, the ball flies off in a straight line along the tangent, not outwards.</p>
+    <div class="eqs"><i>F</i><sub>net</sub> = 0 → straight line</div>
+  </div>
+</div>
+
+<nav class="map" aria-label="The six parts of this chapter">
+  <div class="map-row head"><span>Part</span><span>What provides F<sub>c</sub></span><span>Remember</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">2.1</span><span class="t">Uniform circular motion</span></span><span>Net force (example: string tension)</span><span>The direction of the velocity changes, so the object accelerates; <i>a</i><sub>c</sub> points to the centre</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">2.1</span><span class="t">f, ω &amp; "centrifugal force"</span></span><span>Always a real force</span><span><i>f</i> = 1/<i>T</i>, <i>ω</i> = 2π/<i>T</i>; no centrifugal force</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">2.2</span><span class="t">Strings</span></span><span>Tension <i>F</i><sub>T</sub></span><span>Conical pendulum: <i>r</i> = <i>L</i> sin <i>θ</i>, <i>F</i><sub>T</sub> &gt; <i>mg</i></span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">2.2</span><span class="t">Banked tracks &amp; bowls</span></span><span>Normal force <i>F</i><sub>N</sub></span><span>No friction needed at the design speed: tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">2.2</span><span class="t">Flat bends &amp; rotor</span></span><span>Friction <i>F</i><sub>f</sub>; in a rotor, <i>F</i><sub>N</sub></span><span>A flat bend has a fastest speed, a rotor has a slowest speed</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">2.3</span><span class="t">Whirling stopper</span></span><span>Weight of the hanging mass <i>Mg</i></span><span><i>F</i><sub>c</sub> against <i>v</i>² is a straight line through the origin</span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially splitting a force into a vertical part and a horizontal part.</li>
+    <li>Go through 2.1 → 2.3 in order. For each situation, first let the student draw the free-body diagram and say which force points to the centre. Then open the animation to compare.</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li><span class="t">Velocity</span> is a <span class="t">vector</span>: it has a size (the <span class="t">speed</span>) and a direction. If only the direction changes, the velocity has still changed.</li>
+    <li><span class="t">Newton</span>'s first and second laws: with no net force, an object moves in a straight line at a constant speed. <span class="m"><i>F</i><sub>net</sub> = <i>ma</i></span>: the acceleration points the same way as the net force.</li>
+    <li>Splitting a force: when a force is at angle <span class="m"><i>θ</i></span> to the vertical, its vertical part is <span class="m"><i>F</i> cos <i>θ</i></span> and its horizontal part is <span class="m"><i>F</i> sin <i>θ</i></span>. Horizontal part ÷ vertical part = <span class="m">sin <i>θ</i>/cos <i>θ</i> = tan <i>θ</i></span>.</li>
+    <li>Units: <span class="m">km h<sup>−1</sup> ÷ 3.6 = m s<sup>−1</sup></span> (example: 72 km h<sup>−1</sup> = 20 m s<sup>−1</sup>); rpm (turns each minute) ÷ 60 = <span class="m"><i>f</i></span>; <span class="m"><i>g</i> = 9.8 m s<sup>−2</sup></span>.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">2.1</div>
+  <h2>Uniform circular motion and centripetal force</h2>
+  <p class="big"><span class="lbl">Big idea</span>An object moving in a circle at a constant speed is accelerating, because its direction keeps changing. The acceleration points to the centre. A net force towards the centre, the centripetal force, causes it.</p>
+  <ul class="pts">
+    <li><span class="t">Uniform circular motion</span>: moving around a circle at a constant speed.</li>
+    <li>Velocity is a vector and its direction changes all the time. So the velocity changes all the time: the object accelerates. It is like driving around a circle: the number on the speedometer stays the same, but the front of the car keeps turning.</li>
+    <li>The velocity is always along the <span class="t">tangent</span>. A tangent touches the circle at one point, at 90° to the radius.</li>
+    <li>Take two velocities a moment apart, <span class="m"><i>v</i><sub>1</sub></span> (earlier) and <span class="m"><i>v</i><sub>2</sub></span> (later), and draw them tail to tail. The change <span class="m">Δ<i>v</i></span> between them points to the centre.</li>
+    <li>So the acceleration also points to the centre. It is called the <span class="t">centripetal acceleration</span> <span class="m"><i>a</i><sub>c</sub></span>. "Centripetal" means "centre-seeking".</li>
+    <li>One lap is the <span class="t">circumference</span> <span class="m">2π<i>r</i></span>, done in one <span class="t">period</span> <span class="m"><i>T</i></span>: the time for one full turn, in s. So <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>.</li>
+    <li><span class="m"><i>a</i><sub>c</sub></span> grows with <span class="m"><i>v</i>²</span>: a faster object turns its velocity arrow more quickly, <b>and</b> the arrow is longer. Both get bigger, so <span class="m"><i>v</i></span> is squared.</li>
+    <li>At the same speed, a smaller <span class="m"><i>r</i></span> gives a bigger <span class="m"><i>a</i><sub>c</sub></span>. A sharp bend is harder to turn than a wide one.</li>
+    <li>By Newton's second law, the <span class="t">net force</span> (the total of all the forces) also points to the centre: <span class="m"><i>F</i><sub>net</sub> = <i>ma</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>. This net force towards the centre is called the <span class="t">centripetal force</span> <span class="m"><i>F</i><sub>c</sub></span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Newton's second law</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><i>F</i><sub>net</sub> = <i>ma</i></div>
+    <dl class="sym">
+      <div><dt>F<sub>net</sub></dt><dd>net force: the total of all the forces (N)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>a</dt><dd>acceleration (m s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> <span class="m"><i>F</i><sub>net</sub></span> and <span class="m"><i>a</i></span> are both vectors, and they point the same way. In a circle <span class="m"><i>a</i></span> points to the centre, so the net force also points to the centre. The booklet's summary table puts this one under Ch. 1 and Ch. 2.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed, acceleration and force in a circle</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i> = 2π<i>r</i>/<i>T</i></span><span style="display:inline-block;margin:0 .6em"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span><span style="display:inline-block;margin:0 .6em"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>speed of the object, along the tangent (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the circle (m)</dd></div>
+      <div><dt>T</dt><dd>period: the time for one full turn (s)</dd></div>
+      <div><dt>a<sub>c</sub></dt><dd>centripetal acceleration, towards the centre (m s<sup>−2</sup>)</dd></div>
+      <div><dt>F<sub>c</sub></dt><dd>centripetal force: the net force towards the centre (N)</dd></div>
+      <div><dt>m</dt><dd>mass of the object (kg)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> any object moving in a circle at a constant speed.<br><b>Trap:</b> <span class="m"><i>T</i></span> is the period, not tension. Use the radius, not the diameter. <span class="m"><i>F</i><sub>c</sub></span> is the net force: never draw an extra <span class="m"><i>F</i><sub>c</sub></span> arrow on a free-body diagram.</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">Animation 1 · The whirling ball: <i>v</i> along the tangent, <i>a</i><sub>c</sub> points to the centre</span><span class="sim-tag">Top view · anticlockwise · data: illustrative (look only at the multiples)</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Top view: a ball on a string moves anticlockwise around the centre at a constant speed. The velocity v is along the tangent. The tension F_T and the centripetal acceleration a_c both point to the centre. A small diagram beside it draws an earlier velocity and a later velocity tail to tail, and Δv points to the centre. Two bars below show how many times bigger a_c and F_c are than at the start. After the string is cut, the ball flies off in a straight line along the tangent."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s1-cut" aria-pressed="false">Cut the string</button>
+      <label class="range">Speed <i>v</i> <input type="range" id="s1-v" min="0.5" max="2" step="0.25" value="1"><output id="s1-v-out" for="s1-v">× 1</output></label>
+      <label class="range">Radius <i>r</i> <input type="range" id="s1-r" min="0.5" max="2" step="0.25" value="1"><output id="s1-r-out" for="s1-r">× 1</output></label>
+      <button class="btn" type="button" id="s1-reset">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① First press Pause: the circle also shows the ball, faded, at two other moments. At each place <i>v</i> is along the tangent (at 90° to the string) and <i>a</i><sub>c</sub> (purple) points to the centre. The tension <i>F</i><sub>T</sub> (green) also points to the centre. There is no outward arrow in the picture. <i>F</i><sub>c</sub> is just <i>F</i><sub>T</sub>, so it does not get its own arrow. ② Look at the small diagram: the earlier <i>v</i><sub>1</sub> and the later <i>v</i><sub>2</sub> are drawn tail to tail, and Δ<i>v</i> also points to the centre. ③ Press "Cut the string": the ball flies off from that point in a straight line along the tangent, not outwards. In the small diagram Δ<i>v</i> = 0. ④ Drag <i>v</i> to × 2: <i>a</i><sub>c</sub> and <i>F</i><sub>c</sub> become 4 times as big. Drag <i>r</i> to × 2: they become ½ of the original. The bars below show the multiples. When an arrow is too long to draw, two small slashes appear in the middle of the arrow. All the numbers are illustrative: look only at the multiples.</p>
+  </figure>
+</section>
+
+<section id="s2">
+  <div class="secnum">2.1</div>
+  <h2>Frequency, angular velocity and "centrifugal force"</h2>
+  <p class="big"><span class="lbl">Big idea</span>The centripetal force is not a new kind of force: real forces always do this job. The feeling of being thrown outwards on a turn is not a force pushing you. It is your body trying to go straight.</p>
+  <h3>What F<sub>c</sub> depends on</h3>
+  <ul class="pts">
+    <li><span class="m"><i>F</i><sub>c</sub> ∝ <i>m</i></span>, <span class="m"><i>F</i><sub>c</sub> ∝ <i>v</i>²</span>, <span class="m"><i>F</i><sub>c</sub> ∝ 1/<i>r</i></span>. ∝ means "is <span class="t">proportional</span> to".</li>
+    <li><b>If <span class="m"><i>v</i></span> becomes 2 times as big, <span class="m"><i>F</i><sub>c</sub></span> becomes 4 times as big</b> (2² = 4). <b>If <span class="m"><i>v</i></span> stays the same</b> and <span class="m"><i>r</i></span> becomes 2 times as big, <span class="m"><i>F</i><sub>c</sub></span> becomes half as big.</li>
+    <li>You can also find <span class="m"><i>a</i><sub>c</sub></span> from the period <span class="m"><i>T</i></span>: <span class="m"><i>a</i><sub>c</sub> = 4π²<i>r</i>/<i>T</i>²</span> (put <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span> into <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span>). Note: if <span class="m"><i>T</i></span> stays the same, a bigger <span class="m"><i>r</i></span> gives a bigger <span class="m"><i>a</i><sub>c</sub></span>. This does not contradict the point above: here <span class="m"><i>v</i></span> gets bigger too.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Centripetal acceleration from the period</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><i>a</i><sub>c</sub> = 4π²<i>r</i>/<i>T</i>²</div>
+    <dl class="sym">
+      <div><dt>a<sub>c</sub></dt><dd>centripetal acceleration (m s<sup>−2</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius (m)</dd></div>
+      <div><dt>T</dt><dd>period (s)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i> = (2π<i>r</i>/<i>T</i>)²/<i>r</i> = 4π²<i>r</i>/<i>T</i>²</span>. Use it when a question gives the period but not the speed.</p>
+  </div>
+
+  <h3>Frequency and angular velocity</h3>
+  <ul class="pts">
+    <li><span class="t">Frequency</span> <span class="m"><i>f</i></span>: turns each second, in Hz. <span class="m"><i>f</i> = 1/<i>T</i></span> (on the sheet).</li>
+    <li>Convert first: km h<sup>−1</sup> ÷ 3.6 gives m s<sup>−1</sup>; rpm (<span class="t">revolutions per minute</span>, turns each minute) ÷ 60 gives <span class="m"><i>f</i></span>.</li>
+    <li><span class="t">Angular velocity</span> <span class="m"><i>ω</i></span>: the angle turned each second. <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span> (on the sheet), in rad s<sup>−1</sup>.</li>
+    <li>One full turn = 2π <span class="t">radians</span> (rad) = 360°. So <span class="m"><i>ω</i> = 2π/<i>T</i></span> (not on the sheet).</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Frequency and angular velocity</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>f</i> = 1/<i>T</i></span><span style="display:inline-block;margin:0 .6em"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span></div>
+    <dl class="sym">
+      <div><dt>f</dt><dd>frequency: turns each second (Hz)</dd></div>
+      <div><dt>T</dt><dd>period (s)</dd></div>
+      <div><dt>ω</dt><dd>angular velocity (rad s<sup>−1</sup>)</dd></div>
+      <div><dt>Δθ</dt><dd>angle turned (rad)</dd></div>
+      <div><dt>t</dt><dd>time taken (s)</dd></div>
+    </dl>
+    <p class="trap"><b>Example:</b> a turntable makes 30 turns each minute (30 rpm): <span class="m"><i>f</i> = 30 ÷ 60 = 0.5 Hz</span>, <span class="m"><i>T</i> = 1/0.5 = 2 s</span>.<br><b>Trap:</b> <span class="m">Δ<i>θ</i></span> must be in rad, not degrees. The booklet's summary table puts <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span> under Ch. 3.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Angular velocity from the period</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>ω</i> = 2π/<i>T</i></div>
+    <dl class="sym">
+      <div><dt>ω</dt><dd>angular velocity (rad s<sup>−1</sup>)</dd></div>
+      <div><dt>T</dt><dd>period (s)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> in one full turn <span class="m">Δ<i>θ</i> = 2π rad</span> and <span class="m"><i>t</i> = <i>T</i></span>. Put these into <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span>. For the turntable above: <span class="m"><i>ω</i> = 2π/2 = π ≈ 3.14 rad s<sup>−1</sup></span>.<br><b>Note:</b> the booklet's summary table writes it as <span class="m"><i>ω</i> = 2π/<i>T</i> = 2π<i>f</i></span>, under Ch. 3.</p>
+  </div>
+
+  <h3>Real forces do the job of the centripetal force</h3>
+  <p>The centripetal force is not a new kind of force. It is more like a "job" that real forces do. These are the common ones, and sometimes several forces add up to do it:</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Situation</th><th>What provides the centripetal force</th></tr></thead>
+      <tbody>
+        <tr><td>Ball whirled on a string</td><td><span class="t">Tension</span></td></tr>
+        <tr><td>Car on a flat bend</td><td><span class="t">Friction</span></td></tr>
+        <tr><td>Banked track, rotor</td><td><span class="t">Normal force</span></td></tr>
+        <tr><td>Moon or satellite around the Earth</td><td><span class="t">Gravity</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>There is no "centrifugal force"</h3>
+  <ul class="pts">
+    <li><b>No</b> force pushes you outwards on a turn.</li>
+    <li>By <span class="t">inertia</span> (the tendency to keep moving in a straight line) your body tries to go straight. The seat, seatbelt and door push you <b>inwards</b>, so you turn with the car.</li>
+    <li>When a car turns sharply, you feel "thrown" towards the door. Really, the car turns inwards while you still try to go straight. So the door comes up against you and pushes you inwards.</li>
+    <li>So <span class="t">"centrifugal force"</span> is not a real force. Do not draw it on a free-body diagram.</li>
+    <li>If the string breaks, the inward force is gone. By Newton's first law, the ball moves in a straight line along the tangent, <b>not</b> straight outwards along the radius. You can cut the string in Animation 1 to see this.</li>
+  </ul>
+</section>
+
+<section id="s3">
+  <div class="secnum">2.2</div>
+  <h2>Real situations: the forces that provide F<sub>c</sub> · Strings</h2>
+  <p class="big"><span class="lbl">Big idea</span>In every situation, find the real forces and split them into a part towards the centre and a vertical part. The part towards the centre adds up to <span class="m"><i>mv</i>²/<i>r</i></span>.</p>
+  <ul class="pts">
+    <li><span class="t">Tension</span> <span class="m"><i>F</i><sub>T</sub></span>: the pull of a string, rope or chain, along its length.</li>
+    <li><span class="t">Normal force</span> <span class="m"><i>F</i><sub>N</sub></span>: the push of a surface on an object, at 90° to the surface.</li>
+    <li><span class="t">Component</span>: the part of a force that acts in one chosen direction.</li>
+  </ul>
+
+  <h3>Method: do this for every question</h3>
+  <ol class="pts">
+    <li>Draw a <span class="t">free-body diagram</span>: only this object, with one arrow for each real force. <b>No <span class="m"><i>F</i><sub>c</sub></span> arrow.</b></li>
+    <li>Split each force into two parts. With <span class="m"><i>θ</i></span> measured from the <b>vertical</b>: the vertical part is <span class="m"><i>F</i> cos <i>θ</i></span> and the horizontal part is <span class="m"><i>F</i> sin <i>θ</i></span>.</li>
+    <li>The parts towards the centre add up to <span class="m"><i>mv</i>²/<i>r</i></span>. The vertical parts (horizontal circle) add up to 0.</li>
+  </ol>
+
+  <h3>Conical pendulum</h3>
+  <ul class="pts">
+    <li><span class="t">Conical pendulum</span>: a ball hanging on a string and moving in a horizontal circle. The string sweeps out a cone.</li>
+    <li>Only two forces act on the ball: <span class="m"><i>F</i><sub>T</sub></span> and <span class="m"><i>mg</i></span>.</li>
+    <li>The centre of the circle is <b>directly below</b> the <span class="t">pivot</span> (the fixed point that the string hangs from), not at the pivot. So the radius is <span class="m"><i>r</i> = <i>L</i> sin <i>θ</i></span> (<span class="m"><i>L</i></span> is the string length).</li>
+    <li>Towards the centre: <span class="m"><i>F</i><sub>T</sub> sin <i>θ</i> = <i>mv</i>²/<i>r</i></span>.</li>
+    <li>Vertically: <span class="m"><i>F</i><sub>T</sub> cos <i>θ</i> = <i>mg</i></span>, so <span class="m"><i>F</i><sub>T</sub> = <i>mg</i>/cos <i>θ</i> &gt; <i>mg</i></span>. The tension is always bigger than the weight.</li>
+    <li>It also uses the formula from the next section, <span class="m">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span>: the faster it spins, the bigger <span class="m"><i>θ</i></span>, and the higher the ball swings.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Conical pendulum</div><p>The centre of the circle is directly below the pivot: <span class="m"><i>r</i> = <i>L</i> sin <i>θ</i></span>.</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Swing-ride chair</div><p>The chair hangs from a spinning frame: <span class="m"><i>r</i> = <i>d</i> + <i>L</i> sin <i>θ</i></span>, where <span class="m"><i>d</i></span> = the distance from the axis to the top of the chain.</p></div>
+  </div>
+
+  <h3>Vertical circle: a swing</h3>
+  <ul class="pts">
+    <li><span class="t">Vertical circle</span>: an upright circle, such as a swing. It is <b>not</b> uniform: the speed keeps changing.</li>
+    <li>But at each point, the net force towards the centre is still <span class="m"><i>mv</i>²/<i>r</i></span>.</li>
+    <li>Lowest point of a swing: <span class="m"><i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span>. The tension is bigger than the weight, so you feel heavier.</li>
+    <li>Top of the circle, on a string: <span class="m"><i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Vertical circle: top and bottom</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em">Top: <i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i></span><span style="display:inline-block;margin:0 .6em">Bottom: <i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></span></div>
+    <dl class="sym">
+      <div><dt>F<sub>T</sub></dt><dd>tension in the string (N)</dd></div>
+      <div><dt>m</dt><dd>mass (kg)</dd></div>
+      <div><dt>v</dt><dd>speed at this point (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the circle (m)</dd></div>
+    </dl>
+    <p class="trap"><b>You can also derive it:</b> count forces towards the centre as positive; they add up to <span class="m"><i>mv</i>²/<i>r</i></span>. At the bottom the centre is above: <span class="m"><i>F</i><sub>T</sub></span> points up, towards the centre, and <span class="m"><i>mg</i></span> points down, away from the centre, so you subtract. At the top both forces point down, both towards the centre, so you add.<br><b>Note:</b> neither is on the sheet. The booklet's summary table puts them under Ch. 3, and Chapter 3 covers them in detail.</p>
+  </div>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Conical pendulum and swing ride: the faster it spins, the bigger θ</span><span class="sim-tag">Side view + free-body diagram · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left, a side view: a ball hangs from a string and moves in a horizontal circle, and the string sweeps out a cone. String length L, angle θ and radius r are marked, and the centre of the circle is directly below the pivot. On the right, the free-body diagram of the ball: only tension F_T and gravity mg, with dashed lines splitting F_T into F_T sin θ towards the centre and vertical F_T cos θ. Below, the readouts show θ, r, tan θ and v²/(rg), and the sizes of F_T and mg."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Speed v <input type="range" id="s2-v" min="0.8" max="5" step="0.1" value="2.5"><output id="s2-v-out" for="s2-v">2.5 m s<sup>−1</sup></output></label>
+    <span class="seg" role="group" aria-label="Device">
+      <button class="btn" type="button" id="s2-cone" aria-pressed="true">Conical pendulum</button>
+      <button class="btn" type="button" id="s2-swing" aria-pressed="false">Swing ride</button>
+    </span>
+    <span class="seg" role="group" aria-label="Mass">
+      <button class="btn" type="button" id="s2-m1" aria-pressed="true">Mass m</button>
+      <button class="btn" type="button" id="s2-m2" aria-pressed="false">Mass 2m</button>
+    </span>
+  </div>
+  <p class="try"><b>Try it:</b> ① Drag speed v to the right: the cone opens, θ gets bigger, r gets bigger, and F<sub>T</sub> gets bigger too. Even at the far right, θ cannot reach 90°. ② Look at the readouts: tan θ and v²/(rg) are always the same, and F<sub>T</sub> is always bigger than mg (F<sub>T</sub> = mg/cos θ). ③ Press "Mass 2m": the arrows in the free-body diagram and the two bars all become 2 times as big, and θ does not change at all. ④ Switch to "Swing ride": at the same v, r = d + L sin θ is bigger, and θ is smaller than for the conical pendulum. L&nbsp;=&nbsp;1.0&nbsp;m, d&nbsp;=&nbsp;0.5&nbsp;m and m&nbsp;=&nbsp;0.50&nbsp;kg are all illustrative values, and g&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>. θ, r and F<sub>T</sub> are calculated from these values.</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">2.2</div>
+  <h2>Tilted surfaces: bowls and banked tracks</h2>
+  <p class="big"><span class="lbl">Big idea</span>When a bend is built higher on the outside and lower on the inside, the road's normal force tilts towards the centre. At the design speed, its horizontal part is exactly enough to be the centripetal force, and no friction at all is needed.</p>
+  <ul class="pts">
+    <li><span class="t">Banked track</span>: a bend that is higher on the outside and lower on the inside, like the bends of a cycling track.</li>
+    <li><span class="t">Bank angle</span> <span class="m"><i>θ</i></span>: the angle between the road and the horizontal.</li>
+    <li><span class="m"><i>F</i><sub>N</sub></span> is at 90° to the road, so it also tilts from the vertical by the same <span class="m"><i>θ</i></span>, towards the centre.</li>
+    <li><span class="t">Design speed</span>: at this speed, no friction is needed.</li>
+  </ul>
+  <p>The three cases below are all seen from behind the car, with the centre of the bend to the left:</p>
+  <div class="duo">
+    <div class="state hot" style="grid-column:1 / -1"><div class="state-h" style="font-family:var(--body);font-size:17px">Exactly at the design speed</div><p><b>No friction is needed.</b> There are only <span class="m"><i>F</i><sub>N</sub></span> and <span class="m"><i>mg</i></span>, and the horizontal part of <span class="m"><i>F</i><sub>N</sub></span> is exactly enough to be the centripetal force.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Slower than the design speed</div><p>The car tends to slide down, so friction acts <b>up</b> the slope.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Faster than the design speed</div><p>The car tends to slide up, so friction acts <b>down</b> the slope.</p></div>
+  </div>
+  <ul class="pts">
+    <li>At the design speed: <span class="m"><i>F</i><sub>N</sub> sin <i>θ</i> = <i>mv</i>²/<i>r</i></span>, <span class="m"><i>F</i><sub>N</sub> cos <i>θ</i> = <i>mg</i></span>, so <span class="m"><i>F</i><sub>N</sub> = <i>mg</i>/cos <i>θ</i> &gt; <i>mg</i></span>.</li>
+    <li>Banking means less friction is needed (as long as the car is not going very slowly). So banked bends are safer when the road is wet and slippery. When the car goes very slowly, a banked road needs more friction: you can see this in Animation 3.</li>
+    <li>A marble circling inside a bowl: the analysis is exactly the same. <span class="m"><i>F</i><sub>N</sub></span> points to the bowl's centre. <span class="m"><i>r</i></span> is the <b>horizontal</b> distance from the marble to the centre line, not the bowl's radius.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Tilted string or surface</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</div>
+    <dl class="sym">
+      <div><dt>θ</dt><dd>angle of <i>F</i><sub>T</sub> or <i>F</i><sub>N</sub> from the vertical (bank angle) (°)</dd></div>
+      <div><dt>v</dt><dd>speed; for a banked road, the design speed (m s<sup>−1</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the horizontal circle (m)</dd></div>
+      <div><dt>g</dt><dd>gravitational acceleration, 9.8 (m s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> conical pendulum; banked road at its design speed; frictionless bowl.<br><b>Where it comes from (you can also derive it):</b> use the two component equations (<span class="m"><i>F</i></span> is <span class="m"><i>F</i><sub>T</sub></span> or <span class="m"><i>F</i><sub>N</sub></span>):<br>Horizontal, net force towards the centre: <span class="m"><i>F</i> sin <i>θ</i> = <i>mv</i>²/<i>r</i></span><br>Vertical, forces balance: <span class="m"><i>F</i> cos <i>θ</i> = <i>mg</i></span><br>Divide the first line by the second; <span class="m"><i>F</i></span> and <span class="m"><i>m</i></span> cancel: <span class="m">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span><br><b>Trap:</b> for a string, <span class="m"><i>r</i></span> is not the string length: <span class="m"><i>r</i> = <i>L</i> sin <i>θ</i></span>. Do not split forces along the slope: the acceleration is horizontal.</p>
+  </div>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · Banked track: too slow, design speed, too fast</span><span class="sim-tag">Seen from behind, centre to the left · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A car seen from behind on a banked track, higher on the outside of the bend. The centre of the bend is to the left. The car shows gravity mg, the normal force F_N at 90° to the road, and friction F_f along the slope. Dashed lines split F_N into horizontal and vertical parts. A small top view shows the car going around the bend. Two bars compare the friction needed on this banked road and on a flat road."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Speed v <input type="range" id="s3-v" min="0" max="30" step="0.1" value="13.4"><output id="s3-v-out" for="s3-v">13.4 m s<sup>−1</sup></output></label>
+    <label class="range">Bank angle θ <input type="range" id="s3-th" min="5" max="40" step="1" value="20"><output id="s3-th-out" for="s3-th">20°</output></label>
+    <button class="btn" type="button" id="s3-design">Back to design speed</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① It opens at the design speed: there is no friction arrow, and the vertical dashed line of F<sub>N</sub> is as long as mg (F<sub>N</sub> cos θ = mg). ② Drag v to the left: the car tends to slide down, so friction acts up the slope. Drag it to the right: the car tends to slide up, so friction acts down the slope. ③ Change the bank angle θ, then press "Back to design speed": the larger θ is, the higher the design speed (v = √(rg tan θ)). ④ Look at the two bars below: near the design speed, the banked road needs less friction than a flat road. But when the car has almost stopped, the banked road needs more. r&nbsp;=&nbsp;50&nbsp;m is an illustrative value, g&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>. Forces are all written as multiples of mg, so the mass cancels.</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">2.2</div>
+  <h2>Friction: flat bends and the rotor ride</h2>
+  <p class="big"><span class="lbl">Big idea</span>On a flat bend, friction is the centripetal force. Friction has a limit, so there is a fastest speed. In a rotor, the wall's normal force is the centripetal force and friction only holds the rider up, so there is a slowest speed.</p>
+  <ul class="pts">
+    <li><span class="t">Static friction</span> <span class="m"><i>F</i><sub>f</sub></span>: friction that stops two surfaces sliding. It is only as big as needed, up to a limit: <span class="m"><i>F</i><sub>f</sub> ≤ <i>μF</i><sub>N</sub></span> (not on the sheet).</li>
+    <li><span class="t">Coefficient of friction</span> <span class="m"><i>μ</i></span>: it has no unit and says how strongly the two surfaces grip. About 0.8 on a dry road, about 0.1 on ice.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Static friction limit</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><i>F</i><sub>f</sub> ≤ <i>μF</i><sub>N</sub></div>
+    <dl class="sym">
+      <div><dt>F<sub>f</sub></dt><dd>static friction (N)</dd></div>
+      <div><dt>μ</dt><dd>coefficient of friction (no unit)</dd></div>
+      <div><dt>F<sub>N</sub></dt><dd>normal force (N)</dd></div>
+    </dl>
+    <p class="trap"><b>Note:</b> "≤" means static friction is only as big as needed, up to <span class="m"><i>μF</i><sub>N</sub></span>. If more is needed, sliding starts.</p>
+  </div>
+
+  <h3>Flat bend</h3>
+  <ul class="pts">
+    <li>The tyres push the road outwards. By Newton's third law, the road pushes the tyres <b>inwards</b>.</li>
+    <li>This friction is the centripetal force: <span class="m"><i>F</i><sub>f</sub> = <i>mv</i>²/<i>r</i></span>. Vertically: <span class="m"><i>F</i><sub>N</sub> = <i>mg</i></span>.</li>
+    <li>Free-body diagram (seen from behind the car, centre to the left): <span class="m"><i>F</i><sub>N</sub></span> points up, <span class="m"><i>mg</i></span> points down, <span class="m"><i>F</i><sub>f</sub></span> points left, towards the centre.</li>
+    <li>The road can give at most <span class="m"><i>μmg</i></span>. If the bend requires more, the car skids towards the <b>outside</b>. On ice <span class="m"><i>μ</i></span> is small, so it is very easy to skid.</li>
+  </ul>
+
+  <h3>Rotor</h3>
+  <ul class="pts">
+    <li><span class="t">Rotor</span>: a big drum spins and then the floor drops away. The riders stay on the wall and do not fall. It is like clothes staying on the side of a washing machine drum during the spin cycle.</li>
+    <li>The wall's normal force is horizontal, towards the axis. It is the centripetal force: <span class="m"><i>F</i><sub>N</sub> = <i>mv</i>²/<i>r</i></span>.</li>
+    <li>Static friction acts <b>up</b> the wall and holds up the weight: <span class="m"><i>F</i><sub>f</sub> = <i>mg</i></span>.</li>
+    <li>Riders stay up only if <span class="m"><i>mg</i> ≤ <i>μF</i><sub>N</sub></span>. So there is a slowest safe speed.</li>
+    <li>Faster: the friction <b>limit</b> grows, but the actual friction stays <span class="m"><i>mg</i></span>.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Flat bend</div><p>Friction = centripetal force. The faster the car, the more friction is needed. So there is a <b>fastest</b> speed <span class="m"><i>v</i><sub>max</sub></span>.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Rotor</div><p><span class="m"><i>F</i><sub>N</sub></span> = centripetal force, friction = <span class="m"><i>mg</i></span>. The faster the drum, the bigger the friction limit. So there is a <b>slowest</b> speed <span class="m"><i>v</i><sub>min</sub></span>.</p></div>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Friction limits: flat bend and rotor</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="display:inline-block;margin:0 .6em"><i>v</i><sub>max</sub> = √(<i>μgr</i>)</span><span style="display:inline-block;margin:0 .6em"><i>v</i><sub>min</sub> = √(<i>gr</i>/<i>μ</i>)</span></div>
+    <dl class="sym">
+      <div><dt>v<sub>max</sub></dt><dd>fastest speed on a flat bend without skidding (m s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>min</sub></dt><dd>slowest speed at which rotor riders do not slide down (m s<sup>−1</sup>)</dd></div>
+      <div><dt>μ</dt><dd>coefficient of friction: tyres on road; rider on wall (no unit)</dd></div>
+      <div><dt>g</dt><dd>gravitational acceleration, 9.8 (m s<sup>−2</sup>)</dd></div>
+      <div><dt>r</dt><dd>radius of the bend, or of the drum (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> <span class="m"><i>v</i><sub>max</sub></span> for a flat bend; <span class="m"><i>v</i><sub>min</sub></span> for a rotor (after the floor is taken away). <b>Mass makes no difference.</b><br><b>Where it comes from (you can also derive it):</b> at the limiting speed, friction needed = largest friction. Flat bend: <span class="m"><i>mv</i><sub>max</sub>²/<i>r</i> = <i>μmg</i></span>, so <span class="m"><i>v</i><sub>max</sub>² = <i>μgr</i></span>. Rotor: <span class="m"><i>mg</i> = <i>μF</i><sub>N</sub> = <i>μmv</i><sub>min</sub>²/<i>r</i></span>, so <span class="m"><i>v</i><sub>min</sub>² = <i>gr</i>/<i>μ</i></span>.<br><b>Trap:</b> <span class="m"><i>μF</i><sub>N</sub></span> is the <b>largest</b> friction, not the actual friction.</p>
+  </div>
+
+<figure class="sim" id="sim4">
+  <figcaption class="sim-head"><span class="sim-title">Animation 4 · Is there enough friction? Flat bend vs rotor</span><span class="sim-tag">Coefficients of friction from the booklet · radius illustrative · limit speeds calculated</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="You can switch between two cases. Flat bend: a top view of a car going around a circular bend, with friction pointing towards the centre. Above v_max the car skids outwards on a wider arc. Rotor: a side view of a spinning drum, with a rider on the wall. The wall's normal force points towards the axis, friction points up and gravity points down. Below v_min the rider slides down the wall. Bars on the right or below compare the friction needed with the maximum friction available."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Case">
+      <button class="btn" type="button" id="s4-flat" aria-pressed="true">Flat bend</button>
+      <button class="btn" type="button" id="s4-rotor" aria-pressed="false">Rotor</button>
+    </span>
+    <label class="range">Speed v <input type="range" id="s4-v" min="0" max="25" step="0.5" value="15"><output id="s4-v-out" for="s4-v">15.0 m s<sup>−1</sup></output></label>
+    <label class="range" style="min-width:0;max-width:100%"><span style="white-space:nowrap">Coefficient μ</span> <input type="range" id="s4-mu" min="0.1" max="0.8" step="0.05" value="0.8" style="flex:0 1 130px;min-width:60px"><output id="s4-mu-out" for="s4-mu" style="white-space:nowrap">0.80 dry road</output></label>
+  </div>
+  <p class="try"><b>Try it:</b> ① Flat bend: slowly drag v past 19.8&nbsp;m&nbsp;s<sup>−1</sup> (<i>v</i><sub>max</sub> when μ&nbsp;=&nbsp;0.8). The friction needed, mv²/r, becomes greater than μmg, and the car skids outwards on a wider arc. It is not "thrown" out. ② Set μ to 0.1 (ice): <i>v</i><sub>max</sub> falls to only 7.0&nbsp;m&nbsp;s<sup>−1</sup>. ③ Switch to Rotor and set μ back to 0.8: bring v below 4.95&nbsp;m&nbsp;s<sup>−1</sup>. μ<i>F</i><sub>N</sub> cannot hold up mg, so the rider slides down. Then go faster: the limit μ<i>F</i><sub>N</sub> grows, but the actual friction stays at mg. Note: on a flat bend the limit is the "fastest" speed; in a rotor the limit is the "slowest" speed. All forces are multiples of mg, so m cancels. This means mass does not affect <i>v</i><sub>max</sub> and <i>v</i><sub>min</sub>. (r&nbsp;=&nbsp;50&nbsp;m and 2.0&nbsp;m are illustrative values.)</p>
+</figure>
+</section>
+
+<section id="s6">
+  <div class="secnum">2.3</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Investigating <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> with a whirling stopper</h3>
+    <dl>
+      <dt>Aim</dt><dd>To investigate how <span class="m"><i>F</i><sub>c</sub></span> depends on speed (Part A), radius (Part B) and mass (Part C). The syllabus requires this experiment.</dd>
+      <dt>Method</dt><dd>Hold a vertical tube in your hand, with a string through the tube. Tie a <span class="t">stopper</span> (a rubber stopper, mass <span class="m"><i>m</i></span>) to the top end and whirl it in a horizontal circle. Hang a mass (mass <span class="m"><i>M</i></span>) from the bottom end. The hanging mass stays still, so the tension provides the centripetal force: <span class="m"><i>F</i><sub>c</sub> = <i>Mg</i></span>. A <span class="t">paper clip</span> below the tube keeps the radius <span class="m"><i>r</i> = <i>L</i></span> fixed. Time 20 turns (this gives less reaction-time error). Do this three times and take the average. <span class="m"><i>T</i> = time ÷ 20</span>; <span class="m"><i>v</i> = 2π<i>L</i>/<i>T</i></span>.</dd>
+      <dt>Results</dt><dd>Part A: <span class="m"><i>F</i><sub>c</sub></span> against <span class="m"><i>v</i>²</span> is a straight line through the <span class="t">origin</span> (0, 0). The gradient of the <span class="t">line of best fit</span> (the straight line closest to all the points) agrees with <span class="m"><i>m</i>/<i>r</i></span> within 1 %. Parts B and C (expected from theory): <span class="m"><i>v</i>²</span> against <span class="m"><i>r</i></span> and <span class="m"><i>v</i>²</span> against <span class="m">1/<i>m</i></span> should also be straight lines through the origin.</dd>
+      <dt>Conclusion</dt><dd>Part A: <span class="m"><i>F</i><sub>c</sub> ∝ <i>v</i>²</span>. This supports <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span>. If the Part B and C graphs are also straight, then at a fixed speed <span class="m"><i>F</i><sub>c</sub> ∝ 1/<i>r</i></span> and <span class="m"><i>F</i><sub>c</sub> ∝ <i>m</i></span>. (<span class="m"><i>F</i><sub>c</sub></span> against <span class="m">1/<i>T</i>²</span> is also straight; <span class="m"><i>F</i><sub>c</sub></span> against <span class="m"><i>v</i></span> is a curve.)</dd>
+      <dt>Significance</dt><dd>It confirms <span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> with a measurable force (a hanging weight). Engineers use the same model for bends, banked tracks, rides and satellite orbits.</dd>
+    </dl>
+  </div>
+
+  <h3>What each Part changes</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>What changes (kept the same)</th><th>Graph → why it is a straight line</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td><span class="m"><i>M</i></span>, so <span class="m"><i>F</i><sub>c</sub></span> changes (<span class="m"><i>m</i></span>, <span class="m"><i>L</i></span> kept the same)</td><td><span class="m"><i>F</i><sub>c</sub></span> against <span class="m"><i>v</i>²</span>: <span class="m"><i>F</i><sub>c</sub> = (<i>m</i>/<i>r</i>) × <i>v</i>²</span>, gradient <span class="m"><i>m</i>/<i>r</i></span></td></tr>
+        <tr><td>B</td><td><span class="m"><i>L</i></span>, which is <span class="m"><i>r</i></span> (<span class="m"><i>M</i></span>, <span class="m"><i>m</i></span> kept the same)</td><td><span class="m"><i>v</i>²</span> against <span class="m"><i>r</i></span>: <span class="m"><i>v</i>² = (<i>Mg</i>/<i>m</i>) × <i>r</i></span></td></tr>
+        <tr><td>C</td><td>Use 1, 2, 3, 4 identical stoppers (<span class="m"><i>M</i></span>, <span class="m"><i>L</i></span> kept the same)</td><td><span class="m"><i>v</i>²</span> against <span class="m">1/<i>m</i></span>: <span class="m"><i>v</i>² = <i>MgL</i> × (1/<i>m</i>)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The three kinds of variable in Part A:</p>
+  <ul class="pts">
+    <li><span class="t">Independent variable</span> (changed on purpose): <span class="m"><i>M</i></span>.</li>
+    <li><span class="t">Dependent variable</span> (measured): the time for 20 turns.</li>
+    <li><span class="t">Controlled variables</span> (kept the same): <span class="m"><i>m</i></span>, <span class="m"><i>L</i></span>, and a horizontal circle.</li>
+  </ul>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Whirling stopper experiment: F<sub>c</sub> against v² is a straight line</span><span class="sim-tag">Apparatus from the side + graph · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="On the left is a side view of the whirling stopper apparatus: a hand holds a vertical tube, and the stopper turns in a horizontal circle above the top of the tube, with radius L. Below the tube are a paper clip and the hanging mass M. The tension F_T points towards the tube. M has Mg acting down and F_T acting up. Below this are the time for 20 turns, the period T and the speed v. On the right is the graph: Part A plots F_c against v², Part B plots v² against r, and Part C plots v² against 1/m. The recorded points lie on a straight line through the origin."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Part of the experiment">
+      <button class="btn" type="button" id="s5-pa" aria-pressed="true">Part A</button>
+      <button class="btn" type="button" id="s5-pb" aria-pressed="false">Part B</button>
+      <button class="btn" type="button" id="s5-pc" aria-pressed="false">Part C</button>
+    </span>
+    <button class="btn" type="button" id="s5-time">Time 20 turns, record a point</button>
+    <button class="btn" type="button" id="s5-clear">Clear this graph</button>
+    <label class="range"><span id="s5-var-lbl">Hanging mass M</span> <input type="range" id="s5-var" min="0.05" max="0.3" step="0.05" value="0.15"><output id="s5-var-out" for="s5-var">0.15 kg</output></label>
+  </div>
+  <p class="try"><b>Try it:</b> ① Part A: press "Time 20 turns, record a point", then change M to another value. Record one point for each value. The more points you have, the more clearly you can see that they lie on a straight line through the origin. Its gradient is almost the same as m/r. ② Press several times with the same M: the point on the graph uses the average time (the booklet also measures three times and takes the average). ③ Look at the left: the larger M is, the faster the stopper must turn for M to stay still. ④ Switch to Part B (change the radius L) and Part C (change the number of stoppers). v² against r and v² against 1/m are also straight lines through the origin. The stopper m&nbsp;=&nbsp;25&nbsp;g, L&nbsp;=&nbsp;0.80&nbsp;m and M&nbsp;=&nbsp;0.15&nbsp;kg (Parts B and C) are all illustrative values, and g&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>. The points on the graph are simulated data (illustrative): they are calculated from F<sub>c</sub> = mv²/r, with a small error added (v² about ±0.5&nbsp;%). They are not real measurements.</p>
+</figure>
+</section>
+
+<section id="s7">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>v</i> = 2π<i>r</i>/<i>T</i></td><td>Speed in a circle</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></td><td>Acceleration towards the centre</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></td><td>Net force towards the centre (provided by real forces)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</td><td>Conical pendulum; banked road at its design speed; bowl</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i><sub>max</sub> = √(<i>μgr</i>)</td><td>Fastest speed on a flat bend</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i><sub>min</sub> = √(<i>gr</i>/<i>μ</i>)</td><td>Slowest safe speed in a rotor</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>net</sub> = <i>ma</i></td><td>Newton's second law (in the booklet's summary table under Ch. 1, 2)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>f</i> = 1/<i>T</i></td><td>Frequency from the period</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>f</sub> ≤ <i>μF</i><sub>N</sub></td><td>Static friction is at most <i>μF</i><sub>N</sub></td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>a</i><sub>c</sub> = 4π²<i>r</i>/<i>T</i>²</td><td>Centripetal acceleration from the period</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>ω</i> = Δ<i>θ</i>/<i>t</i></td><td>Angular velocity, with Δθ in rad (in the booklet's summary table under Ch. 3)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>ω</i> = 2π/<i>T</i> = 2π<i>f</i></td><td>Angular velocity from <i>T</i> or <i>f</i> (in the booklet's summary table under Ch. 3)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">Top: <i>F</i><sub>T</sub> + <i>mg</i> = <i>mv</i>²/<i>r</i><br>Bottom: <i>F</i><sub>T</sub> − <i>mg</i> = <i>mv</i>²/<i>r</i></td><td>Tension at the top and bottom of a vertical circle (in the booklet's summary table under Ch. 3)</td><td><span class="badge learn">Learn it</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 6 before the exam</h3>
+  <ol class="must">
+    <li>Constant speed in a circle is still acceleration, because the direction changes. <span class="m"><i>a</i><sub>c</sub> = <i>v</i>²/<i>r</i></span> points to the centre. Also <span class="m"><i>v</i> = 2π<i>r</i>/<i>T</i></span>, <span class="m"><i>f</i> = 1/<i>T</i></span> and <span class="m"><i>ω</i> = Δ<i>θ</i>/<i>t</i></span>.</li>
+    <li><span class="m"><i>F</i><sub>c</sub> = <i>mv</i>²/<i>r</i></span> is the net force towards the centre, given by a real force: tension, normal force, friction, gravity. There is no centrifugal force.</li>
+    <li>Draw only real forces. The parts towards the centre add up to <span class="m"><i>mv</i>²/<i>r</i></span>; the vertical parts (horizontal circle) add up to 0.</li>
+    <li>Conical pendulum or banked road (design speed): <span class="m">tan <i>θ</i> = <i>v</i>²/(<i>rg</i>)</span>.</li>
+    <li>Flat bend: <span class="m"><i>v</i><sub>max</sub> = √(<i>μgr</i>)</span>. Rotor: <span class="m"><i>v</i><sub>min</sub> = √(<i>gr</i>/<i>μ</i>)</span>.</li>
+    <li>Whirling stopper experiment: <span class="m"><i>F</i><sub>c</sub> = <i>Mg</i></span>; <span class="m"><i>F</i><sub>c</sub></span> against <span class="m"><i>v</i>²</span> is a straight line through the origin, with gradient <span class="m"><i>m</i>/<i>r</i></span>.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> T in the formula is tension.<br><span class="ok">Right:</span> T is the period. Tension is written F<sub>T</sub>.</div>
+    <div><span class="x">Wrong:</span> Calculating with the diameter.<br><span class="ok">Right:</span> Use the radius r.</div>
+    <div><span class="x">Wrong:</span> Drawing an extra F<sub>c</sub> arrow on the free-body diagram.<br><span class="ok">Right:</span> F<sub>c</sub> is the net force. Draw only real forces.</div>
+    <div><span class="x">Wrong:</span> On a turn, a centrifugal force pushes you outwards.<br><span class="ok">Right:</span> There is no centrifugal force. The outward feeling is inertia. The seat and door push you inwards.</div>
+    <div><span class="x">Wrong:</span> When the string breaks, the ball flies straight outwards along the radius.<br><span class="ok">Right:</span> The ball moves in a straight line along the tangent (Newton's first law).</div>
+    <div><span class="x">Wrong:</span> If v becomes 2 times as big, F<sub>c</sub> also becomes 2 times as big.<br><span class="ok">Right:</span> F<sub>c</sub> ∝ v², so it becomes 4 times as big.</div>
+    <div><span class="x">Wrong:</span> The radius of a conical pendulum is the string length L; the radius for a marble in a bowl is the bowl's radius.<br><span class="ok">Right:</span> r is the radius of the horizontal circle: for a conical pendulum r = L sin θ; for a marble in a bowl, r is its horizontal distance to the centre line.</div>
+    <div><span class="x">Wrong:</span> Splitting forces along the slope.<br><span class="ok">Right:</span> Split them into horizontal and vertical, because the acceleration is horizontal.</div>
+    <div><span class="x">Wrong:</span> μF<sub>N</sub> is the actual friction.<br><span class="ok">Right:</span> μF<sub>N</sub> is the largest friction. The actual friction is only as big as needed. In a rotor, the actual friction is always mg.</div>
+  </div>
+  <p class="jump-next"><a href="#s9">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s8">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Uniform circular motion</td><td>匀速圆周运动</td><td>Moving around a circle at a constant speed</td></tr>
+        <tr><td class="t">Period (T)</td><td>周期</td><td>The time for one full turn, in s</td></tr>
+        <tr><td class="t">Tangent</td><td>切线</td><td>A line that touches the circle at one point, at 90° to the radius</td></tr>
+        <tr><td class="t">Centripetal acceleration (a<sub>c</sub>)</td><td>向心加速度</td><td>The acceleration towards the centre: v²/r</td></tr>
+        <tr><td class="t">Centripetal force (F<sub>c</sub>)</td><td>向心力</td><td>The net force towards the centre that keeps an object moving in a circle</td></tr>
+        <tr><td class="t">Vector</td><td>矢量</td><td>A quantity with a size and a direction, drawn as an arrow</td></tr>
+        <tr><td class="t">Net force</td><td>合力</td><td>The total of all the forces, directions included</td></tr>
+        <tr><td class="t">Circumference</td><td>周长</td><td>The length once around a circle, 2πr</td></tr>
+        <tr><td class="t">Proportional (∝)</td><td>成正比</td><td>If one becomes 2 times as big, the other also becomes 2 times as big</td></tr>
+        <tr><td class="t">Frequency (f)</td><td>频率</td><td>Turns each second, in Hz</td></tr>
+        <tr><td class="t">Angular velocity (ω)</td><td>角速度</td><td>The angle turned each second, in rad s<sup>−1</sup></td></tr>
+        <tr><td class="t">Radian (rad)</td><td>弧度</td><td>A unit of angle: one full turn = 2π rad = 360°</td></tr>
+        <tr><td class="t">Inertia</td><td>惯性</td><td>The tendency of an object to keep moving in a straight line at a constant speed</td></tr>
+        <tr><td class="t">Centrifugal force</td><td>离心力</td><td>A made-up "outward force". Do not use it</td></tr>
+        <tr><td class="t">Tension (F<sub>T</sub>)</td><td>拉力（张力）</td><td>The pull of a string or chain, along its length</td></tr>
+        <tr><td class="t">Normal force (F<sub>N</sub>)</td><td>支持力（法向力）</td><td>The push of a surface on an object, at 90° to the surface</td></tr>
+        <tr><td class="t">Component</td><td>分量（分力）</td><td>The part of a force that acts in one chosen direction</td></tr>
+        <tr><td class="t">Free-body diagram</td><td>受力分析图</td><td>One object + one arrow for each real force</td></tr>
+        <tr><td class="t">Conical pendulum</td><td>圆锥摆</td><td>A ball on a string moving in a horizontal circle</td></tr>
+        <tr><td class="t">Pivot</td><td>支点（转轴；悬点）</td><td>The fixed point that the string hangs from</td></tr>
+        <tr><td class="t">Swing ride</td><td>飞椅</td><td>Chairs hanging from a spinning frame, <i>r</i> = <i>d</i> + <i>L</i> sin <i>θ</i></td></tr>
+        <tr><td class="t">Vertical circle</td><td>竖直平面内的圆周</td><td>An upright circle, such as a swing; the speed changes</td></tr>
+        <tr><td class="t">Banked track</td><td>倾斜弯道（外高内低）</td><td>A bend that is higher on the outside and lower on the inside</td></tr>
+        <tr><td class="t">Bank angle</td><td>倾角</td><td>The angle between the road and the horizontal</td></tr>
+        <tr><td class="t">Design speed</td><td>设计速度（规定速度）</td><td>The speed at which a banked track needs no friction</td></tr>
+        <tr><td class="t">Static friction (F<sub>f</sub>)</td><td>静摩擦力</td><td>Stops two surfaces sliding, at most μF<sub>N</sub></td></tr>
+        <tr><td class="t">Coefficient of friction (μ)</td><td>摩擦因数</td><td>A number with no unit that says how strongly the surfaces grip</td></tr>
+        <tr><td class="t">Rotor (ride)</td><td>旋转圆筒（转筒）</td><td>A drum spins, the floor drops away, and the riders stay on the wall</td></tr>
+        <tr><td class="t">Independent variable</td><td>自变量</td><td>The quantity you change on purpose in an experiment</td></tr>
+        <tr><td class="t">Dependent variable</td><td>因变量</td><td>The quantity you measure in an experiment</td></tr>
+        <tr><td class="t">Controlled variable</td><td>控制变量</td><td>A quantity kept the same, so that the experiment is fair</td></tr>
+        <tr><td class="t">Origin</td><td>原点</td><td>The point (0, 0) on a graph</td></tr>
+        <tr><td class="t">Line of best fit</td><td>最佳拟合直线</td><td>The straight line closest to all the data points</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s9" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. A ball moves in a circle at a constant speed. The size of its velocity never changes. Is it accelerating?</summary><p class="ans"><b>Yes, it is accelerating.</b> Velocity is a vector and its direction keeps changing, so the velocity is changing. The acceleration a<sub>c</sub> points to the centre.</p></details>
+    <details><summary>2. A ball is being whirled on a string, and the string suddenly breaks. Which way does the ball go?</summary><p class="ans"><b>Along the tangent at the moment the string breaks, in a straight line.</b> The inward force is gone, so by Newton's first law the ball moves in a straight line. It does not fly straight outwards along the radius, because there is no outward force at all.</p></details>
+    <details><summary><span>3. A 0.5 kg ball moves with radius 2 m and speed 4 m s<sup>−1</sup>. What are the centripetal acceleration and centripetal force? What if the speed becomes 8 m s<sup>−1</sup>?</span></summary><p class="ans"><b>a<sub>c</sub> = 8 m s<sup>−2</sup>, F<sub>c</sub> = 4 N; with the speed doubled, F<sub>c</sub> = 16 N.</b> a<sub>c</sub> = v²/r = 4²/2 = 8 m s<sup>−2</sup>. F<sub>c</sub> = ma<sub>c</sub> = 0.5 × 8 = 4 N. If v becomes 2 times as big, F<sub>c</sub> becomes 4 times as big: 0.5 × 8²/2 = 16 N.</p></details>
+    <details><summary>4. Conical pendulum: a 2 kg ball, with the string at 60° to the vertical. What is the tension?</summary><p class="ans"><b>F<sub>T</sub> = 39.2 N.</b> Vertical forces balance: F<sub>T</sub> cos 60° = mg, F<sub>T</sub> = 2 × 9.8 / 0.5 = 39.2 N. That is 2 times mg = 19.6 N. The tension is always bigger than mg.</p></details>
+    <details><summary>5. A car on a banked track is going exactly at the design speed. Is friction needed? What if it goes faster than the design speed?</summary><p class="ans"><b>No friction is needed at the design speed; when faster, friction acts down the slope.</b> At the design speed, the horizontal part of F<sub>N</sub> is exactly enough to be the centripetal force. When the car goes faster, it tends to slide up, so friction acts down the slope.</p></details>
+    <details><summary>6. A flat bend has radius 50 m. On a dry road μ = 0.8. What is the fastest speed? What about on ice (μ = 0.1)?</summary><p class="ans"><b>About 19.8 m s<sup>−1</sup> on a dry road, 7.0 m s<sup>−1</sup> on ice.</b> v<sub>max</sub> = √(μgr) = √(0.8 × 9.8 × 50) = √392 ≈ 19.8 m s<sup>−1</sup> (about 71 km h<sup>−1</sup>). On ice: √(0.1 × 9.8 × 50) = √49 = 7.0 m s<sup>−1</sup>.</p></details>
+    <details><summary>7. A rotor has radius 2 m, and μ = 0.5 between the rider and the wall. What is the slowest speed? Does a heavier rider need it to spin faster?</summary><p class="ans"><b>About 6.3 m s<sup>−1</sup>; no, mass makes no difference.</b> v<sub>min</sub> = √(gr/μ) = √(9.8 × 2 / 0.5) = √39.2 ≈ 6.3 m s<sup>−1</sup>. In the derivation m cancels: the friction needed, mg, and the largest friction, μmv²/r, are both proportional to m.</p></details>
+    <details><summary>8. In the whirling stopper experiment, what does the centripetal force equal? Why time 20 turns?</summary><p class="ans"><b>F<sub>c</sub> = Mg (the weight of the hanging mass).</b> The hanging mass stays still, so the tension in the string equals Mg, and this tension is the stopper's centripetal force. Timing 20 turns and dividing by 20 gives less reaction-time error.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../m5/t1.html"><span class="pg-k">← Previous topic</span><span class="pg-t">M5 T1 · Projectile Motion</span></a><a class="pg next" href="../m5/t3.html"><span class="pg-k">Next topic →</span><span class="pg-t">M5 T3 · Circular Motion: Angles, Energy, Work and Torque</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 5 Advanced Mechanics · Chapter 2. Values from the booklet: <i>g</i>&nbsp;=&nbsp;9.8&nbsp;m&nbsp;s<sup>−2</sup>; μ about 0.8 on a dry road, about 0.1 on ice; the stopper experiment times 20 turns, three times, and takes the average, and the gradient is within 1&nbsp;% of <i>m</i>/<i>r</i>. The other numbers in the examples and the quick quiz (such as 30&nbsp;rpm, 72&nbsp;km&nbsp;h<sup>−1</sup>, 0.5&nbsp;kg) are simple numbers chosen for practice. Values in the animations with no stated source are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1：俯视，绳子拉着球逆时针匀速转（和 Figure 2.1 一样）。v 沿切线，F_T 和 a_c 沿绳子指向圆心；
+   小图把前一刻 v1、后一刻 v2 尾对尾放，Δv 指向圆心。剪断绳子 → 沿切线匀速直线飞走（第一定律）。
+   数据全是示意：只用倍数。ω = v/r，a_c = v²/r，F_c = mv²/r（m 不变）。 */
+var W0=TAU/3.2;                         /* × 1 时的角速度（示意）：3.2 s 转一圈 */
+var m1={ph:0.6,vm:1,rm:1,cut:false,cph:0,s:0};
+var RU=[],RW=[],ST=['','','',''],Lo={};
+function fd(x){return String(parseFloat(x.toFixed(x<1?3:2)));}
+function fr(x){return x===0.5?'½':x===0.25?'¼':x===0.75?'¾':x===0.125?'⅛':fd(x);}
+function chg(x,pl){var e=pl?'':'s';return x>1.0001?'become'+e+' '+fr(x)+' times as big':(x<0.9999?'become'+e+' '+fr(x)+' of the original':(pl?'do':'does')+' not change');}
+/* 带下标的文字："F_T" → F 加下标 T。ital：主字母用斜体（物理量） */
+function rt(ctx,s,x,y,col,size,weight,align,family,ital,base){
+  var ss=Math.max(11,size*0.74),i,ch,buf='',w=0,n,sub,wt=weight||500,fam=family||FONT;
+  RU.length=0;
+  for(i=0;i<s.length;i++){ch=s.charAt(i);if(ch==='_'&&i+1<s.length){if(buf){RU.push(buf,0);buf='';}RU.push(s.charAt(i+1),1);i++;}else buf+=ch;}
+  if(buf)RU.push(buf,0);
+  n=RU.length/2;
+  for(i=0;i<n;i++){sub=RU[2*i+1];ctx.font=(sub||!ital?'':'italic ')+wt+' '+(sub?ss:size)+'px '+fam;
+    RW[i]=ctx.measureText(RU[2*i]).width+(sub?1:(ital&&i+1<n?1.5:0));w+=RW[i];}
+  var x0=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<n;i++){sub=RU[2*i+1];
+    txt(ctx,RU[2*i],x0,y+(sub?size*0.28:0),col,sub?ss:size,(sub||!ital?'':'italic ')+wt,'left',base||'alphabetic',fam);x0+=RW[i];}
+  return w;
+}
+/* 箭头太长画不下：断开，画两道小斜线（放在箭头 40 % 处，短箭头也放得下） */
+function brk(ctx,x1,y1,x2,y2,col){
+  var dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy)||1,px,py,i,cx,cy,mx,my,h=Math.min(5,l/5);dx/=l;dy/=l;px=-dy;py=dx;mx=x1+dx*l*0.4;my=y1+dy*l*0.4;
+  seg(ctx,mx-dx*2,my-dy*2,mx+dx*2,my+dy*2,C.stage,6);
+  for(i=-1;i<=1;i+=2){cx=mx+dx*i*3;cy=my+dy*i*3;seg(ctx,cx-px*h-dx*2,cy-py*h-dy*2,cx+px*h+dx*2,cy+py*h+dy*2,col,1.5);}
+}
+/* v 的标签：箭头尖外面放不下时，放在箭头中间的外侧（不丢标签） */
+function vlab(ctx,bx,by,tx,ty,nx,ny,st,Lv,fs){
+  var L=Lo,lx=bx+tx*(st+Lv+10)-nx*6,ly=by+ty*(st+Lv+10)-ny*6;
+  if(!(lx>8&&lx<L.right-8&&ly>L.top+10&&ly<L.bot-8)){lx=clamp(bx+tx*(st+Lv/2)-nx*12,8,L.right-8);ly=clamp(by+ty*(st+Lv/2)-ny*12,L.top+10,L.bot-8);}
+  rt(ctx,'v',lx,ly,rgba(C.ink,0.85),fs,600,'center',MATH,true,'middle');
+}
+function lay(W){
+  var L=Lo,e;L.wide=W>=640;
+  if(L.wide){
+    L.R0=Math.min(74,(W-356)/4.54);L.bR=8;e=Math.hypot(2*L.R0,L.R0+L.bR+2)+16;   /* e：r × 2、v × 2 时球加 v 箭头离圆心最远 */
+    L.cx=e+6;L.cy=268;L.top=74;L.bot=460;L.right=L.cx+e+4;
+    L.bx=L.right+10;L.by=80;L.bw=W-16-L.bx;L.bh=228;L.Vin=48;L.tx=L.bx+Math.min(210,L.bw-138);L.ox=(L.bx+L.tx)/2+1;L.oy=L.by+26+(L.bh-26)/2;
+    L.rx=L.bx;L.rw=L.bw;L.ry=330;L.fs=13;L.lab=16;
+  }else{
+    L.R0=Math.min(66,(W-60)/4);L.bR=7;e=Math.hypot(2*L.R0,L.R0+L.bR+2)+8;
+    L.cx=W/2;L.top=85;L.cy=L.top+e;L.bot=L.cy+e;L.right=W;
+    L.bx=12;L.by=L.bot+10;L.bw=Math.min(172,W/2-6);L.bh=194;L.Vin=38;L.ox=L.bx+L.bw/2;L.oy=L.by+26+(L.bh-26)/2;
+    L.rx=L.bx+L.bw+14;L.rw=W-12-L.rx;L.ry=L.by+20;L.fs=12.5;L.lab=15;
+  }
+  L.H=L.wide?460:L.by+L.bh+36;
+}
+function step1(dt){
+  if(m1.cut)m1.s=Math.min(8,m1.s+W0*m1.vm*dt);          /* 匀速直线：屏幕速度 = R0·ω0·v 倍数 */
+  else m1.ph=(m1.ph+W0*m1.vm/m1.rm*dt)%TAU;              /* ω = v/r */
+}
+/* 圆周部分（在裁剪区里画）。返回 true = 剪断后球已经飞出画面 */
+function drawCircle(ctx,k){
+  var L=Lo,R0=L.R0,cx=L.cx,cy=L.cy,R=R0*m1.rm,bR=L.bR,fs=L.lab;
+  var a=m1.cut?m1.cph:m1.ph,c=Math.cos(a),s=Math.sin(a),nx=-c,ny=s,tx=-s,ty=-c;   /* n：指向圆心；t：逆时针切线 */
+  var x0=cx+R*c,y0=cy-R*s,Lv=R0*0.5*m1.vm,st=bR+2,bx=x0,by=y0,out=false;
+  ctx.beginPath();ctx.arc(cx,cy,R,0,TAU);ctx.strokeStyle=rgba(C.muted,0.7);ctx.lineWidth=1.4;ctx.setLineDash([5,6]);ctx.stroke();ctx.setLineDash([]);
+  if(!m1.cut){
+    var room=R-bR-7,La=R0*0.28*k,cap=La>room,hd,j,ga,gx,gy,gc,gs;La=clamp(La,6,room);hd=cap?7:(La<16?Math.max(5,Math.min(7,La*0.8)):9);   /* × 1 的箭头比 r × 0.5 时的空间短 → 截短的箭头不会比 × 1 短 */
+    if(S1?!S1.playing:S.reduce){              /* 暂停时：淡淡画出球在另外两个时刻的位置（像 Figure 2.1a） */
+      for(j=1;j<3;j++){ga=a-j*TAU/3;gc=Math.cos(ga);gs=Math.sin(ga);gx=cx+R*gc;gy=cy-R*gs;
+        arrow(ctx,gx-gc*st,gy+gs*st,gx-gc*(st+La),gy+gs*(st+La),rgba(C.violet,0.55),2.4,hd);
+        if(cap)brk(ctx,gx-gc*st,gy+gs*st,gx-gc*(st+La),gy+gs*(st+La),rgba(C.violet,0.55));
+        arrow(ctx,gx-gs*st,gy-gc*st,gx-gs*(st+Lv),gy-gc*(st+Lv),rgba(C.ink,0.45),2.4,9);
+        dot(ctx,gx,gy,bR-1,C.stage);ring(ctx,gx,gy,bR-1,rgba(C.ink,0.5),1.6);}
+    }
+    seg(ctx,cx,cy,bx,by,rgba(C.muted,0.95),1.6);
+    var fx1=bx+nx*st,fy1=by+ny*st,fx2=fx1+nx*La,fy2=fy1+ny*La;
+    var ax1=fx1-tx*10,ay1=fy1-ty*10,ax2=ax1+nx*La,ay2=ay1+ny*La;
+    arrow(ctx,fx1,fy1,fx2,fy2,C.force,3,hd);
+    arrow(ctx,ax1,ay1,ax2,ay2,C.violet,2.6,hd);
+    if(cap){brk(ctx,fx1,fy1,fx2,fy2,C.force);brk(ctx,ax1,ay1,ax2,ay2,C.violet);}   /* 截短了就画断口，倍数看条 */
+    dot(ctx,cx,cy,4,C.ink);
+    txt(ctx,'centre',cx+nx*26,cy+ny*20,C.muted,11.5,600,'center','middle');
+    arrow(ctx,bx+tx*st,by+ty*st,bx+tx*(st+Lv),by+ty*(st+Lv),rgba(C.ink,0.7),2.6,9);
+    dot(ctx,bx,by,bR,C.surface);ring(ctx,bx,by,bR,C.ink,2);
+    vlab(ctx,bx,by,tx,ty,nx,ny,st,Lv,fs);
+    var md=st+Math.max(La/2,12);
+    rt(ctx,'F_T',bx+nx*md+tx*16,by+ny*md+ty*16,C.force,fs,600,'center',MATH,true,'middle');
+    rt(ctx,'a_c',bx+nx*md-tx*27,by+ny*md-ty*27,C.violet,fs,600,'center',MATH,true,'middle');
+  }else{
+    var d=m1.s*R0;bx=x0+tx*d;by=y0+ty*d;
+    seg(ctx,x0,y0,x0+tx*1400,y0+ty*1400,rgba(C.copper,0.85),1.8,[6,6]);
+    dot(ctx,x0,y0,3,C.copper);
+    seg(ctx,cx,cy,cx+c*R*0.3,cy-s*R*0.3,rgba(C.muted,0.95),1.6);
+    dot(ctx,cx,cy,4,C.ink);
+    txt(ctx,'centre',cx+nx*26,cy+ny*20,C.muted,11.5,600,'center','middle');
+    out=bx<-bR||bx>L.right+bR||by<L.top-bR||by>L.bot+bR;
+    if(!out){
+      arrow(ctx,bx+tx*st,by+ty*st,bx+tx*(st+Lv),by+ty*(st+Lv),rgba(C.ink,0.7),2.6,9);
+      dot(ctx,bx,by,bR,C.surface);ring(ctx,bx,by,bR,C.ink,2);
+      vlab(ctx,bx,by,tx,ty,nx,ny,st,Lv,fs);
+    }
+  }
+  return out;
+}
+function status1(out,k){
+  var wide=Lo.wide,vm=m1.vm,rm=m1.rm;
+  if(m1.cut){
+    if(out){ST[0]='The ball has left the screen';ST[1]='→ it keeps going along that tangent';ST[2]='in a straight line at a constant speed';ST[3]=wide?'Press "Reattach the string": the ball goes back on the circle and keeps turning':'Press "Reattach the string" to put it back';}
+    else{ST[0]=wide?'The string is cut → no force towards the centre':'String cut → no force towards the centre';ST[1]='→ the ball flies off in a straight line';ST[2]='along the tangent, not outwards';ST[3]=wide?"Net force = 0 → the velocity does not change (Newton's first law)":"Net force = 0 → v is constant (Newton's first law)";}
+  }else if(vm===1&&rm===1){
+    ST[0]='The string pulls the ball towards the centre';ST[1]='→ the direction of its velocity keeps changing';ST[2]=wide?'→ the ball is accelerating, and a_c points to the centre':'→ the ball accelerates, a_c to the centre';
+    if(S1?!S1.playing:S.reduce)ST[3]=wide?'v along the tangent (at 90° to the radius). F_T, a_c to the centre. Faded = the ball at two other moments':'Faded = v and a_c at two other moments';
+    else ST[3]=wide?'v along the tangent (at 90° to the radius). F_T, a_c to the centre. There is no outward force':'v along the tangent; F_T, a_c to the centre';
+  }else{
+    ST[0]=rm===1?('v '+chg(vm)):(vm===1?('r '+chg(rm)):('v × '+fd(vm)+', r × '+fd(rm)));
+    ST[1]='→ a_c and F_c '+chg(k,true);ST[2]='';
+    ST[3]='a_c = v²/r: '+fd(vm)+'² ÷ '+fd(rm)+' = '+fd(k)+(wide?'; F_c = ma_c and m does not change → F_c changes the same way':'');
+  }
+}
+function drawInset(ctx){
+  var L=Lo,x=L.bx,y=L.by,w=L.bw,h=L.bh,ox=L.ox,oy=L.oy,fs=L.lab-1,wide=L.wide;
+  rrect(ctx,x,y,w,h,10);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();
+  var a=m1.cut?m1.cph:m1.ph,Lv=L.Vin*m1.vm,hd=Lv<20?7:9;
+  if(!m1.cut){
+    var dth=clamp(0.6*m1.vm/m1.rm,0.12,1.7),a1=a-dth/2,a2=a+dth/2;   /* 同样一小段时间里转过的角 = ω Δt（示意） */
+    var d1x=-Math.sin(a1),d1y=-Math.cos(a1),d2x=-Math.sin(a2),d2y=-Math.cos(a2);
+    var hh=Lv*Math.cos(dth/2)/2;ox+=Math.sin(a)*hh;oy+=Math.cos(a)*hh;   /* 整个图放在框中间：尾巴退后半个高度 */
+    var t1x=ox+d1x*Lv,t1y=oy+d1y*Lv,t2x=ox+d2x*Lv,t2y=oy+d2y*Lv,dvl=Math.hypot(t2x-t1x,t2y-t1y);
+    arrow(ctx,ox,oy,t1x,t1y,rgba(C.ink,0.38),2.4,hd);
+    arrow(ctx,ox,oy,t2x,t2y,rgba(C.ink,0.7),2.4,hd);
+    if(dvl>3)arrow(ctx,t1x,t1y,t2x,t2y,C.violet,2.4,Math.min(9,Math.max(5,dvl*0.5)));
+    dot(ctx,ox,oy,2.5,C.ink);
+    var sx=d1x-d2x,sy=d1y-d2y,sl=Math.hypot(sx,sy)||1,bxs=d1x+d2x,bys=d1y+d2y,bl=Math.hypot(bxs,bys)||1;sx/=sl;sy/=sl;
+    rt(ctx,'v_1',t1x+sx*16-d1x*9,t1y+sy*16-d1y*9,rgba(C.ink,0.6),fs,600,'center',MATH,true,'middle');
+    rt(ctx,'v_2',t2x-sx*16-d2x*9,t2y-sy*16-d2y*9,rgba(C.ink,0.85),fs,600,'center',MATH,true,'middle');
+    if(dvl>3)rt(ctx,'Δv',(t1x+t2x)/2+bxs/bl*16,(t1y+t2y)/2+bys/bl*16,C.violet,fs,700,'center',MATH,true,'middle');
+    else{txt(ctx,'Δv is very small',wide?L.ox:x+w/2,y+h-30,C.violet,12,600,'center');txt(ctx,'(turning very slowly)',wide?L.ox:x+w/2,y+h-14,C.violet,12,600,'center');}
+  }else{
+    var dx=-Math.sin(a),dy=-Math.cos(a);ox-=dx*Lv/2;oy-=dy*Lv/2;
+    arrow(ctx,ox,oy,ox+dx*Lv,oy+dy*Lv,rgba(C.ink,0.7),2.4,hd);dot(ctx,ox,oy,2.5,C.ink);
+    rt(ctx,'v',ox+dx*Lv*0.5-dy*14,oy+dy*Lv*0.5+dx*14,rgba(C.ink,0.85),fs,600,'center',MATH,true,'middle');
+  }
+  if(wide){
+    txt(ctx,'Two velocities a moment apart, tail to tail',x+12,y+19,C.muted,12.5,600);
+    var tx=L.tx,ty=y+48,f=12.5;
+    if(!m1.cut){
+      rt(ctx,'v_1: earlier',tx,ty,rgba(C.ink,0.6),f,600,'left');
+      rt(ctx,'v_2: later',tx,ty+22,rgba(C.ink,0.85),f,600,'left');
+      rt(ctx,'Δv = v_2 − v_1',tx,ty+50,C.violet,f,700,'left');
+      txt(ctx,'points to the centre,',tx,ty+72,C.ink,f,600);
+      rt(ctx,'same direction as a_c',tx,ty+94,C.ink,f,600,'left');
+      txt(ctx,'The faster it turns,',tx,ty+124,C.muted,12,500);
+      txt(ctx,'the bigger Δv is',tx,ty+143,C.muted,12,500);
+    }else{
+      txt(ctx,'The string is cut:',tx,ty,C.ink,f,600);
+      txt(ctx,'no force',tx,ty+22,C.ink,f,600);
+      txt(ctx,'→ no acceleration',tx,ty+44,C.ink,f,600);
+      txt(ctx,'v no longer changes',tx,ty+72,C.ink,f,600);
+      rt(ctx,'v_1 = v_2',tx,ty+94,C.violet,f,700,'left');
+      txt(ctx,'Δv = 0',tx,ty+116,C.violet,f,700);
+    }
+  }else{
+    if(!m1.cut)rt(ctx,'v_1 earlier · v_2 later',x+10,y+19,C.muted,11.5,600,'left');
+    else{txt(ctx,'String cut: v is the same',x+10,y+19,C.muted,11.5,600);txt(ctx,'Δv = 0',x+10,y+36,C.muted,11.5,600);}
+    if(!m1.cut)rt(ctx,'Δv = v_2 − v_1: points to the centre, like a_c',x,y+h+22,C.violet,12,600,'left');
+    else txt(ctx,'No force → no acceleration → v does not change',x,y+h+22,C.ink,12,600);
+  }
+}
+function drawRead(ctx,k){
+  var L=Lo,x=L.rx,w=L.rw,y=L.ry,fs=L.fs,wide=L.wide;
+  var y1=y+30,y2=y1+(wide?42:44),val=m1.cut?'0':'× '+fd(k),f=m1.cut?0:k/8,xt=x+w/8;
+  txt(ctx,'v × '+fd(m1.vm),x,y,rgba(C.ink,0.85),fs,600,'left','alphabetic',MONO);
+  txt(ctx,'r × '+fd(m1.rm),wide?x+Math.min(130,w-200):x+w,y,C.ink,fs,600,wide?'left':'right','alphabetic',MONO);
+  if(wide)txt(ctx,'m does not change',x+w,y,C.muted,12.5,500,'right');
+  rt(ctx,'a_c = v²/r',x,y1,C.violet,fs,700,'left');
+  txt(ctx,val,x+w,y1,C.violet,fs,700,'right','alphabetic',MONO);
+  hbar(ctx,x,y1+8,w,10,f,C.violet);seg(ctx,xt,y1+4,xt,y1+22,rgba(C.ink,0.75),1.5);
+  rt(ctx,wide?'F_c = F_T = mv²/r':'F_c = F_T',x,y2,C.force,fs,700,'left');
+  txt(ctx,val,x+w,y2,C.force,fs,700,'right','alphabetic',MONO);
+  hbar(ctx,x,y2+8,w,10,f,C.force);seg(ctx,xt,y2+4,xt,y2+22,rgba(C.ink,0.75),1.5);
+  if(wide)txt(ctx,'Line = at the start (× 1) · Full bar = × 8',x,y2+44,C.muted,11.5,500);
+  else{txt(ctx,'Line = at the start (× 1)',x,y2+40,C.muted,11.5,500);txt(ctx,'m does not change,',x,y2+58,C.muted,11.5,500);rt(ctx,'so F_c changes like a_c',x,y2+76,C.muted,11.5,500,'left');}
+}
+var S1=makeStage('sim1',{
+  height:function(w){lay(w);return Lo.H;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    lay(W);var L=Lo,k=m1.vm*m1.vm/m1.rm,out;
+    ctx.save();ctx.beginPath();ctx.rect(0,L.top,L.right,L.bot-L.top+4);ctx.clip();out=drawCircle(ctx,k);ctx.restore();
+    if(L.wide)seg(ctx,L.right+4,L.top+4,L.right+4,H-12,C.line,1);else seg(ctx,12,L.bot+5,W-12,L.bot+5,C.line,1);
+    status1(out,k);
+    if(L.wide){rt(ctx,ST[0]+' '+ST[1],16,26,C.ink,15,600,'left');if(ST[2])rt(ctx,ST[2],16,46,C.ink,15,600,'left');rt(ctx,ST[3],16,ST[2]?66:46,C.muted,13,500,'left');}
+    else{rt(ctx,ST[0],14,22,C.ink,13.5,600,'left');rt(ctx,ST[1],14,41,C.ink,13.5,600,'left');if(ST[2])rt(ctx,ST[2],14,60,C.ink,13.5,600,'left');rt(ctx,ST[3],14,ST[2]?79:60,C.muted,12,500,'left');}
+    drawInset(ctx);
+    drawRead(ctx,k);
+  }
+});
+var b1c=document.getElementById('s1-cut'),r1v=document.getElementById('s1-v'),o1v=document.getElementById('s1-v-out'),r1r=document.getElementById('s1-r'),o1r=document.getElementById('s1-r-out');
+function sync1(){press(b1c,m1.cut);b1c.textContent=m1.cut?'Reattach the string':'Cut the string';o1v.textContent='× '+fd(m1.vm);o1r.textContent='× '+fd(m1.rm);}
+b1c.addEventListener('click',function(){
+  if(m1.cut){m1.cut=false;m1.ph=m1.cph;}else{m1.cut=true;m1.cph=m1.ph;}
+  m1.s=0;sync1();S1.setPlaying(true);S1.render();
+});
+r1v.addEventListener('input',function(){m1.vm=parseFloat(r1v.value);sync1();S1.render();});
+r1r.addEventListener('input',function(){m1.rm=parseFloat(r1r.value);sync1();S1.render();});
+document.getElementById('s1-reset').addEventListener('click',function(){
+  m1.vm=1;m1.rm=1;m1.cut=false;m1.ph=0.6;m1.s=0;r1v.value='1';r1r.value='1';sync1();S1.setPlaying(true);S1.render();
+});
+S1.fig.querySelector('[data-play]').addEventListener('click',function(){S1.render();});   /* 暂停时马上画出淡色位置 */
+sync1();S1.render();
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 圆锥摆 / 飞椅：给定 v，用 tan θ = v²/(rg) 和 r = L sin θ（飞椅 r = d + L sin θ）一起解 θ。
+   L、d、m 是示意值；g = 9.8 m s⁻²（booklet）。受力图画球在最右边那一刻（圆心在左边）。 */
+var G=9.8,L=1.0,D=0.5,M0=0.5,VMAX=5.0,FMAX=30,EL=0.3;
+function solve(v,mode){
+  if(mode==='cone'){var K=v*v/(G*L);return Math.acos((-K+Math.sqrt(K*K+4))/2);}
+  var lo=0,hi=Math.PI/2-1e-6;
+  for(var i=0;i<60;i++){var t=(lo+hi)/2;if(G*Math.tan(t)*(D+L*Math.sin(t))>v*v)hi=t;else lo=t;}
+  return (lo+hi)/2;
+}
+var RMAX=D+L*Math.sin(solve(VMAX,'swing')),TMAX=Math.tan(solve(VMAX,'cone')),FTOP=2*M0*G;
+var m2={v:2.5,mode:'cone',mm:1,phi:5.75,th:0,r:0,msg:null,age:0,thc:0};
+function update(){m2.th=solve(m2.v,m2.mode);m2.r=(m2.mode==='swing'?D:0)+L*Math.sin(m2.th);}
+update();
+function deg(a){return (a*180/Math.PI).toFixed(1);}
+
+/* 文字里的 _X 画成下标（F_T → F 加小号 T），下标不小于 11 px */
+function rich(ctx,s,x,y,col,size,weight,align,family){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=0,ws=[],i;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+(family||FONT);ws.push(ctx.measureText(p[i]).width);w+=ws[i];}
+  var cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){if(p[i])txt(ctx,p[i],cx,y+(i%2?size*0.26:0),col,i%2?ss:size,weight,'left','alphabetic',family);cx+=ws[i];}
+  return w;
+}
+/* 侧视图里的标签：先描一圈背景色，压在虚线上也看得清 */
+function htxt(ctx,s,x,y,col,size,weight,align,base,family){ctx.font=(weight||500)+' '+size+'px '+(family||FONT);ctx.textAlign=align||'left';ctx.textBaseline=base||'alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(s,x,y);txt(ctx,s,x,y,col,size,weight,align,base,family);}
+function darrow(ctx,x1,y1,x2,y2,col,w){
+  var dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<3)return;
+  var ux=dx/len,uy=dy/len;
+  if(len>14){seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,w,[5,4]);arrow(ctx,x2-ux*11,y2-uy*11,x2,y2,col,w,8);}
+  else seg(ctx,x1,y1,x2,y2,col,w,[3,3]);
+}
+function dim(ctx,x1,y,x2,col){var mx=(x1+x2)/2;if(Math.abs(x2-x1)<16){seg(ctx,x1,y,x2,y,col,1.3);return;}arrow(ctx,mx,y,x2,y,col,1.3,6);arrow(ctx,mx,y,x1,y,col,1.3,6);}
+
+/* ---------- layout（只和宽度有关） ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){o.x0=16;o.x1=Math.round(W*0.5);o.fx0=Math.round(W*0.53);o.fx1=W-16;o.s1=26;o.s2=48;o.f1=15;o.f2=13.5;o.ym=76;o.yt=118;}
+  else{o.x0=16;o.x1=W-16;o.fx0=16;o.fx1=W-16;o.s1=22;o.s2=43;o.f1=13.5;o.f2=12.5;o.ym=72;o.yt=106;}
+  o.ax=(o.x0+o.x1)/2;
+  o.s=Math.min(150,((o.x1-o.x0)/2-16)/RMAX);
+  o.base=o.yt+L*o.s+28;
+  o.ya=o.base+30;
+  o.Ox=o.fx1-76;
+  o.k=Math.min(o.wide?8.5:7.6,(o.Ox-o.fx0-8)/(FTOP*TMAX));
+  var bm=FTOP*o.k;
+  o.ft=o.wide?o.ym:o.ya+48+32;
+  o.Oy=o.ft+18+bm+12;
+  o.yb=o.wide?Math.max(o.ya,o.Oy+bm+38):o.Oy+bm+34;
+  if(o.wide)o.ya=o.yb;
+  o.H=Math.round(Math.max(o.ya+48,o.yb+54)+22);
+  LY=o;return o;
+}
+
+/* ---------- 状态提示（两行） ---------- */
+function status(){
+  var e=m2.msg;
+  if(e==='up')return ['Faster → needs a bigger mv²/r → θ gets bigger','F_T = mg/cos θ also gets bigger, always above mg'];
+  if(e==='down')return ['Slower → needs a smaller mv²/r → θ gets smaller','F_T = mg/cos θ gets smaller, but is still above mg'];
+  if(e==='m2')return ['Mass × 2 → θ does not change (F and m cancel)','Only F_T and mg change: both become 2 times as big'];
+  if(e==='m1')return ['Mass back to m → θ still does not change','F_T and mg both become half as big'];
+  if(e==='swing')return ['Swing ride: r = d + L sin θ, bigger than pendulum r','Same v → smaller θ (conical pendulum: '+deg(m2.thc)+'°)'];
+  if(e==='cone')return ['Conical pendulum: centre directly below the pivot','r = L sin θ (horizontal circle radius, not string length L)'];
+  if(m2.th>62*Math.PI/180)return ['Large θ, but never 90°: string is never horizontal','Vertically, always F_T cos θ = mg, so cos θ ≠ 0'];
+  return ['Vertical: F_T cos θ = mg (cancels gravity)','Horizontal: F_T sin θ towards the centre = mv²/r'];
+}
+
+/* ---------- 侧视图 ---------- */
+function drawSide(ctx,o){
+  var sw=m2.mode==='swing',s=o.s,ax=o.ax,yt=o.yt,th=m2.th,sn=Math.sin(th),cs=Math.cos(th);
+  var dd=sw?D*s:0,R=m2.r*s,yc=yt+L*cs*s,eR=EL*R,px=ax+dd;
+  txt(ctx,sw?'Side view · swing ride':'Side view · conical pendulum',o.x0,o.ym,C.muted,12,600);
+  /* 绳子扫出的圆锥（飞椅：圆台） */
+  ctx.beginPath();ctx.moveTo(ax-dd,yt);ctx.lineTo(ax+dd,yt);ctx.lineTo(ax+R,yc);ctx.lineTo(ax-R,yc);ctx.closePath();
+  ctx.fillStyle=rgba(C.muted,0.08);ctx.fill();
+  seg(ctx,ax+dd,yt,ax+R,yc,rgba(C.muted,0.8),1,[4,4]);seg(ctx,ax-dd,yt,ax-R,yc,rgba(C.muted,0.8),1,[4,4]);
+  if(!sw)seg(ctx,ax,yt,ax,yc+eR+14,rgba(C.muted,0.9),1.2,[4,4]);
+  else seg(ctx,px,yt,px,yt+Math.min(58,L*cs*s),rgba(C.muted,0.9),1.2,[4,4]);
+  /* 球的位置：phi 从上往下看逆时针；sin phi > 0 在后面 */
+  var c=Math.cos(m2.phi),si=Math.sin(m2.phi),back=si>0;
+  var bx=ax+R*c,by=yc-eR*si,tx=ax+dd*c,ty=yt-EL*dd*si,br=(m2.mm>1?9:7)*(1-0.1*si);
+  function bob(){
+    if(sw)seg(ctx,ax,yt,tx,ty,back?rgba(C.muted,0.6):C.muted,3);
+    seg(ctx,tx,ty,bx,by,back?rgba(C.ink,0.45):C.ink,2,sw?[3,2]:null);
+    dot(ctx,bx,by,br,back?rgba(C.muted,0.35):rgba(C.muted,0.6));ring(ctx,bx,by,br,back?rgba(C.ink,0.45):C.ink,1.6);
+  }
+  if(back)bob();
+  /* 支架 */
+  if(sw){
+    var rr=dd+6,rt=yt-EL*rr;
+    seg(ctx,ax,rt-10,ax,o.base,C.muted,4);
+    seg(ctx,ax-44,o.base,ax+44,o.base,C.muted,2);
+    ctx.beginPath();ctx.ellipse(ax,yt,rr,EL*rr,0,0,TAU);ctx.fillStyle=rgba(C.muted,0.18);ctx.fill();ctx.strokeStyle=C.muted;ctx.lineWidth=1.4;ctx.stroke();
+    dim(ctx,ax,rt-8,px,C.ink);
+    txt(ctx,'d = 0.5 m',ax+dd/2,rt-14,C.ink,11.5,600,'center');
+  }else{
+    for(var hx=ax-50;hx<ax+50;hx+=9)seg(ctx,hx,yt,hx+6,yt-7,C.muted,1);
+    seg(ctx,ax-52,yt,ax+52,yt,C.ink,2);
+    txt(ctx,'pivot',ax-58,yt+4,C.muted,12,600,'right');
+  }
+  /* 水平圆（轨迹） */
+  ctx.beginPath();ctx.ellipse(ax,yc,Math.max(R,1),Math.max(eR,0.5),0,0,TAU);ctx.strokeStyle=rgba(C.copper,0.85);ctx.lineWidth=1.6;ctx.setLineDash([5,4]);ctx.stroke();ctx.setLineDash([]);
+  /* r、圆心、L、θ */
+  dim(ctx,ax,yc,ax+R,C.ink);
+  dot(ctx,ax,yc,3,C.ink);
+  var small=R<50;
+  htxt(ctx,'r',ax+R/2,small?yc+eR+16:yc+16,C.ink,15,500,'center','alphabetic',MATH);
+  htxt(ctx,'centre',small?ax-R-6:ax-8,yc+4,C.muted,11.5,600,'right');
+  var f=sw?0.5:0.62,mx=px+(ax+R-px)*f,my=yt+(yc-yt)*f;
+  htxt(ctx,'L = 1.0 m',mx+cs*12,my-sn*12,C.ink,11.5,600,'left','middle');
+  ctx.beginPath();ctx.arc(px,yt,22,Math.PI/2-th,Math.PI/2,false);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+  if(th>0.5)htxt(ctx,'θ',px+36*Math.sin(th/2),yt+36*Math.cos(th/2),C.ink,15,500,'center','middle',MATH);
+  else htxt(ctx,'θ',px+30*sn+9,yt+30*cs,C.ink,15,500,'left','middle',MATH);
+  if(!back)bob();
+}
+
+/* ---------- 受力图 ---------- */
+function drawFBD(ctx,o){
+  var th=m2.th,mg=M0*m2.mm*G,FT=mg/Math.cos(th),k=o.k,Ox=o.Ox,Oy=o.Oy;
+  var a=FT*Math.sin(th)*k,b=mg*k,tx=Ox-a,ty=Oy-b,cf=C.force,cd=rgba(C.force,0.8);
+  rich(ctx,'Free-body diagram (ball at far right): only F_T and mg',o.fx0,o.ft,C.muted,12,600);
+  seg(ctx,tx,Oy,tx,ty,rgba(C.force,0.35),1,[2,3]);seg(ctx,Ox,ty,tx,ty,rgba(C.force,0.35),1,[2,3]);
+  darrow(ctx,Ox,Oy,tx,Oy,cd,2);
+  darrow(ctx,Ox,Oy,Ox,ty,cd,2);
+  ctx.beginPath();ctx.arc(Ox,Oy,20,-Math.PI/2-th,-Math.PI/2,false);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+  arrow(ctx,Ox,Oy,tx,ty,cf,3,11);
+  arrow(ctx,Ox,Oy,Ox,Oy+b,cf,3,11);
+  var br=m2.mm>1?9:7;dot(ctx,Ox,Oy,br,rgba(C.muted,0.6));ring(ctx,Ox,Oy,br,C.ink,1.6);
+  var tr=Math.max(28,Math.min(34,b-4));
+  if(th>0.5)txt(ctx,'θ',Ox-tr*Math.sin(th/2),Oy-tr*Math.cos(th/2),C.ink,14,500,'center','middle',MATH);
+  else txt(ctx,'θ',Ox-tr*Math.sin(th)-7,Oy-tr*Math.cos(th)+6,C.ink,14,500,'right','middle',MATH);
+  rich(ctx,'F_T',tx,ty-10,cf,14,700,'center');
+  rich(ctx,'F_T cos θ',Ox+12,Oy-b/2-3,cf,12.5,600,'left');
+  txt(ctx,'= mg',Ox+12,Oy-b/2+13,cf,12.5,600);
+  txt(ctx,'mg',Ox+12,Oy+Math.max(b/2+5,30),cf,14,700);
+  rich(ctx,'F_T sin θ = mv²/r',Ox-12,Oy+20,cf,12.5,600,'right');
+  txt(ctx,'← towards the centre',Ox-12,Oy+37,C.muted,11.5,600,'right');
+}
+
+/* ---------- 读数 ---------- */
+function drawRead(ctx,o){
+  var sw=m2.mode==='swing',th=m2.th,y=o.ya,x0=o.x0;
+  txt(ctx,'θ = '+deg(th)+'°',x0,y,C.ink,15,700,'left','alphabetic',MONO);
+  ctx.font='700 15px '+MONO;var w=ctx.measureText('θ = '+deg(th)+'°').width;
+  txt(ctx,'from the vertical',x0+w+8,y,C.muted,12,500);
+  txt(ctx,'Period T = '+(TAU*m2.r/m2.v).toFixed(2)+' s',o.x1,y,C.muted,12.5,500,'right');
+  txt(ctx,(sw?'r = d + L sin θ = ':'r = L sin θ = ')+m2.r.toFixed(2)+' m',x0,y+24,C.ink,13,600,'left','alphabetic',MONO);
+  var s1='tan θ = '+Math.tan(th).toFixed(3);
+  txt(ctx,s1,x0,y+48,C.ink,13,600,'left','alphabetic',MONO);
+  ctx.font='600 13px '+MONO;var w1=ctx.measureText(s1).width;
+  var s2='v²/(rg) = '+(m2.v*m2.v/(m2.r*G)).toFixed(3);
+  txt(ctx,s2,x0+w1+16,y+48,C.ink,13,600,'left','alphabetic',MONO);
+  ctx.font='600 13px '+MONO;var w2=ctx.measureText(s2).width;
+  txt(ctx,'same',x0+w1+16+w2+8,y+48,C.muted,12,500);
+  /* 两个力的大小 */
+  var mg=M0*m2.mm*G,FT=mg/Math.cos(th),yb=o.yb,bx0=o.fx0+38,bx1=o.fx1-66;
+  rich(ctx,'F_T',o.fx0,yb,C.force,13.5,700);
+  hbar(ctx,bx0,yb-10,bx1-bx0,11,FT/FMAX,C.force);
+  txt(ctx,FT.toFixed(2)+' N',o.fx1,yb,C.ink,13,600,'right','alphabetic',MONO);
+  txt(ctx,'mg',o.fx0,yb+26,C.force,13.5,700);
+  hbar(ctx,bx0,yb+16,bx1-bx0,11,mg/FMAX,rgba(C.force,0.5));
+  txt(ctx,mg.toFixed(2)+' N',o.fx1,yb+26,C.ink,13,600,'right','alphabetic',MONO);
+  var w3=rich(ctx,'F_T / mg = 1/cos θ = '+(1/Math.cos(th)).toFixed(2),o.fx0,yb+54,C.ink,12.5,600,'left',MONO);
+  rich(ctx,'F_T is always > mg',o.fx0+w3+10,yb+54,C.muted,12,500,'left');
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){
+    var n=4,h=dt/n;for(var i=0;i<n;i++){m2.phi+=(m2.v/m2.r)*h;}
+    m2.phi=m2.phi%TAU;
+    if(m2.msg){m2.age+=dt;if(m2.age>5)m2.msg=null;}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),st=status();
+    rich(ctx,st[0],16,o.s1,C.ink,o.f1,600);
+    rich(ctx,st[1],16,o.s2,C.ink,o.f2,500);
+    drawSide(ctx,o);
+    drawFBD(ctx,o);
+    drawRead(ctx,o);
+  }
+});
+
+function say(e){m2.msg=e;m2.age=0;}
+var r2=document.getElementById('s2-v'),o2=document.getElementById('s2-v-out');
+var b2c=document.getElementById('s2-cone'),b2s=document.getElementById('s2-swing');
+var b2m1=document.getElementById('s2-m1'),b2m2=document.getElementById('s2-m2');
+r2.addEventListener('input',function(){var v=parseFloat(r2.value);if(v!==m2.v)say(v>m2.v?'up':'down');m2.v=v;o2.textContent=v.toFixed(1)+' m s⁻¹';update();S2.render();});
+function setMode(md){m2.mode=md;press(b2c,md==='cone');press(b2s,md==='swing');m2.thc=solve(m2.v,'cone');update();say(md);S2.render();}
+b2c.addEventListener('click',function(){setMode('cone');});
+b2s.addEventListener('click',function(){setMode('swing');});
+function setMass(n){m2.mm=n;press(b2m1,n===1);press(b2m2,n===2);say(n===2?'m2':'m1');S2.render();}
+b2m1.addEventListener('click',function(){setMass(1);});
+b2m2.addEventListener('click',function(){setMass(2);});
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 倾斜弯道：从车后面看，圆心在左，路面向右升高（外高内低）。r = 50 m 示意，g = 9.8 m s⁻²（booklet）。
+   按水平 / 竖直分解（加速度是水平的），摩擦取“沿斜面向上”为正：
+     水平（指向圆心）：F_N sin θ − F_f cos θ = mv²/r
+     竖直：           F_N cos θ + F_f sin θ = mg
+   → F_N = m(g cos θ + (v²/r) sin θ)，F_f = m(g sin θ − (v²/r) cos θ)。所有力都用 mg 的倍数表示。 */
+var G=9.8,RR=50,DEG=Math.PI/180;
+function vDes(td){return Math.sqrt(RR*G*Math.tan(td*DEG));}
+var m3={th:20,v:vDes(20),phi:0,ch:0.35};
+function step3(dt){var n=4,h=dt/n;for(var i=0;i<n;i++){m3.phi+=2*m3.v/RR*h;m3.ch+=1.2*h;}m3.phi%=TAU;m3.ch%=1;}
+
+/* 文字里的 _X 画成下标（F_N → F 加小号 N），下标不小于 11 px */
+function rich(ctx,s,x,y,col,size,weight,align,base,doDraw){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=0,i,cx;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+FONT;w+=ctx.measureText(p[i]).width;}
+  if(doDraw===false)return w;
+  cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+FONT;var pw=ctx.measureText(p[i]).width;
+    if(p[i])txt(ctx,p[i],cx,y+(i%2?size*0.3:0),col,i%2?ss:size,weight,'left',base||'alphabetic');cx+=pw;}
+  return w;
+}
+/* 状态提示按 “→” 分段换行 */
+function wrap(ctx,segs,join,cont,maxW,size,weight){
+  var out=[],cur='',i,t;
+  for(i=0;i<segs.length;i++){t=cur?cur+join+segs[i]:segs[i];
+    if(cur&&rich(ctx,t,0,0,null,size,weight,'left','alphabetic',false)>maxW){out.push(cur);cur=cont+segs[i];}else cur=t;}
+  out.push(cur);return out;
+}
+/* 标签底下先描一圈舞台色（像动画 2 的 htxt），压在车身线、路面线上也看得清 */
+function halo(ctx,s,x,y,size,weight){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.74),w=rich(ctx,s,0,0,null,size,weight,'left','middle',false),cx=x-w/2,i,pw;
+  ctx.save();ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.textAlign='left';ctx.textBaseline='middle';
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+FONT;pw=ctx.measureText(p[i]).width;if(p[i])ctx.strokeText(p[i],cx,y+(i%2?size*0.3:0));cx+=pw;}
+  ctx.restore();
+}
+/* 标签放置：按候选位置依次试，避开已经放好的标签 */
+var BX=[],nb=0,LB=[0,0,0,0];
+function free(l,t,r,b){if(l<LB[0]||t<LB[1]||r>LB[2]||b>LB[3])return false;for(var i=0;i<nb;i++){var q=BX[i];if(l<q[2]&&r>q[0]&&t<q[3]&&b>q[1])return false;}return true;}
+function addb(l,t,r,b){if(nb>=BX.length)BX.push([0,0,0,0]);var q=BX[nb++];q[0]=l;q[1]=t;q[2]=r;q[3]=b;}
+function place(ctx,s,col,size,weight,cands){
+  var w=rich(ctx,s,0,0,null,size,weight,'left','middle',false),n=cands.length/2,sub=s.indexOf('_')>=0;
+  for(var i=0;i<n;i++){var x=cands[2*i],y=cands[2*i+1],l=x-w/2-2,t=y-size*0.62-1,r=x+w/2+2,b=y+size*(sub?0.85:0.5)+1;
+    if(i===n-1||free(l,t,r,b)){halo(ctx,s,x,y,size,weight);rich(ctx,s,x,y,col,size,weight,'center','middle');addb(l,t,r,b);return;}}
+}
+function darrow(ctx,x1,y1,x2,y2,col,w){
+  var dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);if(len<3)return;var ux=dx/len,uy=dy/len;
+  if(len>14){seg(ctx,x1,y1,x2-ux*8,y2-uy*8,col,w,[5,4]);arrow(ctx,x2-ux*11,y2-uy*11,x2,y2,col,w,8);}else seg(ctx,x1,y1,x2,y2,col,w,[3,3]);
+}
+
+var ST=[['Car stopped','tends to slide down','friction acts up the slope'],['v below design speed','car tends to slide down','friction acts up the slope'],
+  ['v = design speed','no friction needed: tan θ = v²/(rg)'],['v above design speed','car tends to slide up','friction acts down the slope']];
+var SUB={stop:['When stopped, a flat road needs no friction, ','but a banked road needs mg sin θ'],design:['The vertical part of F_N = mg, ','the horizontal part = mv²/r, just enough to turn'],
+  near:['Near the design speed, ','a banked road needs less friction than a flat road'],more:['Too slow: ','now a banked road needs more friction than a flat road'],
+  fast:['A banked road needs less friction than a flat road: ','F_N already gives part of mv²/r']};
+
+var S3=makeStage('sim3',{
+  height:function(w){return w>=640?380:560;},
+  step:step3,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,i,y;
+    var th=m3.th*DEG,c=Math.cos(th),s=Math.sin(th),v=m3.v,vd=vDes(m3.th);
+    var acc=v*v/RR,FN=c+acc/G*s,Ff=s-acc/G*c,flat=acc/G;          /* 单位：mg */
+    var st=v<0.05?0:(Math.abs(v-vd)<0.051?2:(v<vd?1:3));
+    var sub=st===0?SUB.stop:(st===2?SUB.design:(st===3?SUB.fast:(Math.abs(Ff)<flat?SUB.near:SUB.more)));
+    /* ---- layout ---- */
+    var px,sx0=0,sx1,sy0,sy1,L,ox,oy,cw,bh,cab,wb,ww,f1,f2,lh1,lh2,lf,sAmax;
+    if(wide){px=W-262;sx1=px-14;sy0=66;sy1=H-6;L=72;ox=sx0+(sx1-sx0)*0.54;oy=sy0+142;cw=84;bh=30;cab=18;wb=9;ww=14;f1=15;f2=12.5;lh1=21;lh2=18;lf=13.5;sAmax=190;}
+    else{sx1=W;sy0=88;oy=sy0+110;sy1=oy+118;L=58;ox=W*0.56;cw=56;bh=20;cab=12;wb=6;ww=10;f1=13.5;f2=12;lh1=19;lh2=16;lf=12.5;sAmax=170;}
+    /* ---- status ---- */
+    var L1=wrap(ctx,ST[st],' → ','→ ',W-32,f1,600);y=wide?28:24;
+    for(i=0;i<L1.length;i++){rich(ctx,L1[i],16,y,C.ink,f1,600);y+=lh1;}
+    y-=2;var L2=wrap(ctx,sub,'','',W-32,f2,500);
+    for(i=0;i<L2.length;i++){rich(ctx,L2[i],16,y,C.muted,f2,500);y+=lh2;}
+    /* ---- road and ground (clipped to the scene) ---- */
+    var d=bh/2+wb,R0x=ox+d*s,R0y=oy+d*c,tn=s/c;
+    var xl=sx0-4,xr=sx1+4,yl=R0y+(R0x-xl)*tn,yr=R0y-(xr-R0x)*tn;
+    ctx.save();ctx.beginPath();ctx.rect(sx0,sy0,sx1-sx0,sy1-sy0);ctx.clip();
+    ctx.beginPath();ctx.moveTo(xl,yl);ctx.lineTo(xr,yr);ctx.lineTo(xr,sy1+4);ctx.lineTo(xl,sy1+4);ctx.closePath();
+    ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+    seg(ctx,xl,yl,xr,yr,C.ink,2);
+    /* bank angle θ at a point down the slope */
+    var sA=Math.min(sAmax,(sy1-16-R0y)/Math.max(s,0.01),(R0x-sx0-14)/c),Ax=R0x-sA*c,Ay=R0y+sA*s,ar=wide?32:27;
+    seg(ctx,Ax,Ay,Ax+ar+28,Ay,rgba(C.muted,0.9),1.2,[4,4]);
+    ctx.beginPath();ctx.arc(Ax,Ay,ar,-th,0);ctx.strokeStyle=C.ink;ctx.lineWidth=1.3;ctx.stroke();
+    ctx.restore();
+    nb=0;LB[0]=sx0+2;LB[1]=sy0;LB[2]=sx1-2;LB[3]=sy1;
+    rich(ctx,'← centre to the left',sx0+14,sy0+14,C.muted,12,500,'left','middle');
+    rich(ctx,'(inside is lower)',sx0+14,sy0+30,C.muted,12,500,'left','middle');
+    addb(sx0+12,sy0+5,sx0+16+rich(ctx,'← centre to the left',0,0,null,12,500,'left','middle',false),sy0+39);
+    /* ---- car, seen from behind, tilted with the road ---- */
+    ctx.save();ctx.translate(ox,oy);ctx.rotate(-th);ctx.globalAlpha=0.45;   /* 车画淡一点：受力图在上面看得清 */
+    ctx.fillStyle=C.muted;rrect(ctx,-cw/2+3,bh/2-6,ww,wb+6,3);ctx.fill();rrect(ctx,cw/2-3-ww,bh/2-6,ww,wb+6,3);ctx.fill();
+    ctx.beginPath();ctx.moveTo(-cw*0.4,-bh/2+1);ctx.lineTo(-cw*0.3,-bh/2-cab);ctx.lineTo(cw*0.3,-bh/2-cab);ctx.lineTo(cw*0.4,-bh/2+1);ctx.closePath();
+    ctx.fillStyle=C.surface;ctx.fill();ctx.fillStyle=rgba(C.field,0.22);ctx.fill();ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.5;ctx.stroke();
+    rrect(ctx,-cw/2,-bh/2,cw,bh,6);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=rgba(C.ink,0.55);ctx.lineWidth=1.5;ctx.stroke();
+    ctx.restore();
+    /* ---- “想往上 / 下滑” chevrons on the road ---- */
+    if(st!==2){
+      var sg=st===3?1:-1,ex=c*sg,ey=-s*sg,nx=-s,ny=-c;
+      for(var k=0;k<3;k++){var ph=(k+m3.ch)/3,sp=cw/2+10+ph*42,cx0=R0x+ex*sp+nx*8,cy0=R0y+ey*sp+ny*8,al=Math.sin(ph*Math.PI);
+        ctx.strokeStyle=rgba(C.muted,0.2+0.8*al);ctx.lineWidth=2;ctx.lineCap='round';ctx.beginPath();
+        ctx.moveTo(cx0-ex*5+nx*5,cy0-ey*5+ny*5);ctx.lineTo(cx0,cy0);ctx.lineTo(cx0-ex*5-nx*5,cy0-ey*5-ny*5);ctx.stroke();ctx.lineCap='butt';}
+    }
+    /* ---- forces (to scale: mg = L px) ---- */
+    var ux=-s,uy=-c,fl=FN*L,tx=ox+ux*fl,ty=oy+uy*fl,hx=tx,vy=ty;
+    seg(ctx,tx,ty,hx,oy,rgba(C.force,0.4),1,[2,3]);seg(ctx,tx,ty,ox,vy,rgba(C.force,0.4),1,[2,3]);
+    darrow(ctx,ox,oy,hx,oy,C.force,1.8);darrow(ctx,ox,oy,ox,vy,C.force,1.8);
+    var ra=wide?27:23;ctx.beginPath();ctx.arc(ox,oy,ra,-Math.PI/2-th,-Math.PI/2);ctx.strokeStyle=C.ink;ctx.lineWidth=1.2;ctx.stroke();
+    arrow(ctx,ox,oy,ox,oy+L,C.force,3,11);
+    arrow(ctx,ox,oy,tx,ty,C.force,3,11);
+    var fx=ox+Ff*L*c,fy=oy-Ff*L*s,hasF=st!==2&&Math.abs(Ff)*L>=3;
+    if(hasF)arrow(ctx,ox,oy,fx,fy,C.force,3,Math.min(11,Math.abs(Ff)*L*0.8));
+    dot(ctx,ox,oy,3.5,C.ink);
+    /* ---- labels ---- */
+    var carTop=(bh/2+cab)*c+cw*0.3*s+6;
+    place(ctx,'mg',C.force,lf+1,700,[ox+18,oy+L-8,ox-18,oy+L-8]);
+    place(ctx,'F_N',C.force,lf+1,700,[tx+ux*15,ty+uy*15-2,tx-16,ty-4,tx+16,ty-10]);
+    var wh=rich(ctx,'F_N sin θ',0,0,null,lf,600,'left','middle',false),hl=hx-6-wh/2;
+    if(FN*s*L>=8)place(ctx,'F_N sin θ',C.force,lf,600,[hl,oy-11,hl,oy+12,hl-14,oy-26]);
+    var wv=rich(ctx,'F_N cos θ',0,0,null,lf,600,'left','middle',false),vl=ox+8+wv/2,vyl=Math.min(vy+9,oy-carTop-2);
+    place(ctx,'F_N cos θ',C.force,lf,600,[vl,vyl,vl,vy-10,vl,vyl-18,vl,vyl+16]);
+    var tb=-Math.PI/2-(m3.th>=16?th/2:th+11*DEG),tr=ra+11;
+    place(ctx,'θ',C.ink,lf,600,[ox+Math.cos(tb)*tr,oy+Math.sin(tb)*tr,ox+Math.cos(tb)*(tr+9),oy+Math.sin(tb)*(tr+9)]);
+    var ta=-th/2,tR=ar+12;
+    place(ctx,'θ',C.ink,lf,600,m3.th>=16?[Ax+Math.cos(ta)*tR,Ay+Math.sin(ta)*tR-1,Ax+ar+40,Ay+12]:[Ax+ar+7,Ay+11,Ax+ar+28,Ay+12,Ax-14,Ay+10]);
+    var qt=BX[nb-1],qt0=qt[0],qt1=qt[1],qt2=qt[2],qt3=qt[3];
+    if(hasF){var fdx=fx-ox,fdy=fy-oy,fln=Math.hypot(fdx,fdy),fux=fdx/fln,fuy=fdy/fln;
+      place(ctx,'F_f',C.force,lf+1,700,[fx+fux*15,fy+fuy*15,fx+fux*8+s*16,fy+fuy*8+c*16,fx+fux*8-s*16,fy+fuy*8-c*16,fx+fux*30,fy+fuy*30,fx+fux*30+s*22,fy+fuy*30+c*22]);}
+    if(st!==2){var sm=cw/2+31,lx=R0x+ex*sm,ly=R0y+ey*sm,tl=st===3?'tends to slide up':'tends to slide down',tw=rich(ctx,tl,0,0,null,12,500,'left','middle',false),lo=tw/2*s+7*c+4;
+      /* the English label is long: slide it down the road so it stays clear of the mg arrow */
+      if(st!==3&&ly+c*lo-9<oy+L+2){var dx=Math.max(0,lx+s*lo+tw/2-(ox-10));lx-=dx;ly+=dx*tn;}
+      /* keep a gap after the road's θ, so it does not read as part of the sentence */
+      addb(qt0-14,qt1,qt2+14,qt3);
+      place(ctx,tl,C.muted,12,500,[lx+s*lo,ly+c*lo,lx+s*(lo+14),ly+c*(lo+14),lx+s*(lo+24),ly+c*(lo+24),lx-ex*20+s*lo,ly-ey*20+c*lo,lx-s*(lo+8),ly-c*(lo+8),lx+ex*30+s*lo,ly+ey*30+c*lo]);}
+    /* ---- panel: top view, readouts, bars ---- */
+    var icx,icy,iR,rx,ry,rs,bx0,bx1,by;
+    if(wide){seg(ctx,px-12,sy0-4,px-12,H-12,C.line,1);icx=px+50;icy=126;iR=42;rx=px;ry=206;rs=22;bx0=px;bx1=W-16;by=312;
+      txt(ctx,'Top view (illustrative)',px+108,98,C.ink,12.5,600);txt(ctx,'Car goes anticlockwise,',px+108,118,C.muted,12,500);txt(ctx,'centre on the car\'s left',px+108,136,C.muted,12,500);
+      txt(ctx,'r = 50 m (illustrative)',px+108,158,C.muted,12,500);}
+    else{seg(ctx,0,sy1,W,sy1,C.line,1);icx=60;icy=sy1+82;iR=38;rx=122;ry=sy1+30;rs=21;bx0=16;bx1=W-16;by=sy1+178;
+      txt(ctx,'Top view',icx,sy1+18,C.ink,12,600,'center');txt(ctx,'(illustrative)',icx,sy1+33,C.ink,12,600,'center');txt(ctx,'r = 50 m (illustrative)',16,sy1+140,C.muted,11,500);}
+    ring(ctx,icx,icy,iR,rgba(C.muted,0.2),10);
+    ctx.setLineDash([3,4]);ring(ctx,icx,icy,iR,rgba(C.muted,0.7),1);ctx.setLineDash([]);
+    dot(ctx,icx,icy,3,C.ink);txt(ctx,'centre',icx,icy+16,C.muted,11,500,'center');
+    var cph=Math.cos(m3.phi),sph=Math.sin(m3.phi),qx=icx+iR*cph,qy=icy-iR*sph,qtx=-sph,qty=-cph;
+    if(v>0.05)arrow(ctx,qx+qtx*9,qy+qty*9,qx+qtx*(14+v*0.45),qy+qty*(14+v*0.45),rgba(C.ink,0.7),2,7);
+    ctx.save();ctx.translate(qx,qy);ctx.rotate(Math.atan2(qty,qtx));rrect(ctx,-8,-5,16,10,3);ctx.fillStyle=C.ink;ctx.fill();ctx.restore();
+    txt(ctx,'v = '+v.toFixed(1)+' m s⁻¹',rx,ry,C.ink,14,700,'left','alphabetic',MONO);
+    txt(ctx,(wide?'Design speed √(rg tan θ) = ':'Design speed = ')+vd.toFixed(1)+' m s⁻¹',rx,ry+rs,C.muted,12.5,500,'left','alphabetic',FONT);
+    rich(ctx,'F_N = '+FN.toFixed(2)+' mg',rx,ry+2*rs,C.force,13,700);
+    var t1='tan θ = '+tn.toFixed(3),t2='v²/(rg) = '+(v*v/(RR*G)).toFixed(3),tc=st===2?C.ink:C.muted;
+    if(wide)txt(ctx,t1+'   '+t2,rx,ry+3*rs,tc,12.5,500,'left','alphabetic',MONO);
+    else{txt(ctx,t1,rx,ry+3*rs,tc,12.5,500,'left','alphabetic',MONO);txt(ctx,t2,rx,ry+4*rs,tc,12.5,500,'left','alphabetic',MONO);}
+    var aF=Math.abs(Ff),dirT=st===2?' (none needed)':(Ff>0?' (up the slope)':' (down the slope)');
+    txt(ctx,'Friction needed',bx0,by-18,C.ink,12.5,700);
+    txt(ctx,'Banked road'+dirT,bx0,by,C.ink,12.5,600);
+    txt(ctx,st===2?'0':(aF<0.005?'< 0.01 mg':aF.toFixed(2)+' mg'),bx1,by,C.force,12.5,700,'right','alphabetic',MONO);
+    hbar(ctx,bx0,by+7,bx1-bx0,10,st===2?0:aF/2,C.force);
+    txt(ctx,'If the road were flat: mv²/r',bx0,by+38,C.ink,12.5,600);
+    txt(ctx,flat.toFixed(2)+' mg',bx1,by+38,C.south,12.5,700,'right','alphabetic',MONO);
+    hbar(ctx,bx0,by+45,bx1-bx0,10,flat/2,C.south);
+  }
+});
+var rv=document.getElementById('s3-v'),ov=document.getElementById('s3-v-out'),rt=document.getElementById('s3-th'),ot=document.getElementById('s3-th-out');
+function sync3(){ov.textContent=m3.v.toFixed(1)+' m s⁻¹';ot.textContent=m3.th+'°';}
+function snap3(v){var vd=vDes(m3.th);return Math.abs(v-vd)<0.051?vd:v;}   /* 滑块停在设计速度旁边 → 就当设计速度，读数 tan θ = v²/(rg) 才对得上 */
+rv.addEventListener('input',function(){m3.v=snap3(parseFloat(rv.value));sync3();S3.render();});
+rt.addEventListener('input',function(){m3.th=parseInt(rt.value,10);m3.v=snap3(m3.v);sync3();S3.render();});
+document.getElementById('s3-design').addEventListener('click',function(){m3.v=vDes(m3.th);rv.value=m3.v.toFixed(1);sync3();S3.render();});
+rv.value=m3.v.toFixed(1);sync3();
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4：摩擦够不够？平路转弯（俯视）vs rotor（侧视）
+   力都用 mg 的倍数表示（m 约掉）。g = 9.8、μ 0.8/0.1 来自讲义；r = 50 m（平路）、2.0 m（rotor）示意。
+   平路打滑的弧线、rotor 下滑的快慢只是示意（时间放慢/加快）；打滑时的弧线按摩擦约 0.7 μmg 画（示意）。 */
+var G4=9.8,RF=50,RR=2.0,KF=3,KR=0.35,TSR=0.6,DROP=1.5,ROAD=10,OFF=68;
+var m4={mode:'flat',vf:15,vr:8,mu:0.8,ph:-0.75,sk:0,px:0,py:0,hx:0,hy:1,wait:0,tr:new Float32Array(600),tn:0,rs:0,d:0,vy:0,ra:0.6};
+var Q4={flat:true,v:0,need:0,lim:0,fn:0,act:0,vl:0,bad:false};
+function q4(){var f=m4.mode==='flat',v=f?m4.vf:m4.vr,q=Q4;q.flat=f;q.v=v;
+  if(f){q.need=v*v/(RF*G4);q.lim=m4.mu;q.fn=1;q.vl=Math.sqrt(m4.mu*G4*RF);q.bad=q.need>q.lim+1e-9;q.act=q.bad?q.lim:q.need;}
+  else{q.need=1;q.fn=v*v/(RR*G4);q.lim=m4.mu*q.fn;q.vl=Math.sqrt(G4*RR/m4.mu);q.bad=q.lim<1-1e-9;q.act=q.bad?q.lim:1;}
+  return q;}
+function rec4(){if(m4.tn<300){m4.tr[2*m4.tn]=m4.px;m4.tr[2*m4.tn+1]=m4.py;m4.tn++;}}
+/* 控件一改就先按新的物理量“落位”：摩擦又够了 → 车回到车道 / 人回到原来的高度 */
+function settle4(){var q=q4();
+  if(q.flat){if(m4.sk>0&&!q.bad){m4.sk=0;m4.ph=Math.atan2(m4.py,m4.px);m4.tn=0;}}
+  else if(!q.bad){m4.rs=0;m4.d=0;m4.vy=0;}}
+function step4(dt){var q=q4(),n=4,h=dt/n,i;
+  if(q.flat){
+    if(m4.sk===2){if(!q.bad){settle4();return;}m4.wait-=dt;if(m4.wait<=0){m4.sk=0;m4.ph=-2.2;m4.tn=0;}return;}
+    if(m4.sk===1&&!q.bad)settle4();
+    if(m4.sk===0){
+      if(!q.bad){m4.ph+=KF*q.v/RF*dt;if(m4.ph>Math.PI)m4.ph-=TAU;return;}
+      /* 需要的摩擦 > μmg：从这一点开始打滑 */
+      m4.sk=1;m4.px=RF*Math.cos(m4.ph);m4.py=RF*Math.sin(m4.ph);m4.hx=-Math.sin(m4.ph);m4.hy=Math.cos(m4.ph);m4.tn=0;rec4();
+    }
+    /* 打滑（示意）：摩擦不够，弯得比车道平缓 → 半径更大的弧线，越走离圆心越远 */
+    var u=KF*q.v,Rk=q.v*q.v/(0.7*m4.mu*G4);
+    for(i=0;i<n;i++){var a=u*h/Rk,c=Math.cos(a),s=Math.sin(a),hx=m4.hx*c-m4.hy*s;m4.hy=m4.hx*s+m4.hy*c;m4.hx=hx;m4.px+=m4.hx*u*h;m4.py+=m4.hy*u*h;}
+    rec4();
+    if(Math.sqrt(m4.px*m4.px+m4.py*m4.py)>OFF){m4.sk=2;m4.wait=1.1;}
+  }else{
+    m4.ra+=KR*q.v/RR*dt;if(m4.ra>TAU)m4.ra-=TAU;
+    if(!q.bad){m4.rs=0;m4.d=0;m4.vy=0;return;}
+    if(m4.rs===0){m4.rs=1;m4.d=0;m4.vy=0;}
+    if(m4.rs===2){m4.wait-=dt;if(m4.wait<=0){m4.rs=1;m4.d=0;m4.vy=0;}return;}
+    /* μF_N < mg：合力向下 = mg − μF_N（示意，动画放慢） */
+    var ac=G4*(1-q.lim);
+    for(i=0;i<n;i++){m4.vy+=ac*h*TSR;m4.d+=m4.vy*h*TSR;}
+    if(m4.d>=DROP){m4.d=DROP;m4.vy=0;m4.rs=2;m4.wait=1.0;}
+  }
+}
+for(var i4=0;i4<30;i4++)step4(1/60);
+
+/* 文字里的 _X 画成下标：F_N → F 加小号 N，v_max → v 加小号 max；下标不小于 11 px */
+function rich(ctx,s,x,y,col,size,weight,align,base,family,doDraw){
+  var p=s.split(/_(max|min|.)/),ss=Math.max(11,size*0.74),fam=family||FONT,wt=weight||500,w=0,i,cx,pw;
+  for(i=0;i<p.length;i++){ctx.font=wt+' '+(i%2?ss:size)+'px '+fam;w+=ctx.measureText(p[i]).width+(i%2?1:0);}
+  if(doDraw===false)return w;
+  cx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){ctx.font=wt+' '+(i%2?ss:size)+'px '+fam;pw=ctx.measureText(p[i]).width+(i%2?1:0);
+    if(p[i])txt(ctx,p[i],cx+(i%2?0.5:0),y+(i%2?size*0.3:0),col,i%2?ss:size,wt,'left',base||'alphabetic',fam);cx+=pw;}
+  return w;
+}
+function wrap4(ctx,s,x,y,maxW,col,size,weight,lh){
+  var parts=s.split(' → '),line='',n=0,i,j,words;
+  function fits(t){return rich(ctx,t,0,0,null,size,weight,'left','alphabetic',FONT,false)<=maxW;}
+  function flush(){rich(ctx,line,x,y+n*lh,col,size,weight);n++;line='';}
+  for(i=0;i<parts.length;i++){var p=parts[i]+(i<parts.length-1?' →':''),t=line?line+' '+p:p;
+    if(fits(t)){line=t;continue;}
+    if(line)flush();
+    if(fits(p)){line=p;continue;}
+    words=p.split(' ');
+    for(j=0;j<words.length;j++){t=line?line+' '+words[j]:words[j];if(line&&!fits(t))flush();line=line?line+' '+words[j]:words[j];}
+  }
+  if(line)flush();
+  return n;}
+function status4(q){
+  if(q.flat){
+    if(q.v===0)return ['v = 0 → no turning → no friction needed','Increase v: the friction needed, mv²/r, grows with v²',C.ink];
+    if(q.bad)return ['v > v_max → friction needed > μmg → car skids outwards','Not enough friction for the centripetal force → car takes a wider arc. It is not pushed out.',C.north];
+    if(q.need>0.85*q.lim)return ['friction needed < μmg → enough friction → safe turn','Close to v_max: a little faster and the friction needed is more than μmg',C.ink];
+    return ['friction needed < μmg → enough friction → safe turn','Static friction gives only as much as needed: F_f = mv²/r, towards the centre',C.ink];
+  }
+  if(q.v===0)return ['v = 0 → F_N = 0 → no friction → rider falls','The drum must spin before the wall pushes on the rider',C.north];
+  if(q.bad)return ['v < v_min → μF_N < mg → rider slides down','Too slow → F_N = mv²/r is too small → the friction limit cannot hold up the weight',C.north];
+  return ['v ≥ v_min → actual friction = mg, rider does not fall','Faster: the limit μF_N grows, but the actual friction is still mg',C.ink];
+}
+function inset4(ctx,x,y,w,h){rrect(ctx,x,y,w,h,8);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.stroke();}
+
+function flat4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih){
+  var thr=Math.min((sw-iw-12)/2,sh/2-4),k=thr/OFF,cx=sx+thr+2,cy=sy+sh/2,rl=RF*k,ri=(RF-ROAD)*k,ro=(RF+ROAD)*k;
+  txt(ctx,'top view',sx+2,sy+14,C.muted,12,600);
+  ctx.save();ctx.beginPath();ctx.rect(sx,sy,ix-sx-4,sh);ctx.clip();
+  ctx.beginPath();ctx.arc(cx,cy,ro,0,TAU);ctx.arc(cx,cy,ri,0,TAU,true);ctx.fillStyle=rgba(C.muted,0.13);ctx.fill();
+  ring(ctx,cx,cy,ro,rgba(C.muted,0.6),1.2);ring(ctx,cx,cy,ri,rgba(C.muted,0.6),1.2);
+  ctx.setLineDash([4,6]);ring(ctx,cx,cy,rl,rgba(C.muted,0.5),1);ctx.setLineDash([]);
+  dot(ctx,cx,cy,3,C.ink);txt(ctx,'centre',cx,cy+17,C.muted,11.5,500,'center');
+  var X,Y,hx,hy,fx,fy;
+  if(m4.sk===0){var c=Math.cos(m4.ph),s=Math.sin(m4.ph);X=cx+rl*c;Y=cy-rl*s;hx=-s;hy=-c;fx=-c;fy=s;
+    seg(ctx,cx,cy,X,Y,rgba(C.muted,0.5),1,[3,4]);}
+  else{X=cx+m4.px*k;Y=cy-m4.py*k;hx=m4.hx;hy=-m4.hy;fx=-m4.hy;fy=-m4.hx;
+    if(m4.tn>1){ctx.beginPath();ctx.moveTo(cx+m4.tr[0]*k,cy-m4.tr[1]*k);for(var j=1;j<m4.tn;j++)ctx.lineTo(cx+m4.tr[2*j]*k,cy-m4.tr[2*j+1]*k);ctx.strokeStyle=C.copper;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();}}
+  ctx.save();ctx.translate(X,Y);ctx.rotate(Math.atan2(hy,hx));rrect(ctx,-13,-7,26,14,4);ctx.fillStyle=C.surface;ctx.fill();
+  ctx.strokeStyle=q.bad?C.north:C.ink;ctx.lineWidth=1.8;ctx.stroke();seg(ctx,4,-5,4,5,q.bad?C.north:C.ink,1.5);ctx.restore();
+  if(q.v>0){var vl=1.8*q.v,vx0=X+hx*15,vy0=Y+hy*15;arrow(ctx,vx0,vy0,vx0+hx*vl,vy0+hy*vl,rgba(C.ink,0.7),2.2,8);
+    var lvx=vx0+hx*(vl+9),lvy=vy0+hy*(vl+9);   /* 箭头尖出了画面：标签放到箭头中间的旁边 */
+    if(lvx<sx+6||lvx>ix-12||lvy<sy+8||lvy>sy+sh-6){lvx=vx0+hx*vl*0.5-hy*11;lvy=vy0+hy*vl*0.5+hx*11;}
+    txt(ctx,'v',clamp(lvx,sx+6,ix-12),clamp(lvy,sy+8,sy+sh-6),C.muted,12,700,'center','middle');}
+  var fl=50*q.act;
+  if(fl>3){var f0x=X+fx*10,f0y=Y+fy*10;arrow(ctx,f0x,f0y,f0x+fx*fl,f0y+fy*fl,C.force,2.6,8);
+    var fo=10+Math.max(fl*0.5,7);rich(ctx,'F_f',X+fx*fo-hx*17,Y+fy*fo-hy*17,C.force,12,700,'center','middle');}
+  ctx.restore();
+  /* 小图：从车后面看（圆心在左） */
+  inset4(ctx,ix,iy,iw,ih);
+  txt(ctx,'from behind',ix+iw/2,iy+17,C.muted,11.5,600,'center');
+  txt(ctx,'centre on left',ix+iw/2,iy+32,C.muted,11,500,'center');
+  var bx=ix+iw/2+12,by=iy+80,u=26;
+  arrow(ctx,bx,by-8,bx,by-8-u,C.force,2.4,7);rich(ctx,'F_N',bx+6,by-8-u+9,C.force,11.5,700);
+  arrow(ctx,bx,by+8,bx,by+8+u,C.force,2.4,7);txt(ctx,'mg',bx+6,by+8+u,C.force,11.5,700);
+  var lf=u*q.act;if(lf>2.5){arrow(ctx,bx-8,by,bx-8-lf,by,C.force,2.4,7);rich(ctx,'F_f',bx-8-Math.max(lf,12)/2,by-10,C.force,11.5,700,'center');}
+  dot(ctx,bx,by,6,C.surface);ring(ctx,bx,by,6,q.bad?C.north:C.ink,1.8);
+}
+
+function rotor4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih){
+  var Rd=Math.min((sw-iw-12)/2-6,100),dcx=sx+6+Rd,yT=sy+48,yWB=sy+sh-46,yFl=yWB+16,yF0=yWB-30,ppm=(yFl-yF0)/DROP,i;
+  txt(ctx,'side view',sx+2,sy+14,C.muted,12,600);
+  txt(ctx,'axis',dcx+6,sy+14,C.muted,11.5,500);
+  seg(ctx,dcx,yT-30,dcx,yFl+2,rgba(C.muted,0.75),1.2,[4,4]);
+  if(q.v>0){var t=0.18*Math.PI,ex=dcx+34*Math.cos(t),ey=yT-18+7*Math.sin(t),ux=34*Math.sin(t),uy=-7*Math.cos(t),ul=Math.sqrt(ux*ux+uy*uy);ux/=ul;uy/=ul;
+    ctx.beginPath();ctx.ellipse(dcx,yT-18,34,7,0,0.82*Math.PI,t,true);ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.4;ctx.stroke();
+    arrow(ctx,ex-ux*6,ey-uy*6,ex+ux*3,ey+uy*3,rgba(C.muted,0.9),1.4,7);}
+  ctx.beginPath();ctx.ellipse(dcx,yT,Rd,11,0,0,TAU);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.2;ctx.stroke();
+  seg(ctx,dcx-Rd,yT,dcx-Rd,yWB,C.ink,2.4);seg(ctx,dcx+Rd,yT,dcx+Rd,yWB,C.ink,2.4);
+  seg(ctx,dcx-Rd+6,yFl,dcx+Rd-6,yFl,C.ink,1.6);
+  for(i=dcx-Rd+14;i<=dcx+Rd-6;i+=10)seg(ctx,i,yFl+1,i-6,yFl+8,rgba(C.muted,0.6),1);
+  txt(ctx,'floor has dropped',dcx,yFl+24,C.muted,11,500,'center');
+  var ry=yT+30;arrow(ctx,dcx-Rd/2,ry,dcx-3,ry,C.muted,1.2,6);arrow(ctx,dcx-Rd/2,ry,dcx-Rd+3,ry,C.muted,1.2,6);
+  txt(ctx,'r = 2.0 m',dcx-Rd/2,ry-6,C.muted,11.5,500,'center');
+  /* 人贴在右边的墙上（和讲义 Figure 2.5 一样） */
+  var xw=dcx+Rd-1.2,yf=yF0+m4.d*ppm,col=rgba(C.ink,0.2),edge=rgba(C.ink,0.6);
+  rrect(ctx,xw-13,yf-40,12,40,4);ctx.fillStyle=col;ctx.fill();ctx.strokeStyle=edge;ctx.lineWidth=1.2;ctx.stroke();
+  dot(ctx,xw-7,yf-48,7,col);ring(ctx,xw-7,yf-48,7,edge,1.2);
+  if(m4.rs!==2){
+    var Rx=xw-7,Ry=yf-32,u=30,fn=q.fn*u,maxN=2*Rd-34,lenN=Math.min(fn,maxN),af=u*q.act;   /* mg 的箭头尖在脚上面 2 px：落到地板也不穿过地板 */
+    arrow(ctx,Rx,Ry,Rx,Ry+u,C.force,2.6,8);txt(ctx,'mg',Rx-8,Ry+u-2,C.force,12,700,'right');
+    if(af>3){arrow(ctx,Rx,Ry,Rx,Ry-af,C.force,2.6,8);rich(ctx,'F_f',Rx-10,Ry-Math.max(af,18)-6,C.force,12,700,'right');}
+    if(lenN>3){arrow(ctx,Rx,Ry,Rx-lenN,Ry,C.force,2.6,8);
+      if(fn>maxN){var bk=Rx-lenN*0.45;ctx.fillStyle=C.stage;ctx.fillRect(bk-2,Ry-3,7,6);seg(ctx,bk-3,Ry+6,bk+1,Ry-6,C.force,1.6);seg(ctx,bk+3,Ry+6,bk+7,Ry-6,C.force,1.6);}
+      rich(ctx,'F_N',Rx-Math.max(lenN*(fn>maxN?0.75:0.5),22),Ry-7,C.force,12,700,'center');}
+    dot(ctx,Rx,Ry,2.6,C.ink);
+  }
+  /* 小图：俯视，人跟着墙转，F_N 指向转轴 */
+  inset4(ctx,ix,iy,iw,ih);
+  txt(ctx,'top view',ix+iw/2,iy+17,C.muted,11.5,600,'center');
+  var icx=ix+iw/2,icy=iy+66,R=28,a=m4.ra,ca=Math.cos(a),sa=Math.sin(a),px=icx+R*ca,py=icy-R*sa;
+  ring(ctx,icx,icy,R,rgba(C.ink,0.75),2);dot(ctx,icx,icy,2.5,C.ink);
+  if(q.v>0){arrow(ctx,px,py,px-ca*20,py+sa*20,C.force,2.2,7);var lv=Math.min(18,4+q.v);arrow(ctx,px,py,px-sa*lv,py-ca*lv,rgba(C.ink,0.7),1.8,6);}
+  dot(ctx,px,py,4,C.ink);
+  rich(ctx,'F_N to axis',icx,iy+ih-14,C.force,11.5,600,'center');
+}
+
+function panel4(ctx,q,x0,x1,y0,wide){
+  var f=q.flat,vmax=f?25:16,vl=q.vl,lab,lw;
+  rich(ctx,(f?'v_max = √(μgr) = ':'v_min = √(gr/μ) = ')+vl.toPrecision(3)+' m s⁻¹',x0,y0+16,C.ink,wide?15:14,700,'left','alphabetic',MONO);
+  txt(ctx,'μ = '+m4.mu.toFixed(2)+', g = 9.8 m s⁻², r = '+(f?'50 m':'2.0 m')+' (illustrative) → calculated',x0,y0+34,C.muted,11.5,500);
+  /* 速度轴：哪一段安全 */
+  var bx0=x0+12,bx1=x1-56,bw=bx1-bx0,by=y0+72,bh=18,xl=bx0+Math.min(1,vl/vmax)*bw,xv=bx0+q.v/vmax*bw;
+  var sL=f?bx0:xl,sR=f?xl:bx1,dL=f?xl:bx0,dR=f?bx1:xl,zs=f?['safe','skids']:['stays up','slides down'];
+  ctx.fillStyle=rgba(C.force,0.2);ctx.fillRect(sL,by,sR-sL,bh);ctx.fillStyle=rgba(C.north,0.16);ctx.fillRect(dL,by,dR-dL,bh);
+  ctx.font='600 11px '+FONT;
+  if(sR-sL>ctx.measureText(zs[0]).width+10)txt(ctx,zs[0],(sL+sR)/2,by+bh/2+0.5,C.force,11,600,'center','middle');
+  ctx.font='600 11px '+FONT;
+  if(dR-dL>ctx.measureText(zs[1]).width+10)txt(ctx,zs[1],(dL+dR)/2,by+bh/2+0.5,C.north,11,600,'center','middle');
+  seg(ctx,xl,by-3,xl,by+bh+3,C.ink,1.6);
+  txt(ctx,'0',bx0-5,by+bh/2+0.5,C.muted,11,500,'right','middle');
+  txt(ctx,vmax+' m s⁻¹',bx1+5,by+bh/2+0.5,C.muted,11,500,'left','middle');
+  ctx.beginPath();ctx.moveTo(xv-6,by-9);ctx.lineTo(xv+6,by-9);ctx.lineTo(xv,by-1);ctx.closePath();ctx.fillStyle=C.ink;ctx.fill();
+  lab='v = '+q.v.toFixed(1)+' m s⁻¹';ctx.font='600 12.5px '+FONT;lw=ctx.measureText(lab).width;
+  txt(ctx,lab,clamp(xv,x0+lw/2,x1-lw/2),by-13,C.ink,12.5,600,'center');
+  lab=(f?'v_max = ':'v_min = ')+vl.toPrecision(3);lw=rich(ctx,lab,0,0,null,12,600,'left','alphabetic',FONT,false);
+  rich(ctx,lab,clamp(xl,x0+lw/2,x1-lw/2),by+bh+16,C.ink,12,600,'center');
+  /* 两根条：需要的摩擦 / 实际摩擦，虚线 = 最多能给的摩擦 */
+  var full=f?1.4:3,W2=x1-x0,b1=y0+137,b2=y0+175,h2=12;
+  function fx(v){return x0+Math.min(1,Math.max(0,v/full))*W2;}
+  var xn=fx(q.need),xm=fx(q.lim),xa=fx(q.act);
+  txt(ctx,f?'friction needed mv²/r':'friction needed = mg (holds up weight)',x0,b1-6,C.ink,12,600);
+  txt(ctx,q.need.toFixed(2)+' mg',x1,b1-6,C.ink,12,600,'right','alphabetic',MONO);
+  rrect(ctx,x0,b1,W2,h2,h2/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  ctx.save();rrect(ctx,x0,b1,W2,h2,h2/2);ctx.clip();
+  ctx.fillStyle=rgba(C.ink,0.42);ctx.fillRect(x0,b1,Math.min(xn,xm)-x0,h2);
+  if(xn>xm){ctx.fillStyle=C.north;ctx.fillRect(xm,b1,xn-xm,h2);}
+  ctx.restore();
+  rich(ctx,f?(q.bad?'actual friction F_f (skidding, illustrative)':'actual friction F_f (static)'):'actual friction F_f',x0,b2-6,C.ink,12,600);
+  txt(ctx,q.act.toFixed(2)+' mg',x1,b2-6,C.force,12,600,'right','alphabetic',MONO);
+  rrect(ctx,x0,b2,W2,h2,h2/2);ctx.fillStyle=rgba(C.muted,0.16);ctx.fill();
+  ctx.save();rrect(ctx,x0,b2,W2,h2,h2/2);ctx.clip();ctx.fillStyle=C.force;ctx.fillRect(x0,b2,xa-x0,h2);ctx.restore();
+  seg(ctx,xm,b1-4,xm,b1+h2+4,C.muted,1.6,[3,3]);seg(ctx,xm,b2-4,xm,b2+h2+6,C.muted,1.6,[3,3]);
+  lab=(f?'max μmg = ':'max μF_N = ')+q.lim.toFixed(2)+' mg'+(q.lim>full?' →':'');lw=rich(ctx,lab,0,0,null,12,600,'left','alphabetic',FONT,false);
+  rich(ctx,lab,clamp(xm,x0+lw/2,x1-lw/2),b2+h2+17,C.muted,12,600,'center');
+  /* 向心力从哪里来、上限为什么变或不变 */
+  rich(ctx,f?'Friction F_f provides the centripetal force':'centripetal force = F_N = mv²/r = '+q.fn.toFixed(2)+' mg',x0,y0+230,C.ink,12.5,600);
+  rich(ctx,f?'F_N = mg (constant) → limit μmg is also constant':'F_N grows with v² → limit μF_N also grows',x0,y0+248,C.ink,12.5,500);
+  wrap4(ctx,'Forces are all multiples of mg → m cancels → mass does not affect '+(f?'v_max':'v_min'),x0,y0+266,x1-x0,C.muted,11.5,500,15);
+}
+
+var S4=makeStage('sim4',{
+  height:function(w){return w>=640?366:646;},
+  step:step4,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,q=q4(),st=status4(q),y0=wide?26:22,l1=wide?20:18;
+    var n1=wrap4(ctx,st[0],16,y0,W-32,st[2],wide?15:13.5,600,l1);
+    wrap4(ctx,st[1],16,y0+n1*l1+(wide?1:2),W-32,C.muted,wide?12.5:12,500,wide?17:16);
+    var sx=16,sy,sw,sh,px0,px1,py0;
+    if(wide){sy=64;sw=Math.round(W*0.5)-16;sh=H-sy-12;px0=sx+sw+28;px1=W-20;py0=66;}
+    else{sy=90;sw=W-32;sh=240;px0=16;px1=W-16;py0=sy+sh+18;}
+    var iw=wide?88:80,ih=128,ix=sx+sw-iw,iy=sy+2;
+    if(q.flat)flat4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih);else rotor4(ctx,q,sx,sy,sw,sh,ix,iy,iw,ih);
+    if(wide)seg(ctx,px0-14,sy+4,px0-14,H-16,C.line,1);else seg(ctx,16,py0-8,W-16,py0-8,C.line,1);
+    panel4(ctx,q,px0,px1,py0,wide);
+  }
+});
+var b4f=document.getElementById('s4-flat'),b4r=document.getElementById('s4-rotor'),r4v=document.getElementById('s4-v'),o4v=document.getElementById('s4-v-out'),r4m=document.getElementById('s4-mu'),o4m=document.getElementById('s4-mu-out');
+function out4(){var f=m4.mode==='flat',v=f?m4.vf:m4.vr,mu=m4.mu;o4v.textContent=v.toFixed(1)+' m s⁻¹';o4m.textContent=mu.toFixed(2)+(f&&mu<0.101?' ice':(f&&mu>0.799?' dry road':''));}
+function mode4(m){m4.mode=m;var f=m==='flat';press(b4f,f);press(b4r,!f);r4v.max=f?'25':'16';r4v.value=String(f?m4.vf:m4.vr);if(!f){m4.rs=0;m4.d=0;m4.vy=0;}settle4();out4();S4.render();}
+b4f.addEventListener('click',function(){mode4('flat');});
+b4r.addEventListener('click',function(){mode4('rotor');});
+r4v.addEventListener('input',function(){var v=parseFloat(r4v.value);if(m4.mode==='flat')m4.vf=v;else m4.vr=v;settle4();out4();S4.render();});
+r4m.addEventListener('input',function(){m4.mu=parseFloat(r4m.value);settle4();out4();S4.render();});
+out4();
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 旋转塞子实验（booklet Figure 2.6 + Part A/B/C）。理想模型：挂的 M 不动 → F_T = Mg = F_c = mv²/L，r = L。
+   m、L、M 都是示意值；g = 9.8 m s⁻²（booklet）。每次“计时 20 圈”的时间 = 20T × (1 ± 0.25 %)，所以 v² 有约 ±0.5 % 小误差（示意），全部点的斜率和理论值相差在 1 % 以内（booklet）。
+   同一个设置测几次（最多 3 次）取平均时间。line of best fit 过原点（正比关系）：斜率 b = Σxy/Σx²。 */
+var G=9.8,M0=0.025,LA=0.80,MB=0.15,KE=0.19,DUR=5.5,NT=20;
+function mkVars(a,b){return [['Independent (changed): ',a],['Dependent (measured): ','time for 20 turns → T → v²'],['Controlled (kept the same): ',b]];}
+var CFG={
+  A:{lbl:'Hanging mass M',min:0.05,max:0.30,step:0.05,title:'Part A: F_c against v²',xl:'v² (m² s⁻²)',yl:'F_c (N)',
+     xmax:100,xt:[0,20,40,60,80,100],ymax:3,yt:[0,1,2,3],th:M0/LA,thl:'m/r',su:'kg m⁻¹',dp:4,
+     n1:'Same M',n2:'Change M',pt:'(v², F_c)',vars:mkVars('M, so F_c = Mg changes too','m, L, a horizontal circle')},
+  B:{lbl:'Radius L',min:0.40,max:1.00,step:0.10,title:'Part B: v² against r',xl:'r (m)',yl:'v² (m² s⁻²)',
+     xmax:1,xt:[0,0.2,0.4,0.6,0.8,1],ymax:60,yt:[0,20,40,60],th:MB*G/M0,thl:'Mg/m',su:'m s⁻²',dp:1,
+     n1:'Same L',n2:'Change L',pt:'(r, v²)',vars:mkVars('L, which is the radius r','M, m, a horizontal circle')},
+  C:{lbl:'Number of stoppers',min:1,max:4,step:1,title:'Part C: v² against 1/m',xl:'1/m (kg⁻¹)',yl:'v² (m² s⁻²)',
+     xmax:40,xt:[0,10,20,30,40],ymax:60,yt:[0,20,40,60],th:MB*G*LA,thl:'MgL',su:'N m',dp:3,
+     n1:'Same stoppers',n2:'Change the number',pt:'(1/m, v²)',vars:mkVars('number of stoppers, which is m','M, L, a horizontal circle')}
+};
+function setup(p,v){if(p==='A')return {M:v,L:LA,m:M0,n:1};if(p==='B')return {M:MB,L:v,m:M0,n:1};var n=Math.round(v);return {M:MB,L:LA,m:M0*n,n:n};}
+function per(o){return TAU*Math.sqrt(o.m*o.L/(o.M*G));}
+function kOf(v){return v.toFixed(2);}
+function mean(a){var s=0;for(var i=0;i<a.length;i++)s+=a[i];return s/a.length;}
+var seed=20261;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+function trial(o){return NT*per(o)*(1+(rnd()*2-1)*0.0025);}
+
+var m5={part:'A',val:{A:0.15,B:0.8,C:1},ph:5.75,w:0,tm:null,msg:{k:'idle',t:9,d:0},pts:{A:{},B:{},C:{}},flash:null};
+function cur(){return setup(m5.part,m5.val[m5.part]);}
+function meas(p,v){var e=m5.pts[p][kOf(v)];if(!e)return null;var o=setup(p,v),t=mean(e.ts),T=t/NT,vv=TAU*o.L/T;return {t:t,T:T,v:vv,v2:vv*vv,n:e.ts.length,o:o};}
+function npts(p){var n=0,k;for(k in m5.pts[p])n++;return n;}
+function record(p,v,t){var P=m5.pts[p],k=kOf(v);if(!P[k])P[k]={v:v,ts:[]};P[k].ts.push(t);if(P[k].ts.length>3)P[k].ts.shift();m5.flash={p:p,k:k,t:0};}
+/* 第一帧：Part A，M = 0.15 kg，图上已经有这一点 */
+record('A',0.15,trial(setup('A',0.15)));m5.flash=null;
+m5.w=TAU/per(cur());
+
+function finish(){var p=m5.part;record(p,m5.val[p],m5.tm.t20);m5.ph=m5.tm.ph0;m5.tm=null;m5.msg={k:'rec',t:0,d:0};syncCtl();}
+function step5(dt){
+  m5.msg.t+=dt;if(m5.flash)m5.flash.t+=dt;
+  var wt=TAU/per(cur());
+  if(m5.tm){m5.tm.f+=dt/DUR;m5.w=wt;if(m5.tm.f>=1)finish();else m5.ph=m5.tm.ph0+m5.tm.f*NT*TAU;}
+  else{m5.w+=(wt-m5.w)*(1-Math.exp(-dt/0.4));m5.ph=(m5.ph+m5.w*dt)%TAU;}
+}
+
+/* 文字里的 _X 画成下标（F_c → F 加小号 c），下标不小于 11 px */
+function rt(ctx,s,x,y,col,size,weight,align,family){
+  var p=s.split(/_(.)/),ss=Math.max(11,size*0.76),w=0,i;
+  for(i=0;i<p.length;i++){ctx.font=(weight||500)+' '+(i%2?ss:size)+'px '+(family||FONT);w+=ctx.measureText(p[i]).width+(i%2?1.5:0);}
+  var xx=align==='right'?x-w:(align==='center'?x-w/2:x);
+  for(i=0;i<p.length;i++){
+    if(i%2){txt(ctx,p[i],xx+0.5,y+size*0.27,col,ss,weight,'left','alphabetic',family);xx+=ctx.measureText(p[i]).width+1.5;}
+    else if(p[i]){txt(ctx,p[i],xx,y,col,size,weight,'left','alphabetic',family);xx+=ctx.measureText(p[i]).width;}
+  }
+  return w;
+}
+
+/* ---------- layout ---------- */
+var LY=null;
+function lay(W){
+  if(LY&&LY.W===W)return LY;
+  var o={W:W,wide:W>=640};
+  if(o.wide){var cw=Math.round(W*0.46);
+    o.s1=28;o.s2=50;o.f1=15;o.f2=12.5;o.cx=16+Math.round(cw/2);o.ty=126;o.sc=Math.min(140,cw/2-34);o.tubeH=92;o.gapM=52;
+    o.ry=[372,394,416];o.rf=13;o.x0=cw+40;o.gx=o.x0+34;o.gw=W-16-o.gx-8;o.tt=76;o.gt=108;o.gh=212;o.vy=[384,404,424];o.vf=12;o.H=436;}
+  else{
+    o.s1=22;o.s2=42;o.f1=13.5;o.f2=12;o.cx=Math.round(W/2);o.ty=118;o.sc=Math.min(140,W/2-44);o.tubeH=80;o.gapM=50;
+    o.ry=[346,366,386];o.rf=12.5;o.x0=16;o.gx=50;o.gw=W-16-o.gx-8;o.tt=418;o.gt=446;o.gh=144;o.vy=[650,668,686];o.vf=11.5;o.H=696;}
+  LY=o;return o;
+}
+
+/* ---------- status ---------- */
+var ST=['',''];
+function status(){
+  var p=m5.part,c=CFG[p],np=npts(p),k=m5.msg.k,fresh=m5.msg.t<3.5,up=m5.msg.d>0;
+  if(m5.tm){ST[0]='Timing: counting 20 turns (sped up)';ST[1]='T = time ÷ 20, v = 2πL/T';return ST;}
+  if(fresh&&k==='var'){
+    if(p==='A'){ST[0]=up?'Larger M → larger F_c → faster, so M stays still':'Smaller M → smaller F_c → slower, so M stays still';ST[1]='F_c = Mg = mv²/r, with m and r unchanged';}
+    else if(p==='B'){ST[0]=up?'Larger L → larger r, same F_c → larger v²':'Smaller L → smaller r, same F_c → smaller v²';ST[1]='v² = F_c r/m, so v² ∝ r';}
+    else{ST[0]=up?'More stoppers → larger m, same F_c → smaller v²':'Fewer stoppers → smaller m, same F_c → larger v²';ST[1]='v² = F_c r/m, so v² ∝ 1/m';}
+    return ST;}
+  if(fresh&&k==='rec'){var e=meas(p,m5.val[p]);ST[0]='Point recorded: '+c.pt;
+    ST[1]=(e&&e.n>1)?(c.n1+' timed '+e.n+' times → average time (less error)'):(np<3?c.n2+', record another point':'More points make the line clearer');return ST;}
+  if(fresh&&k==='clear'){ST[0]='Graph cleared: record the points again, one by one';ST[1]=c.n2+' → press "Time 20 turns" → point appears';return ST;}
+  if(np>=3){
+    if(p==='A'){ST[0]='F_c against v²: line through origin, gradient = m/r';ST[1]='So F_c ∝ v², which supports F_c = mv²/r';}
+    else if(p==='B'){ST[0]='v² against r: line through origin, gradient = Mg/m';ST[1]='So at the same speed, F_c ∝ 1/r';}
+    else{ST[0]='v² against 1/m: line through origin, gradient = MgL';ST[1]='So at the same speed, F_c ∝ m';}
+    return ST;}
+  ST[0]='M stays still → tension F_T = Mg = F_c';
+  ST[1]=np===0?'Press "Time 20 turns" to record the first point':c.n2+', record more points (at least 3)';
+  return ST;
+}
+
+/* ---------- apparatus (side view) ---------- */
+function drawApp(ctx,o){
+  var oo=cur(),R=oo.L*o.sc,ey=R*KE,cx=o.cx,ty=o.ty,Fp=12+10*oo.M*G;
+  var tb=ty+o.tubeH,cy=tb+8,mT=cy+o.gapM,yL=ty-ey-24;
+  /* axis + L */
+  seg(ctx,cx,yL-8,cx,ty,rgba(C.muted,0.7),1,[3,4]);
+  arrow(ctx,cx+R/2,yL,cx+1,yL,C.muted,1.3,6);arrow(ctx,cx+R/2,yL,cx+R-1,yL,C.muted,1.3,6);
+  txt(ctx,'L = '+oo.L.toFixed(2)+' m',cx+R/2,yL-7,C.muted,12,600,'center');
+  /* back half of the circle */
+  ctx.setLineDash([5,5]);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.3;
+  ctx.beginPath();ctx.ellipse(cx,ty,R,ey,0,Math.PI,TAU);ctx.stroke();ctx.setLineDash([]);
+  /* string below the tube, tube, hand, paper clip */
+  seg(ctx,cx,tb,cx,mT,C.ink,1.3);
+  ctx.fillStyle=rgba(C.muted,0.22);ctx.fillRect(cx-5,ty,10,o.tubeH);ctx.strokeStyle=C.muted;ctx.lineWidth=1.3;ctx.strokeRect(cx-5,ty,10,o.tubeH);
+  var hy=ty+Math.round(o.tubeH*0.38);
+  rrect(ctx,cx-15,hy,30,34,10);ctx.fillStyle=rgba(C.muted,0.3);ctx.fill();ctx.strokeStyle=rgba(C.muted,0.9);ctx.lineWidth=1.2;ctx.stroke();
+  txt(ctx,'Tube, held in the hand',cx+24,hy+21,C.muted,12,500);
+  rrect(ctx,cx-8,cy,16,5,1.5);ctx.fillStyle=C.muted;ctx.fill();
+  txt(ctx,'Paper clip (keeps L fixed)',cx+16,cy+6,C.muted,12,500);
+  /* hanging mass M: F_T up, Mg down, same length (M stays still) */
+  rrect(ctx,cx-16,mT,32,24,3);ctx.fillStyle=C.surface;ctx.fill();ctx.strokeStyle=C.ink;ctx.lineWidth=1.5;ctx.stroke();
+  txt(ctx,'M',cx,mT+13,C.ink,13,700,'center','middle');
+  txt(ctx,'Hanging mass',cx+24,mT+17,C.muted,12,500);
+  arrow(ctx,cx,mT,cx,mT-Fp,C.force,2.6,8);rt(ctx,'F_T',cx-8,mT-Fp*0.5+4,C.force,12.5,700,'right');
+  arrow(ctx,cx,mT+24,cx,mT+24+Fp,C.force,2.6,8);rt(ctx,'Mg',cx+8,mT+24+Fp*0.55+4,C.force,12.5,700);
+  /* front half of the circle (in front of the tube) */
+  ctx.setLineDash([5,5]);ctx.strokeStyle=rgba(C.muted,0.8);ctx.lineWidth=1.3;
+  ctx.beginPath();ctx.ellipse(cx,ty,R,ey,0,0,Math.PI);ctx.stroke();ctx.setLineDash([]);
+  /* stopper */
+  var ph=m5.ph,cs=Math.cos(ph),sn=Math.sin(ph),sx=cx+R*cs,sy=ty-ey*sn,k;
+  if(m5.tm){var p0=m5.tm.ph0;seg(ctx,cx+R*Math.cos(p0),ty-ey*Math.sin(p0)-7,cx+R*Math.cos(p0),ty-ey*Math.sin(p0)+7,C.copper,2);
+    for(k=4;k>=1;k--){var pk=ph-k*0.3;dot(ctx,cx+R*Math.cos(pk),ty-ey*Math.sin(pk),5.5,rgba(C.ink,0.06+0.05*(4-k)));}}
+  seg(ctx,cx,ty,sx,sy,C.ink,1.3);
+  var dx=cx-sx,dy=ty-sy,dl=Math.hypot(dx,dy);
+  if(dl>40){var ux=dx/dl,uy=dy/dl,al=Math.min(Fp,dl-20);
+    if(al>=14){var x1=sx+ux*10,y1=sy+uy*10;arrow(ctx,x1,y1,x1+ux*al,y1+uy*al,C.force,2.6,8);rt(ctx,'F_T',x1+ux*al*0.5,y1+uy*al*0.5+17,C.force,12.5,700,'center');}}
+  for(k=0;k<oo.n;k++){var yk=sy-k*6;dot(ctx,sx,yk,7.8,C.stage);dot(ctx,sx,yk,6.6,C.ink);}
+  txt(ctx,'m',sx+(cs>=0?13:-13),sy+4,C.ink,13.5,700,cs>=0?'left':'right','alphabetic',MATH);
+}
+
+/* ---------- readouts under the apparatus ---------- */
+function drawRead(ctx,o){
+  var p=m5.part,oo=cur(),f=o.rf,x=16,e=meas(p,m5.val[p]),s1;
+  if(p==='A')s1='F_c = Mg = '+oo.M.toFixed(2)+' × 9.8 = '+(oo.M*G).toFixed(2)+' N';
+  else if(p==='B')s1='r = L = '+oo.L.toFixed(2)+' m · F_c = Mg = '+(oo.M*G).toFixed(2)+' N (unchanged)';
+  else s1='m = '+oo.n+' × 0.025 = '+oo.m.toFixed(3)+' kg · 1/m = '+(1/oo.m).toFixed(1)+' kg⁻¹';
+  rt(ctx,s1,x,o.ry[0],C.ink,f,600);
+  if(m5.tm){var nn=Math.min(NT,Math.floor(m5.tm.f*NT));
+    rt(ctx,'Timing '+(m5.tm.f*m5.tm.t20).toFixed(2)+' s · turn '+nn+' / 20',x,o.ry[1],C.copper,f,700);
+    rt(ctx,'v = 2πL/T = ?',x,o.ry[2],C.muted,f,500);}
+  else if(e){rt(ctx,'20 turns = '+e.t.toFixed(2)+' s → T = '+e.T.toFixed(3)+' s'+(e.n>1?' (average of '+e.n+')':''),x,o.ry[1],C.ink,f,600);
+    rt(ctx,'v = 2πL/T = '+e.v.toFixed(2)+' m s⁻¹ → v² = '+e.v2.toFixed(1),x,o.ry[2],C.ink,f,600);}
+  else{rt(ctx,'20 turns = ?  Press "Time 20 turns"',x,o.ry[1],C.muted,f,500);rt(ctx,'v = 2πL/T = ?',x,o.ry[2],C.muted,f,500);}
+}
+
+/* ---------- graph ---------- */
+var PX=[],PY=[],PK=[];
+function drawGraph(ctx,o){
+  var p=m5.part,c=CFG[p],gx=o.gx,gy=o.gt,gw=o.gw,gh=o.gh,W=o.W,i,v,k;
+  rt(ctx,c.title,o.x0,o.tt,C.ink,o.wide?14:13.5,700);
+  txt(ctx,'data: illustrative',W-16,o.tt,C.muted,11.5,500,'right');
+  rt(ctx,c.yl,o.x0,gy-11,C.muted,12,600);
+  for(i=0;i<c.yt.length;i++){v=c.yt[i];var yy=gy+gh-v/c.ymax*gh;if(v>0)seg(ctx,gx,yy,gx+gw,yy,C.grid,1);txt(ctx,String(v),gx-7,yy+4,C.muted,11,500,'right');}
+  for(i=0;i<c.xt.length;i++){v=c.xt[i];var xx=gx+v/c.xmax*gw;if(v>0)seg(ctx,xx,gy,xx,gy+gh,C.grid,1);txt(ctx,p==='B'&&v>0?v.toFixed(1):String(v),xx,gy+gh+16,C.muted,11,500,'center');}
+  seg(ctx,gx,gy,gx,gy+gh,C.muted,1.2);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1.2);
+  rt(ctx,c.xl,gx+gw,gy+gh+34,C.muted,12,600,'right');
+  /* points */
+  PX.length=0;PY.length=0;PK.length=0;
+  for(k in m5.pts[p]){var en=m5.pts[p][k],e=meas(p,en.v);
+    if(p==='A'){PX.push(e.v2);PY.push(e.o.M*G);}else if(p==='B'){PX.push(e.o.L);PY.push(e.v2);}else{PX.push(1/e.o.m);PY.push(e.v2);}PK.push(k);}
+  var n=PX.length,sxx=0,sxy=0;
+  for(i=0;i<n;i++){sxx+=PX[i]*PX[i];sxy+=PX[i]*PY[i];}
+  var fit=n>=2&&sxx>0;
+  function X(x){return gx+x/c.xmax*gw;}function Y(y){return gy+gh-y/c.ymax*gh;}
+  if(fit){var b=sxy/sxx;   /* 过原点的 line of best fit（理论上就是正比） */
+    ctx.save();ctx.beginPath();ctx.rect(gx,gy,gw,gh);ctx.clip();seg(ctx,X(0),Y(0),X(c.xmax),Y(b*c.xmax),rgba(C.copper,0.85),2);ctx.restore();
+    var dev=Math.abs(b-c.th)/c.th*100;
+    rt(ctx,'Gradient = '+b.toFixed(c.dp)+' '+c.su,gx+10,gy+17,C.ink,12,600);
+    rt(ctx,'Theory '+c.thl+' = '+c.th.toFixed(c.dp)+' · '+dev.toFixed(1)+' % off',gx+10,gy+35,C.muted,12,500);}
+  else txt(ctx,n?'One more point to draw the line of best fit':'No points yet',gx+10,gy+17,C.muted,12,500);
+  var ck=kOf(m5.val[p]);
+  for(i=0;i<n;i++){var px=X(PX[i]),py=Y(PY[i]);dot(ctx,px,py,6.2,C.stage);dot(ctx,px,py,5,C.copper);
+    if(PK[i]===ck)ring(ctx,px,py,9.5,rgba(C.copper,0.6),1.5);
+    if(m5.flash&&m5.flash.p===p&&m5.flash.k===PK[i]&&m5.flash.t<1){var ft=m5.flash.t;ring(ctx,px,py,7+16*ft,rgba(C.copper,0.9*(1-ft)),2);}}
+  /* variables */
+  for(i=0;i<3;i++){var vv=c.vars[i],wl;txt(ctx,vv[0],o.x0,o.vy[i],C.ink,o.vf,600);wl=ctx.measureText(vv[0]).width;rt(ctx,vv[1],o.x0+wl,o.vy[i],C.muted,o.vf,500);}
+}
+
+var S5=makeStage('sim5',{
+  height:function(w){return lay(w).H;},
+  step:step5,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var o=lay(W),s=status();
+    rt(ctx,s[0],16,o.s1,C.ink,o.f1,600);
+    rt(ctx,s[1],16,o.s2,C.muted,o.f2,500);
+    drawApp(ctx,o);drawRead(ctx,o);drawGraph(ctx,o);
+  }
+});
+
+/* ---------- controls ---------- */
+var bA=document.getElementById('s5-pa'),bB=document.getElementById('s5-pb'),bC=document.getElementById('s5-pc');
+var rg=document.getElementById('s5-var'),ro=document.getElementById('s5-var-out'),rl=document.getElementById('s5-var-lbl');
+var bT=document.getElementById('s5-time'),bX=document.getElementById('s5-clear');
+function fmtV(p,v){return p==='A'?v.toFixed(2)+' kg':(p==='B'?v.toFixed(2)+' m':String(Math.round(v)));}
+function syncCtl(){var p=m5.part,c=CFG[p];press(bA,p==='A');press(bB,p==='B');press(bC,p==='C');
+  rl.textContent=c.lbl;rg.min=c.min;rg.max=c.max;rg.step=c.step;rg.value=m5.val[p];ro.textContent=fmtV(p,m5.val[p]);
+  bT.textContent=m5.tm?'Timing...':'Time 20 turns, record a point';}
+function setPart(p){m5.tm=null;m5.part=p;m5.msg={k:'part',t:0,d:0};m5.flash=null;syncCtl();S5.render();}
+bA.addEventListener('click',function(){setPart('A');});
+bB.addEventListener('click',function(){setPart('B');});
+bC.addEventListener('click',function(){setPart('C');});
+rg.addEventListener('input',function(){var p=m5.part,v=parseFloat(rg.value);if(p==='C')v=Math.round(v);else v=Math.round(v*100)/100;
+  var old=m5.val[p];if(Math.abs(v-old)<1e-9)return;m5.val[p]=v;m5.tm=null;m5.msg={k:'var',t:0,d:v>old?1:-1};syncCtl();S5.render();});
+bT.addEventListener('click',function(){if(m5.tm)return;var o=cur();m5.w=TAU/per(o);m5.ph=m5.ph%TAU;m5.tm={f:0,ph0:m5.ph,t20:trial(o)};m5.flash=null;syncCtl();S5.setPlaying(true);S5.render();});
+bX.addEventListener('click',function(){m5.pts[m5.part]={};m5.tm=null;m5.flash=null;m5.msg={k:'clear',t:0,d:0};syncCtl();S5.render();});
+syncCtl();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M5 T1 Projectile Motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700&family=STIX+Two+Text:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<!--crumbs--><nav class="crumbs" aria-label="Where you are"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#m5">Module 5</a><span class="sep">/</span><span aria-current="page">Topic 1</span><a class="lang" lang="zh-Hans" href="../../m5/t1.html">中文</a></nav><!--/crumbs-->
+<header class="top">
+  <div class="eyebrow">HSC Physics · Module 5 · Topic 1</div>
+  <h1>Projectile Motion</h1>
+  <p class="h1-sub">Explained from zero</p>
+  <p class="lead">This chapter is about how thrown things fly. There is only one secret: <b>split the motion into two directions, horizontal and vertical</b>. Work them out separately. They share only the time <span class="m"><i>t</i></span>. Once it is split, each direction is a straight-line motion you have already learned.</p>
+</header>
+<nav class="jump" aria-label="Quick revision"><span class="jump-k">Quick revision</span><a href="#s11">Formula summary</a><a href="#review-must">Must know</a><a href="#review-err">Common mistakes</a><a href="#s13">Quick quiz</a></nav>
+
+<div class="rules">
+  <div class="rule">
+    <div class="rule-n">Rule ①</div>
+    <div class="rule-name t">Independent motions</div>
+    <p>First split a velocity at an angle into a horizontal part and a vertical part. The two parts do not affect each other and share only the time <span class="m"><i>t</i></span>. The horizontal <span class="m"><i>v</i><sub>x</sub></span> stays the same. The vertical <span class="m"><i>v</i><sub>y</sub></span> changes by 9.8&nbsp;m&nbsp;s<sup>−1</sup> every second.</p>
+    <div class="eqs"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i>&emsp;<i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></div>
+  </div>
+  <div class="rule">
+    <div class="rule-n">Rule ②</div>
+    <div class="rule-name t">Equations of motion</div>
+    <p>Constant acceleration only. Use them once for each direction. Never mix <span class="m"><i>x</i></span> and <span class="m"><i>y</i></span> values.</p>
+    <div class="eqs"><i>v</i> = <i>u</i> + <i>at</i>&emsp;<i>v</i>² = <i>u</i>² + 2<i>as</i><br><i>s</i> = <i>ut</i> + ½<i>at</i>²</div>
+  </div>
+  <div class="rule" style="grid-column:1 / -1">
+    <div class="rule-n">Rule ③</div>
+    <div class="rule-name t">Sign convention</div>
+    <p>The <span class="t">origin</span> is the launch point. Up and forwards are positive. So the vertical acceleration is negative for the whole flight, even at the top.</p>
+    <div class="eqs"><i>a</i><sub>x</sub> = 0&emsp;<i>a</i><sub>y</sub> = −<i>g</i> = −9.8&nbsp;m&nbsp;s<sup>−2</sup></div>
+  </div>
+</div>
+
+<nav class="map" aria-label="In this chapter">
+  <div class="map-row head"><span>Part</span><span>What it finds</span><span>Key point</span></div>
+  <a class="map-row" href="#s1"><span><span class="sec">1.1</span><span class="t">Projectile model</span></span><span>Split into <i>x</i> and <i>y</i></span><span><i>v</i><sub>x</sub> stays the same, <i>v</i><sub>y</sub> changes by 9.8&nbsp;m&nbsp;s<sup>−1</sup> every second</span></a>
+  <a class="map-row" href="#s2"><span><span class="sec">1.1</span><span class="t">Horizontal launch</span></span><span>Time and range</span><span><i>u</i><sub>y</sub> = 0, the time depends only on the height</span></a>
+  <a class="map-row" href="#s3"><span><span class="sec">1.2</span><span class="t">Height, time, range</span></span><span>How high, how long, how far</span><span>At the top only <i>v</i><sub>y</sub> = 0</span></a>
+  <a class="map-row" href="#s4"><span><span class="sec">1.2</span><span class="t">The 45° rule</span></span><span>The angle for the longest range</span><span>45° goes farthest; 30° and 60° go equally far</span></a>
+  <a class="map-row" href="#s5"><span><span class="sec">1.2</span><span class="t">From a height</span></span><span>Time (quadratic equation)</span><span>At landing <i>s</i><sub>y</sub> = −<i>h</i>, keep the positive root</span></a>
+  <a class="map-row" href="#s6"><span><span class="sec">1.2</span><span class="t">Final velocity</span></span><span>Landing velocity</span><span>Needs a size and a direction</span></a>
+  <a class="map-row" href="#s7"><span><span class="sec">1.3</span><span class="t">Energy</span></span><span>Speed at a given height</span><span><i>K</i> + <i>U</i> stays the same</span></a>
+  <a class="map-row" href="#s8"><span><span class="sec">1.3</span><span class="t">Air resistance</span></span><span>Where the model fails</span><span>Shorter, lower, steeper</span></a>
+  <a class="map-row" href="#s9"><span><span class="sec">1.4</span><span class="t">Predicting motion</span></span><span>Which model to use</span><span>One model for each direction, one <i>t</i></span></a>
+  <a class="map-row" href="#s10"><span><span class="sec">1.5</span><span class="t">Key experiment</span></span><span>Validate the model</span><span><i>R</i> is proportional to <i>u</i></span></a>
+</nav>
+
+<aside class="tip">
+  <h3>Order for revising with students</h3>
+  <ol>
+    <li>First spend 3 minutes on "Know these 4 first" below, especially sin, cos and the signs.</li>
+    <li>Teach 1.1 → 1.5 in order. In each section, read the "Big idea" first, then open the animation and let the students say what they see. For every calculation, first draw two columns, <i>x</i> and <i>y</i>, and fill in the known values.</li>
+    <li>Finish with the "Quick quiz", then look at "Common mistakes".</li>
+  </ol>
+</aside>
+
+<section id="s0">
+  <div class="secnum">Warm-up</div>
+  <h2>Know these 4 first</h2>
+  <ol class="pts">
+    <li>A <span class="t">vector</span> has a size and a direction. It is drawn as an arrow. An arrow at an angle can be split into a horizontal arrow plus a vertical arrow.</li>
+    <li>In a right-angled triangle: <span class="m">cos <i>θ</i> = adjacent / hypotenuse</span>, <span class="m">sin <i>θ</i> = opposite / hypotenuse</span>. Set your calculator to <span class="t">degree mode</span>.</li>
+    <li><span class="t">Displacement</span> <span class="m"><i>s</i></span> and velocity both have a sign. The sign is the direction. <span class="t">Speed</span> has only a size, with no direction.</li>
+    <li><span class="t">Newton's second law</span>: <span class="m"><i>F</i><sub>net</sub> = <i>ma</i></span>. <span class="m"><i>F</i><sub>net</sub></span> is the <span class="t">net force</span>: all the forces added together. No net force means no acceleration, so the velocity does not change. <span class="t">Acceleration due to gravity</span> is <span class="m"><i>g</i> = 9.8&nbsp;m&nbsp;s<sup>−2</sup></span>, downwards: the velocity changes by 9.8&nbsp;m&nbsp;s<sup>−1</sup> every second.</li>
+  </ol>
+</section>
+
+<section id="s1">
+  <div class="secnum">1.1</div>
+  <h2>The projectile model</h2>
+  <p class="big"><span class="lbl">Big idea</span>A thrown ball moves forwards and up and down at the same time. The two motions do not affect each other. The forward velocity stays the same. Gravity changes the up-and-down velocity by the same amount every second.</p>
+  <ul class="pts">
+    <li><span class="t">Projectile</span>: an object that moves through the air after it is thrown or launched, with no engine pushing it.</li>
+    <li><span class="t">Component</span>: the part of a vector (an arrow quantity) that points in one direction.</li>
+    <li>The projectile <span class="t">model</span> (a simple description we can calculate with) has two <span class="t">assumptions</span>: <b>zero air resistance</b>; and <span class="m"><i>g</i> = 9.8&nbsp;m&nbsp;s<sup>−2</sup></span> is <b>constant</b>, straight down.</li>
+  </ul>
+
+  <h3>Why do the two directions not affect each other?</h3>
+  <ul class="pts">
+    <li>Gravity pulls only downwards: there is <b>no horizontal force</b>. No horizontal force means no horizontal acceleration (Newton's second law), so <b><span class="m"><i>v</i><sub>x</sub></span> stays the same</b>.</li>
+    <li>Vertically there is only gravity, so <span class="m"><i>v</i><sub>y</sub></span> changes by 9.8&nbsp;m&nbsp;s<sup>−1</sup> every second.</li>
+    <li>The two motions are <span class="t">independent</span>: they do not affect each other and share only the time <span class="m"><i>t</i></span>.</li>
+    <li>A comparison: imagine two shadows. The shadow on the ground only moves forwards at a steady speed. The shadow on the wall only moves up and down. The two shadows use the same stopwatch.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">A: dropped</div><p>Let go at the table edge. It falls straight down.</p></div>
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">B: thrown horizontally at the same moment</div><p>Thrown forwards from the same height at the same moment. Look every 0.1&nbsp;s: A and B are <b>at the same height</b>, and they <b>land at the same time</b>.</p></div>
+  </div>
+  <p>B's forward velocity does not make it fall more slowly, and it does not make it fall more quickly. Animation 1 shows this.</p>
+  <ul class="pts">
+    <li>The distance forwards is proportional to <span class="m"><i>t</i></span>. The distance fallen grows with <span class="m"><i>t</i>²</span>. So the path (the <span class="t">trajectory</span>) is a <span class="t">parabola</span>: a curve symmetrical about its top.</li>
+    <li>Signs: the origin is the launch point. Up and forwards are positive. So <span class="m"><i>a</i><sub>y</sub> = −<i>g</i> = −9.8&nbsp;m&nbsp;s<sup>−2</sup></span> for the whole flight, <b>even at the top</b>.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Components of the launch velocity</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="white-space:nowrap;margin:0 .45em"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i></span> <span style="white-space:nowrap;margin:0 .45em"><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></span></div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>launch speed (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>θ</dt><dd><span class="t">launch angle</span>, measured up from the horizontal (°, SI: rad)</dd></div>
+      <div><dt>u<sub>x</sub></dt><dd>horizontal part of the launch velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>u<sub>y</sub></dt><dd>vertical part of the launch velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> any launch at an angle. Back again: <span class="m" style="white-space:nowrap"><i>u</i> = √(<i>u</i><sub>x</sub>² + <i>u</i><sub>y</sub>²)</span>, <span class="m"><i>θ</i> = tan<sup>−1</sup>(<i>u</i><sub>y</sub>/<i>u</i><sub>x</sub>)</span>.<br><b>You can also derive it:</b> in the right-angled triangle, <span class="m">cos <i>θ</i> = <i>u</i><sub>x</sub>/<i>u</i></span> and <span class="m">sin <i>θ</i> = <i>u</i><sub>y</sub>/<i>u</i></span>.<br><b>Trap:</b> use degree mode on your calculator. If the angle is from the <b>vertical</b>, <span class="m"><i>u</i><sub>x</sub> = <i>u</i> sin <i>θ</i></span>.</p>
+  </div>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">The equations of motion</span><span class="badge on">On the formula sheet</span></div>
+    <div class="eq"><span style="white-space:nowrap;margin:0 .45em"><i>v</i> = <i>u</i> + <i>at</i></span> <span style="white-space:nowrap;margin:0 .45em"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span> <span style="white-space:nowrap;margin:0 .45em"><i>v</i>² = <i>u</i>² + 2<i>as</i></span></div>
+    <dl class="sym">
+      <div><dt>u</dt><dd>initial velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>v</dt><dd>final velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>a</dt><dd>acceleration (m&nbsp;s<sup>−2</sup>)</dd></div>
+      <div><dt>s</dt><dd>displacement, the change in position, with a sign (m)</dd></div>
+      <div><dt>t</dt><dd>time (s)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> constant acceleration only. Use them once for each direction. Horizontally <span class="m"><i>a</i><sub>x</sub> = 0</span>, so <span class="m"><i>v</i><sub>x</sub> = <i>u</i><sub>x</sub></span> and <span class="m"><i>s</i><sub>x</sub> = <i>u</i><sub>x</sub><i>t</i></span>. Vertically <span class="m"><i>a</i><sub>y</sub> = −9.8&nbsp;m&nbsp;s<sup>−2</sup></span>.<br><b>Trap:</b> never mix <span class="m"><i>x</i></span> and <span class="m"><i>y</i></span> values.</p>
+  </div>
+
+  <h3>Five graphs against time</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Graph</th><th>What it looks like</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>s</i><sub>x</sub>–<i>t</i></td><td>straight line through the origin</td><td><i>v</i><sub>x</sub> stays the same, so the ball moves the same distance forwards every second.</td></tr>
+        <tr><td class="f"><i>v</i><sub>x</sub>–<i>t</i></td><td>flat</td><td>There is no horizontal force, so the velocity does not change.</td></tr>
+        <tr><td class="f"><i>s</i><sub>y</sub>–<i>t</i></td><td>upside-down parabola</td><td><i>a</i><sub>y</sub> is negative, so the curve bends downwards (for a launch upwards at an angle: first up, then down).</td></tr>
+        <tr><td class="f"><i>v</i><sub>y</sub>–<i>t</i></td><td>straight line, gradient −9.8&nbsp;m&nbsp;s<sup>−2</sup></td><td><i>v</i><sub>y</sub> drops by 9.8&nbsp;m&nbsp;s<sup>−1</sup> every second.</td></tr>
+        <tr><td class="f"><i>a</i><sub>y</sub>–<i>t</i></td><td>flat, at −9.8&nbsp;m&nbsp;s<sup>−2</sup></td><td>Gravity never changes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="secnum">1.1</div>
+  <h2>The simplest case: a horizontal launch</h2>
+  <p class="big"><span class="lbl">Big idea</span>In a horizontal launch <span class="m"><i>u</i><sub>y</sub> = 0</span>, so vertically the fall is like a drop from rest. This means the time in the air depends only on the height.</p>
+  <ul class="pts">
+    <li>Launched horizontally off a table, a ledge or a cliff: the launch velocity is horizontal, so <span class="m"><i>u</i><sub>y</sub> = 0</span>.</li>
+    <li>Vertically, the fall is like a drop from rest. However fast you throw it forwards, this does not change how long the fall takes.</li>
+    <li>The time in the air <b>depends only on the height</b>. Four times the height doubles the time (because √4 = 2). At the same speed, it also doubles the range.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Horizontal launch from a height</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="white-space:nowrap;margin:0 .45em"><i>t</i> = √(2<i>h</i>/<i>g</i>)</span> <span style="white-space:nowrap;margin:0 .45em"><i>R</i> = <i>u</i>√(2<i>h</i>/<i>g</i>)</span></div>
+    <dl class="sym">
+      <div><dt>t</dt><dd>time of flight (s)</dd></div>
+      <div><dt>h</dt><dd>launch height above the landing point (m)</dd></div>
+      <div><dt>u</dt><dd>horizontal launch speed (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>g</dt><dd>size of gravity's acceleration, 9.8 (m&nbsp;s<sup>−2</sup>)</dd></div>
+      <div><dt>R</dt><dd>range, from the point under the launch point (m)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> the launch velocity is horizontal (<span class="m"><i>u</i><sub>y</sub> = 0</span>).<br><b>You can also derive it:</b> use <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span> with <span class="m"><i>s</i><sub>y</sub> = −<i>h</i></span>, <span class="m"><i>u</i><sub>y</sub> = 0</span>, <span class="m"><i>a</i><sub>y</sub> = −<i>g</i></span>. This gives <span class="m">−<i>h</i> = −½<i>gt</i>²</span>, so <span class="m"><i>t</i> = √(2<i>h</i>/<i>g</i>)</span>. Then use <span class="m"><i>R</i> = <i>u</i><sub>x</sub><i>t</i></span>.<br><b>Example:</b> <span class="m"><i>h</i> = 0.900&nbsp;m</span> (the height in the 1.5 experiment): <span class="m"><i>t</i> = √(2 × 0.900 / 9.8) = 0.429&nbsp;s</span>.<br><b>Trap:</b> use <span class="m"><i>u</i><sub>y</sub> = 0</span>, not <span class="m"><i>u</i><sub>y</sub> = <i>u</i></span>. Here <span class="m"><i>h</i></span> is positive: do not put in −<i>h</i>.</p>
+  </div>
+
+<figure class="sim" id="sim1">
+    <figcaption class="sim-head"><span class="sim-title">Animation 1 · Landing at the same time: dropped vs thrown horizontally</span><span class="sim-tag">Strobe interval and middle table height from the booklet · speeds and the other two table heights: illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="A is dropped from the edge of the table. At the same moment B is thrown horizontally from the same height. A dot is left every 0.1 s. A dashed line joins A and B at the same moment: they stay at the same height and land at the same time. Beside them is a graph of range R against horizontal speed u, with one dot for each landing."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <label class="range">u <input type="range" id="s1-u" min="0" max="3" step="0.25" value="1.5"><output id="s1-u-out" for="s1-u">1.50 m/s</output></label>
+      <span class="seg" role="group" aria-label="Table height h">
+        <button class="btn" type="button" id="s1-h0" aria-pressed="false">h = 0.225 m</button>
+        <button class="btn" type="button" id="s1-h1" aria-pressed="true">h = 0.900 m</button>
+        <button class="btn" type="button" id="s1-h2" aria-pressed="false">h = 3.60 m</button>
+      </span>
+      <button class="btn" type="button" id="s1-drop">Drop</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① Look at the horizontal dashed line: at any moment A and B are always at the same height, and they land at the same time. B's <i>v</i><sub>x</sub> arrow stays the same length. Its <i>v</i><sub>y</sub> arrow gets longer and longer. ② Drag <i>u</i>. Each time the balls land, one more dot appears on the <i>R</i>–<i>u</i> graph beside them: the dots all lie on a straight line through the origin (<i>R</i> ∝ <i>u</i>). At <i>u</i> = 0, B is exactly like A. ③ Change <i>h</i>: at 4 times the height, the strobe dots (not counting the one at 0 s) go from 4 to 8, and the time doubles. The strobe dots get further apart lower down: in each 0.1 s the ball falls 0.049, 0.147, 0.245, 0.343 m (1 : 3 : 5 : 7). The picture is in slow motion. The readings are real time.</p>
+  </figure>
+</section>
+
+<section id="s3">
+  <div class="secnum">1.2</div>
+  <h2>Maximum height, time of flight and range</h2>
+  <p class="big"><span class="lbl">Big idea</span>At the top of the path the vertical velocity is zero for an instant. This gives the maximum height and, on level ground, the time of flight and the range.</p>
+  <ul class="pts">
+    <li><span class="t">Maximum height</span> <span class="m"><i>h</i><sub>max</sub></span>: the greatest height above the launch point.</li>
+    <li><span class="t">Time of flight</span> <span class="m"><i>t</i><sub>flight</sub></span>: the time from launch until landing.</li>
+    <li><span class="t">Range</span> <span class="m"><i>R</i></span>: the horizontal distance from the launch point to the landing point.</li>
+  </ul>
+  <div class="duo">
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">At the top</div><p><b>Only</b> <span class="m"><i>v</i><sub>y</sub> = 0</span>. The ball still moves forwards at <span class="m"><i>v</i><sub>x</sub></span>, so the velocity = <span class="m"><i>v</i><sub>x</sub></span>, not 0.</p></div>
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Acceleration</div><p>It is <span class="m"><i>g</i></span> down at every point, <b>never zero</b>. The same is true at the top.</p></div>
+  </div>
+  <ul class="pts">
+    <li>On level ground the path is <span class="t">symmetrical</span>: the way down is like a mirror image of the way up. Time up = time down.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Maximum height, time of flight and range</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="white-space:nowrap;margin:0 .45em"><i>t</i><sub>top</sub> = <i>u</i><sub>y</sub>/<i>g</i></span> <span style="white-space:nowrap;margin:0 .45em"><i>h</i><sub>max</sub> = <i>u</i><sub>y</sub>²/2<i>g</i></span> <span style="white-space:nowrap;margin:0 .45em"><i>t</i><sub>flight</sub> = 2<i>u</i><sub>y</sub>/<i>g</i></span> <span style="white-space:nowrap;margin:0 .45em"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i></span></div>
+    <dl class="sym">
+      <div><dt>t<sub>top</sub></dt><dd>time from launch to the top (s)</dd></div>
+      <div><dt>t<sub>flight</sub></dt><dd>time from launch to landing (s)</dd></div>
+      <div><dt>h<sub>max</sub></dt><dd>greatest height above the launch point (m)</dd></div>
+      <div><dt>R</dt><dd>range on level ground (m)</dd></div>
+      <div><dt>u<sub>y</sub></dt><dd>vertical part of the launch velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>u</dt><dd>launch speed (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>θ</dt><dd>launch angle above the horizontal (°)</dd></div>
+      <div><dt>g</dt><dd>size of gravity's acceleration, 9.8 (m&nbsp;s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> <span class="m"><i>t</i><sub>top</sub></span> and <span class="m"><i>h</i><sub>max</sub></span>: any upward launch. <span class="m"><i>t</i><sub>flight</sub></span> and <span class="m"><i>R</i></span>: launch and landing at the same height, and no air resistance.<br><b>You can also derive it:</b> put <span class="m"><i>a</i><sub>y</sub> = −<i>g</i></span> into the sheet equations. At the top <span class="m"><i>v</i><sub>y</sub> = 0</span>: <span class="m"><i>v</i> = <i>u</i> + <i>at</i></span> gives <span class="m">0 = <i>u</i><sub>y</sub> − <i>gt</i><sub>top</sub></span>, and <span class="m"><i>v</i>² = <i>u</i>² + 2<i>as</i></span> gives <span class="m">0 = <i>u</i><sub>y</sub>² − 2<i>gh</i><sub>max</sub></span>. At landing <span class="m"><i>s</i><sub>y</sub> = 0</span>: <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span> gives <span class="m">0 = <i>t</i>(<i>u</i><sub>y</sub> − ½<i>gt</i>)</span>, so <span class="m"><i>t</i><sub>flight</sub> = 2<i>u</i><sub>y</sub>/<i>g</i></span> (<span class="m"><i>t</i> = 0</span> is the launch). Then <span class="m"><i>R</i> = <i>u</i><sub>x</sub><i>t</i><sub>flight</sub> = <i>u</i> cos <i>θ</i> × 2<i>u</i> sin <i>θ</i> / <i>g</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i></span>, because <span class="m">2 sin <i>θ</i> cos <i>θ</i> = sin 2<i>θ</i></span>.<br><b>Trap:</b> use <span class="m"><i>u</i><sub>y</sub></span>, not <span class="m"><i>u</i></span>. Put in <span class="m"><i>g</i> = 9.8</span>, not −9.8 (the minus sign is already built in).</p>
+  </div>
+
+  <ul class="pts">
+    <li>With <span class="m"><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></span>: <span class="m"><i>h</i><sub>max</sub> = <i>u</i>² sin²<i>θ</i> / 2<i>g</i></span> and <span class="m"><i>t</i><sub>flight</sub> = 2<i>u</i> sin <i>θ</i> / <i>g</i></span>.</li>
+    <li>Double <span class="m"><i>u</i></span> (same angle): the times double; the height and the range become <b>4 times</b> as big (because the formulas have <span class="m"><i>u</i>²</span>).</li>
+  </ul>
+
+<figure class="sim" id="sim2">
+  <figcaption class="sim-head"><span class="sim-title">Animation 2 · Launch at an angle: <i>v</i><sub>x</sub> stays the same, <i>v</i><sub>y</sub> changes</span><span class="sim-tag">level ground · slow motion × ½ · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A ball is launched at an angle on level ground and follows a parabola. Arrows on the ball show the velocity v, its horizontal and vertical components, and the acceleration g, which always points down. Every quarter of the time of flight, a set of light velocity arrows stays on the path. Two graphs beside it: v_x against time is flat, and v_y against time is a straight line sloping down. Below, it shows u_x, u_y, t_top, h_max, t_flight and R."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Speed <i>u</i> <input type="range" id="s2-u" min="5" max="25" step="1" value="15"><output id="s2-u-out" for="s2-u">15 m/s</output></label>
+    <label class="range">Angle <i>θ</i> <input type="range" id="s2-th" min="15" max="75" step="1" value="53"><output id="s2-th-out" for="s2-th">53°</output></label>
+    <span style="display:inline-flex;gap:8px"><button class="btn" type="button" id="s2-top">Stop at the top</button>
+    <button class="btn" type="button" id="s2-reset">Restart</button></span>
+  </div>
+  <p class="try"><b>Try it:</b> ① Look at the arrows on the ball: the horizontal <i>v</i><sub>x</sub> keeps the same length from start to end. The vertical <i>v</i><sub>y</sub> gets shorter on the way up. After the top it points down and gets longer. ② Press "Stop at the top": <i>v</i><sub>y</sub> = 0, so only <i>v</i><sub>x</sub> is left. But the purple acceleration <i>a</i> = <i>g</i> is still there, and it still points down. ③ Look at the two graphs: <i>v</i><sub>x</sub>–<i>t</i> is flat. <i>v</i><sub>y</sub>–<i>t</i> is a straight line. Its gradient is always −9.8&nbsp;m&nbsp;s<sup>−2</sup>. It crosses 0 exactly at <i>t</i><sub>top</sub> and reaches −<i>u</i><sub>y</sub> at landing. ④ Change <i>u</i> from 10 to 20: <i>t</i><sub>top</sub> and <i>t</i><sub>flight</sub> double, and <i>h</i><sub>max</sub> and <i>R</i> become 4 times as big (the picture rescales itself, so look at the numbers below). All values are illustrative, <i>g</i> = 9.8&nbsp;m&nbsp;s<sup>−2</sup>.</p>
+</figure>
+</section>
+
+<section id="s4">
+  <div class="secnum">1.2</div>
+  <h2>Range and the 45° rule</h2>
+  <p class="big"><span class="lbl">Big idea</span>The range needs two things: horizontal speed and time in the air. On level ground, 45° gives the best mix of the two, so the range is longest.</p>
+  <ul class="pts">
+    <li>A low angle: large horizontal speed, but the ball lands quickly. A high angle: a long time in the air, but the ball moves forwards slowly.</li>
+    <li><b>45° gives the longest range</b>: when <span class="m">2<i>θ</i> = 90°</span>, <span class="m">sin 2<i>θ</i> = 1</span>, its largest value. Then <span class="m"><i>R</i><sub>max</sub> = <i>u</i>²/<i>g</i></span>.</li>
+    <li>This is true only on <b>level ground</b> with <b>no air resistance</b>.</li>
+    <li><span class="t">Complementary angles</span>: two angles that add to 90°, such as 30° and 60°. They give the <b>same range</b>. The steeper one goes higher and stays in the air longer.</li>
+    <li>A comparison: watering plants with a hose. Hold the hose flat and the water lands quickly. Point it at the sky and the water falls back at your feet. Hold it at an angle and the water goes far.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h">30°</div><p>Lower, and lands sooner. The range is <b>the same</b> as for 60°.</p></div>
+    <div class="state"><div class="state-h">60°</div><p>Higher and longer in the air, but it moves forwards slowly. The range is <b>the same</b> as for 30°.</p></div>
+  </div>
+  <p>The range still comes from <span class="m"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i></span> above. There is no new formula here. In Animation 3, first keep the launch height <span class="m"><i>h</i></span> at 0 and look at 30° and 60°. The next section raises the launch point.</p>
+
+<figure class="sim" id="sim3">
+  <figcaption class="sim-head"><span class="sim-title">Animation 3 · Range, 45° and complementary angles</span><span class="sim-tag">Same speed · two angles launched together · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="Two balls with the same speed are launched together, at angles θ and 90° − θ. See where they land. The launch point can be raised. On the right (below, on a phone) is a curve of range R against launch angle θ. It marks the two angles and the angle with the longest range."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <label class="range">Launch angle <i>θ</i> <input type="range" id="s3-theta" min="5" max="85" step="5" value="30"><output id="s3-theta-out" for="s3-theta">30°</output></label>
+    <button class="btn" type="button" id="s3-pair" aria-pressed="true">Also launch 90° − θ (60°): on</button>
+    <label class="range">Launch height <i>h</i> <input type="range" id="s3-h" min="0" max="20" step="5" value="0"><output id="s3-h-out" for="s3-h">0 m</output></label>
+    <button class="btn" type="button" id="s3-go">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First look at 30° and 60°: the two balls land at the same point. 60° goes higher and stays in the air longer. ② Drag <i>θ</i> to 45°: this is exactly the top of the curve, so the range is the longest, <i>R</i><sub>max</sub> = <i>u</i>²/<i>g</i>. Then try 15° and 75°: their ranges are also the same. ③ Drag the launch height <i>h</i> to 10 m: 30° now goes farther than 60°, and the top of the curve moves to about 39°, less than 45°. The <i>h</i><sub>max</sub> in the table is measured from the launch point, so raising the launch point does not change it. <i>u</i> = 20&nbsp;m&nbsp;s<sup>−1</sup> is illustrative. All readouts are calculated with <i>g</i> = 9.8&nbsp;m&nbsp;s<sup>−2</sup>.</p>
+</figure>
+</section>
+
+<section id="s5">
+  <div class="secnum">1.2</div>
+  <h2>Launching from a height</h2>
+  <p class="big"><span class="lbl">Big idea</span>When the launch point is above the landing point, <span class="m" style="white-space:nowrap"><i>s</i><sub>y</sub> = −<i>h</i></span> at the moment of landing. Solve a quadratic equation for <span class="m"><i>t</i></span> and keep the positive solution.</p>
+  <ul class="pts">
+    <li><span class="t">Launch height</span> <span class="m"><i>h</i></span>: how far the launch point is above the landing point. So <span class="m"><i>s</i><sub>y</sub> = −<i>h</i></span> at landing.</li>
+  </ul>
+  <h3>Four steps to find the time</h3>
+  <ol class="pts">
+    <li>Write the equation for the vertical motion: <span class="m">−<i>h</i> = <i>u</i><sub>y</sub><i>t</i> + ½<i>a</i><sub>y</sub><i>t</i>²</span>, with <span class="m" style="white-space:nowrap"><i>a</i><sub>y</sub> = −9.8</span>.</li>
+    <li>Write it as <span class="m">4.9<i>t</i>² − <i>u</i><sub>y</sub><i>t</i> − <i>h</i> = 0</span>. This is a <span class="t">quadratic equation</span>: it has a <span class="m"><i>t</i>²</span> term, a <span class="m"><i>t</i></span> term and a number.</li>
+    <li><span class="m"><i>A</i> = 4.9</span>, <span class="m"><i>B</i> = −<i>u</i><sub>y</sub></span>, <span class="m"><i>C</i> = −<i>h</i></span>. Put them into <span class="m"><i>t</i> = (−<i>B</i> ± √(<i>B</i>² − 4<i>AC</i>)) / 2<i>A</i></span>.</li>
+    <li>You get two <span class="t">roots</span> (solutions of the equation). <b>Keep the positive one.</b> The negative one is before the launch, so it has no meaning. Then find the range <span class="m"><i>R</i> = <i>u</i><sub>x</sub><i>t</i></span>.</li>
+  </ol>
+  <ul class="pts">
+    <li>The level-ground <span class="m"><i>t</i><sub>flight</sub></span> and <span class="m"><i>R</i></span> formulas <b>do not apply</b> here.</li>
+    <li>A target <b>above</b> the launch point gives two positive roots: one on the way up, one on the way down.</li>
+    <li>Higher launch point: longer time and longer range. But <span class="m"><i>h</i><sub>max</sub></span> (measured from the launch point) stays the same.</li>
+    <li>From a height, the best angle is <b>less than 45°</b>. The extra drop gives the ball more time in the air. So it is better to put more of the speed into <span class="m"><i>u</i><sub>x</sub></span>. Try a larger launch height <span class="m"><i>h</i></span> in Animation 3.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Launch from a height</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq">−<i>h</i> = <i>u</i><sub>y</sub><i>t</i> − ½<i>gt</i>²</div>
+    <dl class="sym">
+      <div><dt>h</dt><dd>launch height above the landing point (m)</dd></div>
+      <div><dt>u<sub>y</sub></dt><dd>vertical part of the launch velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>g</dt><dd>9.8 (m&nbsp;s<sup>−2</sup>)</dd></div>
+      <div><dt>t</dt><dd>time to landing (s)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> the sheet's <span class="m"><i>s</i> = <i>ut</i> + ½<i>at</i>²</span>, vertically, with <span class="m"><i>s</i><sub>y</sub> = −<i>h</i></span> and <span class="m"><i>a</i><sub>y</sub> = −<i>g</i></span>. Up is positive.<br><b>Example:</b> <span class="m"><i>u</i><sub>y</sub> = 4.9&nbsp;m&nbsp;s<sup>−1</sup>, <i>h</i> = 9.8&nbsp;m</span>: <span class="m">4.9<i>t</i>² − 4.9<i>t</i> − 9.8 = 0</span>. Divide both sides by 4.9: <span class="m"><i>t</i>² − <i>t</i> − 2 = 0</span>, so <span class="m"><i>t</i> = 2&nbsp;s</span> or <span class="m">−1&nbsp;s</span>. Keep <span class="m"><i>t</i> = 2&nbsp;s</span>.<br><b>Trap:</b> this is a quadratic equation in <span class="m"><i>t</i></span>. Remember to keep the positive root.</p>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="secnum">1.2</div>
+  <h2>Final velocity</h2>
+  <p class="big"><span class="lbl">Big idea</span>The <span class="t">final velocity</span> is the velocity just before landing. Give its size and its direction.</p>
+  <ul class="pts">
+    <li>Horizontally: <span class="m"><i>v</i><sub>x</sub> = <i>u</i><sub>x</sub></span>.</li>
+    <li>Vertically: <span class="m"><i>v</i><sub>y</sub> = <i>u</i><sub>y</sub> + <i>a</i><sub>y</sub><i>t</i></span>, or <span class="m"><i>v</i><sub>y</sub>² = <i>u</i><sub>y</sub>² + 2<i>a</i><sub>y</sub><i>s</i><sub>y</sub></span>. <span class="m"><i>v</i><sub>y</sub></span> is negative when the ball moves down.</li>
+    <li>Then combine the two parts: use Pythagoras' theorem for the speed and tan for the direction. <span class="m"><i>α</i></span> is the angle <b>below</b> the horizontal.</li>
+    <li>On <b>level ground</b>: <span class="m"><i>s</i><sub>y</sub> = 0</span>, so <span class="m"><i>v</i><sub>y</sub> = −<i>u</i><sub>y</sub></span>. Landing speed = launch speed and the angle = launch angle, but below the horizontal.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed and direction at landing</span><span class="badge learn">Not on the sheet: learn it</span></div>
+    <div class="eq"><span style="white-space:nowrap;margin:0 .45em"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)</span> <span style="white-space:nowrap;margin:0 .45em">tan <i>α</i> = |<i>v</i><sub>y</sub>| / <i>v</i><sub>x</sub></span></div>
+    <dl class="sym">
+      <div><dt>v</dt><dd>landing speed (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>x</sub></dt><dd>horizontal part of the landing velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>y</sub></dt><dd>vertical part of the landing velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>α</dt><dd>angle below the horizontal (°)</dd></div>
+    </dl>
+    <p class="trap"><b>When to use:</b> to find the velocity just before landing. First find <span class="m"><i>v</i><sub>x</sub></span> and <span class="m"><i>v</i><sub>y</sub></span> separately, then combine them.<br><b>You can also derive it:</b> <span class="m"><i>v</i><sub>x</sub></span> and <span class="m"><i>v</i><sub>y</sub></span> are at right angles, so Pythagoras' theorem gives <span class="m"><i>v</i></span>. In the right-angled triangle, <span class="m">tan <i>α</i> = opposite / adjacent = |<i>v</i><sub>y</sub>| / <i>v</i><sub>x</sub></span>.<br><b>Trap:</b> the speed alone is not enough. Write the answer as "speed ..., direction <span class="m"><i>α</i></span> below the horizontal". <span class="m"><i>v</i><sub>y</sub></span> has a minus sign. To find tan <span class="m"><i>α</i></span>, use its size <span class="m">|<i>v</i><sub>y</sub>|</span>.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="secnum">1.3</div>
+  <h2>Energy in a flight</h2>
+  <p class="big"><span class="lbl">Big idea</span>With no air resistance, kinetic plus potential energy stays the same. This gives the speed at any height directly, without the time or the angle.</p>
+  <ul class="pts">
+    <li>On the way up, <span class="t">kinetic energy</span> (<span class="m"><i>K</i> = ½<i>mv</i>²</span>) turns into <span class="t">gravitational potential energy</span> (<span class="m">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span>). On the way down it turns back.</li>
+    <li>The total stays the same: this is <span class="t">conservation of energy</span>. It is like a roller coaster: slower as it climbs, faster as it drops.</li>
+    <li>For a ball launched at an angle, <span class="m"><i>K</i></span> is smallest at the top, but it is <b>not zero</b>. The ball still moves forwards at <span class="m"><i>u</i><sub>x</sub></span>, so <span class="m"><i>K</i><sub>top</sub> = ½<i>mu</i><sub>x</sub>²</span>.</li>
+    <li>Kinetic energy gained = potential energy lost. Both sides have <span class="m"><i>m</i></span>, so it cancels.</li>
+  </ul>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Speed at a known height</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq" style="font-size:clamp(21px,4vw,29px)"><span style="white-space:nowrap;margin:0 .45em">½<i>mv</i><sub>2</sub>² − ½<i>mv</i><sub>1</sub>² = <i>mg</i>(<i>h</i><sub>1</sub> − <i>h</i><sub>2</sub>)</span> <span style="white-space:nowrap;margin:0 .45em">⇒ <i>v</i><sub>2</sub>² = <i>v</i><sub>1</sub>² + 2<i>g</i>(<i>h</i><sub>1</sub> − <i>h</i><sub>2</sub>)</span></div>
+    <dl class="sym">
+      <div><dt>v<sub>1</sub></dt><dd>speed at height <i>h</i><sub>1</sub> (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>v<sub>2</sub></dt><dd>speed at height <i>h</i><sub>2</sub> (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>h<sub>1</sub>, h<sub>2</sub></dt><dd>heights of the two positions (m)</dd></div>
+      <div><dt>m</dt><dd>mass (kg), it cancels</dd></div>
+      <div><dt>g</dt><dd>9.8 (m&nbsp;s<sup>−2</sup>)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> the sheet's <span class="m"><i>K</i> = ½<i>mv</i>²</span> and <span class="m">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></span>.<br><b>Often used:</b> landing <span class="m"><i>h</i></span> below the launch point: <span class="m"><i>v</i> = √(<i>u</i>² + 2<i>gh</i>)</span>. When the ball ends higher than it started, <span class="m"><i>h</i><sub>1</sub> − <i>h</i><sub>2</sub></span> is negative.<br><b>Trap:</b> energy has no direction: it gives only the <b>speed</b>. For the angle, use <span class="m"><i>v</i><sub>x</sub> = <i>u</i><sub>x</sub></span> and <span class="m">cos <i>α</i> = <i>v</i><sub>x</sub>/<i>v</i></span>.</p>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="secnum">1.3</div>
+  <h2>Air resistance: where the model fails</h2>
+  <p class="big"><span class="lbl">Big idea</span>Real air pulls the ball backwards. So a real ball does not go as far or as high, and its path is no longer symmetrical.</p>
+  <ul class="pts">
+    <li><span class="t">Drag</span> (<span class="t">air resistance</span>) is an extra force opposite to the velocity. The faster the object, the larger the drag, and it grows quickly.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h" style="font-family:var(--body);font-size:17px">Model: no air resistance</div><p>The path is symmetrical. On level ground 45° goes farthest. Landing speed = launch speed. <span class="m"><i>K</i> + <i>U</i></span> stays the same.</p></div>
+    <div class="state hot"><div class="state-h" style="font-family:var(--body);font-size:17px">Real: with air resistance</div><p><b>The range is shorter</b> (drag slows the horizontal motion). <b>The top is lower</b> (on the way up, drag and gravity both pull down). <b>Not symmetrical</b>: the way down is steeper and takes longer. <b>The ball lands slower</b>. The best angle is <b>below 45°</b>.</p></div>
+  </div>
+  <ul class="pts">
+    <li>The model works <b>well</b> for small, <span class="t">dense</span> (heavy for their size), slow objects over short distances. Drag hardly changes a heavy object's motion. For example, a small steel ball.</li>
+    <li>The model works <b>badly</b> for light, large or very fast objects. For example, a feather, or a golf ball just after it is hit.</li>
+  </ul>
+  <p>Animation 4 flies two balls together: one follows the model, and one has air resistance. The energy bars beside them (below them on a phone) also show the energy conservation from the first part of 1.3.</p>
+
+<figure class="sim" id="sim4">
+    <figcaption class="sim-head"><span class="sim-title">Animation 4 · Energy and air resistance</span><span class="sim-tag">Two balls launched together · data: illustrative</span></figcaption>
+    <div class="stage-box"><canvas role="img" aria-label="Two balls are launched with the same speed and angle. One flies as the model says, with no air resistance. The other has air resistance, so it flies lower and not as far. The balls show velocity v, gravity mg and drag. Beside them (on a phone, below them) are two sets of energy bars: K, U, K + U. The set with drag has one more bar, for the part that becomes heat."></canvas></div>
+    <div class="controls">
+      <button class="btn" type="button" data-play>Pause</button>
+      <button class="btn" type="button" id="s4-air" aria-pressed="false">Air resistance: off</button>
+      <label class="range">Drag size <input type="range" id="s4-k" style="width:100px" min="1" max="5" step="1" value="3"><output id="s4-k-out" for="s4-k" style="min-width:6.2em">medium</output></label>
+      <label class="range"><i>θ</i> <input type="range" id="s4-th" style="width:100px" min="20" max="70" step="1" value="45"><output id="s4-th-out" for="s4-th">45°</output></label>
+      <button class="btn" type="button" id="s4-go">Restart</button>
+    </div>
+    <p class="try"><b>Try it:</b> ① First look at the model only: when <i>K</i> gets smaller, <i>U</i> gets bigger, and <i>K</i> + <i>U</i> is always 100%. At the top, <i>K</i> is not 0 (at 45°, half is left). ② Press "Air resistance: on": the ball with drag flies lower and not as far, its top moves towards the landing side, and it comes down more steeply. Its <i>K</i> + <i>U</i> keeps getting smaller, and the part that is lost becomes "heat". ③ Move Drag size fully left (like a small, heavy steel ball): the two paths almost overlap, so the model is very good. Move it fully right (like a big, light ball), then change <i>θ</i>: the angle for the longest range goes below 45°. The picture is in slow motion, but the readings are in real time. <i>u</i> = 20&nbsp;m&nbsp;s<sup>−1</sup> and drag is calculated with drag ∝ <i>v</i>². The sizes are illustrative.</p>
+  </figure>
+</section>
+
+<section id="s9">
+  <div class="secnum">1.4</div>
+  <h2>Predicting motion: uniform velocity and constant acceleration</h2>
+  <p class="big"><span class="lbl">Big idea</span>Straight-line motion has only two models: uniform velocity and constant acceleration. A projectile uses both at once: uniform velocity horizontally, constant acceleration vertically, with the same <span class="m"><i>t</i></span>.</p>
+  <ul class="pts">
+    <li><span class="t">Prediction</span>: a result calculated from a model before it is measured.</li>
+  </ul>
+  <div class="duo">
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Uniform velocity</div><p>The same speed in the same direction. Net force = 0 (<span class="t">Newton's first law</span>). <span class="m"><i>s</i> = <i>ut</i></span>, <span class="m"><i>v</i> = <i>u</i></span>. The displacement–time graph is a straight line, gradient = velocity.</p></div>
+    <div class="state"><div class="state-h t" style="font-family:var(--body);font-size:17px">Constant acceleration</div><p>The velocity changes by the same amount every second. A constant net force (<span class="m"><i>F</i><sub>net</sub> = <i>ma</i></span>), as in <span class="t">free fall</span> (gravity only). The velocity–time graph is a straight line: gradient = acceleration, area under it = displacement.</p></div>
+  </div>
+
+  <h3>Choosing the model: separately for each direction</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Net force in this direction</th><th>Which model</th></tr></thead>
+      <tbody>
+        <tr><td>No net force</td><td class="t">Uniform velocity</td></tr>
+        <tr><td>A constant net force</td><td class="t">Constant acceleration</td></tr>
+        <tr><td>A changing force (for example, large drag)</td><td>Neither is exact</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Never</b> use <span class="m"><i>s</i> = <i>ut</i></span> for a falling object. Its velocity keeps changing.</p>
+
+  <div class="formula">
+    <div class="f-top"><span class="f-name">Uniform velocity</span><span class="badge comb">Not in this form on the sheet: combine</span></div>
+    <div class="eq"><span style="white-space:nowrap;margin:0 .45em"><i>s</i> = <i>ut</i></span> <span style="white-space:nowrap;margin:0 .45em"><i>v</i> = <i>u</i></span></div>
+    <dl class="sym">
+      <div><dt>s</dt><dd>displacement (m)</dd></div>
+      <div><dt>u</dt><dd>velocity (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>v</dt><dd>velocity later, still <i>u</i> (m&nbsp;s<sup>−1</sup>)</dd></div>
+      <div><dt>t</dt><dd>time (s)</dd></div>
+    </dl>
+    <p class="trap"><b>How to combine:</b> the sheet's equations of motion with <span class="m"><i>a</i> = 0</span>.<br><b>Trap:</b> only for a direction where the net force is 0. For a projectile, only the horizontal direction can use it.</p>
+  </div>
+
+  <h3>Two special cases</h3>
+  <ul class="pts">
+    <li><b>Straight up</b> (<span class="m"><i>u</i><sub>x</sub> = 0</span>): time up = time down. The ball returns to your hand at its launch speed. Below the top it passes each height twice (two positive values of <span class="m"><i>t</i></span>).</li>
+    <li><b>From a moving vehicle:</b> after release, the object keeps the vehicle's velocity. This is <span class="t">inertia</span>. A ball tossed straight up from a cart moving at uniform velocity lands back in the cart. Seen from the ground, its path is a parabola. A parcel dropped from a plane at uniform velocity stays directly below the plane.</li>
+    <li>A comparison: on a smoothly moving bus, toss your keys upwards. The keys still land back in your hand. They do not fly to the back of the bus.</li>
+  </ul>
+
+  <h3>How to predict: three things</h3>
+  <ol class="pts">
+    <li>One origin.</li>
+    <li>One model for each object and each direction.</li>
+    <li>One clock <span class="m"><i>t</i></span>. "At the same place" gives one equation in <span class="m"><i>t</i></span>. Solve it for <span class="m"><i>t</i></span>.</li>
+  </ol>
+
+<figure class="sim" id="sim5">
+  <figcaption class="sim-head"><span class="sim-title">Animation 5 · Tossing from a moving vehicle: who sees what</span><span class="sim-tag">no air resistance · data: illustrative</span></figcaption>
+  <div class="stage-box"><canvas role="img" aria-label="A cart moves forwards at uniform velocity. A person on it tosses a ball straight up, and the ball lands back in the hand. You can switch between watching from the ground and watching from the cart. You can also change to a plane at uniform velocity that drops a parcel. The text below says what is happening now and shows the velocity."></canvas></div>
+  <div class="controls">
+    <button class="btn" type="button" data-play>Pause</button>
+    <span class="seg" role="group" aria-label="Observer">
+      <button class="btn" type="button" id="s5-ground" aria-pressed="true">From the ground</button>
+      <button class="btn" type="button" id="s5-ride" aria-pressed="false">From the cart</button>
+    </span>
+    <span class="seg" role="group" aria-label="Scene">
+      <button class="btn" type="button" id="s5-cart" aria-pressed="true">Cart tosses ball</button>
+      <button class="btn" type="button" id="s5-plane" aria-pressed="false">Plane drops parcel</button>
+    </span>
+    <label class="range"><i>V</i> <input type="range" id="s5-speed" min="0" max="5" step="0.5" value="3"><output id="s5-speed-out" for="s5-speed">3.0 m/s</output></label>
+    <button class="btn" type="button" id="s5-again">Restart</button>
+  </div>
+  <p class="try"><b>Try it:</b> ① First use "From the ground": the ball follows a parabola (copper line), but the dashed line shows you that it stays directly above the cart, and at the end it lands back in the hand. ② Change to "From the cart": the same ball goes straight up and comes straight down (blue line). Time up = time down. ③ Drag the speed <i>V</i> to 0: the two views are exactly the same. ④ Change to "Plane drops parcel": the parcel stays directly below the plane, and it also lands directly below the plane. All the numbers are illustrative: the ball is tossed straight up at 7.0&nbsp;m&nbsp;s<sup>−1</sup> relative to the cart (the cart part runs in slow motion, ×½). The plane is 80 m high, and its speed is 0–50&nbsp;m&nbsp;s<sup>−1</sup>.</p>
+</figure>
+</section>
+
+<section id="s10">
+  <div class="secnum">1.5</div>
+  <h2>Key experiments</h2>
+  <div class="exp">
+    <h3>Range of a ball launched horizontally</h3>
+    <dl>
+      <dt>Aim</dt><dd>To collect <span class="t">primary data</span> (data you measure) to <span class="t">validate</span> (test) <span class="m"><i>R</i> = <i>u</i>√(2<i>h</i>/<i>g</i>)</span>: <span class="m"><i>R</i></span> against <span class="m"><i>u</i></span> should be a straight line through the origin, with gradient <span class="m">√(2<i>h</i>/<i>g</i>)</span>.</dd>
+      <dt>Method</dt><dd>A steel ball leaves the ramp's horizontal end, so <span class="m"><i>u</i><sub>y</sub> = 0</span>. A <span class="t">light gate</span> times the ball blocking its beam: <span class="m"><i>u</i> = diameter ÷ Δ<i>t</i></span>. <span class="t">Carbon paper</span> marks the landing. <span class="m"><i>R</i></span> is measured from the <span class="t">plumb line</span> (a string with a weight on the end, hanging straight down). Change <span class="m"><i>u</i></span> (5 speeds, 5 trials each). Keep <span class="m"><i>h</i></span> and the ball the same. <span class="m"><i>h</i></span> is how far the end of the ramp is above the floor.</dd>
+      <dt>Results</dt><dd><span class="m"><i>R</i></span> against <span class="m"><i>u</i></span> (<span class="m"><i>h</i> = 0.900&nbsp;m</span>) is a straight line very close to the origin, with <span class="t">gradient</span> <b>0.423&nbsp;s</b> (model: <b>0.429&nbsp;s</b>). The value of <span class="m"><i>g</i></span> found from the gradient is about 3&nbsp;% above 9.8&nbsp;m&nbsp;s<sup>−2</sup>.</dd>
+      <dt>Conclusion</dt><dd><span class="m"><i>R</i></span> is <span class="t">proportional</span> to <span class="m"><i>u</i></span>: double <span class="m"><i>u</i></span> and <span class="m"><i>R</i></span> doubles. The data validate the model (for a dense, slow ball). Every <span class="m"><i>R</i></span> is about 2&nbsp;% low: this is a <span class="t">systematic error</span> (same direction each time), not a model failure.</dd>
+      <dt>Significance</dt><dd>The fall time is the same at every speed, so <span class="m"><i>R</i></span> grows in step with <span class="m"><i>u</i></span>. This shows that the horizontal and vertical motions are independent. The <span class="m"><i>R</i></span>–<span class="m"><i>u</i></span> graph in Animation 1 shows this.</dd>
+    </dl>
+  </div>
+  <div class="exp">
+    <h3>Other ways to validate the model</h3>
+    <dl>
+      <dt>R–sin 2θ</dt><dd>Fixed <span class="m"><i>u</i></span>, level ground: a straight line through the origin. The largest <span class="m"><i>R</i></span> is at 45°; 30° and 60° give equal <span class="m"><i>R</i></span>.</dd>
+      <dt>R–√h</dt><dd>Fixed <span class="m"><i>u</i></span>, horizontal launch: a straight line through the origin.</dd>
+      <dt>Video</dt><dd><span class="t">Video analysis</span>: <span class="m"><i>v</i><sub>y</sub></span>–<span class="m"><i>t</i></span> is a straight line, gradient −9.8&nbsp;m&nbsp;s<sup>−2</sup>; <span class="m"><i>v</i><sub>x</sub></span>–<span class="m"><i>t</i></span> is flat.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="s11">
+  <div class="secnum">Review</div>
+  <h2>Formula summary</h2>
+  <div class="tbl-wrap wide ftab">
+    <table>
+      <thead><tr><th>Formula</th><th>What it finds</th><th>Formula sheet</th></tr></thead>
+      <tbody>
+        <tr><td class="f"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i><br><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></td><td>the two components of the launch velocity</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i> = <i>u</i> + <i>at</i><br><i>v</i>² = <i>u</i>² + 2<i>as</i><br><i>s</i> = <i>ut</i> + ½<i>at</i>²</td><td>constant acceleration, once for each direction: <i>a</i><sub>x</sub> = 0, <i>a</i><sub>y</sub> = −9.8&nbsp;m&nbsp;s<sup>−2</sup></td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>t</i> = √(2<i>h</i>/<i>g</i>)<br><i>R</i> = <i>u</i>√(2<i>h</i>/<i>g</i>)</td><td>horizontal launch from height <i>h</i></td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>t</i><sub>top</sub> = <i>u</i><sub>y</sub>/<i>g</i><br><i>h</i><sub>max</sub> = <i>u</i><sub>y</sub>²/2<i>g</i></td><td>time to the top; maximum height</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>t</i><sub>flight</sub> = 2<i>u</i><sub>y</sub>/<i>g</i></td><td>time of flight on level ground</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i></td><td>range on level ground (largest at 45°)</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f"><i>v</i> = √(<i>v</i><sub>x</sub>² + <i>v</i><sub>y</sub>²)<br>tan <i>α</i> = |<i>v</i><sub>y</sub>| / <i>v</i><sub>x</sub></td><td>speed and direction at landing</td><td><span class="badge learn">Learn it</span></td></tr>
+        <tr><td class="f">−<i>h</i> = <i>u</i><sub>y</sub><i>t</i> − ½<i>gt</i>²</td><td>launch from height <i>h</i> (up is positive): a quadratic equation in <i>t</i>, keep the positive root</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f">½<i>mv</i><sub>2</sub>² − ½<i>mv</i><sub>1</sub>²<br>= <i>mg</i>(<i>h</i><sub>1</sub> − <i>h</i><sub>2</sub>)</td><td>speed at a known height (no direction)</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>s</i> = <i>ut</i><br><i>v</i> = <i>u</i></td><td>uniform velocity (<i>a</i> = 0)</td><td><span class="badge comb">Combine</span></td></tr>
+        <tr><td class="f"><i>F</i><sub>net</sub> = <i>ma</i></td><td>Newton's second law (the booklet's summary table lists it under Ch. 1, 2)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f"><i>K</i> = ½<i>mv</i>²</td><td>kinetic energy (the booklet's summary table lists it under Ch. 1, 3)</td><td><span class="badge on">On sheet</span></td></tr>
+        <tr><td class="f">Δ<i>U</i> = <i>mg</i>Δ<i>h</i></td><td>change in potential energy, near the ground only (the booklet's summary table lists it under Ch. 1, 3)</td><td><span class="badge on">On sheet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="review-must">Memorise these 7 before the exam</h3>
+  <ol class="must">
+    <li>The horizontal and vertical motions are independent and share only the time <span class="m"><i>t</i></span>.</li>
+    <li><span class="m"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i></span>, <span class="m"><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></span>. <span class="m"><i>v</i><sub>x</sub></span> stays the same. <span class="m"><i>a</i><sub>y</sub> = −9.8&nbsp;m&nbsp;s<sup>−2</sup></span>, even at the top.</li>
+    <li>Horizontal launch: <span class="m"><i>t</i> = √(2<i>h</i>/<i>g</i>)</span>. The fall time depends only on the height.</li>
+    <li>Level ground: <span class="m"><i>h</i><sub>max</sub> = <i>u</i><sub>y</sub>²/2<i>g</i></span>, <span class="m"><i>t</i><sub>flight</sub> = 2<i>u</i><sub>y</sub>/<i>g</i></span>, <span class="m"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i></span> (longest at 45°).</li>
+    <li>From a height: solve <span class="m">−<i>h</i> = <i>u</i><sub>y</sub><i>t</i> − ½<i>gt</i>²</span>, keep the positive root.</li>
+    <li>A final velocity needs a size and a direction. Energy gives only the speed.</li>
+    <li>Drag: shorter, lower, steeper path. The model suits dense, slow objects.</li>
+  </ol>
+
+  <h3 id="review-err">Common mistakes</h3>
+  <div class="err">
+    <div><span class="x">Wrong:</span> At the top the ball's velocity is 0, and its acceleration is 0 too.<br><span class="ok">Right:</span> At the top only <span class="m"><i>v</i><sub>y</sub> = 0</span>. The ball still moves forwards at <span class="m"><i>v</i><sub>x</sub></span>. The acceleration is always <span class="m"><i>g</i></span> down.</div>
+    <div><span class="x">Wrong:</span> In a horizontal launch <span class="m"><i>u</i><sub>y</sub> = <i>u</i></span>.<br><span class="ok">Right:</span> In a horizontal launch <span class="m"><i>u</i><sub>y</sub> = 0</span> and <span class="m"><i>u</i><sub>x</sub> = <i>u</i></span>.</div>
+    <div><span class="x">Wrong:</span> Putting in <span class="m"><i>u</i></span> to find <span class="m"><i>t</i><sub>top</sub></span> and <span class="m"><i>h</i><sub>max</sub></span>.<br><span class="ok">Right:</span> Put in <span class="m"><i>u</i><sub>y</sub> = <i>u</i> sin <i>θ</i></span>.</div>
+    <div><span class="x">Wrong:</span> Putting <span class="m"><i>g</i> = −9.8</span> into <span class="m"><i>h</i><sub>max</sub> = <i>u</i><sub>y</sub>²/2<i>g</i></span>, or putting −<i>h</i> into <span class="m"><i>t</i> = √(2<i>h</i>/<i>g</i>)</span>.<br><span class="ok">Right:</span> In these formulas <span class="m"><i>g</i> = 9.8</span> and <span class="m"><i>h</i></span> is positive. The minus sign is already built in.</div>
+    <div><span class="x">Wrong:</span> The angle is from the vertical, but you still use <span class="m"><i>u</i><sub>x</sub> = <i>u</i> cos <i>θ</i></span>; or the calculator is in radian mode.<br><span class="ok">Right:</span> From the vertical, <span class="m"><i>u</i><sub>x</sub> = <i>u</i> sin <i>θ</i></span>. Use degree mode on the calculator.</div>
+    <div><span class="x">Wrong:</span> From a height, still using <span class="m"><i>R</i> = <i>u</i>² sin 2<i>θ</i> / <i>g</i></span>, and still saying 45° goes farthest.<br><span class="ok">Right:</span> This formula is only for level ground with no air resistance. From a height, solve the quadratic equation and keep the positive root. The best angle is less than 45°.</div>
+    <div><span class="x">Wrong:</span> Giving only the speed as the final velocity, or using energy to find the angle.<br><span class="ok">Right:</span> The final velocity needs a direction (<span class="m"><i>α</i></span> below the horizontal). Energy gives only the speed. Find the angle using <span class="m"><i>v</i><sub>x</sub> = <i>u</i><sub>x</sub></span>.</div>
+    <div><span class="x">Wrong:</span> Using <span class="m"><i>s</i> = <i>ut</i></span> vertically.<br><span class="ok">Right:</span> Never use <span class="m"><i>s</i> = <i>ut</i></span> for a falling object. Vertically there is gravity, so use the constant acceleration equations.</div>
+  </div>
+  <p class="jump-next"><a href="#s13">Skip the terms and go to the quick quiz ↓</a></p>
+</section>
+
+<section id="s12">
+  <div class="secnum">Terms</div>
+  <h2>Terms in this chapter</h2>
+  <div class="tbl-wrap wide">
+    <table>
+      <thead><tr><th>Term</th><th>中文</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Projectile</td><td>抛体</td><td>an object that is thrown or launched, with no engine pushing it</td></tr>
+        <tr><td class="t">Vector</td><td>矢量</td><td>a quantity with a size and a direction, drawn as an arrow</td></tr>
+        <tr><td class="t">Component</td><td>分量（分力）</td><td>the part of a vector that points in one direction</td></tr>
+        <tr><td class="t">Speed</td><td>速率</td><td>the size of the velocity, with no direction</td></tr>
+        <tr><td class="t">Displacement (s)</td><td>位移</td><td>the change in position, with a direction (a sign)</td></tr>
+        <tr><td class="t">Acceleration due to gravity (g)</td><td>重力加速度</td><td>the acceleration of a falling object near the ground, 9.8&nbsp;m&nbsp;s<sup>−2</sup> downwards</td></tr>
+        <tr><td class="t">Model</td><td>模型</td><td>a simple description we can calculate with</td></tr>
+        <tr><td class="t">Assumption</td><td>假设</td><td>something taken as true to make the calculation simple</td></tr>
+        <tr><td class="t">Independent (motions)</td><td>相互独立</td><td>not affecting each other; horizontal and vertical share only the time</td></tr>
+        <tr><td class="t">Trajectory</td><td>轨迹</td><td>the path of a moving object</td></tr>
+        <tr><td class="t">Parabola</td><td>抛物线</td><td>a curve symmetrical about its top; the path of a projectile</td></tr>
+        <tr><td class="t">Origin</td><td>原点</td><td>the point all positions are measured from, (0, 0)</td></tr>
+        <tr><td class="t">Launch angle (θ)</td><td>抛射角</td><td>the angle of the launch velocity above the horizontal</td></tr>
+        <tr><td class="t">Maximum height (h<sub>max</sub>)</td><td>最大高度</td><td>the greatest height above the launch point</td></tr>
+        <tr><td class="t">Time of flight (t<sub>flight</sub>)</td><td>飞行时间</td><td>the time from launch until landing</td></tr>
+        <tr><td class="t">Range (R)</td><td>射程（水平射程）</td><td>the horizontal distance from the launch point to the landing point</td></tr>
+        <tr><td class="t">Symmetrical</td><td>对称的</td><td>the same on both sides; the way down is like a mirror image of the way up</td></tr>
+        <tr><td class="t">Complementary angles</td><td>互余角（余角）</td><td>two angles that add to 90°, such as 30° and 60°</td></tr>
+        <tr><td class="t">Launch height (h)</td><td>抛出点高度</td><td>how far the launch point is above the landing point</td></tr>
+        <tr><td class="t">Quadratic equation</td><td>一元二次方程</td><td>an equation with a <i>t</i>² term, a <i>t</i> term and a number</td></tr>
+        <tr><td class="t">Root (of an equation)</td><td>根（方程的解）</td><td>a solution of an equation</td></tr>
+        <tr><td class="t">Final velocity</td><td>末速度</td><td>the velocity just before landing: size + direction</td></tr>
+        <tr><td class="t">Kinetic energy (K)</td><td>动能</td><td>the energy of motion, <i>K</i> = ½<i>mv</i>²</td></tr>
+        <tr><td class="t">Gravitational potential energy (U)</td><td>引力势能（地面附近：重力势能）</td><td>energy stored because of position; near the ground it changes by <i>mg</i>Δ<i>h</i></td></tr>
+        <tr><td class="t">Conservation of energy</td><td>能量守恒</td><td>energy cannot appear from nothing or disappear; the total stays the same</td></tr>
+        <tr><td class="t">Air resistance (drag)</td><td>空气阻力</td><td>the force of the air on a moving object, opposite to the velocity; larger at higher speed</td></tr>
+        <tr><td class="t">Dense</td><td>密度大的</td><td>heavy for its size</td></tr>
+        <tr><td class="t">Prediction</td><td>预测</td><td>a result calculated from a model before it is measured</td></tr>
+        <tr><td class="t">Uniform velocity</td><td>匀速直线运动（速度恒定）</td><td>the same speed in the same direction; acceleration is 0</td></tr>
+        <tr><td class="t">Constant acceleration</td><td>恒定加速度（匀变速）</td><td>the velocity changes by the same amount every second</td></tr>
+        <tr><td class="t">Free fall</td><td>自由下落（只受引力）</td><td>motion when gravity is the only force acting</td></tr>
+        <tr><td class="t">Net force</td><td>合力</td><td>all the forces added together (with direction)</td></tr>
+        <tr><td class="t">Inertia</td><td>惯性</td><td>the tendency of an object to keep its state of motion</td></tr>
+        <tr><td class="t">Primary data</td><td>一手数据（原始数据）</td><td>data you measure yourself</td></tr>
+        <tr><td class="t">Validate</td><td>验证</td><td>to check whether predictions match real measurements</td></tr>
+        <tr><td class="t">Light gate</td><td>光电门</td><td>a timer that measures how long an object blocks a light beam</td></tr>
+        <tr><td class="t">Carbon paper</td><td>复写纸</td><td>paper that leaves a mark where the ball lands on it</td></tr>
+        <tr><td class="t">Plumb line</td><td>铅垂线</td><td>a string with a weight on the end, hanging straight down</td></tr>
+        <tr><td class="t">Proportional</td><td>成正比</td><td>when one doubles, the other doubles too</td></tr>
+        <tr><td class="t">Gradient</td><td>斜率</td><td>how steep the straight line on a graph is</td></tr>
+        <tr><td class="t">Systematic error</td><td>系统误差</td><td>an error in the same direction each time; repeating the measurement does not remove it</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s13" class="quiz">
+  <div class="secnum">Check</div>
+  <h2>Quick quiz<span class="en">Click a question to see the answer</span></h2>
+  <div>
+    <details><summary>1. From the same height, A is dropped and B is thrown horizontally at the same moment. Which lands first?</summary><p class="ans"><b>They land at the same time.</b> Both have <i>u</i><sub>y</sub> = 0 and <i>a</i><sub>y</sub> = −9.8&nbsp;m&nbsp;s<sup>−2</sup>. The horizontal velocity does not affect the vertical motion.</p></details>
+    <details><summary>2. A ball is launched at an angle. At the top, is its velocity 0? What about its acceleration?</summary><p class="ans"><b>The velocity is not 0: it equals <i>v</i><sub>x</sub>. The acceleration is 9.8&nbsp;m&nbsp;s<sup>−2</sup> down.</b> At the top only <i>v</i><sub>y</sub> = 0. Gravity is always there, so the acceleration is never 0.</p></details>
+    <details><summary><span>3. A ball is launched horizontally at 2&nbsp;m&nbsp;s<sup>−1</sup> from a table edge at h = 0.900&nbsp;m. How long does it take to land? What is the range?</span></summary><p class="ans"><b><i>t</i> = 0.429&nbsp;s, <i>R</i> = 0.857&nbsp;m.</b> <i>t</i> = √(2<i>h</i>/<i>g</i>) = √(2 × 0.900 / 9.8) = 0.429&nbsp;s. <i>R</i> = <i>ut</i> = 2 × 0.4286 = 0.857&nbsp;m.</p></details>
+    <details><summary><span>4. On level ground, a ball is launched at 20&nbsp;m&nbsp;s<sup>−1</sup>, 30°. Find the vertical component, the time of flight, the maximum height and the range.</span></summary><p class="ans"><b><i>u</i><sub>y</sub> = 10&nbsp;m&nbsp;s<sup>−1</sup>, <i>t</i><sub>flight</sub> = 2.04&nbsp;s, <i>h</i><sub>max</sub> = 5.10&nbsp;m, <i>R</i> = 35.3&nbsp;m.</b> <i>u</i><sub>y</sub> = 20 sin 30° = 10; <i>t</i><sub>flight</sub> = 2 × 10 / 9.8 = 2.04&nbsp;s; <i>h</i><sub>max</sub> = 10² / (2 × 9.8) = 5.10&nbsp;m; <i>R</i> = 20² × sin 60° / 9.8 = 35.3&nbsp;m (or <i>u</i><sub>x</sub> × <i>t</i><sub>flight</sub> = 17.3 × 2.04).</p></details>
+    <details><summary>5. Same launch as question 4, but at 60°. Does the range change? Which one flies higher?</summary><p class="ans"><b>The range is the same, still 35.3&nbsp;m; 60° goes higher.</b> 30° and 60° are complementary angles, and sin 60° = sin 120°. For 60°, <i>h</i><sub>max</sub> = (20 sin 60°)² / 19.6 = 15.3&nbsp;m, and the ball is in the air for 3.53&nbsp;s.</p></details>
+    <details><summary><span>6. A ball is launched horizontally at 3&nbsp;m&nbsp;s<sup>−1</sup> from a height of 4.9&nbsp;m. How fast does it land? In what direction?</span></summary><p class="ans"><b>About 10.2&nbsp;m&nbsp;s<sup>−1</sup>, about 73° below the horizontal.</b> <i>t</i> = √(2 × 4.9 / 9.8) = 1&nbsp;s; <i>v</i><sub>y</sub> = −9.8 × 1 = −9.8&nbsp;m&nbsp;s<sup>−1</sup>; <i>v</i> = √(3² + 9.8²) = 10.2&nbsp;m&nbsp;s<sup>−1</sup>; tan <i>α</i> = 9.8 / 3, <i>α</i> = 73.0°. Energy also gives the speed: <i>v</i> = √(<i>u</i>² + 2<i>gh</i>) = √(9 + 96.04) = 10.2&nbsp;m&nbsp;s<sup>−1</sup>, but energy cannot give the direction.</p></details>
+    <details><summary>7. With air resistance, how does the path change compared with the model?</summary><p class="ans"><b>The range is shorter, the top is lower, the way down is steeper and takes longer, and the ball lands slower.</b> Drag is opposite to the velocity, so it slows the horizontal motion. On the way up it also pulls down, together with gravity. The best angle is also less than 45°.</p></details>
+    <details><summary>8. A plane at uniform velocity drops a parcel (no air resistance). When the parcel lands, where is it compared with the plane?</summary><p class="ans"><b>Directly below it.</b> Because of inertia, the parcel keeps the plane's horizontal velocity after release. There is no horizontal force, so the parcel's <i>v</i><sub>x</sub> always equals the plane's velocity.</p></details>
+  </div>
+</section>
+
+<!--pager--><nav class="pager" aria-label="Previous and next topic"><a class="pg prev" href="../index.html"><span class="pg-k">← Back to home</span><span class="pg-t">HSC Physics from Zero</span><span class="pg-z">All modules</span></a><a class="pg next" href="../m5/t2.html"><span class="pg-k">Next topic →</span><span class="pg-t">M5 T2 · Circular Motion: Forces</span></a></nav><!--/pager-->
+
+<footer>Based on HSC Physics Essentials · Module 5 Advanced Mechanics · Chapter 1. The experimental data (<i>h</i> = 0.900&nbsp;m, gradient 0.423&nbsp;s, model 0.429&nbsp;s, <i>g</i> about 3&nbsp;% high, <i>R</i> about 2&nbsp;% low) are from the booklet. Values in the animations with no source given are illustrative.</footer>
+</div>
+<script src="../../assets/sim-core.js"></script>
+<script>
+/* ---------- Animation 1 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 1：A 自由落下，B 同时水平抛出。原点在发射点，竖直方向 a_y = −g。画面慢动作 × ¼，读数是真实时间。 */
+var G1=9.8,SLOW=0.25,HS=[0.225,0.9,3.6],HL=['0.225','0.900','3.60'],UMAX=3,RMAX=2.7;
+var m1={hi:1,u:1.5,t:0,phase:'fly',hold:0,pts:[[],[],[]],last:null,ref:null};
+function tFall(hi){return Math.sqrt(2*HS[hi]/G1);}
+function rng(u,tf){return (u*Number(tf.toFixed(3))).toFixed(2);}/* R from the shown t (3 d.p.), so u × t checks */
+function fu(u){return u.toFixed(2).replace(/0$/,'');}
+function launch(){m1.t=0;m1.phase='fly';m1.hold=0;}
+function land(){
+  var tf=tFall(m1.hi),p=m1.pts[m1.hi],seen=false,i;
+  m1.t=tf;m1.phase='hold';m1.hold=0;
+  for(i=0;i<p.length;i++)if(Math.abs(p[i]-m1.u)<1e-6)seen=true;
+  if(!seen)p.push(m1.u);
+  if(m1.last&&(m1.last.hi!==m1.hi||Math.abs(m1.last.u-m1.u)>1e-6))m1.ref=m1.last;
+  m1.last={hi:m1.hi,u:m1.u,t:tf};
+}
+function step1(dt){
+  if(m1.phase==='fly'){m1.t+=dt*SLOW;if(m1.t>=tFall(m1.hi))land();}
+  else{m1.hold+=dt;if(m1.hold>1.6)launch();}
+}
+launch();while(m1.phase==='fly')step1(1/60);
+
+function times(k,wide,adj){
+  if(k>1)return wide?(k+' times as '+adj):('× '+k);
+  var d=Math.round(1/k);return wide?('1/'+d+' as '+adj):('÷ '+d);
+}
+function status1(wide){
+  var u=m1.u,t=m1.t,tf=tFall(m1.hi),L=['','',''],hot=false;
+  if(m1.phase==='hold'){
+    L[0]='t = '+tf.toFixed(2)+' s: A and B land at the same time';
+    L[1]=u>0?('Range of B: R = u t = '+fu(u)+' × '+tf.toFixed(3)+' = '+rng(u,tf)+' m'):'u = 0: B is exactly like A, R = 0';
+    var ref=m1.ref;
+    if(ref&&ref.hi!==m1.hi){
+      var k=HS[m1.hi]/HS[ref.hi];hot=true;
+      L[2]=wide?('h is now '+times(k,true,'high')+' ('+HL[ref.hi]+' → '+HL[m1.hi]+' m), time is now '+times(Math.sqrt(k),true,'long')+' ('+ref.t.toFixed(3)+' → '+tf.toFixed(3)+' s)')
+              :('h '+times(k,false)+' → time '+times(Math.sqrt(k),false)+' ('+ref.t.toFixed(3)+' → '+tf.toFixed(3)+' s)');
+    }else if(ref){hot=true;L[2]='u changed, t still '+tf.toFixed(3)+' s (only h matters) → R ∝ u';}
+    else L[2]='The fall time depends only on h, not on u';
+  }else if(t<0.005){
+    L[0]=u>0?(wide?('t = 0: A is dropped. At the same moment B is thrown horizontally at '+fu(u)+' m/s'):('t = 0: A dropped, B thrown horizontally at '+fu(u)+' m/s')):'t = 0: u = 0, A and B are both just dropped';
+    L[1]='Both start from height h = '+HL[m1.hi]+' m';
+    L[2]='At the start, v_y is 0 for both';
+  }else{
+    var tr=Math.round(t*100)/100;/* numbers from the shown t, so the student can check them */
+    L[0]='t = '+tr.toFixed(2)+' s: same height, both fell '+(0.5*G1*tr*tr).toFixed(2)+' m';
+    L[1]=u>0?('v_x of B is still '+fu(u)+' m/s (no horizontal force)'):'u = 0: B is exactly like A';
+    L[2]='A and B: v_y = −'+(G1*tr).toFixed(2)+' m/s (changes by 9.8 every second)';
+  }
+  return {L:L,hot:hot};
+}
+/* 带下标的文字：'v_y' 画成 v 加小一号的 y。返回总宽度；noDraw 时只量宽度。halo：字后面描一圈底色，线从字下面穿过也看得清。 */
+var SUBRE=/([A-Za-zα-ω])_([A-Za-z0-9]+)/g,HALO=false;
+function halo(ctx,str,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(str,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,ital,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.72),wb=(ital?'italic ':'')+weight,fb=wb+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;mt=ctx.measureText(q.slice(1));adv.push(mt.width+1.6);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;halo(ctx,q.slice(1),xx+0.8,y+size*0.24);txt(ctx,q.slice(1),xx+0.8,y+size*0.24,col,ss,weight,'left','alphabetic',family);}
+    else{ctx.font=fb;halo(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,wb,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+
+function vlab(ctx,x,y,sub,col){
+  txt(ctx,'v',x,y,col,14,'italic 600','left','alphabetic',MATH);
+  ctx.font='italic 600 14px '+MATH;var w=ctx.measureText('v').width;
+  txt(ctx,sub,x+w+1.5,y+3.5,col,11,'italic 600','left','alphabetic',MATH);
+}
+
+var S1=makeStage('sim1',{
+  height:function(w){return w>=640?420:636;},
+  step:step1,
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var wide=W>=640,h=HS[m1.hi],tf=tFall(m1.hi),t=m1.t,u=m1.u,landed=m1.phase==='hold';
+    /* status */
+    var st=status1(wide);
+    if(wide){rich(ctx,st.L[0],16,28,C.ink,15,600);rich(ctx,st.L[1],16,50,C.ink,13,500);rich(ctx,st.L[2],16,70,st.hot?C.ink:C.muted,12.5,st.hot?600:500);}
+    else{rich(ctx,st.L[0],16,24,C.ink,13.5,600);rich(ctx,st.L[1],16,44,C.ink,12.5,500);rich(ctx,st.L[2],16,63,st.hot?C.ink:C.muted,12,st.hot?600:500);}
+    /* scene geometry: one scale for x and y, chosen so the drop and the longest range (u = 3) fit */
+    var sw=wide?Math.round(W*0.56):W,r=wide?7:6,xL=wide?46:38,xA=xL+14,pw=wide?34:24,px0=xA+r+6,x0=px0+pw+r;
+    var top=wide?96:84,yG=wide?H-56:330;
+    var kv=Math.min(12,48/Math.sqrt(2*G1*h));/* px per m/s for the velocity arrows: v_y at landing about 48 px */
+    var Hav=yG-top-22,Wav=sw-x0-(wide?20:16)-r-(UMAX*kv+6);
+    var sc=Math.min(Hav/h,Wav/(UMAX*tf)),y0=yG-r-h*sc,yTop=yG-h*sc;
+    /* ground + bench */
+    ctx.fillStyle=rgba(C.muted,0.14);ctx.fillRect(8,yG,sw-16,6);
+    seg(ctx,8,yG,sw-8,yG,C.muted,2);
+    ctx.fillStyle=rgba(C.muted,0.18);ctx.fillRect(px0,yTop,pw,yG-yTop);
+    ctx.strokeStyle=rgba(C.muted,0.75);ctx.lineWidth=1.2;ctx.strokeRect(px0+0.5,yTop+0.5,pw-1,yG-yTop-0.5);
+    var hm=px0+pw/2;
+    if(yG-yTop>34){arrow(ctx,hm,(yTop+yG)/2,hm,yTop+3,C.muted,1.3,6);arrow(ctx,hm,(yTop+yG)/2,hm,yG-3,C.muted,1.3,6);}
+    txt(ctx,'h = '+HL[m1.hi]+' m',x0-10,yG+30,C.ink,12,600,'right');
+    /* strobe: every 0.1 s */
+    var n=Math.floor(t/0.1+1e-9),lastY=-99,k,tk,yk,xk,step=(0.5*G1*0.01*sc>=13)?1:2,gapMin=step===1?13:12;/* 0.1 s 的点太挤时，每 0.2 s 写一个时间 */
+    for(k=0;k<=n;k++){
+      tk=k*0.1;yk=y0+0.5*G1*tk*tk*sc;xk=x0+u*tk*sc;
+      seg(ctx,xA,yk,xk,yk,rgba(C.muted,0.55),1,[3,4]);
+      ring(ctx,xA,yk,r-1,rgba(C.south,0.55),1.5);ring(ctx,xk,yk,r-1,rgba(C.copper,0.6),1.5);
+      if(k%step===0&&yk-lastY>=gapMin){txt(ctx,(k===0?'0':(k/10).toFixed(1))+' s',xL,yk+4,C.muted,11,500,'right');lastY=yk;}
+    }
+    /* the two balls now */
+    var y=landed?yG-r:y0+0.5*G1*t*t*sc,xB=x0+u*t*sc;
+    if(t>0&&xB-xA>2*r+4)seg(ctx,xA+r,y,xB-r,y,rgba(C.ink,0.55),1.3,[5,3]);
+    txt(ctx,'A',xA,y0-r-7,C.south,12.5,700,'center');
+    txt(ctx,'B',x0,y0-r-7,C.copper,12.5,700,'center');
+    dot(ctx,xA,y,r,C.south);dot(ctx,xB,y,r,C.copper);
+    /* velocity of B: v_x constant, v_y = −g t grows */
+    if(!landed){
+      var lx=u*kv,ly=G1*t*kv,vc=rgba(C.ink,0.7);
+      if(lx>2){arrow(ctx,xB+r,y,xB+r+lx,y,vc,2.2,8);vlab(ctx,xB+r+2,y-9,'x',vc);}
+      if(ly>2){arrow(ctx,xB,y+r,xB,y+r+ly,vc,2.2,8);if(ly>26)vlab(ctx,xB+6,y+r+ly*0.6+6,'y',vc);}
+    }
+    /* range R */
+    if(landed){
+      var xR=x0+u*tf*sc;
+      if(xR-x0>3){seg(ctx,x0,yG+13,xR,yG+13,C.copper,1.4);seg(ctx,x0,yG+9,x0,yG+17,C.copper,1.4);seg(ctx,xR,yG+9,xR,yG+17,C.copper,1.4);}
+      txt(ctx,'R = '+rng(u,tf)+' m',x0+2,yG+30,C.copper,12,700);
+    }
+    txt(ctx,'A dropped · B thrown horizontally',sw-12,top,C.muted,11.5,500,'right');
+    if(wide){
+      txt(ctx,'Slow motion × ¼ (readings are real time)',sw-12,top+17,C.muted,11,500,'right');
+      txt(ctx,'Strobe: one dot every 0.1 s',sw-12,top+34,C.muted,11,500,'right');
+    }else{/* narrow: the long line would hit B's v_x label at h = 3.60 m, so it takes two lines */
+      txt(ctx,'Slow motion × ¼',sw-12,top+17,C.muted,11,500,'right');
+      txt(ctx,'(readings are real time)',sw-12,top+34,C.muted,11,500,'right');
+      txt(ctx,'Strobe: one dot every 0.1 s',sw-12,top+51,C.muted,11,500,'right');
+    }
+    /* R–u graph */
+    var gx,gy,gw,gh,tx;
+    if(wide){gx=sw+44;gw=W-gx-84;gy=150;gh=170;tx=gx-34;}
+    else{seg(ctx,0,yG+44,W,yG+44,C.line,1);gx=40;gw=W-gx-84;gy=434;gh=150;tx=16;}
+    function X(v){return gx+v/UMAX*gw;}
+    function Y(R){return gy+gh-R/RMAX*gh;}
+    txt(ctx,'R–u graph: one dot for each landing',tx,gy-44,C.ink,wide?13.5:13,600);
+    txt(ctx,'Gradient = √(2h/g) = '+tf.toFixed(3)+' s',tx,gy-24,C.copper,12.5,700);
+    var q;
+    for(q=1;q<=3;q++)seg(ctx,X(q),gy,X(q),gy+gh,C.grid,1);
+    for(q=1;q<=2;q++){seg(ctx,gx,Y(q),gx+gw,Y(q),C.grid,1);txt(ctx,String(q),gx-7,Y(q)+4,C.muted,11,500,'right');}
+    seg(ctx,gx,gy,gx,gy+gh,C.muted,1.2);seg(ctx,gx,gy+gh,gx+gw,gy+gh,C.muted,1.2);
+    for(q=0;q<=3;q++)txt(ctx,String(q),X(q),gy+gh+15,C.muted,11,500,'center');
+    txt(ctx,'R (m)',gx+6,gy+13,C.muted,11.5,600);
+    txt(ctx,'u (m/s)',gx+gw+8,gy+gh+15,C.muted,11.5,600);
+    seg(ctx,X(u),gy,X(u),gy+gh,rgba(C.ink,0.35),1,[3,4]);
+    var i,j,s,cur,pp;
+    for(i=0;i<3;i++){
+      s=tFall(i);cur=i===m1.hi;
+      if(cur)seg(ctx,X(0),Y(0),X(UMAX),Y(UMAX*s),C.copper,2.2);
+      else seg(ctx,X(0),Y(0),X(UMAX),Y(UMAX*s),rgba(C.muted,0.6),1.2,[4,4]);
+      txt(ctx,'h = '+HL[i]+' m',gx+gw+12,Y(UMAX*s)+4,cur?C.copper:C.muted,11,cur?700:500);
+    }
+    for(i=0;i<3;i++){
+      s=tFall(i);cur=i===m1.hi;pp=m1.pts[i];
+      for(j=0;j<pp.length;j++)dot(ctx,X(pp[j]),Y(pp[j]*s),cur?4.5:3.5,cur?C.copper:rgba(C.muted,0.85));
+    }
+    if(landed)ring(ctx,X(u),Y(u*tf),8,C.copper,1.6);
+    txt(ctx,m1.hi===1?"The booklet's measured gradient (h = 0.900 m): 0.423 s":'This h is illustrative, the gradient is calculated',tx,gy+gh+38,C.muted,11.5,500);
+  }
+});
+
+var r1u=document.getElementById('s1-u'),o1u=document.getElementById('s1-u-out');
+var b1h=[0,1,2].map(function(i){return document.getElementById('s1-h'+i);});
+function sync1(){b1h.forEach(function(b,i){press(b,i===m1.hi);});}
+r1u.addEventListener('input',function(){m1.u=parseFloat(r1u.value);o1u.textContent=m1.u.toFixed(2)+' m/s';launch();S1.setPlaying(true);S1.render();});
+b1h.forEach(function(b,i){b.addEventListener('click',function(){m1.hi=i;sync1();launch();S1.setPlaying(true);S1.render();});});
+document.getElementById('s1-drop').addEventListener('click',function(){launch();S1.setPlaying(true);S1.render();});
+sync1();
+})();
+/* ---------- Animation 2 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 2 · 斜抛：v_x 不变，v_y 在变（平地、没有空气阻力、g = 9.8 m/s²；u 和 θ 是示意值） */
+var G=9.8,RATE=0.5,HOLD=1.6,TMAX=5,VMAX=25;
+var ru=document.getElementById('s2-u'),ou=document.getElementById('s2-u-out'),rt=document.getElementById('s2-th'),ot=document.getElementById('s2-th-out');
+var m2={u:parseFloat(ru.value)||15,th:parseFloat(rt.value)||53,t:0,hold:0};
+var P={ux:0,uy:0,ttop:0,tf:0,h:0,R:0,a:0};
+function calc(){P.a=m2.th*Math.PI/180;P.ux=m2.u*Math.cos(P.a);P.uy=m2.u*Math.sin(P.a);P.ttop=P.uy/G;P.tf=2*P.uy/G;P.h=P.uy*P.uy/(2*G);P.R=P.ux*P.tf;}
+calc();
+m2.t=0.78*P.tf; /* 第一帧：已经过了最高点，路上留着发射、上升、最高点三组箭头 */
+
+function f1(v){return (Math.round(v*10)/10).toFixed(1);}
+function f2(v){return (Math.round(v*100)/100).toFixed(2);}
+function sg(v){var r=Math.round(v*10)/10;return (r>0?'+':(r<0?'−':''))+Math.abs(r).toFixed(1);}
+function phase(){var vy=P.uy-G*m2.t;if(m2.t>=P.tf-1e-9)return 'land';if(Math.abs(vy)<0.05*P.uy)return 'top';return vy>0?'up':'down';}
+
+/* 带下标的文字：'v_y' 画成 v 加小一号的 y。返回总宽度；noDraw 时只量宽度。halo：字后面描一圈底色，线从字下面穿过也看得清。 */
+var SUBRE=/([A-Za-zα-ω])_([A-Za-z0-9]+)/g,HALO=false;
+function halo(ctx,str,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(str,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,ital,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.72),wb=(ital?'italic ':'')+weight,fb=wb+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;mt=ctx.measureText(q.slice(1));adv.push(mt.width+1.6);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;halo(ctx,q.slice(1),xx+0.8,y+size*0.24);txt(ctx,q.slice(1),xx+0.8,y+size*0.24,col,ss,weight,'left','alphabetic',family);}
+    else{ctx.font=fb;halo(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,wb,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+
+/* ---------- 排版：宽屏（W ≥ 640）和手机 ---------- */
+var LW=-1,LY=null,F={s:1,x0:0,yg:0,xm:0};
+function lay(W){
+  if(W>=640){var gw=236,gx=W-18-gw;
+    return {wide:true,k:4.4,La:32,sx0:8,sx1:gx-36,sy0:62,sy1:330,gx:gx,gw:gw,ga:96,ha:54,gb:192,hb:108,tlab:316,sep:336,rows:[362,386],cols:3,st:[26,48],stF:[15,13.5],rf:13};}
+  return {wide:false,k:3.2,La:28,sx0:6,sx1:W-6,sy0:93,sy1:299,gx:40,gw:W-62,ga:329,ha:50,gb:413,hb:80,tlab:509,sep:523,rows:[545,567,589],cols:2,st:[22,41,60,79],stF:[13.5,12.5],rf:12.5};
+}
+/* 画面自动缩放：抛物线 + 箭头都放得下（x、y 同一个比例，箭头方向才和路径相切） */
+function fit(L){
+  var k=L.k,below=Math.max(P.uy*k+22,L.La+26),yg=L.sy1-below,top=L.sy0+30;
+  var extra=P.ux*k+42,lm=38,availW=(L.sx1-L.sx0)-lm-extra,availH=yg-top;
+  var s=Math.min(availW/P.R,availH/P.h);
+  var used=lm+P.R*s+extra;
+  F.s=s;F.yg=yg;F.x0=L.sx0+((L.sx1-L.sx0)-used)/2+lm;F.xm=F.x0+P.R*s+P.ux*k+22;
+}
+function SX(x){return F.x0+x*F.s;}
+function SY(y){return F.yg-y*F.s;}
+
+/* 一组速度箭头：v 和两个分量。ghost = 路上留下的淡箭头 */
+function vset(ctx,tt,k,ghost,ph){
+  var bx=SX(P.ux*tt),by=SY(P.uy*tt-0.5*G*tt*tt),vy=P.uy-G*tt,ex=P.ux*k,ey=-vy*k;
+  if(ghost){
+    arrow(ctx,bx,by,bx+ex,by,rgba(C.ink,0.22),1.6,6);
+    if(Math.abs(ey)>2)arrow(ctx,bx,by,bx,by+ey,rgba(C.ink,0.22),1.6,6);
+    arrow(ctx,bx,by,bx+ex,by+ey,rgba(C.ink,0.36),2,7);
+    dot(ctx,bx,by,3.2,rgba(C.muted,0.8));
+    return;
+  }
+  if(ph==='land'){arrow(ctx,bx,by,bx+ex,by,C.stage,6,9);arrow(ctx,bx,by,bx,by+ey,C.stage,6,9);} /* 落地：先用底色描一圈，地面线和射程尺在箭头处断开 */
+  arrow(ctx,bx,by,bx+ex,by,rgba(C.ink,0.42),2,7);
+  if(Math.abs(ey)>2)arrow(ctx,bx,by,bx,by+ey,rgba(C.ink,0.42),2,7);
+  arrow(ctx,bx,by,bx+ex,by+ey,rgba(C.ink,0.7),2.6,9);
+  dot(ctx,bx,by,5,C.ink);
+  if(ph==='top'){ /* 按物理判断：只有在最高点才写 v = v_x */
+    rich(ctx,Math.abs(vy)<0.05?'v = v_x':'v ≈ v_x',bx+2,by-11,C.ink,14,500,'left',MATH,true);
+  }else{
+    rich(ctx,'v',bx+ex+9,by+ey+5,C.ink,14,500,'left',MATH,true);
+    if(ex>=16)rich(ctx,'v_x',bx+ex/2,vy>0?by+18:by-8,C.muted,13.5,500,'center',MATH,true);
+    if(Math.abs(ey)>=14)rich(ctx,'v_y',bx,vy>0?by+ey-7:by+ey+16,C.muted,13.5,500,'center',MATH,true);
+  }
+}
+
+function scene(ctx,L,ph){
+  var k=L.k,s=F.s,x0=F.x0,yg=F.yg,xR=SX(P.R),yA=SY(P.h),xm=F.xm,t=m2.t,i,n,tt;
+  /* 地面、射程、最大高度 */
+  seg(ctx,L.sx0+4,yg,L.sx1-4,yg,C.muted,1.5);
+  var yb=yg+12;
+  seg(ctx,x0,yb,xR,yb,rgba(C.muted,0.75),1);seg(ctx,x0,yb-4,x0,yb+4,rgba(C.muted,0.75),1);seg(ctx,xR,yb-4,xR,yb+4,rgba(C.muted,0.75),1);
+  HALO=true;
+  rich(ctx,'range R',(x0+xR)/2,yg+28,C.muted,12,500,'center');
+  seg(ctx,xR-10,yA,xm+6,yA,rgba(C.muted,0.7),1,[3,4]);
+  arrow(ctx,xm,(yg+yA)/2,xm,yA+1,C.muted,1.2,6);arrow(ctx,xm,(yg+yA)/2,xm,yg-1,C.muted,1.2,6);
+  rich(ctx,'h_max',xm,yA-8,C.muted,13,500,'center',MATH,true);
+  /* 轨迹：整条（虚线）+ 已经飞过的部分 */
+  n=60;ctx.beginPath();
+  for(i=0;i<=n;i++){tt=P.tf*i/n;if(i)ctx.lineTo(SX(P.ux*tt),SY(P.uy*tt-0.5*G*tt*tt));else ctx.moveTo(SX(0),SY(0));}
+  ctx.strokeStyle=rgba(C.copper,0.42);ctx.lineWidth=1.5;ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);
+  if(t>0){n=Math.max(2,Math.ceil(60*t/P.tf));ctx.beginPath();
+    for(i=0;i<=n;i++){tt=t*i/n;if(i)ctx.lineTo(SX(P.ux*tt),SY(P.uy*tt-0.5*G*tt*tt));else ctx.moveTo(SX(0),SY(0));}
+    ctx.strokeStyle=C.copper;ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.stroke();}
+  /* 发射角 θ；落地角 α（在水平线下方） */
+  var big=m2.u*k>=40&&m2.th>=30;
+  ctx.beginPath();ctx.arc(x0,yg,18,-P.a,0);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+  if(big&&(t>=0.5*P.tf||ph==='land'))rich(ctx,'θ',x0+31*Math.cos(P.a/2),yg-31*Math.sin(P.a/2)+5,C.muted,13,500,'center',MATH,true);
+  if(ph==='land'){ctx.beginPath();ctx.arc(xR,yg,18,0,P.a);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.stroke();
+    if(big)rich(ctx,'α',xR+31*Math.cos(P.a/2),yg+31*Math.sin(P.a/2)+5,C.muted,13,500,'center',MATH,true);}
+  /* 每 ¼ 飞行时间留下一组淡箭头（球已经离开那里才画） */
+  for(i=0;i<4;i++){tt=i*P.tf/4;if(t<tt+0.05*P.tf)break;vset(ctx,tt,k,true);}
+  /* 加速度 a = g：每一刻都向下、一样长（落地以后不画） */
+  if(ph!=='land'){var bx=SX(P.ux*t)-16,by=Math.min(SY(P.uy*t-0.5*G*t*t)+4,F.yg-L.La-4); /* 箭头不伸到地面下面 */
+    arrow(ctx,bx,by,bx,by+L.La,C.violet,2.6,9);
+    var aw=rich(ctx,'a = g',0,0,null,13.5,600,'left',MATH,true,true),low=by+L.La+14>F.yg-6;
+    if((ph==='down'||low)&&bx-6-aw>=4)rich(ctx,'a = g',bx-6,by+L.La/2+5,C.violet,13.5,600,'right',MATH,true); /* 下降时 v_y 的字在下面，a 的字放左边 */
+    else if(low)rich(ctx,'a = g',Math.max(bx+6,4+aw),by-7,C.violet,13.5,600,'right',MATH,true); /* 贴近地面、左边也没地方：放箭头上面 */
+    else rich(ctx,'a = g',bx,by+L.La+14,C.violet,13.5,600,'center',MATH,true);}
+  vset(ctx,t,k,false,ph);
+  HALO=false;
+  txt(ctx,'t = '+f2(t)+' s',L.sx0+10,L.sy0+10,C.muted,13,500,'left','alphabetic',MONO);
+}
+
+function graphs(ctx,L){
+  var gx=L.gx,gw=L.gw,tc=Math.min(m2.t,P.tf),vy=P.uy-G*tc,v,y;
+  function X(tt){return gx+tt/TMAX*gw;}
+  /* v_x–t */
+  var ga=L.ga,ha=L.ha,y0=ga+ha;
+  function YA(vv){return y0-vv/VMAX*ha;}
+  for(v=10;v<=20;v+=10){y=YA(v);seg(ctx,gx,y,gx+gw,y,C.grid,1);txt(ctx,String(v),gx-6,y+4,C.muted,11,500,'right');}
+  txt(ctx,'0',gx-6,y0+4,C.muted,11,500,'right');
+  seg(ctx,gx,ga,gx,y0,C.muted,1);seg(ctx,gx,y0,gx+gw,y0,C.muted,1);
+  rich(ctx,'v_x – t: flat, never changes',gx,ga-10,C.ink,12.5,600,'left');
+  txt(ctx,f1(P.ux)+' m/s',gx+gw,ga-10,C.copper,13,500,'right','alphabetic',MONO);
+  seg(ctx,X(0),YA(P.ux),X(P.tf),YA(P.ux),rgba(C.copper,0.45),1.5,[4,4]);
+  if(tc>0)seg(ctx,X(0),YA(P.ux),X(tc),YA(P.ux),C.copper,2.4);
+  dot(ctx,X(tc),YA(P.ux),4.5,C.copper);
+  /* v_y–t */
+  var gb=L.gb,hb=L.hb,mid=gb+hb/2;
+  function YB(vv){return mid-vv/VMAX*(hb/2);}
+  for(v=-20;v<=20;v+=40){y=YB(v);seg(ctx,gx,y,gx+gw,y,C.grid,1);txt(ctx,v>0?'20':'−20',gx-6,y+4,C.muted,11,500,'right');}
+  txt(ctx,'0',gx-6,mid+4,C.muted,11,500,'right');
+  seg(ctx,gx,gb,gx,gb+hb,C.muted,1);seg(ctx,gx,mid,gx+gw,mid,C.muted,1);
+  rich(ctx,'v_y – t: gradient = −9.8 m/s²',gx,gb-10,C.ink,12.5,600,'left');
+  txt(ctx,sg(vy)+' m/s',gx+gw,gb-10,C.copper,13,500,'right','alphabetic',MONO);
+  var xt=X(P.ttop);
+  seg(ctx,xt,gb,xt,gb+hb,rgba(C.muted,0.7),1,[2,3]);
+  rich(ctx,'t_top',xt+6,mid-8,C.muted,12,500,'left');
+  seg(ctx,X(0),YB(P.uy),X(P.tf),YB(-P.uy),rgba(C.copper,0.45),1.5,[4,4]);
+  if(tc>0)seg(ctx,X(0),YB(P.uy),X(tc),YB(vy),C.copper,2.4);
+  dot(ctx,X(tc),YB(vy),4.5,C.copper);
+  /* 共用的时间轴 + 现在这一刻 */
+  for(v=0;v<=TMAX;v++)txt(ctx,v===TMAX?'5 s':String(v),X(v),L.tlab,C.muted,11,500,'center');
+  seg(ctx,X(tc),ga,X(tc),y0,rgba(C.ink,0.4),1,[3,3]);seg(ctx,X(tc),gb,X(tc),gb+hb,rgba(C.ink,0.4),1,[3,3]);
+}
+
+function status(ph){
+  var vy=P.uy-G*m2.t,ux=f1(P.ux);
+  if(ph==='land')return ['Landing: v_y = '+sg(-P.uy)+' m/s = −u_y.',['Speed = '+f1(Math.sqrt(P.ux*P.ux+P.uy*P.uy))+' m/s, as at launch.','Direction: '+Math.round(Math.atan2(P.uy,P.ux)*180/Math.PI)+'° below horizontal (α = θ).','Time up = time down.']];
+  if(ph==='top')return [(Math.abs(vy)<0.05?'At the top: only v_y = 0.':'Near the top: v_y ≈ 0.'),['The ball still moves forwards at v_x = '+ux+' m/s.','Acceleration is still 9.8 m/s² down, not 0.']];
+  if(ph==='up')return ['Going up: v_y = '+sg(vy)+' m/s.',['v_y is 9.8 m/s less every second.','v_x stays at '+ux+' m/s.','a = g is down, so only v_y changes.']];
+  return ['Going down: v_y = '+sg(vy)+' m/s (minus = down).',['Falling faster.','v_y changes by −9.8 m/s every second.','v_x is still '+ux+' m/s.']];
+}
+function statusDraw(ctx,W,L,ph){
+  var st=status(ph),maxW=W-32,fs=L.stF[1],lines=L.st.length-1,cur='',li=0,i,trial;
+  rich(ctx,st[0],16,L.st[0],C.ink,L.stF[0],600,'left');
+  for(i=0;i<st[1].length&&li<lines;i++){
+    trial=cur+(cur?' ':'')+st[1][i];
+    if(cur&&rich(ctx,trial,0,0,null,fs,500,'left',FONT,false,true)>maxW){rich(ctx,cur,16,L.st[1+li],C.muted,fs,500,'left');li++;cur=st[1][i];}
+    else cur=trial;
+  }
+  if(cur&&li<lines&&rich(ctx,cur,0,0,null,fs,500,'left',FONT,false,true)<=maxW)rich(ctx,cur,16,L.st[1+li],C.muted,fs,500,'left');
+}
+
+function readouts(ctx,W,L,ph){
+  seg(ctx,0,L.sep,W,L.sep,C.line,1);
+  var it=L.wide?
+    ['u_x = u cos θ = '+f1(P.ux)+' m/s','u_y = u sin θ = '+f1(P.uy)+' m/s','t_top = u_y/g = '+f2(P.ttop)+' s',
+     'h_max = u_y²/2g = '+f2(P.h)+' m','t_flight = 2u_y/g = '+f2(P.tf)+' s','R = u² sin 2θ/g = '+f1(P.R)+' m']:
+    ['u_x = '+f1(P.ux)+' m/s','u_y = '+f1(P.uy)+' m/s','t_top = '+f2(P.ttop)+' s','h_max = '+f2(P.h)+' m','t_flight = '+f2(P.tf)+' s','R = '+f1(P.R)+' m'];
+  var hl=L.wide?(ph==='top'?[2,3]:(ph==='land'?[4,5]:[])):(ph==='top'?[2,3]:(ph==='land'?[4,5]:[]));
+  var cw=(W-32)/L.cols,i,on;
+  for(i=0;i<6;i++){on=hl.indexOf(i)>=0;rich(ctx,it[i],16+(i%L.cols)*cw,L.rows[Math.floor(i/L.cols)],on?C.copper:C.ink,L.rf,500,'left',MONO);}
+}
+
+var S2=makeStage('sim2',{
+  height:function(w){return w>=640?400:603;},
+  step:function(dt){
+    if(m2.t<P.tf){m2.t=Math.min(P.tf,m2.t+dt*RATE);m2.hold=0;}
+    else{m2.hold+=dt;if(m2.hold>HOLD){m2.t=0;m2.hold=0;}}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    if(W!==LW){LY=lay(W);LW=W;}
+    var ph=phase();fit(LY);
+    statusDraw(ctx,W,LY,ph);scene(ctx,LY,ph);graphs(ctx,LY);readouts(ctx,W,LY,ph);
+  }
+});
+
+function setParams(){var f=P.tf>0?m2.t/P.tf:0;m2.u=parseFloat(ru.value);m2.th=parseFloat(rt.value);calc();m2.t=f*P.tf;
+  ou.textContent=m2.u+' m/s';ot.textContent=m2.th+'°';S2.render();}
+ru.addEventListener('input',setParams);rt.addEventListener('input',setParams);
+document.getElementById('s2-top').addEventListener('click',function(){m2.t=P.ttop;m2.hold=0;S2.setPlaying(false);S2.render();});
+document.getElementById('s2-reset').addEventListener('click',function(){m2.t=0;m2.hold=0;S2.setPlaying(true);S2.render();});
+})();
+/* ---------- Animation 3 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 3：射程、45° 和互余角。u = 20 m/s（示意），g = 9.8 m/s²；向上、向前为正，原点在发射点。
+   位置用公式直接算：x = u_x t，y = u_y t − ½gt²（落地时 y = −h，取正根）。 */
+var U=20,G=9.8,HOLD=2.2,XM=60,YM=42,RM=65;
+var m={th:30,pair:true,h:0,t:0,hold:0};
+var A={ux:0,uy:0,T:0,R:0,hm:0},B={ux:0,uy:0,T:0,R:0,hm:0};
+var Tmax=0,best=45,Rbest=0;
+function calc(o,deg){var a=deg*Math.PI/180;o.ux=U*Math.cos(a);o.uy=U*Math.sin(a);o.T=(o.uy+Math.sqrt(o.uy*o.uy+2*G*m.h))/G;o.R=o.ux*o.T;o.hm=o.uy*o.uy/(2*G);}
+function rangeAt(deg,h){var a=deg*Math.PI/180,ux=U*Math.cos(a),uy=U*Math.sin(a);return ux*(uy+Math.sqrt(uy*uy+2*G*h))/G;}
+function update(){calc(A,m.th);calc(B,90-m.th);Tmax=m.pair?Math.max(A.T,B.T):A.T;best=Math.atan(U/Math.sqrt(U*U+2*G*m.h))*180/Math.PI;Rbest=U/G*Math.sqrt(U*U+2*G*m.h);}
+update();
+m.t=Tmax;   /* 第一帧：两个球都已经落地，两条完整的路径都在 */
+function step(dt){var n=4,hh=dt/n;for(var i=0;i<n;i++){if(m.t<Tmax){m.t=Math.min(Tmax,m.t+hh);}else{m.hold+=hh;if(m.hold>HOLD){m.t=0;m.hold=0;}}}}
+
+/* ---------- layout ---------- */
+var L={};
+function lay(W){
+  var wide=W>=640;L.wide=wide;
+  if(wide){L.cw=30;L.px0=16+L.cw;L.sc=Math.min((W*0.58-L.px0)/XM,6.2);L.yT=64;}
+  else{L.cw=28;L.px0=16+L.cw;L.sc=Math.min((W-16-L.px0)/XM,6.5);L.yT=72;}
+  L.trR=L.px0+XM*L.sc;L.yG=L.yT+YM*L.sc;
+  if(wide){L.gx=L.trR+36;L.gw=W-18-L.gx;L.gy=L.yT+18;L.gh=L.yG-L.gy;L.tb=L.yG+42;L.rh=20;L.H=Math.round(L.yG+96);}
+  else{L.tb=L.yG+38;L.rh=18;L.gx=40;L.gw=W-16-L.gx;L.gy=L.yG+116;L.gh=150;L.H=Math.round(L.gy+L.gh+26);}
+  return L;
+}
+
+/* ---------- status ---------- */
+var ST=['',''];
+function f1(v){return v.toFixed(1);}
+function f2(v){return v.toFixed(2);}
+function status(){
+  var th=m.th,c=90-th,h=m.h,lo=Math.min(th,c),hi=Math.max(th,c);
+  var Lo=th<=c?A:B,Hi=th<=c?B:A,same=th===45;
+  var hs='h = '+h+' m: ',bs='about '+Math.round(best)+'°';
+  if(m.t<Tmax){
+    if(!m.pair){ST[0]='θ = '+th+'°: u_x = '+f1(A.ux)+' m/s, u_y = '+f1(A.uy)+' m/s';ST[1]='Range = u_x × time in the air';}
+    else if(same){ST[0]='The complementary angle of 45° is 45°: same path';ST[1]='u_x = u_y = '+f1(A.ux)+' m/s';}
+    else if(m.t<Lo.T){ST[0]='Same u = 20 m/s: '+lo+'° and '+hi+'° launched together';ST[1]=lo+'° has a larger u_x but lands sooner. '+hi+'° has a larger u_y, so it goes higher and stays up longer';}
+    else{ST[0]=lo+'° lands first: t = '+f2(Lo.T)+' s, R = '+f1(Lo.R)+' m';ST[1]=hi+'° is still in the air: its u_y is larger, so it goes higher and stays up longer';}
+  }else if(h===0){
+    if(same){ST[0]='45°: sin 2θ = 1, so the range is the longest';ST[1]='R_max = u²/g = '+f1(Rbest)+' m';}
+    else if(m.pair){ST[0]=lo+'° and '+hi+'°: same range, both '+f1(A.R)+' m';ST[1]=hi+'° goes higher ('+f1(Hi.hm)+' m) and stays in the air longer ('+f2(Hi.T)+' s)';}
+    else{ST[0]=th+'°: R = u² sin 2θ / g = '+f1(A.R)+' m';ST[1]='Shorter than R_max = '+f1(Rbest)+' m at 45°. '+c+'° has the same range';}
+  }else{
+    if(same){ST[0]=hs+'45° is no longer the best (R = '+f1(A.R)+' m)';ST[1]='The best angle is '+bs+': the drop adds time in the air, so it is better to put more speed into u_x';}
+    else if(m.pair){ST[0]=hs+lo+'° and '+hi+'° ranges differ, '+lo+'° is farther';ST[1]='The best angle is now '+bs+', less than 45°';}
+    else{ST[0]=hs+th+'° lands at t = '+f2(A.T)+' s, R = '+f1(A.R)+' m';ST[1]=Math.abs(th-best)<2.5?(th+'° is nearly the best angle now ('+bs+'), less than 45°'):('The best angle is now '+bs+', less than 45°');}
+  }
+}
+
+/* ---------- drawing helpers ---------- */
+/* 带下标的文字：'v_y' 画成 v 加小一号的 y。返回总宽度；noDraw 时只量宽度。halo：字后面描一圈底色，线从字下面穿过也看得清。 */
+var SUBRE=/([A-Za-zα-ω])_([A-Za-z0-9]+)/g,HALO=false;
+function halo(ctx,str,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(str,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,ital,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.72),wb=(ital?'italic ':'')+weight,fb=wb+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;mt=ctx.measureText(q.slice(1));adv.push(mt.width+1.6);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;halo(ctx,q.slice(1),xx+0.8,y+size*0.24);txt(ctx,q.slice(1),xx+0.8,y+size*0.24,col,ss,weight,'left','alphabetic',family);}
+    else{ctx.font=fb;halo(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,wb,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+
+function fit(ctx,s,x,y,col,size,weight,maxW){var f=size;while(f>11.5&&rich(ctx,s,0,0,col,f,weight,'left',FONT,false,true)>maxW)f-=0.5;rich(ctx,s,x,y,col,f,weight,'left');}
+function fitWrap(ctx,s,x,y,col,size,weight,maxW,lh){if(rich(ctx,s,0,0,col,size,weight,'left',FONT,false,true)<=maxW){rich(ctx,s,x,y,col,size,weight,'left');return;}
+  var w=s.split(' '),a='',i=0,t;for(;i<w.length;i++){t=a?a+' '+w[i]:w[i];if(a&&rich(ctx,t,0,0,col,size,weight,'left',FONT,false,true)>maxW)break;a=t;}
+  rich(ctx,a,x,y,col,size,weight,'left');fit(ctx,w.slice(i).join(' '),x,y+lh,col,size,weight,maxW);}
+function trail(ctx,o,tEnd,col,x0,yL,sc){
+  if(tEnd<=0)return;ctx.beginPath();
+  for(var i=0;i<=60;i++){var tt=tEnd*i/60,x=x0+o.ux*tt*sc,y=yL-(o.uy*tt-0.5*G*tt*tt)*sc;if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=col;ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.setLineDash([]);ctx.stroke();
+}
+function ballAt(ctx,o,x0,yL,sc,col,ringed){
+  var tt=Math.min(m.t,o.T),x=x0+o.ux*tt*sc,y=yL-(o.uy*tt-0.5*G*tt*tt)*sc;
+  if(ringed&&m.t>=o.T){dot(ctx,x,y,10,C.stage);ring(ctx,x,y,8,col,3);return;}   /* 和另一个球落在同一点：画成圈，套住它 */
+  var r=m.t>=o.T?5.5:6;dot(ctx,x,y,r+1.5,C.stage);dot(ctx,x,y,r,col);
+}
+function curve(ctx,h,col,w,dash){
+  ctx.beginPath();for(var d=0;d<=90;d++){var x=L.gx+d/90*L.gw,y=L.gy+L.gh-rangeAt(d,h)/RM*L.gh;if(d)ctx.lineTo(x,y);else ctx.moveTo(x,y);}
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);
+}
+var CXW=[16,112,212,312],CXN=[16,64,132,214],DASH=[3,3];
+function row(ctx,cx,vf,o,deg,col,y){dot(ctx,cx[0]+4,y-4.5,4.5,col);txt(ctx,deg+'°',cx[0]+14,y,col,vf,700);
+  txt(ctx,f1(o.R)+' m',cx[1],y,C.ink,vf,500,'left','alphabetic',MONO);txt(ctx,f2(o.T)+' s',cx[2],y,C.ink,vf,500,'left','alphabetic',MONO);
+  txt(ctx,f1(o.hm)+' m',cx[3],y,C.ink,vf,500,'left','alphabetic',MONO);}
+function mark(ctx,deg,o,col){var gb=L.gy+L.gh,mx=L.gx+deg/90*L.gw,my=gb-o.R/RM*L.gh;
+  seg(ctx,L.gx,my,mx,my,rgba(col,0.55),1.2,DASH);seg(ctx,mx,my,mx,gb,rgba(col,0.55),1.2,DASH);
+  dot(ctx,mx,my,7.5,C.stage);dot(ctx,mx,my,5.5,col);}
+function legend(ctx,y,label,col,dash){ctx.font='500 11.5px '+FONT;var tw=ctx.measureText(label).width,xr=L.gx+L.gw-2;txt(ctx,label,xr,y,C.muted,11.5,500,'right');seg(ctx,xr-tw-26,y-4,xr-tw-6,y-4,col,dash?1.6:2.5,dash);}
+
+var S3=makeStage('sim3',{
+  height:function(w){return lay(w).H;},
+  step:step,
+  draw:function(ctx,W,H){
+    lay(W);
+    var wide=L.wide,sc=L.sc,x0=L.px0,yG=L.yG,h=m.h,yL=yG-h*sc;
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    /* status */
+    status();
+    fit(ctx,ST[0],16,wide?26:22,C.ink,wide?15:13.5,600,W-32);
+    fitWrap(ctx,ST[1],16,wide?48:42,C.muted,wide?13.5:12.5,500,W-32,17);
+    /* cliff + ground + distance ticks */
+    if(h>0){ctx.fillStyle=rgba(C.muted,0.2);ctx.fillRect(16,yL,L.cw,h*sc);ctx.strokeStyle=C.muted;ctx.lineWidth=1.2;ctx.strokeRect(16,yL,L.cw,h*sc);
+      txt(ctx,'h',16+L.cw/2,yL+h*sc/2+5,C.ink,15,500,'center','alphabetic',MATH);}
+    seg(ctx,16,yG,L.trR+4,yG,C.muted,2);
+    for(var xm=0;xm<=XM;xm+=10){var xx=x0+xm*sc;seg(ctx,xx,yG,xx,yG+5,C.muted,1);
+      if(xm===XM)txt(ctx,'60 m',xx+4,yG+17,C.muted,11,500,'right');else txt(ctx,String(xm),xx,yG+17,C.muted,11,500,'center');}
+    /* launch angles, measured from the horizontal */
+    seg(ctx,x0,yL,x0+48,yL,rgba(C.muted,0.8),1.2,[3,4]);
+    var a1=m.th*Math.PI/180;
+    if(m.pair){ctx.beginPath();ctx.arc(x0,yL,34,0,-(Math.PI/2-a1),true);ctx.strokeStyle=rgba(C.south,0.85);ctx.lineWidth=1.6;ctx.stroke();}
+    ctx.beginPath();ctx.arc(x0,yL,24,0,-a1,true);ctx.strokeStyle=rgba(C.copper,0.9);ctx.lineWidth=1.6;ctx.stroke();
+    /* paths and balls (θ: copper, 90° − θ: south) */
+    if(m.pair)trail(ctx,B,Math.min(m.t,B.T),C.south,x0,yL,sc);
+    trail(ctx,A,Math.min(m.t,A.T),C.copper,x0,yL,sc);
+    if(m.pair)ballAt(ctx,B,x0,yL,sc,C.south,m.t>=A.T&&Math.abs(A.R-B.R)*sc<8);
+    ballAt(ctx,A,x0,yL,sc,C.copper,false);
+    dot(ctx,x0,yL,3,C.ink);
+    /* clock */
+    txt(ctx,'t = '+f2(Math.min(m.t,Tmax))+' s',L.trR,L.yT+12,C.ink,13,600,'right','alphabetic',MONO);
+    txt(ctx,'u = 20 m/s (illustrative) · h = '+h+' m',L.trR,L.yT+31,C.muted,11.5,500,'right');
+    /* table */
+    var cx=wide?CXW:CXN,ty=L.tb,hf=wide?12:11,vf=wide?13:12.5;
+    txt(ctx,wide?'Launch angle':'Angle',cx[0],ty,C.muted,hf,600);txt(ctx,'Range R',cx[1],ty,C.muted,hf,600);
+    txt(ctx,'Time of flight t',cx[2],ty,C.muted,hf,600);rich(ctx,wide?'h_max (from the launch point)':'h_max (from launch)',cx[3],ty,C.muted,hf,600,'left');
+    row(ctx,cx,vf,A,m.th,C.copper,ty+L.rh);
+    if(m.pair)row(ctx,cx,vf,B,90-m.th,C.south,ty+2*L.rh);
+    /* R–θ graph */
+    var gx=L.gx,gy=L.gy,gw=L.gw,gh=L.gh,gb=gy+gh;
+    txt(ctx,'Range R (m) and launch angle θ',gx,gy-(wide?14:12),C.muted,12,600);
+    for(var r=20;r<=60;r+=20){var yr=gb-r/RM*gh;seg(ctx,gx,yr,gx+gw,yr,C.grid,1);txt(ctx,String(r),gx-6,yr+4,C.muted,11,500,'right');}
+    txt(ctx,'0',gx-6,gb+4,C.muted,11,500,'right');
+    seg(ctx,gx,gy,gx,gb,C.muted,1);seg(ctx,gx,gb,gx+gw,gb,C.muted,1);
+    for(var d=0;d<=90;d+=15){var xd=gx+d/90*gw;seg(ctx,xd,gb,xd,gb+4,C.muted,1);txt(ctx,d+'°',xd,gb+16,C.muted,11,500,'center');}
+    if(h>0)curve(ctx,0,rgba(C.violet,0.8),1.6,[5,4]);
+    curve(ctx,h,C.copper,2.6);
+    var bx=gx+best/90*gw,byy=gb-Rbest/RM*gh;
+    seg(ctx,bx,gb,bx,byy,rgba(C.ink,0.45),1.2,[3,4]);
+    txt(ctx,'Best: '+(h>0?'about ':'')+Math.round(best)+'°',bx,byy-9,C.ink,12,600,'center');
+    if(m.pair)mark(ctx,90-m.th,B,C.south);
+    mark(ctx,m.th,A,C.copper);
+    legend(ctx,gy+12,'h = '+h+' m',C.copper,null);
+    if(h>0)legend(ctx,gy+30,'h = 0 (compare)',rgba(C.violet,0.8),[5,4]);
+  }
+});
+
+var rT=document.getElementById('s3-theta'),oT=document.getElementById('s3-theta-out'),bP=document.getElementById('s3-pair');
+var rH=document.getElementById('s3-h'),oH=document.getElementById('s3-h-out');
+function syncPair(){press(bP,m.pair);bP.textContent='Also launch 90° − θ ('+(90-m.th)+'°): '+(m.pair?'on':'off');}
+function changed(){update();m.t=S3.playing?0:Tmax;m.hold=0;S3.render();}
+rT.addEventListener('input',function(){m.th=parseInt(rT.value,10);oT.textContent=m.th+'°';syncPair();changed();});
+bP.addEventListener('click',function(){m.pair=!m.pair;syncPair();changed();});
+rH.addEventListener('input',function(){m.h=parseInt(rH.value,10);oH.textContent=m.h+' m';changed();});
+document.getElementById('s3-go').addEventListener('click',function(){update();m.t=0;m.hold=0;S3.setPlaying(true);S3.render();});
+})();
+/* ---------- Animation 4 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 4 · 能量和空气阻力：同样的 u、θ，模型（没有阻力）和有阻力（drag ∝ v²，示意）两个球同时飞。
+   能量都用“占发射时 K 的百分比”表示，所以不需要质量。U 从发射高度（地面）算起。 */
+var G=9.8,U0=20,RATE=0.4,HOLD=2.2,DT=0.002,SUB=5,NMAX=640;
+var KS=[0.0005,0.006,0.015,0.03,0.06];             /* drag 加速度 = k v²（示意） */
+var LV=['very small','small','medium','large','very large'];
+var m4={th:45,lvl:3,drag:false,t:0};
+var P={ux:0,uy:0,tTop:0,T:0,H:0,R:0};
+var D={x:new Float64Array(NMAX),y:new Float64Array(NMAX),vx:new Float64Array(NMAX),vy:new Float64Array(NMAX),n:0,T:0,tTop:0,xTop:0,hTop:0,R:0,vL:0};
+var BEST=[0,0,0,0,0];
+var A={x:0,y:0,vx:0,vy:0},B={x:0,y:0,vx:0,vy:0},Q={x:0,y:0,vx:0,vy:0};
+
+function calcModel(){var r=m4.th*Math.PI/180;P.ux=U0*Math.cos(r);P.uy=U0*Math.sin(r);P.tTop=P.uy/G;P.T=2*P.tTop;P.H=P.uy*P.uy/(2*G);P.R=P.ux*P.T;}
+function modelAt(t,o){t=clamp(t,0,P.T);o.x=P.ux*t;o.y=Math.max(0,P.uy*t-0.5*G*t*t);o.vx=P.ux;o.vy=P.uy-G*t;return o;}
+/* RK4，步长 2 ms；rec 时每 10 ms 存一个点，最后一个点是落地的那一刻。返回射程。 */
+function fly(k,th,rec){
+  var r=th*Math.PI/180,x=0,y=0,vx=U0*Math.cos(r),vy=U0*Math.sin(r),h=DT;
+  if(rec){D.x[0]=0;D.y[0]=0;D.vx[0]=vx;D.vy[0]=vy;D.n=1;D.tTop=0;D.xTop=0;D.hTop=0;}
+  for(var i=0;i<20000;i++){
+    var v1=Math.hypot(vx,vy),a1=-k*v1*vx,b1=-G-k*v1*vy;
+    var x2=vx+a1*h/2,y2=vy+b1*h/2,v2=Math.hypot(x2,y2),a2=-k*v2*x2,b2=-G-k*v2*y2;
+    var x3=vx+a2*h/2,y3=vy+b2*h/2,v3=Math.hypot(x3,y3),a3=-k*v3*x3,b3=-G-k*v3*y3;
+    var x4=vx+a3*h,y4=vy+b3*h,v4=Math.hypot(x4,y4),a4=-k*v4*x4,b4=-G-k*v4*y4;
+    var nx=x+h/6*(vx+2*x2+2*x3+x4),ny=y+h/6*(vy+2*y2+2*y3+y4);
+    var nvx=vx+h/6*(a1+2*a2+2*a3+a4),nvy=vy+h/6*(b1+2*b2+2*b3+b4);
+    if(rec&&vy>0&&nvy<=0){var f=vy/(vy-nvy);D.tTop=(i+f)*h;D.xTop=lerp(x,nx,f);D.hTop=lerp(y,ny,f);}
+    if(ny<0&&i>0){
+      var g=y/(y-ny),lx=lerp(x,nx,g);
+      if(rec){var n=Math.min(D.n,NMAX-1);D.x[n]=lx;D.y[n]=0;D.vx[n]=lerp(vx,nvx,g);D.vy[n]=lerp(vy,nvy,g);D.n=n+1;D.T=(i+g)*h;D.R=lx;D.vL=Math.hypot(D.vx[n],D.vy[n]);}
+      return lx;
+    }
+    x=nx;y=ny;vx=nvx;vy=nvy;
+    if(rec&&(i+1)%SUB===0&&D.n<NMAX-1){D.x[D.n]=x;D.y[D.n]=y;D.vx[D.n]=vx;D.vy[D.n]=vy;D.n++;}
+  }
+  return x;
+}
+function bestAngle(k){var bt=45,br=0;for(var a=20;a<=70;a+=0.5){var r=fly(k,a,false);if(r>br){br=r;bt=a;}}return bt;}
+function calcDrag(){var k=KS[m4.lvl-1];fly(k,m4.th,true);if(!BEST[m4.lvl-1])BEST[m4.lvl-1]=bestAngle(k);}
+function calcAll(){calcModel();calcDrag();}
+function dragAt(t,o){
+  var L=D.n-1;
+  if(t>=D.T){o.x=D.x[L];o.y=0;o.vx=D.vx[L];o.vy=D.vy[L];return o;}
+  t=Math.max(0,t);
+  var h=DT*SUB,j=Math.min(Math.floor(t/h),L-1),t0=j*h,t1=(j+1<L)?(j+1)*h:D.T,f=clamp((t-t0)/(t1-t0),0,1),k=j+1;
+  o.x=lerp(D.x[j],D.x[k],f);o.y=Math.max(0,lerp(D.y[j],D.y[k],f));o.vx=lerp(D.vx[j],D.vx[k],f);o.vy=lerp(D.vy[j],D.vy[k],f);return o;
+}
+calcAll();
+m4.t=P.tTop;   /* 第一帧：模型的球在最高点 */
+
+/* ---------- layout ---------- */
+var LW=-1,L={};
+function lay(W){
+  if(W===LW)return L;LW=W;var w=W>=640;L.wide=w;
+  if(w){L.fs1=15;L.fs2=13;L.y1=26;L.y2=47;L.lh=18;L.n2=1;L.top=68;L.x0=52;
+    L.sR=Math.round(W-Math.max(300,W*0.42));L.sc=Math.min((L.sR-L.x0-30)/41,9.5);
+    L.G=Math.round(L.top+40+18.2*L.sc);L.px=L.sR+22;L.pw=W-16-L.px;L.pt=L.top+6;L.ch=96;L.sep=0;}
+  else{L.fs1=13.5;L.fs2=12;L.y1=22;L.y2=41;L.lh=16;L.n2=2;L.top=74;L.x0=44;
+    L.sR=W-8;L.sc=Math.min((W-L.x0-34)/41,9);
+    L.G=Math.round(L.top+40+18.2*L.sc);L.px=16;L.pw=W-32;L.sep=L.G+34;L.pt=L.G+56;L.ch=74;}
+  L.gw=Math.floor((L.pw-18)/2);L.gt=L.pt+23;L.gs=L.gt+17;L.yTop=L.gs+21;L.yBot=L.yTop+L.ch;L.lab=L.yBot+16;
+  L.r1=L.lab+21;L.H=Math.max(L.G+34,L.r1+2*17+14);
+  L.Lv=w?44:36;L.Lg=w?28:24;
+  return L;
+}
+function px(x){return L.x0+x*L.sc;}
+function py(y){return L.G-y*L.sc;}
+
+/* 带下标的文字：'v_y' 画成 v 加小一号的 y。返回总宽度；noDraw 时只量宽度。halo：字后面描一圈底色，线从字下面穿过也看得清。 */
+var SUBRE=/([A-Za-zα-ω])_([A-Za-z0-9]+)/g,HALO=false;
+function halo(ctx,str,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(str,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,ital,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.72),wb=(ital?'italic ':'')+weight,fb=wb+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;mt=ctx.measureText(q.slice(1));adv.push(mt.width+1.6);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;halo(ctx,q.slice(1),xx+0.8,y+size*0.24);txt(ctx,q.slice(1),xx+0.8,y+size*0.24,col,ss,weight,'left','alphabetic',family);}
+    else{ctx.font=fb;halo(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,wb,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+
+/* 中文按字、英文按词换行（结果缓存） */
+var WC={},WCn=0;
+function wrap(ctx,s,maxW,font){
+  var key=maxW+'|'+font+'|'+s;if(WC[key])return WC[key];
+  if(WCn>80){WC={};WCn=0;}
+  ctx.font=font;var toks=s.match(/[\x21-\x7e½²°≈−·…]+|\s+|[\s\S]/g)||[],out=[],cur='';
+  for(var i=0;i<toks.length;i++){var tk=toks[i],sp=/^\s+$/.test(tk);
+    if(cur&&!sp&&ctx.measureText(cur+tk).width>maxW){out.push(cur.replace(/\s+$/,''));cur=tk;}
+    else if(cur||!sp)cur+=tk;}
+  if(cur)out.push(cur.replace(/\s+$/,''));WC[key]=out;WCn++;return out;
+}
+/* 球旁边的小字：留在画面里（地面下面最多到 L.G + 26，那一条是空的），也不压住这一帧已经写好的小字（挤的时候往上挪） */
+var TB=new Float64Array(48),TBn=0,W4=0,W4H=0;
+function hit(l,y,w){for(var i=0;i<TBn;i++){var j=i*4;if(l<TB[j+2]+2&&l+w>TB[j]-2&&y-10<TB[j+3]+1&&y+2>TB[j+1]-1)return true;}return false;}
+function tag(ctx,s,x,y,col,al){
+  var w=rich(ctx,s,0,0,col,12,600,'left',FONT,false,true),l=al==='center'?x-w/2:(al==='right'?x-w:x);
+  var hi=(L.wide?L.sR:W4)-4;l=clamp(l,4,hi-w);y=clamp(y,L.top+14,L.G+26);
+  for(var k=0;k<4&&hit(l,y,w);k++)y-=13;
+  if(TBn<12){var j=TBn*4;TB[j]=l;TB[j+1]=y-10;TB[j+2]=l+w;TB[j+3]=y+2;TBn++;}
+  HALO=true;rich(ctx,s,l,y,col,12,600,'left');HALO=false;
+}
+
+function f1(v){return v.toFixed(1);}
+function status(){
+  var t=m4.t,kt=Math.round(Math.pow(Math.cos(m4.th*Math.PI/180),2)*100);
+  if(!m4.drag){
+    if(t<0.06)return ['Launch: K = 100%, U = 0.','The model has no air resistance. The only force is gravity, mg, downwards.'];
+    if(t<P.tTop-0.2)return ['Going up: K becomes U. K + U stays the same.','Higher means more U, slower means less K. The total is always 100% (energy is conserved).'];
+    if(t<=P.tTop+0.2)return ['At the top: K is smallest, but it is not 0.','v_y = 0, but v_x is still there: K_top = ½mu_x² = '+kt+'%.'];
+    if(t<P.T)return ['Coming down: U becomes K. K + U is still 100%.','With no drag, energy only changes between K and U.'];
+    return ['Landing: U = 0, K is back to 100%.','Landing speed = launch speed = 20 m/s, directed '+m4.th+'° below the horizontal.'];
+  }
+  if(t<0.06)return ['Same u and θ. Two balls launched together.','The ball with drag has one more force: drag, opposite to v.'];
+  if(t<D.tTop-0.15)return ['Going up: drag and gravity both pull down.','So the ball with drag does not rise as high. Its K + U keeps getting smaller: it becomes heat.'];
+  /* 阻力很小时，显示的两位数可能一样：那就不说“偏向落地那边 / 下降更久”，免得和屏幕上的数矛盾 */
+  var sx=f1(D.xTop),sh=f1(D.R/2),su=D.tTop.toFixed(2),sd=(D.T-D.tTop).toFixed(2);
+  if(t<=D.tTop+0.15)return sx===sh?['Top with drag: only a little lower.','Drag is very small, so the top is almost at the middle of the range (x = '+sx+' m).']
+    :['Top with drag: lower, towards the landing side.','Top at x = '+sx+' m, already past half of its range ('+sh+' m).'];
+  if(t<D.T)return su===sd?['Coming down: drag is very small, almost no effect.','Going up and coming down each take about '+su+' s. K + U is only a little smaller.']
+    :['Coming down: steeper and longer.','Drag pulls back and up. Going up takes '+su+' s, coming down takes '+sd+' s. K + U is still becoming heat.'];
+  if(t<P.T)return ['The ball with drag lands first: shorter range.','R = '+f1(D.R)+' m, the model gives '+f1(P.R)+' m. The model\'s K + U is still 100%.'];
+  var b=BEST[m4.lvl-1];
+  return ['Slower landing: '+f1(D.vL)+' m/s. Model: 20.0 m/s.',Math.round(b)>=45?'Drag is very small: the two paths almost overlap, so the model is very good.':'With drag, the angle for the longest range is about '+Math.round(b)+'°, less than 45°.'];
+}
+
+function pathModel(ctx,t1,col,w,dash){var N=48;ctx.beginPath();for(var i=0;i<=N;i++){modelAt(t1*i/N,Q);if(i)ctx.lineTo(px(Q.x),py(Q.y));else ctx.moveTo(px(Q.x),py(Q.y));}
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);}
+function pathDrag(ctx,t1,col,w,dash){var h=DT*SUB,n=D.n-1;ctx.beginPath();ctx.moveTo(px(0),py(0));
+  for(var j=1;j<n&&j*h<t1;j++)ctx.lineTo(px(D.x[j]),py(D.y[j]));
+  dragAt(Math.min(t1,D.T),Q);ctx.lineTo(px(Q.x),py(Q.y));
+  ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineJoin='round';ctx.setLineDash(dash||[]);ctx.stroke();ctx.setLineDash([]);}
+/* 球 + 箭头：v（ink 70%）、mg 和 drag（力，绿色，长度按 F/mg）。打开阻力时只有阻力球画力和标字，模型球只画 v。 */
+/* 力箭头从球边（R0）画起，长度 = F/mg × Lg。drag 箭头放不下（刚发射、阻力大）时画短一点，并在画面左上角写出 drag 是 mg 的几倍。 */
+var R0=7.5;
+function ball(ctx,o,col,k,lab,flying){
+  var x=px(o.x),y=py(o.y),v=Math.hypot(o.vx,o.vy);
+  if(flying){
+    if(lab){arrow(ctx,x,y+R0,x,y+R0+L.Lg,C.force,2.4,7);
+      if(o.vy>0)tag(ctx,'mg',x+7,y+R0+L.Lg*0.62+4,C.force,'left');else tag(ctx,'mg',x-7,y+R0+L.Lg*0.62+4,C.force,'right');}
+    if(k>0&&v>0.01){var fr=k*v*v/G,d0=Math.min(2.5,fr)*L.Lg,d=d0,ux=-o.vx/v,uy=o.vy/v,yMax=L.wide?W4H-6:L.sep-2;
+      if(ux<-0.01)d=Math.min(d,(x-6)/-ux-R0);
+      if(uy>0.01)d=Math.min(d,(yMax-y)/uy-R0);
+      if(d>3){arrow(ctx,x+ux*R0,y+uy*R0,x+ux*(R0+d),y+uy*(R0+d),C.force,2.4,7);
+        if(lab){var e=R0+d+9+Math.abs(ux)*13+Math.abs(uy)*6,ty=y+uy*e+4;
+          if(ty>L.G+26)tag(ctx,'drag',x-R0-4,Math.min(y,L.G)-4,C.force,'right'); /* 刚发射、箭头伸到地面下：字放在球的左上方 */
+          else tag(ctx,'drag',x+ux*e,ty,C.force,'center');}
+        if(lab&&d<d0-0.5)txt(ctx,'Drag arrow drawn shorter to fit: drag = '+fr.toFixed(1)+' mg',16,L.top+24,C.force,12,600);}}
+    var lv=L.Lv*v/U0;
+    if(v>0.01){arrow(ctx,x,y,x+o.vx/v*lv,y-o.vy/v*lv,rgba(C.ink,0.7),2.2,8);
+      if(lab){var e2=lv+6+Math.abs(o.vx/v)*4+Math.abs(o.vy/v)*6;tag(ctx,'v',x+o.vx/v*e2,y-o.vy/v*e2+4,C.muted,'center');}}
+  }
+  dot(ctx,x,y,6.5,col);ring(ctx,x,y,6.5,C.stage,1.5);
+}
+/* 一组能量柱 */
+var CL=['K','U','K+U','heat'];
+function group(ctx,x,title,col,sub,on,vals,n,rd){
+  txt(ctx,title,x,L.gt,on?col:C.muted,12.5,700);
+  txt(ctx,sub,x,L.gs,C.muted,11.5,500);
+  var gap=10,cw=Math.min(28,(L.gw-3*gap)/4),cc=[C.copper,C.violet,C.ink,C.heat];
+  seg(ctx,x,L.yTop,x+4*cw+3*gap,L.yTop,rgba(C.muted,0.7),1,[3,4]);
+  for(var i=0;i<n;i++){var cx=x+i*(cw+gap),f=on?clamp(vals[i],0,1.05):0,hh=f*L.ch;
+    ctx.fillStyle=rgba(C.muted,0.12);ctx.fillRect(cx,L.yTop,cw,L.ch);
+    if(hh>0.5){ctx.fillStyle=cc[i];ctx.fillRect(cx,L.yBot-hh,cw,hh);}
+    if(on)txt(ctx,Math.round(vals[i]*100)+'%',cx+cw/2,L.yBot-hh-5,C.ink,11,500,'center','alphabetic',MONO);
+    txt(ctx,CL[i],cx+cw/2,L.lab,on?cc[i]:C.muted,12,700,'center');}
+  seg(ctx,x-2,L.yBot,x+4*cw+3*gap+2,L.yBot,C.muted,1.2);
+  if(rd)for(var r=0;r<rd.length;r++)rich(ctx,rd[r],x,L.r1+r*17,C.ink,11.5,500,'left',MONO);
+}
+var VM=[0,0,0],VD=[0,0,0,0],RM=['','',''],RD=['','',''];
+
+var S4=makeStage('sim4',{
+  height:function(w){return lay(w).H;},
+  step:function(dt){m4.t+=dt*RATE;var end=Math.max(P.T,m4.drag?D.T:0)+HOLD;if(m4.t>end)m4.t=0;},
+  draw:function(ctx,W,H){
+    lay(W);W4=W;W4H=H;TBn=0;
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    var t=m4.t,wide=L.wide,on=m4.drag,k=KS[m4.lvl-1];
+    /* status */
+    var st=status(),f1s=600+' '+L.fs1+'px '+FONT,f2s='500 '+L.fs2+'px '+FONT;
+    var l1=wrap(ctx,st[0],W-32,f1s),l2=wrap(ctx,st[1],W-32,f2s);
+    rich(ctx,l1[0],16,L.y1,C.ink,L.fs1,600,'left');
+    for(var i=0;i<Math.min(l2.length,L.n2);i++)rich(ctx,l2[i],16,L.y2+i*L.lh,C.muted,L.fs2,500,'left');
+    /* scene */
+    var sr=wide?L.sR:W-12;
+    txt(ctx,'u = 20 m/s   θ = '+m4.th+'°',16,L.top+6,C.muted,12,500,'left','alphabetic',MONO);
+    txt(ctx,'t = '+Math.min(t,Math.max(P.T,on?D.T:0)).toFixed(2)+' s',sr-4,L.top+6,C.ink,12.5,600,'right','alphabetic',MONO);
+    seg(ctx,12,L.G,sr,L.G,C.muted,1.5);
+    if(wide)seg(ctx,L.sR+10,L.top-6,L.sR+10,H-14,C.line,1);else seg(ctx,0,L.sep,W,L.sep,C.line,1);
+    pathModel(ctx,P.T,rgba(C.copper,0.4),1.5,[4,5]);
+    if(on)pathDrag(ctx,D.T,rgba(C.south,0.45),1.5,[4,5]);
+    pathModel(ctx,Math.min(t,P.T),C.copper,2.6);
+    if(on)pathDrag(ctx,Math.min(t,D.T),C.south,2.6);
+    /* 最高点：模型标出 K_top；有阻力的画竖线，看它偏向落地那边 */
+    var mtop=t>=P.tTop,dtop=on&&t>=D.tTop;
+    if(mtop){var ax=px(P.ux*P.tTop),ay=py(P.H);seg(ctx,ax,ay,ax,L.G,rgba(C.copper,0.5),1.2,[3,4]);dot(ctx,ax,ay,3,C.copper);
+      tag(ctx,'K_top = '+Math.round(Math.pow(Math.cos(m4.th*Math.PI/180),2)*100)+'%',ax,ay-12,C.copper,'center');}
+    if(dtop){var bx=px(D.xTop),by=py(D.hTop);seg(ctx,bx,by,bx,L.G,rgba(C.south,0.55),1.2,[3,4]);dot(ctx,bx,by,3,C.south);}
+    if(t>=P.T)seg(ctx,px(P.R),L.G-6,px(P.R),L.G+6,C.copper,2.5);
+    if(on&&t>=D.T)seg(ctx,px(D.R),L.G-6,px(D.R),L.G+6,C.south,2.5);
+    modelAt(t,A);if(on)dragAt(t,B);
+    ball(ctx,A,C.copper,0,!on,t<P.T);
+    if(on)ball(ctx,B,C.south,k,true,t<D.T);
+    /* energy panel */
+    txt(ctx,'Energy bars (K at launch = 100%)',L.px,L.pt,C.muted,12,600);
+    var vm2=(A.vx*A.vx+A.vy*A.vy)/(U0*U0),um=2*G*A.y/(U0*U0);VM[0]=vm2;VM[1]=um;VM[2]=vm2+um;
+    RM[0]=(t>=P.T&&L.gw>=125?'Landing v = ':'v = ')+f1(Math.hypot(A.vx,A.vy))+' m/s';RM[1]='h_max = '+(mtop?f1(P.H)+' m':'…');RM[2]='R = '+(t>=P.T?f1(P.R)+' m':'…');
+    group(ctx,L.px,'Model: no drag',C.copper,'Longest range at 45°',true,VM,3,RM);
+    var gx2=L.px+L.gw+18;
+    if(on){var vd2=(B.vx*B.vx+B.vy*B.vy)/(U0*U0),ud=2*G*B.y/(U0*U0);VD[0]=vd2;VD[1]=ud;VD[2]=vd2+ud;VD[3]=Math.max(0,1-vd2-ud);
+      RD[0]=(t>=D.T&&L.gw>=125?'Landing v = ':'v = ')+f1(Math.hypot(B.vx,B.vy))+' m/s';RD[1]='h_max = '+(dtop?f1(D.hTop)+' m':'…');RD[2]='R = '+(t>=D.T?f1(D.R)+' m':'…');
+      group(ctx,gx2,'With drag',C.south,'Longest range at ≈ '+Math.round(BEST[m4.lvl-1])+'°',true,VD,4,RD);}
+    else group(ctx,gx2,'With drag',C.south,'Air resistance: off',false,VD,4,null);
+  }
+});
+var bAir=document.getElementById('s4-air'),rK=document.getElementById('s4-k'),oK=document.getElementById('s4-k-out'),rT=document.getElementById('s4-th'),oT=document.getElementById('s4-th-out');
+function syncAir(){press(bAir,m4.drag);bAir.textContent='Air resistance: '+(m4.drag?'on':'off');}
+function relaunch(){if(S4.playing)m4.t=0;}
+bAir.addEventListener('click',function(){m4.drag=!m4.drag;syncAir();S4.render();});
+rK.addEventListener('input',function(){m4.lvl=parseInt(rK.value,10);oK.textContent=LV[m4.lvl-1];calcDrag();if(!m4.drag){m4.drag=true;syncAir();}relaunch();S4.render();});
+rT.addEventListener('input',function(){m4.th=parseInt(rT.value,10);oT.textContent=m4.th+'°';calcAll();relaunch();S4.render();});
+document.getElementById('s4-go').addEventListener('click',function(){m4.t=0;S4.setPlaying(true);S4.render();});
+})();
+/* ---------- Animation 5 ---------- */
+(function(){
+'use strict';
+var S=window.Sim,C=S.C,TAU=S.TAU,FONT=S.FONT,MONO=S.MONO,MATH=S.MATH,rgba=S.rgba,txt=S.txt,seg=S.seg,arrow=S.arrow,
+  rrect=S.rrect,dot=S.dot,ring=S.ring,pole=S.pole,wire=S.wire,fieldLines=S.fieldLines,hbar=S.hbar,makeStage=S.makeStage,
+  press=S.press,clamp=S.clamp,lerp=S.lerp,lambdaColor=S.lambdaColor;
+
+/* 动画 5 · 从运动的车上抛：谁看到什么（1.4 From a moving vehicle）
+   小车（或飞机）匀速 V 前进。球相对车竖直上抛（或包裹从飞机上松手），之后只受重力。
+   地面上看：x = V·u，y = y0 + uy·u − ½g·u²（parabola）；跟着车看：x − x车 = 0（直上直下）。
+   数据：示意（uy = 7.0 m/s、手高 1.8 m、飞机高 80 m、V 由滑块给），g = 9.8 m/s²。 */
+var G=9.8,HOLD=2.6;
+var SC={
+  cart:{uy:7,y0:1.8,lead:0.4,Tf:2*7/G,rate:0.5,mult:1,dS:0.1,gap:2},
+  plane:{uy:0,y0:80,lead:0.4,Tf:Math.sqrt(2*80/G),rate:1,mult:10,dS:0.5,gap:25}
+};
+var m5={scene:'cart',view:'ground',lv:3,t:0,hold:0,odo:0};
+var B={x:0,y:0,vy:0,ph:'lead',tau:0,xv:0};
+var LY={wide:true,cx:0,s:1,gy:0,road:24,div:0,plotH:0,kv:1,cam:0};
+var HS=[],SS=[],HC={k:'',lines:[]},SBC={k:'',lines:[]};
+var st5=null;
+
+function cfg(){return SC[m5.scene];}
+function spd(){return m5.lv*cfg().mult;}
+function vstr(v){return (m5.scene==='cart'?v.toFixed(1):v.toFixed(0))+' m/s';}
+function sgn(v){if(Math.abs(v)<0.05)return '0.0';return (v>0?'+':'−')+Math.abs(v).toFixed(1);}
+function snap(){var c=cfg();m5.t=c.lead+0.72*c.Tf;m5.hold=0;}
+function restart(){if(st5&&st5.playing){m5.t=0;m5.hold=0;}else snap();}
+
+/* 此刻的状态（u = 离手后的时间） */
+function state(){
+  var c=cfg(),V=spd(),T=c.lead+c.Tf,t=Math.min(m5.t,T);
+  B.xv=V*(t-c.lead);
+  if(m5.t<c.lead){B.ph='lead';B.tau=0;B.x=B.xv;B.y=c.y0;B.vy=0;}
+  else if(m5.t<T){var u=m5.t-c.lead;B.ph='fly';B.tau=u;B.x=V*u;B.y=c.y0+c.uy*u-0.5*G*u*u;B.vy=c.uy-G*u;}
+  else{B.ph='end';B.tau=c.Tf;B.x=V*c.Tf;B.y=m5.scene==='cart'?c.y0:0;B.vy=c.uy-G*c.Tf;}
+}
+function layout(W){
+  var wide=W>=640,c=cfg(),pw=W-32;
+  LY.wide=wide;LY.cx=W/2;LY.plotH=wide?240:130;LY.gy=(wide?44:36)+LY.plotH;LY.div=LY.gy+LY.road+10;
+  if(m5.scene==='cart')LY.s=Math.min(pw/(5*(c.lead+c.Tf)+3),LY.plotH/4.6);
+  else LY.s=Math.min((pw-(wide?96:68))/(50*(c.lead+c.Tf)),(LY.plotH-(wide?34:28))/80);
+  LY.kv=m5.scene==='cart'?(wide?11:7):(wide?1.3:0.8);
+  LY.cam=spd()*(c.Tf-c.lead)/2;
+}
+function sx(x){return LY.cx+(x-LY.cam)*LY.s;}
+function sy(y){return LY.gy-y*LY.s;}
+
+/* 带下标的文字：'v_y' 画成 v 加小一号的 y。返回总宽度；noDraw 时只量宽度。halo：字后面描一圈底色，线从字下面穿过也看得清。 */
+var SUBRE=/([A-Za-zα-ω])_([A-Za-z0-9]+)/g,HALO=false;
+function halo(ctx,str,x,y){if(!HALO)return;ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.lineWidth=4;ctx.strokeStyle=C.stage;ctx.strokeText(str,x,y);}
+function rich(ctx,s,x,y,col,size,weight,align,family,ital,noDraw){
+  family=family||FONT;weight=weight||500;
+  var ss=Math.max(11,size*0.72),wb=(ital?'italic ':'')+weight,fb=wb+' '+size+'px '+family,fs=weight+' '+ss+'px '+family;
+  var p=[],adv=[],last=0,mm,w=0,i,q,mt;
+  SUBRE.lastIndex=0;
+  while((mm=SUBRE.exec(s))!==null){p.push(s.slice(last,mm.index+1));p.push('\u0001'+mm[2]);last=SUBRE.lastIndex;}
+  if(last<s.length)p.push(s.slice(last));
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;mt=ctx.measureText(q.slice(1));adv.push(mt.width+1.6);}
+    else{ctx.font=fb;mt=ctx.measureText(q);adv.push(Math.max(mt.width,mt.actualBoundingBoxRight||0));}
+    w+=adv[i];}
+  if(noDraw)return w;
+  var xx=align==='center'?x-w/2:(align==='right'?x-w:x);
+  for(i=0;i<p.length;i++){q=p[i];
+    if(q.charAt(0)==='\u0001'){ctx.font=fs;halo(ctx,q.slice(1),xx+0.8,y+size*0.24);txt(ctx,q.slice(1),xx+0.8,y+size*0.24,col,ss,weight,'left','alphabetic',family);}
+    else{ctx.font=fb;halo(ctx,q,xx,y);txt(ctx,q,xx,y,col,size,wb,'left','alphabetic',family);}
+    xx+=adv[i];}
+  return w;
+}
+
+/* 文字小工具：分段换行（结果缓存）、带下标的斜体变量、读数 */
+function flow(ctx,segs,maxW,font,cache){
+  var k=font+maxW+segs.join(' ');if(k===cache.k)return cache.lines;
+  ctx.font=font;var out=[],cur='';
+  function fits(t){return ctx.measureText(t.replace(/_/g,'')).width<=maxW;}
+  /* a phrase stays whole if it fits; a phrase wider than the line breaks between words. "v = 3.0 m/s" never breaks. */
+  for(var i=0;i<segs.length;i++){
+    var sg=segs[i].replace(/ ([=≈]) /g,' $1 ').replace(/(\d) (m\/s²|m\/s|m|s)(?![a-z])/g,'$1 $2');
+    var t=cur?cur+' '+sg:sg;
+    if(fits(t)){cur=t;continue;}
+    if(cur){out.push(cur);cur='';}
+    if(fits(sg)){cur=sg;continue;}
+    var ws=sg.split(' ');
+    for(var j=0;j<ws.length;j++){var t2=cur?cur+' '+ws[j]:ws[j];if(cur&&!fits(t2)){out.push(cur);cur=ws[j];}else cur=t2;}
+  }
+  if(cur)out.push(cur);cache.k=k;cache.lines=out;return out;
+}
+function vlab(ctx,x,y,b,sb,col,size){
+  txt(ctx,b,x,y,col,size,'italic 500','left','alphabetic',MATH);var w=ctx.measureText(b).width+1.5;
+  if(sb){var ss=Math.max(11,size*0.78);txt(ctx,sb,x+w,y+size*0.28,col,ss,'italic 500','left','alphabetic',MATH);w+=ctx.measureText(sb).width+1;}
+  return w;
+}
+function ro(ctx,x,y,pre,b,sb,val,col,size){
+  var w=0;
+  if(pre){txt(ctx,pre,x,y,col,size,500);w+=ctx.measureText(pre).width;}
+  w+=vlab(ctx,x+w,y,b,sb,col,size+1);
+  txt(ctx,val,x+w,y,col,size,500,'left','alphabetic',MONO);w+=ctx.measureText(val).width;
+  return w;
+}
+
+/* 画小车（世界尺寸，单位 m × s px/m）和飞机（固定像素大小） */
+function drawCart(ctx,X,al){
+  var s=LY.s,gy=LY.gy,dk=gy-0.75*s,lw=LY.wide?2.4:1.8,ink=rgba(C.ink,0.8*al),r=0.25*s,a=m5.odo/0.25;
+  for(var i=-1;i<=1;i+=2){var wx=X+i*0.8*s,wy=gy-r;dot(ctx,wx,wy,r,rgba(C.muted,0.22*al));ring(ctx,wx,wy,r,ink,lw);
+    seg(ctx,wx-Math.cos(a)*r,wy-Math.sin(a)*r,wx+Math.cos(a)*r,wy+Math.sin(a)*r,ink,1.4);}
+  rrect(ctx,X-1.2*s,dk,2.4*s,0.45*s,3);ctx.fillStyle=rgba(C.stage,al);ctx.fill();ctx.fillStyle=rgba(C.muted,0.3*al);ctx.fill();/* 先填底色：后面的柱子不透出来 */ctx.strokeStyle=ink;ctx.lineWidth=1.5;ctx.stroke();
+  var px=X-0.4*s,hip=dk-0.6*s,sh=dk-1.12*s;
+  ctx.lineCap='round';
+  seg(ctx,X-0.55*s,dk,px,hip,ink,lw);seg(ctx,X-0.25*s,dk,px,hip,ink,lw);seg(ctx,px,hip,px,sh,ink,lw);
+  seg(ctx,px,sh,X,sy(1.8)+(LY.wide?5:4),ink,lw);seg(ctx,px,sh,px-0.2*s,hip+0.05*s,ink,lw);
+  ctx.lineCap='butt';
+  dot(ctx,px,sh-0.24*s,0.16*s,ink);
+}
+function drawPlane(ctx,X,Y,al){
+  var z=LY.wide?1:0.72,ink=rgba(C.ink,0.8*al),fill=rgba(C.muted,0.35*al);
+  ctx.beginPath();ctx.moveTo(X-33*z,Y-6*z);ctx.lineTo(X-38*z,Y-25*z);ctx.lineTo(X-29*z,Y-25*z);ctx.lineTo(X-19*z,Y-10*z);ctx.closePath();
+  ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.4;ctx.stroke();
+  rrect(ctx,X-37*z,Y-13*z,72*z,13*z,6.5*z);ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=ink;ctx.stroke();
+  rrect(ctx,X-9*z,Y-8*z,24*z,4*z,2*z);ctx.fillStyle=ink;ctx.fill();
+  for(var i=0;i<3;i++)dot(ctx,X+(18+i*5)*z,Y-9*z,1.3*z+0.4,ink);
+}
+function drawParcel(ctx,X,Y,pr,al){
+  rrect(ctx,X-pr,Y-pr,2*pr,2*pr,1.5);ctx.fillStyle=rgba(C.ink,0.85*al);ctx.fill();
+  seg(ctx,X,Y-pr,X,Y+pr,rgba(C.stage,al),1.2);seg(ctx,X-pr,Y,X+pr,Y,rgba(C.stage,al),1.2);
+}
+
+/* 状态提示：HS = 第一行（发生了什么、为什么），SS = 第二行（这一刻的数） */
+function texts(){
+  var c=cfg(),V=spd(),cart=m5.scene==='cart',gr=m5.view==='ground',vs=vstr(V),vy=sgn(B.vy)+' m/s',ph=B.ph;
+  var tu=(c.uy/G).toFixed(2),D=cart?(V*c.Tf).toFixed(1):(V*c.Tf).toFixed(0),Tf=c.Tf.toFixed(2);
+  var top=Math.abs(B.vy)<=1,z=Math.abs(B.vy)<0.05,up=B.vy>0;/* z：真的在最高点（v_y 显示为 0.0）；否则写“附近、≈” */
+  if(cart){
+    var sUp=['Going up: v_y = '+vy+',','it loses 9.8 m/s every second.'],sDn=['Going down: v_y = '+vy+'.','The downward speed grows by 9.8 m/s every second.'];
+    if(V===0){
+      HS=['V = 0: the cart is not moving.','The two views are exactly the same.'];
+      SS=ph==='lead'?['About to toss the ball straight up.']:ph==='end'?['The ball went straight up and down, back to the hand.','Time up '+tu+' s = time down '+tu+' s.']:
+        top?[z?'At the top: v = 0. The ball stops for a moment.':'Near the top: v ≈ 0.','The acceleration is still 9.8 m/s² downwards.']:(up?sUp:sDn);
+    }else if(gr){
+      if(ph==='lead'){HS=['The ball is still in the hand,','moving forwards with the cart at '+vs+'.'];SS=['About to toss it straight up (relative to the cart).'];}
+      else if(ph==='fly'){HS=['After release, there is no horizontal force.','It keeps the cart\'s velocity (inertia),','so it stays directly above the cart.'];
+        SS=top?[z?'At the top: only v_y = 0.':'Near the top: v_y ≈ 0.','v_x is still '+vs+', so the ball is still moving forwards.']:(up?sUp.concat(['From the ground: it follows a parabola.']):sDn);}
+      else{HS=['Back in the hand: the cart moved '+D+' m,','and the ball also moved exactly '+D+' m.'];SS=['From the ground: the same ball follows a parabola.','Time up '+tu+' s = time down '+tu+' s.'];}
+    }else{
+      if(ph==='lead'){HS=['From the cart: the cart is not moving,','and the posts by the road move backwards.'];SS=['About to toss the ball straight up.'];}
+      else if(ph==='fly'){HS=['From the cart: the ball goes straight up, then straight down.','Horizontally the ball is as fast as the cart, so it does not fall behind.'];
+        SS=top?[z?'At the top, from the cart: the ball stops for a moment (v = 0).':'Near the top, from the cart: the ball almost stops (v ≈ 0).','From the ground, it still moves forwards at '+vs+'.']:(up?sUp:['Going down: v_y = '+vy+',','a_y = −9.8 m/s², the same as seen from the ground.']);}
+      else{HS=['Back in the hand: time up = time down = '+tu+' s,','and the speed is the same as at launch (7.0 m/s).'];SS=['From the cart it is a straight line. From the ground it is a parabola.'];}
+    }
+  }else{
+    var sF=['v_y = '+vy+'.','The downward speed grows by 9.8 m/s every second.'];
+    if(V===0){
+      HS=['V = 0: the plane is not moving (like a helicopter hovering in the air).','The two views are exactly the same.'];
+      SS=ph==='lead'?['About to release the parcel.']:ph==='fly'?['The parcel falls straight down.'].concat(sF):['Landed: it took '+Tf+' s, and it is directly below.'];
+    }else if(gr){
+      if(ph==='lead'){HS=['The parcel hangs under the plane,','moving forwards with the plane at '+vs+'.'];SS=['About to release it (not throw it down).'];}
+      else if(ph==='fly'){HS=['After release, there is no horizontal force.','It keeps the plane\'s velocity (inertia),','so it stays directly below the plane.'];SS=sF.concat(['From the ground: it follows half a parabola.']);}
+      else{HS=['Landed: it took '+Tf+' s, and it is directly below the plane,',D+' m from where it was released.'];SS=['The model has no air resistance,','so the parcel stays directly below the plane.'];}
+    }else{
+      if(ph==='lead'){HS=['From the plane: the plane is not moving,','and the ground moves backwards.'];SS=['About to release the parcel.'];}
+      else if(ph==='fly'){HS=['From the plane: the parcel falls straight down.','Horizontally it is as fast as the plane, so it does not fall behind.'];SS=sF;}
+      else{HS=['Landed: the parcel is exactly below the plane.'];SS=['From the plane it is a straight line.','From the ground it is half a parabola.'];}
+    }
+  }
+}
+
+snap();
+st5=makeStage('sim5',{
+  height:function(w){return w>=640?440:370;},
+  step:function(dt){
+    var c=cfg(),T=c.lead+c.Tf;
+    if(m5.t<T){var nt=Math.min(T,m5.t+dt*c.rate);m5.odo+=spd()*(nt-m5.t);m5.t=nt;}
+    else{m5.hold+=dt;if(m5.hold>HOLD){m5.t=0;m5.hold=0;}}
+  },
+  draw:function(ctx,W,H){
+    ctx.fillStyle=C.stage;ctx.fillRect(0,0,W,H);
+    layout(W);state();
+    var c=cfg(),V=spd(),cart=m5.scene==='cart',gr=m5.view==='ground',wide=LY.wide,s=LY.s,cx=LY.cx,gy=LY.gy,kv=LY.kv;
+    var fa=Math.max(0,Math.min(1,m5.t/0.1,m5.hold>HOLD-0.35?(HOLD-m5.hold)/0.35:1));
+    var tc=gr?C.copper:C.south,vel=rgba(C.ink,0.7),lsz=wide?13:12.5,i;
+    /* 标题行：谁在看（颜色 = 轨迹颜色） */
+    var lab=cart?(gr?(wide?'From the ground: the observer stands by the road, not moving':'From the ground (standing by the road)'):(wide?'From the cart: the observer rides on the cart and moves with it':'From the cart (riding on the cart)'))
+                :(gr?(wide?'From the ground: the observer stands on the ground, not moving':'From the ground (standing on the ground)'):(wide?'From the plane: the observer sits in the plane':'From the plane (sitting in the plane)'));
+    txt(ctx,lab,16,wide?24:20,tc,wide?13.5:12.5,700);
+    if(cart)txt(ctx,wide?'Slow motion ×½':'Slow ×½',W-16,wide?24:20,C.muted,12,500,'right');
+    ctx.save();ctx.beginPath();ctx.rect(0,30,W,gy+LY.road-30);ctx.clip();
+    /* 地面：柱子 / 树（地面上看不动；跟着车看往后退） */
+    var ref=gr?LY.cam:m5.odo,gap=c.gap,z=wide?1:0.8,gc=rgba(C.muted,0.5);
+    for(var k=Math.floor((ref-(cx+40)/s)/gap);k*gap<=ref+(W-cx+40)/s;k++){
+      var fx=cx+(k*gap-ref)*s;
+      if(cart){seg(ctx,fx,gy,fx,gy-0.55*s,gc,2);dot(ctx,fx,gy-0.55*s,2.5,gc);}
+      else{seg(ctx,fx,gy,fx,gy-7*z,gc,2);dot(ctx,fx,gy-11*z,5*z,gc);}
+    }
+    ctx.fillStyle=rgba(C.muted,0.1);ctx.fillRect(0,gy,W,LY.road);
+    seg(ctx,0,gy,W,gy,C.muted,1.5);
+    var pr=wide?5:4,cap=cart?1e9:gy-pr,flying=B.ph!=='lead';
+    var VX=gr?sx(B.xv):cx;
+    var bx=gr?sx(B.x):cx+(B.x-B.xv)*s,by=Math.min(sy(B.y),cap);
+    var PY=sy(80)-pr-2;
+    /* 松手的地方（地上的小三角）和 ghost（松手那一刻车/飞机在哪里） */
+    if(flying&&V>0){
+      var mx=gr?sx(0):cx-B.xv*s;
+      ctx.beginPath();ctx.moveTo(mx,gy+2);ctx.lineTo(mx-4.5,gy+10);ctx.lineTo(mx+4.5,gy+10);ctx.closePath();ctx.fillStyle=rgba(C.muted,0.8*fa);ctx.fill();
+      if(gr){if(cart)drawCart(ctx,sx(0),0.22*fa);else drawPlane(ctx,sx(0),PY,0.22*fa);}
+    }
+    /* 轨迹 + 每 0.1 s（飞机 0.5 s）一个频闪点 */
+    if(flying){
+      ctx.globalAlpha=fa;ctx.beginPath();
+      for(i=0;i<=48;i++){var u=B.tau*i/48,X=gr?sx(V*u):cx,Y=Math.min(sy(c.y0+c.uy*u-0.5*G*u*u),cap);if(i)ctx.lineTo(X,Y);else ctx.moveTo(X,Y);}
+      ctx.strokeStyle=tc;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+      for(var k2=1;k2*c.dS<=B.tau+1e-9;k2++){var u2=k2*c.dS;dot(ctx,gr?sx(V*u2):cx,Math.min(sy(c.y0+c.uy*u2-0.5*G*u2*u2),cap),2.8,tc);}
+      ctx.globalAlpha=1;
+    }
+    var al=(gr&&V>0)?fa:1;
+    /* 竖直虚线：球一直在车的正上方 / 包裹一直在飞机的正下方 */
+    if(B.ph==='fly'){
+      if(cart){var hy=sy(c.y0);seg(ctx,bx,by,bx,hy,rgba(C.muted,0.85),1.3,[3,4]);if(hy-by>56)txt(ctx,'directly above',bx+7,(by+hy)/2+4,C.muted,11.5,600);}
+      else{seg(ctx,VX,PY,VX,gy,rgba(C.muted,0.75),1.3,[3,4]);if(by-PY>56){ctx.font='600 11.5px '+FONT;var dbl=VX+7+ctx.measureText('directly below').width>W-4;/* near the right edge: label on the left of the line, just under the plane, above the path */txt(ctx,'directly below',dbl?VX-7:VX+7,dbl?PY+16:(PY+by)/2+4,C.muted,11.5,600,dbl?'right':'left');}}
+    }
+    /* 车 / 飞机 */
+    ctx.globalAlpha=al;
+    if(cart)drawCart(ctx,VX,1);else drawPlane(ctx,VX,PY,1);
+    /* 车速箭头画在路面上（和球的 v_x 箭头同一起点、同样长） */
+    if(V>0){
+      var ry=gy+16,L=V*kv;/* 路面里偏下，不压住松手位置的小三角 */
+      if(gr){arrow(ctx,VX,ry,VX+L,ry,vel,2.4,8);if(VX+L+18<W)vlab(ctx,VX+L+6,ry+5,'V','',C.ink,13);else vlab(ctx,VX-16,ry+5,'V','',C.ink,13);}
+      else{arrow(ctx,cx,ry,cx-L,ry,vel,2.4,8);txt(ctx,'Ground',cx-L-6,ry+4,C.ink,12,600,'right');}
+    }
+    ctx.globalAlpha=1;
+    /* 球 / 包裹的速度分量 */
+    ctx.globalAlpha=cart?al:fa;
+    if(B.ph!=='end'){
+      if(gr&&V>0){var lx=V*kv;arrow(ctx,bx,by,bx+lx,by,vel,2.4,8);
+        if(bx+lx+5+lsz*1.3<W-4)vlab(ctx,bx+lx+5,by+4,'v','x',C.ink,lsz);else vlab(ctx,bx+lx-lsz*0.7,by-10,'v','x',C.ink,lsz);}
+      var ly=B.vy*kv;
+      if(B.ph==='fly'&&Math.abs(ly)>4&&by-ly<gy-3){arrow(ctx,bx,by,bx,by-ly,vel,2.4,8);vlab(ctx,bx-8-lsz*1.25,by-ly+(ly>0?8:0),'v','y',C.ink,lsz);}
+    }
+    if(cart){dot(ctx,bx,by,wide?6.5:5.5,C.ink);ring(ctx,bx,by,wide?6.5:5.5,C.stage,1.2);}
+    else drawParcel(ctx,bx,by,pr,1);
+    ctx.globalAlpha=1;
+    ctx.restore();
+    /* 状态提示 */
+    seg(ctx,0,LY.div,W,LY.div,C.line,1);
+    texts();
+    var hf=wide?15:13.5,sf=wide?13.5:12.5;
+    var hl=flow(ctx,HS,W-32,'600 '+hf+'px '+FONT,HC),sl=flow(ctx,SS,W-32,'500 '+sf+'px '+FONT,SBC);
+    var y=LY.div+(wide?26:21);
+    for(i=0;i<hl.length;i++){rich(ctx,hl[i],16,y,C.ink,hf,600,'left');y+=wide?22:19;}
+    y+=2;
+    for(i=0;i<sl.length;i++){rich(ctx,sl[i],16,y,C.muted,sf,500,'left');y+=wide?20:18;}
+    /* 读数：t 从松手开始算 */
+    var rs=wide?13:12,y1=wide?H-14:H-30,y2=wide?y1:H-12,gp=wide?22:18,x=16;
+    x+=ro(ctx,x,y1,'','t','',' = '+B.tau.toFixed(2)+' s',C.ink,rs)+gp;
+    x+=ro(ctx,x,y1,gr?(cart?'Cart ':'Plane '):'Ground ',gr?'V':'v','',' = '+(gr||V===0?'':'−')+vstr(V),C.muted,rs)+gp;
+    if(!wide)x=16;
+    x+=ro(ctx,x,y2,cart?'Ball ':'Parcel ','v','x',' = '+(gr?vstr(V):'0'),C.ink,rs)+gp;
+    x+=ro(ctx,x,y2,'','v','y',' = '+sgn(B.vy)+' m/s',C.ink,rs)+gp;
+    if(wide)ro(ctx,x,y2,'','a','y',' = −9.8 m/s²',C.violet,rs);
+  }
+});
+
+var bG=document.getElementById('s5-ground'),bR=document.getElementById('s5-ride'),bC=document.getElementById('s5-cart'),bP=document.getElementById('s5-plane');
+var rV=document.getElementById('s5-speed'),oV=document.getElementById('s5-speed-out');
+function sync5(){press(bG,m5.view==='ground');press(bR,m5.view==='ride');press(bC,m5.scene==='cart');press(bP,m5.scene==='plane');
+  bR.textContent=m5.scene==='cart'?'From the cart':'From the plane';oV.textContent=vstr(spd());}
+function setView(v){m5.view=v;sync5();st5.render();}
+function setScene(n){if(m5.scene!==n){m5.scene=n;restart();}sync5();st5.render();}
+bG.addEventListener('click',function(){setView('ground');});
+bR.addEventListener('click',function(){setView('ride');});
+bC.addEventListener('click',function(){setScene('cart');});
+bP.addEventListener('click',function(){setScene('plane');});
+rV.addEventListener('input',function(){m5.lv=parseFloat(rV.value);restart();sync5();st5.render();});
+document.getElementById('s5-again').addEventListener('click',function(){m5.t=0;m5.hold=0;st5.setPlaying(true);st5.render();});
+sync5();
+})();
+</script>
+</body>
+</html>
